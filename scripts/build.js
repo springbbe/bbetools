@@ -392,7 +392,8 @@ changed += await write("manifest.webmanifest", JSON.stringify({
       const list = reg.tools.filter((t) => groups.some((g) => g.id === t.group));
       const done = list.filter(isLive).length;
       const st = done === list.length ? "✅ Xong" : `⏳ Còn ${list.length - done} công cụ`;
-      return `| ${n} | ${groups.map((g) => g.name).join(" + ")} | ${done}/${list.length} | ${st} | \`Làm giai đoạn ${n} của BbeTools theo CLAUDE.md\` |`;
+      const cmd = done === list.length ? "" : `\`Làm giai đoạn ${n} của BbeTools theo CLAUDE.md\``; // giai đoạn xong: không cần câu lệnh
+      return `| ${n} | ${groups.map((g) => g.name).join(" + ")} | ${done}/${list.length} | ${st} | ${cmd} |`;
     });
     plan = fill(plan, "roadmap", `\n| Giai đoạn | Nhóm | Công cụ xong | Trạng thái | Câu lệnh gợi ý cho AI |\n|---|---|---|---|---|\n| 1 | Lõi, registry, trang tự sinh + 13 công cụ tiêu biểu | 13 | ✅ Xong | |\n${roadmap.join("\n")}\n`);
     const rows = reg.groups.map((g) => {

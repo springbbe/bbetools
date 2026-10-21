@@ -83,6 +83,7 @@ export const CDN = {
 };
 const LIBS = {
   pdflib: { script: JSD + "@cantoo/pdf-lib@2.11.1/dist/pdf-lib.min.js", global: "PDFLib" },
+  fontkit: { script: JSD + "@pdf-lib/fontkit@1.1.1/dist/fontkit.umd.min.js", global: "fontkit" },
   jszip: { script: JSD + "jszip@3.10.1/dist/jszip.min.js", global: "JSZip" },
   pdfjs: { esm: CDN.pdfjs + "pdf.min.mjs", init: (m) => { m.GlobalWorkerOptions.workerSrc = CDN.pdfjs + "pdf.worker.min.mjs"; return m; } },
   heic: { esm: JSD + "heic-to@1.6.5/dist/csp/heic-to.js" },

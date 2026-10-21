@@ -73,3 +73,17 @@ test("màu hex", () => {
   near(hexRgb("#FF8000"), [1, 128 / 255, 0]);
   near(hexRgb("#fff"), [1, 1, 1]);
 });
+
+import { cropBoxFor, inkBounds, autoMargins } from "../assets/lib/pdf-geom.js";
+test("cắt lề theo chiều nhìn thấy", () => {
+  assert.deepEqual(cropBoxFor(geom(A4, 0), { top: 10, right: 20, bottom: 30, left: 40 }), { x: 40, y: 30, width: 535, height: 802 });
+  // trang xoay 90° (chiều kim đồng hồ): cạnh trái của hộp PDF hiện thành cạnh trên
+  assert.deepEqual(cropBoxFor(geom(A4, 90), { top: 10, right: 0, bottom: 0, left: 0 }), { x: 10, y: 0, width: 585, height: 842 });
+  assert.equal(cropBoxFor(geom(A4, 0), { left: 300, right: 300 }), null);
+  const d = new Uint8ClampedArray(5 * 4 * 4).fill(255);
+  const px = (x, y) => { d[(y * 5 + x) * 4] = 0; };
+  px(1, 1); px(3, 2);
+  assert.deepEqual(inkBounds(d, 5, 4), { x0: 1, y0: 1, x1: 3, y1: 2 });
+  assert.equal(inkBounds(new Uint8ClampedArray(16).fill(255), 2, 2), null);
+  assert.deepEqual(autoMargins({ x0: 10, y0: 20, x1: 89, y1: 79 }, 100, 100, 1, 5), { left: 5, top: 15, right: 5, bottom: 15 });
+});

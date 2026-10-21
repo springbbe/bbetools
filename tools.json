@@ -195,18 +195,178 @@
         { "q": "Chỉ chèn vào vài trang được không?", "a": "Được. Chọn “Một số trang” rồi nhập ví dụ 1-3, 5." }
       ]
     },
-    { "id": "protect-pdf", "slug": "dat-mat-khau-pdf", "name": "Đặt mật khẩu PDF", "group": "pdf", "icon": "lock", "kind": "file", "desc": "Khoá file PDF bằng mật khẩu, mã hoá AES-256.", "keywords": ["khoá pdf", "bảo vệ pdf", "encrypt pdf", "password pdf", "mã hoá pdf"], "accept": ["pdf"], "output": "pdf", "status": "todo", "related": ["unlock-pdf", "file-encrypt", "watermark-pdf"] },
-    { "id": "unlock-pdf", "slug": "mo-khoa-pdf", "name": "Mở khoá PDF", "group": "pdf", "icon": "lock-open", "kind": "file", "desc": "Gỡ mật khẩu (khi bạn biết mật khẩu) và gỡ giới hạn in, sao chép.", "keywords": ["bỏ mật khẩu pdf", "unlock pdf", "decrypt pdf", "remove password", "gỡ khoá pdf"], "accept": ["pdf"], "output": "pdf", "status": "todo", "related": ["protect-pdf", "merge-pdf"] },
-    { "id": "extract-pages-pdf", "slug": "trich-xuat-trang-pdf", "name": "Trích xuất trang PDF", "group": "pdf", "icon": "file-output", "kind": "file", "desc": "Chọn các trang cần lấy và lưu thành file PDF mới.", "keywords": ["lấy trang pdf", "extract pages", "tách lấy trang"], "accept": ["pdf"], "output": "pdf", "status": "todo", "related": ["split-pdf", "remove-pages-pdf"] },
-    { "id": "extract-images-pdf", "slug": "trich-anh-pdf", "name": "Trích ảnh trong PDF", "group": "pdf", "icon": "image-down", "kind": "file", "desc": "Lấy nguyên bản các ảnh nằm trong file PDF.", "keywords": ["lấy ảnh từ pdf", "extract images", "tải ảnh trong pdf"], "accept": ["pdf"], "output": "image", "status": "todo", "related": ["pdf-to-image", "pdf-to-text"] },
-    { "id": "crop-pdf", "slug": "cat-le-pdf", "name": "Cắt lề PDF", "group": "pdf", "icon": "crop", "kind": "file", "desc": "Cắt bớt lề trắng hoặc vùng thừa trên các trang PDF.", "keywords": ["crop pdf", "cắt viền pdf", "bỏ lề pdf"], "accept": ["pdf"], "output": "pdf", "status": "todo", "related": ["rotate-pdf", "organize-pdf"] },
-    { "id": "insert-blank-pdf", "slug": "chen-trang-trang-pdf", "name": "Chèn trang trắng", "group": "pdf", "icon": "file-plus", "kind": "file", "desc": "Thêm trang trắng vào vị trí bất kỳ, ví dụ để in hai mặt.", "keywords": ["thêm trang trống", "blank page", "trang trắng pdf"], "accept": ["pdf"], "output": "pdf", "status": "todo", "related": ["organize-pdf", "merge-pdf"] },
-    { "id": "grayscale-pdf", "slug": "pdf-den-trang", "name": "PDF đen trắng", "group": "pdf", "icon": "contrast", "kind": "file", "desc": "Chuyển PDF màu sang thang xám để in tiết kiệm mực, chữ vẫn chọn được.", "keywords": ["grayscale pdf", "trắng đen", "pdf xám", "in đen trắng"], "accept": ["pdf"], "output": "pdf", "status": "todo", "related": ["compress-pdf"] },
-    { "id": "metadata-pdf", "slug": "sua-thong-tin-pdf", "name": "Sửa thông tin PDF", "group": "pdf", "icon": "info", "kind": "file", "desc": "Xem và sửa tiêu đề, tác giả, chủ đề, từ khoá (metadata) của PDF.", "keywords": ["metadata pdf", "tiêu đề pdf", "tác giả pdf", "pdf properties"], "accept": ["pdf"], "output": "pdf", "status": "todo", "related": ["strip-exif", "protect-pdf"] },
-    { "id": "fill-form-pdf", "slug": "dien-form-pdf", "name": "Điền form PDF", "group": "pdf", "icon": "text-cursor-input", "kind": "file", "desc": "Điền các ô biểu mẫu có sẵn trong PDF (tờ khai, đơn từ) rồi lưu lại.", "keywords": ["biểu mẫu pdf", "điền đơn", "fill form", "acroform", "tờ khai"], "accept": ["pdf"], "output": "pdf", "status": "todo", "related": ["flatten-pdf", "sign-pdf"] },
-    { "id": "flatten-pdf", "slug": "lam-phang-form-pdf", "name": "Làm phẳng form PDF", "group": "pdf", "icon": "layers", "kind": "file", "desc": "Biến các ô form đã điền thành nội dung cố định, không sửa được nữa.", "keywords": ["flatten pdf", "khoá form", "làm phẳng"], "accept": ["pdf"], "output": "pdf", "status": "todo", "related": ["fill-form-pdf", "protect-pdf"] },
-    { "id": "view-pdf", "slug": "xem-pdf", "name": "Xem PDF", "group": "pdf", "icon": "book-open", "kind": "file", "desc": "Mở và đọc PDF ngay trên trình duyệt, tìm chữ, phóng to, xem toàn màn hình.", "keywords": ["đọc pdf", "pdf viewer", "mở pdf"], "accept": ["pdf"], "status": "todo", "related": ["pdf-to-text", "pdf-to-image"] },
-    { "id": "scan-document", "slug": "scan-tai-lieu", "name": "Scan tài liệu bằng camera", "group": "pdf", "icon": "scan", "kind": "interactive", "desc": "Chụp giấy tờ bằng camera, tự nắn thẳng, làm trắng nền rồi xuất PDF.", "keywords": ["scan", "quét tài liệu", "camscanner", "chụp giấy tờ", "document scanner"], "accept": ["image"], "output": "pdf", "status": "todo", "related": ["image-to-pdf", "ocr", "compress-pdf"] },
+    {
+      "id": "protect-pdf", "slug": "dat-mat-khau-pdf", "name": "Đặt mật khẩu PDF", "group": "pdf", "icon": "lock", "kind": "file",
+      "desc": "Khoá file PDF bằng mật khẩu, mã hoá AES-256.",
+      "keywords": ["khoá pdf","bảo vệ pdf","encrypt pdf","password pdf","mã hoá pdf"],
+      "accept": ["pdf"], "output": "pdf", "status": "done",
+      "aliases": ["khoa-pdf","ma-hoa-pdf","protect-pdf"],
+      "related": ["unlock-pdf","file-encrypt","watermark-pdf"],
+      "howto": ["Chọn hoặc kéo thả một hay nhiều file PDF.","Nhập mật khẩu hai lần; nếu cần, mở “Hạn chế quyền” để chặn in, sao chép, chỉnh sửa.","Bấm “Khoá PDF” rồi tải file đã mã hoá về."],
+      "faq": [
+        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Mã hoá có an toàn không?", "a": "File được mã hoá AES-256 theo chuẩn PDF 2.0. Mật khẩu càng dài, càng khó đoán thì càng an toàn." },
+        { "q": "Quên mật khẩu thì sao?", "a": "Không có cách lấy lại. Hãy lưu mật khẩu ở nơi an toàn và giữ bản gốc chưa khoá." },
+        { "q": "Hạn chế in, sao chép có chắc chắn không?", "a": "Các trình đọc PDF phổ biến tôn trọng giới hạn này, nhưng một số phần mềm có thể bỏ qua. Mật khẩu mở file mới là lớp bảo vệ chính." }
+      ]
+    },
+    {
+      "id": "unlock-pdf", "slug": "mo-khoa-pdf", "name": "Mở khoá PDF", "group": "pdf", "icon": "lock-open", "kind": "file",
+      "desc": "Gỡ mật khẩu (khi bạn biết mật khẩu) và gỡ giới hạn in, sao chép.",
+      "keywords": ["bỏ mật khẩu pdf","unlock pdf","decrypt pdf","remove password","gỡ khoá pdf"],
+      "accept": ["pdf"], "output": "pdf", "status": "done",
+      "aliases": ["go-mat-khau-pdf","bo-mat-khau-pdf","unlock-pdf"],
+      "related": ["protect-pdf","merge-pdf"],
+      "howto": ["Chọn hoặc kéo thả một hay nhiều file PDF.","File cần mật khẩu để mở: bấm 🔒 và nhập mật khẩu. File chỉ bị chặn in, sao chép thì không cần.","Bấm “Mở khoá PDF” rồi tải file không còn khoá về."],
+      "faq": [
+        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Có phá được mật khẩu khi tôi quên không?", "a": "Không. Công cụ chỉ gỡ khoá khi bạn biết mật khẩu mở file. Giới hạn in, sao chép (không cần mật khẩu để mở) thì gỡ được ngay." },
+        { "q": "Gỡ khoá có hợp pháp không?", "a": "Bạn chỉ nên gỡ khoá file của mình hoặc file bạn được phép sử dụng." }
+      ]
+    },
+    {
+      "id": "extract-pages-pdf", "slug": "trich-xuat-trang-pdf", "name": "Trích xuất trang PDF", "group": "pdf", "icon": "file-output", "kind": "file",
+      "desc": "Chọn các trang cần lấy và lưu thành file PDF mới.",
+      "keywords": ["lấy trang pdf","extract pages","tách lấy trang"],
+      "accept": ["pdf"], "output": "pdf", "status": "done",
+      "aliases": ["lay-trang-pdf","extract-pdf-pages"],
+      "related": ["split-pdf","remove-pages-pdf"],
+      "howto": ["Chọn hoặc kéo thả file PDF.","Bấm vào các trang cần lấy (giữ Shift để chọn cả dãy) hoặc gõ số trang, ví dụ 1, 3-5.","Bấm “Trích xuất trang” để tải file mới; bật “Mỗi trang thành một file riêng” nếu cần."],
+      "faq": [
+        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Trích xuất khác gì Tách PDF?", "a": "Trích xuất lấy đúng các trang bạn chọn thành một file. Tách PDF chia cả file thành nhiều phần theo khoảng trang hoặc cứ mỗi N trang." },
+        { "q": "Chất lượng trang có bị giảm không?", "a": "Không. Các trang được chép nguyên vẹn: chữ vẫn chọn được, ảnh giữ nguyên độ nét." }
+      ]
+    },
+    {
+      "id": "extract-images-pdf", "slug": "trich-anh-pdf", "name": "Trích ảnh trong PDF", "group": "pdf", "icon": "image-down", "kind": "file",
+      "desc": "Lấy nguyên bản các ảnh nằm trong file PDF.",
+      "keywords": ["lấy ảnh từ pdf","extract images","tải ảnh trong pdf"],
+      "accept": ["pdf"], "output": "image", "status": "done",
+      "aliases": ["lay-anh-pdf","extract-images-pdf"],
+      "related": ["pdf-to-image","pdf-to-text"],
+      "howto": ["Chọn hoặc kéo thả một hay nhiều file PDF.","Chọn kích thước tối thiểu để bỏ qua biểu tượng, đường kẻ nhỏ.","Bấm “Trích ảnh” rồi tải từng ảnh hoặc cả .zip."],
+      "faq": [
+        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Ảnh lấy ra có bị giảm chất lượng không?", "a": "Ảnh JPEG được lấy nguyên bản từ file, không nén lại. Ảnh khác được lưu PNG không mất chất lượng, giữ cả nền trong suốt." },
+        { "q": "Vì sao không lấy được biểu đồ, chữ?", "a": "Biểu đồ, chữ thường được vẽ bằng hình vector chứ không phải ảnh. Hãy dùng PDF sang ảnh để chụp cả trang." }
+      ]
+    },
+    {
+      "id": "crop-pdf", "slug": "cat-le-pdf", "name": "Cắt lề PDF", "group": "pdf", "icon": "crop", "kind": "file",
+      "desc": "Cắt bớt lề trắng hoặc vùng thừa trên các trang PDF.",
+      "keywords": ["crop pdf","cắt viền pdf","bỏ lề pdf"],
+      "accept": ["pdf"], "output": "pdf", "status": "done",
+      "aliases": ["cat-vien-pdf","crop-pdf"],
+      "related": ["rotate-pdf","organize-pdf"],
+      "howto": ["Chọn hoặc kéo thả file PDF.","Chọn “Tự bỏ lề trắng” (có thể chừa lại vài mm, cắt đều các trang) hoặc nhập lề cần cắt theo mm; khung xanh trên trang là phần được giữ.","Bấm “Cắt lề” rồi tải file về."],
+      "faq": [
+        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Phần bị cắt có bị xoá hẳn không?", "a": "Không. Công cụ đặt lại khung hiển thị của trang (CropBox), nội dung bên ngoài chỉ bị ẩn. Nếu cần xoá hẳn thông tin nhạy cảm, đừng chỉ dùng cắt lề." },
+        { "q": "Cắt lề để làm gì?", "a": "Đọc PDF trên điện thoại chữ to hơn, in tài liệu scan không bị viền đen, hoặc bỏ lề thừa trước khi ghép vào tài liệu khác." }
+      ]
+    },
+    {
+      "id": "insert-blank-pdf", "slug": "chen-trang-trang-pdf", "name": "Chèn trang trắng", "group": "pdf", "icon": "file-plus", "kind": "file",
+      "desc": "Thêm trang trắng vào vị trí bất kỳ, ví dụ để in hai mặt.",
+      "keywords": ["thêm trang trống","blank page","trang trắng pdf"],
+      "accept": ["pdf"], "output": "pdf", "status": "done",
+      "aliases": ["them-trang-trang-pdf","insert-blank-page"],
+      "related": ["organize-pdf","merge-pdf"],
+      "howto": ["Chọn hoặc kéo thả file PDF.","Chọn chỗ chèn: sau hoặc trước các trang chọn, sau mỗi trang, cuối file hoặc cho đủ số trang chẵn; bấm vào trang để chọn vị trí.","Xem trước trang trắng trên lưới trang, bấm “Chèn trang trắng” rồi tải file về."],
+      "faq": [
+        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Trang trắng có khổ giấy gì?", "a": "Cùng khổ và hướng với trang đứng ngay trước nó, nên in ra không bị lệch." },
+        { "q": "Vì sao cần làm số trang chẵn khi in hai mặt?", "a": "Khi in nhiều tài liệu liên tiếp ở chế độ hai mặt, file có số trang lẻ làm tài liệu sau bị in vào mặt sau tờ cuối của tài liệu trước. Thêm một trang trắng là tránh được." }
+      ]
+    },
+    {
+      "id": "grayscale-pdf", "slug": "pdf-den-trang", "name": "PDF đen trắng", "group": "pdf", "icon": "contrast", "kind": "file",
+      "desc": "Chuyển PDF màu sang thang xám để in tiết kiệm mực, chữ vẫn chọn được.",
+      "keywords": ["grayscale pdf","trắng đen","pdf xám","in đen trắng"],
+      "accept": ["pdf"], "output": "pdf", "status": "done",
+      "aliases": ["pdf-trang-den","grayscale-pdf"],
+      "related": ["compress-pdf"],
+      "howto": ["Chọn hoặc kéo thả một hay nhiều file PDF.","Bấm “Chuyển đen trắng”.","Tải file thang xám về để in tiết kiệm mực màu."],
+      "faq": [
+        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Chữ có bị biến thành ảnh không?", "a": "Không. Công cụ đổi màu ngay trong nội dung trang nên chữ vẫn sắc nét, chọn và tìm được như bản gốc." },
+        { "q": "Vì sao vẫn còn chỗ có màu?", "a": "Một số thành phần hiếm gặp (ảnh JPEG 2000, kiểu chuyển màu đặc biệt) chưa đổi được; công cụ sẽ báo số lượng sau khi chuyển." }
+      ]
+    },
+    {
+      "id": "metadata-pdf", "slug": "sua-thong-tin-pdf", "name": "Sửa thông tin PDF", "group": "pdf", "icon": "info", "kind": "file",
+      "desc": "Xem và sửa tiêu đề, tác giả, chủ đề, từ khoá (metadata) của PDF.",
+      "keywords": ["metadata pdf","tiêu đề pdf","tác giả pdf","pdf properties"],
+      "accept": ["pdf"], "output": "pdf", "status": "done",
+      "aliases": ["thong-tin-pdf","metadata-pdf"],
+      "related": ["strip-exif","protect-pdf"],
+      "howto": ["Chọn hoặc kéo thả file PDF; thông tin hiện có được điền sẵn.","Sửa tiêu đề, tác giả, chủ đề, từ khoá…, hoặc bật “Xoá sạch thông tin ẩn”.","Bấm “Lưu thông tin” rồi tải file về."],
+      "faq": [
+        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Thông tin PDF dùng để làm gì?", "a": "Tiêu đề hiện trên thanh tab khi mở file, và giúp tìm kiếm, sắp xếp tài liệu. Tác giả, phần mềm tạo có thể lộ thông tin bạn không muốn chia sẻ." },
+        { "q": "Vì sao sửa xong khối XMP bị xoá?", "a": "XMP là bản sao thông tin dạng XML mà một số trình đọc ưu tiên; nếu giữ lại, thông tin cũ có thể vẫn hiện. Công cụ bỏ khối này để thông tin mới có hiệu lực." }
+      ]
+    },
+    {
+      "id": "fill-form-pdf", "slug": "dien-form-pdf", "name": "Điền form PDF", "group": "pdf", "icon": "text-cursor-input", "kind": "file",
+      "desc": "Điền các ô biểu mẫu có sẵn trong PDF (tờ khai, đơn từ) rồi lưu lại.",
+      "keywords": ["biểu mẫu pdf","điền đơn","fill form","acroform","tờ khai"],
+      "accept": ["pdf"], "output": "pdf", "status": "done",
+      "aliases": ["dien-to-khai-pdf","fill-pdf-form"],
+      "related": ["flatten-pdf","sign-pdf"],
+      "howto": ["Chọn hoặc kéo thả file PDF có sẵn ô form (tờ khai, đơn từ).","Bấm vào các ô xanh trên trang để điền chữ, đánh dấu, chọn mục; phím Tab để sang ô tiếp theo.","Bấm “Lưu PDF đã điền”; bật “Làm phẳng sau khi điền” nếu không muốn người nhận sửa được."],
+      "faq": [
+        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Gõ tiếng Việt có dấu có bị lỗi font không?", "a": "Không. Khi có chữ có dấu, công cụ nhúng font Be Vietnam Pro vào file để mọi trình đọc PDF đều hiện đúng." },
+        { "q": "File của tôi không có ô để điền thì sao?", "a": "Dùng công cụ Ký PDF để thêm chữ, ngày tháng, dấu tích, chữ ký vào bất kỳ chỗ nào trên trang." },
+        { "q": "Biểu mẫu XFA (Adobe LiveCycle) có điền được không?", "a": "Chỉ điền được phần form thường (AcroForm) đi kèm. Biểu mẫu chỉ có XFA cần mở bằng Adobe Acrobat." }
+      ]
+    },
+    {
+      "id": "flatten-pdf", "slug": "lam-phang-form-pdf", "name": "Làm phẳng form PDF", "group": "pdf", "icon": "layers", "kind": "file",
+      "desc": "Biến các ô form đã điền thành nội dung cố định, không sửa được nữa.",
+      "keywords": ["flatten pdf","khoá form","làm phẳng"],
+      "accept": ["pdf"], "output": "pdf", "status": "done",
+      "aliases": ["khoa-form-pdf","flatten-pdf"],
+      "related": ["fill-form-pdf","protect-pdf"],
+      "howto": ["Chọn hoặc kéo thả một hay nhiều file PDF có form đã điền.","Bấm “Làm phẳng form”.","Tải file về: nội dung đã điền thành cố định, không sửa được nữa."],
+      "faq": [
+        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Làm phẳng có làm mất nội dung đã điền không?", "a": "Không. Nội dung giữ nguyên trên trang; chỉ có các ô không còn sửa được." },
+        { "q": "Có hoàn tác được không?", "a": "Không trên file đã làm phẳng. Hãy giữ lại bản gốc nếu còn cần sửa." }
+      ]
+    },
+    {
+      "id": "view-pdf", "slug": "xem-pdf", "name": "Xem PDF", "group": "pdf", "icon": "book-open", "kind": "file",
+      "desc": "Mở và đọc PDF ngay trên trình duyệt, tìm chữ, phóng to, xem toàn màn hình.",
+      "keywords": ["đọc pdf","pdf viewer","mở pdf"],
+      "accept": ["pdf"], "status": "done",
+      "aliases": ["doc-pdf","mo-pdf","pdf-viewer"],
+      "related": ["pdf-to-text","pdf-to-image"],
+      "howto": ["Chọn, kéo thả hoặc dán file PDF.","Cuộn để đọc; dùng thanh công cụ để nhảy trang, phóng to, thu nhỏ hoặc xem toàn màn hình.","Gõ vào ô tìm chữ (không cần dấu) rồi nhấn Enter để sang chỗ tiếp theo; bôi đen để sao chép chữ."],
+      "faq": [
+        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Tìm “ha noi” có ra “Hà Nội” không?", "a": "Có. Ô tìm kiếm không phân biệt chữ hoa, chữ thường và dấu tiếng Việt." },
+        { "q": "In file thế nào?", "a": "Bấm nút máy in để mở file bằng trình xem PDF có sẵn của trình duyệt, rồi in từ đó." },
+        { "q": "Xem được file có mật khẩu không?", "a": "Được, nhập mật khẩu khi được hỏi. Mật khẩu chỉ dùng trên máy bạn." }
+      ]
+    },
+    {
+      "id": "scan-document", "slug": "scan-tai-lieu", "name": "Scan tài liệu bằng camera", "group": "pdf", "icon": "scan", "kind": "interactive",
+      "desc": "Chụp giấy tờ bằng camera, tự nắn thẳng, làm trắng nền rồi xuất PDF.",
+      "keywords": ["scan","quét tài liệu","camscanner","chụp giấy tờ","document scanner"],
+      "accept": ["image"], "output": "pdf", "status": "done",
+      "aliases": ["scan-giay-to","quet-tai-lieu","document-scanner"],
+      "related": ["image-to-pdf","ocr","compress-pdf"],
+      "howto": ["Bấm “Mở camera” và chụp tờ giấy (đặt trên nền tối hơn, đủ sáng), hoặc chọn ảnh đã chụp sẵn.","Kiểm tra 4 góc được tìm tự động, kéo chỉnh nếu cần; chọn bộ lọc Màu, Xám hoặc Đen trắng rồi bấm “Thêm trang”.","Chụp thêm trang, sắp thứ tự, chọn khổ giấy rồi bấm “Tạo PDF”."],
+      "faq": [
+        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Ảnh chụp có bị gửi lên mạng không?", "a": "Không. Camera, ảnh và việc nắn thẳng, làm trắng nền đều chạy trên máy của bạn." },
+        { "q": "Làm sao để scan đẹp nhất?", "a": "Đặt giấy trên nền tối, tránh bóng tay và bóng điện thoại, chụp thẳng từ trên xuống, giữ máy chắc tay. Bộ lọc Đen trắng hợp với văn bản chữ, Màu hợp với giấy có con dấu, hình ảnh." },
+        { "q": "Không tự tìm được góc giấy thì sao?", "a": "Kéo 4 chấm tròn tới 4 góc tờ giấy, hoặc bấm “Lấy cả ảnh”. Trên máy tính có thể dùng phím mũi tên để dịch từng góc." }
+      ]
+    },
 
     {
       "id": "compress-image", "slug": "nen-anh", "name": "Nén ảnh", "group": "image", "icon": "image-down", "kind": "file",

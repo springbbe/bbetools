@@ -1,6 +1,6 @@
 /* Tiện ích PDF dùng chung cho các công cụ PDF: mở file (hỏi mật khẩu khi cần), vẽ trang, ảnh thu nhỏ,
    tài liệu pdf-lib để chỉnh sửa (gỡ mã hoá khi đã biết mật khẩu). Dùng pdf.js để đọc và @cantoo/pdf-lib để ghi. */
-import { h, lib, dialog, passwordField, CDN } from "./core.js";
+import { h, icon, lib, dialog, passwordField, CDN } from "./core.js";
 
 export class Locked extends Error { constructor() { super("locked"); this.locked = true; } }
 const OPTS = { cMapUrl: CDN.pdfjs.replace("build/", "cmaps/"), cMapPacked: true, standardFontDataUrl: CDN.pdfjs.replace("build/", "standard_fonts/"), isEvalSupported: false };
@@ -93,3 +93,33 @@ export async function thumbnail(doc, n = 1, width = 120) {
 }
 
 export const pdfBlob = (bytes) => new Blob([bytes], { type: "application/pdf" });
+
+/** Mở PDF cho một mục trong danh sách file (khung file): đặt it.bytes/doc/password/pages/thumb.
+    File có mật khẩu: không hỏi ngay (prompt = false) mà đánh dấu it.locked để người dùng bấm 🔒 */
+export async function openItem(it, prompt) {
+  try {
+    const r = await openPdf(it.file, { prompt, password: it.password });
+    Object.assign(it, { bytes: r.bytes, doc: r.doc, password: r.password, pages: r.pages, locked: false });
+    it.info = r.pages + " trang" + (r.password ? " · đã mở khoá" : "");
+    it.thumb = await thumbnail(r.doc, 1, 56);
+  } catch (e) {
+    if (!(e instanceof Locked)) throw e;
+    it.locked = true; it.info = "Có mật khẩu, bấm 🔒 để mở";
+  }
+}
+/** Nút 🔒 nhập mật khẩu cho mục đang khoá (dùng trong itemActions) */
+export const lockButton = (it, ctx, after) => it.locked ? h("button", { class: "ib sm", type: "button", title: "Nhập mật khẩu", "aria-label": "Nhập mật khẩu cho " + it.name, html: icon("lock"),
+  onclick: async () => { it.loading = true; ctx.render(); try { await openItem(it, true); if (after) await after(it); } finally { it.loading = false; ctx.render(); } } }) : null;
+export const LOCKED_MSG = "Có file đang khoá: bấm 🔒 để nhập mật khẩu hoặc bỏ file đó.";
+
+/** Font TTF có đủ dấu tiếng Việt để nhúng vào PDF (điền form): Be Vietnam Pro, OFL */
+export const VN_TTF = "https://cdn.jsdelivr.net/npm/@expo-google-fonts/be-vietnam-pro@0.4.1/400Regular/BeVietnamPro_400Regular.ttf";
+/** Chuỗi có ký tự ngoài bảng mã WinAnsi (font chuẩn Helvetica của PDF không vẽ được) */
+export const needsUnicodeFont = (s) => /[^\x20-\x7E\xA0-\xFF\n\r\t]/.test(s || "");
+/** Nhúng font tiếng Việt vào tài liệu pdf-lib (tải fontkit + font khi cần) */
+export async function embedVnFont(doc) {
+  const [fontkit, bytes] = await Promise.all([lib("fontkit"), fetch(VN_TTF).then((r) => { if (!r.ok) throw new Error("font"); return r.arrayBuffer(); })]);
+  doc.registerFontkit(fontkit);
+  // không dùng subset: fontkit 1.1.1 lỗi khi cắt font này (lỗi "reading 'pos'" lúc lưu); nhúng nguyên font (~130 KB)
+  return doc.embedFont(bytes, { subset: false });
+}

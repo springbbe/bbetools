@@ -97,3 +97,34 @@ export function hexRgb(hex) {
   const f = s.length === 3 ? s.split("").map((c) => c + c).join("") : s.padEnd(6, "0");
   return [0, 2, 4].map((i) => parseInt(f.slice(i, i + 2), 16) / 255);
 }
+
+/* ---------- Cắt lề ---------- */
+
+/** Hộp mới (toạ độ PDF) sau khi cắt lề theo chiều nhìn thấy. g = geom(cropBox, rotate); m = { top, right, bottom, left } (pt) */
+export function cropBoxFor(g, m) {
+  const l = Math.max(0, m.left || 0), r = Math.max(0, m.right || 0), t = Math.max(0, m.top || 0), b = Math.max(0, m.bottom || 0);
+  if (l + r >= g.VW - 1 || t + b >= g.VH - 1) return null; // cắt hết trang
+  const [x1, y1] = toUser(g, l, b), [x2, y2] = toUser(g, g.VW - r, g.VH - t);
+  return { x: Math.min(x1, x2), y: Math.min(y1, y2), width: Math.abs(x2 - x1), height: Math.abs(y2 - y1) };
+}
+
+/** Vùng có "mực" trong ảnh RGBA w×h (điểm khác trắng rõ rệt) → { x0, y0, x1, y1 } (px, từ trên trái) hoặc null nếu trang trắng */
+export function inkBounds(data, w, h, threshold = 235) {
+  let x0 = w, y0 = h, x1 = -1, y1 = -1;
+  for (let y = 0; y < h; y++) {
+    for (let x = 0; x < w; x++) {
+      const i = (y * w + x) * 4;
+      if (data[i + 3] > 16 && (data[i] < threshold || data[i + 1] < threshold || data[i + 2] < threshold)) {
+        if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y;
+      }
+    }
+  }
+  return x1 < 0 ? null : { x0, y0, x1, y1 };
+}
+
+/** Lề tự động (pt) từ vùng mực của ảnh trang px×py vẽ ở tỉ lệ k (px/pt), chừa thêm pad (pt) */
+export function autoMargins(b, px, py, k, pad) {
+  if (!b) return { top: 0, right: 0, bottom: 0, left: 0 };
+  const f = (v) => Math.max(0, v / k - pad);
+  return { left: f(b.x0), top: f(b.y0), right: f(px - 1 - b.x1), bottom: f(py - 1 - b.y1) };
+}

@@ -4,7 +4,7 @@
    Chạy:  node scripts/make-samples.js
    Ảnh chân dung mẫu (chan-dung-mau.jpg) không tạo ở đây: xem nguồn và giấy phép trong samples/README.md. */
 import { spawn, execFileSync } from "node:child_process";
-import { existsSync, statSync, mkdirSync } from "node:fs";
+import { existsSync, statSync, mkdirSync, writeFileSync } from "node:fs";
 import { ROOT } from "./registry.js";
 
 const CHROME = process.env.CHROME || ["/Applications/Google Chrome.app/Contents/MacOS/Google Chrome", "/usr/bin/google-chrome", "/usr/bin/chromium", "/opt/pw-browsers/chromium-1194/chrome-linux/chrome"].find(existsSync);
@@ -18,12 +18,24 @@ await new Promise((r) => setTimeout(r, 800));
 const chrome = (...args) => execFileSync(CHROME, ["--headless=new", "--disable-gpu", "--hide-scrollbars", "--no-first-run", "--no-default-browser-check", "--virtual-time-budget=15000", ...(process.getuid && process.getuid() === 0 ? ["--no-sandbox"] : []), ...args], { stdio: "ignore", timeout: 120000 });
 const pdf = (url, file) => chrome("--no-pdf-header-footer", `--print-to-pdf=${OUT + file}`, BASE + url);
 const shot = (url, file, w, h) => chrome(`--screenshot=${file}`, `--window-size=${w},${h}`, BASE + url);
+// file PDF tạo bằng pdf-lib trong trình duyệt (scripts/samples/pdf-lib.html): đọc base64 trong <pre id="out"> từ --dump-dom
+const pdfLib = (mau, file, page = "pdf-lib.html?mau=" + mau) => {
+  const html = execFileSync(CHROME, ["--headless=new", "--disable-gpu", "--no-first-run", "--virtual-time-budget=30000", ...(process.getuid && process.getuid() === 0 ? ["--no-sandbox"] : []), "--dump-dom", BASE + "scripts/samples/" + page], { encoding: "utf8", maxBuffer: 64 << 20, timeout: 120000 });
+  const b64 = (/<pre id="out">([A-Za-z0-9+/=]+)<\/pre>/.exec(html) || [])[1];
+  if (!b64) throw new Error("Không tạo được " + file);
+  writeFileSync(OUT + file, Buffer.from(b64, "base64"));
+};
 
 try {
   pdf("scripts/samples/bao-cao.html?t=" + encodeURIComponent("Báo cáo quý 1") + "&c=%23E5484D&p=2", "bao-cao-quy-1.pdf");
   pdf("scripts/samples/bao-cao.html?t=" + encodeURIComponent("Báo cáo quý 2") + "&c=%233E63DD&p=3", "bao-cao-quy-2.pdf");
   pdf("scripts/samples/scan.html", "tai-lieu-scan.pdf");
   pdf("scripts/samples/so-tay.html", "so-tay-nhan-vien.pdf");
+  pdfLib("co-anh", "tai-lieu-co-anh.pdf");
+  pdfLib("to-khai", "to-khai-mau.pdf");
+  pdfLib("to-khai-da-dien", "to-khai-da-dien.pdf");
+  pdfLib("mat-khau", "mau-co-mat-khau-1234.pdf"); // cần bao-cao-quy-2.pdf ở trên
+  pdfLib("", "giay-to-chup.jpg", "giay-chup.html");
   shot("scripts/samples/phong-canh.html", TMP + "phong-canh.png", 2400, 1600);
   execFileSync("sips", ["-s", "format", "jpeg", "-s", "formatOptions", "92", TMP + "phong-canh.png", "--out", OUT + "anh-phong-canh.jpg"], { stdio: "ignore" });
   execFileSync("sips", ["-Z", "2016", "-s", "format", "heic", "-s", "formatOptions", "80", TMP + "phong-canh.png", "--out", OUT + "anh-iphone.heic"], { stdio: "ignore" });
@@ -33,6 +45,6 @@ try {
   server.kill();
   execFileSync("rm", ["-rf", TMP]);
 }
-for (const f of ["bao-cao-quy-1.pdf", "bao-cao-quy-2.pdf", "tai-lieu-scan.pdf", "so-tay-nhan-vien.pdf", "anh-phong-canh.jpg", "anh-iphone.heic", "anh-chup-man-hinh.png", "ma-qr-mau.png", "chan-dung-mau.jpg"]) {
+for (const f of ["bao-cao-quy-1.pdf", "bao-cao-quy-2.pdf", "tai-lieu-scan.pdf", "so-tay-nhan-vien.pdf", "tai-lieu-co-anh.pdf", "to-khai-mau.pdf", "to-khai-da-dien.pdf", "mau-co-mat-khau-1234.pdf", "giay-to-chup.jpg", "anh-phong-canh.jpg", "anh-iphone.heic", "anh-chup-man-hinh.png", "ma-qr-mau.png", "chan-dung-mau.jpg"]) {
   console.log(existsSync(OUT + f) ? `✓ ${f}  ${(statSync(OUT + f).size / 1024).toFixed(0)} KB` : `✗ thiếu ${f}`);
 }

@@ -55,3 +55,19 @@ export function halves(n) {
 
 /** Phần tên file cho một nhóm trang: [1,2,3,7] → "1-3_7" */
 export const rangeSlug = (nums) => toRanges(nums).replace(/, /g, "_");
+
+/** Kế hoạch chèn trang trắng vào file n trang → mảng số trang gốc theo thứ tự mới, 0 = trang trắng.
+    o: { mode: "after" | "before" | "each" | "end" | "even", pages: [số trang] (cho after/before), count: số trang trắng mỗi chỗ } */
+export function blankPlan(n, o) {
+  const count = Math.max(1, Math.min(50, Math.floor(o.count) || 1));
+  const at = new Set(o.pages || []), out = [];
+  const blanks = () => { for (let k = 0; k < count; k++) out.push(0); };
+  for (let i = 1; i <= n; i++) {
+    if (o.mode === "before" && at.has(i)) blanks();
+    out.push(i);
+    if ((o.mode === "after" && at.has(i)) || o.mode === "each") blanks();
+  }
+  if (o.mode === "end") blanks();
+  if (o.mode === "even" && out.length % 2) out.push(0);
+  return out;
+}

@@ -56,13 +56,13 @@ const CAM_ERR = {
   OverconstrainedError: "Camera không hỗ trợ cấu hình yêu cầu.",
   SecurityError: "Trình duyệt chặn camera trên trang này."
 };
-/** Bật camera vào thẻ <video>. opts: { facing: "environment"|"user", deviceId } → MediaStream */
+/** Bật camera vào thẻ <video>. opts: { facing: "environment"|"user", deviceId, width, height (độ phân giải mong muốn) } → MediaStream */
 export async function camera(video, opts = {}) {
   if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) { const e = new Error("Trình duyệt này không hỗ trợ camera."); e.userMsg = e.message; throw e; }
   try {
     const stream = await navigator.mediaDevices.getUserMedia({
       audio: false,
-      video: opts.deviceId ? { deviceId: { exact: opts.deviceId } } : { facingMode: { ideal: opts.facing || "environment" }, width: { ideal: 1280 }, height: { ideal: 720 } }
+      video: opts.deviceId ? { deviceId: { exact: opts.deviceId } } : { facingMode: { ideal: opts.facing || "environment" }, width: { ideal: opts.width || 1280 }, height: { ideal: opts.height || 720 } }
     });
     video.srcObject = stream;
     video.setAttribute("playsinline", "");

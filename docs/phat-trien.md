@@ -16,8 +16,9 @@ assets/
   frames/interactive.js    khung 4: tương tác (camera, âm thanh, hẹn giờ…)
   pdf.js, image.js, qr.js  tiện ích dùng chung cho nhóm PDF, ảnh, QR
   pdf-pages.js             "bảng trang" PDF: pageTool() dựng trên khung file, mỗi trang một thẻ (chọn, xoay, xoá, đổi chỗ, xem trước)
+  pdf-objects.js           đi qua đối tượng bên trong PDF (nội dung trang, form, pattern, ảnh), giải nén luồng, đọc hệ màu
   ai/matting.js            AI tách nền (MODNet) + nhận diện khuôn mặt (UltraFace) chạy bằng onnxruntime-web
-  lib/*.js                 hàm thuần, có test: search, filetype, doc-so, am-lich, vietqr, json-tools, text-stats, page-ranges, pdf-geom, pdf-text
+  lib/*.js                 hàm thuần, có test: search, filetype, doc-so, am-lich, vietqr, json-tools, text-stats, page-ranges, pdf-geom, pdf-text, pdf-content, pdf-image, scan
   tools/<id>.js            logic riêng của từng công cụ
   registry.js              (sinh tự động) bản rút gọn của tools.json cho trình duyệt
   icons.svg                sprite icon Lucide (ISC)
@@ -55,6 +56,7 @@ Khai báo trong bảng `LIBS` của `assets/core.js`, gọi bằng `lib("tên")`
 | Thư viện | Dùng cho |
 |---|---|
 | `@cantoo/pdf-lib@2.11.1` | ghi, sửa PDF (có mã hoá AES) |
+| `@pdf-lib/fontkit@1.1.1` + `@expo-google-fonts/be-vietnam-pro@0.4.1` (TTF) | nhúng font tiếng Việt vào PDF (điền form), chỉ tải khi có chữ có dấu |
 | `pdfjs-dist@4.10.38` (legacy) | đọc, vẽ trang PDF |
 | `jszip@3.10.1` | tải nhiều file dạng .zip |
 | `heic-to@1.6.5` | giải mã HEIC (libheif WebAssembly) |

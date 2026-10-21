@@ -36,3 +36,14 @@ test("chia đều và chia đôi", () => {
   assert.equal(halves(2), "1, 2");
   assert.equal(halves(1), "1");
 });
+
+import { blankPlan } from "../assets/lib/page-ranges.js";
+test("kế hoạch chèn trang trắng", () => {
+  assert.deepEqual(blankPlan(3, { mode: "after", pages: [1, 3] }), [1, 0, 2, 3, 0]);
+  assert.deepEqual(blankPlan(3, { mode: "before", pages: [2], count: 2 }), [1, 0, 0, 2, 3]);
+  assert.deepEqual(blankPlan(3, { mode: "each" }), [1, 0, 2, 0, 3, 0]);
+  assert.deepEqual(blankPlan(2, { mode: "end", count: 3 }), [1, 2, 0, 0, 0]);
+  assert.deepEqual(blankPlan(3, { mode: "even" }), [1, 2, 3, 0]);
+  assert.deepEqual(blankPlan(4, { mode: "even" }), [1, 2, 3, 4]);
+  assert.deepEqual(blankPlan(2, { mode: "after", pages: [] }), [1, 2]);
+});

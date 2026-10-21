@@ -94,7 +94,7 @@ export function pageTool(cfg) {
 
   function card(p, idx, tk) {
     const [vw, vh] = visDims(p);
-    const sel = tk === "sel" && p.sel, off = tk === "off" && p.off;
+    const sel = tk === "sel" && !!p.sel, off = tk === "off" && !!p.off;
     const im = p.blank ? null : h("img", { alt: "", src: p.thumb || null, style: {
       width: (p.rot % 180 ? (vh / vw) * 100 : 100) + "%", height: (p.rot % 180 ? (vw / vh) * 100 : 100) + "%",
       transform: `translate(-50%, -50%) rotate(${p.rot}deg)`, visibility: p.thumb ? null : "hidden" } });
@@ -198,7 +198,7 @@ export function pageTool(cfg) {
     [...grid.children].forEach((li, idx) => {
       const p = B.pages[idx];
       if (!p) return;
-      const sel = tk === "sel" && p.sel, off = tk === "off" && p.off;
+      const sel = tk === "sel" && !!p.sel, off = tk === "off" && !!p.off;
       li.classList.toggle("sel", sel); li.classList.toggle("off", off);
       const face = li.querySelector(".pg-face");
       if (face.hasAttribute("aria-pressed") !== !!tk) { render(); return; }

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><title>Ảnh chụp giấy tờ mẫu</title></head>
+<body>
+<!-- Sinh samples/giay-to-chup.jpg: tờ giấy (nội dung tự vẽ) chụp nghiêng trên mặt bàn tối, ánh sáng không đều.
+     Dùng cho nút "Thử với ảnh mẫu" của Scan tài liệu. Kết quả (base64 JPEG) nằm trong <pre id="out">. -->
+<pre id="out"></pre>
+<script type="module">
+import { homography } from "../../assets/lib/scan.js";
+const W = 2000, H = 1500, PW = 1240, PH = 1754;
+// 1. tờ giấy
+const pg = document.createElement("canvas"); pg.width = PW; pg.height = PH;
+const g = pg.getContext("2d");
+g.fillStyle = "#fbfaf6"; g.fillRect(0, 0, PW, PH);
+g.fillStyle = "#1f2230"; g.textBaseline = "top";
+g.font = "700 46px sans-serif"; g.textAlign = "center"; g.fillText("GIẤY XÁC NHẬN", PW / 2, 150);
+g.font = "400 30px sans-serif"; g.fillText("(Tài liệu mẫu của BbeTools – nội dung giả lập)", PW / 2, 220);
+g.textAlign = "left"; g.font = "400 32px sans-serif";
+const lines = ["Công ty TNHH Mẫu Thử xác nhận:", "Ông/bà: Nguyễn Văn An", "Sinh ngày: 15/03/1990", "Là nhân viên chính thức từ ngày 01/06/2020 đến nay.", "Chức vụ: Chuyên viên kế toán.", "Giấy này cấp để bổ sung hồ sơ vay vốn ngân hàng.", "", "Hà Nội, ngày 21 tháng 10 năm 2026"];
+lines.forEach((l, i) => g.fillText(l, 130, 340 + i * 62));
+g.font = "700 32px sans-serif"; g.fillText("GIÁM ĐỐC", 820, 900);
+g.strokeStyle = "#1A3D9C"; g.lineWidth = 4; g.beginPath(); g.moveTo(800, 1010); g.bezierCurveTo(860, 940, 900, 1060, 960, 990); g.bezierCurveTo(1000, 950, 1030, 1030, 1080, 1000); g.stroke();
+g.strokeStyle = "#C62828"; g.lineWidth = 6; g.beginPath(); g.arc(900, 990, 95, 0, Math.PI * 2); g.stroke();
+g.fillStyle = "#1f2230"; g.font = "400 30px sans-serif"; g.fillText("Trần Thị Bình", 830, 1120);
+const pd = g.getImageData(0, 0, PW, PH).data;
+// 2. mặt bàn tối + tờ giấy chụp nghiêng, ánh sáng lệch một bên
+const c = document.createElement("canvas"); c.width = W; c.height = H;
+const x = c.getContext("2d"), img = x.createImageData(W, H), d = img.data;
+const quad = [[560, 120], [1500, 210], [1420, 1400], [430, 1310]];
+const M = homography(quad, [[0, 0], [PW - 1, 0], [PW - 1, PH - 1], [0, PH - 1]]);
+for (let y = 0; y < H; y++) for (let x0 = 0; x0 < W; x0++) {
+  const o = (y * W + x0) * 4, light = 0.72 + 0.35 * (1 - x0 / W) - 0.12 * (y / H);
+  const den = M[6] * x0 + M[7] * y + 1, u = (M[0] * x0 + M[1] * y + M[2]) / den, v = (M[3] * x0 + M[4] * y + M[5]) / den;
+  let r, gg, b;
+  if (u >= 0 && v >= 0 && u < PW - 1 && v < PH - 1) { const i = ((v | 0) * PW + (u | 0)) * 4; r = pd[i]; gg = pd[i + 1]; b = pd[i + 2]; }
+  else { const n = ((x0 * 31 + y * 17) % 23) + Math.sin(x0 / 37 + y / 210) * 9; r = 92 + n; gg = 62 + n * 0.7; b = 40 + n * 0.4; }
+  d[o] = Math.min(255, r * light); d[o + 1] = Math.min(255, gg * light * 0.98); d[o + 2] = Math.min(255, b * light * 0.93); d[o + 3] = 255;
+}
+x.putImageData(img, 0, 0);
+const blob = await new Promise((r) => c.toBlob(r, "image/jpeg", 0.85));
+const u = new Uint8Array(await blob.arrayBuffer());
+let s = ""; for (let i = 0; i < u.length; i += 0x8000) s += String.fromCharCode(...u.subarray(i, i + 0x8000));
+document.getElementById("out").textContent = btoa(s);
+</script>
+</body></html>

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><title>Tạo file mẫu bằng pdf-lib</title></head>
+<body>
+<!-- Sinh file mẫu PDF bằng @cantoo/pdf-lib ngay trong trình duyệt. ?mau=co-anh | to-khai | to-khai-da-dien | mat-khau
+     Kết quả (base64) nằm trong <pre id="out">; scripts/make-samples.js chạy Chrome --dump-dom để lấy ra. -->
+<pre id="out"></pre>
+<script type="module">
+import { lib } from "../../assets/core.js";
+import { embedVnFont } from "../../assets/pdf.js";
+const mau = new URLSearchParams(location.search).get("mau") || "co-anh";
+const L = await lib("pdflib");
+const bytesOf = async (u) => new Uint8Array(await (await fetch(u)).arrayBuffer());
+const canvasBytes = (c, type, q) => new Promise((r) => c.toBlob((b) => b.arrayBuffer().then((a) => r(new Uint8Array(a))), type, q));
+const A4 = [595.28, 841.89];
+
+async function coAnh() {
+  const doc = await L.PDFDocument.create();
+  doc.setTitle("Tài liệu có ảnh – file mẫu BbeTools");
+  const font = await embedVnFont(doc);
+  // trang 1: ảnh JPEG phong cảnh (thu nhỏ), khối màu RGB và CMYK, chữ tiếng Việt
+  const bmp = await createImageBitmap(await (await fetch("../../samples/anh-phong-canh.jpg")).blob());
+  const c = document.createElement("canvas"); c.width = 1200; c.height = 800;
+  c.getContext("2d").drawImage(bmp, 0, 0, 1200, 800);
+  const jpg = await doc.embedJpg(await canvasBytes(c, "image/jpeg", 0.85));
+  const p1 = doc.addPage(A4);
+  p1.drawText("Tài liệu có ảnh", { x: 50, y: 780, size: 26, font, color: L.rgb(0.05, 0.45, 0.4) });
+  p1.drawText("File mẫu của BbeTools: ảnh JPEG, PNG, PNG nền trong suốt, khối màu RGB và CMYK.", { x: 50, y: 755, size: 11, font, color: L.rgb(0.35, 0.37, 0.45) });
+  p1.drawImage(jpg, { x: 50, y: 400, width: 495, height: 330 });
+  p1.drawRectangle({ x: 50, y: 300, width: 150, height: 70, color: L.rgb(0.9, 0.28, 0.3) });
+  p1.drawRectangle({ x: 222, y: 300, width: 150, height: 70, color: L.rgb(0.24, 0.39, 0.95) });
+  p1.drawRectangle({ x: 395, y: 300, width: 150, height: 70, color: L.cmyk(0, 0.2, 0.9, 0) });
+  p1.drawText("Đỏ", { x: 60, y: 280, size: 12, font }); p1.drawText("Xanh dương", { x: 232, y: 280, size: 12, font }); p1.drawText("Vàng (CMYK)", { x: 405, y: 280, size: 12, font });
+  p1.drawText("Chữ màu xanh lá: Hồ Hoàn Kiếm, Phú Quốc, Hạ Long.", { x: 50, y: 230, size: 14, font, color: L.rgb(0.1, 0.55, 0.2) });
+  // trang 2: PNG mã QR, logo PNG nền trong suốt, biểu tượng nhỏ 32 px
+  const p2 = doc.addPage(A4);
+  p2.drawText("Ảnh PNG", { x: 50, y: 780, size: 22, font });
+  p2.drawImage(await doc.embedPng(await bytesOf("../../samples/ma-qr-mau.png")), { x: 50, y: 470, width: 260, height: 260 });
+  const lg = document.createElement("canvas"); lg.width = lg.height = 400;
+  const g = lg.getContext("2d");
+  g.fillStyle = "#3E5BF2"; g.beginPath(); g.arc(200, 200, 180, 0, Math.PI * 2); g.fill();
+  g.fillStyle = "#FFC53D"; g.beginPath(); g.arc(300, 110, 60, 0, Math.PI * 2); g.fill();
+  g.fillStyle = "#fff"; g.font = "800 150px sans-serif"; g.textAlign = "center"; g.textBaseline = "middle"; g.fillText("B", 190, 215);
+  p2.drawImage(await doc.embedPng(await canvasBytes(lg, "image/png")), { x: 340, y: 500, width: 200, height: 200 });
+  const ic = document.createElement("canvas"); ic.width = ic.height = 32;
+  const gi = ic.getContext("2d"); gi.fillStyle = "#E5484D"; gi.fillRect(4, 4, 24, 24);
+  p2.drawImage(await doc.embedPng(await canvasBytes(ic, "image/png")), { x: 50, y: 420, width: 16, height: 16 });
+  p2.drawText("Biểu tượng nhỏ 32 px ở bên trái dòng này.", { x: 72, y: 423, size: 11, font });
+  return doc.save();
+}
+
+async function toKhai(fill) {
+  const doc = await L.PDFDocument.create();
+  doc.setTitle("Tờ khai mẫu – file mẫu BbeTools");
+  const font = await embedVnFont(doc);
+  const page = doc.addPage(A4);
+  const form = doc.getForm();
+  const T = (t, x, y, size = 11, color) => page.drawText(t, { x, y, size, font, color: color || L.rgb(0.1, 0.1, 0.15) });
+  T("CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM", 160, 790, 12);
+  T("Độc lập – Tự do – Hạnh phúc", 220, 772, 11);
+  T("TỜ KHAI MẪU", 245, 730, 18);
+  T("(Tài liệu giả lập để thử công cụ điền form của BbeTools)", 150, 712, 10, L.rgb(0.4, 0.4, 0.45));
+  const text = (name, label, y, w = 380, h = 22, multi) => {
+    T(label, 50, y + 7);
+    const f = form.createTextField(name);
+    if (multi) f.enableMultiline();
+    f.addToPage(page, { x: 165, y, width: w, height: h, borderColor: L.rgb(0.7, 0.72, 0.78), backgroundColor: L.rgb(0.97, 0.98, 1) });
+    f.setFontSize(11);
+    return f;
+  };
+  const name = text("ho_ten", "Họ và tên:", 660);
+  const dob = text("ngay_sinh", "Ngày sinh:", 625, 150);
+  T("Giới tính:", 50, 597);
+  const gender = form.createRadioGroup("gioi_tinh");
+  gender.addOptionToPage("Nam", page, { x: 165, y: 592, width: 14, height: 14 }); T("Nam", 185, 595);
+  gender.addOptionToPage("Nữ", page, { x: 245, y: 592, width: 14, height: 14 }); T("Nữ", 265, 595);
+  T("Tỉnh / thành phố:", 50, 562);
+  const prov = form.createDropdown("tinh_thanh");
+  prov.addOptions(["Hà Nội", "Huế", "Đà Nẵng", "TP. Hồ Chí Minh", "Cần Thơ", "Hải Phòng"]);
+  prov.addToPage(page, { x: 165, y: 555, width: 200, height: 22 });
+  prov.setFontSize(11);
+  const addr = text("dia_chi", "Địa chỉ:", 470, 380, 70, true);
+  T("Nghề nghiệp:", 50, 437);
+  const job = form.createOptionList("nghe_nghiep");
+  job.addOptions(["Học sinh, sinh viên", "Nhân viên văn phòng", "Kinh doanh", "Khác"]);
+  job.addToPage(page, { x: 165, y: 380, width: 200, height: 70 });
+  job.setFontSize(10);
+  const agree = form.createCheckBox("dong_y");
+  agree.addToPage(page, { x: 50, y: 340, width: 14, height: 14 });
+  T("Tôi cam đoan những thông tin trên là đúng sự thật.", 72, 343);
+  const note = text("ghi_chu", "Ghi chú:", 290, 380, 22);
+  if (fill) {
+    name.setText("Nguyễn Thị Hồng Nhung"); dob.setText("12/08/1995"); gender.select("Nữ"); prov.select("Đà Nẵng");
+    addr.setText("Số 12 đường Bạch Đằng, phường Hải Châu,\nthành phố Đà Nẵng"); job.select("Nhân viên văn phòng"); agree.check(); note.setText("Liên hệ giờ hành chính");
+  }
+  form.updateFieldAppearances(font);
+  return doc.save();
+}
+
+async function matKhau() {
+  const doc = await L.PDFDocument.load(await bytesOf("../../samples/bao-cao-quy-2.pdf"));
+  doc.setTitle("Báo cáo quý 2 (file mẫu có mật khẩu 1234)");
+  doc.encrypt({ userPassword: "1234", ownerPassword: "bbetools-chu", permissions: { printing: false, copying: false, modifying: false } });
+  return doc.save();
+}
+
+const u = await ({ "co-anh": coAnh, "to-khai": () => toKhai(false), "to-khai-da-dien": () => toKhai(true), "mat-khau": matKhau })[mau]();
+let s = ""; for (let i = 0; i < u.length; i += 0x8000) s += String.fromCharCode(...u.subarray(i, i + 0x8000));
+document.getElementById("out").textContent = btoa(s);
+</script>
+</body></html>

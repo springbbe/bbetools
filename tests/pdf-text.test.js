@@ -24,3 +24,14 @@ test("nối dòng bị ngắt giữa câu", () => {
   assert.equal(joinLines("Tiêu đề\nĐoạn mới"), "Tiêu đề\nĐoạn mới");
   assert.equal(charCount(" a b\nc "), 3);
 });
+
+import { findAll, foldKeep } from "../assets/lib/pdf-text.js";
+test("tìm chữ không phân biệt hoa thường, dấu, kể cả khi chữ bị tách mảnh", () => {
+  assert.equal(foldKeep("Đường Hồ Hoàn Kiếm"), "duong ho hoan kiem");
+  assert.equal(foldKeep("Đường").length, "Đường".length);
+  assert.deepEqual(findAll(["Hà Nội và hà nội"], "ha noi"), [[{ item: 0, start: 0, end: 6 }], [{ item: 0, start: 10, end: 16 }]]);
+  assert.deepEqual(findAll(["H", "à", " N", "ội"], "Hà Nội"), [[{ item: 0, start: 0, end: 1 }, { item: 1, start: 0, end: 1 }, { item: 2, start: 0, end: 2 }, { item: 3, start: 0, end: 2 }]]);
+  assert.deepEqual(findAll(["Hà", "Nội"], "ha noi", [true]), [[{ item: 0, start: 0, end: 2 }, { item: 1, start: 0, end: 3 }]]);
+  assert.deepEqual(findAll(["abc"], "  "), []);
+  assert.deepEqual(findAll(["Nghỉ phép"], "PHÉP"), [[{ item: 0, start: 5, end: 9 }]]);
+});

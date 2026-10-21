@@ -10,7 +10,7 @@ Hai bảng dưới đây do `scripts/build.js` sinh từ `tools.json` (trường
 | Giai đoạn | Nhóm | Công cụ xong | Trạng thái | Câu lệnh gợi ý cho AI |
 |---|---|---|---|---|
 | 1 | Lõi, registry, trang tự sinh + 13 công cụ tiêu biểu | 13 | ✅ Xong | |
-| 2 | PDF | 12/24 | ⏳ Còn 12 công cụ | `Làm giai đoạn 2 của BbeTools theo CLAUDE.md` |
+| 2 | PDF | 24/24 | ✅ Xong |  |
 | 3 | Ảnh | 3/21 | ⏳ Còn 18 công cụ | `Làm giai đoạn 3 của BbeTools theo CLAUDE.md` |
 | 4 | Tiện ích Việt Nam + Tính toán & đời sống | 3/27 | ⏳ Còn 24 công cụ | `Làm giai đoạn 4 của BbeTools theo CLAUDE.md` |
 | 5 | Văn bản + Lập trình | 2/31 | ⏳ Còn 29 công cụ | `Làm giai đoạn 5 của BbeTools theo CLAUDE.md` |
@@ -43,15 +43,24 @@ Làm công cụ Tách PDF của BbeTools theo CLAUDE.md
 
 ## Ghi chú tiến độ (cập nhật sau mỗi lần làm)
 
-### Giai đoạn 2 – PDF
+### Giai đoạn 2 – PDF (xong)
 
-- Người dùng yêu cầu làm từng đợt 5 công cụ rồi dừng; đợt sau tiếp tục với các công cụ ⏳ của nhóm PDF theo thứ tự trong bảng.
-- Đợt 1 (xong): Tách PDF, Xoá trang PDF, Sắp xếp trang PDF, Xoay PDF, PDF sang ảnh.
-- Đợt 2 (xong): Ảnh sang PDF, PDF sang văn bản, Ký PDF, Đánh số trang PDF, Chèn watermark PDF.
-- Đợt 3 (tiếp theo): Đặt mật khẩu PDF, Mở khoá PDF (mã tham chiếu: `protect.js`, `unlock.js` của PDF-tool; @cantoo/pdf-lib có `doc.encrypt()`), Trích xuất trang PDF, Trích ảnh trong PDF, Cắt lề PDF.
-- Phần dùng chung đã có: `assets/pdf-pages.js` (bảng trang `pageTool` có `decorate` để xem trước trên thẻ, `posGrid`, `colorPick`), `assets/lib/page-ranges.js` (khoảng trang), `assets/lib/pdf-geom.js` (toạ độ trang có /Rotate, khổ giấy, nhãn số trang, bố cục watermark), `assets/lib/pdf-text.js` (ghép chữ từ pdf.js). Trích xuất trang, Chèn trang trắng, Cắt lề, PDF đen trắng nên dựng trên `pageTool`.
-- Vẽ chữ tiếng Việt vào PDF: font chuẩn của pdf-lib (Helvetica) không có dấu tiếng Việt → vẽ chữ lên canvas bằng Be Vietnam Pro rồi nhúng PNG (xem `textMark` trong `watermark-pdf.js`, `textPng` trong `sign-pdf.js`). Chữ chỉ có ký tự ASCII (số trang) thì dùng Helvetica để giữ chữ vector.
-- File mẫu nhiều trang: `samples/so-tay-nhan-vien.pdf` (8 trang, trang 5 bị xoay). Bẫy khi tạo PDF mẫu bằng Chrome: phần tử tràn khổ giấy (kể cả khối đã `transform: rotate`) làm Chrome thu nhỏ cả tài liệu và pdf.js vẽ lệch; dùng `writing-mode` thay cho xoay, tránh `opacity`.
+- Đã xong cả 24 công cụ PDF (3 đợt: tách/xoá/sắp xếp/xoay/PDF sang ảnh; ảnh sang PDF/văn bản/ký/đánh số/watermark; 12 công cụ còn lại).
+- Phần dùng chung để các giai đoạn sau dùng lại:
+  - `assets/pdf.js`: mở PDF (hỏi mật khẩu), `openItem`/`lockButton` cho danh sách file, `embedVnFont` (nhúng font tiếng Việt qua fontkit).
+  - `assets/pdf-pages.js`: bảng trang `pageTool` (chọn, xoay, xoá, đổi chỗ, `decorate` xem trước), `posGrid`, `colorPick`.
+  - `assets/pdf-objects.js`: đi qua nội dung trang, form XObject, pattern, ảnh; giải nén luồng, đọc hệ màu, giải mã ảnh.
+  - Hàm thuần có test: `lib/page-ranges.js`, `lib/pdf-geom.js`, `lib/pdf-text.js`, `lib/pdf-content.js` (viết lại lệnh màu), `lib/pdf-image.js` (giải mã ảnh thô), `lib/scan.js` (tìm góc, nắn phối cảnh, làm trắng nền).
+- Bẫy đã gặp:
+  - Font chuẩn Helvetica của pdf-lib không có dấu tiếng Việt: vẽ chữ lên canvas rồi nhúng PNG, hoặc nhúng font TTF (`embedVnFont`). fontkit 1.1.1 lỗi khi `subset: true` với font Be Vietnam Pro → nhúng nguyên font.
+  - `decodePDFRawStream` của pdf-lib không bỏ Predictor PNG → tự xử lý (`unPredict`).
+  - `setKeywords()` của pdf-lib nối từ khoá bằng dấu cách → ghi thẳng chuỗi.
+  - Bản pdf-lib nén đổi tên lớp: dùng `instanceof L.PDFTextField`, không dùng `constructor.name`.
+  - Nút chọn một (radio) có giá trị có dấu: pdf-lib lưu giá trị trong `/Opt`, tên trạng thái là "0", "1"… → đối chiếu qua widget.
+  - `classList.toggle(tên, undefined)` đảo lớp thay vì tắt → luôn ép kiểu boolean.
+  - PDF do Chrome in hay tách một chữ có dấu thành nhiều mảnh chữ → tìm chữ phải ghép các mảnh của cả trang.
+  - Tạo PDF mẫu bằng Chrome: phần tử tràn khổ giấy làm Chrome thu nhỏ cả tài liệu; dùng `writing-mode` thay cho xoay, tránh `opacity`.
+- File mẫu PDF có form, ảnh, mật khẩu và ảnh chụp giấy tờ sinh bằng `scripts/samples/pdf-lib.html`, `giay-chup.html` (chạy qua `scripts/make-samples.js`).
 
 ## Khi chạy trên cloud
 
@@ -63,11 +72,11 @@ Làm công cụ Tách PDF của BbeTools theo CLAUDE.md
 ## Công cụ
 
 <!-- tools:start -->
-23/142 công cụ đã xong (⏳ = chưa làm, đang ẩn khỏi trang web).
+35/142 công cụ đã xong (⏳ = chưa làm, đang ẩn khỏi trang web).
 
 | Nhóm | Xong | Công cụ |
 |---|---|---|
-| PDF | 12/24 | [Ghép PDF](https://springbbe.github.io/bbetools/ghep-pdf/) · [Tách PDF](https://springbbe.github.io/bbetools/tach-pdf/) · [Xoá trang PDF](https://springbbe.github.io/bbetools/xoa-trang-pdf/) · [Sắp xếp trang PDF](https://springbbe.github.io/bbetools/sap-xep-trang-pdf/) · [Xoay PDF](https://springbbe.github.io/bbetools/xoay-pdf/) · [Nén PDF](https://springbbe.github.io/bbetools/nen-pdf/) · [PDF sang ảnh](https://springbbe.github.io/bbetools/pdf-sang-anh/) · [Ảnh sang PDF](https://springbbe.github.io/bbetools/anh-sang-pdf/) · [PDF sang văn bản](https://springbbe.github.io/bbetools/pdf-sang-van-ban/) · [Ký PDF](https://springbbe.github.io/bbetools/ky-pdf/) · [Đánh số trang PDF](https://springbbe.github.io/bbetools/danh-so-trang-pdf/) · [Chèn watermark PDF](https://springbbe.github.io/bbetools/watermark-pdf/) · Đặt mật khẩu PDF ⏳ · Mở khoá PDF ⏳ · Trích xuất trang PDF ⏳ · Trích ảnh trong PDF ⏳ · Cắt lề PDF ⏳ · Chèn trang trắng ⏳ · PDF đen trắng ⏳ · Sửa thông tin PDF ⏳ · Điền form PDF ⏳ · Làm phẳng form PDF ⏳ · Xem PDF ⏳ · Scan tài liệu bằng camera ⏳ |
+| PDF | 24/24 | [Ghép PDF](https://springbbe.github.io/bbetools/ghep-pdf/) · [Tách PDF](https://springbbe.github.io/bbetools/tach-pdf/) · [Xoá trang PDF](https://springbbe.github.io/bbetools/xoa-trang-pdf/) · [Sắp xếp trang PDF](https://springbbe.github.io/bbetools/sap-xep-trang-pdf/) · [Xoay PDF](https://springbbe.github.io/bbetools/xoay-pdf/) · [Nén PDF](https://springbbe.github.io/bbetools/nen-pdf/) · [PDF sang ảnh](https://springbbe.github.io/bbetools/pdf-sang-anh/) · [Ảnh sang PDF](https://springbbe.github.io/bbetools/anh-sang-pdf/) · [PDF sang văn bản](https://springbbe.github.io/bbetools/pdf-sang-van-ban/) · [Ký PDF](https://springbbe.github.io/bbetools/ky-pdf/) · [Đánh số trang PDF](https://springbbe.github.io/bbetools/danh-so-trang-pdf/) · [Chèn watermark PDF](https://springbbe.github.io/bbetools/watermark-pdf/) · [Đặt mật khẩu PDF](https://springbbe.github.io/bbetools/dat-mat-khau-pdf/) · [Mở khoá PDF](https://springbbe.github.io/bbetools/mo-khoa-pdf/) · [Trích xuất trang PDF](https://springbbe.github.io/bbetools/trich-xuat-trang-pdf/) · [Trích ảnh trong PDF](https://springbbe.github.io/bbetools/trich-anh-pdf/) · [Cắt lề PDF](https://springbbe.github.io/bbetools/cat-le-pdf/) · [Chèn trang trắng](https://springbbe.github.io/bbetools/chen-trang-trang-pdf/) · [PDF đen trắng](https://springbbe.github.io/bbetools/pdf-den-trang/) · [Sửa thông tin PDF](https://springbbe.github.io/bbetools/sua-thong-tin-pdf/) · [Điền form PDF](https://springbbe.github.io/bbetools/dien-form-pdf/) · [Làm phẳng form PDF](https://springbbe.github.io/bbetools/lam-phang-form-pdf/) · [Xem PDF](https://springbbe.github.io/bbetools/xem-pdf/) · [Scan tài liệu bằng camera](https://springbbe.github.io/bbetools/scan-tai-lieu/) |
 | Ảnh | 3/21 | [Nén ảnh](https://springbbe.github.io/bbetools/nen-anh/) · Đổi kích thước ảnh ⏳ · Cắt ảnh ⏳ · Xoay, lật ảnh ⏳ · Đổi định dạng ảnh ⏳ · [HEIC sang JPG](https://springbbe.github.io/bbetools/heic-sang-jpg/) · [Làm ảnh thẻ](https://springbbe.github.io/bbetools/anh-the/) · Xoá phông ảnh ⏳ · Che, làm mờ vùng nhạy cảm ⏳ · Xoá thông tin EXIF/GPS ⏳ · Chèn watermark ảnh ⏳ · Chèn chữ lên ảnh ⏳ · Ghép ảnh ⏳ · Chia ảnh thành lưới ⏳ · Tạo favicon ⏳ · SVG sang PNG ⏳ · Ảnh sang Base64 ⏳ · Lấy màu từ ảnh ⏳ · Tạo GIF từ ảnh ⏳ · Ảnh sang chữ (OCR) ⏳ · Tách chữ ký, con dấu ⏳ |
 | Âm thanh & video | 0/11 | Ghi âm ⏳ · Quay màn hình ⏳ · Cắt âm thanh ⏳ · Ghép âm thanh ⏳ · Đổi định dạng âm thanh ⏳ · Video sang MP3 ⏳ · Video sang GIF ⏳ · Cắt video ⏳ · Nén video ⏳ · Chụp khung hình từ video ⏳ · Đọc văn bản thành giọng nói ⏳ |
 | Văn bản | 1/12 | [Đếm từ & ký tự](https://springbbe.github.io/bbetools/dem-tu/) · Đổi chữ hoa/thường ⏳ · Bỏ dấu tiếng Việt ⏳ · Tạo slug ⏳ · So sánh văn bản ⏳ · Lọc dòng trùng & sắp xếp dòng ⏳ · Tìm và thay thế ⏳ · Chuyển mã Unicode ↔ TCVN3 ↔ VNI ⏳ · Sửa chữ gõ sai bộ gõ ⏳ · Chữ kiểu nghệ thuật ⏳ · Markdown sang HTML ⏳ · Lorem ipsum tiếng Việt ⏳ |
