@@ -10,7 +10,7 @@ Hai bảng dưới đây do `scripts/build.js` sinh từ `tools.json` (trường
 | Giai đoạn | Nhóm | Công cụ xong | Trạng thái | Câu lệnh gợi ý cho AI |
 |---|---|---|---|---|
 | 1 | Lõi, registry, trang tự sinh + 13 công cụ tiêu biểu | 13 | ✅ Xong | |
-| 2 | PDF | 2/24 | ⏳ Còn 22 công cụ | `Làm giai đoạn 2 của BbeTools theo CLAUDE.md` |
+| 2 | PDF | 7/24 | ⏳ Còn 17 công cụ | `Làm giai đoạn 2 của BbeTools theo CLAUDE.md` |
 | 3 | Ảnh | 3/21 | ⏳ Còn 18 công cụ | `Làm giai đoạn 3 của BbeTools theo CLAUDE.md` |
 | 4 | Tiện ích Việt Nam + Tính toán & đời sống | 3/27 | ⏳ Còn 24 công cụ | `Làm giai đoạn 4 của BbeTools theo CLAUDE.md` |
 | 5 | Văn bản + Lập trình | 2/31 | ⏳ Còn 29 công cụ | `Làm giai đoạn 5 của BbeTools theo CLAUDE.md` |
@@ -41,20 +41,30 @@ Làm công cụ Tách PDF của BbeTools theo CLAUDE.md
 4. Nhóm Tiện ích Việt Nam: tra văn bản hiện hành trước khi viết dữ liệu (thuế TNCN thay đổi năm 2026, BHXH, lương tối thiểu vùng, giá điện EVN, sáp nhập còn 34 tỉnh từ 1/7/2025).
 5. Xong: build + check + test, chạy thử từng công cụ trong trình duyệt bằng file mẫu, một commit cho cả giai đoạn (message tiếng Việt), push, rồi báo lại những gì đã làm, đã thử, còn thiếu.
 
+## Ghi chú tiến độ (cập nhật sau mỗi lần làm)
+
+### Giai đoạn 2 – PDF
+
+- Đã xong (ngoài Ghép, Nén PDF ở giai đoạn 1): Tách PDF, Xoá trang PDF, Sắp xếp trang PDF, Xoay PDF, PDF sang ảnh. Người dùng yêu cầu làm từng đợt 5 công cụ rồi dừng; đợt sau tiếp tục với các công cụ ⏳ của nhóm PDF theo thứ tự trong bảng.
+- Phần dùng chung đã có: `assets/pdf-pages.js` (bảng trang, `pageTool`), `assets/lib/page-ranges.js` (khoảng trang). Trích xuất trang, Chèn trang trắng, Đánh số trang, Watermark, Cắt lề, PDF đen trắng nên dựng trên `pageTool` (`decorate`/xem trước có thể thêm vào `card()` khi cần).
+- Mã tham chiếu ở repo PDF-tool: `assets/tools/text.js` (PDF sang văn bản), `img2pdf.js` (Ảnh sang PDF), `sign.js` (Ký PDF), `numbers.js` (Đánh số trang), `watermark.js`, `protect.js`, `unlock.js`. Hàm vẽ chữ tiếng Việt, mẫu PDF… nằm trong `assets/core.js` của repo đó.
+- File mẫu nhiều trang: `samples/so-tay-nhan-vien.pdf` (8 trang, trang 5 bị xoay). Bẫy khi tạo PDF mẫu bằng Chrome: phần tử tràn khổ giấy (kể cả khối đã `transform: rotate`) làm Chrome thu nhỏ cả tài liệu và pdf.js vẽ lệch; dùng `writing-mode` thay cho xoay, tránh `opacity`.
+
 ## Khi chạy trên cloud
 
 - Phiên cloud thường làm trên nhánh riêng rồi mở pull request. GitHub Pages chỉ lấy từ `main`, nên trang web chỉ cập nhật sau khi PR được merge.
 - `scripts/make-samples.js` cần Google Chrome và `sips` (chỉ có trên macOS, để tạo ảnh HEIC). Các file mẫu hiện có đã nằm trong `samples/`; nếu môi trường thiếu công cụ thì tạo file mẫu mới bằng cách khác hoặc ghi rõ phần chưa tạo được.
 - Nếu không có trình duyệt để chạy thử thật, phải nói rõ là chưa thử trên trình duyệt, không báo là đã kiểm tra.
+- Môi trường cloud có Chromium + Playwright (`/opt/pw-browsers/chromium-1194/chrome-linux/chrome`, module ở `/opt/node22/lib/node_modules/playwright`). Thư viện CDN đi qua proxy: truyền `args: ["--proxy-server=" + process.env.HTTPS_PROXY]` khi `chromium.launch` (đừng dùng tuỳ chọn `proxy` của Playwright vì nó ép cả `localhost` qua proxy). Chạy `node scripts/serve.js 8791` rồi mở `http://localhost:8791/bbetools/<slug>/`, bấm "Thử với file mẫu", đọc file kết quả qua `fetch(blob:)` để kiểm tra bằng `pdfinfo`/`pdftotext`.
 
 ## Công cụ
 
 <!-- tools:start -->
-13/142 công cụ đã xong (⏳ = chưa làm, đang ẩn khỏi trang web).
+18/142 công cụ đã xong (⏳ = chưa làm, đang ẩn khỏi trang web).
 
 | Nhóm | Xong | Công cụ |
 |---|---|---|
-| PDF | 2/24 | [Ghép PDF](https://springbbe.github.io/bbetools/ghep-pdf/) · Tách PDF ⏳ · Xoá trang PDF ⏳ · Sắp xếp trang PDF ⏳ · Xoay PDF ⏳ · [Nén PDF](https://springbbe.github.io/bbetools/nen-pdf/) · PDF sang ảnh ⏳ · Ảnh sang PDF ⏳ · PDF sang văn bản ⏳ · Ký PDF ⏳ · Đánh số trang PDF ⏳ · Chèn watermark PDF ⏳ · Đặt mật khẩu PDF ⏳ · Mở khoá PDF ⏳ · Trích xuất trang PDF ⏳ · Trích ảnh trong PDF ⏳ · Cắt lề PDF ⏳ · Chèn trang trắng ⏳ · PDF đen trắng ⏳ · Sửa thông tin PDF ⏳ · Điền form PDF ⏳ · Làm phẳng form PDF ⏳ · Xem PDF ⏳ · Scan tài liệu bằng camera ⏳ |
+| PDF | 7/24 | [Ghép PDF](https://springbbe.github.io/bbetools/ghep-pdf/) · [Tách PDF](https://springbbe.github.io/bbetools/tach-pdf/) · [Xoá trang PDF](https://springbbe.github.io/bbetools/xoa-trang-pdf/) · [Sắp xếp trang PDF](https://springbbe.github.io/bbetools/sap-xep-trang-pdf/) · [Xoay PDF](https://springbbe.github.io/bbetools/xoay-pdf/) · [Nén PDF](https://springbbe.github.io/bbetools/nen-pdf/) · [PDF sang ảnh](https://springbbe.github.io/bbetools/pdf-sang-anh/) · Ảnh sang PDF ⏳ · PDF sang văn bản ⏳ · Ký PDF ⏳ · Đánh số trang PDF ⏳ · Chèn watermark PDF ⏳ · Đặt mật khẩu PDF ⏳ · Mở khoá PDF ⏳ · Trích xuất trang PDF ⏳ · Trích ảnh trong PDF ⏳ · Cắt lề PDF ⏳ · Chèn trang trắng ⏳ · PDF đen trắng ⏳ · Sửa thông tin PDF ⏳ · Điền form PDF ⏳ · Làm phẳng form PDF ⏳ · Xem PDF ⏳ · Scan tài liệu bằng camera ⏳ |
 | Ảnh | 3/21 | [Nén ảnh](https://springbbe.github.io/bbetools/nen-anh/) · Đổi kích thước ảnh ⏳ · Cắt ảnh ⏳ · Xoay, lật ảnh ⏳ · Đổi định dạng ảnh ⏳ · [HEIC sang JPG](https://springbbe.github.io/bbetools/heic-sang-jpg/) · [Làm ảnh thẻ](https://springbbe.github.io/bbetools/anh-the/) · Xoá phông ảnh ⏳ · Che, làm mờ vùng nhạy cảm ⏳ · Xoá thông tin EXIF/GPS ⏳ · Chèn watermark ảnh ⏳ · Chèn chữ lên ảnh ⏳ · Ghép ảnh ⏳ · Chia ảnh thành lưới ⏳ · Tạo favicon ⏳ · SVG sang PNG ⏳ · Ảnh sang Base64 ⏳ · Lấy màu từ ảnh ⏳ · Tạo GIF từ ảnh ⏳ · Ảnh sang chữ (OCR) ⏳ · Tách chữ ký, con dấu ⏳ |
 | Âm thanh & video | 0/11 | Ghi âm ⏳ · Quay màn hình ⏳ · Cắt âm thanh ⏳ · Ghép âm thanh ⏳ · Đổi định dạng âm thanh ⏳ · Video sang MP3 ⏳ · Video sang GIF ⏳ · Cắt video ⏳ · Nén video ⏳ · Chụp khung hình từ video ⏳ · Đọc văn bản thành giọng nói ⏳ |
 | Văn bản | 1/12 | [Đếm từ & ký tự](https://springbbe.github.io/bbetools/dem-tu/) · Đổi chữ hoa/thường ⏳ · Bỏ dấu tiếng Việt ⏳ · Tạo slug ⏳ · So sánh văn bản ⏳ · Lọc dòng trùng & sắp xếp dòng ⏳ · Tìm và thay thế ⏳ · Chuyển mã Unicode ↔ TCVN3 ↔ VNI ⏳ · Sửa chữ gõ sai bộ gõ ⏳ · Chữ kiểu nghệ thuật ⏳ · Markdown sang HTML ⏳ · Lorem ipsum tiếng Việt ⏳ |

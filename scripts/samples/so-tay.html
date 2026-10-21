@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><title>Sổ tay nhân viên</title>
+<!-- File mẫu "so-tay-nhan-vien.pdf": 8 trang A4, số trang to dễ nhận ra; trang 5 là bảng in nằm ngang (bị xoay) để thử công cụ Xoay PDF -->
+<style>
+@page { size: A4; margin: 14mm; }
+body { font-family: "Be Vietnam Pro", "Helvetica Neue", Arial, sans-serif; color: #1f2230; font-size: 11.5pt; line-height: 1.55; margin: 0; }
+.page { height: 265mm; box-sizing: border-box; padding: 4mm 2mm; position: relative; page-break-after: always; }
+.page:last-child { page-break-after: auto; }
+header { border-bottom: 3px solid var(--c); padding-bottom: 8px; margin-bottom: 18px; display: flex; justify-content: space-between; align-items: end; }
+h1 { margin: 0; font-size: 22pt; color: var(--c); }
+h2 { font-size: 14pt; margin: 18px 0 6px; }
+.muted { color: #6b6f80; }
+.big { position: absolute; right: 4mm; bottom: 2mm; font-size: 120pt; font-weight: 800; line-height: 1; color: #CFE6DF; }
+.cover { background: var(--c); color: #fff; display: flex; flex-direction: column; justify-content: center; padding: 0 14mm; }
+.cover h1 { color: #fff; font-size: 40pt; }
+.cover .big { color: #4A9C88; }
+.land { position: absolute; inset: 4mm 2mm; writing-mode: vertical-rl; }
+table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10.5pt; }
+th, td { border-bottom: 1px solid #e1e2ea; padding: 6px 8px; text-align: left; }
+th { background: #f3f3f7; }
+li { margin: 4px 0; }
+</style></head>
+<body style="--c:#0E7C66">
+<script>
+const N = 8;
+const chapters = [
+  ["Chào mừng", "Cảm ơn bạn đã gia nhập Công ty TNHH Mẫu Thử. Sổ tay này giới thiệu giờ làm việc, quy định nghỉ phép, phúc lợi và những điều cần biết trong tuần đầu tiên."],
+  ["Giờ làm việc", "Thứ hai đến thứ sáu, từ 8 giờ 30 đến 17 giờ 30, nghỉ trưa một tiếng. Có thể làm việc từ xa tối đa hai ngày mỗi tuần sau khi trao đổi với quản lý."],
+  ["Nghỉ phép", "Mỗi năm có 12 ngày phép, cộng thêm một ngày cho mỗi năm năm làm việc. Đăng ký nghỉ trên hệ thống nội bộ trước ít nhất ba ngày làm việc."],
+  null,
+  ["Phúc lợi", "Bảo hiểm sức khoẻ, khám sức khoẻ định kỳ hằng năm, du lịch công ty, quà sinh nhật và hỗ trợ học ngoại ngữ."],
+  ["An toàn thông tin", "Không chia sẻ mật khẩu, khoá máy khi rời chỗ ngồi và báo ngay cho bộ phận kỹ thuật khi nhận được email đáng ngờ."],
+  ["Liên hệ", "Phòng Nhân sự: tầng 3, máy lẻ 301. Bộ phận Kỹ thuật: tầng 2, máy lẻ 205. Lễ tân: tầng 1."]
+];
+let html = `<section class="page cover"><h1>Sổ tay nhân viên</h1><p style="font-size:16pt">Công ty TNHH Mẫu Thử · Phiên bản 2026</p><p>Tài liệu mẫu của BbeTools, nội dung giả lập.</p><div class="big">1</div></section>`;
+for (let p = 2; p <= N; p++) {
+  const ch = chapters[p - 2];
+  if (!ch) {
+    const rows = ["Hà Nội", "Đà Nẵng", "Huế", "Cần Thơ", "Hải Phòng", "TP. Hồ Chí Minh"].map((c, i) => `<tr><td>${c}</td><td>${20 + i * 7}</td><td>${3 + i}</td><td>${8 + (i * 5) % 9}</td><td>${(i % 3) + 1}</td><td>Tầng ${i + 2}</td></tr>`).join("");
+    html += `<section class="page"><div class="land"><header><div><h1>Bảng nhân sự theo văn phòng</h1><div class="muted">Trang này in nằm ngang · dùng để thử công cụ Xoay PDF</div></div><div class="muted">Trang ${p}/${N}</div></header>
+      <table><thead><tr><th>Văn phòng</th><th>Nhân viên</th><th>Quản lý</th><th>Thực tập</th><th>Phòng họp</th><th>Vị trí</th></tr></thead><tbody>${rows}</tbody></table><div class="big" style="right:auto;left:0;bottom:0">${p}</div></div></section>`;
+    continue;
+  }
+  html += `<section class="page"><header><div><h1>${ch[0]}</h1><div class="muted">Sổ tay nhân viên · Tài liệu mẫu của BbeTools</div></div><div class="muted">Trang ${p}/${N}</div></header>
+    <p>${ch[1]}</p><h2>Ghi nhớ</h2><ul><li>Hỏi đồng nghiệp hoặc quản lý bất cứ khi nào cần.</li><li>Đọc kỹ quy định trước khi ký xác nhận.</li><li>Tiếng Việt có dấu: Đường Trường Sơn, Hồ Hoàn Kiếm, Phú Quốc, Hạ Long.</li></ul><div class="big">${p}</div></section>`;
+}
+document.body.innerHTML = html;
+</script>
+</body></html>

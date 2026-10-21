@@ -34,10 +34,64 @@
         { "q": "Có giới hạn số file hay dung lượng không?", "a": "Không có giới hạn cố định; giới hạn thực tế là bộ nhớ của máy. Trên điện thoại nên ghép dưới khoảng 200 MB mỗi lần." }
       ]
     },
-    { "id": "split-pdf", "slug": "tach-pdf", "name": "Tách PDF", "group": "pdf", "icon": "scissors", "kind": "file", "desc": "Tách PDF theo khoảng trang, mỗi trang một file hoặc trích các trang bạn chọn.", "keywords": ["chia pdf", "cắt pdf", "tách trang pdf", "split pdf"], "accept": ["pdf"], "output": "pdf", "status": "todo", "popular": true, "related": ["merge-pdf", "extract-pages-pdf", "remove-pages-pdf"] },
-    { "id": "remove-pages-pdf", "slug": "xoa-trang-pdf", "name": "Xoá trang PDF", "group": "pdf", "icon": "file-minus", "kind": "file", "desc": "Bấm chọn những trang không cần rồi xoá khỏi file PDF.", "keywords": ["xóa trang pdf", "bỏ trang pdf", "delete pdf pages", "remove pages"], "accept": ["pdf"], "output": "pdf", "status": "todo", "related": ["split-pdf", "organize-pdf", "extract-pages-pdf"] },
-    { "id": "organize-pdf", "slug": "sap-xep-trang-pdf", "name": "Sắp xếp trang PDF", "group": "pdf", "icon": "layout-grid", "kind": "file", "desc": "Kéo thả đổi thứ tự trang, xoay, xoá, chèn trang trắng hoặc PDF khác.", "keywords": ["đổi thứ tự trang", "sắp xếp pdf", "reorder pdf", "organize pdf"], "accept": ["pdf"], "output": "pdf", "status": "todo", "related": ["merge-pdf", "rotate-pdf", "remove-pages-pdf"] },
-    { "id": "rotate-pdf", "slug": "xoay-pdf", "name": "Xoay PDF", "group": "pdf", "icon": "rotate-cw", "kind": "file", "desc": "Xoay từng trang hoặc cả file PDF cho đúng chiều đọc.", "keywords": ["quay pdf", "xoay trang pdf", "rotate pdf"], "accept": ["pdf"], "output": "pdf", "status": "todo", "related": ["organize-pdf", "merge-pdf"] },
+    {
+      "id": "split-pdf", "slug": "tach-pdf", "name": "Tách PDF", "group": "pdf", "icon": "scissors", "kind": "file",
+      "desc": "Tách PDF theo khoảng trang, mỗi trang một file hoặc trích các trang bạn chọn.",
+      "keywords": ["chia pdf", "cắt pdf", "tách trang pdf", "split pdf"],
+      "accept": ["pdf"], "output": "pdf", "status": "done", "popular": true,
+      "aliases": ["chia-pdf", "cat-pdf", "split-pdf"],
+      "related": ["merge-pdf", "extract-pages-pdf", "remove-pages-pdf"],
+      "howto": ["Chọn, kéo thả hoặc dán (Ctrl/⌘ + V) file PDF cần tách.", "Chọn cách tách: theo khoảng trang (vd. 1-3, 4-8), cứ mỗi N trang một file, hoặc bấm chọn từng trang cần lấy.", "Bấm “Tách PDF” rồi tải từng file hoặc tải tất cả dạng .zip."],
+      "faq": [
+        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Tách mỗi trang thành một file thế nào?", "a": "Chọn “Mỗi N trang” và để N = 1, hoặc chọn “Chọn trang”, bấm chọn các trang rồi bật “Mỗi trang đã chọn thành một file riêng”." },
+        { "q": "Tách có làm giảm chất lượng không?", "a": "Không. Các trang được chép nguyên vẹn sang file mới: chữ vẫn chọn được, ảnh giữ nguyên độ nét." },
+        { "q": "File có mật khẩu thì sao?", "a": "Nhập mật khẩu khi được hỏi; các file tách ra sẽ không còn mật khẩu." }
+      ]
+    },
+    {
+      "id": "remove-pages-pdf", "slug": "xoa-trang-pdf", "name": "Xoá trang PDF", "group": "pdf", "icon": "file-minus", "kind": "file",
+      "desc": "Bấm chọn những trang không cần rồi xoá khỏi file PDF.",
+      "keywords": ["xóa trang pdf", "bỏ trang pdf", "delete pdf pages", "remove pages"],
+      "accept": ["pdf"], "output": "pdf", "status": "done",
+      "aliases": ["bo-trang-pdf", "delete-pdf-pages"],
+      "related": ["split-pdf", "organize-pdf", "extract-pages-pdf"],
+      "howto": ["Chọn hoặc kéo thả file PDF.", "Bấm vào những trang muốn bỏ (giữ Shift để chọn cả dãy) hoặc gõ số trang, ví dụ 2, 5-7.", "Bấm “Xoá trang” rồi tải file mới về."],
+      "faq": [
+        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "File gốc có bị sửa không?", "a": "Không. Công cụ tạo một file PDF mới không còn các trang đã chọn; file gốc trên máy bạn giữ nguyên." },
+        { "q": "Tôi muốn giữ lại vài trang thay vì xoá nhiều trang?", "a": "Dùng công cụ Tách PDF, chế độ “Chọn trang” để lấy đúng các trang cần giữ." }
+      ]
+    },
+    {
+      "id": "organize-pdf", "slug": "sap-xep-trang-pdf", "name": "Sắp xếp trang PDF", "group": "pdf", "icon": "layout-grid", "kind": "file",
+      "desc": "Kéo thả đổi thứ tự trang, xoay, xoá, chèn trang trắng hoặc PDF khác.",
+      "keywords": ["đổi thứ tự trang", "sắp xếp pdf", "reorder pdf", "organize pdf"],
+      "accept": ["pdf"], "multiple": true, "output": "pdf", "status": "done",
+      "aliases": ["doi-thu-tu-trang-pdf", "organize-pdf"],
+      "related": ["merge-pdf", "rotate-pdf", "remove-pages-pdf"],
+      "howto": ["Chọn một hoặc nhiều file PDF; trang của mọi file hiện thành lưới.", "Kéo thả trang (hoặc dùng nút ← →) để đổi thứ tự; xoay ↺ ↻, xoá 🗑 hoặc thêm trang trắng khi cần.", "Bấm “Lưu PDF” để tải file với thứ tự trang mới."],
+      "faq": [
+        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Dùng trên điện thoại kéo thả được không?", "a": "Trên điện thoại hãy dùng nút ← → dưới mỗi trang để đổi chỗ; các nút xoay và xoá luôn hiện sẵn." },
+        { "q": "Chèn trang của file khác vào giữa được không?", "a": "Được. Bấm “Thêm PDF” để đưa thêm file, các trang mới xuất hiện ở cuối, sau đó kéo chúng tới đúng chỗ." },
+        { "q": "Trang trắng dùng để làm gì?", "a": "Thường dùng khi in hai mặt, để chương mới bắt đầu ở trang lẻ, hoặc chừa chỗ ghi chú." }
+      ]
+    },
+    {
+      "id": "rotate-pdf", "slug": "xoay-pdf", "name": "Xoay PDF", "group": "pdf", "icon": "rotate-cw", "kind": "file",
+      "desc": "Xoay từng trang hoặc cả file PDF cho đúng chiều đọc.",
+      "keywords": ["quay pdf", "xoay trang pdf", "rotate pdf"],
+      "accept": ["pdf"], "output": "pdf", "status": "done",
+      "aliases": ["quay-pdf", "rotate-pdf"],
+      "related": ["organize-pdf", "merge-pdf"],
+      "howto": ["Chọn hoặc kéo thả file PDF.", "Bấm vào trang bị ngược để xoay 90° (nút ↺ ↻ để xoay trái/phải), hoặc xoay tất cả trang cùng lúc.", "Bấm “Xoay PDF” rồi tải file đã xoay về."],
+      "faq": [
+        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Xoay có làm mờ chữ hay ảnh không?", "a": "Không. Công cụ chỉ đổi hướng hiển thị của trang trong file, nội dung giữ nguyên chất lượng." },
+        { "q": "Xoay chỉ một vài trang được không?", "a": "Được. Bấm vào đúng trang cần xoay; các trang khác giữ nguyên." }
+      ]
+    },
     {
       "id": "compress-pdf", "slug": "nen-pdf", "name": "Nén PDF", "group": "pdf", "icon": "shrink", "kind": "file",
       "desc": "Giảm dung lượng PDF để gửi email, Zalo mà chữ vẫn sắc nét, chọn được chữ.",
@@ -52,7 +106,21 @@
         { "q": "File có bị gửi lên máy chủ để nén không?", "a": "Không. Mọi bước xử lý chạy trên trình duyệt của bạn." }
       ]
     },
-    { "id": "pdf-to-image", "slug": "pdf-sang-anh", "name": "PDF sang ảnh", "group": "pdf", "icon": "file-image", "kind": "file", "desc": "Chuyển từng trang PDF thành ảnh JPG hoặc PNG chất lượng cao.", "keywords": ["pdf to jpg", "pdf to png", "chuyển pdf thành ảnh", "pdf sang jpg"], "accept": ["pdf"], "output": "image", "status": "todo", "popular": true, "related": ["image-to-pdf", "extract-images-pdf", "compress-image"] },
+    {
+      "id": "pdf-to-image", "slug": "pdf-sang-anh", "name": "PDF sang ảnh", "group": "pdf", "icon": "file-image", "kind": "file",
+      "desc": "Chuyển từng trang PDF thành ảnh JPG hoặc PNG chất lượng cao.",
+      "keywords": ["pdf to jpg", "pdf to png", "chuyển pdf thành ảnh", "pdf sang jpg"],
+      "accept": ["pdf"], "output": "image", "status": "done", "popular": true,
+      "aliases": ["pdf-sang-jpg", "pdf-sang-png", "pdf-to-jpg"],
+      "related": ["image-to-pdf", "extract-images-pdf", "compress-image"],
+      "howto": ["Chọn hoặc kéo thả file PDF.", "Chọn định dạng JPG hoặc PNG và độ nét (DPI); bỏ chọn những trang không cần.", "Bấm “Chuyển sang ảnh” rồi tải từng ảnh hoặc tất cả dạng .zip."],
+      "faq": [
+        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Nên chọn JPG hay PNG?", "a": "JPG nhẹ, hợp để gửi Zalo, email. PNG nét nhất cho trang nhiều chữ nhỏ hoặc bảng biểu, nhưng file nặng hơn." },
+        { "q": "DPI là gì, chọn bao nhiêu?", "a": "DPI là số điểm ảnh trên mỗi inch giấy. 150 DPI đủ xem trên máy; 300 DPI để in. DPI càng cao ảnh càng nét và càng nặng." },
+        { "q": "Chuyển cả trăm trang được không?", "a": "Được, các trang được chuyển lần lượt. Trên điện thoại nên chọn DPI thấp hơn để chạy nhanh và đỡ tốn bộ nhớ." }
+      ]
+    },
     { "id": "image-to-pdf", "slug": "anh-sang-pdf", "name": "Ảnh sang PDF", "group": "pdf", "icon": "images", "kind": "file", "desc": "Ghép ảnh JPG, PNG, ảnh chụp màn hình thành một file PDF.", "keywords": ["jpg to pdf", "png to pdf", "chuyển ảnh sang pdf", "ảnh thành pdf", "scan ảnh"], "accept": ["image", "heic"], "multiple": true, "output": "pdf", "status": "todo", "popular": true, "related": ["pdf-to-image", "merge-pdf", "compress-image"] },
     { "id": "pdf-to-text", "slug": "pdf-sang-van-ban", "name": "PDF sang văn bản", "group": "pdf", "icon": "file-text", "kind": "file", "desc": "Lấy toàn bộ chữ trong PDF để sao chép hoặc lưu file .txt.", "keywords": ["lấy chữ pdf", "trích xuất text", "pdf to txt", "copy chữ pdf", "pdf to text"], "accept": ["pdf"], "output": "text", "status": "todo", "related": ["ocr", "pdf-to-image"] },
     { "id": "sign-pdf", "slug": "ky-pdf", "name": "Ký PDF", "group": "pdf", "icon": "signature", "kind": "file", "desc": "Vẽ, gõ hoặc dán chữ ký; thêm chữ và ngày tháng vào trang PDF.", "keywords": ["chữ ký pdf", "ký tên pdf", "sign pdf", "signature", "điền chữ vào pdf"], "accept": ["pdf"], "output": "pdf", "status": "todo", "popular": true, "related": ["fill-form-pdf", "signature-extract", "watermark-pdf"] },

@@ -6,6 +6,7 @@ Dùng cho nút "Thử với file mẫu" trên các trang công cụ. Trừ ảnh
 |---|---|---|
 | `bao-cao-quy-1.pdf`, `bao-cao-quy-2.pdf` | báo cáo giả, chữ vector tiếng Việt | Ghép PDF |
 | `tai-lieu-scan.pdf` | 2 trang "scan" (ảnh JPEG lớn) | Nén PDF |
+| `so-tay-nhan-vien.pdf` | 8 trang có số trang to; trang 5 là bảng in nằm ngang (bị xoay) | Tách, xoá, sắp xếp, xoay trang PDF, PDF sang ảnh |
 | `anh-phong-canh.jpg` | phong cảnh vẽ bằng thuật toán, 2400×1600 | Nén ảnh |
 | `anh-chup-man-hinh.png` | ảnh chụp màn hình trang chủ BbeTools | Nén ảnh |
 | `anh-iphone.heic` | ảnh HEIC tạo bằng `sips` | HEIC sang JPG |
