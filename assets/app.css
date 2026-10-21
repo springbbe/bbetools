@@ -726,3 +726,22 @@ div.ts-row.hl:not(.ts-list *) { border-radius: 12px; }
 .hs-code.warn { background: var(--warn-soft); color: var(--warn); } .hs-code.err { background: var(--err-soft); color: var(--err); }
 .hs-card p { margin: 10px 0 0; font-size: 14.5px; }
 .hs-tip { color: var(--muted); }
+
+/* ---- Bảo mật: mật khẩu, độ mạnh ---- */
+.pw-box { display: flex; flex-direction: column; gap: 12px; padding: 16px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface-2); }
+.pw-out { display: block; font-family: var(--mono); font-size: clamp(18px, 5vw, 26px); font-weight: 600; line-height: 1.35; overflow-wrap: anywhere; user-select: all; }
+.pw-hint b { font-weight: 600; color: var(--ink); }
+.pw-list { list-style: none; margin: 0; padding: 0; border: 1px solid var(--line); border-radius: 12px; }
+.pw-list li { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 2px 8px; padding: 6px 6px 6px 12px; border-top: 1px solid var(--line); }
+.pw-list li:first-child { border-top: 0; }
+.pw-list code { font-family: var(--mono); font-size: 15px; overflow-wrap: anywhere; }
+.pw-list small { grid-column: 1; }
+.pw-list .ib { grid-row: 1 / span 2; grid-column: 2; }
+.pw-range { display: flex; align-items: center; gap: 6px; }
+.pw-range input[type=range] { flex: 1; min-width: 0; accent-color: var(--brand); }
+.pw-len { min-width: 2.4em; text-align: center; font-weight: 700; font-variant-numeric: tabular-nums; }
+.pw-meter { display: flex; align-items: center; gap: 12px; margin: 14px 0 4px; }
+.pw-bars { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; flex: 1; max-width: 320px; }
+.pw-bars span { height: 8px; border-radius: 4px; background: var(--line-2); }
+.pw-bars span.on { background: var(--c); }
+.pw-meter b { color: var(--c); min-width: 6em; }

@@ -107,7 +107,12 @@ const LIBS = {
   uaParser: { script: JSD + "ua-parser-js@1.0.41/dist/ua-parser.min.js", global: "UAParser" },
   // SheetJS 0.20.3 (bản chính thức chỉ có trên cdn.sheetjs.com; gói @e965/xlsx trên npm giống hệt từng byte), bản full có bảng mã cho .xls cũ
   xlsx: { script: JSD + "@e965/xlsx@0.20.3/dist/xlsx.full.min.js", global: "XLSX" },
-  upng: { script: JSD + "upng-js@2.1.0/UPNG.js", global: "UPNG", deps: ["pako"] }
+  upng: { script: JSD + "upng-js@2.1.0/UPNG.js", global: "UPNG", deps: ["pako"] },
+  hashwasm: { esm: JSD + "hash-wasm@4.12.0/dist/index.esm.min.js" }, // MD5/SHA/CRC32 theo luồng (file lớn không cần đọc hết vào bộ nhớ)
+  // ước lượng độ mạnh mật khẩu; jsDelivr đóng gói sẵn phụ thuộc (+esm)
+  zxcvbn: { esm: JSD + "@zxcvbn-ts/core@4.2.0/+esm" },
+  zxcvbnCommon: { esm: JSD + "@zxcvbn-ts/language-common@4.1.3/+esm" },
+  zxcvbnEn: { esm: JSD + "@zxcvbn-ts/language-en@4.1.1/+esm" }
 };
 const libCache = {};
 export function lib(name) {

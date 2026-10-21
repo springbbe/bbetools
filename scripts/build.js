@@ -254,7 +254,7 @@ ${tile(t, root, "lg")}
 <div class="tool-title"><h1>${esc(t.name)}${t.status === "beta" ? ' <span class="badge">Thử nghiệm</span>' : ""}</h1><p class="lead">${esc(t.desc)}</p></div>
 <button class="fav-btn" type="button" data-fav="${t.id}" aria-pressed="false" hidden>${icon("star", root)}<span>Ghim</span></button>
 </header>
-<p class="privacy">${icon("shield-check", root)}<span>${PRIVACY[t.kind]}</span></p>
+<p class="privacy">${icon("shield-check", root)}<span>${esc(t.privacy || PRIVACY[t.kind])}</span></p>
 <div id="app" class="app app-${t.kind}" data-kind="${t.kind}">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>

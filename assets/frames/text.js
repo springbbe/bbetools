@@ -2,7 +2,7 @@
 
    textTool({
      inputLabel, outputLabel, placeholder, sample: "văn bản mẫu", mono: false,
-     options: [{ id, type: "select"|"check"|"text", label, choices: [[value, label]], value,
+     options: [{ id, type: "select"|"check"|"text"|"password", label, choices: [[value, label]], value,
                  placeholder, wide, mono, persist: true (false: không lưu vào localStorage), show: (opts) => bool }],
      transform: (text, opts) => string | { text, error, html, node, info } | Promise<…>,   // info: dòng ghi chú trên ô kết quả
      output: "text" | "custom",            // custom: render(outEl, result) tự vẽ (vd. bảng thống kê)
@@ -33,9 +33,9 @@ export function textTool(cfg) {
       let el;
       if (o.type === "check") {
         el = h("label", { class: "switch" }, h("input", { type: "checkbox", checked: !!opts[o.id], onchange: (e) => { opts[o.id] = e.target.checked; changed(); } }), h("span", { text: o.label }));
-      } else if (o.type === "text") {
+      } else if (o.type === "text" || o.type === "password") {
         const id = "tx-o-" + o.id;
-        const inp = h("input", { id, type: "text", value: opts[o.id], placeholder: o.placeholder || "", class: o.mono ? "mono" : null, autocomplete: "off", autocapitalize: "off", spellcheck: "false", oninput: (e) => { opts[o.id] = e.target.value; changed(); } });
+        const inp = h("input", { id, type: o.type, value: opts[o.id], placeholder: o.placeholder || "", class: o.mono ? "mono" : null, autocomplete: o.type === "password" ? "new-password" : "off", autocapitalize: "off", spellcheck: "false", oninput: (e) => { opts[o.id] = e.target.value; changed(); } });
         el = h("label", { class: "field tx-text" + (o.wide ? " wide" : ""), for: id }, h("span", { text: o.label }), inp);
       } else {
         const sel = h("select", { "aria-label": o.label, onchange: (e) => { opts[o.id] = e.target.value; changed(); } }, o.choices.map(([v, l]) => h("option", { value: v, selected: String(v) === String(opts[o.id]), text: l })));

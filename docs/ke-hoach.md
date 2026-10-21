@@ -15,7 +15,7 @@ Hai bảng dưới đây do `scripts/build.js` sinh từ `tools.json` (trường
 | 4 | Tiện ích Việt Nam + Tính toán & đời sống | 27/27 | ✅ Xong |  |
 | 5 | Văn bản + Lập trình | 31/31 | ✅ Xong |  |
 | 6 | QR & mã vạch + Văn phòng & dữ liệu | 11/11 | ✅ Xong |  |
-| 7 | Bảo mật + Năng suất & ngẫu nhiên | 1/17 | ⏳ Còn 16 công cụ | `Làm giai đoạn 7 của BbeTools theo CLAUDE.md` |
+| 7 | Bảo mật + Năng suất & ngẫu nhiên | 17/17 | ✅ Xong |  |
 | 8 | Âm thanh & video | 0/11 | ⏳ Còn 11 công cụ | `Làm giai đoạn 8 của BbeTools theo CLAUDE.md` |
 <!-- roadmap:end -->
 
@@ -42,6 +42,21 @@ Làm công cụ Tách PDF của BbeTools theo CLAUDE.md
 5. Xong: build + check + test, chạy thử từng công cụ trong trình duyệt bằng file mẫu, một commit cho cả giai đoạn (message tiếng Việt), push, rồi báo lại những gì đã làm, đã thử, còn thiếu.
 
 ## Ghi chú tiến độ (cập nhật sau mỗi lần làm)
+
+### Giai đoạn 7 – Bảo mật + Năng suất & ngẫu nhiên (xong)
+
+- Đã xong cả 16 công cụ còn lại (6 Bảo mật, 10 Năng suất). Không bỏ công cụ nào. "Kiểm tra độ mạnh mật khẩu" đổi `kind` sang `form` (ô mật khẩu không nên nằm trong khung văn bản có "Nhớ văn bản" và `?text=`).
+- `tools.json` có thêm trường tuỳ chọn `privacy` (câu "riêng tư" dưới tiêu đề trang) khi câu mặc định theo `kind` không đúng (vd. hẹn giờ không dùng "hình ảnh, âm thanh"). Khung văn bản có thêm tuỳ chọn kiểu `password`.
+- Thư viện mới: `hash-wasm@4.12.0` (checksum theo luồng), `@zxcvbn-ts/*` 4.x qua `/+esm` (độ mạnh mật khẩu, khoảng 1 MB từ điển, chỉ tải trên trang đó). Mã hoá dùng Web Crypto, không cần thư viện; định dạng .bbe ghi ở `docs/phat-trien.md`.
+- Hàm thuần có test (`tests/bao-mat.test.js`, `tests/nang-suat.test.js`): `ngau-nhien.js` (số nguyên đều không lệch modulo tới 2^53, Fisher–Yates, chọn không trùng kiểu Floyd, trọng số, chia đội đều có trưởng nhóm), `mat-khau.js` + `tu-mat-khau.js` (705 từ tiếng Việt cho cụm từ dễ nhớ), `ma-hoa.js`, `totp.js` (đúng vectơ RFC 6238 với SHA-1/256/512), `checksum.js`, `bam-gio.js`, `mui-gio.js` (giờ mùa hè, giờ "không tồn tại" lúc đổi giờ), `checklist.js`.
+- File mẫu mới: `bao-cao-mat-khau-1234.pdf.bbe`, `bao-cao-quy-1.pdf.sha256` (sinh bằng `node scripts/samples/bao-mat.js`, cũng được gọi từ `make-samples.js`).
+- Bẫy đã gặp:
+  - Khung Browser của Claude Code bị ẩn → `setTimeout` giãn ra khoảng 1 giây/lần: hiệu ứng (quay số, vòng quay) chạy rất chậm và trông như lỗi. Kiểm tra kết quả sau khi hiệu ứng xong, đừng đọc giữa chừng.
+  - `await audioContext.resume()` treo mãi khi không có thao tác thật của người dùng (gọi từ script) → không `await`.
+  - Chrome headless trên macOS treo khi mở micro giả (`--use-fake-device-for-media-stream`); camera giả thì chạy. Kiểm tra phần micro bằng cách thay `getUserMedia` bằng luồng từ `OscillatorNode` + `MediaStreamDestination`.
+  - Chữ trên nửa trái vòng quay bị lộn ngược nếu chỉ xoay theo góc: xoay thêm 180° và căn lề ngược lại.
+  - `\b` trong regex JS chỉ hiểu chữ ASCII: "giờ\b" không khớp → dùng lookahead `(?=[\s\d,]|$)`.
+- Đã thử trên trình duyệt (Chrome trong Claude Code): cả 16 công cụ (mật khẩu 3 kiểu + nhiều mật khẩu; kiểm tra "anhyeuem123", "qwerty", tên + năm sinh, có dấu; giải mã file mẫu đúng từng byte, mã hoá 2 file gộp zip, sai mật khẩu; văn bản mã hoá ↔ giải mã, link giải mã `#m=`; checksum file mẫu đối chiếu .sha256, đủ 5 thuật toán khớp `md5`/`shasum`/zlib, file 300 MB khớp Node; TOTP khớp lib, đọc QR otpauth có dấu, 8 số; bấm giờ, hẹn giờ hết giờ có chuông; vòng quay, chia đội 4 kiểu, xu/xúc xắc, quay số không trùng tới khi hết; ghi chú, checklist nhiều danh sách; đồng hồ thế giới + đổi giờ; bàn phím, chuột, loa, màn hình). Camera thử bằng Chrome headless với camera giả (1920×1080, chụp, tắt khi chuyển phần). **Micro thật chưa thử được** (khung Browser chặn quyền; headless treo) — mới thử bằng luồng âm thanh giả. Khổ 375 px không tràn ngang, sáng và tối, console không lỗi. Chưa thử trên Safari/iPhone thật.
 
 ### Giai đoạn 6 – QR & mã vạch + Văn phòng & dữ liệu (xong)
 
@@ -143,7 +158,7 @@ Làm công cụ Tách PDF của BbeTools theo CLAUDE.md
 ## Công cụ
 
 <!-- tools:start -->
-115/142 công cụ đã xong (⏳ = chưa làm, đang ẩn khỏi trang web).
+131/142 công cụ đã xong (⏳ = chưa làm, đang ẩn khỏi trang web).
 
 | Nhóm | Xong | Công cụ |
 |---|---|---|
@@ -156,6 +171,6 @@ Làm công cụ Tách PDF của BbeTools theo CLAUDE.md
 | QR & mã vạch | 3/3 | [Tạo mã QR](https://springbbe.github.io/bbetools/tao-ma-qr/) · [Quét mã QR](https://springbbe.github.io/bbetools/quet-ma-qr/) · [Tạo mã vạch](https://springbbe.github.io/bbetools/tao-ma-vach/) |
 | Văn phòng & dữ liệu | 8/8 | [Xem file Excel/CSV](https://springbbe.github.io/bbetools/xem-file-excel/) · [Excel ↔ CSV](https://springbbe.github.io/bbetools/excel-sang-csv/) · [Gộp nhiều file Excel](https://springbbe.github.io/bbetools/gop-file-excel/) · [Tách Excel theo cột](https://springbbe.github.io/bbetools/tach-excel-theo-cot/) · [JSON ↔ Excel](https://springbbe.github.io/bbetools/json-sang-excel/) · [Trộn thư](https://springbbe.github.io/bbetools/tron-thu/) · [Tạo chữ ký email](https://springbbe.github.io/bbetools/tao-chu-ky-email/) · [Tạo hoá đơn, báo giá](https://springbbe.github.io/bbetools/tao-hoa-don-bao-gia/) |
 | Lập trình | 19/19 | [Định dạng & kiểm tra JSON](https://springbbe.github.io/bbetools/dinh-dang-json/) · [JSON ↔ CSV/YAML](https://springbbe.github.io/bbetools/json-sang-csv-yaml/) · [Mã hoá/giải mã Base64](https://springbbe.github.io/bbetools/ma-hoa-base64/) · [Mã hoá URL](https://springbbe.github.io/bbetools/ma-hoa-url/) · [Mã hoá HTML entity](https://springbbe.github.io/bbetools/html-entity/) · [Giải mã JWT](https://springbbe.github.io/bbetools/giai-ma-jwt/) · [Tạo UUID](https://springbbe.github.io/bbetools/tao-uuid/) · [Hash MD5/SHA](https://springbbe.github.io/bbetools/tao-ma-hash/) · [Kiểm tra regex](https://springbbe.github.io/bbetools/kiem-tra-regex/) · [Đổi timestamp](https://springbbe.github.io/bbetools/doi-timestamp/) · [Giải thích cron](https://springbbe.github.io/bbetools/giai-thich-cron/) · [Đổi mã màu](https://springbbe.github.io/bbetools/doi-ma-mau/) · [Tạo CSS gradient, box-shadow](https://springbbe.github.io/bbetools/tao-css-gradient-shadow/) · [Định dạng SQL](https://springbbe.github.io/bbetools/dinh-dang-sql/) · [Nén JS/CSS/HTML](https://springbbe.github.io/bbetools/nen-js-css-html/) · [Đổi cơ số](https://springbbe.github.io/bbetools/doi-co-so/) · [Tính chmod](https://springbbe.github.io/bbetools/tinh-chmod/) · [Phân tích User-Agent](https://springbbe.github.io/bbetools/phan-tich-user-agent/) · [Tra mã trạng thái HTTP](https://springbbe.github.io/bbetools/ma-trang-thai-http/) |
-| Bảo mật | 0/6 | Tạo mật khẩu mạnh ⏳ · Kiểm tra độ mạnh mật khẩu ⏳ · Mã hoá/giải mã file ⏳ · Mã hoá văn bản ⏳ · Tính checksum file ⏳ · Tạo mã 2FA (TOTP) ⏳ |
-| Năng suất & ngẫu nhiên | 1/11 | [Pomodoro](https://springbbe.github.io/bbetools/pomodoro/) · Bấm giờ ⏳ · Hẹn giờ đếm ngược ⏳ · Vòng quay may mắn ⏳ · Bốc thăm, chia đội ⏳ · Tung xu & xúc xắc ⏳ · Số ngẫu nhiên ⏳ · Ghi chú nhanh ⏳ · Checklist ⏳ · Đồng hồ thế giới ⏳ · Kiểm tra camera, micro, bàn phím, màn hình ⏳ |
+| Bảo mật | 6/6 | [Tạo mật khẩu mạnh](https://springbbe.github.io/bbetools/tao-mat-khau/) · [Kiểm tra độ mạnh mật khẩu](https://springbbe.github.io/bbetools/kiem-tra-mat-khau/) · [Mã hoá/giải mã file](https://springbbe.github.io/bbetools/ma-hoa-file/) · [Mã hoá văn bản](https://springbbe.github.io/bbetools/ma-hoa-van-ban/) · [Tính checksum file](https://springbbe.github.io/bbetools/tinh-checksum-file/) · [Tạo mã 2FA (TOTP)](https://springbbe.github.io/bbetools/tao-ma-2fa/) |
+| Năng suất & ngẫu nhiên | 11/11 | [Pomodoro](https://springbbe.github.io/bbetools/pomodoro/) · [Bấm giờ](https://springbbe.github.io/bbetools/bam-gio/) · [Hẹn giờ đếm ngược](https://springbbe.github.io/bbetools/hen-gio/) · [Vòng quay may mắn](https://springbbe.github.io/bbetools/vong-quay-may-man/) · [Bốc thăm, chia đội](https://springbbe.github.io/bbetools/boc-tham-chia-doi/) · [Tung xu & xúc xắc](https://springbbe.github.io/bbetools/tung-xu-xuc-xac/) · [Số ngẫu nhiên](https://springbbe.github.io/bbetools/so-ngau-nhien/) · [Ghi chú nhanh](https://springbbe.github.io/bbetools/ghi-chu-nhanh/) · [Checklist](https://springbbe.github.io/bbetools/checklist/) · [Đồng hồ thế giới](https://springbbe.github.io/bbetools/dong-ho-the-gioi/) · [Kiểm tra camera, micro, bàn phím, màn hình](https://springbbe.github.io/bbetools/kiem-tra-thiet-bi/) |
 <!-- tools:end -->

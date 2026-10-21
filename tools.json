@@ -1604,12 +1604,97 @@
       ]
     },
 
-    { "id": "password-generator", "slug": "tao-mat-khau", "name": "Tạo mật khẩu mạnh", "group": "security", "icon": "key", "kind": "form", "desc": "Sinh mật khẩu ngẫu nhiên an toàn hoặc cụm từ dễ nhớ, dùng bộ sinh số của trình duyệt.", "keywords": ["random password", "sinh mật khẩu", "password generator", "mật khẩu ngẫu nhiên"], "status": "todo", "popular": true, "related": ["password-strength", "totp"] },
-    { "id": "password-strength", "slug": "kiem-tra-mat-khau", "name": "Kiểm tra độ mạnh mật khẩu", "group": "security", "icon": "shield-check", "kind": "text", "desc": "Ước tính thời gian bẻ khoá và gợi ý cải thiện mật khẩu.", "keywords": ["mật khẩu yếu", "password strength", "kiểm tra mật khẩu"], "status": "todo", "related": ["password-generator"] },
-    { "id": "file-encrypt", "slug": "ma-hoa-file", "name": "Mã hoá/giải mã file", "group": "security", "icon": "file-lock", "kind": "file", "desc": "Khoá file bất kỳ bằng mật khẩu (AES-GCM 256, WebCrypto) và mở lại khi cần.", "keywords": ["encrypt file", "khoá file", "aes", "bảo vệ file"], "accept": ["any"], "multiple": true, "output": "any", "status": "todo", "related": ["text-encrypt", "protect-pdf", "checksum"] },
-    { "id": "text-encrypt", "slug": "ma-hoa-van-ban", "name": "Mã hoá văn bản", "group": "security", "icon": "lock-keyhole", "kind": "text", "desc": "Mã hoá tin nhắn bằng mật khẩu (AES-GCM) để gửi qua kênh không an toàn.", "keywords": ["encrypt text", "tin nhắn bí mật", "mã hoá tin nhắn"], "status": "todo", "related": ["file-encrypt", "password-generator"] },
-    { "id": "checksum", "slug": "tinh-checksum-file", "name": "Tính checksum file", "group": "security", "icon": "file-check", "kind": "file", "desc": "Tính SHA-256, SHA-1, MD5 của file để kiểm tra file tải về có nguyên vẹn.", "keywords": ["md5 file", "sha256sum", "kiểm tra file", "checksum"], "accept": ["any"], "multiple": true, "status": "todo", "related": ["hash", "file-encrypt"] },
-    { "id": "totp", "slug": "tao-ma-2fa", "name": "Tạo mã 2FA (TOTP)", "group": "security", "icon": "key-square", "kind": "form", "desc": "Tạo mã xác thực 6 số từ khoá bí mật 2FA, như Google Authenticator.", "keywords": ["google authenticator", "otp", "xác thực 2 bước", "2fa", "totp"], "status": "todo", "related": ["password-generator", "qr-scanner"] },
+    {
+      "id": "password-generator", "slug": "tao-mat-khau", "name": "Tạo mật khẩu mạnh", "group": "security", "icon": "key", "kind": "form",
+      "desc": "Sinh mật khẩu ngẫu nhiên an toàn, cụm từ tiếng Việt dễ nhớ hoặc mã PIN, dùng bộ sinh số ngẫu nhiên của trình duyệt.",
+      "keywords": ["random password", "sinh mật khẩu", "password generator", "mật khẩu ngẫu nhiên"],
+      "status": "done", "popular": true,
+      "privacy": "Mật khẩu được tạo ngay trên trình duyệt bằng bộ sinh số ngẫu nhiên an toàn, không lưu, không gửi đi đâu.",
+      "aliases": ["tao-mat-khau-manh", "sinh-mat-khau"],
+      "related": ["password-strength", "totp"],
+      "howto": ["Chọn kiểu: ngẫu nhiên, cụm từ dễ nhớ hoặc mã PIN.", "Kéo thanh độ dài, chọn loại ký tự; mật khẩu mới hiện ngay.", "Bấm Sao chép rồi dán vào trang đăng ký hoặc trình quản lý mật khẩu."],
+      "faq": [
+        { "q": "Mật khẩu có bị lưu lại hay gửi đi không?", "a": "Không. Mật khẩu được tạo bằng crypto.getRandomValues (bộ sinh số dùng cho mật mã) ngay trên máy bạn; BbeTools không lưu và không gửi mật khẩu đi đâu." },
+        { "q": "Nên dùng mật khẩu dài bao nhiêu?", "a": "Tối thiểu 12 ký tự ngẫu nhiên, nên dùng từ 16 trở lên; cụm từ dễ nhớ nên có 5–6 từ. Mỗi tài khoản dùng một mật khẩu riêng." },
+        { "q": "Cụm từ dễ nhớ là gì?", "a": "Là vài từ tiếng Việt quen thuộc được chọn ngẫu nhiên rồi ghép lại (vd. ConMeo-BauTroi-…), dễ nhớ, dễ gõ trên điện thoại nhưng vẫn khó đoán vì có hàng trăm nghìn tỷ cách ghép." }
+      ]
+    },
+    {
+      "id": "password-strength", "slug": "kiem-tra-mat-khau", "name": "Kiểm tra độ mạnh mật khẩu", "group": "security", "icon": "shield-check", "kind": "form",
+      "desc": "Ước tính thời gian bị dò ra, tìm các mẫu dễ đoán (mật khẩu phổ biến, tên, ngày sinh, phím liền nhau) và gợi ý cải thiện.",
+      "keywords": ["mật khẩu yếu", "password strength", "kiểm tra mật khẩu"],
+      "status": "done",
+      "privacy": "Mật khẩu chỉ được kiểm tra trên trình duyệt này, không lưu, không gửi đi đâu.",
+      "aliases": ["do-manh-mat-khau"],
+      "related": ["password-generator"],
+      "howto": ["Gõ hoặc dán mật khẩu vào ô.", "Xem mức độ mạnh, thời gian để bị dò ra và các mẫu dễ đoán được tìm thấy.", "Làm theo gợi ý, hoặc dùng công cụ Tạo mật khẩu mạnh."],
+      "faq": [
+        { "q": "Gõ mật khẩu thật vào đây có an toàn không?", "a": "Việc kiểm tra chạy hoàn toàn trên trình duyệt: mật khẩu không được lưu hay gửi đi. Dù vậy, thói quen tốt là chỉ thử một mật khẩu tương tự." },
+        { "q": "Thời gian bị dò ra được tính thế nào?", "a": "Dùng thư viện zxcvbn: ước tính số lần đoán dựa trên danh sách mật khẩu bị lộ, tên người, từ thông dụng (có thêm từ điển tiếng Việt), mẫu bàn phím, ngày tháng… rồi chia cho tốc độ đoán của từng kiểu tấn công." },
+        { "q": "Có kiểm tra mật khẩu đã bị lộ (Have I Been Pwned) không?", "a": "Không. Muốn kiểm tra phải gửi một phần mã băm của mật khẩu lên máy chủ khác, trái với nguyên tắc không gửi dữ liệu của BbeTools." }
+      ]
+    },
+    {
+      "id": "file-encrypt", "slug": "ma-hoa-file", "name": "Mã hoá/giải mã file", "group": "security", "icon": "file-lock", "kind": "file",
+      "desc": "Khoá file bất kỳ bằng mật khẩu (AES-GCM 256, WebCrypto) và mở lại khi cần.",
+      "keywords": ["encrypt file", "khoá file", "aes", "bảo vệ file"],
+      "accept": ["any"], "multiple": true, "output": "any",
+      "status": "done",
+      "aliases": ["giai-ma-file", "khoa-file-bang-mat-khau"],
+      "related": ["text-encrypt", "protect-pdf", "checksum"],
+      "howto": ["Chọn một hoặc nhiều file (file thường sẽ được mã hoá, file .bbe sẽ được giải mã).", "Nhập mật khẩu (khi mã hoá phải nhập lại cho khớp).", "Bấm Mã hoá / Giải mã rồi tải kết quả về."],
+      "faq": [
+        { "q": "Mã hoá bằng thuật toán gì?", "a": "AES-GCM 256 bit qua Web Crypto của trình duyệt; khoá dẫn xuất từ mật khẩu bằng PBKDF2-SHA256 600.000 vòng với salt ngẫu nhiên. File được chia khối 1 MB, mỗi khối có mã xác thực nên bị sửa hay cắt bớt dù một byte cũng bị phát hiện." },
+        { "q": "Quên mật khẩu có mở lại được không?", "a": "Không. Không có cửa sau, kể cả BbeTools cũng không mở được." },
+        { "q": "Người nhận mở file .bbe bằng gì?", "a": "Mở trang Mã hoá/giải mã file của BbeTools trên bất kỳ trình duyệt nào, chọn file .bbe rồi nhập đúng mật khẩu. Tên file gốc được lưu (đã mã hoá) bên trong." },
+        { "q": "File lớn có được không?", "a": "Được, file được xử lý từng khối 1 MB. Giới hạn thực tế phụ thuộc bộ nhớ của máy (thường vài GB trên máy tính)." }
+      ]
+    },
+    {
+      "id": "text-encrypt", "slug": "ma-hoa-van-ban", "name": "Mã hoá văn bản", "group": "security", "icon": "lock-keyhole", "kind": "text",
+      "desc": "Mã hoá tin nhắn bằng mật khẩu (AES-GCM) để gửi qua kênh không an toàn.",
+      "keywords": ["encrypt text", "tin nhắn bí mật", "mã hoá tin nhắn"],
+      "status": "done",
+      "privacy": "Văn bản và mật khẩu chỉ được xử lý trên trình duyệt, không gửi đi đâu.",
+      "aliases": ["giai-ma-van-ban", "ma-hoa-tin-nhan"],
+      "related": ["file-encrypt", "password-generator"],
+      "howto": ["Gõ tin nhắn và đặt mật khẩu: bản mã Base64 hiện ngay.", "Gửi bản mã (hoặc Link giải mã) qua tin nhắn, email; báo mật khẩu qua kênh khác.", "Người nhận chọn Giải mã, dán bản mã và nhập mật khẩu để đọc."],
+      "faq": [
+        { "q": "Ai đọc được tin nhắn đã mã hoá?", "a": "Chỉ người có đúng mật khẩu. Bản mã dùng AES-GCM 256, khoá dẫn xuất bằng PBKDF2-SHA256 600.000 vòng; sửa một ký tự của bản mã cũng bị phát hiện." },
+        { "q": "Link giải mã có chứa mật khẩu không?", "a": "Không. Link chỉ chứa bản mã, đặt sau dấu # nên trình duyệt không gửi phần này lên máy chủ. Người mở link vẫn phải nhập mật khẩu." },
+        { "q": "Sao mỗi lần mã hoá lại ra một chuỗi khác?", "a": "Mỗi lần mã hoá dùng một số ngẫu nhiên (nonce) mới, nên cùng một tin nhắn cho ra bản mã khác nhau. Đó là điều bình thường và an toàn hơn." }
+      ]
+    },
+    {
+      "id": "checksum", "slug": "tinh-checksum-file", "name": "Tính checksum file", "group": "security", "icon": "file-check", "kind": "file",
+      "desc": "Tính SHA-256, SHA-1, MD5, SHA-512, CRC32 của file (cả file vài GB) và đối chiếu với mã trên trang tải về.",
+      "keywords": ["md5 file", "sha256sum", "kiểm tra file", "checksum"],
+      "accept": ["any"], "multiple": true,
+      "status": "done",
+      "aliases": ["kiem-tra-md5-sha256", "sha256-file"],
+      "related": ["hash", "file-encrypt"],
+      "howto": ["Chọn file cần kiểm tra (file vài GB vẫn được).", "Chọn thuật toán; dán mã trên trang tải về vào ô đối chiếu, hoặc thả kèm file .sha256 / .md5.", "Bấm Tính checksum: kết quả báo Khớp hay Không khớp."],
+      "faq": [
+        { "q": "Checksum dùng để làm gì?", "a": "Để chắc file tải về nguyên vẹn, không bị hỏng hay bị thay: tính mã của file rồi so với mã nhà phát hành công bố. Chỉ cần sai một byte là mã khác hoàn toàn." },
+        { "q": "Nên dùng MD5, SHA-1 hay SHA-256?", "a": "Dùng thuật toán mà trang tải về cung cấp. Nếu được chọn, ưu tiên SHA-256: MD5 và SHA-1 chỉ còn tốt để phát hiện lỗi khi tải, không chống được giả mạo có chủ đích." },
+        { "q": "File có bị tải lên không?", "a": "Không. File được đọc từng phần ngay trên máy bạn, kể cả file rất lớn." }
+      ]
+    },
+    {
+      "id": "totp", "slug": "tao-ma-2fa", "name": "Tạo mã 2FA (TOTP)", "group": "security", "icon": "key-square", "kind": "form",
+      "desc": "Tạo mã xác thực 6 số từ khoá bí mật 2FA, như Google Authenticator.",
+      "keywords": ["google authenticator", "otp", "xác thực 2 bước", "2fa", "totp"],
+      "status": "done",
+      "privacy": "Khoá bí mật chỉ nằm trong trình duyệt: không lưu, không đưa lên đường link, không gửi đi đâu.",
+      "aliases": ["ma-otp", "google-authenticator-online"],
+      "related": ["password-generator", "qr-scanner"],
+      "howto": ["Dán khoá bí mật (Base32) hoặc link otpauth://, hoặc bấm Đọc từ ảnh QR.", "Mã 6 số hiện ngay và tự đổi sau mỗi 30 giây.", "Bấm Sao chép để dán vào ô xác thực 2 bước."],
+      "faq": [
+        { "q": "Có thay được Google Authenticator không?", "a": "Không nên. Công cụ không lưu khoá nên đóng trang là mất; hãy dùng để thử, kiểm tra hoặc khôi phục tạm từ khoá đã sao lưu. Dùng hằng ngày nên cài ứng dụng xác thực trên điện thoại." },
+        { "q": "Mã không khớp với trang web?", "a": "Kiểm tra giờ trên máy đã đúng chưa (TOTP dựa vào thời gian), và số chữ số / chu kỳ / thuật toán trùng với cài đặt của dịch vụ (thường là 6 số, 30 giây, SHA-1)." },
+        { "q": "Nút Tạo khoá mới dùng để làm gì?", "a": "Cho lập trình viên thử tính năng đăng nhập 2 bước: tạo khoá ngẫu nhiên 160 bit kèm mã QR để quét bằng ứng dụng xác thực." }
+      ]
+    },
 
     {
       "id": "pomodoro", "slug": "pomodoro", "name": "Pomodoro", "group": "productivity", "icon": "timer", "kind": "interactive",
@@ -1624,15 +1709,146 @@
         { "q": "Thống kê được lưu ở đâu?", "a": "Trong bộ nhớ trình duyệt (localStorage) của chính bạn, không gửi đi đâu." }
       ]
     },
-    { "id": "stopwatch", "slug": "bam-gio", "name": "Bấm giờ", "group": "productivity", "icon": "watch", "kind": "interactive", "desc": "Đồng hồ bấm giờ chính xác đến 1/100 giây, có ghi vòng (lap).", "keywords": ["stopwatch", "đồng hồ bấm giờ", "bấm giây"], "status": "todo", "related": ["countdown-timer", "pomodoro"] },
-    { "id": "countdown-timer", "slug": "hen-gio", "name": "Hẹn giờ đếm ngược", "group": "productivity", "icon": "hourglass", "kind": "interactive", "desc": "Hẹn giờ đếm ngược có chuông, chế độ toàn màn hình.", "keywords": ["timer", "đếm ngược", "hẹn giờ nấu ăn", "báo thức"], "status": "todo", "related": ["pomodoro", "stopwatch"] },
-    { "id": "spin-wheel", "slug": "vong-quay-may-man", "name": "Vòng quay may mắn", "group": "productivity", "icon": "ferris-wheel", "kind": "interactive", "desc": "Nhập danh sách, quay vòng ngẫu nhiên để chọn người, chọn món, trúng thưởng.", "keywords": ["quay số", "random wheel", "bốc thăm trúng thưởng", "vòng quay", "ăn gì hôm nay"], "status": "todo", "popular": true, "related": ["team-picker", "random-number", "coin-dice"] },
-    { "id": "team-picker", "slug": "boc-tham-chia-doi", "name": "Bốc thăm, chia đội", "group": "productivity", "icon": "shuffle", "kind": "form", "desc": "Chia danh sách thành các đội ngẫu nhiên, bốc thăm thứ tự.", "keywords": ["chia nhóm", "random team", "bốc thăm", "chia đội bóng"], "status": "todo", "related": ["spin-wheel", "random-number"] },
-    { "id": "coin-dice", "slug": "tung-xu-xuc-xac", "name": "Tung xu & xúc xắc", "group": "productivity", "icon": "dices", "kind": "interactive", "desc": "Tung đồng xu, gieo một hoặc nhiều xúc xắc ngẫu nhiên.", "keywords": ["tung đồng xu", "xúc xắc", "dice", "coin flip"], "status": "todo", "related": ["random-number", "spin-wheel"] },
-    { "id": "random-number", "slug": "so-ngau-nhien", "name": "Số ngẫu nhiên", "group": "productivity", "icon": "dice-5", "kind": "form", "desc": "Sinh số ngẫu nhiên trong khoảng, không trùng, quay số trúng thưởng.", "keywords": ["random number", "quay số", "số may mắn"], "status": "todo", "related": ["spin-wheel", "team-picker"] },
-    { "id": "quick-notes", "slug": "ghi-chu-nhanh", "name": "Ghi chú nhanh", "group": "productivity", "icon": "notebook-pen", "kind": "interactive", "desc": "Ghi chú lưu ngay trong trình duyệt, tự lưu, tải về .txt.", "keywords": ["notepad", "note", "ghi chú online"], "status": "todo", "related": ["checklist", "word-counter"] },
-    { "id": "checklist", "slug": "checklist", "name": "Checklist", "group": "productivity", "icon": "list-checks", "kind": "interactive", "desc": "Danh sách việc cần làm đơn giản, kéo thả sắp xếp, lưu trên máy.", "keywords": ["việc cần làm", "todo list", "danh sách"], "status": "todo", "related": ["quick-notes", "pomodoro"] },
-    { "id": "world-clock", "slug": "dong-ho-the-gioi", "name": "Đồng hồ thế giới", "group": "productivity", "icon": "earth", "kind": "interactive", "desc": "Giờ hiện tại ở các thành phố, đổi giờ giữa các múi giờ.", "keywords": ["múi giờ", "giờ mỹ", "giờ nhật", "giờ hàn quốc", "time zone"], "status": "todo", "related": ["timestamp", "countdown-timer"] },
-    { "id": "device-test", "slug": "kiem-tra-thiet-bi", "name": "Kiểm tra camera, micro, bàn phím, màn hình", "group": "productivity", "icon": "monitor-check", "kind": "interactive", "desc": "Thử camera, micro, loa, bàn phím và điểm chết màn hình trước khi họp online.", "keywords": ["test webcam", "test micro", "test bàn phím", "dead pixel", "kiểm tra loa"], "status": "todo", "related": ["voice-recorder", "screen-recorder"] }
+    {
+      "id": "stopwatch", "slug": "bam-gio", "name": "Bấm giờ", "group": "productivity", "icon": "watch", "kind": "interactive",
+      "desc": "Đồng hồ bấm giờ chính xác đến 1/100 giây, có ghi vòng (lap).",
+      "keywords": ["stopwatch", "đồng hồ bấm giờ", "bấm giây"],
+      "status": "done",
+      "privacy": "Đồng hồ chạy ngay trên trình duyệt; trạng thái chỉ lưu trên máy này, không gửi đi đâu.",
+      "aliases": ["dong-ho-bam-gio", "bam-giay"],
+      "related": ["countdown-timer", "pomodoro"],
+      "howto": ["Bấm Bắt đầu hoặc nhấn phím cách.", "Bấm Vòng (phím L) để ghi thời gian từng vòng; vòng nhanh nhất màu xanh, chậm nhất màu đỏ.", "Dừng rồi bấm Đặt lại (phím R); tải bảng vòng ra CSV nếu cần."],
+      "faq": [
+        { "q": "Đóng tab hay tắt màn hình thì đồng hồ có chạy tiếp không?", "a": "Có. Thời gian tính theo đồng hồ hệ thống nên mở lại trang vẫn đúng; trạng thái được lưu trong trình duyệt của bạn." },
+        { "q": "Chính xác đến đâu?", "a": "Hiển thị đến 1/100 giây. Sai số chủ yếu do thời điểm bấm nút (phản xạ của người thường khoảng 0,1–0,2 giây)." }
+      ]
+    },
+    {
+      "id": "countdown-timer", "slug": "hen-gio", "name": "Hẹn giờ đếm ngược", "group": "productivity", "icon": "hourglass", "kind": "interactive",
+      "desc": "Hẹn giờ đếm ngược có chuông, chế độ toàn màn hình.",
+      "keywords": ["timer", "đếm ngược", "hẹn giờ nấu ăn", "báo thức"],
+      "status": "done",
+      "privacy": "Hẹn giờ chạy ngay trên trình duyệt; cài đặt chỉ lưu trên máy này, không gửi đi đâu.",
+      "aliases": ["dem-nguoc", "hen-gio-dem-nguoc"],
+      "related": ["pomodoro", "stopwatch"],
+      "howto": ["Chọn nhanh 1, 3, 5… phút hoặc nhập giờ, phút, giây.", "Bấm Bắt đầu (phím cách); có thể thêm 1 phút khi đang chạy.", "Hết giờ chuông kêu liên tục đến khi bấm Tắt chuông."],
+      "faq": [
+        { "q": "Chuyển sang tab khác có nghe chuông không?", "a": "Có, nếu máy không tắt tiếng. Bấm “Bật thông báo khi ở tab khác” để nhận thêm thông báo của hệ điều hành." },
+        { "q": "Trên điện thoại khoá màn hình thì sao?", "a": "Trình duyệt di động thường tạm dừng trang khi khoá màn hình nên chuông có thể kêu muộn. Khi đang đếm, trang giữ màn hình sáng (nếu trình duyệt hỗ trợ)." }
+      ]
+    },
+    {
+      "id": "spin-wheel", "slug": "vong-quay-may-man", "name": "Vòng quay may mắn", "group": "productivity", "icon": "ferris-wheel", "kind": "interactive",
+      "desc": "Nhập danh sách, quay vòng ngẫu nhiên để chọn người, chọn món, trúng thưởng.",
+      "keywords": ["quay số", "random wheel", "bốc thăm trúng thưởng", "vòng quay", "ăn gì hôm nay"],
+      "status": "done", "popular": true,
+      "privacy": "Danh sách và kết quả quay chỉ lưu trong trình duyệt của máy này, không gửi đi đâu.",
+      "aliases": ["vong-quay", "quay-so-may-man"],
+      "related": ["team-picker", "random-number", "coin-dice"],
+      "howto": ["Nhập danh sách, mỗi dòng một mục (hoặc chọn danh sách mẫu).", "Bấm Quay, bấm vào vòng hoặc nhấn phím cách.", "Bật “Bỏ mục trúng” khi bốc thăm nhiều giải, mỗi người chỉ trúng một lần."],
+      "faq": [
+        { "q": "Vòng quay có công bằng không?", "a": "Có. Kết quả được chọn bằng bộ sinh số ngẫu nhiên an toàn (crypto.getRandomValues) trước khi vòng quay chạy; hiệu ứng chỉ để xem. Các mục có cơ hội như nhau, trừ khi bạn đặt trọng số." },
+        { "q": "Làm sao cho một mục dễ trúng hơn?", "a": "Thêm “* số” sau tên, ví dụ “Giải khuyến khích * 5” có cơ hội gấp 5 mục thường; ô trên vòng cũng to hơn tương ứng." },
+        { "q": "Danh sách có được lưu không?", "a": "Có, trong trình duyệt của máy bạn để lần sau mở lại vẫn còn. Không gửi đi đâu." }
+      ]
+    },
+    {
+      "id": "team-picker", "slug": "boc-tham-chia-doi", "name": "Bốc thăm, chia đội", "group": "productivity", "icon": "shuffle", "kind": "form",
+      "desc": "Chia danh sách thành các đội ngẫu nhiên, bốc thăm thứ tự.",
+      "keywords": ["chia nhóm", "random team", "bốc thăm", "chia đội bóng"],
+      "status": "done",
+      "privacy": "Danh sách tên chỉ được xử lý trên trình duyệt, không gửi đi, không đưa lên đường link.",
+      "aliases": ["chia-doi", "chia-nhom-ngau-nhien"],
+      "related": ["spin-wheel", "random-number"],
+      "howto": ["Nhập danh sách người, mỗi dòng một tên.", "Chọn cách bốc: chia số đội, số người mỗi đội, bốc thứ tự hoặc chọn vài người.", "Bấm Bốc lại nếu cần, rồi sao chép hoặc tải kết quả."],
+      "faq": [
+        { "q": "Các đội có đều nhau không?", "a": "Có: các đội chênh nhau nhiều nhất 1 người. Người trong ô “Trưởng nhóm” được rải mỗi đội một người trước." },
+        { "q": "Có ngẫu nhiên thật không?", "a": "Dùng crypto.getRandomValues và thuật toán xáo trộn Fisher–Yates nên mọi cách chia đều có khả năng như nhau." }
+      ]
+    },
+    {
+      "id": "coin-dice", "slug": "tung-xu-xuc-xac", "name": "Tung xu & xúc xắc", "group": "productivity", "icon": "dices", "kind": "interactive",
+      "desc": "Tung đồng xu, gieo một hoặc nhiều xúc xắc ngẫu nhiên.",
+      "keywords": ["tung đồng xu", "xúc xắc", "dice", "coin flip"],
+      "status": "done",
+      "privacy": "Kết quả sinh ngay trên trình duyệt bằng bộ sinh số ngẫu nhiên an toàn, không gửi đi đâu.",
+      "aliases": ["tung-dong-xu", "gieo-xuc-xac"],
+      "related": ["random-number", "spin-wheel"],
+      "howto": ["Chọn Tung đồng xu hoặc Gieo xúc xắc.", "Bấm nút (hoặc phím cách) để tung / gieo.", "Với xúc xắc, chọn số viên (1–10) và số mặt (4–100); tổng điểm hiện ngay."],
+      "faq": [
+        { "q": "Kết quả có ngẫu nhiên thật không?", "a": "Có, lấy từ bộ sinh số ngẫu nhiên an toàn của trình duyệt, không lệch về mặt nào; hiệu ứng lật chỉ để xem." },
+        { "q": "Sấp và ngửa là mặt nào?", "a": "Theo cách gọi phổ biến: ngửa là mặt có hình, sấp là mặt có số (mệnh giá)." }
+      ]
+    },
+    {
+      "id": "random-number", "slug": "so-ngau-nhien", "name": "Số ngẫu nhiên", "group": "productivity", "icon": "dice-5", "kind": "form",
+      "desc": "Sinh số ngẫu nhiên trong khoảng, không trùng, quay số trúng thưởng.",
+      "keywords": ["random number", "quay số", "số may mắn"],
+      "status": "done",
+      "aliases": ["quay-so-ngau-nhien", "chon-so-ngau-nhien"],
+      "related": ["spin-wheel", "team-picker"],
+      "howto": ["Nhập khoảng số Từ – Đến và số lượng cần lấy.", "Chọn không trùng, sắp xếp, hoặc bỏ bớt các số không dùng.", "Bật “Quay số trúng thưởng” để số đã ra không ra lại ở lượt sau."],
+      "faq": [
+        { "q": "Các số có cơ hội như nhau không?", "a": "Có. Dùng crypto.getRandomValues và loại bỏ phần dư (không lệch modulo) nên mọi số trong khoảng có xác suất như nhau." },
+        { "q": "Lấy được tối đa bao nhiêu số?", "a": "Tối đa 10.000 số mỗi lần, khoảng số tới khoảng ±9 triệu tỷ." }
+      ]
+    },
+    {
+      "id": "quick-notes", "slug": "ghi-chu-nhanh", "name": "Ghi chú nhanh", "group": "productivity", "icon": "notebook-pen", "kind": "interactive",
+      "desc": "Ghi chú lưu ngay trong trình duyệt, tự lưu, tải về .txt.",
+      "keywords": ["notepad", "note", "ghi chú online"],
+      "status": "done",
+      "privacy": "Ghi chú lưu trong trình duyệt của chính máy này (localStorage), không gửi đi đâu.",
+      "aliases": ["notepad", "ghi-chu"],
+      "related": ["checklist", "word-counter"],
+      "howto": ["Gõ ghi chú: tự lưu ngay trên máy này.", "Bấm Ghi chú mới để thêm; tìm kiếm không cần gõ dấu.", "Tải về .txt, hoặc tải tất cả (.zip) để sao lưu."],
+      "faq": [
+        { "q": "Ghi chú được lưu ở đâu?", "a": "Trong bộ nhớ trình duyệt (localStorage) của máy bạn. Xoá dữ liệu duyệt web, dùng chế độ ẩn danh hoặc đổi trình duyệt sẽ không thấy ghi chú, nên hãy tải về để sao lưu." },
+        { "q": "Có đồng bộ giữa điện thoại và máy tính không?", "a": "Không, vì BbeTools không có máy chủ. Mở nhiều tab trên cùng một trình duyệt thì ghi chú được cập nhật giữa các tab." },
+        { "q": "Lưu được bao nhiêu?", "a": "Khoảng vài triệu ký tự (giới hạn của trình duyệt, thường 5 MB). Nếu đầy, trang sẽ báo để bạn tải về." }
+      ]
+    },
+    {
+      "id": "checklist", "slug": "checklist", "name": "Checklist", "group": "productivity", "icon": "list-checks", "kind": "interactive",
+      "desc": "Danh sách việc cần làm đơn giản, kéo thả sắp xếp, lưu trên máy.",
+      "keywords": ["việc cần làm", "todo list", "danh sách"],
+      "status": "done",
+      "privacy": "Danh sách lưu trong trình duyệt của chính máy này (localStorage), không gửi đi đâu.",
+      "aliases": ["todo-list", "danh-sach-viec-can-lam"],
+      "related": ["quick-notes", "pomodoro"],
+      "howto": ["Gõ việc cần làm rồi nhấn Enter (dán nhiều dòng để thêm nhiều việc một lúc).", "Đánh dấu việc đã xong; bấm đúp để sửa, kéo thả hoặc ↑↓ để đổi thứ tự.", "Tạo nhiều danh sách, dùng mẫu có sẵn, sao chép hoặc tải về dạng Markdown."],
+      "faq": [
+        { "q": "Danh sách lưu ở đâu?", "a": "Trong trình duyệt của máy bạn (localStorage), không gửi đi đâu. Đổi máy hoặc xoá dữ liệu duyệt web sẽ mất, nên tải về nếu cần giữ." },
+        { "q": "Dùng lại một danh sách (đồ đi du lịch…) thế nào?", "a": "Bấm “Bỏ đánh dấu hết” để làm lại từ đầu mà không phải nhập lại." }
+      ]
+    },
+    {
+      "id": "world-clock", "slug": "dong-ho-the-gioi", "name": "Đồng hồ thế giới", "group": "productivity", "icon": "earth", "kind": "interactive",
+      "desc": "Giờ hiện tại ở các thành phố, đổi giờ giữa các múi giờ.",
+      "keywords": ["múi giờ", "giờ mỹ", "giờ nhật", "giờ hàn quốc", "time zone"],
+      "status": "done",
+      "privacy": "Giờ được tính ngay trên trình duyệt; danh sách thành phố chỉ lưu trên máy này.",
+      "aliases": ["mui-gio", "doi-mui-gio", "gio-quoc-te"],
+      "related": ["timestamp", "countdown-timer"],
+      "howto": ["Xem giờ hiện tại ở các thành phố; ô màu xanh là đang giờ hành chính.", "Gõ tên thành phố hoặc nước để thêm, bấm ✕ để bỏ.", "Bật “Đổi giờ”, chọn ngày giờ ở một thành phố để xem giờ tương ứng ở nơi khác (hẹn họp online)."],
+      "faq": [
+        { "q": "Giờ mùa hè có được tính không?", "a": "Có. Trình duyệt có sẵn dữ liệu múi giờ quốc tế (IANA) nên tự tính giờ mùa hè đúng từng ngày, kể cả ngày đổi giờ." },
+        { "q": "Việt Nam chênh giờ Mỹ bao nhiêu?", "a": "Tuỳ bang và mùa: miền Đông (New York) chậm hơn 11 giờ vào mùa hè, 12 giờ vào mùa đông; miền Tây (Los Angeles) chậm hơn 14 hoặc 15 giờ." }
+      ]
+    },
+    {
+      "id": "device-test", "slug": "kiem-tra-thiet-bi", "name": "Kiểm tra camera, micro, bàn phím, màn hình", "group": "productivity", "icon": "monitor-check", "kind": "interactive",
+      "desc": "Thử camera, micro, loa trái/phải, bàn phím, chuột và điểm chết màn hình trước khi họp online.",
+      "keywords": ["test webcam", "test micro", "test bàn phím", "dead pixel", "kiểm tra loa"],
+      "status": "done",
+      "aliases": ["test-webcam", "test-micro", "test-ban-phim", "kiem-tra-diem-chet-man-hinh"],
+      "related": ["voice-recorder", "screen-recorder"],
+      "howto": ["Chọn thiết bị cần thử: Camera, Micro, Loa, Bàn phím/chuột hoặc Màn hình.", "Bấm Bật camera / Bật micro và cho phép trình duyệt truy cập khi được hỏi.", "Làm theo hướng dẫn ở từng phần: nói thử, ghi thử 5 giây, bấm từng phím, xem điểm chết."],
+      "faq": [
+        { "q": "Cho trình duyệt dùng camera, micro có an toàn không?", "a": "Hình và tiếng chỉ hiện trên máy bạn, không ghi lại hay gửi đi (bản ghi thử 5 giây cũng chỉ nằm trong trình duyệt). Chuyển sang phần khác hoặc đóng trang là camera, micro được tắt." },
+        { "q": "Camera báo đang bị dùng?", "a": "Đóng các ứng dụng đang dùng camera (Zoom, Teams, Meet ở tab khác…) rồi thử lại." },
+        { "q": "Có phím bấm mà không sáng?", "a": "Một số phím do hệ điều hành giữ (Fn, Print Screen, phím âm lượng…) nên trang web không nhận được; điều đó không có nghĩa là phím hỏng." }
+      ]
+    }
   ]
 }

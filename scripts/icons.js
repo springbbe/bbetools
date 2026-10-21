@@ -13,7 +13,8 @@ const UI = [
   "plus", "minus", "external-link", "history", "sparkles", "maximize", "minimize", "wand-sparkles", "zoom-in", "zoom-out", "printer",
   "file-down", "shield-check", "move", "house", "layers", "palette", "type", "wifi", "contact", "message-square", "mail", "phone",
   "flip-horizontal-2", "flip-vertical-2", "map-pin", "square", "circle", "corner-down-left", "keyboard", "list", "calendar", "clock", "coffee", "repeat", "rotate-ccw-square",
-  "scan-line", "scan-face", "flashlight", "switch-camera", "file-text", "code", "heart", "git-branch", "arrow-up-down", "file-spreadsheet"
+  "scan-line", "scan-face", "flashlight", "switch-camera", "file-text", "code", "heart", "git-branch", "arrow-up-down", "file-spreadsheet",
+  "flag", "pencil", "mic", "mic-off", "activity", "shuffle", "dices"
 ];
 
 const reg = JSON.parse(await readFile(new URL("../tools.json", import.meta.url), "utf8"));

@@ -19,11 +19,13 @@ assets/
   sheet.js                 tiện ích dùng chung cho nhóm Văn phòng: đọc Excel (SheetJS) / CSV (tự nhận bảng mã, dấu phân cách),
                            hiện ô kiểu Việt Nam (15.000.000; 15/01/2026), ghi .xlsx / .csv, bảng xem trước
   fonts.js                 font có dấu tiếng Việt để vẽ chữ lên canvas (tải khi cần)
+  security.js              tiện ích dùng chung cho nhóm Bảo mật (thanh độ mạnh mật khẩu)
   pdf-pages.js             "bảng trang" PDF: pageTool() dựng trên khung file, mỗi trang một thẻ (chọn, xoay, xoá, đổi chỗ, xem trước)
   pdf-objects.js           đi qua đối tượng bên trong PDF (nội dung trang, form, pattern, ảnh), giải nén luồng, đọc hệ màu
   ai/matting.js            AI tách nền (MODNet) + nhận diện khuôn mặt (UltraFace) chạy bằng onnxruntime-web
   lib/*.js                 hàm thuần, có test: search, filetype, doc-so, am-lich, vietqr, json-tools, text-stats, page-ranges, pdf-geom, pdf-text, pdf-content, pdf-image, scan, image-geom, exif, image-data, ocr-text, tien-luong, tai-chinh, tien-dien, bhxh, con-giap, don-vi, chia-tien, ngay, suc-khoe, bieu-thuc, so-la-ma, phan-tram, dvhc, ma-tinh, van-ban, vn-encoding, telex, diff, encode, hash, uuid, color, co-so, cron, timestamp, csv,
-                           fancy-text, lorem, http-status, minify, regex, css-gen, ma-vach, bang, tron-thu, hoa-don, chu-ky-email
+                           fancy-text, lorem, http-status, minify, regex, css-gen, ma-vach, bang, tron-thu, hoa-don, chu-ky-email,
+                           ngau-nhien, mat-khau (+ tu-mat-khau), ma-hoa, totp, checksum, bam-gio, mui-gio, checklist
   regex-run.js, regex-worker.js   chạy biểu thức chính quy trong Web Worker có giới hạn thời gian (không treo trang)
   tools/<id>.js            logic riêng của từng công cụ
   registry.js              (sinh tự động) bản rút gọn của tools.json cho trình duyệt
@@ -85,6 +87,8 @@ Khai báo trong bảng `LIBS` của `assets/core.js`, gọi bằng `lib("tên")`
 | `terser@5.51.2`, `csso@5.0.5` | nén JavaScript, CSS |
 | `ua-parser-js@1.0.41` | phân tích User-Agent (bản 1.x, giấy phép MIT) |
 | `@e965/xlsx@0.20.3` (SheetJS) | đọc .xlsx/.xls/.ods, ghi .xlsx (nhóm Văn phòng). Bản chính thức 0.20.3 chỉ có trên cdn.sheetjs.com; gói `@e965/xlsx` trên npm giống hệt từng byte (đã so SHA-256). Bản `xlsx@0.18.5` trên npm cũ và có lỗi bảo mật, đừng dùng |
+| `hash-wasm@4.12.0` | MD5, SHA-1, SHA-256, SHA-512, CRC32 theo luồng (Tính checksum file: file vài GB không cần đọc hết vào bộ nhớ) |
+| `@zxcvbn-ts/core@4.2.0` + `@zxcvbn-ts/language-common@4.1.3` + `@zxcvbn-ts/language-en@4.1.1` (qua `/+esm` của jsDelivr, đã đóng gói phụ thuộc) | ước lượng độ mạnh mật khẩu; thêm từ điển tiếng Việt và lời khuyên tiếng Việt trong `tools/password-strength.js` |
 | `@fontsource/be-vietnam-pro@5.3.0` | font chữ |
 | `@fontsource/dancing-script`, `great-vibes`, `pacifico`, `roboto-slab` `@5.3.0` | font chữ ký "gõ tên" trong Ký PDF và font chữ của Chèn chữ lên ảnh (`assets/fonts.js`), tải bằng `FontFace` khi cần |
 
@@ -137,6 +141,10 @@ node scripts/check.js
 ```bash
 node --test tests/*.test.js
 ```
+
+## Định dạng file mã hoá của BbeTools (.bbe)
+
+"Mã hoá/giải mã file" và "Mã hoá văn bản" dùng chung `assets/lib/ma-hoa.js` (Web Crypto, chạy cả trong Node để test): AES-GCM 256, khoá dẫn xuất bằng PBKDF2-HMAC-SHA256 600.000 vòng, salt 16 byte. Phần đầu 38 byte: `BBENC` + phiên bản `0x01`, mã thuật toán dẫn xuất khoá, số vòng, salt, tiền tố nonce 7 byte, cỡ khối (1 MiB). Sau đó là các khối mã, mỗi khối có thẻ xác thực 16 byte; nonce = tiền tố ‖ số thứ tự khối ‖ cờ khối cuối (kiểu STREAM) và phần đầu là dữ liệu xác thực bổ sung, nên đổi thứ tự, cắt bớt hay sửa một byte đều bị phát hiện. Bản rõ bắt đầu bằng độ dài + JSON `{ name, type }` của file gốc. Văn bản mã hoá là cả gói trên viết bằng Base64 (bắt đầu bằng `QkJFTkMB`). Muốn đổi định dạng thì tăng số phiên bản và giữ khả năng giải mã bản cũ.
 
 ## Ghi chú dữ liệu
 

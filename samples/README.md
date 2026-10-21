@@ -22,6 +22,8 @@ Dùng cho nút "Thử với file mẫu" trên các trang công cụ. Trừ ảnh
 | `ban-hang-thang-9.xlsx`, `ban-hang-thang-10.xlsx`, `ban-hang-thang-11.csv` | đơn hàng giả 3 tháng; bản CSV dùng dấu chấm phẩy, số kiểu Việt Nam, thứ tự cột khác và thêm cột "Ghi chú" | Gộp nhiều file Excel, Excel ↔ CSV |
 | `san-pham.json` | danh sách sản phẩm có đối tượng lồng nhau và mảng | JSON ↔ Excel |
 | `khach-moi.xlsx`, `giay-moi-mau.docx` | danh sách khách mời giả và mẫu giấy mời Word có trường `{{…}}`, `«…»` (bị cắt thành nhiều run) và một MERGEFIELD | Trộn thư |
+| `bao-cao-mat-khau-1234.pdf.bbe` | `bao-cao-quy-1.pdf` mã hoá bằng mật khẩu `1234` (định dạng BbeTools, AES-256-GCM); sinh bằng `node scripts/samples/bao-mat.js` | Mã hoá/giải mã file |
+| `bao-cao-quy-1.pdf.sha256` | mã SHA-256 của `bao-cao-quy-1.pdf` theo định dạng `sha256sum` | Tính checksum file |
 | `chan-dung-mau.jpg` | chân dung **người không có thật** do StyleGAN tạo | Làm ảnh thẻ, Xoá phông, Che/làm mờ |
 
 `chan-dung-mau.jpg`: [File:Woman 1.jpg](https://commons.wikimedia.org/wiki/File:Woman_1.jpg) trên Wikimedia Commons, **public domain** (ảnh do mạng nơ-ron tạo, người trong ảnh không tồn tại).
