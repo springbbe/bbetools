@@ -45,6 +45,10 @@ docs/ke-hoach.md           kế hoạch xây dựng (tài liệu tạm, xoá khi
 
 Kết quả được commit thẳng vào repo và GitHub Pages phục vụ nhánh `main` nguyên trạng, **không dùng GitHub Actions**: deploy không cần bước build, trang chạy ở máy giống hệt trang trên mạng, và bớt một chỗ có thể hỏng. `node scripts/check.js` (gọi `build.js --check`) báo lỗi nếu quên sinh lại trang sau khi sửa `tools.json`.
 
+## Thống kê truy cập
+
+Google Analytics 4 (mã trong `site.gaId` của `tools.json`) được `scripts/build.js` chèn vào đầu `<head>` của mọi trang. Cấu hình chỉ gửi `location.origin + location.pathname` (bỏ `?…`, `#…`) vì các công cụ dạng form lưu số liệu người dùng nhập trên URL. `window.btReplaceState` giữ bản gốc của `history.replaceState` trước khi gtag.js tải, và `replaceUrl()` trong `core.js` dùng bản này để đổi URL mà GA không ghi thành lượt xem mới. Nên tắt thêm trong GA: Quản trị → Luồng dữ liệu → Đo lường nâng cao → Lượt xem trang → "Thay đổi trang dựa trên sự kiện lịch sử trình duyệt". Xoá `gaId` là bỏ hẳn GA.
+
 ## Đường dẫn
 
 Site nằm dưới `/bbetools/` nên mọi đường dẫn trong HTML/JS/CSS đều **tương đối** (`../assets/…`). Ngoại lệ bắt buộc: `canonical`, Open Graph, JSON-LD và `sitemap.xml` dùng URL tuyệt đối lấy từ `site.baseUrl`. Riêng `404.html` (GitHub Pages trả về ở mọi độ sâu) tự đặt `<base href>` bằng một đoạn script nhỏ, rồi tự chuyển hướng các slug phụ (`aliases`, ví dụ `/gop-pdf` → `/ghep-pdf/`) và gợi ý công cụ gần đúng.

@@ -247,9 +247,11 @@ export async function sendTo(tool, files) {
   try { await handoff.put(files); location.href = toolHref(tool) + "#tiep-tuc"; }
   catch (_) { toast("Không chuyển được file. Hãy tải về rồi mở công cụ " + tool.name + ".", { type: "err" }); }
 }
+/** Đổi URL tại chỗ mà không để Google Analytics ghi thành lượt xem mới (URL có thể chứa dữ liệu người dùng nhập) */
+export const replaceUrl = (url) => (window.btReplaceState || history.replaceState.bind(history))(null, "", url);
 export function takeHandoff() {
   if (location.hash !== "#tiep-tuc") return Promise.resolve([]);
-  history.replaceState(null, "", location.pathname + location.search);
+  replaceUrl(location.pathname + location.search);
   return handoff.take().catch(() => []);
 }
 

@@ -2,6 +2,7 @@
   "site": {
     "name": "BbeTools",
     "baseUrl": "https://springbbe.github.io/bbetools/",
+    "gaId": "G-6GW96LCW9V",
     "repo": "https://github.com/springbbe/bbetools",
     "tagline": "Công cụ tiện ích miễn phí cho người Việt, chạy ngay trên trình duyệt",
     "description": "Hơn 100 công cụ miễn phí: ghép, nén PDF, nén ảnh, HEIC sang JPG, ảnh thẻ, VietQR, đọc số thành chữ, lịch âm… Xử lý 100% trên máy bạn, file không bao giờ tải lên máy chủ."

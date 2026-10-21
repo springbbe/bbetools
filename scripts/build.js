@@ -92,9 +92,16 @@ function footer(root) {
 <li><a href="${site.repo}/issues" rel="noopener">Góp ý, báo lỗi</a></li>
 </ul></nav>
 </div>
-<p class="copy">© ${YEAR} BbeTools · Không quảng cáo, không theo dõi, không tải file lên máy chủ.</p>
+<p class="copy">© ${YEAR} BbeTools · Không quảng cáo, không tải file lên máy chủ.</p>
 </footer>`;
 }
+
+/* Google Analytics (site.gaId): chỉ gửi đường dẫn trang, bỏ phần ?… và #… vì một số công cụ lưu dữ liệu người dùng nhập
+   (số tài khoản, số tiền, văn bản…) trên URL. btReplaceState là bản gốc của history.replaceState, lấy trước khi gtag.js
+   kịp gắn bộ theo dõi đổi URL, để các công cụ cập nhật URL mà không tạo thêm lượt xem chứa dữ liệu (xem replaceUrl trong core.js). */
+const analytics = () => (site.gaId ? `<script async src="https://www.googletagmanager.com/gtag/js?id=${site.gaId}"></script>
+<script>window.btReplaceState=history.replaceState.bind(history);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","${site.gaId}",{page_location:location.origin+location.pathname});</script>
+` : "");
 
 function page({ root, path, title, desc, entry, ld, bodyAttrs = "", main, head = "", noindex = false }) {
   const abs = BASE + path;
@@ -102,7 +109,7 @@ function page({ root, path, title, desc, entry, ld, bodyAttrs = "", main, head =
 <html lang="vi" data-root="${root}">
 <head>
 <meta charset="utf-8">
-${head}<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+${analytics()}${head}<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(metaDesc(desc))}">
 ${noindex ? `<meta name="robots" content="noindex">` : `<link rel="canonical" href="${abs}">`}
@@ -288,14 +295,15 @@ function aboutPage() {
 <li>Font chữ và thư viện mã nguồn mở (pdf-lib, pdf.js, JSZip, bộ mã hoá ảnh, giải mã HEIC, đọc mã QR…) từ CDN jsDelivr, ghim đúng phiên bản. Thư viện nặng chỉ tải khi bạn mở công cụ cần đến nó. CDN chỉ thấy yêu cầu tải thư viện, không thấy file của bạn.</li>
 <li>Mô hình AI tách nền (cho Làm ảnh thẻ) đặt ngay trong trang web này.</li>
 </ul>
-<h2>Không theo dõi, không quảng cáo</h2>
-<p>Không có cookie quảng cáo, không có công cụ thống kê. “Dùng gần đây”, “Yêu thích” và cài đặt chỉ lưu trong bộ nhớ trình duyệt (localStorage) của chính bạn; xoá dữ liệu trang web là mất.</p>
+<h2>Thống kê lượt truy cập, không quảng cáo</h2>
+<p>BbeTools dùng Google Analytics để đếm lượt xem từng trang (trang nào được dùng nhiều, người dùng đến từ đâu, dùng điện thoại hay máy tính), nhờ đó biết nên cải thiện công cụ nào. Google Analytics chỉ nhận đường dẫn trang; tên file, nội dung file, văn bản và số liệu bạn nhập vào công cụ không bao giờ được gửi đi. Bạn có thể chặn bằng trình chặn quảng cáo hoặc <a href="https://tools.google.com/dlpage/gaoptout?hl=vi" rel="noopener">tiện ích chặn Google Analytics</a>; mọi công cụ vẫn chạy bình thường.</p>
+<p>Không có quảng cáo, không có cookie quảng cáo. “Dùng gần đây”, “Yêu thích” và cài đặt chỉ lưu trong bộ nhớ trình duyệt (localStorage) của chính bạn; xoá dữ liệu trang web là mất.</p>
 <h2>Mã nguồn mở</h2>
 <p>Toàn bộ mã nguồn ở <a href="${site.repo}" rel="noopener">${esc(site.repo.replace("https://", ""))}</a>. Bạn có thể tự kiểm tra, góp ý hoặc báo lỗi tại mục Issues.</p>
 <h2>Giới hạn</h2>
 <p>Vì chạy trên máy bạn nên tốc độ phụ thuộc vào máy: file rất lớn (vài trăm MB) có thể chậm hoặc thiếu bộ nhớ trên điện thoại cũ. Kết quả tính toán (thuế, lương, lãi…) chỉ để tham khảo; dữ liệu pháp lý có ghi rõ ngày cập nhật trên từng trang.</p>
 </div>`;
-  return page({ root, path: "gioi-thieu/", title: `Giới thiệu & quyền riêng tư – ${site.name}`, desc: "BbeTools xử lý mọi file ngay trên trình duyệt, không tải lên máy chủ, không quảng cáo, không theo dõi. Mã nguồn mở.", entry: "assets/core.js", main });
+  return page({ root, path: "gioi-thieu/", title: `Giới thiệu & quyền riêng tư – ${site.name}`, desc: "BbeTools xử lý mọi file ngay trên trình duyệt, không tải lên máy chủ, không quảng cáo. Mã nguồn mở.", entry: "assets/core.js", main });
 }
 
 /* ---------- 404 ---------- */

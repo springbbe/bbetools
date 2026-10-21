@@ -15,6 +15,7 @@ Tài liệu kỹ thuật (cấu trúc, registry, 4 khung trang, thư viện, cá
 - Giao diện tiếng Việt có dấu đầy đủ, ưu tiên điện thoại, có chế độ tối, dùng được bằng bàn phím, có thuộc tính truy cập cơ bản. Tên luôn viết "BbeTools".
 - Dữ liệu dễ lỗi thời (thuế, bảo hiểm, giá điện, mã tỉnh, đơn vị đất…) để ở `data/<tên>.json`, có `title`, `updated`, `source`; phải tra văn bản hiện hành trước khi viết.
 - Hàm tính toán thuần đặt ở `assets/lib/` và có test trong `tests/`. Công cụ nhận file phải có file mẫu trong `samples/`.
+- Google Analytics (`site.gaId` trong `tools.json`, `build.js` tự chèn vào mọi trang) chỉ được nhận đường dẫn trang. Không gửi sự kiện chứa dữ liệu người dùng (tên file, nội dung, số liệu nhập); muốn đổi URL thì dùng `replaceUrl()` trong core, không gọi `history.replaceState/pushState` trực tiếp (URL có thể chứa dữ liệu người dùng).
 
 ## Trước mỗi commit
 

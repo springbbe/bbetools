@@ -7,7 +7,7 @@
      compute: (vals, out, ctx) => {},     // vẽ kết quả vào out
      share: true                          // nút "Sao chép link"
    }) */
-import { $, h, icon, copyText, debounce } from "../core.js";
+import { $, h, icon, copyText, debounce, replaceUrl } from "../core.js";
 
 let uid = 0;
 export function formTool(cfg) {
@@ -81,7 +81,7 @@ export function formTool(cfg) {
       if (String(v) !== String(defaults[k]) && v !== "" && v != null) p.set(k, v === true ? "1" : v === false ? "0" : v);
     }
     const qs = p.toString();
-    history.replaceState(null, "", location.pathname + (qs ? "?" + qs : "") + location.hash);
+    replaceUrl(location.pathname + (qs ? "?" + qs : "") + location.hash);
   }, 300);
   function update() {
     const v = values();

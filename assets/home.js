@@ -1,5 +1,5 @@
 /* Trang chủ: tìm kiếm mờ không dấu, Yêu thích / Dùng gần đây, lọc theo nhóm, thả/dán file để gợi ý công cụ */
-import { $, $$, h, icon, registry, favs, recent, intake, toolsForFiles, sendTo, fileKinds, KIND_LABEL, fmtSize, toolHref, syncFavButtons } from "./core.js";
+import { $, $$, h, icon, registry, favs, recent, intake, toolsForFiles, sendTo, fileKinds, KIND_LABEL, fmtSize, toolHref, syncFavButtons, replaceUrl } from "./core.js";
 import { search } from "./lib/search.js";
 import { cardEl } from "./cards.js";
 
@@ -51,7 +51,7 @@ function filter(gid, scroll) {
 chips.forEach((c) => c.addEventListener("click", (e) => {
   e.preventDefault();
   filter(c.dataset.filter, true);
-  history.replaceState(null, "", c.dataset.filter === "all" ? location.pathname + location.search : c.getAttribute("href"));
+  replaceUrl(c.dataset.filter === "all" ? location.pathname + location.search : c.getAttribute("href"));
 }));
 const fromHash = chips.find((c) => c.getAttribute("href") === location.hash && c.dataset.filter !== "all");
 if (fromHash) filter(fromHash.dataset.filter, false);
