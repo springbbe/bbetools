@@ -8,6 +8,23 @@ Bộ công cụ tiện ích tiếng Việt chạy **100% trên trình duyệt**:
 - Web tĩnh trên GitHub Pages. Thư viện ngoài tải từ jsDelivr, ghim đúng phiên bản; thư viện nặng (pdf.js, pdf-lib, libheif, MozJPEG, onnxruntime…) chỉ tải khi mở đúng công cụ cần nó.
 - Giao diện tiếng Việt, ưu tiên điện thoại, chế độ tối, dùng được bằng bàn phím.
 
+## Lộ trình
+
+Bảng này do `scripts/build.js` sinh từ `tools.json` (trường `phase` của mỗi nhóm và `status` của từng công cụ), luôn khớp tiến độ thật. Làm lần lượt từng giai đoạn, mỗi giai đoạn một commit. Muốn AI làm tiếp, mở Claude Code (trên máy hoặc cloud) ở repo này và gõ câu lệnh ở cột cuối; AI tự đọc `CLAUDE.md` để biết cách làm. Muốn làm riêng một công cụ: `Làm công cụ <tên công cụ> của BbeTools theo CLAUDE.md`.
+
+<!-- roadmap:start -->
+| Giai đoạn | Nhóm | Công cụ xong | Trạng thái | Câu lệnh gợi ý cho AI |
+|---|---|---|---|---|
+| 1 | Lõi, registry, trang tự sinh + 13 công cụ tiêu biểu | 13 | ✅ Xong | |
+| 2 | PDF | 2/24 | ⏳ Còn 22 công cụ | `Làm giai đoạn 2 của BbeTools theo CLAUDE.md` |
+| 3 | Ảnh | 3/21 | ⏳ Còn 18 công cụ | `Làm giai đoạn 3 của BbeTools theo CLAUDE.md` |
+| 4 | Tiện ích Việt Nam + Tính toán & đời sống | 3/27 | ⏳ Còn 24 công cụ | `Làm giai đoạn 4 của BbeTools theo CLAUDE.md` |
+| 5 | Văn bản + Lập trình | 2/31 | ⏳ Còn 29 công cụ | `Làm giai đoạn 5 của BbeTools theo CLAUDE.md` |
+| 6 | QR & mã vạch + Văn phòng & dữ liệu | 2/11 | ⏳ Còn 9 công cụ | `Làm giai đoạn 6 của BbeTools theo CLAUDE.md` |
+| 7 | Bảo mật + Năng suất & ngẫu nhiên | 1/17 | ⏳ Còn 16 công cụ | `Làm giai đoạn 7 của BbeTools theo CLAUDE.md` |
+| 8 | Âm thanh & video | 0/11 | ⏳ Còn 11 công cụ | `Làm giai đoạn 8 của BbeTools theo CLAUDE.md` |
+<!-- roadmap:end -->
+
 ## Danh sách công cụ
 
 Bảng dưới đây do `scripts/build.js` sinh từ `tools.json`, đừng sửa tay.
@@ -33,7 +50,9 @@ Bảng dưới đây do `scripts/build.js` sinh từ `tools.json`, đừng sửa
 ## Cấu trúc
 
 ```
-tools.json                 REGISTRY – nguồn dữ liệu duy nhất: nhóm, công cụ (id, slug, tên, nhóm, mô tả,
+CLAUDE.md                  hướng dẫn cho AI (Claude Code trên máy hoặc cloud): tiến độ, ràng buộc, quy trình
+.claude/launch.json        cấu hình chạy thử (preview) cho Claude Code
+tools.json                 REGISTRY – nguồn dữ liệu duy nhất: nhóm (kèm giai đoạn), công cụ (id, slug, tên, nhóm, mô tả,
                            từ khoá, icon, kiểu khung, loại file nhận, trạng thái, công cụ liên quan, cách dùng, FAQ)
 data/                      dữ liệu dễ lỗi thời, mỗi file có "updated" + "source" (hiện ngày cập nhật trên trang)
 assets/

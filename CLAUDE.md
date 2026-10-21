@@ -4,10 +4,22 @@ Website tiếng Việt gồm nhiều công cụ tiện ích, chạy 100% trên t
 
 ## Đang làm đến đâu
 
-- Nguồn sự thật là `tools.json`: công cụ `"status": "done"` là đã xong, `"todo"` là chưa làm.
-- Xem nhanh tiến độ bằng `node scripts/build.js` (in ra "X công cụ đã xong, Y chưa làm"), bảng ⏳ trong `README.md`, và `git log --oneline` (mỗi nhóm một commit).
-- Thứ tự các giai đoạn: 1. lõi + 13 công cụ tiêu biểu (đã xong) → 2. PDF → 3. Ảnh → 4. Tiện ích Việt Nam + Tính toán → 5. Văn bản + Lập trình → 6. QR + Văn phòng → 7. Bảo mật + Năng suất → 8. Âm thanh & video. Làm lần lượt; không chạy song song vì các nhóm đều sửa `tools.json` và trang sinh ra.
-- Nhóm PDF: chép logic từ repo https://github.com/springbbe/PDF-tool (`assets/tools/*.js`, cùng @cantoo/pdf-lib + pdf.js), chuyển sang khung `fileTool` và `assets/pdf.js` của repo này.
+- Nguồn sự thật là `tools.json`: công cụ `"status": "done"` là đã xong, `"todo"` là chưa làm. Mỗi nhóm có trường `"phase"` (số giai đoạn).
+- Mục **Lộ trình** trong `README.md` (do `scripts/build.js` sinh) cho biết từng giai đoạn gồm nhóm nào, xong bao nhiêu. Bảng **Danh sách công cụ** trong README đánh dấu ⏳ các công cụ chưa làm. `git log --oneline`: mỗi giai đoạn một commit.
+- Thứ tự: 1. lõi + 13 công cụ tiêu biểu (xong) → 2. PDF → 3. Ảnh → 4. Tiện ích Việt Nam + Tính toán → 5. Văn bản + Lập trình → 6. QR + Văn phòng → 7. Bảo mật + Năng suất → 8. Âm thanh & video. Làm lần lượt, không chạy song song (các nhóm đều sửa `tools.json` và trang sinh ra).
+
+### Khi người dùng nói "Làm giai đoạn N"
+
+1. Lấy các nhóm có `"phase": N` trong `tools.json`; làm **mọi** công cụ `"todo"` của các nhóm đó.
+2. Công cụ nào không làm được 100% trên trình duyệt thì xoá khỏi registry (hoặc ghi rõ lý do trong README), không làm nửa vời. Có ý tưởng công cụ mới hợp nhóm thì đề xuất với người dùng.
+3. Nhóm PDF: chép logic từ https://github.com/springbbe/PDF-tool (`assets/tools/*.js`, cùng @cantoo/pdf-lib + pdf.js), chuyển sang khung `fileTool` và `assets/pdf.js` của repo này.
+4. Xong: build + check + test, chạy thử trong trình duyệt, một commit cho cả giai đoạn, push, rồi báo lại cho người dùng những gì đã làm, đã thử, còn thiếu.
+
+### Khi chạy trên cloud
+
+- Phiên cloud thường làm trên một nhánh riêng rồi mở pull request. GitHub Pages chỉ lấy từ `main`, nên trang web chỉ cập nhật sau khi PR được merge vào `main`.
+- `scripts/make-samples.js` cần Google Chrome và `sips` (chỉ có trên macOS, dùng để tạo ảnh HEIC). Các file mẫu hiện có đã nằm trong `samples/`. Nếu môi trường không có công cụ này, hãy tạo file mẫu mới bằng cách khác hoặc ghi rõ phần chưa tạo được.
+- Nếu không có trình duyệt để chạy thử thật, nói rõ với người dùng là công cụ chưa được thử trên trình duyệt; đừng báo là đã kiểm tra.
 
 ## Ràng buộc bắt buộc (từ yêu cầu gốc)
 

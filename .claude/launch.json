@@ -1,0 +1,6 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "bbetools", "runtimeExecutable": "node", "runtimeArgs": ["scripts/serve.js", "8080"], "port": 8080, "url": "http://localhost:8080" }
+  ]
+}

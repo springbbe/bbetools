@@ -392,6 +392,23 @@ changed += await write("manifest.webmanifest", JSON.stringify({
     changed += await write("README.md", readme.replace(/<!-- tools:start -->[\s\S]*<!-- tools:end -->/, `<!-- tools:start -->${table}<!-- tools:end -->`));
   }
 }
+/* mục Lộ trình trong README.md (giữa <!-- roadmap:start --> và <!-- roadmap:end -->) */
+{
+  const readme = await readFile(ROOT + "README.md", "utf8").catch(() => null);
+  if (readme && readme.includes("<!-- roadmap:start -->")) {
+    const phases = [...new Set(reg.groups.map((g) => g.phase))].sort((a, b) => a - b);
+    const first = reg.tools.filter((t) => isLive(t)).length;
+    const rows = phases.map((n) => {
+      const groups = reg.groups.filter((g) => g.phase === n);
+      const list = reg.tools.filter((t) => groups.some((g) => g.id === t.group));
+      const done = list.filter(isLive).length;
+      const st = done === list.length ? "✅ Xong" : `⏳ Còn ${list.length - done} công cụ`;
+      return `| ${n} | ${groups.map((g) => g.name).join(" + ")} | ${done}/${list.length} | ${st} | \`Làm giai đoạn ${n} của BbeTools theo CLAUDE.md\` |`;
+    });
+    const table = `\n| Giai đoạn | Nhóm | Công cụ xong | Trạng thái | Câu lệnh gợi ý cho AI |\n|---|---|---|---|---|\n| 1 | Lõi, registry, trang tự sinh + 13 công cụ tiêu biểu | 13 | ✅ Xong | |\n${rows.join("\n")}\n`;
+    changed += await write("README.md", readme.replace(/<!-- roadmap:start -->[\s\S]*<!-- roadmap:end -->/, `<!-- roadmap:start -->${table}<!-- roadmap:end -->`));
+  }
+}
 if (CHECK) {
   if (stale.length) { console.error("Trang sinh ra chưa khớp tools.json, hãy chạy: node scripts/build.js\n- " + stale.join("\n- ")); process.exit(1); }
   console.log("Các trang đã khớp tools.json."); process.exit(0);

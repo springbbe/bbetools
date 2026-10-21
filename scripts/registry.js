@@ -27,6 +27,7 @@ export function validate(reg) {
     gids.add(g.id);
     for (const k of ["id", "slug", "name", "icon", "color", "desc"]) if (!g[k]) err(`Nhóm ${g.id}: thiếu ${k}`);
     if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(g.slug || "")) err(`Nhóm ${g.id}: slug không hợp lệ`);
+    if (!Number.isInteger(g.phase) || g.phase < 2) err(`Nhóm ${g.id}: cần "phase" (số giai đoạn, từ 2 trở đi)`);
   }
   const ids = new Set(), urls = new Map();
   const sprite = existsSync(ROOT + "assets/icons.svg") ? readFileSync(ROOT + "assets/icons.svg", "utf8") : "";

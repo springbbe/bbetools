@@ -7,17 +7,17 @@
     "description": "Hơn 100 công cụ miễn phí: ghép, nén PDF, nén ảnh, HEIC sang JPG, ảnh thẻ, VietQR, đọc số thành chữ, lịch âm… Xử lý 100% trên máy bạn, file không bao giờ tải lên máy chủ."
   },
   "groups": [
-    { "id": "pdf", "slug": "pdf", "name": "PDF", "icon": "file-text", "color": "#E5484D", "desc": "Ghép, tách, nén, xoay, ký, đặt mật khẩu và chuyển đổi file PDF." },
-    { "id": "image", "slug": "anh", "name": "Ảnh", "icon": "image", "color": "#8E4EC6", "desc": "Nén, đổi cỡ, cắt, đổi định dạng, HEIC sang JPG, làm ảnh thẻ, xoá phông." },
-    { "id": "media", "slug": "am-thanh-video", "name": "Âm thanh & video", "icon": "film", "color": "#D6409F", "desc": "Ghi âm, quay màn hình, cắt và ghép âm thanh, video sang MP3, nén video." },
-    { "id": "text", "slug": "van-ban", "name": "Văn bản", "icon": "type", "color": "#0D74CE", "desc": "Đếm từ, đổi chữ hoa thường, bỏ dấu, so sánh văn bản, chuyển mã TCVN3/VNI." },
-    { "id": "vn", "slug": "viet-nam", "name": "Tiện ích Việt Nam", "icon": "flag", "color": "#C27C0E", "desc": "Đọc số thành chữ, VietQR, lịch âm, lương gross ↔ net, thuế TNCN, tiền điện." },
-    { "id": "calc", "slug": "tinh-toan", "name": "Tính toán & đời sống", "icon": "calculator", "color": "#E5701A", "desc": "Phần trăm, giảm giá, VAT, chia tiền nhóm, đổi đơn vị, BMI, ngày dự sinh." },
-    { "id": "qr", "slug": "qr-ma-vach", "name": "QR & mã vạch", "icon": "qr-code", "color": "#475569", "desc": "Tạo mã QR (link, WiFi, danh thiếp), quét QR từ camera, ảnh, PDF; tạo mã vạch." },
-    { "id": "office", "slug": "van-phong", "name": "Văn phòng & dữ liệu", "icon": "sheet", "color": "#18794E", "desc": "Xem Excel/CSV, chuyển đổi, gộp, tách file Excel, trộn thư, chữ ký email." },
-    { "id": "dev", "slug": "lap-trinh", "name": "Lập trình", "icon": "code", "color": "#3E63DD", "desc": "JSON, Base64, JWT, UUID, hash, regex, timestamp, cron, mã màu, SQL." },
-    { "id": "security", "slug": "bao-mat", "name": "Bảo mật", "icon": "shield", "color": "#0E7C86", "desc": "Tạo mật khẩu mạnh, mã hoá file và văn bản, checksum, mã 2FA." },
-    { "id": "productivity", "slug": "nang-suat", "name": "Năng suất & ngẫu nhiên", "icon": "timer", "color": "#5C8A1C", "desc": "Pomodoro, bấm giờ, hẹn giờ, vòng quay may mắn, chia đội, ghi chú nhanh." }
+    { "id": "pdf", "phase": 2, "slug": "pdf", "name": "PDF", "icon": "file-text", "color": "#E5484D", "desc": "Ghép, tách, nén, xoay, ký, đặt mật khẩu và chuyển đổi file PDF." },
+    { "id": "image", "phase": 3, "slug": "anh", "name": "Ảnh", "icon": "image", "color": "#8E4EC6", "desc": "Nén, đổi cỡ, cắt, đổi định dạng, HEIC sang JPG, làm ảnh thẻ, xoá phông." },
+    { "id": "media", "phase": 8, "slug": "am-thanh-video", "name": "Âm thanh & video", "icon": "film", "color": "#D6409F", "desc": "Ghi âm, quay màn hình, cắt và ghép âm thanh, video sang MP3, nén video." },
+    { "id": "text", "phase": 5, "slug": "van-ban", "name": "Văn bản", "icon": "type", "color": "#0D74CE", "desc": "Đếm từ, đổi chữ hoa thường, bỏ dấu, so sánh văn bản, chuyển mã TCVN3/VNI." },
+    { "id": "vn", "phase": 4, "slug": "viet-nam", "name": "Tiện ích Việt Nam", "icon": "flag", "color": "#C27C0E", "desc": "Đọc số thành chữ, VietQR, lịch âm, lương gross ↔ net, thuế TNCN, tiền điện." },
+    { "id": "calc", "phase": 4, "slug": "tinh-toan", "name": "Tính toán & đời sống", "icon": "calculator", "color": "#E5701A", "desc": "Phần trăm, giảm giá, VAT, chia tiền nhóm, đổi đơn vị, BMI, ngày dự sinh." },
+    { "id": "qr", "phase": 6, "slug": "qr-ma-vach", "name": "QR & mã vạch", "icon": "qr-code", "color": "#475569", "desc": "Tạo mã QR (link, WiFi, danh thiếp), quét QR từ camera, ảnh, PDF; tạo mã vạch." },
+    { "id": "office", "phase": 6, "slug": "van-phong", "name": "Văn phòng & dữ liệu", "icon": "sheet", "color": "#18794E", "desc": "Xem Excel/CSV, chuyển đổi, gộp, tách file Excel, trộn thư, chữ ký email." },
+    { "id": "dev", "phase": 5, "slug": "lap-trinh", "name": "Lập trình", "icon": "code", "color": "#3E63DD", "desc": "JSON, Base64, JWT, UUID, hash, regex, timestamp, cron, mã màu, SQL." },
+    { "id": "security", "phase": 7, "slug": "bao-mat", "name": "Bảo mật", "icon": "shield", "color": "#0E7C86", "desc": "Tạo mật khẩu mạnh, mã hoá file và văn bản, checksum, mã 2FA." },
+    { "id": "productivity", "phase": 7, "slug": "nang-suat", "name": "Năng suất & ngẫu nhiên", "icon": "timer", "color": "#5C8A1C", "desc": "Pomodoro, bấm giờ, hẹn giờ, vòng quay may mắn, chia đội, ghi chú nhanh." }
   ],
   "tools": [
     {
