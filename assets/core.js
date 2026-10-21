@@ -98,6 +98,13 @@ const LIBS = {
   tesseract: { esm: JSD + "tesseract.js@7.0.0/dist/tesseract.esm.min.js", init: (m) => m.default || m }, // OCR; lõi + dữ liệu ngôn ngữ khai báo trong tools/ocr.js
   avif: { esm: JSD + "@jsquash/avif@2.1.1/codec/enc/avif_enc.js", init: (m) => m.default }, // bản đơn luồng (không cần COOP/COEP)
   pako: { script: JSD + "pako@2.1.0/dist/pako.min.js", global: "pako" },
+  marked: { esm: JSD + "marked@18.1.0/lib/marked.esm.js" },
+  purify: { esm: JSD + "dompurify@3.4.16/dist/purify.es.mjs", init: (m) => m.default },
+  yaml: { esm: JSD + "js-yaml@5.4.3/dist/browser/js-yaml.esm.min.mjs" },
+  sqlFormatter: { script: JSD + "sql-formatter@15.9.0/dist/sql-formatter.min.js", global: "sqlFormatter" },
+  terser: { script: JSD + "terser@5.51.2/dist/bundle.min.js", global: "Terser" },
+  csso: { script: JSD + "csso@5.0.5/dist/csso.js", global: "csso" },
+  uaParser: { script: JSD + "ua-parser-js@1.0.41/dist/ua-parser.min.js", global: "UAParser" },
   upng: { script: JSD + "upng-js@2.1.0/UPNG.js", global: "UPNG", deps: ["pako"] }
 };
 const libCache = {};

@@ -691,17 +691,150 @@
         { "q": "Văn bản có bị lưu lại không?", "a": "Không gửi đi đâu cả. Bạn có thể bật “Nhớ văn bản” để lưu tạm trong trình duyệt của chính bạn." }
       ]
     },
-    { "id": "case-converter", "slug": "doi-chu-hoa-thuong", "name": "Đổi chữ hoa/thường", "group": "text", "icon": "case-sensitive", "kind": "text", "desc": "Đổi IN HOA, chữ thường, Viết Hoa Mỗi Từ, Viết hoa đầu câu, đúng với tiếng Việt.", "keywords": ["in hoa", "viết hoa", "uppercase", "lowercase", "title case", "chữ thường"], "status": "todo", "related": ["remove-accents", "word-counter"] },
-    { "id": "remove-accents", "slug": "bo-dau-tieng-viet", "name": "Bỏ dấu tiếng Việt", "group": "text", "icon": "remove-formatting", "kind": "text", "desc": "Chuyển văn bản tiếng Việt có dấu thành không dấu (đ → d).", "keywords": ["xoá dấu", "không dấu", "remove diacritics", "bỏ dấu"], "status": "todo", "popular": true, "related": ["slugify", "case-converter", "telex-fix"] },
-    { "id": "slugify", "slug": "tao-slug", "name": "Tạo slug", "group": "text", "icon": "link", "kind": "text", "desc": "Tạo đường dẫn thân thiện (slug) từ tiêu đề tiếng Việt.", "keywords": ["url thân thiện", "permalink", "đường dẫn", "slug"], "status": "todo", "related": ["remove-accents", "url-encode"] },
-    { "id": "text-diff", "slug": "so-sanh-van-ban", "name": "So sánh văn bản", "group": "text", "icon": "git-compare", "kind": "text", "desc": "Tìm khác biệt giữa hai đoạn văn bản, tô màu phần thêm/bớt.", "keywords": ["diff", "khác biệt", "compare text", "so sánh 2 văn bản"], "status": "todo", "related": ["dedupe-lines", "word-counter"] },
-    { "id": "dedupe-lines", "slug": "loc-dong-trung", "name": "Lọc dòng trùng & sắp xếp dòng", "group": "text", "icon": "list-filter", "kind": "text", "desc": "Xoá dòng trùng, dòng trống, sắp xếp A→Z theo tiếng Việt, đảo ngược.", "keywords": ["xoá trùng", "sort lines", "unique lines", "sắp xếp dòng"], "status": "todo", "related": ["find-replace", "text-diff"] },
-    { "id": "find-replace", "slug": "tim-va-thay-the", "name": "Tìm và thay thế", "group": "text", "icon": "replace", "kind": "text", "desc": "Tìm và thay thế hàng loạt, hỗ trợ biểu thức chính quy (regex).", "keywords": ["replace", "regex", "thay chữ", "find and replace"], "status": "todo", "related": ["regex-tester", "dedupe-lines"] },
-    { "id": "vn-encoding", "slug": "chuyen-ma-tcvn3-vni", "name": "Chuyển mã Unicode ↔ TCVN3 ↔ VNI", "group": "text", "icon": "languages", "kind": "text", "desc": "Sửa chữ lỗi font .VnTime, VNI-Times: chuyển qua lại Unicode, TCVN3 (ABC), VNI.", "keywords": ["vntime", ".vntime", "abc", "vni-times", "lỗi font", "unikey", "chuyển mã", "tcvn3"], "status": "todo", "popular": true, "related": ["telex-fix", "remove-accents"] },
-    { "id": "telex-fix", "slug": "sua-loi-go-telex", "name": "Sửa chữ gõ sai bộ gõ", "group": "text", "icon": "keyboard", "kind": "text", "desc": "Chuyển “Vieejt Nam” thành “Việt Nam” khi lỡ gõ mà chưa bật Telex/VNI.", "keywords": ["quên bật unikey", "telex", "vni", "gõ sai dấu", "sửa lỗi gõ"], "status": "todo", "related": ["vn-encoding", "remove-accents"] },
-    { "id": "fancy-text", "slug": "chu-kieu-nghe-thuat", "name": "Chữ kiểu nghệ thuật", "group": "text", "icon": "sparkles", "kind": "text", "desc": "Tạo chữ kiểu (𝓫𝓮𝓪𝓾𝓽𝓲𝓯𝓾𝓵) cho tiểu sử Facebook, TikTok, Instagram.", "keywords": ["chữ đẹp facebook", "tiktok bio", "font chữ đẹp", "fancy text", "chữ kiểu"], "status": "todo", "related": ["case-converter"] },
-    { "id": "markdown-to-html", "slug": "markdown-sang-html", "name": "Markdown sang HTML", "group": "text", "icon": "file-code", "kind": "text", "desc": "Chuyển Markdown thành HTML, xem trước trực tiếp.", "keywords": ["md", "markdown preview", "markdown to html"], "status": "todo", "related": ["html-entity", "minifier"] },
-    { "id": "lorem-vi", "slug": "lorem-ipsum-tieng-viet", "name": "Lorem ipsum tiếng Việt", "group": "text", "icon": "pilcrow", "kind": "text", "desc": "Tạo đoạn văn mẫu tiếng Việt để dàn trang, thiết kế.", "keywords": ["văn bản mẫu", "chữ giả", "placeholder", "lorem ipsum"], "status": "todo", "related": ["word-counter"] },
+    {
+      "id": "case-converter", "slug": "doi-chu-hoa-thuong", "name": "Đổi chữ hoa/thường", "group": "text", "icon": "case-sensitive", "kind": "text",
+      "desc": "Đổi IN HOA, chữ thường, Viết Hoa Mỗi Từ, Viết hoa đầu câu, đúng với tiếng Việt.",
+      "keywords": ["in hoa", "viết hoa", "uppercase", "lowercase", "title case", "chữ thường"],
+      "status": "done",
+      "aliases": ["chuyen-chu-hoa", "viet-hoa", "case-converter"],
+      "related": ["remove-accents", "word-counter"],
+      "howto": ["Gõ hoặc dán văn bản vào ô.", "Chọn kiểu chữ: IN HOA, chữ thường, Viết Hoa Mỗi Từ, Viết hoa đầu câu hoặc kiểu lập trình (camelCase, snake_case…).", "Sao chép hoặc tải kết quả về."],
+      "faq": [
+        { "q": "Có đổi đúng chữ có dấu như “đ”, “ư”, “ơ” không?", "a": "Có. Công cụ dùng quy tắc chữ hoa/thường của tiếng Việt nên “đường phố” thành “ĐƯỜNG PHỐ” và ngược lại." },
+        { "q": "camelCase, snake_case có giữ dấu không?", "a": "Không. Các kiểu dành cho lập trình tự bỏ dấu và ký tự đặc biệt, ví dụ “Số điện thoại” thành soDienThoai hoặc so_dien_thoai." }
+      ]
+    },
+    {
+      "id": "remove-accents", "slug": "bo-dau-tieng-viet", "name": "Bỏ dấu tiếng Việt", "group": "text", "icon": "remove-formatting", "kind": "text",
+      "desc": "Chuyển văn bản tiếng Việt có dấu thành không dấu (đ → d).",
+      "keywords": ["xoá dấu", "không dấu", "remove diacritics", "bỏ dấu"],
+      "status": "done", "popular": true,
+      "aliases": ["xoa-dau", "khong-dau", "remove-accents"],
+      "related": ["slugify", "case-converter", "telex-fix"],
+      "howto": ["Dán văn bản tiếng Việt có dấu vào ô.", "Kết quả không dấu hiện ngay; bật “Giữ chữ đ” nếu cần.", "Sao chép hoặc tải về."],
+      "faq": [
+        { "q": "Chữ “đ” được đổi thế nào?", "a": "Mặc định “đ” thành “d”, “Đ” thành “D”. Bật tuỳ chọn “Giữ chữ đ/Đ” nếu muốn giữ nguyên." },
+        { "q": "Văn bản gõ kiểu tổ hợp (dấu tách rời) có bỏ được không?", "a": "Có, công cụ chuẩn hoá Unicode trước khi bỏ dấu nên cả chữ dựng sẵn lẫn tổ hợp đều xử lý được." }
+      ]
+    },
+    {
+      "id": "slugify", "slug": "tao-slug", "name": "Tạo slug", "group": "text", "icon": "link", "kind": "text",
+      "desc": "Tạo đường dẫn thân thiện (slug) từ tiêu đề tiếng Việt.",
+      "keywords": ["url thân thiện", "permalink", "đường dẫn", "slug"],
+      "status": "done",
+      "aliases": ["slug", "tao-duong-dan", "slugify"],
+      "related": ["remove-accents", "url-encode"],
+      "howto": ["Gõ tiêu đề bài viết, mỗi dòng một tiêu đề.", "Chọn ký tự nối và độ dài tối đa.", "Sao chép slug để dùng làm đường dẫn."],
+      "faq": [
+        { "q": "Slug là gì?", "a": "Là phần đường dẫn dễ đọc của một trang, ví dụ “huong-dan-cai-dat” trong example.com/huong-dan-cai-dat. Slug không dấu, chữ thường, nối bằng gạch ngang giúp chia sẻ và SEO tốt hơn." },
+        { "q": "Cắt độ dài có cắt giữa từ không?", "a": "Không, công cụ lùi về dấu nối gần nhất để không cắt đôi một từ." }
+      ]
+    },
+    {
+      "id": "text-diff", "slug": "so-sanh-van-ban", "name": "So sánh văn bản", "group": "text", "icon": "git-compare", "kind": "text",
+      "desc": "Tìm khác biệt giữa hai đoạn văn bản, tô màu phần thêm/bớt.",
+      "keywords": ["diff", "khác biệt", "compare text", "so sánh 2 văn bản"],
+      "status": "done",
+      "aliases": ["diff", "so-sanh-2-van-ban", "text-diff"],
+      "related": ["dedupe-lines", "word-counter"],
+      "howto": ["Dán bản gốc vào ô bên trái, bản mới vào ô bên phải.", "Chọn so theo dòng, từ hoặc ký tự; xem song song hay gộp một cột.", "Phần thêm tô xanh, phần bớt tô đỏ; đoạn giống nhau dài được gấp gọn."],
+      "faq": [
+        { "q": "Văn bản có bị gửi lên máy chủ để so sánh không?", "a": "Không. Thuật toán so sánh (Myers) chạy ngay trên trình duyệt của bạn." },
+        { "q": "Nên so theo dòng hay theo từ?", "a": "Hợp đồng, mã nguồn nên so theo dòng (trong dòng sửa vẫn tô đúng từ thay đổi). Đoạn văn liền mạch nên so theo từ." }
+      ]
+    },
+    {
+      "id": "dedupe-lines", "slug": "loc-dong-trung", "name": "Lọc dòng trùng & sắp xếp dòng", "group": "text", "icon": "list-filter", "kind": "text",
+      "desc": "Xoá dòng trùng, dòng trống, sắp xếp A→Z theo tiếng Việt, đảo ngược.",
+      "keywords": ["xoá trùng", "sort lines", "unique lines", "sắp xếp dòng"],
+      "status": "done",
+      "aliases": ["xoa-dong-trung", "sap-xep-dong", "dedupe-lines"],
+      "related": ["find-replace", "text-diff"],
+      "howto": ["Dán danh sách, mỗi mục một dòng.", "Chọn cách sắp xếp và bật/tắt xoá dòng trùng, dòng trống.", "Xem số dòng đã bỏ, rồi sao chép kết quả."],
+      "faq": [
+        { "q": "Sắp xếp A→Z có đúng thứ tự tiếng Việt không?", "a": "Có: a, ă, â, b, c, d, đ… và số được so theo giá trị (file2 đứng trước file10)." },
+        { "q": "“An” và “an” có bị coi là trùng?", "a": "Có khi bật “Không phân biệt hoa/thường”; dòng xuất hiện đầu tiên được giữ lại." }
+      ]
+    },
+    {
+      "id": "find-replace", "slug": "tim-va-thay-the", "name": "Tìm và thay thế", "group": "text", "icon": "replace", "kind": "text",
+      "desc": "Tìm và thay thế hàng loạt, hỗ trợ biểu thức chính quy (regex).",
+      "keywords": ["replace", "regex", "thay chữ", "find and replace"],
+      "status": "done",
+      "aliases": ["thay-the", "find-replace"],
+      "related": ["regex-tester", "dedupe-lines"],
+      "howto": ["Dán văn bản vào ô.", "Nhập từ cần tìm và từ thay thế; chọn phân biệt hoa/thường, nguyên từ hoặc regex.", "Chỗ được thay tô màu; sao chép hoặc tải kết quả."],
+      "faq": [
+        { "q": "Dùng biểu thức chính quy thế nào?", "a": "Bật “Biểu thức chính quy”, dùng $1, $2 hoặc $<tên> để chèn nhóm bắt được và \\n để xuống dòng. Bấm “Mẫu” để xem ví dụ đổi ngày 21/10/2026 thành 2026-10-21." },
+        { "q": "Biểu thức viết sai có làm treo trang không?", "a": "Không, biểu thức chạy trong luồng riêng và tự dừng sau vài giây nếu lặp quá lâu." }
+      ]
+    },
+    {
+      "id": "vn-encoding", "slug": "chuyen-ma-tcvn3-vni", "name": "Chuyển mã Unicode ↔ TCVN3 ↔ VNI", "group": "text", "icon": "languages", "kind": "text",
+      "desc": "Sửa chữ lỗi font .VnTime, VNI-Times: chuyển qua lại Unicode, TCVN3 (ABC), VNI.",
+      "keywords": ["vntime", ".vntime", "abc", "vni-times", "lỗi font", "unikey", "chuyển mã", "tcvn3"],
+      "status": "done", "popular": true,
+      "aliases": ["loi-font", "sua-loi-font", "tcvn3-sang-unicode", "vni-sang-unicode", "vn-encoding"],
+      "related": ["telex-fix", "remove-accents"],
+      "howto": ["Dán chữ bị lỗi font (ví dụ “ViÖt Nam”, “Vieät Nam” hay “Viá»‡t Nam”).", "Để “Tự nhận” hoặc chọn bảng mã nguồn; chọn bảng mã đích (thường là Unicode).", "Sao chép chữ đã sửa vào Word, Excel và đổi sang font Unicode như Times New Roman, Arial."],
+      "faq": [
+        { "q": "Vì sao văn bản cũ bị lỗi font?", "a": "Tài liệu soạn trước khi dùng Unicode thường gõ bảng mã TCVN3 (font .VnTime) hoặc VNI (font VNI-Times). Máy không có các font này sẽ hiện ký tự lạ; chuyển sang Unicode là đọc được ở mọi nơi." },
+        { "q": "Chữ hoa có dấu bị thành chữ thường?", "a": "Trong TCVN3, chữ hoa có dấu dùng font riêng (.VnTimeH). Công cụ tự đoán theo các chữ xung quanh; nếu cả đoạn gõ bằng font chữ hoa, chọn “In hoa hết (.VnTimeH)”." },
+        { "q": "“Viá»‡t Nam” là lỗi gì?", "a": "Đó là chữ UTF-8 bị phần mềm đọc nhầm thành Windows-1252 (hay gặp khi mở CSV bằng Excel). Chọn nguồn “UTF-8 bị lỗi” hoặc để tự nhận." }
+      ]
+    },
+    {
+      "id": "telex-fix", "slug": "sua-loi-go-telex", "name": "Sửa chữ gõ sai bộ gõ", "group": "text", "icon": "keyboard", "kind": "text",
+      "desc": "Chuyển “Vieejt Nam” thành “Việt Nam” khi lỡ gõ mà chưa bật Telex/VNI.",
+      "keywords": ["quên bật unikey", "telex", "vni", "gõ sai dấu", "sửa lỗi gõ"],
+      "status": "done",
+      "aliases": ["quen-bat-unikey", "sua-loi-telex", "telex-fix"],
+      "related": ["vn-encoding", "remove-accents"],
+      "howto": ["Dán đoạn chữ lỡ gõ khi chưa bật Unikey/EVKey, ví dụ “Tieesng Vieejt”.", "Chọn kiểu gõ (Telex, VNI hoặc tự nhận) và kiểu đặt dấu.", "Sao chép đoạn tiếng Việt có dấu."],
+      "faq": [
+        { "q": "Từ tiếng Anh có bị sửa nhầm không?", "a": "Công cụ chỉ sửa khi kết quả là âm tiết tiếng Việt hợp lệ và bỏ qua từ tiếng Anh thông dụng (this, was, is…). Một số từ ngắn vẫn có thể bị hiểu nhầm, hãy đọc lại kết quả." },
+        { "q": "“hòa” hay “hoà” mới đúng?", "a": "Cả hai cách đặt dấu đều được dùng. Chọn “Kiểu cũ” (hòa, thủy) hoặc “Kiểu mới” (hoà, thuỷ) theo thói quen của bạn." }
+      ]
+    },
+    {
+      "id": "fancy-text", "slug": "chu-kieu-nghe-thuat", "name": "Chữ kiểu nghệ thuật", "group": "text", "icon": "sparkles", "kind": "text",
+      "desc": "Tạo chữ kiểu (𝓫𝓮𝓪𝓾𝓽𝓲𝓯𝓾𝓵) cho tiểu sử Facebook, TikTok, Instagram.",
+      "keywords": ["chữ đẹp facebook", "tiktok bio", "font chữ đẹp", "fancy text", "chữ kiểu"],
+      "status": "done",
+      "aliases": ["chu-dep", "font-chu-dep", "fancy-text"],
+      "related": ["case-converter"],
+      "howto": ["Gõ tên hoặc câu ngắn.", "Hơn 20 kiểu chữ hiện ngay bên dưới.", "Bấm vào kiểu bạn thích để sao chép, rồi dán vào Facebook, TikTok, Instagram."],
+      "faq": [
+        { "q": "Đây có phải font chữ không?", "a": "Không, đây là các ký tự Unicode đặc biệt (bộ chữ toán học, chữ vòng tròn…) nên dán vào đâu cũng giữ kiểu mà không cần cài font." },
+        { "q": "Chữ có dấu tiếng Việt hiển thị có đẹp không?", "a": "Dấu được giữ nhưng một số máy vẽ dấu lệch so với chữ kiểu, và “đ” không có bản kiểu. Hãy xem thử trước khi đăng; kiểu Gạch ngang, Giãn cách, Rộng giữ dấu tốt nhất." },
+        { "q": "Có nên dùng làm tên hiển thị?", "a": "Trình đọc màn hình của người khiếm thị đọc các ký tự này rất khó hiểu, và một số nền tảng chặn ký tự lạ ở tên tài khoản." }
+      ]
+    },
+    {
+      "id": "markdown-to-html", "slug": "markdown-sang-html", "name": "Markdown sang HTML", "group": "text", "icon": "file-code", "kind": "text",
+      "desc": "Chuyển Markdown thành HTML, xem trước trực tiếp.",
+      "keywords": ["md", "markdown preview", "markdown to html"],
+      "status": "done",
+      "aliases": ["markdown", "md-sang-html", "markdown-to-html"],
+      "related": ["html-entity", "minifier"],
+      "howto": ["Gõ hoặc dán Markdown vào ô bên trái.", "Xem trước ngay bên phải, hoặc chuyển sang “Mã HTML”.", "Sao chép mã HTML hoặc tải về thành file .html hoàn chỉnh."],
+      "faq": [
+        { "q": "Hỗ trợ những cú pháp nào?", "a": "Markdown chuẩn và GitHub Flavored Markdown: bảng, gạch ngang chữ, danh sách việc cần làm, khối mã." },
+        { "q": "Xem trước có an toàn với mã độc không?", "a": "Có, phần xem trước được lọc bằng DOMPurify (bỏ script, thuộc tính sự kiện). Mã HTML xuất ra giữ nguyên những gì Markdown sinh ra." }
+      ]
+    },
+    {
+      "id": "lorem-vi", "slug": "lorem-ipsum-tieng-viet", "name": "Lorem ipsum tiếng Việt", "group": "text", "icon": "pilcrow", "kind": "form",
+      "desc": "Tạo đoạn văn mẫu tiếng Việt để dàn trang, thiết kế.",
+      "keywords": ["văn bản mẫu", "chữ giả", "placeholder", "lorem ipsum"],
+      "status": "done",
+      "aliases": ["van-ban-mau", "lorem-ipsum", "lorem-vi"],
+      "related": ["word-counter"],
+      "howto": ["Chọn tạo theo đoạn văn, câu hoặc số từ.", "Nhập số lượng; bấm “Tạo đoạn khác” để đổi nội dung.", "Sao chép hoặc tải về; bật “Bọc thẻ <p>” khi cần mã HTML."],
+      "faq": [
+        { "q": "Vì sao nên dùng văn bản mẫu tiếng Việt thay cho Lorem ipsum?", "a": "Chữ tiếng Việt có dấu chồng nhiều tầng (ặ, ể, ỡ) nên cao hơn và dài hơn chữ Latin. Thử bằng văn bản tiếng Việt giúp thấy sớm lỗi font thiếu dấu, dòng bị cắt dấu hay bố cục bị vỡ." }
+      ]
+    },
 
     {
       "id": "number-to-words", "slug": "doc-so-thanh-chu", "name": "Đọc số thành chữ", "group": "vn", "icon": "banknote", "kind": "text",
@@ -1120,24 +1253,243 @@
         { "q": "Có sửa được JSON “gần đúng” không?", "a": "Có tuỳ chọn sửa nhẹ: bỏ chú thích //, dấu phẩy thừa cuối mảng/đối tượng và chuyển nháy đơn thành nháy kép." }
       ]
     },
-    { "id": "json-convert", "slug": "json-sang-csv-yaml", "name": "JSON ↔ CSV/YAML", "group": "dev", "icon": "file-json", "kind": "text", "desc": "Chuyển đổi qua lại giữa JSON, CSV và YAML.", "keywords": ["json to csv", "json to yaml", "yaml to json", "csv to json"], "status": "todo", "related": ["json-formatter", "json-excel"] },
-    { "id": "base64", "slug": "ma-hoa-base64", "name": "Mã hoá/giải mã Base64", "group": "dev", "icon": "binary", "kind": "text", "desc": "Mã hoá và giải mã Base64 cho văn bản UTF-8 và file.", "keywords": ["encode base64", "decode base64", "base64"], "status": "todo", "related": ["url-encode", "image-to-base64", "jwt-decoder"] },
-    { "id": "url-encode", "slug": "ma-hoa-url", "name": "Mã hoá URL", "group": "dev", "icon": "link-2", "kind": "text", "desc": "Mã hoá/giải mã URL (percent-encoding), tách tham số query.", "keywords": ["urlencode", "urldecode", "percent encoding"], "status": "todo", "related": ["base64", "html-entity"] },
-    { "id": "html-entity", "slug": "html-entity", "name": "Mã hoá HTML entity", "group": "dev", "icon": "code-xml", "kind": "text", "desc": "Chuyển ký tự đặc biệt sang HTML entity và ngược lại.", "keywords": ["escape html", "unescape html", "entity"], "status": "todo", "related": ["url-encode", "markdown-to-html"] },
-    { "id": "jwt-decoder", "slug": "giai-ma-jwt", "name": "Giải mã JWT", "group": "dev", "icon": "key-round", "kind": "text", "desc": "Xem header, payload, thời hạn của JWT; kiểm tra chữ ký HMAC.", "keywords": ["jwt decode", "token", "json web token"], "status": "todo", "related": ["base64", "json-formatter"] },
-    { "id": "uuid", "slug": "tao-uuid", "name": "Tạo UUID", "group": "dev", "icon": "fingerprint", "kind": "form", "desc": "Tạo UUID v4, v7 hàng loạt.", "keywords": ["guid", "uuid v4", "uuid v7", "random id"], "status": "todo", "related": ["password-generator", "hash"] },
-    { "id": "hash", "slug": "tao-ma-hash", "name": "Hash MD5/SHA", "group": "dev", "icon": "hash", "kind": "text", "desc": "Tính MD5, SHA-1, SHA-256, SHA-512 của văn bản.", "keywords": ["md5", "sha1", "sha256", "băm", "hash generator"], "status": "todo", "related": ["checksum", "uuid"] },
-    { "id": "regex-tester", "slug": "kiem-tra-regex", "name": "Kiểm tra regex", "group": "dev", "icon": "regex", "kind": "text", "desc": "Thử biểu thức chính quy, tô sáng kết quả khớp và nhóm.", "keywords": ["regular expression", "biểu thức chính quy", "regex test"], "status": "todo", "related": ["find-replace"] },
-    { "id": "timestamp", "slug": "doi-timestamp", "name": "Đổi timestamp", "group": "dev", "icon": "clock", "kind": "form", "desc": "Đổi Unix timestamp ↔ ngày giờ theo múi giờ Việt Nam và UTC.", "keywords": ["unix time", "epoch", "timestamp converter"], "status": "todo", "related": ["cron", "date-calculator"] },
-    { "id": "cron", "slug": "giai-thich-cron", "name": "Giải thích cron", "group": "dev", "icon": "calendar-clock", "kind": "text", "desc": "Diễn giải biểu thức cron bằng tiếng Việt và liệt kê các lần chạy tới.", "keywords": ["crontab", "cron expression", "lịch chạy"], "status": "todo", "related": ["timestamp"] },
-    { "id": "color-converter", "slug": "doi-ma-mau", "name": "Đổi mã màu", "group": "dev", "icon": "palette", "kind": "form", "desc": "Đổi HEX, RGB, HSL, OKLCH; kiểm tra độ tương phản chữ/nền.", "keywords": ["màu", "hex to rgb", "rgb to hex", "contrast"], "status": "todo", "related": ["color-picker", "css-generator"] },
-    { "id": "css-generator", "slug": "tao-css-gradient-shadow", "name": "Tạo CSS gradient, box-shadow", "group": "dev", "icon": "paintbrush", "kind": "form", "desc": "Chỉnh trực quan gradient, box-shadow, border-radius và sao chép CSS.", "keywords": ["css gradient", "box shadow", "css generator"], "status": "todo", "related": ["color-converter"] },
-    { "id": "sql-formatter", "slug": "dinh-dang-sql", "name": "Định dạng SQL", "group": "dev", "icon": "database", "kind": "text", "desc": "Làm đẹp câu lệnh SQL (MySQL, PostgreSQL, SQL Server…).", "keywords": ["sql beautify", "format sql"], "status": "todo", "related": ["json-formatter", "minifier"] },
-    { "id": "minifier", "slug": "nen-js-css-html", "name": "Nén JS/CSS/HTML", "group": "dev", "icon": "package", "kind": "text", "desc": "Rút gọn mã JavaScript, CSS, HTML để giảm dung lượng.", "keywords": ["minify", "uglify", "nén code"], "status": "todo", "related": ["json-formatter", "sql-formatter"] },
-    { "id": "base-converter", "slug": "doi-co-so", "name": "Đổi cơ số", "group": "dev", "icon": "binary", "kind": "form", "desc": "Đổi số giữa nhị phân, bát phân, thập phân, thập lục phân và cơ số bất kỳ.", "keywords": ["binary", "hex", "decimal", "nhị phân", "thập lục phân"], "status": "todo", "related": ["unit-converter", "chmod"] },
-    { "id": "chmod", "slug": "tinh-chmod", "name": "Tính chmod", "group": "dev", "icon": "terminal", "kind": "form", "desc": "Đổi quyền file Linux giữa dạng số (755) và rwx.", "keywords": ["quyền file linux", "755", "644", "permission"], "status": "todo", "related": ["base-converter"] },
-    { "id": "user-agent", "slug": "phan-tich-user-agent", "name": "Phân tích User-Agent", "group": "dev", "icon": "globe", "kind": "text", "desc": "Xem trình duyệt, hệ điều hành, thiết bị từ chuỗi User-Agent.", "keywords": ["ua parser", "trình duyệt của tôi", "user agent"], "status": "todo", "related": ["http-status"] },
-    { "id": "http-status", "slug": "ma-trang-thai-http", "name": "Tra mã trạng thái HTTP", "group": "dev", "icon": "server", "kind": "text", "desc": "Ý nghĩa các mã 1xx–5xx (404, 500, 301…) giải thích bằng tiếng Việt.", "keywords": ["404", "500", "status code", "http code"], "status": "todo", "related": ["user-agent", "url-encode"] },
+    {
+      "id": "json-convert", "slug": "json-sang-csv-yaml", "name": "JSON ↔ CSV/YAML", "group": "dev", "icon": "file-json", "kind": "text",
+      "desc": "Chuyển đổi qua lại giữa JSON, CSV và YAML.",
+      "keywords": ["json to csv", "json to yaml", "yaml to json", "csv to json"],
+      "status": "done",
+      "aliases": ["json-to-csv", "csv-to-json", "json-to-yaml", "yaml-to-json", "json-convert"],
+      "related": ["json-formatter", "json-excel"],
+      "howto": ["Dán JSON, CSV hoặc YAML vào ô bên trái.", "Chọn định dạng đích (và dấu phân cách CSV nếu cần).", "Sao chép hoặc tải file kết quả."],
+      "faq": [
+        { "q": "JSON lồng nhau chuyển sang CSV thế nào?", "a": "Đối tượng con được làm phẳng thành cột kiểu “lienHe.email”; chuyển CSV ngược lại JSON sẽ dựng lại đúng cấu trúc lồng nhau." },
+        { "q": "Mở file CSV bằng Excel bị dồn một cột?", "a": "Excel trên máy đặt định dạng số kiểu Việt Nam dùng dấu chấm phẩy. Chọn “Chấm phẩy (;)” trước khi tải về." },
+        { "q": "Số điện thoại có bị mất số 0 đầu không?", "a": "Không, giá trị có số 0 đứng đầu được giữ dạng chuỗi khi chuyển CSV sang JSON." }
+      ]
+    },
+    {
+      "id": "base64", "slug": "ma-hoa-base64", "name": "Mã hoá/giải mã Base64", "group": "dev", "icon": "binary", "kind": "text",
+      "desc": "Mã hoá và giải mã Base64 cho văn bản UTF-8 và file.",
+      "keywords": ["encode base64", "decode base64", "base64"],
+      "status": "done",
+      "aliases": ["base64-encode", "base64-decode", "base64"],
+      "related": ["url-encode", "image-to-base64", "jwt-decoder"],
+      "howto": ["Chọn chiều: mã hoá hoặc giải mã.", "Gõ/dán văn bản, hoặc bấm “File” để mã hoá một file.", "Chuỗi Base64 là ảnh, PDF… thì bấm “Lưu thành file” để tải về."],
+      "faq": [
+        { "q": "Base64 có phải mã hoá bảo mật không?", "a": "Không. Base64 chỉ đổi dữ liệu sang ký tự an toàn để truyền đi, ai cũng giải ngược được. Muốn giữ bí mật hãy dùng mã hoá thật." },
+        { "q": "Văn bản có dấu có giải mã đúng không?", "a": "Có, công cụ dùng UTF-8 nên tiếng Việt và emoji giữ nguyên. Nhận cả Base64 URL-safe (- _) và chuỗi thiếu dấu =." }
+      ]
+    },
+    {
+      "id": "url-encode", "slug": "ma-hoa-url", "name": "Mã hoá URL", "group": "dev", "icon": "link-2", "kind": "text",
+      "desc": "Mã hoá/giải mã URL (percent-encoding), tách tham số query.",
+      "keywords": ["urlencode", "urldecode", "percent encoding"],
+      "status": "done",
+      "aliases": ["urlencode", "urldecode", "url-encode"],
+      "related": ["base64", "html-entity"],
+      "howto": ["Chọn mã hoá hoặc giải mã.", "Dán URL hoặc văn bản; với URL, xem bảng các phần và tham số đã giải mã.", "Sao chép kết quả hoặc từng tham số."],
+      "faq": [
+        { "q": "Khác nhau giữa “Một tham số” và “Cả URL”?", "a": "“Một tham số” mã hoá cả / ? & = (dùng cho giá trị đặt sau dấu =). “Cả URL” giữ nguyên các ký tự cấu trúc để đường dẫn vẫn bấm được." },
+        { "q": "Vì sao dấu + thành dấu cách?", "a": "Trong dữ liệu form, dấu cách được mã hoá thành +. Tắt tuỳ chọn “Đổi + thành dấu cách” nếu dấu + là thật." }
+      ]
+    },
+    {
+      "id": "html-entity", "slug": "html-entity", "name": "Mã hoá HTML entity", "group": "dev", "icon": "code-xml", "kind": "text",
+      "desc": "Chuyển ký tự đặc biệt sang HTML entity và ngược lại.",
+      "keywords": ["escape html", "unescape html", "entity"],
+      "status": "done",
+      "aliases": ["escape-html", "unescape-html", "html-entity-encode"],
+      "related": ["url-encode", "markdown-to-html"],
+      "howto": ["Chọn mã hoá hoặc giải mã.", "Dán HTML hay văn bản; chọn mức mã hoá và dạng entity.", "Sao chép kết quả."],
+      "faq": [
+        { "q": "Khi nào cần mã hoá HTML entity?", "a": "Khi muốn hiện nguyên văn mã HTML trên trang (ví dụ bài hướng dẫn) hoặc chèn dữ liệu người dùng vào HTML mà không bị hiểu thành thẻ." },
+        { "q": "Có cần mã hoá chữ có dấu không?", "a": "Trang dùng UTF-8 thì không cần. Chỉ chọn mã hoá ký tự ngoài ASCII khi hệ thống cũ không hỗ trợ UTF-8." }
+      ]
+    },
+    {
+      "id": "jwt-decoder", "slug": "giai-ma-jwt", "name": "Giải mã JWT", "group": "dev", "icon": "key-round", "kind": "text",
+      "desc": "Xem header, payload, thời hạn của JWT; kiểm tra chữ ký HMAC.",
+      "keywords": ["jwt decode", "token", "json web token"],
+      "status": "done",
+      "aliases": ["jwt", "jwt-decode", "jwt-decoder"],
+      "related": ["base64", "json-formatter"],
+      "howto": ["Dán JWT (có hoặc không có chữ Bearer).", "Xem header, payload và thời hạn theo giờ Việt Nam.", "Nhập khoá bí mật (HS256…) hoặc khoá công khai (RS256, ES256…) để kiểm tra chữ ký."],
+      "faq": [
+        { "q": "Dán token thật vào đây có an toàn không?", "a": "Token chỉ được giải mã và kiểm tra trên trình duyệt của bạn, không gửi đi đâu. Dù vậy, hãy cẩn thận với token còn hạn của hệ thống thật." },
+        { "q": "Khoá của token mẫu là gì?", "a": "Token mẫu ký bằng HS256 với khoá “bbetools-bi-mat”. Đổi một ký tự trong khoá để thấy chữ ký báo không khớp." },
+        { "q": "Kiểm tra được những thuật toán nào?", "a": "HS256/384/512, RS256/384/512, PS256/384/512, ES256/384/512 và EdDSA (trên trình duyệt hỗ trợ Ed25519). Khoá công khai nhận dạng PEM hoặc JWK." }
+      ]
+    },
+    {
+      "id": "uuid", "slug": "tao-uuid", "name": "Tạo UUID", "group": "dev", "icon": "fingerprint", "kind": "form",
+      "desc": "Tạo UUID v4, v7 hàng loạt.",
+      "keywords": ["guid", "uuid v4", "uuid v7", "random id"],
+      "status": "done",
+      "aliases": ["guid", "uuid-generator", "uuid"],
+      "related": ["password-generator", "hash"],
+      "howto": ["Chọn phiên bản v4 hoặc v7 và số lượng.", "Chọn chữ hoa, dấu gạch ngang, ngoặc nhọn nếu cần.", "Sao chép hoặc tải danh sách; dán một UUID vào ô kiểm tra để xem phiên bản và thời điểm tạo."],
+      "faq": [
+        { "q": "Nên dùng UUID v4 hay v7?", "a": "v4 hoàn toàn ngẫu nhiên. v7 mở đầu bằng thời điểm tạo nên tăng dần, giúp chỉ mục cơ sở dữ liệu nhanh hơn khi làm khoá chính." },
+        { "q": "UUID có bị trùng không?", "a": "Gần như không thể: UUID v4 có 122 bit ngẫu nhiên, tạo bằng crypto.getRandomValues của trình duyệt." }
+      ]
+    },
+    {
+      "id": "hash", "slug": "tao-ma-hash", "name": "Hash MD5/SHA", "group": "dev", "icon": "hash", "kind": "text",
+      "desc": "Tính MD5, SHA-1, SHA-256, SHA-512 của văn bản.",
+      "keywords": ["md5", "sha1", "sha256", "băm", "hash generator"],
+      "status": "done",
+      "aliases": ["md5", "sha256", "hash-generator"],
+      "related": ["checksum", "uuid"],
+      "howto": ["Gõ hoặc dán văn bản.", "Mã MD5, SHA-1, SHA-256, SHA-384, SHA-512 hiện ngay; nhập khoá để tính HMAC.", "Dán mã có sẵn vào ô “Đối chiếu” để kiểm tra khớp."],
+      "faq": [
+        { "q": "Vì sao hash của tôi khác công cụ khác?", "a": "Hash rất nhạy: một dấu cách hay dấu xuống dòng ở cuối cũng làm kết quả khác hẳn. Công cụ tính trên văn bản UTF-8 đúng như trong ô." },
+        { "q": "Có giải ngược hash ra văn bản được không?", "a": "Không. Hash là hàm một chiều; chỉ có thể đoán thử, nên mật khẩu yếu vẫn dễ bị dò ra." }
+      ]
+    },
+    {
+      "id": "regex-tester", "slug": "kiem-tra-regex", "name": "Kiểm tra regex", "group": "dev", "icon": "regex", "kind": "text",
+      "desc": "Thử biểu thức chính quy, tô sáng kết quả khớp và nhóm.",
+      "keywords": ["regular expression", "biểu thức chính quy", "regex test"],
+      "status": "done",
+      "aliases": ["regex", "regex-tester", "test-regex"],
+      "related": ["find-replace"],
+      "howto": ["Nhập biểu thức (dạng abc hoặc /abc/gi) và chọn cờ.", "Dán văn bản thử: chỗ khớp được tô màu, bảng liệt kê từng nhóm bắt.", "Nhập chuỗi thay thế để xem trước kết quả replace."],
+      "faq": [
+        { "q": "Dùng cú pháp regex của ngôn ngữ nào?", "a": "Cú pháp JavaScript (ECMAScript), gần giống Python, PHP, Java ở phần cơ bản. Bật cờ u để dùng \\p{L} (mọi chữ cái, kể cả có dấu)." },
+        { "q": "Biểu thức chạy mãi thì sao?", "a": "Biểu thức chạy trong luồng riêng và bị dừng sau 2,5 giây, trang không bị treo." }
+      ]
+    },
+    {
+      "id": "timestamp", "slug": "doi-timestamp", "name": "Đổi timestamp", "group": "dev", "icon": "clock", "kind": "form",
+      "desc": "Đổi Unix timestamp ↔ ngày giờ theo múi giờ Việt Nam và UTC.",
+      "keywords": ["unix time", "epoch", "timestamp converter"],
+      "status": "done",
+      "aliases": ["unix-timestamp", "epoch", "timestamp"],
+      "related": ["cron", "date-calculator"],
+      "howto": ["Dán Unix timestamp (giây, mili giây…) hoặc ngày giờ.", "Xem ngày giờ Việt Nam, UTC, ISO 8601 và khoảng cách tới hiện tại.", "Bấm biểu tượng sao chép cạnh dạng cần dùng."],
+      "faq": [
+        { "q": "Unix timestamp là gì?", "a": "Là số giây tính từ 00:00:00 UTC ngày 01/01/1970. Ví dụ 1767225600 là 07:00 ngày 01/01/2026 giờ Việt Nam." },
+        { "q": "Làm sao biết số là giây hay mili giây?", "a": "Công cụ tự nhận theo độ dài: 10 chữ số là giây, 13 là mili giây, 16 là micro giây, 19 là nano giây." }
+      ]
+    },
+    {
+      "id": "cron", "slug": "giai-thich-cron", "name": "Giải thích cron", "group": "dev", "icon": "calendar-clock", "kind": "text",
+      "desc": "Diễn giải biểu thức cron bằng tiếng Việt và liệt kê các lần chạy tới.",
+      "keywords": ["crontab", "cron expression", "lịch chạy"],
+      "status": "done",
+      "aliases": ["crontab", "cron-expression", "giai-thich-crontab"],
+      "related": ["timestamp"],
+      "howto": ["Dán biểu thức cron (hoặc cả dòng crontab có lệnh phía sau).", "Đọc diễn giải tiếng Việt và ý nghĩa từng trường.", "Xem 10 lần chạy tiếp theo theo giờ Việt Nam, UTC hoặc giờ máy."],
+      "faq": [
+        { "q": "Năm trường của cron là gì?", "a": "Lần lượt: phút (0–59), giờ (0–23), ngày trong tháng (1–31), tháng (1–12), thứ trong tuần (0–6, 0 là Chủ nhật). Biểu thức 6 trường có thêm giây ở đầu." },
+        { "q": "Máy chủ chạy sai giờ so với lịch?", "a": "Máy chủ thường đặt múi giờ UTC, chậm hơn giờ Việt Nam 7 tiếng. Chọn múi “UTC” để xem đúng giờ máy chủ sẽ chạy." }
+      ]
+    },
+    {
+      "id": "color-converter", "slug": "doi-ma-mau", "name": "Đổi mã màu", "group": "dev", "icon": "palette", "kind": "form",
+      "desc": "Đổi HEX, RGB, HSL, OKLCH; kiểm tra độ tương phản chữ/nền.",
+      "keywords": ["màu", "hex to rgb", "rgb to hex", "contrast"],
+      "status": "done",
+      "aliases": ["hex-to-rgb", "rgb-to-hex", "doi-mau", "color-converter"],
+      "related": ["color-picker", "css-generator"],
+      "howto": ["Gõ mã màu theo bất kỳ dạng nào hoặc dùng bảng chọn màu.", "Sao chép dạng HEX, RGB, HSL, OKLCH… cần dùng.", "Chọn màu nền để kiểm tra độ tương phản chữ theo chuẩn WCAG."],
+      "faq": [
+        { "q": "Độ tương phản bao nhiêu là đạt?", "a": "Theo WCAG, chữ thường cần tối thiểu 4,5:1 (mức AA), chữ lớn cần 3:1; mức AAA là 7:1 và 4,5:1." },
+        { "q": "OKLCH là gì?", "a": "Hệ màu mới của CSS, chỉnh độ sáng đều mắt hơn HSL; trình duyệt hiện đại đều hỗ trợ oklch()." },
+        { "q": "Mã CMYK có dùng để in được không?", "a": "Đây chỉ là quy đổi gần đúng. Màu in thật phụ thuộc hồ sơ màu của máy in, hãy hỏi nhà in khi cần chính xác." }
+      ]
+    },
+    {
+      "id": "css-generator", "slug": "tao-css-gradient-shadow", "name": "Tạo CSS gradient, box-shadow", "group": "dev", "icon": "paintbrush", "kind": "form",
+      "desc": "Chỉnh trực quan gradient, box-shadow, border-radius và sao chép CSS.",
+      "keywords": ["css gradient", "box shadow", "css generator"],
+      "status": "done",
+      "aliases": ["css-gradient", "box-shadow", "css-generator"],
+      "related": ["color-converter"],
+      "howto": ["Chọn hiệu ứng: gradient, box-shadow hoặc bo góc.", "Kéo thanh trượt, chọn màu và xem trước ngay.", "Bấm “Sao chép CSS” rồi dán vào file CSS."],
+      "faq": [
+        { "q": "Mã CSS có chạy trên mọi trình duyệt?", "a": "Có, gradient, box-shadow và border-radius được mọi trình duyệt hiện đại hỗ trợ, không cần tiền tố -webkit-." },
+        { "q": "Vì sao nên dùng hai lớp bóng?", "a": "Một lớp bóng rộng, nhạt cộng một lớp gần, rõ cho cảm giác nổi tự nhiên hơn một lớp bóng duy nhất." }
+      ]
+    },
+    {
+      "id": "sql-formatter", "slug": "dinh-dang-sql", "name": "Định dạng SQL", "group": "dev", "icon": "database", "kind": "text",
+      "desc": "Làm đẹp câu lệnh SQL (MySQL, PostgreSQL, SQL Server…).",
+      "keywords": ["sql beautify", "format sql"],
+      "status": "done",
+      "aliases": ["format-sql", "sql-beautifier", "sql-formatter"],
+      "related": ["json-formatter", "minifier"],
+      "howto": ["Dán câu lệnh SQL.", "Chọn hệ quản trị, kiểu từ khoá và thụt lề.", "Sao chép hoặc tải file .sql."],
+      "faq": [
+        { "q": "Câu lệnh có bị gửi lên máy chủ không?", "a": "Không, việc định dạng chạy bằng thư viện sql-formatter ngay trên trình duyệt." },
+        { "q": "Định dạng có làm đổi ý nghĩa câu lệnh không?", "a": "Không, công cụ chỉ đổi khoảng trắng, xuống dòng và chữ hoa/thường của từ khoá; chuỗi trong nháy giữ nguyên." }
+      ]
+    },
+    {
+      "id": "minifier", "slug": "nen-js-css-html", "name": "Nén JS/CSS/HTML", "group": "dev", "icon": "package", "kind": "text",
+      "desc": "Rút gọn mã JavaScript, CSS, HTML để giảm dung lượng.",
+      "keywords": ["minify", "uglify", "nén code"],
+      "status": "done",
+      "aliases": ["minify", "nen-code", "minifier"],
+      "related": ["json-formatter", "sql-formatter"],
+      "howto": ["Dán mã JavaScript, CSS, HTML hoặc JSON.", "Để tự nhận ngôn ngữ hoặc chọn đúng ngôn ngữ.", "Xem dung lượng giảm bao nhiêu phần trăm, rồi sao chép hoặc tải về."],
+      "faq": [
+        { "q": "Dùng công cụ gì để nén?", "a": "JavaScript dùng Terser, CSS dùng CSSO, HTML gom khoảng trắng, bỏ chú thích và nén luôn script/style bên trong. Tất cả chạy trên trình duyệt." },
+        { "q": "Mã đã nén có chạy giống bản gốc?", "a": "Có, chỉ bỏ khoảng trắng, chú thích, rút ngắn tên biến cục bộ. Hãy giữ bản gốc để sửa về sau." }
+      ]
+    },
+    {
+      "id": "base-converter", "slug": "doi-co-so", "name": "Đổi cơ số", "group": "dev", "icon": "binary", "kind": "form",
+      "desc": "Đổi số giữa nhị phân, bát phân, thập phân, thập lục phân và cơ số bất kỳ.",
+      "keywords": ["binary", "hex", "decimal", "nhị phân", "thập lục phân"],
+      "status": "done",
+      "aliases": ["nhi-phan", "hex", "doi-he-co-so", "base-converter"],
+      "related": ["unit-converter", "chmod"],
+      "howto": ["Gõ số và chọn hệ đang dùng (thập phân, hex, nhị phân…).", "Kết quả ở các hệ khác hiện ngay, chữ số được nhóm cho dễ đọc.", "Số âm có thêm dạng bù 2 với 8–64 bit."],
+      "faq": [
+        { "q": "Đổi được số lớn tới đâu?", "a": "Không giới hạn: công cụ dùng BigInt nên số hàng trăm chữ số vẫn chính xác." },
+        { "q": "Có đổi được số thập phân (có phần lẻ) không?", "a": "Hiện công cụ chỉ đổi số nguyên." }
+      ]
+    },
+    {
+      "id": "chmod", "slug": "tinh-chmod", "name": "Tính chmod", "group": "dev", "icon": "terminal", "kind": "form",
+      "desc": "Đổi quyền file Linux giữa dạng số (755) và rwx.",
+      "keywords": ["quyền file linux", "755", "644", "permission"],
+      "status": "done",
+      "aliases": ["chmod-calculator", "quyen-file", "chmod"],
+      "related": ["base-converter"],
+      "howto": ["Gõ quyền dạng số (755) hoặc chữ (rwxr-xr-x), hoặc tích vào bảng quyền.", "Xem dạng số, dạng chữ và giải thích từng nhóm người dùng.", "Nhập tên file để có sẵn lệnh chmod rồi sao chép."],
+      "faq": [
+        { "q": "755 và 644 khác nhau thế nào?", "a": "755: chủ được đọc/ghi/chạy, người khác đọc và chạy (thư mục, script). 644: chủ đọc/ghi, người khác chỉ đọc (file thường)." },
+        { "q": "Có nên đặt 777?", "a": "Không nên. 777 cho mọi người dùng trên máy ghi vào file, dễ bị lợi dụng." }
+      ]
+    },
+    {
+      "id": "user-agent", "slug": "phan-tich-user-agent", "name": "Phân tích User-Agent", "group": "dev", "icon": "globe", "kind": "text",
+      "desc": "Xem trình duyệt, hệ điều hành, thiết bị từ chuỗi User-Agent.",
+      "keywords": ["ua parser", "trình duyệt của tôi", "user agent"],
+      "status": "done",
+      "aliases": ["ua", "trinh-duyet-cua-toi", "user-agent"],
+      "related": ["http-status"],
+      "howto": ["Ô nhập có sẵn User-Agent của trình duyệt bạn; dán chuỗi khác nếu cần.", "Xem trình duyệt, hệ điều hành, loại thiết bị.", "Với chính máy này, xem thêm màn hình, ngôn ngữ, múi giờ."],
+      "faq": [
+        { "q": "Vì sao Windows 11 hiện là Windows 10?", "a": "Chuỗi User-Agent của Windows 11 vẫn ghi “Windows NT 10.0”. Trên Chrome, Edge, công cụ đọc thêm Client Hints để nhận đúng Windows 11." },
+        { "q": "Có nhận ra trình duyệt trong Zalo, Facebook không?", "a": "Có, công cụ ghi rõ khi trang được mở bên trong ứng dụng Zalo, Facebook, Instagram, TikTok." }
+      ]
+    },
+    {
+      "id": "http-status", "slug": "ma-trang-thai-http", "name": "Tra mã trạng thái HTTP", "group": "dev", "icon": "server", "kind": "text",
+      "desc": "Ý nghĩa các mã 1xx–5xx (404, 500, 301…) giải thích bằng tiếng Việt.",
+      "keywords": ["404", "500", "status code", "http code"],
+      "status": "done",
+      "aliases": ["http-code", "status-code", "loi-404", "http-status"],
+      "related": ["user-agent", "url-encode"],
+      "howto": ["Gõ mã (404, 5xx) hoặc từ khoá như “không tìm thấy”, “timeout”.", "Lọc theo nhóm 1xx–5xx.", "Đọc giải thích và cách xử lý cho các lỗi hay gặp."],
+      "faq": [
+        { "q": "Lỗi 4xx và 5xx khác nhau thế nào?", "a": "4xx là lỗi từ phía yêu cầu (sai địa chỉ, thiếu quyền, dữ liệu sai). 5xx là lỗi phía máy chủ, người dùng thường chỉ có thể chờ và thử lại." },
+        { "q": "301 hay 302 khi chuyển trang?", "a": "Dùng 301 (hoặc 308) khi đổi địa chỉ vĩnh viễn để Google chuyển thứ hạng sang trang mới; 302 (hoặc 307) khi chỉ chuyển tạm thời." }
+      ]
+    },
 
     { "id": "password-generator", "slug": "tao-mat-khau", "name": "Tạo mật khẩu mạnh", "group": "security", "icon": "key", "kind": "form", "desc": "Sinh mật khẩu ngẫu nhiên an toàn hoặc cụm từ dễ nhớ, dùng bộ sinh số của trình duyệt.", "keywords": ["random password", "sinh mật khẩu", "password generator", "mật khẩu ngẫu nhiên"], "status": "todo", "popular": true, "related": ["password-strength", "totp"] },
     { "id": "password-strength", "slug": "kiem-tra-mat-khau", "name": "Kiểm tra độ mạnh mật khẩu", "group": "security", "icon": "shield-check", "kind": "text", "desc": "Ước tính thời gian bẻ khoá và gợi ý cải thiện mật khẩu.", "keywords": ["mật khẩu yếu", "password strength", "kiểm tra mật khẩu"], "status": "todo", "related": ["password-generator"] },

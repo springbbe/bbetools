@@ -2,12 +2,6 @@
 import { textTool } from "../frames/text.js";
 import { findError, loosen, sortKeys, highlight } from "../lib/json-tools.js";
 
-const style = document.createElement("style");
-style.textContent = ".j-k{color:#7c3aed}.j-s{color:#0f7b3f}.j-n{color:#b45309}.j-l{color:#2563eb;font-weight:600}" +
-  ":root[data-theme=dark] .j-k{color:#c4b5fd}:root[data-theme=dark] .j-s{color:#86efac}:root[data-theme=dark] .j-n{color:#fdba74}:root[data-theme=dark] .j-l{color:#93c5fd}" +
-  "@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .j-k{color:#c4b5fd}:root:not([data-theme=light]) .j-s{color:#86efac}:root:not([data-theme=light]) .j-n{color:#fdba74}:root:not([data-theme=light]) .j-l{color:#93c5fd}}";
-document.head.append(style);
-
 textTool({
   mono: true,
   inputLabel: "JSON đầu vào",

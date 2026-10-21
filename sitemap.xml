@@ -55,6 +55,17 @@
   <url><loc>https://springbbe.github.io/bbetools/anh-sang-chu/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/tach-chu-ky/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/dem-tu/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/doi-chu-hoa-thuong/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/bo-dau-tieng-viet/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/tao-slug/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/so-sanh-van-ban/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/loc-dong-trung/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/tim-va-thay-the/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/chuyen-ma-tcvn3-vni/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/sua-loi-go-telex/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/chu-kieu-nghe-thuat/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/markdown-sang-html/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/lorem-ipsum-tieng-viet/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/doc-so-thanh-chu/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/tao-ma-qr-chuyen-khoan/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/doi-lich-am-duong/</loc></url>
@@ -85,6 +96,24 @@
   <url><loc>https://springbbe.github.io/bbetools/tao-ma-qr/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/quet-ma-qr/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/dinh-dang-json/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/json-sang-csv-yaml/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/ma-hoa-base64/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/ma-hoa-url/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/html-entity/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/giai-ma-jwt/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/tao-uuid/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/tao-ma-hash/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/kiem-tra-regex/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/doi-timestamp/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/giai-thich-cron/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/doi-ma-mau/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/tao-css-gradient-shadow/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/dinh-dang-sql/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/nen-js-css-html/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/doi-co-so/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/tinh-chmod/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/phan-tich-user-agent/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/ma-trang-thai-http/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/pomodoro/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/gioi-thieu/</loc></url>
 </urlset>
