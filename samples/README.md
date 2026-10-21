@@ -4,13 +4,13 @@ Dùng cho nút "Thử với file mẫu" trên các trang công cụ. Trừ ảnh
 
 | File | Nội dung | Dùng cho |
 |---|---|---|
-| `bao-cao-quy-1.pdf`, `bao-cao-quy-2.pdf` | báo cáo giả, chữ vector tiếng Việt | Ghép PDF |
+| `bao-cao-quy-1.pdf`, `bao-cao-quy-2.pdf` | báo cáo giả, chữ vector tiếng Việt | Ghép PDF, Ký PDF (quý 1) |
 | `tai-lieu-scan.pdf` | 2 trang "scan" (ảnh JPEG lớn) | Nén PDF |
-| `so-tay-nhan-vien.pdf` | 8 trang có số trang to; trang 5 là bảng in nằm ngang (bị xoay) | Tách, xoá, sắp xếp, xoay trang PDF, PDF sang ảnh |
-| `anh-phong-canh.jpg` | phong cảnh vẽ bằng thuật toán, 2400×1600 | Nén ảnh |
-| `anh-chup-man-hinh.png` | ảnh chụp màn hình trang chủ BbeTools | Nén ảnh |
+| `so-tay-nhan-vien.pdf` | 8 trang có số trang to; trang 5 là bảng in nằm ngang (bị xoay) | Tách, xoá, sắp xếp, xoay trang, PDF sang ảnh, PDF sang văn bản, đánh số trang, watermark |
+| `anh-phong-canh.jpg` | phong cảnh vẽ bằng thuật toán, 2400×1600 | Nén ảnh, Ảnh sang PDF |
+| `anh-chup-man-hinh.png` | ảnh chụp màn hình trang chủ BbeTools | Nén ảnh, Ảnh sang PDF |
 | `anh-iphone.heic` | ảnh HEIC tạo bằng `sips` | HEIC sang JPG |
-| `ma-qr-mau.png` | mã VietQR của một tài khoản giả | Quét mã QR |
+| `ma-qr-mau.png` | mã VietQR của một tài khoản giả | Quét mã QR, Ảnh sang PDF |
 | `chan-dung-mau.jpg` | chân dung **người không có thật** do StyleGAN tạo | Làm ảnh thẻ |
 
 `chan-dung-mau.jpg`: [File:Woman 1.jpg](https://commons.wikimedia.org/wiki/File:Woman_1.jpg) trên Wikimedia Commons, **public domain** (ảnh do mạng nơ-ron tạo, người trong ảnh không tồn tại).

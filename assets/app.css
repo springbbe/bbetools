@@ -439,8 +439,8 @@ details p { margin: 0; padding: 0 16px 14px; color: var(--muted); }
 .pgc.off .pg-face { border-color: var(--err); background: var(--err-soft); }
 .pgc.off .pg-sheet { opacity: .4; }
 .pg-slot { aspect-ratio: 1 / 1.3; display: flex; align-items: center; justify-content: center; }
-.pg-sheet { position: relative; max-width: 100%; max-height: 100%; overflow: hidden; background: #fff; border-radius: 2px; box-shadow: 0 0 0 1px rgba(0,0,0,.12), 0 2px 6px rgba(0,0,0,.12); }
-.pg-sheet img { position: absolute; left: 50%; top: 50%; display: block; pointer-events: none; transition: transform .15s; }
+.pg-sheet { position: relative; container-type: inline-size; max-width: 100%; max-height: 100%; overflow: hidden; background: #fff; border-radius: 2px; box-shadow: 0 0 0 1px rgba(0,0,0,.12), 0 2px 6px rgba(0,0,0,.12); }
+.pg-sheet > img { position: absolute; left: 50%; top: 50%; display: block; pointer-events: none; transition: transform .15s; }
 .pg-sheet.blank { display: grid; place-items: center; color: #8a8f9c; font-size: 11px; text-align: center; padding: 4px; }
 .pg-num { position: absolute; left: 4px; top: 4px; min-width: 22px; height: 22px; padding: 0 6px; border-radius: 99px; background: rgba(15,18,28,.72); color: #fff; font-size: 12px; font-weight: 700; display: grid; place-items: center; font-variant-numeric: tabular-nums; }
 .pg-tick { position: absolute; right: 4px; top: 4px; width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; background: var(--surface); border: 2px solid var(--line-2); color: transparent; }
@@ -459,6 +459,23 @@ details p { margin: 0; padding: 0 16px 14px; color: var(--muted); }
 .pg-group { align-self: center; max-width: 100%; padding: 1px 8px; border-radius: 99px; background: var(--g); color: #fff; font-size: 11.5px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .work-main > .alert { margin: 0 0 12px; }
 .pg-sum:empty { display: none; }
+.pg-sheet .deco { position: absolute; z-index: 1; pointer-events: none; line-height: 1; white-space: nowrap; }
+/* chọn vị trí trên trang (3 cột) */
+.posgrid { display: grid; grid-template-columns: repeat(3, 40px); gap: 6px; padding: 8px; background: var(--surface-2); border-radius: 12px; width: max-content; }
+.posgrid label { position: relative; }
+.posgrid input { position: absolute; opacity: 0; pointer-events: none; }
+.posgrid span { display: block; width: 40px; height: 32px; border-radius: 8px; border: 2px solid var(--line-2); background: var(--surface); cursor: pointer; }
+.posgrid input:checked + span { border-color: var(--brand); background: var(--brand); box-shadow: inset 0 0 0 4px var(--surface); }
+.posgrid input:focus-visible + span { outline: 3px solid var(--brand); outline-offset: 2px; }
+.posgrid input:disabled + span { opacity: .4; cursor: not-allowed; }
+.pos-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.colors { display: flex; gap: 10px; flex-wrap: wrap; padding: 4px; }
+.colors label { position: relative; }
+.colors input { position: absolute; opacity: 0; pointer-events: none; }
+.colors .dot { display: block; width: 32px; height: 32px; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(0,0,0,.2); cursor: pointer; }
+.colors input:checked + .dot { box-shadow: 0 0 0 3px var(--surface), 0 0 0 5px var(--brand); }
+.colors input:focus-visible + .dot { outline: 3px solid var(--brand); outline-offset: 4px; }
+
 
 /* ---------- Khung 2: văn bản vào → văn bản ra ---------- */
 .tx-opts { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; padding: 14px 16px; border-bottom: 1px solid var(--line); }
@@ -514,3 +531,6 @@ details p { margin: 0; padding: 0 16px 14px; color: var(--muted); }
   .fitem .facts { flex: 1 0 100%; justify-content: flex-end; margin-top: -2px; }
   .fitem .grip { display: none; }
 }
+.opt-more { margin: 0; }
+.opt-more > .opt-group { padding: 0 14px 14px; }
+.opt-more p { padding: 0; }

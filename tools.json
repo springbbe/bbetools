@@ -121,11 +121,80 @@
         { "q": "Chuyển cả trăm trang được không?", "a": "Được, các trang được chuyển lần lượt. Trên điện thoại nên chọn DPI thấp hơn để chạy nhanh và đỡ tốn bộ nhớ." }
       ]
     },
-    { "id": "image-to-pdf", "slug": "anh-sang-pdf", "name": "Ảnh sang PDF", "group": "pdf", "icon": "images", "kind": "file", "desc": "Ghép ảnh JPG, PNG, ảnh chụp màn hình thành một file PDF.", "keywords": ["jpg to pdf", "png to pdf", "chuyển ảnh sang pdf", "ảnh thành pdf", "scan ảnh"], "accept": ["image", "heic"], "multiple": true, "output": "pdf", "status": "todo", "popular": true, "related": ["pdf-to-image", "merge-pdf", "compress-image"] },
-    { "id": "pdf-to-text", "slug": "pdf-sang-van-ban", "name": "PDF sang văn bản", "group": "pdf", "icon": "file-text", "kind": "file", "desc": "Lấy toàn bộ chữ trong PDF để sao chép hoặc lưu file .txt.", "keywords": ["lấy chữ pdf", "trích xuất text", "pdf to txt", "copy chữ pdf", "pdf to text"], "accept": ["pdf"], "output": "text", "status": "todo", "related": ["ocr", "pdf-to-image"] },
-    { "id": "sign-pdf", "slug": "ky-pdf", "name": "Ký PDF", "group": "pdf", "icon": "signature", "kind": "file", "desc": "Vẽ, gõ hoặc dán chữ ký; thêm chữ và ngày tháng vào trang PDF.", "keywords": ["chữ ký pdf", "ký tên pdf", "sign pdf", "signature", "điền chữ vào pdf"], "accept": ["pdf"], "output": "pdf", "status": "todo", "popular": true, "related": ["fill-form-pdf", "signature-extract", "watermark-pdf"] },
-    { "id": "page-numbers-pdf", "slug": "danh-so-trang-pdf", "name": "Đánh số trang PDF", "group": "pdf", "icon": "list-ordered", "kind": "file", "desc": "Thêm số trang vào đầu hoặc cuối trang, chọn vị trí và kiểu số.", "keywords": ["số trang", "page number", "đánh số trang"], "accept": ["pdf"], "output": "pdf", "status": "todo", "related": ["watermark-pdf", "merge-pdf"] },
-    { "id": "watermark-pdf", "slug": "watermark-pdf", "name": "Chèn watermark PDF", "group": "pdf", "icon": "stamp", "kind": "file", "desc": "Đóng dấu chữ hoặc logo mờ lên các trang PDF.", "keywords": ["đóng dấu pdf", "chữ chìm", "logo mờ", "watermark"], "accept": ["pdf"], "output": "pdf", "status": "todo", "related": ["page-numbers-pdf", "protect-pdf", "watermark-image"] },
+    {
+      "id": "image-to-pdf", "slug": "anh-sang-pdf", "name": "Ảnh sang PDF", "group": "pdf", "icon": "images", "kind": "file",
+      "desc": "Ghép ảnh JPG, PNG, ảnh chụp màn hình thành một file PDF.",
+      "keywords": ["jpg to pdf", "png to pdf", "chuyển ảnh sang pdf", "ảnh thành pdf", "scan ảnh"],
+      "accept": ["image", "heic"], "multiple": true, "output": "pdf", "status": "done", "popular": true,
+      "aliases": ["jpg-sang-pdf", "png-sang-pdf", "image-to-pdf"],
+      "related": ["pdf-to-image", "merge-pdf", "compress-image"],
+      "howto": ["Chọn, kéo thả hoặc dán (Ctrl/⌘ + V) các ảnh: JPG, PNG, HEIC, ảnh chụp màn hình…", "Sắp thứ tự trang bằng kéo thả hoặc nút ↑↓, xoay ảnh bị ngược; chọn khổ giấy, hướng trang, lề và chất lượng.", "Bấm “Chuyển sang PDF” rồi tải file về."],
+      "faq": [
+        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Ảnh chụp từ iPhone (HEIC) có dùng được không?", "a": "Được. Công cụ tự đọc ảnh HEIC và xoay đúng chiều theo thông tin trong ảnh." },
+        { "q": "Làm sao để file PDF nhẹ hơn?", "a": "Chọn chất lượng “Nhẹ”. Nếu vẫn lớn, dùng tiếp công cụ Nén PDF." },
+        { "q": "Mỗi ảnh thành một file PDF riêng được không?", "a": "Được, tắt “Gộp tất cả ảnh vào một PDF”; các file sẽ tải về từng file hoặc gộp trong một file .zip." }
+      ]
+    },
+    {
+      "id": "pdf-to-text", "slug": "pdf-sang-van-ban", "name": "PDF sang văn bản", "group": "pdf", "icon": "file-text", "kind": "file",
+      "desc": "Lấy toàn bộ chữ trong PDF để sao chép hoặc lưu file .txt.",
+      "keywords": ["lấy chữ pdf", "trích xuất text", "pdf to txt", "copy chữ pdf", "pdf to text"],
+      "accept": ["pdf"], "multiple": true, "output": "text", "status": "done",
+      "aliases": ["lay-chu-pdf", "pdf-sang-txt", "pdf-to-txt"],
+      "related": ["ocr", "pdf-to-image"],
+      "howto": ["Chọn hoặc kéo thả một hay nhiều file PDF.", "Chọn có ghi số trang hay không, có nối các dòng bị ngắt giữa câu hay không.", "Bấm “Lấy văn bản”, xem ngay, sao chép toàn bộ hoặc tải file .txt."],
+      "faq": [
+        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Vì sao không lấy được chữ từ file của tôi?", "a": "File PDF scan (chụp hoặc quét từ giấy) chỉ chứa ảnh, không có lớp chữ. Hãy dùng công cụ Ảnh sang chữ (OCR)." },
+        { "q": "Mở file .txt bằng Notepad bị lỗi font tiếng Việt?", "a": "File được lưu dạng UTF-8 có đánh dấu BOM nên Notepad, Word đều nhận đúng tiếng Việt." },
+        { "q": "Có giữ được bảng biểu, định dạng không?", "a": "Không. Công cụ chỉ lấy chữ thuần; bảng biểu được chuyển thành các dòng chữ." }
+      ]
+    },
+    {
+      "id": "sign-pdf", "slug": "ky-pdf", "name": "Ký PDF", "group": "pdf", "icon": "signature", "kind": "file",
+      "desc": "Vẽ, gõ hoặc dán chữ ký; thêm chữ và ngày tháng vào trang PDF.",
+      "keywords": ["chữ ký pdf", "ký tên pdf", "sign pdf", "signature", "điền chữ vào pdf"],
+      "accept": ["pdf"], "output": "pdf", "status": "done", "popular": true,
+      "aliases": ["chu-ky-pdf", "sign-pdf"],
+      "related": ["fill-form-pdf", "signature-extract", "watermark-pdf"],
+      "howto": ["Chọn hoặc kéo thả file PDF cần ký.", "Bấm “Tạo chữ ký mới”: vẽ, gõ tên hoặc chọn ảnh chụp chữ ký; có thể thêm chữ, ngày, dấu tích, ảnh con dấu.", "Kéo chữ ký tới đúng chỗ, kéo góc để đổi cỡ, rồi bấm “Ký và tải về”."],
+      "faq": [
+        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Đây có phải chữ ký số không?", "a": "Không. Đây là chữ ký hình ảnh (như ký tay rồi scan), dùng cho hợp đồng, đơn từ thông thường. Chữ ký số dùng chứng thư số do nhà cung cấp cấp và cần phần mềm riêng." },
+        { "q": "Chữ ký của tôi được lưu ở đâu?", "a": "Chữ ký đã tạo chỉ lưu trong trình duyệt của máy này để lần sau dùng lại. Bấm × trên chữ ký để xoá." },
+        { "q": "Ký vào nhiều trang cùng lúc được không?", "a": "Được. Chọn chữ ký trên trang rồi bấm “Chép ra mọi trang”." }
+      ]
+    },
+    {
+      "id": "page-numbers-pdf", "slug": "danh-so-trang-pdf", "name": "Đánh số trang PDF", "group": "pdf", "icon": "list-ordered", "kind": "file",
+      "desc": "Thêm số trang vào đầu hoặc cuối trang, chọn vị trí và kiểu số.",
+      "keywords": ["số trang", "page number", "đánh số trang"],
+      "accept": ["pdf"], "output": "pdf", "status": "done",
+      "aliases": ["so-trang-pdf", "page-numbers-pdf"],
+      "related": ["watermark-pdf", "merge-pdf"],
+      "howto": ["Chọn hoặc kéo thả file PDF.", "Chọn vị trí, kiểu số (1, Trang 1, 1 / 10…), có bỏ qua trang bìa không; xem trước ngay trên các trang.", "Bấm “Đánh số trang” rồi tải file về."],
+      "faq": [
+        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Bỏ qua trang bìa thì số bắt đầu từ trang nào?", "a": "Trang bìa không có số, trang thứ hai mang số bắt đầu (mặc định là 1). Có thể đổi số bắt đầu trong “Tuỳ chỉnh thêm”." },
+        { "q": "Trang bị xoay ngang có đánh số đúng chỗ không?", "a": "Có. Vị trí số được tính theo chiều trang như bạn nhìn thấy." }
+      ]
+    },
+    {
+      "id": "watermark-pdf", "slug": "watermark-pdf", "name": "Chèn watermark PDF", "group": "pdf", "icon": "stamp", "kind": "file",
+      "desc": "Đóng dấu chữ hoặc logo mờ lên các trang PDF.",
+      "keywords": ["đóng dấu pdf", "chữ chìm", "logo mờ", "watermark"],
+      "accept": ["pdf"], "output": "pdf", "status": "done",
+      "aliases": ["dong-dau-pdf", "chen-watermark-pdf"],
+      "related": ["page-numbers-pdf", "protect-pdf", "watermark-image"],
+      "howto": ["Chọn hoặc kéo thả file PDF.", "Nhập chữ (tiếng Việt có dấu) hoặc chọn logo; chỉnh độ đậm, góc xoay, vị trí hoặc lặp kín trang.", "Xem trước trên các trang, bấm “Chèn watermark” rồi tải file về."],
+      "faq": [
+        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Watermark có xoá được không?", "a": "Watermark được vẽ vào nội dung trang. Chọn “Lặp kín trang” để người khác khó cắt bỏ hơn." },
+        { "q": "Chèn logo nền trong suốt được không?", "a": "Được. Dùng ảnh PNG nền trong suốt để logo đẹp nhất trên mọi nền trang." },
+        { "q": "Chỉ chèn vào vài trang được không?", "a": "Được. Chọn “Một số trang” rồi nhập ví dụ 1-3, 5." }
+      ]
+    },
     { "id": "protect-pdf", "slug": "dat-mat-khau-pdf", "name": "Đặt mật khẩu PDF", "group": "pdf", "icon": "lock", "kind": "file", "desc": "Khoá file PDF bằng mật khẩu, mã hoá AES-256.", "keywords": ["khoá pdf", "bảo vệ pdf", "encrypt pdf", "password pdf", "mã hoá pdf"], "accept": ["pdf"], "output": "pdf", "status": "todo", "related": ["unlock-pdf", "file-encrypt", "watermark-pdf"] },
     { "id": "unlock-pdf", "slug": "mo-khoa-pdf", "name": "Mở khoá PDF", "group": "pdf", "icon": "lock-open", "kind": "file", "desc": "Gỡ mật khẩu (khi bạn biết mật khẩu) và gỡ giới hạn in, sao chép.", "keywords": ["bỏ mật khẩu pdf", "unlock pdf", "decrypt pdf", "remove password", "gỡ khoá pdf"], "accept": ["pdf"], "output": "pdf", "status": "todo", "related": ["protect-pdf", "merge-pdf"] },
     { "id": "extract-pages-pdf", "slug": "trich-xuat-trang-pdf", "name": "Trích xuất trang PDF", "group": "pdf", "icon": "file-output", "kind": "file", "desc": "Chọn các trang cần lấy và lưu thành file PDF mới.", "keywords": ["lấy trang pdf", "extract pages", "tách lấy trang"], "accept": ["pdf"], "output": "pdf", "status": "todo", "related": ["split-pdf", "remove-pages-pdf"] },

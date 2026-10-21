@@ -12,6 +12,7 @@
      group(p, idx) → { color, label } | null,   // vạch màu dưới thẻ (vd. thuộc file kết quả số mấy)
      tools(B) → [Node],                         // nút thêm trên thanh công cụ của bảng
      options(el, ctx, B) → getter, onChange(B, ctx), summary(B, opts) → html, ready(B, opts) → true | "lý do",
+     decorate(sheet, p, idx, B),                // vẽ xem trước lên trang (số trang, watermark…); sheet có container-type nên dùng được đơn vị cqw
      onPages(B, item), run(B, opts, ctx) → outs, doneTitle, zipName
    })
    Mỗi trang p: { key, it (file nguồn), n (số trang gốc), rot (xoay thêm), w, h (kích thước gốc, pt), sel, off, blank } */
@@ -98,6 +99,7 @@ export function pageTool(cfg) {
       width: (p.rot % 180 ? (vh / vw) * 100 : 100) + "%", height: (p.rot % 180 ? (vw / vh) * 100 : 100) + "%",
       transform: `translate(-50%, -50%) rotate(${p.rot}deg)`, visibility: p.thumb ? null : "hidden" } });
     const sheet = h("div", { class: "pg-sheet" + (p.blank ? " blank" : ""), style: { aspectRatio: vw + " / " + vh, [vw / vh > 0.78 ? "width" : "height"]: "100%" } }, im || h("span", { text: "Trang trắng" }));
+    if (cfg.decorate) cfg.decorate(sheet, p, idx, B);
     const name = nameOf(p), clickable = !!cfg.click, label = labelOf(p, idx, sel, off);
     const li = h("li", { class: "pgc" + (sel ? " sel" : "") + (off ? " off" : "") + (clickable ? " clickable" : ""), dataset: { key: p.key } });
     const face = h("div", clickable
@@ -209,6 +211,14 @@ export function pageTool(cfg) {
   }
   B.render = render;
   B.repaint = () => { if (grid) repaint(); };
+  /** Vẽ lại phần xem trước (.deco) trên mọi thẻ mà không dựng lại bảng */
+  B.redecorate = () => {
+    if (!grid || !cfg.decorate) return;
+    [...grid.querySelectorAll(".pg-sheet")].forEach((sh, idx) => {
+      sh.querySelectorAll(".deco").forEach((d) => d.remove());
+      if (B.pages[idx]) cfg.decorate(sh, B.pages[idx], idx, B);
+    });
+  };
   B.changed = changed;
   B.move = move;
 
@@ -289,3 +299,17 @@ export function pageTool(cfg) {
 
 /** Một PDF gốc (để đặt tên file kết quả) */
 export const firstItem = (B) => B.ctx.items.find((i) => i.doc) || B.ctx.items[0];
+
+/** Lưới chọn vị trí trên trang. positions: [["tl", "Trên trái"], …] theo thứ tự 3 cột */
+export function posGrid(name, positions, value, label) {
+  const out = h("output", { class: "hint", text: (positions.find((x) => x[0] === value) || [])[1] || "" });
+  const grid = h("div", { class: "posgrid", role: "radiogroup", "aria-label": label },
+    positions.map(([v, l]) => h("label", { title: l }, h("input", { type: "radio", name, value: v, "aria-label": l, checked: v === value }), h("span"))));
+  grid.addEventListener("change", (e) => { const x = positions.find((p) => p[0] === e.target.value); if (x) out.textContent = x[1]; });
+  return h("div", { class: "opt-group" }, h("p", { class: "opt-title", text: label }), h("div", { class: "pos-row" }, grid, out));
+}
+
+/** Hàng chấm màu để chọn. colors: [["#000000", "Đen"], …] */
+export const colorPick = (name, colors, value, label) => h("div", { class: "opt-group" }, h("p", { class: "opt-title", id: "lbl-" + name, text: label }),
+  h("div", { class: "colors", role: "radiogroup", "aria-labelledby": "lbl-" + name },
+    colors.map(([c, l]) => h("label", { title: l }, h("input", { type: "radio", name, value: c, "aria-label": l, checked: c === value }), h("span", { class: "dot", style: { background: c } })))));

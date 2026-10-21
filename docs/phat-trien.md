@@ -15,9 +15,9 @@ assets/
   frames/form.js           khung 3: form / máy tính (trạng thái trên URL)
   frames/interactive.js    khung 4: tương tác (camera, âm thanh, hẹn giờ…)
   pdf.js, image.js, qr.js  tiện ích dùng chung cho nhóm PDF, ảnh, QR
-  pdf-pages.js             "bảng trang" PDF: pageTool() dựng trên khung file, mỗi trang một thẻ (chọn, xoay, xoá, đổi chỗ)
+  pdf-pages.js             "bảng trang" PDF: pageTool() dựng trên khung file, mỗi trang một thẻ (chọn, xoay, xoá, đổi chỗ, xem trước)
   ai/matting.js            AI tách nền (MODNet) + nhận diện khuôn mặt (UltraFace) chạy bằng onnxruntime-web
-  lib/*.js                 hàm thuần, có test: search, filetype, doc-so, am-lich, vietqr, json-tools, text-stats, page-ranges
+  lib/*.js                 hàm thuần, có test: search, filetype, doc-so, am-lich, vietqr, json-tools, text-stats, page-ranges, pdf-geom, pdf-text
   tools/<id>.js            logic riêng của từng công cụ
   registry.js              (sinh tự động) bản rút gọn của tools.json cho trình duyệt
   icons.svg                sprite icon Lucide (ISC)
@@ -64,6 +64,7 @@ Khai báo trong bảng `LIBS` của `assets/core.js`, gọi bằng `lib("tên")`
 | `zxing-wasm@3.1.5` | đọc QR, mã vạch (dự phòng khi trình duyệt không có BarcodeDetector) |
 | `onnxruntime-web@1.30.0` | chạy mô hình AI (đơn luồng, không cần COOP/COEP) |
 | `@fontsource/be-vietnam-pro@5.3.0` | font chữ |
+| `@fontsource/dancing-script`, `great-vibes`, `pacifico` `@5.3.0` | font chữ ký "gõ tên" trong Ký PDF (tải bằng `FontFace` khi mở hộp tạo chữ ký) |
 
 ## Thêm một công cụ mới
 
@@ -96,6 +97,8 @@ pageTool({
   async run(B, opts, ctx) { const doc = await B.build(B.pages.filter((p) => !p.off)); … }
 });
 ```
+
+Xem trước trên thẻ: khai báo `decorate(sheet, p, idx, B)` để thêm phần tử `.deco` (đơn vị `cqw` tính theo bề rộng trang), gọi `B.redecorate()` khi tuỳ chọn đổi. Toạ độ vẽ vào file tính bằng `assets/lib/pdf-geom.js` (`geom`, `place`, `toUser`) để đúng cả với trang có /Rotate.
 
 `B.pages` là danh sách trang `{ it, n, rot, w, h, sel, off, blank }`; `B.build(list)` chép các trang (kèm góc xoay) sang PDF mới của pdf-lib; `B.rangeField(prop, …)` tạo ô "1-3, 5, 8-" đồng bộ hai chiều với lựa chọn trên bảng; `B.changed(structural)` gọi sau khi đổi trạng thái trang. Khoảng trang xử lý bằng `assets/lib/page-ranges.js` (có test).
 
