@@ -379,34 +379,28 @@ changed += await write("manifest.webmanifest", JSON.stringify({
   background_color: "#F6F7F9", theme_color: "#3E5BF2",
   icons: [{ src: "assets/favicon.svg", sizes: "any", type: "image/svg+xml" }, { src: "assets/icon-512.png", sizes: "512x512", type: "image/png" }, { src: "assets/apple-touch-icon.png", sizes: "180x180", type: "image/png" }]
 }, null, 2) + "\n");
-/* bảng công cụ trong README.md (giữa hai dấu <!-- tools:start --> và <!-- tools:end -->) */
+/* Kế hoạch xây dựng (tài liệu tạm, docs/ke-hoach.md): bảng Lộ trình và bảng Công cụ.
+   File này sẽ bị xoá khi xây xong; khi đó phần dưới tự bỏ qua. */
 {
-  const readme = await readFile(ROOT + "README.md", "utf8").catch(() => null);
-  if (readme && readme.includes("<!-- tools:start -->")) {
-    const rows = reg.groups.map((g) => {
-      const list = reg.tools.filter((t) => t.group === g.id);
-      const done = list.filter(isLive);
-      return `| ${g.name} | ${done.length}/${list.length} | ${list.map((t) => (isLive(t) ? `[${t.name}](${BASE}${toolUrl(t)})` : t.name + " ⏳")).join(" · ")} |`;
-    });
-    const table = `\n${live.length}/${reg.tools.length} công cụ đã xong (⏳ = chưa làm, đang ẩn khỏi trang web).\n\n| Nhóm | Xong | Công cụ |\n|---|---|---|\n${rows.join("\n")}\n`;
-    changed += await write("README.md", readme.replace(/<!-- tools:start -->[\s\S]*<!-- tools:end -->/, `<!-- tools:start -->${table}<!-- tools:end -->`));
-  }
-}
-/* mục Lộ trình trong README.md (giữa <!-- roadmap:start --> và <!-- roadmap:end -->) */
-{
-  const readme = await readFile(ROOT + "README.md", "utf8").catch(() => null);
-  if (readme && readme.includes("<!-- roadmap:start -->")) {
+  const PLAN = "docs/ke-hoach.md";
+  let plan = await readFile(ROOT + PLAN, "utf8").catch(() => null);
+  const fill = (text, key, body) => text.replace(new RegExp(`<!-- ${key}:start -->[\\s\\S]*<!-- ${key}:end -->`), `<!-- ${key}:start -->${body}<!-- ${key}:end -->`);
+  if (plan) {
     const phases = [...new Set(reg.groups.map((g) => g.phase))].sort((a, b) => a - b);
-    const first = reg.tools.filter((t) => isLive(t)).length;
-    const rows = phases.map((n) => {
+    const roadmap = phases.map((n) => {
       const groups = reg.groups.filter((g) => g.phase === n);
       const list = reg.tools.filter((t) => groups.some((g) => g.id === t.group));
       const done = list.filter(isLive).length;
       const st = done === list.length ? "✅ Xong" : `⏳ Còn ${list.length - done} công cụ`;
       return `| ${n} | ${groups.map((g) => g.name).join(" + ")} | ${done}/${list.length} | ${st} | \`Làm giai đoạn ${n} của BbeTools theo CLAUDE.md\` |`;
     });
-    const table = `\n| Giai đoạn | Nhóm | Công cụ xong | Trạng thái | Câu lệnh gợi ý cho AI |\n|---|---|---|---|---|\n| 1 | Lõi, registry, trang tự sinh + 13 công cụ tiêu biểu | 13 | ✅ Xong | |\n${rows.join("\n")}\n`;
-    changed += await write("README.md", readme.replace(/<!-- roadmap:start -->[\s\S]*<!-- roadmap:end -->/, `<!-- roadmap:start -->${table}<!-- roadmap:end -->`));
+    plan = fill(plan, "roadmap", `\n| Giai đoạn | Nhóm | Công cụ xong | Trạng thái | Câu lệnh gợi ý cho AI |\n|---|---|---|---|---|\n| 1 | Lõi, registry, trang tự sinh + 13 công cụ tiêu biểu | 13 | ✅ Xong | |\n${roadmap.join("\n")}\n`);
+    const rows = reg.groups.map((g) => {
+      const list = reg.tools.filter((t) => t.group === g.id);
+      return `| ${g.name} | ${list.filter(isLive).length}/${list.length} | ${list.map((t) => (isLive(t) ? `[${t.name}](${BASE}${toolUrl(t)})` : t.name + " ⏳")).join(" · ")} |`;
+    });
+    plan = fill(plan, "tools", `\n${live.length}/${reg.tools.length} công cụ đã xong (⏳ = chưa làm, đang ẩn khỏi trang web).\n\n| Nhóm | Xong | Công cụ |\n|---|---|---|\n${rows.join("\n")}\n`);
+    changed += await write(PLAN, plan);
   }
 }
 if (CHECK) {
