@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><title>Ảnh mẫu</title></head>
+<body>
+<!-- Sinh ảnh mẫu (nội dung tự vẽ, không vướng bản quyền). Kết quả (base64 JPEG) nằm trong <pre id="out">.
+     ?mau=chu-ky  → samples/chu-ky-chup.jpg: chữ ký mực xanh + con dấu đỏ trên giấy chụp, có bóng đổ (Tách chữ ký, con dấu)
+     ?mau=van-ban → samples/van-ban-chup.jpg: đoạn văn tiếng Việt chụp từ giấy (Ảnh sang chữ – OCR) -->
+<pre id="out"></pre>
+<script type="module">
+const mau = new URLSearchParams(location.search).get("mau");
+let seed = 7;
+const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+
+function paper(W, H, shadow) {
+  const c = document.createElement("canvas"); c.width = W; c.height = H;
+  const g = c.getContext("2d");
+  const lg = g.createLinearGradient(0, 0, W, H);
+  lg.addColorStop(0, "#f4f1e8"); lg.addColorStop(1, "#e4dfd2");
+  g.fillStyle = lg; g.fillRect(0, 0, W, H);
+  if (shadow) {
+    // bóng tay/điện thoại đổ lên góc trái dưới
+    const rg = g.createRadialGradient(W * 0.05, H * 1.05, 10, W * 0.05, H * 1.05, W * 0.55);
+    rg.addColorStop(0, "rgba(40,35,30,.55)"); rg.addColorStop(1, "rgba(40,35,30,0)");
+    g.fillStyle = rg; g.fillRect(0, 0, W, H);
+  }
+  return c;
+}
+function noise(c, amt) {
+  const g = c.getContext("2d"), d = g.getImageData(0, 0, c.width, c.height);
+  for (let i = 0; i < d.data.length; i += 4) { const n = (rnd() - 0.5) * amt; d.data[i] += n; d.data[i + 1] += n; d.data[i + 2] += n; }
+  g.putImageData(d, 0, 0);
+}
+
+function chuKy() {
+  const W = 1600, H = 1000, c = paper(W, H, true), g = c.getContext("2d");
+  g.fillStyle = "#2a2d36"; g.font = "600 34px sans-serif"; g.textAlign = "center";
+  g.fillText("ĐẠI DIỆN CÔNG TY", 800, 150);
+  g.font = "italic 400 26px sans-serif"; g.fillText("(Ký, ghi rõ họ tên và đóng dấu)", 800, 195);
+  // con dấu tròn đỏ
+  const cx = 690, cy = 520, R = 190;
+  g.save(); g.globalAlpha = 0.82; g.strokeStyle = g.fillStyle = "#C7262C";
+  g.lineWidth = 9; g.beginPath(); g.arc(cx, cy, R, 0, Math.PI * 2); g.stroke();
+  g.lineWidth = 4; g.beginPath(); g.arc(cx, cy, R - 22, 0, Math.PI * 2); g.stroke();
+  g.beginPath(); g.arc(cx, cy, R - 92, 0, Math.PI * 2); g.stroke();
+  const text = "CÔNG TY TNHH MẪU THỬ BBETOOLS • HÀ NỘI •";
+  g.font = "700 30px sans-serif"; g.textAlign = "center"; g.textBaseline = "middle";
+  [...text].forEach((ch, i) => { const a = -Math.PI / 2 + (i / text.length) * Math.PI * 2; g.save(); g.translate(cx + Math.cos(a) * (R - 52), cy + Math.sin(a) * (R - 52)); g.rotate(a + Math.PI / 2); g.fillText(ch, 0, 0); g.restore(); });
+  g.font = "800 34px sans-serif"; g.fillText("MẪU", cx, cy - 18); g.font = "700 22px sans-serif"; g.fillText("MST 0100000000", cx, cy + 24);
+  g.restore();
+  // chữ ký bút bi xanh
+  g.strokeStyle = "#1B3A93"; g.lineCap = g.lineJoin = "round";
+  const strokes = [
+    [[560, 600], [620, 380], [700, 360], [690, 520], [650, 640], [760, 470], [820, 430], [840, 520]],
+    [[840, 520], [880, 600], [930, 420], [980, 470], [1000, 560], [1060, 430], [1120, 480], [1180, 540]],
+    [[520, 690], [700, 650], [950, 640], [1250, 600]]
+  ];
+  for (const s of strokes) {
+    for (let i = 0; i + 3 < s.length; i += 3) {
+      g.lineWidth = 4 + rnd() * 2.5;
+      g.beginPath(); g.moveTo(...s[i]); g.bezierCurveTo(...s[i + 1], ...s[i + 2], ...s[i + 3]); g.stroke();
+    }
+  }
+  g.fillStyle = "#2a2d36"; g.font = "600 32px sans-serif"; g.textAlign = "center"; g.textBaseline = "alphabetic";
+  g.fillText("Nguyễn Thị Mẫu", 860, 800);
+  noise(c, 14);
+  return c;
+}
+
+function vanBan() {
+  const W = 1600, H = 1100, c = paper(W, H, false), g = c.getContext("2d");
+  g.fillStyle = "#23252c"; g.textBaseline = "top";
+  g.font = "700 46px serif"; g.textAlign = "center"; g.fillText("THÔNG BÁO", W / 2, 90);
+  g.font = "italic 400 30px serif"; g.fillText("V/v nghỉ lễ Quốc khánh 2/9", W / 2, 158);
+  g.textAlign = "left"; g.font = "400 36px serif";
+  const lines = [
+    "Kính gửi: Toàn thể cán bộ, nhân viên công ty.",
+    "Căn cứ quy định hiện hành, công ty thông báo lịch nghỉ lễ",
+    "Quốc khánh như sau: nhân viên được nghỉ từ thứ Bảy ngày",
+    "30/8 đến hết thứ Ba ngày 02/9. Các bộ phận trực sắp xếp",
+    "người làm việc luân phiên và gửi danh sách về phòng Hành",
+    "chính trước ngày 25/8. Chúc mọi người kỳ nghỉ vui vẻ!",
+    "",
+    "Điện thoại liên hệ: 024 3812 3456 – Email: hcns@mauthu.vn"
+  ];
+  lines.forEach((l, i) => g.fillText(l, 130, 270 + i * 72));
+  g.textAlign = "right"; g.font = "700 34px serif"; g.fillText("BAN GIÁM ĐỐC", W - 160, 900);
+  noise(c, 10);
+  return c;
+}
+
+const c = mau === "chu-ky" ? chuKy() : vanBan();
+document.getElementById("out").textContent = c.toDataURL("image/jpeg", 0.9).split(",")[1];
+</script>
+</body></html>

@@ -1,6 +1,7 @@
 /* Tiện ích ảnh dùng chung: giải mã (kể cả HEIC, xoay theo EXIF), thu nhỏ chất lượng cao, mã hoá JPG (MozJPEG) / WebP / PNG / AVIF,
    nhóm tuỳ chọn "định dạng + chất lượng" cho các công cụ sửa ảnh. */
 import { h, lib, fileKinds } from "./core.js";
+import { svgSize, svgWithSize } from "./lib/image-data.js";
 
 const JSD = "https://cdn.jsdelivr.net/npm/";
 
@@ -12,6 +13,7 @@ export async function decodeImage(file) {
     const { heicTo } = await lib("heic");
     return heicTo({ blob: file, type: "bitmap" });
   }
+  if (kinds.includes("svg")) return decodeSvg(file);
   try { return await createImageBitmap(file, { imageOrientation: "from-image" }); }
   catch (_) {
     // dự phòng: <img> (một số định dạng như SVG, ICO)
@@ -23,6 +25,19 @@ export async function decodeImage(file) {
     } catch (e) { const err = new Error("Không đọc được ảnh " + file.name + ". Định dạng chưa được trình duyệt hỗ trợ hoặc file bị hỏng."); err.userMsg = err.message; throw err; }
     finally { URL.revokeObjectURL(url); }
   }
+}
+
+/** SVG → ImageBitmap: đặt cỡ rõ ràng (cạnh dài ≥ 1024 px) vì SVG chỉ có viewBox sẽ không có kích thước tự nhiên */
+async function decodeSvg(file) {
+  const text = await file.text(), s = svgSize(text), k = Math.max(1, 1024 / Math.max(s.width, s.height));
+  const w = Math.round(s.width * k), hh = Math.round(s.height * k);
+  const url = URL.createObjectURL(new Blob([svgWithSize(text, w, hh)], { type: "image/svg+xml" }));
+  try {
+    const img = new Image(); img.src = url; await img.decode();
+    const c = canvas(w, hh); c.getContext("2d").drawImage(img, 0, 0, w, hh);
+    return await createImageBitmap(c);
+  } catch (e) { const err = new Error("Không đọc được SVG " + file.name); err.userMsg = err.message + ". File có thể bị lỗi."; throw err; }
+  finally { URL.revokeObjectURL(url); }
 }
 
 export function canvas(w, hgt) { const c = document.createElement("canvas"); c.width = Math.max(1, Math.round(w)); c.height = Math.max(1, Math.round(hgt)); return c; }
@@ -164,4 +179,15 @@ export async function setJpegDpi(blob, dpi = 300) {
   }
   const app0 = new Uint8Array([0xff, 0xe0, 0, 16, 0x4a, 0x46, 0x49, 0x46, 0, 1, 1, 1, dpi >> 8, dpi & 255, dpi >> 8, dpi & 255, 0, 0]);
   return new Blob([b.subarray(0, 2), app0, b.subarray(2)], { type: "image/jpeg" });
+}
+
+/** Làm mờ mạnh bằng thu nhỏ rồi phóng to nhiều bước (chạy được trên mọi trình duyệt, không cần ctx.filter) */
+export function softBlur(src, amount) {  // amount: hệ số thu nhỏ (8 = nhẹ, 64 = rất mạnh)
+  const W = src.width, H = src.height, k = Math.max(2, amount);
+  let cur = src;
+  const steps = [];
+  for (let s = 2; s <= k; s *= 2) steps.push(s);
+  for (const s of steps) { const t = canvas(W / s, H / s); const g = t.getContext("2d"); g.imageSmoothingQuality = "high"; g.drawImage(cur, 0, 0, t.width, t.height); cur = t; }
+  for (let i = steps.length - 2; i >= -1; i--) { const s = i < 0 ? 1 : steps[i]; const t = canvas(W / s, H / s); const g = t.getContext("2d"); g.imageSmoothingQuality = "high"; g.drawImage(cur, 0, 0, t.width, t.height); cur = t; }
+  return cur;
 }

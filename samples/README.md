@@ -1,6 +1,6 @@
 # File mẫu
 
-Dùng cho nút "Thử với file mẫu" trên các trang công cụ. Trừ ảnh chân dung, mọi file được tạo bởi `node scripts/make-samples.js` từ mã trong `scripts/samples/` (nội dung tự vẽ, không vướng bản quyền). Các file PDF có form, ảnh, mật khẩu được sinh bằng pdf-lib trong `scripts/samples/pdf-lib.html`.
+Dùng cho nút "Thử với file mẫu" trên các trang công cụ. Trừ ảnh chân dung và `logo-mau.svg` (viết tay), mọi file được tạo bởi `node scripts/make-samples.js` từ mã trong `scripts/samples/` (nội dung tự vẽ, không vướng bản quyền). Các file PDF có form, ảnh, mật khẩu được sinh bằng pdf-lib trong `scripts/samples/pdf-lib.html`.
 
 | File | Nội dung | Dùng cho |
 |---|---|---|
@@ -13,8 +13,11 @@ Dùng cho nút "Thử với file mẫu" trên các trang công cụ. Trừ ảnh
 | `anh-phong-canh.jpg` | phong cảnh vẽ bằng thuật toán, 2400×1600 | Nén ảnh, Ảnh sang PDF |
 | `anh-chup-man-hinh.png` | ảnh chụp màn hình trang chủ BbeTools | Nén ảnh, Ảnh sang PDF |
 | `anh-co-gps.jpg`, `anh-iphone-co-gps.heic` | phong cảnh 1600 px gắn EXIF/GPS/XMP **giả** (Hồ Hoàn Kiếm), bản JPG và HEIC | Xoá thông tin EXIF/GPS |
+| `chu-ky-chup.jpg` | chữ ký mực xanh đè con dấu đỏ trên giấy có bóng đổ (nội dung tự vẽ) | Tách chữ ký, con dấu |
+| `van-ban-chup.jpg` | thông báo tiếng Việt chụp từ giấy (tự vẽ) | Ảnh sang chữ (OCR) |
+| `logo-mau.svg` | logo chữ B vẽ tay bằng SVG (chỉ có viewBox) | SVG sang PNG, Tạo favicon, Ảnh sang Base64 |
 | `anh-iphone.heic` | ảnh HEIC tạo bằng `sips` | HEIC sang JPG |
 | `ma-qr-mau.png` | mã VietQR của một tài khoản giả | Quét mã QR, Ảnh sang PDF |
-| `chan-dung-mau.jpg` | chân dung **người không có thật** do StyleGAN tạo | Làm ảnh thẻ |
+| `chan-dung-mau.jpg` | chân dung **người không có thật** do StyleGAN tạo | Làm ảnh thẻ, Xoá phông, Che/làm mờ |
 
 `chan-dung-mau.jpg`: [File:Woman 1.jpg](https://commons.wikimedia.org/wiki/File:Woman_1.jpg) trên Wikimedia Commons, **public domain** (ảnh do mạng nơ-ron tạo, người trong ảnh không tồn tại).

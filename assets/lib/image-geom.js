@@ -119,3 +119,61 @@ export function applyRatio(r, ratio, W, H) {
   w *= k; h *= k;
   return clampRect({ x: cx - w / 2, y: cy - h / 2, w, h }, W, H);
 }
+
+/* ---------------- chia ảnh, ghép ảnh ---------------- */
+
+/** Chia ảnh W×H thành rows × cols ô, biên làm tròn để các ô khít nhau (không hụt, không chồng pixel) */
+export function gridTiles(W, H, rows, cols) {
+  const out = [];
+  for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) {
+    const x = Math.round((c * W) / cols), y = Math.round((r * H) / rows);
+    out.push({ row: r, col: c, x, y, w: Math.round(((c + 1) * W) / cols) - x, h: Math.round(((r + 1) * H) / rows) - y });
+  }
+  return out;
+}
+
+/**
+ * Bố cục ghép nhiều ảnh. sizes: [[w, h]]. o.dir: "h" (ngang) | "v" (dọc) | "grid" (lưới o.cols cột)
+ * o.match (ngang/dọc): đưa mọi ảnh về cùng chiều cao (ngang) / chiều rộng (dọc) – lấy theo ảnh lớn nhất.
+ * Lưới: mọi ô cùng cỡ o.cell × (o.cell / tỉ lệ ảnh đầu); o.fit: "cover" (cắt vừa ô) | "contain" (giữ trọn ảnh).
+ * o.gap: khoảng cách (px), cũng là lề ngoài. o.max: giới hạn cạnh dài của ảnh ghép (thu nhỏ đều nếu vượt).
+ * Trả về { W, H, cells: [{ x, y, w, h, sx, sy, sw, sh }] } (sx… là vùng lấy từ ảnh gốc).
+ */
+export function mergeLayout(sizes, o) {
+  const gap = Math.max(0, o.gap || 0), n = sizes.length;
+  let cells = [], W = 0, H = 0;
+  const full = (w, h) => ({ sx: 0, sy: 0, sw: w, sh: h });
+  if (o.dir === "grid") {
+    const cols = Math.max(1, Math.min(n, o.cols || 2)), rows = Math.ceil(n / cols);
+    const cw = o.cell || 800, ch = Math.round(cw * (sizes[0][1] / sizes[0][0]));
+    sizes.forEach(([w, h], i) => {
+      const cx = gap + (i % cols) * (cw + gap), cy = gap + Math.floor(i / cols) * (ch + gap);
+      if (o.fit === "contain") {
+        const k = Math.min(cw / w, ch / h), dw = w * k, dh = h * k;
+        cells.push({ x: cx + (cw - dw) / 2, y: cy + (ch - dh) / 2, w: dw, h: dh, ...full(w, h) });
+      } else {
+        const k = Math.max(cw / w, ch / h), sw = cw / k, sh = ch / k;
+        cells.push({ x: cx, y: cy, w: cw, h: ch, sx: (w - sw) / 2, sy: (h - sh) / 2, sw, sh });
+      }
+    });
+    W = gap + cols * (cw + gap); H = gap + rows * (ch + gap);
+  } else {
+    const hor = o.dir !== "v";
+    const T = Math.max(...sizes.map(([w, h]) => (hor ? h : w)));
+    let pos = gap;
+    sizes.forEach(([w, h]) => {
+      const k = o.match === false ? 1 : T / (hor ? h : w), dw = w * k, dh = h * k;
+      // không cùng cỡ: căn giữa theo chiều kia
+      const off = gap + (T - (hor ? dh : dw)) / 2;
+      cells.push(hor ? { x: pos, y: off, w: dw, h: dh, ...full(w, h) } : { x: off, y: pos, w: dw, h: dh, ...full(w, h) });
+      pos += (hor ? dw : dh) + gap;
+    });
+    W = hor ? pos : T + 2 * gap; H = hor ? T + 2 * gap : pos;
+  }
+  if (o.max && Math.max(W, H) > o.max) {
+    const k = o.max / Math.max(W, H);
+    W *= k; H *= k;
+    cells = cells.map((c) => ({ ...c, x: c.x * k, y: c.y * k, w: c.w * k, h: c.h * k }));
+  }
+  return { W: Math.round(W), H: Math.round(H), cells };
+}

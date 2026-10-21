@@ -537,3 +537,15 @@ details p { margin: 0; padding: 0 16px 14px; color: var(--muted); }
 
 /* Công cụ ảnh */
 .sm-chips .chip { min-height: 32px; padding: 4px 11px; font-size: 13.5px; cursor: pointer; }
+/* vùng xem trước ảnh (cắt, làm mờ, chèn chữ, lấy màu, tách chữ ký…) */
+.ist { display: flex; flex-direction: column; gap: 12px; align-items: center; }
+.ist-stage { position: relative; line-height: 0; max-width: 100%; touch-action: none; user-select: none; -webkit-user-select: none; border-radius: 6px; box-shadow: 0 0 0 1px var(--line-2); background: repeating-conic-gradient(var(--surface-2) 0 25%, var(--surface) 0 50%) 0 0/16px 16px; }
+.ist-stage canvas { display: block; max-width: 100%; max-height: 68vh; width: auto; height: auto; }
+.ist-stage:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; }
+.ist-loading { display: flex; gap: 8px; align-items: center; color: var(--muted); padding: 40px 0; }
+.ist-preview { margin-top: 14px; display: flex; justify-content: center; }
+.ist-preview canvas { max-width: 100%; max-height: 60vh; border-radius: 6px; box-shadow: 0 0 0 1px var(--line-2); background: repeating-conic-gradient(var(--surface-2) 0 25%, var(--surface) 0 50%) 0 0/16px 16px; }
+.color-in { display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 10px; }
+.color-in input[type=color] { width: 48px; height: 36px; border: 1px solid var(--line); border-radius: 8px; padding: 2px; background: var(--surface); cursor: pointer; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.out-text { width: 100%; min-height: 160px; font-family: var(--mono); font-size: 13px; line-height: 1.5; }

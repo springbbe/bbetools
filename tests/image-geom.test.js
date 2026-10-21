@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { fitSize, rotatedSize, normRot, orientMatrix, apply, centeredRect, clampRect, roundRect, moveRect, resizeRect, applyRatio } from "../assets/lib/image-geom.js";
+import { fitSize, rotatedSize, normRot, orientMatrix, apply, centeredRect, clampRect, roundRect, moveRect, resizeRect, applyRatio, gridTiles, mergeLayout } from "../assets/lib/image-geom.js";
 
 test("đổi cỡ theo pixel, giữ tỉ lệ", () => {
   assert.deepEqual(fitSize(4000, 3000, { mode: "px", width: 800 }), [800, 600]);
@@ -98,4 +98,37 @@ test("đổi tỉ lệ khung đang có", () => {
   assert.ok(Math.abs(r.x + r.w / 2 - 200) < 1e-9 && Math.abs(r.y + r.h / 2 - 150) < 1e-9);
   const big = applyRatio({ x: 0, y: 0, w: 400, h: 300 }, 1, 400, 300);
   assert.deepEqual(big, { x: 50, y: 0, w: 300, h: 300 });
+});
+
+
+test("chia lưới: các ô khít nhau, phủ kín ảnh", () => {
+  const t = gridTiles(1001, 700, 2, 3);
+  assert.equal(t.length, 6);
+  assert.equal(t.reduce((s, x) => s + x.w * x.h, 0), 1001 * 700);
+  assert.deepEqual(t[0], { row: 0, col: 0, x: 0, y: 0, w: 334, h: 350 });
+  assert.deepEqual(t[5], { row: 1, col: 2, x: 667, y: 350, w: 334, h: 350 });
+  for (const a of t) assert.ok(a.x + a.w <= 1001 && a.y + a.h <= 700);
+});
+
+test("ghép ngang: cùng chiều cao, có khoảng cách", () => {
+  const L = mergeLayout([[400, 300], [200, 300], [800, 600]], { dir: "h", gap: 10 });
+  assert.equal(L.H, 600 + 20);
+  assert.deepEqual(L.cells.map((c) => [c.x, c.y, c.w, c.h]), [[10, 10, 800, 600], [820, 10, 400, 600], [1230, 10, 800, 600]]);
+  assert.equal(L.W, 2040);
+});
+
+test("ghép dọc không cùng cỡ: căn giữa", () => {
+  const L = mergeLayout([[400, 300], [200, 100]], { dir: "v", gap: 0, match: false });
+  assert.deepEqual([L.W, L.H], [400, 400]);
+  assert.deepEqual(L.cells.map((c) => [c.x, c.y, c.w, c.h]), [[0, 0, 400, 300], [100, 300, 200, 100]]);
+});
+
+test("ghép lưới: cắt vừa ô và giới hạn kích thước", () => {
+  const L = mergeLayout([[400, 400], [800, 400], [400, 800]], { dir: "grid", cols: 2, cell: 100, gap: 0, fit: "cover" });
+  assert.deepEqual([L.W, L.H], [200, 200]);
+  assert.deepEqual(L.cells[1], { x: 100, y: 0, w: 100, h: 100, sx: 200, sy: 0, sw: 400, sh: 400 });
+  const C = mergeLayout([[400, 400], [800, 400]], { dir: "grid", cols: 2, cell: 100, gap: 0, fit: "contain" });
+  assert.deepEqual(C.cells[1], { x: 100, y: 25, w: 100, h: 50, sx: 0, sy: 0, sw: 800, sh: 400 });
+  const M = mergeLayout([[4000, 3000], [4000, 3000]], { dir: "h", gap: 0, max: 4000 });
+  assert.deepEqual([M.W, M.H], [4000, 1500]);
 });

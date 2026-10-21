@@ -11,7 +11,7 @@ Hai bảng dưới đây do `scripts/build.js` sinh từ `tools.json` (trường
 |---|---|---|---|---|
 | 1 | Lõi, registry, trang tự sinh + 13 công cụ tiêu biểu | 13 | ✅ Xong | |
 | 2 | PDF | 24/24 | ✅ Xong |  |
-| 3 | Ảnh | 8/21 | ⏳ Còn 13 công cụ | `Làm giai đoạn 3 của BbeTools theo CLAUDE.md` |
+| 3 | Ảnh | 21/21 | ✅ Xong |  |
 | 4 | Tiện ích Việt Nam + Tính toán & đời sống | 3/27 | ⏳ Còn 24 công cụ | `Làm giai đoạn 4 của BbeTools theo CLAUDE.md` |
 | 5 | Văn bản + Lập trình | 2/31 | ⏳ Còn 29 công cụ | `Làm giai đoạn 5 của BbeTools theo CLAUDE.md` |
 | 6 | QR & mã vạch + Văn phòng & dữ liệu | 2/11 | ⏳ Còn 9 công cụ | `Làm giai đoạn 6 của BbeTools theo CLAUDE.md` |
@@ -43,16 +43,24 @@ Làm công cụ Tách PDF của BbeTools theo CLAUDE.md
 
 ## Ghi chú tiến độ (cập nhật sau mỗi lần làm)
 
-### Giai đoạn 3 – Ảnh (đang làm)
+### Giai đoạn 3 – Ảnh (xong)
 
-- Đợt 1 xong 5 công cụ: Đổi kích thước, Cắt ảnh, Xoay/lật, Đổi định dạng (có AVIF), Xoá EXIF/GPS. Còn lại xem bảng "Công cụ" (mục ⏳); làm tiếp theo nhóm 5 công cụ mỗi đợt.
-- Phần dùng chung mới:
-  - `assets/image.js`: `formatOptions(el)` (ô "Lưu dưới dạng" + chất lượng) và `outType(file, o)`; `encode()` xuất được AVIF (`lib("avif")` = @jsquash/avif 2.1.1 bản đơn luồng, thang chất lượng trừ 20 cho tương đương JPG).
-  - `lib/image-geom.js` (có test): `fitSize` đổi cỡ, `orientMatrix` xoay/lật, khung cắt `resizeRect`/`applyRatio`/`centeredRect`.
-  - `lib/exif.js` (có test): đọc EXIF/GPS/XMP/IPTC của JPEG, PNG, WebP, HEIC/AVIF; `stripMeta` xoá không nén lại (giữ ICC, giữ thẻ hướng xoay); `buildTiff`, `wipeGps`, `insertJpegExif`.
-- File mẫu mới: `anh-co-gps.jpg`, `anh-iphone-co-gps.heic` (EXIF/GPS giả, sinh bằng `scripts/samples/anh-co-gps.js` trong `make-samples.js`).
-- Bẫy: ở lucide-static 1.52, icon `flip-vertical-2` là soi gương trái–phải (lật ngang), `flip-horizontal-2` là lật trên–dưới. Cổng 8080 trên máy có thể bị chiếm: dùng preview "bbetools-8791".
-- Đã thử trên trình duyệt (khổ 375 px, chế độ tối): cả 5 công cụ với file mẫu, kiểm tra điểm ảnh khi xoay/lật, dữ liệu ảnh JPEG giữ nguyên byte khi xoá EXIF. Chưa thử: chế độ sáng, Đổi định dạng với file HEIC, Safari.
+- Đã xong cả 21 công cụ ảnh (đợt 1: đổi kích thước, cắt, xoay/lật, đổi định dạng, xoá EXIF; đợt 2: 13 công cụ còn lại).
+- Phần dùng chung để các giai đoạn sau dùng lại:
+  - `assets/image.js`: `decodeImage` (cả HEIC, SVG chỉ có viewBox), `formatOptions(el)` + `outType()` (ô "Lưu dưới dạng"), `encode()` xuất JPG/PNG/WebP/AVIF, `softBlur()` (làm mờ chạy mọi trình duyệt, không cần `ctx.filter`).
+  - `assets/fonts.js`: font có dấu tiếng Việt (Be Vietnam Pro, Roboto Slab, Dancing Script, Pacifico, Great Vibes) tải bằng FontFace khi cần.
+  - CSS chung trong `app.css`: `.ist` / `.ist-stage` (vùng xem trước ảnh có nền ô cờ), `.ist-preview`, `.color-in`, `.two`, `.out-text`.
+  - Hàm thuần có test: `lib/image-geom.js` (đổi cỡ, xoay/lật, khung cắt, chia lưới, bố cục ghép), `lib/exif.js` (đọc/xoá EXIF, GPS), `lib/image-data.js` (ICO, kích thước SVG, hệ màu, bảng màu median cut, tách nét mực theo nền giấy + lọc màu mực), `lib/ocr-text.js` (nối dòng OCR thành đoạn).
+  - Thư viện mới: `@jsquash/avif` (AVIF), `gifenc` (GIF), `tesseract.js` 7 + lõi 7 + dữ liệu `@tesseract.js-data/vie|eng` (OCR, khai báo đường dẫn trong `tools/ocr.js`).
+- Bẫy đã gặp:
+  - Công cụ dạng `custom` có `onChange` mà hàm vẽ lại gọi `ctx.refresh()` sẽ lặp vô hạn (refresh → onChange → vẽ → refresh): trong `onChange` chỉ vẽ, không refresh; hoặc so tuỳ chọn cũ/mới trước khi xử lý lại.
+  - ở lucide-static 1.52, icon `flip-vertical-2` là soi gương trái–phải (lật ngang), `flip-horizontal-2` là lật trên–dưới.
+  - SVG chỉ có viewBox không có kích thước tự nhiên → `createImageBitmap` lỗi; phải đặt width/height (`svgWithSize`) rồi vẽ qua `<img>`.
+  - Vùng xem trước đặt lớp phủ (khung, tay nắm) theo % phải nằm trong `.ist` (flex, căn giữa) để khung co đúng cỡ ảnh; lớp tối dùng box-shadow lớn phải nằm trong phần tử có `overflow: hidden`.
+  - Thang chất lượng AVIF (libavif) khắt khe hơn JPG: trừ 20 để cùng con số cho chất lượng tương đương.
+  - Cổng 8080 trên máy có thể bị ứng dụng khác chiếm: dùng preview "bbetools-8791".
+- File mẫu mới: `anh-co-gps.jpg`, `anh-iphone-co-gps.heic`, `chu-ky-chup.jpg`, `van-ban-chup.jpg` (sinh bằng `make-samples.js`), `logo-mau.svg` (viết tay).
+- Đã thử trên trình duyệt (Chrome): cả 21 công cụ với file mẫu; khổ 375 px; chế độ sáng và tối; console không lỗi (trừ cảnh báo nội bộ của Tesseract "Parameter not found"). Chưa thử trên Safari/iPhone thật.
 
 ### Giai đoạn 2 – PDF (xong)
 
@@ -83,12 +91,12 @@ Làm công cụ Tách PDF của BbeTools theo CLAUDE.md
 ## Công cụ
 
 <!-- tools:start -->
-40/142 công cụ đã xong (⏳ = chưa làm, đang ẩn khỏi trang web).
+53/142 công cụ đã xong (⏳ = chưa làm, đang ẩn khỏi trang web).
 
 | Nhóm | Xong | Công cụ |
 |---|---|---|
 | PDF | 24/24 | [Ghép PDF](https://springbbe.github.io/bbetools/ghep-pdf/) · [Tách PDF](https://springbbe.github.io/bbetools/tach-pdf/) · [Xoá trang PDF](https://springbbe.github.io/bbetools/xoa-trang-pdf/) · [Sắp xếp trang PDF](https://springbbe.github.io/bbetools/sap-xep-trang-pdf/) · [Xoay PDF](https://springbbe.github.io/bbetools/xoay-pdf/) · [Nén PDF](https://springbbe.github.io/bbetools/nen-pdf/) · [PDF sang ảnh](https://springbbe.github.io/bbetools/pdf-sang-anh/) · [Ảnh sang PDF](https://springbbe.github.io/bbetools/anh-sang-pdf/) · [PDF sang văn bản](https://springbbe.github.io/bbetools/pdf-sang-van-ban/) · [Ký PDF](https://springbbe.github.io/bbetools/ky-pdf/) · [Đánh số trang PDF](https://springbbe.github.io/bbetools/danh-so-trang-pdf/) · [Chèn watermark PDF](https://springbbe.github.io/bbetools/watermark-pdf/) · [Đặt mật khẩu PDF](https://springbbe.github.io/bbetools/dat-mat-khau-pdf/) · [Mở khoá PDF](https://springbbe.github.io/bbetools/mo-khoa-pdf/) · [Trích xuất trang PDF](https://springbbe.github.io/bbetools/trich-xuat-trang-pdf/) · [Trích ảnh trong PDF](https://springbbe.github.io/bbetools/trich-anh-pdf/) · [Cắt lề PDF](https://springbbe.github.io/bbetools/cat-le-pdf/) · [Chèn trang trắng](https://springbbe.github.io/bbetools/chen-trang-trang-pdf/) · [PDF đen trắng](https://springbbe.github.io/bbetools/pdf-den-trang/) · [Sửa thông tin PDF](https://springbbe.github.io/bbetools/sua-thong-tin-pdf/) · [Điền form PDF](https://springbbe.github.io/bbetools/dien-form-pdf/) · [Làm phẳng form PDF](https://springbbe.github.io/bbetools/lam-phang-form-pdf/) · [Xem PDF](https://springbbe.github.io/bbetools/xem-pdf/) · [Scan tài liệu bằng camera](https://springbbe.github.io/bbetools/scan-tai-lieu/) |
-| Ảnh | 8/21 | [Nén ảnh](https://springbbe.github.io/bbetools/nen-anh/) · [Đổi kích thước ảnh](https://springbbe.github.io/bbetools/doi-kich-thuoc-anh/) · [Cắt ảnh](https://springbbe.github.io/bbetools/cat-anh/) · [Xoay, lật ảnh](https://springbbe.github.io/bbetools/xoay-anh/) · [Đổi định dạng ảnh](https://springbbe.github.io/bbetools/doi-dinh-dang-anh/) · [HEIC sang JPG](https://springbbe.github.io/bbetools/heic-sang-jpg/) · [Làm ảnh thẻ](https://springbbe.github.io/bbetools/anh-the/) · Xoá phông ảnh ⏳ · Che, làm mờ vùng nhạy cảm ⏳ · [Xoá thông tin EXIF/GPS](https://springbbe.github.io/bbetools/xoa-exif-anh/) · Chèn watermark ảnh ⏳ · Chèn chữ lên ảnh ⏳ · Ghép ảnh ⏳ · Chia ảnh thành lưới ⏳ · Tạo favicon ⏳ · SVG sang PNG ⏳ · Ảnh sang Base64 ⏳ · Lấy màu từ ảnh ⏳ · Tạo GIF từ ảnh ⏳ · Ảnh sang chữ (OCR) ⏳ · Tách chữ ký, con dấu ⏳ |
+| Ảnh | 21/21 | [Nén ảnh](https://springbbe.github.io/bbetools/nen-anh/) · [Đổi kích thước ảnh](https://springbbe.github.io/bbetools/doi-kich-thuoc-anh/) · [Cắt ảnh](https://springbbe.github.io/bbetools/cat-anh/) · [Xoay, lật ảnh](https://springbbe.github.io/bbetools/xoay-anh/) · [Đổi định dạng ảnh](https://springbbe.github.io/bbetools/doi-dinh-dang-anh/) · [HEIC sang JPG](https://springbbe.github.io/bbetools/heic-sang-jpg/) · [Làm ảnh thẻ](https://springbbe.github.io/bbetools/anh-the/) · [Xoá phông ảnh](https://springbbe.github.io/bbetools/xoa-phong-anh/) · [Che, làm mờ vùng nhạy cảm](https://springbbe.github.io/bbetools/che-mo-anh/) · [Xoá thông tin EXIF/GPS](https://springbbe.github.io/bbetools/xoa-exif-anh/) · [Chèn watermark ảnh](https://springbbe.github.io/bbetools/watermark-anh/) · [Chèn chữ lên ảnh](https://springbbe.github.io/bbetools/chen-chu-len-anh/) · [Ghép ảnh](https://springbbe.github.io/bbetools/ghep-anh/) · [Chia ảnh thành lưới](https://springbbe.github.io/bbetools/chia-anh/) · [Tạo favicon](https://springbbe.github.io/bbetools/tao-favicon/) · [SVG sang PNG](https://springbbe.github.io/bbetools/svg-sang-png/) · [Ảnh sang Base64](https://springbbe.github.io/bbetools/anh-sang-base64/) · [Lấy màu từ ảnh](https://springbbe.github.io/bbetools/lay-mau-tu-anh/) · [Tạo GIF từ ảnh](https://springbbe.github.io/bbetools/tao-gif/) · [Ảnh sang chữ (OCR)](https://springbbe.github.io/bbetools/anh-sang-chu/) · [Tách chữ ký, con dấu](https://springbbe.github.io/bbetools/tach-chu-ky/) |
 | Âm thanh & video | 0/11 | Ghi âm ⏳ · Quay màn hình ⏳ · Cắt âm thanh ⏳ · Ghép âm thanh ⏳ · Đổi định dạng âm thanh ⏳ · Video sang MP3 ⏳ · Video sang GIF ⏳ · Cắt video ⏳ · Nén video ⏳ · Chụp khung hình từ video ⏳ · Đọc văn bản thành giọng nói ⏳ |
 | Văn bản | 1/12 | [Đếm từ & ký tự](https://springbbe.github.io/bbetools/dem-tu/) · Đổi chữ hoa/thường ⏳ · Bỏ dấu tiếng Việt ⏳ · Tạo slug ⏳ · So sánh văn bản ⏳ · Lọc dòng trùng & sắp xếp dòng ⏳ · Tìm và thay thế ⏳ · Chuyển mã Unicode ↔ TCVN3 ↔ VNI ⏳ · Sửa chữ gõ sai bộ gõ ⏳ · Chữ kiểu nghệ thuật ⏳ · Markdown sang HTML ⏳ · Lorem ipsum tiếng Việt ⏳ |
 | Tiện ích Việt Nam | 3/14 | [Đọc số thành chữ](https://springbbe.github.io/bbetools/doc-so-thanh-chu/) · [Tạo mã QR chuyển khoản (VietQR)](https://springbbe.github.io/bbetools/tao-ma-qr-chuyen-khoan/) · [Đổi lịch âm ↔ dương](https://springbbe.github.io/bbetools/doi-lich-am-duong/) · Xem tuổi, con giáp, mệnh ⏳ · Đếm ngược Tết ⏳ · Tính lương gross ↔ net ⏳ · Tính thuế TNCN ⏳ · Tính lãi vay trả góp ⏳ · Tính lãi tiết kiệm ⏳ · Tính tiền điện bậc thang ⏳ · Đổi đơn vị đất ⏳ · Tra mã tỉnh trên CCCD, biển số xe ⏳ · Tra đơn vị hành chính mới ⏳ · Tính BHXH một lần ⏳ |

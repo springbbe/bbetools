@@ -467,8 +467,34 @@
         { "q": "Ảnh thẻ nộp hồ sơ cần nền gì?", "a": "Phần lớn hồ sơ dùng nền trắng hoặc xanh nhạt. Hãy kiểm tra yêu cầu của nơi nộp; ảnh hộ chiếu, visa thường cần nền trắng, cỡ 4x6." }
       ]
     },
-    { "id": "remove-bg", "slug": "xoa-phong-anh", "name": "Xoá phông ảnh", "group": "image", "icon": "eraser", "kind": "file", "desc": "Tách nền ảnh chân dung bằng AI chạy ngay trên máy, xuất PNG trong suốt hoặc nền màu.", "keywords": ["tách nền", "xóa nền", "remove background", "xoá background", "png trong suốt", "remove bg"], "accept": ["image", "heic"], "output": "image", "status": "todo", "popular": true, "related": ["id-photo", "signature-extract", "crop-image"] },
-    { "id": "blur-image", "slug": "che-mo-anh", "name": "Che, làm mờ vùng nhạy cảm", "group": "image", "icon": "eye-off", "kind": "file", "desc": "Làm mờ, che số CCCD, biển số xe, khuôn mặt trước khi gửi ảnh.", "keywords": ["che thông tin", "pixelate", "làm mờ ảnh", "blur", "censor", "che biển số", "che cccd"], "accept": ["image"], "output": "image", "status": "todo", "related": ["strip-exif", "crop-image"] },
+    {
+      "id": "remove-bg", "slug": "xoa-phong-anh", "name": "Xoá phông ảnh", "group": "image", "icon": "eraser", "kind": "file",
+      "desc": "Tách nền ảnh chân dung bằng AI chạy ngay trên máy, xuất PNG trong suốt hoặc nền màu.",
+      "keywords": ["tách nền", "xóa nền", "remove background", "xoá background", "png trong suốt", "remove bg", "xoá nền ảnh", "tách người khỏi nền", "làm mờ hậu cảnh", "ảnh nền trong suốt"],
+      "accept": ["image", "heic"], "output": "image", "status": "done", "popular": true,
+      "aliases": ["xoa-nen-anh", "tach-nen-anh", "remove-bg"],
+      "related": ["id-photo", "signature-extract", "blur-image", "compress-image"],
+      "howto": ["Chọn, kéo thả hoặc dán một hay nhiều ảnh có người (chân dung, ảnh bán hàng có người mẫu).", "Chọn nền mới: trong suốt (PNG), trắng, màu khác hoặc làm mờ nền gốc.", "Bấm “Xoá phông”, chờ AI tách nền ngay trên máy rồi tải ảnh về."],
+      "faq": [
+        { "q": "Ảnh có bị gửi lên máy chủ để AI xử lý không?", "a": "Không. Mô hình AI (MODNet) được tải về trình duyệt và chạy ngay trên máy bạn; ảnh không rời khỏi máy." },
+        { "q": "Xoá phông ảnh đồ vật, con vật được không?", "a": "Công cụ được huấn luyện để tách người nên đạt kết quả tốt nhất với ảnh có người. Ảnh đồ vật, con vật có thể tách chưa chuẩn." },
+        { "q": "Lần đầu dùng sao hơi lâu?", "a": "Lần đầu trình duyệt tải mô hình AI khoảng 6,6 MB; các lần sau dùng lại bản đã lưu nên nhanh hơn nhiều." }
+      ]
+    },
+    {
+      "id": "blur-image", "slug": "che-mo-anh", "name": "Che, làm mờ vùng nhạy cảm", "group": "image", "icon": "eye-off", "kind": "file",
+      "desc": "Làm mờ, che số CCCD, biển số xe, khuôn mặt trước khi gửi ảnh.",
+      "keywords": ["che thông tin", "pixelate", "làm mờ ảnh", "blur", "censor", "che biển số", "che cccd", "làm mờ khuôn mặt", "che mặt", "che số điện thoại", "pixel hoá", "che thông tin nhạy cảm"],
+      "accept": ["image", "heic"], "output": "image", "status": "done",
+      "aliases": ["che-anh", "lam-mo-anh", "blur-image"],
+      "related": ["strip-exif", "crop-image", "text-on-image"],
+      "howto": ["Chọn hoặc kéo thả một ảnh.", "Kéo trên ảnh để khoanh các vùng cần che (số CCCD, biển số, khuôn mặt…), hoặc bấm “Tìm khuôn mặt” để AI tự khoanh.", "Chọn kiểu che (làm mờ, ô vuông, tô đen), bấm “Lưu ảnh đã che” rồi tải về."],
+      "faq": [
+        { "q": "Ảnh có bị tải lên máy chủ không?", "a": "Không. Mọi bước xử lý chạy ngay trong trình duyệt của bạn; ảnh không rời khỏi máy." },
+        { "q": "Nên làm mờ hay tô đen?", "a": "Với chữ và số (CCCD, số tài khoản, biển số), hãy tô đen: làm mờ nhẹ đôi khi vẫn đoán lại được. Làm mờ hoặc ô vuông hợp với khuôn mặt, cảnh nền." },
+        { "q": "Ảnh sau khi che còn thông tin vị trí GPS không?", "a": "Không. Ảnh được lưu lại mới nên không còn EXIF/GPS của ảnh gốc." }
+      ]
+    },
     {
       "id": "strip-exif", "slug": "xoa-exif-anh", "name": "Xoá thông tin EXIF/GPS", "group": "image", "icon": "map-pin-off", "kind": "file",
       "desc": "Xem và xoá thông tin máy chụp, ngày giờ, vị trí GPS trong ảnh.",
@@ -484,17 +510,161 @@
         { "q": "Ảnh có bị xoay ngang sau khi xoá không?", "a": "Không, nếu để bật “Giữ hướng xoay”: công cụ giữ lại đúng một thẻ cho biết ảnh dọc hay ngang." }
       ]
     },
-    { "id": "watermark-image", "slug": "watermark-anh", "name": "Chèn watermark ảnh", "group": "image", "icon": "stamp", "kind": "file", "desc": "Đóng dấu chữ hoặc logo lên ảnh hàng loạt, chống lấy cắp ảnh bán hàng.", "keywords": ["đóng dấu ảnh", "logo ảnh", "chữ chìm", "watermark"], "accept": ["image"], "multiple": true, "output": "image", "status": "todo", "related": ["text-on-image", "watermark-pdf"] },
-    { "id": "text-on-image", "slug": "chen-chu-len-anh", "name": "Chèn chữ lên ảnh", "group": "image", "icon": "type", "kind": "file", "desc": "Viết chữ tiếng Việt lên ảnh, chọn font, màu, viền, bóng đổ.", "keywords": ["viết chữ lên ảnh", "caption", "meme", "thêm chữ vào ảnh"], "accept": ["image"], "output": "image", "status": "todo", "related": ["watermark-image", "crop-image"] },
-    { "id": "merge-images", "slug": "ghep-anh", "name": "Ghép ảnh", "group": "image", "icon": "layout-panel-left", "kind": "file", "desc": "Nối nhiều ảnh theo chiều ngang, dọc hoặc thành lưới.", "keywords": ["nối ảnh", "collage", "ghép nhiều ảnh", "combine images"], "accept": ["image"], "multiple": true, "output": "image", "status": "todo", "related": ["split-image", "image-to-pdf"] },
-    { "id": "split-image", "slug": "chia-anh", "name": "Chia ảnh thành lưới", "group": "image", "icon": "grid-3x3", "kind": "file", "desc": "Cắt một ảnh thành 2, 3, 6, 9 ô (đăng Instagram, Facebook).", "keywords": ["cắt lưới", "grid", "instagram", "split image"], "accept": ["image"], "output": "image", "status": "todo", "related": ["merge-images", "crop-image"] },
-    { "id": "favicon", "slug": "tao-favicon", "name": "Tạo favicon", "group": "image", "icon": "app-window", "kind": "file", "desc": "Tạo favicon .ico và bộ icon cho web, Apple, Android từ một ảnh.", "keywords": ["icon web", "ico", "apple touch icon", "favicon generator"], "accept": ["image", "svg"], "output": "zip", "status": "todo", "related": ["resize-image", "svg-to-png"] },
-    { "id": "svg-to-png", "slug": "svg-sang-png", "name": "SVG sang PNG", "group": "image", "icon": "pen-tool", "kind": "file", "desc": "Chuyển ảnh vector SVG thành PNG/JPG ở độ phân giải tuỳ chọn.", "keywords": ["convert svg", "vector sang ảnh", "svg to jpg"], "accept": ["svg"], "multiple": true, "output": "image", "status": "todo", "related": ["convert-image", "favicon"] },
-    { "id": "image-to-base64", "slug": "anh-sang-base64", "name": "Ảnh sang Base64", "group": "image", "icon": "binary", "kind": "file", "desc": "Chuyển ảnh thành chuỗi Base64 / data URI để nhúng vào HTML, CSS.", "keywords": ["data uri", "base64 image", "nhúng ảnh"], "accept": ["image", "svg"], "status": "todo", "related": ["base64", "compress-image"] },
-    { "id": "color-picker", "slug": "lay-mau-tu-anh", "name": "Lấy màu từ ảnh", "group": "image", "icon": "pipette", "kind": "file", "desc": "Chạm vào ảnh để lấy mã màu, tự trích bảng màu chủ đạo.", "keywords": ["color picker", "mã màu", "eyedropper", "bảng màu", "palette"], "accept": ["image"], "status": "todo", "related": ["color-converter", "css-generator"] },
-    { "id": "gif-maker", "slug": "tao-gif", "name": "Tạo GIF từ ảnh", "group": "image", "icon": "film", "kind": "file", "desc": "Ghép nhiều ảnh thành ảnh động GIF, chỉnh tốc độ và kích thước.", "keywords": ["ảnh động", "animated gif", "gif maker"], "accept": ["image"], "multiple": true, "output": "image", "status": "todo", "related": ["video-to-gif", "merge-images"] },
-    { "id": "ocr", "slug": "anh-sang-chu", "name": "Ảnh sang chữ (OCR)", "group": "image", "icon": "scan-text", "kind": "file", "desc": "Nhận dạng chữ trong ảnh chụp, ảnh scan, hỗ trợ tiếng Việt có dấu.", "keywords": ["ocr", "nhận dạng chữ", "lấy chữ từ ảnh", "image to text", "scan chữ", "chuyển ảnh thành văn bản"], "accept": ["image", "pdf"], "output": "text", "status": "todo", "popular": true, "related": ["pdf-to-text", "scan-document"] },
-    { "id": "signature-extract", "slug": "tach-chu-ky", "name": "Tách chữ ký, con dấu", "group": "image", "icon": "pen-line", "kind": "file", "desc": "Tách chữ ký hoặc con dấu chụp trên giấy thành ảnh PNG nền trong suốt.", "keywords": ["chữ ký trong suốt", "tách con dấu", "signature png", "xoá nền chữ ký"], "accept": ["image", "heic"], "output": "image", "status": "todo", "related": ["sign-pdf", "remove-bg"] },
+    {
+      "id": "watermark-image", "slug": "watermark-anh", "name": "Chèn watermark ảnh", "group": "image", "icon": "stamp", "kind": "file",
+      "desc": "Đóng dấu chữ hoặc logo lên ảnh hàng loạt, chống lấy cắp ảnh bán hàng.",
+      "keywords": ["đóng dấu ảnh", "logo ảnh", "chữ chìm", "watermark", "chèn logo vào ảnh", "đóng dấu bản quyền", "watermark hàng loạt", "chữ mờ trên ảnh"],
+      "accept": ["image", "heic"], "multiple": true, "output": "image", "status": "done",
+      "aliases": ["dong-dau-anh", "chen-logo-anh", "watermark-image"],
+      "related": ["text-on-image", "watermark-pdf", "compress-image"],
+      "howto": ["Chọn, kéo thả hoặc dán một hay nhiều ảnh.", "Nhập chữ (hoặc chọn logo), chỉnh cỡ, độ đậm, góc xoay, vị trí; bật “Lặp kín ảnh” nếu muốn khó cắt bỏ.", "Xem trước trên ảnh đầu tiên, bấm “Chèn watermark” rồi tải từng ảnh hoặc cả file .zip."],
+      "faq": [
+        { "q": "Ảnh có bị tải lên máy chủ không?", "a": "Không. Mọi bước xử lý chạy ngay trong trình duyệt của bạn; ảnh không rời khỏi máy." },
+        { "q": "Ảnh to nhỏ khác nhau thì watermark có đều không?", "a": "Có. Cỡ chữ và logo tính theo phần trăm chiều rộng ảnh nên ảnh nào cũng có watermark cân đối như bản xem trước." },
+        { "q": "Gõ chữ tiếng Việt có dấu được không?", "a": "Được. Chữ được vẽ bằng font Be Vietnam Pro, giữ nguyên dấu tiếng Việt." }
+      ]
+    },
+    {
+      "id": "text-on-image", "slug": "chen-chu-len-anh", "name": "Chèn chữ lên ảnh", "group": "image", "icon": "type", "kind": "file",
+      "desc": "Viết chữ tiếng Việt lên ảnh, chọn font, màu, viền, bóng đổ.",
+      "keywords": ["viết chữ lên ảnh", "caption", "meme", "thêm chữ vào ảnh", "chèn chữ tiếng việt lên ảnh", "làm meme", "viết caption", "chữ viền đen"],
+      "accept": ["image", "heic"], "output": "image", "status": "done",
+      "aliases": ["viet-chu-len-anh", "them-chu-vao-anh", "text-on-image"],
+      "related": ["watermark-image", "crop-image", "blur-image"],
+      "howto": ["Chọn hoặc kéo thả một ảnh.", "Nhập chữ, chọn font, cỡ, màu, viền, bóng đổ; bấm “Thêm chữ” để thêm nhiều dòng chữ khác nhau.", "Kéo chữ trên ảnh để đặt chỗ, bấm “Lưu ảnh” rồi tải về."],
+      "faq": [
+        { "q": "Ảnh có bị tải lên máy chủ không?", "a": "Không. Mọi bước xử lý chạy ngay trong trình duyệt của bạn; ảnh không rời khỏi máy." },
+        { "q": "Có font chữ tiếng Việt đẹp không?", "a": "Có Be Vietnam Pro, Roboto Slab, Dancing Script, Pacifico, Great Vibes – đều hỗ trợ đầy đủ dấu tiếng Việt, tải về máy khi bạn chọn." },
+        { "q": "Chữ trên ảnh xuất ra có giống bản xem trước không?", "a": "Giống. Cỡ chữ và vị trí tính theo tỉ lệ ảnh nên ảnh gốc độ phân giải cao vẫn đúng như bạn thấy." }
+      ]
+    },
+    {
+      "id": "merge-images", "slug": "ghep-anh", "name": "Ghép ảnh", "group": "image", "icon": "layout-panel-left", "kind": "file",
+      "desc": "Nối nhiều ảnh theo chiều ngang, dọc hoặc thành lưới.",
+      "keywords": ["nối ảnh", "collage", "ghép nhiều ảnh", "combine images", "ghép ảnh ngang", "ghép ảnh dọc", "ghép 2 ảnh thành 1", "ghép ảnh lưới"],
+      "accept": ["image", "heic"], "multiple": true, "output": "image", "status": "done",
+      "aliases": ["noi-anh", "ghep-nhieu-anh", "merge-images"],
+      "related": ["split-image", "gif-maker", "image-to-pdf", "resize-image"],
+      "howto": ["Chọn, kéo thả hoặc dán từ 2 ảnh trở lên; kéo thả để đổi thứ tự.", "Chọn kiểu ghép (ngang, dọc, lưới), khoảng cách, bo góc, màu nền.", "Xem trước, bấm “Ghép ảnh” rồi tải ảnh đã ghép về."],
+      "faq": [
+        { "q": "Ảnh có bị tải lên máy chủ không?", "a": "Không. Mọi bước xử lý chạy ngay trong trình duyệt của bạn; ảnh không rời khỏi máy." },
+        { "q": "Ảnh khác kích thước có ghép được không?", "a": "Được. Bật “Cùng cỡ” để mọi ảnh cùng chiều cao (ghép ngang) hoặc cùng chiều rộng (ghép dọc); với kiểu lưới, ảnh được cắt vừa ô hoặc giữ trọn trong ô." },
+        { "q": "Ghép ảnh chụp màn hình tin nhắn thành một ảnh dài được không?", "a": "Được. Chọn kiểu “Dọc”, khoảng cách 0 để nối các ảnh chụp màn hình liền nhau." }
+      ]
+    },
+    {
+      "id": "split-image", "slug": "chia-anh", "name": "Chia ảnh thành lưới", "group": "image", "icon": "grid-3x3", "kind": "file",
+      "desc": "Cắt một ảnh thành 2, 3, 6, 9 ô (đăng Instagram, Facebook).",
+      "keywords": ["cắt lưới", "grid", "instagram", "split image", "cắt ảnh 9 ô", "chia ảnh 3x3", "instagram grid", "cắt ảnh thành nhiều phần"],
+      "accept": ["image", "heic"], "output": "image", "status": "done",
+      "aliases": ["cat-anh-luoi", "chia-anh-instagram", "split-image"],
+      "related": ["merge-images", "crop-image", "resize-image"],
+      "howto": ["Chọn hoặc kéo thả một ảnh.", "Chọn số hàng × số cột (1×3, 3×3…) và xem đường cắt trên ảnh; bật đánh số kiểu Instagram nếu cần.", "Bấm “Chia ảnh” rồi tải cả bộ ảnh dạng .zip."],
+      "faq": [
+        { "q": "Ảnh có bị tải lên máy chủ không?", "a": "Không. Mọi bước xử lý chạy ngay trong trình duyệt của bạn; ảnh không rời khỏi máy." },
+        { "q": "Đăng lưới ảnh lên Instagram theo thứ tự nào?", "a": "Bật “Đánh số theo thứ tự đăng Instagram” rồi đăng lần lượt ảnh số 1, 2, 3…; ô dưới cùng bên phải được đăng trước nên lưới trên trang cá nhân ghép lại đúng ảnh gốc." },
+        { "q": "Ảnh có bị giảm chất lượng không?", "a": "Không thu nhỏ: mỗi ô giữ nguyên độ phân giải gốc của phần ảnh đó." }
+      ]
+    },
+    {
+      "id": "favicon", "slug": "tao-favicon", "name": "Tạo favicon", "group": "image", "icon": "app-window", "kind": "file",
+      "desc": "Tạo favicon .ico và bộ icon cho web, Apple, Android từ một ảnh.",
+      "keywords": ["icon web", "ico", "apple touch icon", "favicon generator", "tạo favicon từ ảnh", "favicon.ico", "apple-touch-icon", "icon website", "site.webmanifest"],
+      "accept": ["image", "svg", "heic"], "output": "zip", "status": "done",
+      "aliases": ["favicon-generator", "tao-icon-web", "favicon"],
+      "related": ["svg-to-png", "resize-image", "image-to-base64"],
+      "howto": ["Chọn logo (tốt nhất là SVG hoặc PNG vuông từ 512 px).", "Chỉnh lề, nền màu, bo góc, tên trang web và xem trước ở các cỡ 16, 32, 180 px.", "Bấm “Tạo favicon”, tải file .zip và dán đoạn mã HTML vào thẻ <head>."],
+      "faq": [
+        { "q": "Ảnh có bị tải lên máy chủ không?", "a": "Không. Mọi bước xử lý chạy ngay trong trình duyệt của bạn; ảnh không rời khỏi máy." },
+        { "q": "Bộ favicon gồm những file nào?", "a": "favicon.ico (16, 32, 48 px), favicon-16x16.png, favicon-32x32.png, apple-touch-icon.png (180 px), android-chrome 192 và 512 px, site.webmanifest; thêm favicon.svg nếu ảnh gốc là SVG." },
+        { "q": "Sao icon trên iPhone có nền trắng?", "a": "iOS tô đen chỗ trong suốt của apple-touch-icon nên công cụ dùng màu nền bạn chọn, hoặc trắng nếu để nền trong suốt." }
+      ]
+    },
+    {
+      "id": "svg-to-png", "slug": "svg-sang-png", "name": "SVG sang PNG", "group": "image", "icon": "pen-tool", "kind": "file",
+      "desc": "Chuyển ảnh vector SVG thành PNG/JPG ở độ phân giải tuỳ chọn.",
+      "keywords": ["convert svg", "vector sang ảnh", "svg to jpg", "svg sang png", "svg to png", "xuất svg ra ảnh", "svg độ phân giải cao"],
+      "accept": ["svg"], "multiple": true, "output": "image", "status": "done",
+      "aliases": ["chuyen-svg-sang-png", "svg-to-png"],
+      "related": ["convert-image", "favicon", "image-to-base64"],
+      "howto": ["Chọn hoặc kéo thả một hay nhiều file SVG.", "Chọn độ phân giải (gấp 1–8 lần, hoặc nhập chiều rộng), định dạng PNG/JPG/WebP và nền.", "Bấm “Chuyển đổi” rồi tải từng ảnh hoặc cả file .zip."],
+      "faq": [
+        { "q": "File SVG có bị tải lên mạng không?", "a": "Không. Trình duyệt vẽ SVG ngay trên máy bạn." },
+        { "q": "Phóng to SVG có bị vỡ không?", "a": "Không. SVG là ảnh vector nên vẽ ở 4×, 8× vẫn nét; công cụ giới hạn cạnh dài 8192 px để trình duyệt không quá tải." },
+        { "q": "Sao ảnh trong SVG hoặc font chữ không hiện?", "a": "Vì lý do bảo mật, trình duyệt không tải ảnh, font từ mạng khi vẽ SVG thành ảnh. Hãy nhúng sẵn ảnh, font (hoặc chuyển chữ thành đường nét) trong file SVG." }
+      ]
+    },
+    {
+      "id": "image-to-base64", "slug": "anh-sang-base64", "name": "Ảnh sang Base64", "group": "image", "icon": "binary", "kind": "file",
+      "desc": "Chuyển ảnh thành chuỗi Base64 / data URI để nhúng vào HTML, CSS.",
+      "keywords": ["data uri", "base64 image", "nhúng ảnh", "ảnh sang base64", "image to base64", "base64 css"],
+      "accept": ["image", "svg"], "output": "text", "status": "done",
+      "aliases": ["base64-anh", "image-to-base64"],
+      "related": ["base64", "svg-to-png", "compress-image", "favicon"],
+      "howto": ["Chọn, kéo thả hoặc dán ảnh (JPG, PNG, WebP, GIF, SVG…).", "Chọn dạng kết quả: data URI, chỉ Base64, CSS, thẻ <img> hoặc Markdown.", "Bấm “Chuyển sang Base64”, rồi sao chép chuỗi hoặc tải file .txt."],
+      "faq": [
+        { "q": "Ảnh có bị tải lên máy chủ không?", "a": "Không. Mọi bước xử lý chạy ngay trong trình duyệt của bạn; ảnh không rời khỏi máy." },
+        { "q": "Khi nào nên nhúng ảnh dạng Base64?", "a": "Với ảnh rất nhỏ như icon, logo dưới khoảng 10 KB: bớt một lượt tải file. Ảnh lớn nên để file riêng vì Base64 nặng hơn ảnh gốc khoảng 33%." },
+        { "q": "SVG có cần Base64 không?", "a": "Không bắt buộc. Bật “SVG: mã hoá URL” để có chuỗi ngắn hơn khoảng 30% mà vẫn dùng được trong CSS, HTML." }
+      ]
+    },
+    {
+      "id": "color-picker", "slug": "lay-mau-tu-anh", "name": "Lấy màu từ ảnh", "group": "image", "icon": "pipette", "kind": "file",
+      "desc": "Chạm vào ảnh để lấy mã màu, tự trích bảng màu chủ đạo.",
+      "keywords": ["color picker", "mã màu", "eyedropper", "bảng màu", "palette", "lấy mã màu từ ảnh", "bảng màu từ ảnh", "mã màu hex", "rgb", "hsl"],
+      "accept": ["image", "heic"], "status": "done",
+      "aliases": ["lay-ma-mau", "color-picker"],
+      "related": ["color-converter", "css-generator", "text-on-image"],
+      "howto": ["Chọn hoặc kéo thả một ảnh.", "Rê chuột hoặc chạm, kéo trên ảnh để soi màu qua kính lúp, bấm (hoặc thả tay) để lấy màu; bảng màu chủ đạo được trích tự động.", "Bấm ô màu để sao chép mã HEX, RGB hoặc HSL; bấm “Tải bảng màu” để lưu ảnh và mã CSS."],
+      "faq": [
+        { "q": "Ảnh có bị tải lên máy chủ không?", "a": "Không. Mọi bước xử lý chạy ngay trong trình duyệt của bạn; ảnh không rời khỏi máy." },
+        { "q": "Bảng màu chủ đạo được tính thế nào?", "a": "Công cụ gom các điểm ảnh có màu gần nhau (thuật toán median cut) và sắp theo tỉ lệ diện tích, nên màu chiếm nhiều chỗ nhất đứng đầu." },
+        { "q": "Lấy màu ngoài ảnh, trên màn hình được không?", "a": "Trên Chrome, Edge (máy tính) có nút “Lấy màu bất kỳ trên màn hình”. Trình duyệt khác chưa hỗ trợ tính năng này." }
+      ]
+    },
+    {
+      "id": "gif-maker", "slug": "tao-gif", "name": "Tạo GIF từ ảnh", "group": "image", "icon": "film", "kind": "file",
+      "desc": "Ghép nhiều ảnh thành ảnh động GIF, chỉnh tốc độ và kích thước.",
+      "keywords": ["ảnh động", "animated gif", "gif maker", "ghép ảnh thành gif", "làm ảnh động", "tạo gif online", "gif từ ảnh"],
+      "accept": ["image", "heic"], "multiple": true, "output": "image", "status": "done",
+      "aliases": ["lam-gif", "gif-maker"],
+      "related": ["video-to-gif", "merge-images", "split-image"],
+      "howto": ["Chọn, kéo thả hoặc dán từ 2 ảnh trở lên; kéo thả để đổi thứ tự khung hình.", "Chỉnh thời gian mỗi khung, kích thước, lặp lại, chạy xuôi–ngược và xem trước chuyển động.", "Bấm “Tạo GIF” rồi tải ảnh động về."],
+      "faq": [
+        { "q": "Ảnh có bị tải lên máy chủ không?", "a": "Không. Mọi bước xử lý chạy ngay trong trình duyệt của bạn; ảnh không rời khỏi máy." },
+        { "q": "Sao GIF có màu hơi khác ảnh gốc?", "a": "Định dạng GIF chỉ có tối đa 256 màu mỗi khung. Ảnh chụp nhiều màu chuyển mượt sẽ hơi bị loang; ảnh minh hoạ, chữ, chụp màn hình thì rất đẹp." },
+        { "q": "GIF quá nặng thì làm sao?", "a": "Chọn kích thước nhỏ hơn (320 hoặc 480 px) và bớt số ảnh; dung lượng giảm rất nhanh." }
+      ]
+    },
+    {
+      "id": "ocr", "slug": "anh-sang-chu", "name": "Ảnh sang chữ (OCR)", "group": "image", "icon": "scan-text", "kind": "file",
+      "desc": "Nhận dạng chữ trong ảnh chụp, ảnh scan, hỗ trợ tiếng Việt có dấu.",
+      "keywords": ["ocr", "nhận dạng chữ", "lấy chữ từ ảnh", "image to text", "scan chữ", "chuyển ảnh thành văn bản", "ocr tiếng việt", "lấy chữ từ pdf scan", "copy chữ trong ảnh", "nhận dạng văn bản"],
+      "accept": ["image", "heic", "pdf"], "output": "text", "status": "done", "popular": true,
+      "aliases": ["ocr-tieng-viet", "nhan-dang-chu", "ocr"],
+      "related": ["pdf-to-text", "scan-document", "word-counter"],
+      "howto": ["Chọn, kéo thả hoặc dán ảnh chụp, ảnh scan hoặc file PDF scan.", "Chọn ngôn ngữ (tiếng Việt hoặc tiếng Anh) và cách xuống dòng.", "Bấm “Nhận dạng chữ”, đọc lại kết quả, sao chép hoặc tải file .txt."],
+      "faq": [
+        { "q": "Ảnh có bị gửi lên máy chủ để nhận dạng không?", "a": "Không. Bộ nhận dạng Tesseract (WebAssembly) được tải về trình duyệt và chạy ngay trên máy bạn." },
+        { "q": "Nhận dạng tiếng Việt có dấu có chính xác không?", "a": "Khá tốt với ảnh chụp thẳng, rõ nét, chữ in. Ảnh mờ, nghiêng, chữ viết tay dễ sai dấu; hãy đọc lại và sửa. Có thể dùng Scan tài liệu để nắn thẳng ảnh trước." },
+        { "q": "PDF có chữ chọn được thì sao?", "a": "Dùng công cụ PDF sang văn bản sẽ nhanh và chính xác hơn. OCR dành cho PDF scan (chỉ có ảnh)." }
+      ]
+    },
+    {
+      "id": "signature-extract", "slug": "tach-chu-ky", "name": "Tách chữ ký, con dấu", "group": "image", "icon": "pen-line", "kind": "file",
+      "desc": "Tách chữ ký hoặc con dấu chụp trên giấy thành ảnh PNG nền trong suốt.",
+      "keywords": ["chữ ký trong suốt", "tách con dấu", "signature png", "xoá nền chữ ký", "tách chữ ký khỏi giấy", "chữ ký nền trong suốt", "tách mộc đỏ", "con dấu png"],
+      "accept": ["image", "heic"], "output": "image", "status": "done",
+      "aliases": ["tach-nen-chu-ky", "chu-ky-png", "signature-extract"],
+      "related": ["sign-pdf", "remove-bg", "scan-document"],
+      "howto": ["Chụp chữ ký hoặc con dấu trên giấy trắng (thẳng, đủ sáng) rồi chọn ảnh đó.", "Chọn lấy nét nào (xanh cho chữ ký, đỏ cho con dấu), màu mực khi xuất, độ nhạy; kéo trên ảnh để khoanh vùng nếu cần.", "Bấm “Tải PNG trong suốt” rồi dùng ảnh trong Ký PDF, Word, Canva…"],
+      "faq": [
+        { "q": "Ảnh có bị tải lên máy chủ không?", "a": "Không. Mọi bước xử lý chạy ngay trong trình duyệt của bạn; ảnh không rời khỏi máy." },
+        { "q": "Chữ ký đè lên con dấu có tách riêng được không?", "a": "Được nếu khác màu: chọn “Xanh” để lấy riêng chữ ký, “Đỏ” để lấy riêng con dấu." },
+        { "q": "Ảnh có bóng đổ, giấy ngả vàng thì sao?", "a": "Công cụ ước lượng màu giấy theo từng vùng nhỏ nên vẫn tách được khi ánh sáng không đều. Nếu còn vết bẩn, giảm độ nhạy." },
+        { "q": "Dùng chữ ký đã tách có hợp lệ không?", "a": "Ảnh chữ ký chỉ là hình ảnh, không phải chữ ký số. Chỉ dùng chữ ký, con dấu của chính bạn hoặc khi được phép." }
+      ]
+    },
 
     { "id": "voice-recorder", "slug": "ghi-am", "name": "Ghi âm", "group": "media", "icon": "mic", "kind": "interactive", "desc": "Ghi âm bằng micro, nghe lại và tải về file âm thanh.", "keywords": ["thu âm", "recorder", "micro", "ghi âm online"], "output": "audio", "status": "todo", "related": ["trim-audio", "convert-audio", "screen-recorder"] },
     { "id": "screen-recorder", "slug": "quay-man-hinh", "name": "Quay màn hình", "group": "media", "icon": "screen-share", "kind": "interactive", "desc": "Quay màn hình, cửa sổ hoặc tab kèm âm thanh và micro (trên máy tính).", "keywords": ["ghi màn hình", "screen record", "quay video màn hình"], "output": "video", "status": "todo", "related": ["voice-recorder", "trim-video", "compress-video"] },

@@ -94,6 +94,8 @@ const LIBS = {
   },
   ort: { esm: CDN.ort + "ort.wasm.min.mjs", init: (m) => { m.env.wasm.wasmPaths = CDN.ort; m.env.wasm.numThreads = 1; m.env.logLevel = "error"; return m; } },
   mozjpeg: { esm: JSD + "@jsquash/jpeg@1.6.0/encode.js", init: (m) => m.default },
+  gifenc: { esm: JSD + "gifenc@1.0.3/dist/gifenc.esm.js" },
+  tesseract: { esm: JSD + "tesseract.js@7.0.0/dist/tesseract.esm.min.js", init: (m) => m.default || m }, // OCR; lõi + dữ liệu ngôn ngữ khai báo trong tools/ocr.js
   avif: { esm: JSD + "@jsquash/avif@2.1.1/codec/enc/avif_enc.js", init: (m) => m.default }, // bản đơn luồng (không cần COOP/COEP)
   pako: { script: JSD + "pako@2.1.0/dist/pako.min.js", global: "pako" },
   upng: { script: JSD + "upng-js@2.1.0/UPNG.js", global: "UPNG", deps: ["pako"] }

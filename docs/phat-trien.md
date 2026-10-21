@@ -15,10 +15,11 @@ assets/
   frames/form.js           khung 3: form / máy tính (trạng thái trên URL)
   frames/interactive.js    khung 4: tương tác (camera, âm thanh, hẹn giờ…)
   pdf.js, image.js, qr.js  tiện ích dùng chung cho nhóm PDF, ảnh, QR
+  fonts.js                 font có dấu tiếng Việt để vẽ chữ lên canvas (tải khi cần)
   pdf-pages.js             "bảng trang" PDF: pageTool() dựng trên khung file, mỗi trang một thẻ (chọn, xoay, xoá, đổi chỗ, xem trước)
   pdf-objects.js           đi qua đối tượng bên trong PDF (nội dung trang, form, pattern, ảnh), giải nén luồng, đọc hệ màu
   ai/matting.js            AI tách nền (MODNet) + nhận diện khuôn mặt (UltraFace) chạy bằng onnxruntime-web
-  lib/*.js                 hàm thuần, có test: search, filetype, doc-so, am-lich, vietqr, json-tools, text-stats, page-ranges, pdf-geom, pdf-text, pdf-content, pdf-image, scan, image-geom, exif
+  lib/*.js                 hàm thuần, có test: search, filetype, doc-so, am-lich, vietqr, json-tools, text-stats, page-ranges, pdf-geom, pdf-text, pdf-content, pdf-image, scan, image-geom, exif, image-data, ocr-text
   tools/<id>.js            logic riêng của từng công cụ
   registry.js              (sinh tự động) bản rút gọn của tools.json cho trình duyệt
   icons.svg                sprite icon Lucide (ISC)
@@ -68,10 +69,12 @@ Khai báo trong bảng `LIBS` của `assets/core.js`, gọi bằng `lib("tên")`
 | `upng-js@2.1.0` + `pako@2.1.0` | PNG giảm màu |
 | `qrcode-generator@2.0.4` | tạo QR |
 | `zxing-wasm@3.1.5` | đọc QR, mã vạch (dự phòng khi trình duyệt không có BarcodeDetector) |
+| `gifenc@1.0.3` | mã hoá ảnh động GIF (Tạo GIF) |
+| `tesseract.js@7.0.0` + `tesseract.js-core@7.0.0` + `@tesseract.js-data/vie`, `eng@1.0.0` | nhận dạng chữ (OCR), chạy WebAssembly trong Web Worker |
 | `@jsquash/avif@2.1.1` | xuất AVIF (bản đơn luồng) khi trình duyệt không tự xuất được |
 | `onnxruntime-web@1.30.0` | chạy mô hình AI (đơn luồng, không cần COOP/COEP) |
 | `@fontsource/be-vietnam-pro@5.3.0` | font chữ |
-| `@fontsource/dancing-script`, `great-vibes`, `pacifico` `@5.3.0` | font chữ ký "gõ tên" trong Ký PDF (tải bằng `FontFace` khi mở hộp tạo chữ ký) |
+| `@fontsource/dancing-script`, `great-vibes`, `pacifico`, `roboto-slab` `@5.3.0` | font chữ ký "gõ tên" trong Ký PDF và font chữ của Chèn chữ lên ảnh (`assets/fonts.js`), tải bằng `FontFace` khi cần |
 
 ## Thêm một công cụ mới
 
