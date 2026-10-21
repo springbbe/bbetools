@@ -116,10 +116,12 @@ export const LOCKED_MSG = "Có file đang khoá: bấm 🔒 để nhập mật k
 export const VN_TTF = "https://cdn.jsdelivr.net/npm/@expo-google-fonts/be-vietnam-pro@0.4.1/400Regular/BeVietnamPro_400Regular.ttf";
 /** Chuỗi có ký tự ngoài bảng mã WinAnsi (font chuẩn Helvetica của PDF không vẽ được) */
 export const needsUnicodeFont = (s) => /[^\x20-\x7E\xA0-\xFF\n\r\t]/.test(s || "");
-/** Nhúng font tiếng Việt vào tài liệu pdf-lib (tải fontkit + font khi cần) */
-export async function embedVnFont(doc) {
-  const [fontkit, bytes] = await Promise.all([lib("fontkit"), fetch(VN_TTF).then((r) => { if (!r.ok) throw new Error("font"); return r.arrayBuffer(); })]);
+const VN_TTF_BOLD = "https://cdn.jsdelivr.net/npm/@expo-google-fonts/be-vietnam-pro@0.4.1/700Bold/BeVietnamPro_700Bold.ttf";
+/** Nhúng font tiếng Việt vào tài liệu pdf-lib (tải fontkit + font khi cần). bold: bản đậm */
+export async function embedVnFont(doc, bold = false) {
+  const [fontkit, bytes] = await Promise.all([lib("fontkit"), fetch(bold ? VN_TTF_BOLD : VN_TTF).then((r) => { if (!r.ok) throw new Error("font"); return r.arrayBuffer(); })]);
   doc.registerFontkit(fontkit);
   // không dùng subset: fontkit 1.1.1 lỗi khi cắt font này (lỗi "reading 'pos'" lúc lưu); nhúng nguyên font (~130 KB)
-  return doc.embedFont(bytes, { subset: false });
+  // tắt chữ ghép (fi, fl…): chữ ghép làm sai bảng ToUnicode, sao chép từ PDF ra ký tự lạ
+  return doc.embedFont(bytes, { subset: false, features: { liga: false, clig: false, dlig: false, rlig: false } });
 }

@@ -69,20 +69,25 @@ export function unflatten(obj) {
   return out;
 }
 
-/** JSON (mảng đối tượng, một đối tượng, hoặc mảng các mảng) → CSV */
-export function jsonToCsv(data, { delim = ",", flat = true } = {}) {
+/** JSON (mảng đối tượng, một đối tượng, hoặc mảng các mảng) → bảng [[tiêu đề…], [ô…], …] */
+export function jsonToTable(data, { flat = true } = {}) {
   if (data && !Array.isArray(data) && typeof data === "object") {
     // { "items": [...] } → lấy mảng đầu tiên; đối tượng đơn → một dòng
     const arr = Object.values(data).find((v) => Array.isArray(v) && v.length && typeof v[0] === "object");
     data = arr || [data];
   }
-  if (!Array.isArray(data)) throw new Error("JSON cần là mảng (danh sách) các đối tượng để chuyển sang bảng CSV.");
-  if (data.every(Array.isArray)) return stringifyCsv(data, delim);
+  if (!Array.isArray(data)) throw new Error("JSON cần là mảng (danh sách) các đối tượng để chuyển thành bảng.");
+  if (data.length && data.every(Array.isArray)) return data;
   const rows = data.map((x) => (x && typeof x === "object" ? (flat ? flatten(x) : x) : { value: x }));
   const cols = [];
   const seen = new Set();
   for (const r of rows) for (const k of Object.keys(r)) if (!seen.has(k)) { seen.add(k); cols.push(k); }
-  return stringifyCsv([cols, ...rows.map((r) => cols.map((c) => r[c]))], delim);
+  return [cols, ...rows.map((r) => cols.map((c) => r[c]))];
+}
+
+/** JSON (mảng đối tượng, một đối tượng, hoặc mảng các mảng) → CSV */
+export function jsonToCsv(data, { delim = ",", flat = true } = {}) {
+  return stringifyCsv(jsonToTable(data, { flat }), delim);
 }
 
 /** Đoán kiểu giá trị ô: số, true/false, null; giữ chuỗi số có 0 đứng đầu (số điện thoại, mã) */

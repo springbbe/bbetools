@@ -16,12 +16,14 @@ assets/
   frames/interactive.js    khung 4: tương tác (camera, âm thanh, hẹn giờ…)
   pdf.js, image.js, qr.js  tiện ích dùng chung cho nhóm PDF, ảnh, QR
   calc.js                  tiện ích dùng chung cho công cụ tính toán: đọc data/*.json, định dạng tiền, bảng, thẻ số, tải CSV
+  sheet.js                 tiện ích dùng chung cho nhóm Văn phòng: đọc Excel (SheetJS) / CSV (tự nhận bảng mã, dấu phân cách),
+                           hiện ô kiểu Việt Nam (15.000.000; 15/01/2026), ghi .xlsx / .csv, bảng xem trước
   fonts.js                 font có dấu tiếng Việt để vẽ chữ lên canvas (tải khi cần)
   pdf-pages.js             "bảng trang" PDF: pageTool() dựng trên khung file, mỗi trang một thẻ (chọn, xoay, xoá, đổi chỗ, xem trước)
   pdf-objects.js           đi qua đối tượng bên trong PDF (nội dung trang, form, pattern, ảnh), giải nén luồng, đọc hệ màu
   ai/matting.js            AI tách nền (MODNet) + nhận diện khuôn mặt (UltraFace) chạy bằng onnxruntime-web
   lib/*.js                 hàm thuần, có test: search, filetype, doc-so, am-lich, vietqr, json-tools, text-stats, page-ranges, pdf-geom, pdf-text, pdf-content, pdf-image, scan, image-geom, exif, image-data, ocr-text, tien-luong, tai-chinh, tien-dien, bhxh, con-giap, don-vi, chia-tien, ngay, suc-khoe, bieu-thuc, so-la-ma, phan-tram, dvhc, ma-tinh, van-ban, vn-encoding, telex, diff, encode, hash, uuid, color, co-so, cron, timestamp, csv,
-                           fancy-text, lorem, http-status, minify, regex, css-gen
+                           fancy-text, lorem, http-status, minify, regex, css-gen, ma-vach, bang, tron-thu, hoa-don, chu-ky-email
   regex-run.js, regex-worker.js   chạy biểu thức chính quy trong Web Worker có giới hạn thời gian (không treo trang)
   tools/<id>.js            logic riêng của từng công cụ
   registry.js              (sinh tự động) bản rút gọn của tools.json cho trình duyệt
@@ -65,7 +67,7 @@ Khai báo trong bảng `LIBS` của `assets/core.js`, gọi bằng `lib("tên")`
 | Thư viện | Dùng cho |
 |---|---|
 | `@cantoo/pdf-lib@2.11.1` | ghi, sửa PDF (có mã hoá AES) |
-| `@pdf-lib/fontkit@1.1.1` + `@expo-google-fonts/be-vietnam-pro@0.4.1` (TTF) | nhúng font tiếng Việt vào PDF (điền form), chỉ tải khi có chữ có dấu |
+| `@pdf-lib/fontkit@1.1.1` + `@expo-google-fonts/be-vietnam-pro@0.4.1` (TTF thường và đậm) | nhúng font tiếng Việt vào PDF (`embedVnFont(doc, bold)`: điền form, trộn thư, hoá đơn), tắt chữ ghép fi/fl để sao chép chữ từ PDF ra đúng |
 | `pdfjs-dist@4.10.38` (legacy) | đọc, vẽ trang PDF |
 | `jszip@3.10.1` | tải nhiều file dạng .zip |
 | `heic-to@1.6.5` | giải mã HEIC (libheif WebAssembly) |
@@ -82,6 +84,7 @@ Khai báo trong bảng `LIBS` của `assets/core.js`, gọi bằng `lib("tên")`
 | `sql-formatter@15.9.0` | định dạng SQL |
 | `terser@5.51.2`, `csso@5.0.5` | nén JavaScript, CSS |
 | `ua-parser-js@1.0.41` | phân tích User-Agent (bản 1.x, giấy phép MIT) |
+| `@e965/xlsx@0.20.3` (SheetJS) | đọc .xlsx/.xls/.ods, ghi .xlsx (nhóm Văn phòng). Bản chính thức 0.20.3 chỉ có trên cdn.sheetjs.com; gói `@e965/xlsx` trên npm giống hệt từng byte (đã so SHA-256). Bản `xlsx@0.18.5` trên npm cũ và có lỗi bảo mật, đừng dùng |
 | `@fontsource/be-vietnam-pro@5.3.0` | font chữ |
 | `@fontsource/dancing-script`, `great-vibes`, `pacifico`, `roboto-slab` `@5.3.0` | font chữ ký "gõ tên" trong Ký PDF và font chữ của Chèn chữ lên ảnh (`assets/fonts.js`), tải bằng `FontFace` khi cần |
 

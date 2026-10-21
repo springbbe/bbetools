@@ -1229,16 +1229,129 @@
         { "q": "Quét được những loại mã nào?", "a": "QR, Micro QR, Data Matrix, Aztec, PDF417 và các mã vạch phổ biến như EAN-13, Code 128, Code 39, UPC." }
       ]
     },
-    { "id": "barcode-generator", "slug": "tao-ma-vach", "name": "Tạo mã vạch", "group": "qr", "icon": "barcode", "kind": "form", "desc": "Tạo mã vạch EAN-13, Code 128, Code 39, UPC để in tem sản phẩm.", "keywords": ["barcode", "ean13", "code128", "mã vạch sản phẩm"], "status": "todo", "related": ["qr-generator", "qr-scanner"] },
+    {
+      "id": "barcode-generator", "slug": "tao-ma-vach", "name": "Tạo mã vạch", "group": "qr", "icon": "barcode", "kind": "form",
+      "desc": "Tạo mã vạch EAN-13, EAN-8, UPC-A, ITF-14, Code 128, Code 39; tự tính số kiểm tra, tạo hàng loạt và in tem ra PDF.",
+      "keywords": ["barcode", "ean13", "ean 13", "code128", "code 39", "upc", "itf14", "mã vạch sản phẩm", "in tem mã vạch", "tạo barcode"],
+      "status": "done",
+      "aliases": ["barcode", "barcode-generator", "tao-barcode", "ma-vach"],
+      "related": ["qr-generator", "qr-scanner", "invoice"],
+      "howto": ["Chọn loại mã: EAN-13 cho hàng bán lẻ, Code 128 cho mã nội bộ, vận đơn, ITF-14 cho thùng hàng…", "Nhập nội dung (với EAN/UPC chỉ cần phần số, số kiểm tra được tự thêm) hoặc dán cả danh sách để tạo nhiều mã.", "Tải PNG/SVG, sao chép ảnh, hoặc bấm “In tem” để có file PDF khổ A4 xếp sẵn các mã."],
+      "faq": [
+        { "q": "Tự tạo mã EAN-13 có dùng để bán hàng ở siêu thị được không?", "a": "Muốn bán ở siêu thị, doanh nghiệp cần đăng ký mã doanh nghiệp GS1 (ở Việt Nam là đầu 893) với Viện Tiêu chuẩn Chất lượng Việt Nam rồi mới đánh số sản phẩm. Công cụ chỉ vẽ mã vạch đúng chuẩn từ dãy số bạn nhập." },
+        { "q": "Mã có quét được không?", "a": "Mã được vẽ đúng chuẩn của từng loại và đã thử đọc lại bằng bộ giải mã ZXing. Khi in, giữ nền trắng, vạch đen, chừa khoảng trắng hai bên và không thu nhỏ quá mức (nên in ở 3 px/vạch trở lên)." },
+        { "q": "Code 128 có nhận chữ tiếng Việt có dấu không?", "a": "Không. Code 128 và Code 39 chỉ mã hoá ký tự ASCII; hãy bỏ dấu hoặc dùng mã QR nếu cần chữ có dấu." }
+      ]
+    },
 
-    { "id": "excel-viewer", "slug": "xem-file-excel", "name": "Xem file Excel/CSV", "group": "office", "icon": "sheet", "kind": "file", "desc": "Mở xem file .xlsx, .xls, .ods, .csv không cần cài Excel; lọc, tìm, sắp xếp.", "keywords": ["xlsx", "xls", "csv viewer", "mở excel", "đọc file excel"], "accept": ["excel", "csv"], "status": "todo", "related": ["excel-csv", "merge-excel"] },
-    { "id": "excel-csv", "slug": "excel-sang-csv", "name": "Excel ↔ CSV", "group": "office", "icon": "file-spreadsheet", "kind": "file", "desc": "Chuyển Excel sang CSV (UTF-8, đúng tiếng Việt) và CSV sang Excel.", "keywords": ["chuyển excel sang csv", "csv to excel", "xlsx to csv", "lỗi font csv"], "accept": ["excel", "csv"], "multiple": true, "output": "excel", "status": "todo", "related": ["excel-viewer", "json-excel"] },
-    { "id": "merge-excel", "slug": "gop-file-excel", "name": "Gộp nhiều file Excel", "group": "office", "icon": "combine", "kind": "file", "desc": "Gộp nhiều file hoặc nhiều sheet Excel thành một bảng.", "keywords": ["ghép excel", "nối sheet", "merge excel", "gộp sheet"], "accept": ["excel", "csv"], "multiple": true, "output": "excel", "status": "todo", "related": ["split-excel", "excel-viewer"] },
-    { "id": "split-excel", "slug": "tach-excel-theo-cot", "name": "Tách Excel theo cột", "group": "office", "icon": "split", "kind": "file", "desc": "Tách một bảng thành nhiều file/sheet theo giá trị của một cột.", "keywords": ["chia file excel", "tách sheet", "split excel"], "accept": ["excel", "csv"], "output": "excel", "status": "todo", "related": ["merge-excel", "mail-merge"] },
-    { "id": "json-excel", "slug": "json-sang-excel", "name": "JSON ↔ Excel", "group": "office", "icon": "braces", "kind": "file", "desc": "Chuyển mảng JSON thành bảng Excel và ngược lại.", "keywords": ["json to excel", "excel to json", "xlsx json"], "accept": ["json", "excel", "csv"], "output": "excel", "status": "todo", "related": ["json-convert", "excel-csv"] },
-    { "id": "mail-merge", "slug": "tron-thu", "name": "Trộn thư", "group": "office", "icon": "mails", "kind": "file", "desc": "Từ danh sách Excel và mẫu Word (.docx) hoặc văn bản, tạo hàng loạt giấy mời, thư, PDF.", "keywords": ["mail merge", "in hàng loạt", "giấy mời", "trộn thư word"], "accept": ["excel", "csv", "docx"], "multiple": true, "output": "zip", "status": "todo", "related": ["split-excel", "excel-viewer"] },
-    { "id": "email-signature", "slug": "tao-chu-ky-email", "name": "Tạo chữ ký email", "group": "office", "icon": "mail", "kind": "form", "desc": "Tạo chữ ký email HTML chuyên nghiệp cho Gmail, Outlook.", "keywords": ["gmail signature", "outlook signature", "chữ ký gmail"], "status": "todo", "related": ["qr-generator"] },
-    { "id": "invoice", "slug": "tao-hoa-don-bao-gia", "name": "Tạo hoá đơn, báo giá", "group": "office", "icon": "file-pen-line", "kind": "form", "desc": "Lập phiếu báo giá, hoá đơn bán lẻ có số tiền bằng chữ, xuất PDF.", "keywords": ["báo giá", "hoá đơn bán lẻ", "invoice", "phiếu thu"], "status": "todo", "related": ["number-to-words", "vat", "vietqr"] },
+    {
+      "id": "excel-viewer", "slug": "xem-file-excel", "name": "Xem file Excel/CSV", "group": "office", "icon": "sheet", "kind": "file",
+      "desc": "Mở xem file .xlsx, .xls, .ods, .csv không cần cài Excel; chuyển sheet, tìm không cần dấu, lọc, sắp xếp.",
+      "keywords": ["xlsx", "xls", "ods", "csv viewer", "mở excel", "đọc file excel", "xem excel online", "mở file csv"],
+      "accept": ["excel", "csv"], "status": "done", "popular": true,
+      "aliases": ["xem-excel", "excel-viewer", "mo-file-excel", "xem-csv"],
+      "related": ["excel-csv", "merge-excel", "split-excel"],
+      "howto": ["Chọn, kéo thả hoặc dán file Excel/CSV.", "Bấm tên sheet để chuyển trang tính; gõ vào ô tìm (không cần dấu) để lọc dòng, chọn cột để chỉ tìm trong cột đó.", "Bấm tiêu đề cột để sắp xếp, bấm một ô để xem đủ nội dung và công thức; tải phần đang lọc ra Excel hoặc CSV."],
+      "faq": [
+        { "q": "File Excel có bị tải lên mạng không?", "a": "Không. File được đọc ngay trong trình duyệt bằng thư viện SheetJS; không có máy chủ nào nhận file của bạn." },
+        { "q": "Mở file CSV bị lỗi font tiếng Việt?", "a": "Công cụ tự nhận bảng mã UTF-8 hoặc Windows-1258 (hay gặp ở file xuất từ phần mềm cũ) và dấu phân cách phẩy, chấm phẩy, tab, nên tiếng Việt hiện đúng." },
+        { "q": "File có công thức, định dạng thì sao?", "a": "Ô có công thức hiện giá trị đã tính sẵn trong file; bấm vào ô để xem công thức. Màu, khung, ảnh, biểu đồ không hiện vì công cụ chỉ đọc dữ liệu." }
+      ]
+    },
+    {
+      "id": "excel-csv", "slug": "excel-sang-csv", "name": "Excel ↔ CSV", "group": "office", "icon": "file-spreadsheet", "kind": "file",
+      "desc": "Chuyển Excel sang CSV UTF-8 không lỗi font tiếng Việt (mỗi sheet một file) và CSV sang Excel, giữ số 0 đầu.",
+      "keywords": ["chuyển excel sang csv", "csv to excel", "xlsx to csv", "lỗi font csv", "csv sang excel", "csv utf-8"],
+      "accept": ["excel", "csv"], "multiple": true, "output": "excel", "status": "done",
+      "aliases": ["excel-csv", "csv-sang-excel", "xlsx-sang-csv"],
+      "related": ["excel-viewer", "json-excel", "merge-excel"],
+      "howto": ["Chọn một hoặc nhiều file Excel (.xlsx, .xls, .ods) hoặc CSV.", "Excel → CSV: chọn sheet và dấu phân cách; CSV → Excel: bật nhận dạng số, có thể gộp nhiều CSV vào một file.", "Bấm “Chuyển đổi” rồi tải từng file hoặc tải tất cả dạng .zip."],
+      "faq": [
+        { "q": "Vì sao mở CSV bằng Excel bị lỗi chữ?", "a": "Excel chỉ nhận đúng UTF-8 khi file có BOM ở đầu. Công cụ thêm BOM sẵn (có thể tắt), nên mở bằng Excel không còn lỗi font." },
+        { "q": "Số điện thoại bắt đầu bằng 0 có bị mất số 0?", "a": "Không. Khi chuyển CSV sang Excel, ô số có 0 ở đầu và số dài hơn 15 chữ số (CCCD, số tài khoản) được giữ dạng chữ." },
+        { "q": "Nên chọn dấu phẩy hay chấm phẩy?", "a": "Máy đặt định dạng Việt Nam (dấu phẩy là thập phân) thì Excel cần dấu chấm phẩy. Phần mềm khác, Google Sheets, lập trình thường dùng dấu phẩy." }
+      ]
+    },
+    {
+      "id": "merge-excel", "slug": "gop-file-excel", "name": "Gộp nhiều file Excel", "group": "office", "icon": "combine", "kind": "file",
+      "desc": "Gộp nhiều file hoặc nhiều sheet Excel/CSV thành một bảng, tự ghép đúng cột cùng tên, thêm cột nguồn.",
+      "keywords": ["ghép excel", "nối sheet", "merge excel", "gộp sheet", "gộp file csv", "combine excel"],
+      "accept": ["excel", "csv"], "multiple": true, "output": "excel", "status": "done",
+      "aliases": ["gop-excel", "merge-excel", "ghep-file-excel", "gop-sheet"],
+      "related": ["split-excel", "excel-viewer", "excel-csv"],
+      "howto": ["Chọn các file Excel/CSV cần gộp (kéo thả để đổi thứ tự).", "Chọn “Nối thành một bảng” (cột cùng tên ghép chung, thêm cột Nguồn) hoặc “Mỗi sheet giữ riêng”.", "Bấm “Gộp file”, xem trước rồi tải file Excel hoặc CSV."],
+      "faq": [
+        { "q": "Các file có thứ tự cột khác nhau thì sao?", "a": "Khi bật “Dòng đầu là tiêu đề”, cột được ghép theo tên (không phân biệt hoa thường, có dấu hay không), nên thứ tự cột không quan trọng; cột chỉ có ở một file sẽ được thêm vào cuối." },
+        { "q": "Công thức có được giữ không?", "a": "Ô công thức được chép thành giá trị đã tính, vì vị trí ô thay đổi sau khi gộp sẽ làm công thức sai." }
+      ]
+    },
+    {
+      "id": "split-excel", "slug": "tach-excel-theo-cot", "name": "Tách Excel theo cột", "group": "office", "icon": "split", "kind": "file",
+      "desc": "Tách một bảng thành nhiều sheet hoặc nhiều file Excel/CSV theo giá trị của một cột (chi nhánh, phòng ban…).",
+      "keywords": ["chia file excel", "tách sheet", "split excel", "tách file excel theo điều kiện", "chia excel theo cột"],
+      "accept": ["excel", "csv"], "output": "excel", "status": "done",
+      "aliases": ["tach-excel", "split-excel", "chia-file-excel"],
+      "related": ["merge-excel", "mail-merge", "excel-viewer"],
+      "howto": ["Chọn file Excel hoặc CSV.", "Chọn sheet và cột để tách (công cụ tự gợi ý cột phù hợp); danh sách các phần và số dòng hiện ngay.", "Chọn kết quả: một file nhiều sheet, nhiều file Excel hoặc nhiều file CSV, rồi bấm “Tách file”."],
+      "faq": [
+        { "q": "Giá trị viết hoa thường khác nhau có bị tách riêng?", "a": "Không. “Hà Nội”, “hà nội ” được gom chung (bỏ khoảng trắng thừa, không phân biệt hoa thường); ô trống gom vào phần “Trống”." },
+        { "q": "Mỗi phần có giữ dòng tiêu đề không?", "a": "Có, khi bật “Dòng đầu là tiêu đề”, mỗi file/sheet đều có dòng tiêu đề và bộ lọc." }
+      ]
+    },
+    {
+      "id": "json-excel", "slug": "json-sang-excel", "name": "JSON ↔ Excel", "group": "office", "icon": "braces", "kind": "file",
+      "desc": "Chuyển mảng JSON thành bảng Excel (làm phẳng đối tượng lồng nhau) và Excel/CSV thành JSON.",
+      "keywords": ["json to excel", "excel to json", "xlsx json", "csv to json", "chuyển json sang excel"],
+      "accept": ["json", "excel", "csv"], "output": "excel", "status": "done",
+      "aliases": ["json-excel", "excel-sang-json", "json-to-excel"],
+      "related": ["json-convert", "excel-csv", "json-formatter"],
+      "howto": ["Chọn file .json (để ra Excel) hoặc file Excel/CSV (để ra JSON).", "Tuỳ chọn: làm phẳng đối tượng lồng nhau thành cột “a.b”, hoặc ngược lại tạo đối tượng lồng từ tên cột có dấu chấm.", "Bấm “Chuyển đổi”, xem trước rồi tải file hoặc sao chép JSON."],
+      "faq": [
+        { "q": "JSON có nhiều danh sách thì sao?", "a": "Nếu JSON là một đối tượng chứa nhiều mảng (ví dụ “nhanVien” và “phongBan”), mỗi mảng thành một sheet riêng." },
+        { "q": "Ngày tháng trong Excel ra JSON thế nào?", "a": "Ô ngày được ghi dạng chuẩn ISO “yyyy-mm-dd” (có giờ nếu ô có giờ), số giữ nguyên là số." }
+      ]
+    },
+    {
+      "id": "mail-merge", "slug": "tron-thu", "name": "Trộn thư", "group": "office", "icon": "mails", "kind": "file",
+      "desc": "Từ danh sách Excel/CSV và mẫu Word (.docx) hoặc văn bản, tạo hàng loạt giấy mời, thư: DOCX từng người, DOCX gộp để in, hoặc PDF.",
+      "keywords": ["mail merge", "in hàng loạt", "giấy mời", "trộn thư word", "trộn văn bản", "in giấy mời hàng loạt", "mailmerge"],
+      "accept": ["excel", "csv", "docx"], "multiple": true, "output": "zip", "status": "done",
+      "aliases": ["mail-merge", "tron-van-ban", "tron-thu-word"],
+      "related": ["split-excel", "excel-viewer", "invoice"],
+      "howto": ["Chọn cùng lúc file danh sách Excel/CSV (dòng đầu là tên cột) và file mẫu Word có trường như {{Họ tên}}; hoặc chọn “Gõ mẫu văn bản”.", "Kiểm tra trường nào đã khớp cột, chọn cột đặt tên file, xem trước từng người.", "Bấm “Trộn thư” để tải mỗi người một file (.zip), một file Word gộp để in, hoặc PDF."],
+      "faq": [
+        { "q": "Viết trường trong file Word thế nào?", "a": "Gõ tên cột trong ngoặc nhọn kép như {{Họ tên}} hoặc «Họ tên», đúng tên cột trong file Excel (không phân biệt hoa thường, có dấu hay không). Trường Mail Merge (MERGEFIELD) tạo bằng Word cũng dùng được. Định dạng chữ (đậm, màu) đặt cho trường được giữ nguyên." },
+        { "q": "Có xuất thẳng PDF từ mẫu Word được không?", "a": "Trình duyệt không dựng lại được bố cục Word thành PDF chính xác, nên với mẫu Word công cụ xuất .docx (có bản gộp để in một lần, mở bằng Word hay Google Docs rồi lưu PDF). Với mẫu gõ tay, công cụ xuất PDF trực tiếp." },
+        { "q": "Danh sách có bị gửi đi đâu không?", "a": "Không. Cả file Excel và file Word đều được xử lý ngay trên máy bạn." }
+      ]
+    },
+    {
+      "id": "email-signature", "slug": "tao-chu-ky-email", "name": "Tạo chữ ký email", "group": "office", "icon": "mail", "kind": "form",
+      "desc": "Tạo chữ ký email HTML chuyên nghiệp cho Gmail, Outlook: ảnh, logo, mạng xã hội, sao chép dán ngay.",
+      "keywords": ["gmail signature", "outlook signature", "chữ ký gmail", "chữ ký outlook", "email signature", "chữ ký thư điện tử"],
+      "status": "done",
+      "aliases": ["chu-ky-email", "email-signature", "chu-ky-gmail"],
+      "related": ["qr-generator", "invoice"],
+      "howto": ["Nhập họ tên, chức vụ, công ty, điện thoại, email, website; thêm link ảnh, logo, mạng xã hội nếu muốn.", "Chọn kiểu, màu nhấn và phông chữ; xem trước như trong một email thật.", "Bấm “Sao chép chữ ký” rồi dán vào phần cài đặt chữ ký của Gmail hoặc Outlook (có hướng dẫn từng bước)."],
+      "faq": [
+        { "q": "Vì sao ảnh phải là đường link?", "a": "Gmail và Outlook không giữ ảnh nhúng trong chữ ký dán vào; ảnh phải nằm ở một địa chỉ công khai (https://…), ví dụ trên website công ty." },
+        { "q": "Thông tin của tôi có được lưu không?", "a": "Chỉ được nhớ trong trình duyệt trên máy này để lần sau mở lại có sẵn; không gửi đi đâu. Bấm “Đặt lại” để xoá." }
+      ]
+    },
+    {
+      "id": "invoice", "slug": "tao-hoa-don-bao-gia", "name": "Tạo hoá đơn, báo giá", "group": "office", "icon": "file-pen-line", "kind": "form",
+      "desc": "Lập báo giá, phiếu bán hàng (hoá đơn bán lẻ): chiết khấu, thuế GTGT, số tiền bằng chữ, mã QR chuyển khoản, xuất PDF.",
+      "keywords": ["báo giá", "hoá đơn bán lẻ", "invoice", "phiếu thu", "phiếu bán hàng", "mẫu báo giá", "tạo báo giá pdf", "quotation"],
+      "data": ["ngan-hang-vietqr"], "status": "done",
+      "aliases": ["bao-gia", "hoa-don", "invoice", "tao-bao-gia", "phieu-ban-hang"],
+      "related": ["number-to-words", "vat", "vietqr", "barcode-generator"],
+      "howto": ["Chọn Báo giá hoặc Hoá đơn bán lẻ, nhập số, thông tin bên bán và khách hàng.", "Thêm từng dòng hàng hoá (tên, đơn vị tính, số lượng, đơn giá); chọn chiết khấu, thuế GTGT, phí vận chuyển. Tổng tiền và số tiền bằng chữ tự tính.", "Chọn ngân hàng để in mã QR chuyển khoản có sẵn số tiền, rồi bấm “Tải PDF”. Thông tin bên bán được nhớ cho lần sau."],
+      "faq": [
+        { "q": "Phiếu này có thay được hoá đơn điện tử không?", "a": "Không. Đây là báo giá, phiếu bán hàng để giao cho khách. Khi bên mua cần hoá đơn hợp lệ để kê khai thuế, người bán phải xuất hoá đơn điện tử theo Nghị định 123/2020/NĐ-CP." },
+        { "q": "Thuế GTGT tính thế nào?", "a": "Thuế tính trên tiền hàng sau chiết khấu, làm tròn đến đồng; phí vận chuyển cộng sau thuế. Có sẵn các mức 0%, 5%, 8%, 10%." },
+        { "q": "Dữ liệu có bị lưu lên mạng không?", "a": "Không. Phiếu được dựng và xuất PDF ngay trên trình duyệt; thông tin chỉ được nhớ trong trình duyệt trên máy bạn." }
+      ]
+    },
 
     {
       "id": "json-formatter", "slug": "dinh-dang-json", "name": "Định dạng & kiểm tra JSON", "group": "dev", "icon": "braces", "kind": "text",

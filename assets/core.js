@@ -105,6 +105,8 @@ const LIBS = {
   terser: { script: JSD + "terser@5.51.2/dist/bundle.min.js", global: "Terser" },
   csso: { script: JSD + "csso@5.0.5/dist/csso.js", global: "csso" },
   uaParser: { script: JSD + "ua-parser-js@1.0.41/dist/ua-parser.min.js", global: "UAParser" },
+  // SheetJS 0.20.3 (bản chính thức chỉ có trên cdn.sheetjs.com; gói @e965/xlsx trên npm giống hệt từng byte), bản full có bảng mã cho .xls cũ
+  xlsx: { script: JSD + "@e965/xlsx@0.20.3/dist/xlsx.full.min.js", global: "XLSX" },
   upng: { script: JSD + "upng-js@2.1.0/UPNG.js", global: "UPNG", deps: ["pako"] }
 };
 const libCache = {};

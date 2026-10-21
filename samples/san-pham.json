@@ -1,0 +1,104 @@
+[
+  {
+    "ma": "SP01",
+    "ten": "Bút bi Thiên Long",
+    "donVi": "cái",
+    "gia": {
+      "niemYet": 5000,
+      "khuyenMai": 4500
+    },
+    "tonKho": 39,
+    "the": [
+      "học sinh",
+      "văn phòng phẩm"
+    ],
+    "conHang": true
+  },
+  {
+    "ma": "SP02",
+    "ten": "Vở 200 trang",
+    "donVi": "cái",
+    "gia": {
+      "niemYet": 18000,
+      "khuyenMai": 16200
+    },
+    "tonKho": 136,
+    "the": [
+      "văn phòng phẩm"
+    ],
+    "conHang": true
+  },
+  {
+    "ma": "SP03",
+    "ten": "Giấy A4 Double A",
+    "donVi": "ram",
+    "gia": {
+      "niemYet": 85000,
+      "khuyenMai": 76500
+    },
+    "tonKho": 441,
+    "the": [
+      "học sinh",
+      "văn phòng phẩm"
+    ],
+    "conHang": true
+  },
+  {
+    "ma": "SP04",
+    "ten": "Bìa hồ sơ",
+    "donVi": "cái",
+    "gia": {
+      "niemYet": 7000,
+      "khuyenMai": 6300
+    },
+    "tonKho": 273,
+    "the": [
+      "văn phòng phẩm"
+    ],
+    "conHang": true
+  },
+  {
+    "ma": "SP05",
+    "ten": "Máy tính Casio FX-580",
+    "donVi": "cái",
+    "gia": {
+      "niemYet": 520000,
+      "khuyenMai": 468000
+    },
+    "tonKho": 107,
+    "the": [
+      "học sinh",
+      "văn phòng phẩm"
+    ],
+    "conHang": false
+  },
+  {
+    "ma": "SP06",
+    "ten": "Băng keo trong",
+    "donVi": "cái",
+    "gia": {
+      "niemYet": 12000,
+      "khuyenMai": 10800
+    },
+    "tonKho": 0,
+    "the": [
+      "văn phòng phẩm"
+    ],
+    "conHang": true
+  },
+  {
+    "ma": "SP07",
+    "ten": "Kẹp giấy (hộp)",
+    "donVi": "cái",
+    "gia": {
+      "niemYet": 9000,
+      "khuyenMai": 8100
+    },
+    "tonKho": 322,
+    "the": [
+      "học sinh",
+      "văn phòng phẩm"
+    ],
+    "conHang": true
+  }
+]
