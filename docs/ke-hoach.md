@@ -12,7 +12,7 @@ Hai bảng dưới đây do `scripts/build.js` sinh từ `tools.json` (trường
 | 1 | Lõi, registry, trang tự sinh + 13 công cụ tiêu biểu | 13 | ✅ Xong | |
 | 2 | PDF | 24/24 | ✅ Xong |  |
 | 3 | Ảnh | 21/21 | ✅ Xong |  |
-| 4 | Tiện ích Việt Nam + Tính toán & đời sống | 3/27 | ⏳ Còn 24 công cụ | `Làm giai đoạn 4 của BbeTools theo CLAUDE.md` |
+| 4 | Tiện ích Việt Nam + Tính toán & đời sống | 27/27 | ✅ Xong |  |
 | 5 | Văn bản + Lập trình | 2/31 | ⏳ Còn 29 công cụ | `Làm giai đoạn 5 của BbeTools theo CLAUDE.md` |
 | 6 | QR & mã vạch + Văn phòng & dữ liệu | 2/11 | ⏳ Còn 9 công cụ | `Làm giai đoạn 6 của BbeTools theo CLAUDE.md` |
 | 7 | Bảo mật + Năng suất & ngẫu nhiên | 1/17 | ⏳ Còn 16 công cụ | `Làm giai đoạn 7 của BbeTools theo CLAUDE.md` |
@@ -42,6 +42,24 @@ Làm công cụ Tách PDF của BbeTools theo CLAUDE.md
 5. Xong: build + check + test, chạy thử từng công cụ trong trình duyệt bằng file mẫu, một commit cho cả giai đoạn (message tiếng Việt), push, rồi báo lại những gì đã làm, đã thử, còn thiếu.
 
 ## Ghi chú tiến độ (cập nhật sau mỗi lần làm)
+
+### Giai đoạn 4 – Tiện ích Việt Nam + Tính toán & đời sống (xong)
+
+- Đã xong cả 24 công cụ (11 Tiện ích Việt Nam, 13 Tính toán & đời sống). Không bỏ công cụ nào.
+- Dữ liệu (`data/*.json`, đã tra văn bản ngày 21/10/2026):
+  - `thue-tncn.json`: biểu 5 bậc Luật 109/2025/QH15, giảm trừ 15,5 tr / 6,2 tr (NQ 110/2025/UBTVQH15) từ kỳ tính thuế 2026; giữ biểu 7 bậc cũ trong `previous` để so sánh.
+  - `bhxh.json`: lương cơ sở 2.530.000 đ từ 01/7/2026 (NĐ 161/2026/NĐ-CP), tỉ lệ đóng, trần 20 lần, hệ số điều chỉnh tiền lương năm 2026 (CV 340/BHXH-CSXH, chép từ bản PDF gốc).
+  - `luong-toi-thieu-vung.json` (NĐ 293/2025, từ 01/01/2026), `gia-dien.json` (QĐ 1279/QĐ-BCT, VAT 8% đến 31/12/2026 theo NQ 204/2025/QH15), `ngay-le.json` (thêm 24/11 Ngày Văn hoá Việt Nam từ 2026), `don-vi-dat.json`.
+  - `don-vi-hanh-chinh.json` + `ma-tinh.json` sinh bằng `node scripts/data-dvhc.js` từ bộ dữ liệu mở DiaChiMoi (MIT, ghim commit): 34 tỉnh, 3.321 xã mới, 10.035 xã cũ → mới (471 xã bị chia), cập nhật tới NQ 388/NQ-UBTVQH16. Ký hiệu biển số theo TT 79/2024 + TT 51/2025 khai báo trong script.
+  - Năm sau cần xem lại: hệ số trượt giá BHXH (đầu năm), lương cơ sở/lương tối thiểu vùng (thường 1/1 hoặc 1/7), giá điện EVN, thời hạn VAT 8%, lịch nghỉ lễ.
+- Phần dùng chung: `assets/calc.js` (`loadData`, `money`, `kv`, `stat`/`stats`, `table`, `csvButton`, `alert`, `note`); CSS `.tbl`, `.stats.flush`, `.meter`, `.legend` trong `app.css`.
+- Hàm thuần có test: `lib/tien-luong.js`, `tai-chinh.js`, `tien-dien.js`, `bhxh.js`, `con-giap.js`, `don-vi.js`, `chia-tien.js`, `ngay.js` (khoảng cách, ngày lễ, ngày làm việc, nghỉ bù), `suc-khoe.js`, `bieu-thuc.js` (máy tính khoa học, không dùng eval), `so-la-ma.js`, `phan-tram.js`, `dvhc.js`, `ma-tinh.js`.
+- Bẫy đã gặp:
+  - Công cụ Write của Claude Code biến chuỗi thoát `\uXXXX` trong nội dung file thành ký tự thật (BOM, dấu kết hợp vô hình): kiểm tra lại bằng grep hoặc sửa bằng script.
+  - Ô nhập dạng form tự đồng bộ lên URL: dữ liệu nhạy cảm (số CCCD) phải đặt `url: false` và `share: false`.
+  - Biểu đồ SVG co theo viewBox làm chữ trục quá nhỏ trên điện thoại: vẽ theo bề rộng thật của khung (`out.clientWidth`).
+  - Số tiền trong ô hẹp bị xuống dòng tách "đ": `money()` dùng khoảng trắng không ngắt.
+- Đã thử trên trình duyệt (Chrome trong Claude Code): cả 24 công cụ với dữ liệu mặc định và vài trường hợp nhập tay; khổ 375 px (không trang nào tràn ngang); chế độ sáng và tối; console không lỗi. Chưa thử trên Safari/iPhone thật (ô chọn tháng `type=month` của BHXH một lần trên Safari máy tính sẽ là ô chữ, nhập dạng MM/YYYY vẫn được).
 
 ### Giai đoạn 3 – Ảnh (xong)
 
@@ -91,7 +109,7 @@ Làm công cụ Tách PDF của BbeTools theo CLAUDE.md
 ## Công cụ
 
 <!-- tools:start -->
-53/142 công cụ đã xong (⏳ = chưa làm, đang ẩn khỏi trang web).
+77/142 công cụ đã xong (⏳ = chưa làm, đang ẩn khỏi trang web).
 
 | Nhóm | Xong | Công cụ |
 |---|---|---|
@@ -99,8 +117,8 @@ Làm công cụ Tách PDF của BbeTools theo CLAUDE.md
 | Ảnh | 21/21 | [Nén ảnh](https://springbbe.github.io/bbetools/nen-anh/) · [Đổi kích thước ảnh](https://springbbe.github.io/bbetools/doi-kich-thuoc-anh/) · [Cắt ảnh](https://springbbe.github.io/bbetools/cat-anh/) · [Xoay, lật ảnh](https://springbbe.github.io/bbetools/xoay-anh/) · [Đổi định dạng ảnh](https://springbbe.github.io/bbetools/doi-dinh-dang-anh/) · [HEIC sang JPG](https://springbbe.github.io/bbetools/heic-sang-jpg/) · [Làm ảnh thẻ](https://springbbe.github.io/bbetools/anh-the/) · [Xoá phông ảnh](https://springbbe.github.io/bbetools/xoa-phong-anh/) · [Che, làm mờ vùng nhạy cảm](https://springbbe.github.io/bbetools/che-mo-anh/) · [Xoá thông tin EXIF/GPS](https://springbbe.github.io/bbetools/xoa-exif-anh/) · [Chèn watermark ảnh](https://springbbe.github.io/bbetools/watermark-anh/) · [Chèn chữ lên ảnh](https://springbbe.github.io/bbetools/chen-chu-len-anh/) · [Ghép ảnh](https://springbbe.github.io/bbetools/ghep-anh/) · [Chia ảnh thành lưới](https://springbbe.github.io/bbetools/chia-anh/) · [Tạo favicon](https://springbbe.github.io/bbetools/tao-favicon/) · [SVG sang PNG](https://springbbe.github.io/bbetools/svg-sang-png/) · [Ảnh sang Base64](https://springbbe.github.io/bbetools/anh-sang-base64/) · [Lấy màu từ ảnh](https://springbbe.github.io/bbetools/lay-mau-tu-anh/) · [Tạo GIF từ ảnh](https://springbbe.github.io/bbetools/tao-gif/) · [Ảnh sang chữ (OCR)](https://springbbe.github.io/bbetools/anh-sang-chu/) · [Tách chữ ký, con dấu](https://springbbe.github.io/bbetools/tach-chu-ky/) |
 | Âm thanh & video | 0/11 | Ghi âm ⏳ · Quay màn hình ⏳ · Cắt âm thanh ⏳ · Ghép âm thanh ⏳ · Đổi định dạng âm thanh ⏳ · Video sang MP3 ⏳ · Video sang GIF ⏳ · Cắt video ⏳ · Nén video ⏳ · Chụp khung hình từ video ⏳ · Đọc văn bản thành giọng nói ⏳ |
 | Văn bản | 1/12 | [Đếm từ & ký tự](https://springbbe.github.io/bbetools/dem-tu/) · Đổi chữ hoa/thường ⏳ · Bỏ dấu tiếng Việt ⏳ · Tạo slug ⏳ · So sánh văn bản ⏳ · Lọc dòng trùng & sắp xếp dòng ⏳ · Tìm và thay thế ⏳ · Chuyển mã Unicode ↔ TCVN3 ↔ VNI ⏳ · Sửa chữ gõ sai bộ gõ ⏳ · Chữ kiểu nghệ thuật ⏳ · Markdown sang HTML ⏳ · Lorem ipsum tiếng Việt ⏳ |
-| Tiện ích Việt Nam | 3/14 | [Đọc số thành chữ](https://springbbe.github.io/bbetools/doc-so-thanh-chu/) · [Tạo mã QR chuyển khoản (VietQR)](https://springbbe.github.io/bbetools/tao-ma-qr-chuyen-khoan/) · [Đổi lịch âm ↔ dương](https://springbbe.github.io/bbetools/doi-lich-am-duong/) · Xem tuổi, con giáp, mệnh ⏳ · Đếm ngược Tết ⏳ · Tính lương gross ↔ net ⏳ · Tính thuế TNCN ⏳ · Tính lãi vay trả góp ⏳ · Tính lãi tiết kiệm ⏳ · Tính tiền điện bậc thang ⏳ · Đổi đơn vị đất ⏳ · Tra mã tỉnh trên CCCD, biển số xe ⏳ · Tra đơn vị hành chính mới ⏳ · Tính BHXH một lần ⏳ |
-| Tính toán & đời sống | 0/13 | Máy tính phần trăm ⏳ · Tính giảm giá ⏳ · Tính VAT ⏳ · Lãi kép ⏳ · Chia tiền nhóm ⏳ · Đổi đơn vị ⏳ · Tính tuổi ⏳ · Cộng trừ ngày & đếm ngày làm việc ⏳ · Tính BMI ⏳ · Calo cần mỗi ngày (TDEE) ⏳ · Tính ngày dự sinh ⏳ · Máy tính khoa học ⏳ · Đổi số La Mã ⏳ |
+| Tiện ích Việt Nam | 14/14 | [Đọc số thành chữ](https://springbbe.github.io/bbetools/doc-so-thanh-chu/) · [Tạo mã QR chuyển khoản (VietQR)](https://springbbe.github.io/bbetools/tao-ma-qr-chuyen-khoan/) · [Đổi lịch âm ↔ dương](https://springbbe.github.io/bbetools/doi-lich-am-duong/) · [Xem tuổi, con giáp, mệnh](https://springbbe.github.io/bbetools/xem-tuoi-con-giap/) · [Đếm ngược Tết](https://springbbe.github.io/bbetools/dem-nguoc-tet/) · [Tính lương gross ↔ net](https://springbbe.github.io/bbetools/tinh-luong-gross-net/) · [Tính thuế TNCN](https://springbbe.github.io/bbetools/tinh-thue-tncn/) · [Tính lãi vay trả góp](https://springbbe.github.io/bbetools/tinh-lai-vay-tra-gop/) · [Tính lãi tiết kiệm](https://springbbe.github.io/bbetools/tinh-lai-tiet-kiem/) · [Tính tiền điện bậc thang](https://springbbe.github.io/bbetools/tinh-tien-dien/) · [Đổi đơn vị đất](https://springbbe.github.io/bbetools/doi-don-vi-dat/) · [Tra mã tỉnh trên CCCD, biển số xe](https://springbbe.github.io/bbetools/tra-ma-tinh-cccd-bien-so/) · [Tra đơn vị hành chính mới](https://springbbe.github.io/bbetools/tra-don-vi-hanh-chinh-moi/) · [Tính BHXH một lần](https://springbbe.github.io/bbetools/tinh-bhxh-mot-lan/) |
+| Tính toán & đời sống | 13/13 | [Máy tính phần trăm](https://springbbe.github.io/bbetools/tinh-phan-tram/) · [Tính giảm giá](https://springbbe.github.io/bbetools/tinh-giam-gia/) · [Tính VAT](https://springbbe.github.io/bbetools/tinh-vat/) · [Lãi kép](https://springbbe.github.io/bbetools/tinh-lai-kep/) · [Chia tiền nhóm](https://springbbe.github.io/bbetools/chia-tien-nhom/) · [Đổi đơn vị](https://springbbe.github.io/bbetools/doi-don-vi/) · [Tính tuổi](https://springbbe.github.io/bbetools/tinh-tuoi/) · [Cộng trừ ngày & đếm ngày làm việc](https://springbbe.github.io/bbetools/cong-tru-ngay/) · [Tính BMI](https://springbbe.github.io/bbetools/tinh-bmi/) · [Calo cần mỗi ngày (TDEE)](https://springbbe.github.io/bbetools/tinh-calo-tdee/) · [Tính ngày dự sinh](https://springbbe.github.io/bbetools/tinh-ngay-du-sinh/) · [Máy tính khoa học](https://springbbe.github.io/bbetools/may-tinh-khoa-hoc/) · [Đổi số La Mã](https://springbbe.github.io/bbetools/so-la-ma/) |
 | QR & mã vạch | 2/3 | [Tạo mã QR](https://springbbe.github.io/bbetools/tao-ma-qr/) · [Quét mã QR](https://springbbe.github.io/bbetools/quet-ma-qr/) · Tạo mã vạch ⏳ |
 | Văn phòng & dữ liệu | 0/8 | Xem file Excel/CSV ⏳ · Excel ↔ CSV ⏳ · Gộp nhiều file Excel ⏳ · Tách Excel theo cột ⏳ · JSON ↔ Excel ⏳ · Trộn thư ⏳ · Tạo chữ ký email ⏳ · Tạo hoá đơn, báo giá ⏳ |
 | Lập trình | 1/19 | [Định dạng & kiểm tra JSON](https://springbbe.github.io/bbetools/dinh-dang-json/) · JSON ↔ CSV/YAML ⏳ · Mã hoá/giải mã Base64 ⏳ · Mã hoá URL ⏳ · Mã hoá HTML entity ⏳ · Giải mã JWT ⏳ · Tạo UUID ⏳ · Hash MD5/SHA ⏳ · Kiểm tra regex ⏳ · Đổi timestamp ⏳ · Giải thích cron ⏳ · Đổi mã màu ⏳ · Tạo CSS gradient, box-shadow ⏳ · Định dạng SQL ⏳ · Nén JS/CSS/HTML ⏳ · Đổi cơ số ⏳ · Tính chmod ⏳ · Phân tích User-Agent ⏳ · Tra mã trạng thái HTTP ⏳ |

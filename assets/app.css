@@ -549,3 +549,25 @@ details p { margin: 0; padding: 0 16px 14px; color: var(--muted); }
 .color-in input[type=color] { width: 48px; height: 36px; border: 1px solid var(--line); border-radius: 8px; padding: 2px; background: var(--surface); cursor: pointer; }
 .two { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .out-text { width: 100%; min-height: 160px; font-family: var(--mono); font-size: 13px; line-height: 1.5; }
+
+/* Công cụ tính toán (giai đoạn 4): bảng số liệu, thẻ số, thanh tỉ lệ */
+.tbl-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.tbl-wrap.tall { max-height: 420px; overflow-y: auto; }
+.tbl { width: 100%; border-collapse: collapse; font-size: 14px; font-variant-numeric: tabular-nums; }
+.tbl th, .tbl td { padding: 8px 10px; text-align: right; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.tbl th:first-child, .tbl td:first-child, .tbl .l { text-align: left; }
+.tbl .wrap { white-space: normal; }
+.tbl thead th { background: var(--surface-2); font-weight: 700; color: var(--muted); font-size: 13px; position: sticky; top: 0; z-index: 1; }
+.tbl tbody tr:last-child td { border-bottom: 0; }
+.tbl tfoot td { font-weight: 700; background: var(--surface-2); border-bottom: 0; border-top: 1px solid var(--line); }
+.tbl tr.hl td { background: var(--brand-soft); }
+.stats.flush { padding: 0; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+.stats.flush .stat b { font-size: clamp(16px, 4.3vw, 21px); overflow-wrap: anywhere; }
+.stat.ok b { color: var(--ok); }
+.stat.err b { color: var(--err); }
+.stat small { display: block; color: var(--muted); font-size: 12.5px; margin-top: 2px; }
+.meter { display: flex; height: 12px; border-radius: 99px; overflow: hidden; background: var(--surface-2); }
+.meter > span { display: block; height: 100%; background: var(--c, var(--brand)); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; margin: 8px 0 0; padding: 0; list-style: none; font-size: 13.5px; color: var(--muted); }
+.legend li { display: inline-flex; align-items: center; gap: 6px; }
+.legend li::before { content: ""; width: 10px; height: 10px; border-radius: 3px; background: var(--c); }

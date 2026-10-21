@@ -1,0 +1,670 @@
+{
+ "title": "mã tỉnh trên CCCD và ký hiệu biển số xe",
+ "updated": "2026-10-21",
+ "source": "Cấu trúc số định danh cá nhân 12 số của Bộ Công an (mã tỉnh nơi đăng ký khai sinh 001–096 theo danh mục 63 tỉnh; mã 34 tỉnh mới theo Quyết định 19/2025/QĐ-TTg); ký hiệu biển số theo Thông tư 79/2024/TT-BCA, sửa đổi bởi Thông tư 51/2025/TT-BCA",
+ "note": "Số CCCD giữ nguyên mã tỉnh nơi đăng ký khai sinh, kể cả khi tỉnh đó đã sáp nhập. Biển số cũ vẫn dùng bình thường, không bắt buộc đổi.",
+ "provinces": [
+  {
+   "code": "01",
+   "name": "Thành phố Hà Nội"
+  },
+  {
+   "code": "04",
+   "name": "Tỉnh Cao Bằng"
+  },
+  {
+   "code": "08",
+   "name": "Tỉnh Tuyên Quang"
+  },
+  {
+   "code": "11",
+   "name": "Tỉnh Điện Biên"
+  },
+  {
+   "code": "12",
+   "name": "Tỉnh Lai Châu"
+  },
+  {
+   "code": "14",
+   "name": "Tỉnh Sơn La"
+  },
+  {
+   "code": "15",
+   "name": "Tỉnh Lào Cai"
+  },
+  {
+   "code": "19",
+   "name": "Tỉnh Thái Nguyên"
+  },
+  {
+   "code": "20",
+   "name": "Tỉnh Lạng Sơn"
+  },
+  {
+   "code": "22",
+   "name": "Thành phố Quảng Ninh"
+  },
+  {
+   "code": "24",
+   "name": "Thành phố Bắc Ninh"
+  },
+  {
+   "code": "25",
+   "name": "Tỉnh Phú Thọ"
+  },
+  {
+   "code": "31",
+   "name": "Thành phố Hải Phòng"
+  },
+  {
+   "code": "33",
+   "name": "Tỉnh Hưng Yên"
+  },
+  {
+   "code": "37",
+   "name": "Tỉnh Ninh Bình"
+  },
+  {
+   "code": "38",
+   "name": "Tỉnh Thanh Hoá"
+  },
+  {
+   "code": "40",
+   "name": "Tỉnh Nghệ An"
+  },
+  {
+   "code": "42",
+   "name": "Tỉnh Hà Tĩnh"
+  },
+  {
+   "code": "44",
+   "name": "Tỉnh Quảng Trị"
+  },
+  {
+   "code": "46",
+   "name": "Thành phố Huế"
+  },
+  {
+   "code": "48",
+   "name": "Thành phố Đà Nẵng"
+  },
+  {
+   "code": "51",
+   "name": "Tỉnh Quảng Ngãi"
+  },
+  {
+   "code": "52",
+   "name": "Tỉnh Gia Lai"
+  },
+  {
+   "code": "56",
+   "name": "Tỉnh Khánh Hoà"
+  },
+  {
+   "code": "66",
+   "name": "Tỉnh Đắk Lắk"
+  },
+  {
+   "code": "68",
+   "name": "Tỉnh Lâm Đồng"
+  },
+  {
+   "code": "75",
+   "name": "Thành phố Đồng Nai"
+  },
+  {
+   "code": "79",
+   "name": "Thành phố Hồ Chí Minh"
+  },
+  {
+   "code": "80",
+   "name": "Tỉnh Tây Ninh"
+  },
+  {
+   "code": "82",
+   "name": "Tỉnh Đồng Tháp"
+  },
+  {
+   "code": "86",
+   "name": "Tỉnh Vĩnh Long"
+  },
+  {
+   "code": "91",
+   "name": "Tỉnh An Giang"
+  },
+  {
+   "code": "92",
+   "name": "Thành phố Cần Thơ"
+  },
+  {
+   "code": "96",
+   "name": "Tỉnh Cà Mau"
+  }
+ ],
+ "oldProvinces": [
+  {
+   "code": "01",
+   "name": "Thành phố Hà Nội",
+   "now": "01",
+   "plates": [
+    "29",
+    "30",
+    "31",
+    "32",
+    "33",
+    "40"
+   ]
+  },
+  {
+   "code": "02",
+   "name": "Tỉnh Hà Giang",
+   "now": "08",
+   "plates": [
+    "23"
+   ]
+  },
+  {
+   "code": "04",
+   "name": "Tỉnh Cao Bằng",
+   "now": "04",
+   "plates": [
+    "11"
+   ]
+  },
+  {
+   "code": "06",
+   "name": "Tỉnh Bắc Kạn",
+   "now": "19",
+   "plates": [
+    "97"
+   ]
+  },
+  {
+   "code": "08",
+   "name": "Tỉnh Tuyên Quang",
+   "now": "08",
+   "plates": [
+    "22"
+   ]
+  },
+  {
+   "code": "10",
+   "name": "Tỉnh Lào Cai",
+   "now": "15",
+   "plates": [
+    "24"
+   ]
+  },
+  {
+   "code": "11",
+   "name": "Tỉnh Điện Biên",
+   "now": "11",
+   "plates": [
+    "27"
+   ]
+  },
+  {
+   "code": "12",
+   "name": "Tỉnh Lai Châu",
+   "now": "12",
+   "plates": [
+    "25"
+   ]
+  },
+  {
+   "code": "14",
+   "name": "Tỉnh Sơn La",
+   "now": "14",
+   "plates": [
+    "26"
+   ]
+  },
+  {
+   "code": "15",
+   "name": "Tỉnh Yên Bái",
+   "now": "15",
+   "plates": [
+    "21"
+   ]
+  },
+  {
+   "code": "17",
+   "name": "Tỉnh Hòa Bình",
+   "now": "25",
+   "plates": [
+    "28"
+   ]
+  },
+  {
+   "code": "19",
+   "name": "Tỉnh Thái Nguyên",
+   "now": "19",
+   "plates": [
+    "20"
+   ]
+  },
+  {
+   "code": "20",
+   "name": "Tỉnh Lạng Sơn",
+   "now": "20",
+   "plates": [
+    "12"
+   ]
+  },
+  {
+   "code": "22",
+   "name": "Tỉnh Quảng Ninh",
+   "now": "22",
+   "plates": [
+    "14"
+   ]
+  },
+  {
+   "code": "24",
+   "name": "Tỉnh Bắc Giang",
+   "now": "24",
+   "plates": [
+    "98"
+   ]
+  },
+  {
+   "code": "25",
+   "name": "Tỉnh Phú Thọ",
+   "now": "25",
+   "plates": [
+    "19"
+   ]
+  },
+  {
+   "code": "26",
+   "name": "Tỉnh Vĩnh Phúc",
+   "now": "25",
+   "plates": [
+    "88"
+   ]
+  },
+  {
+   "code": "27",
+   "name": "Tỉnh Bắc Ninh",
+   "now": "24",
+   "plates": [
+    "99"
+   ]
+  },
+  {
+   "code": "30",
+   "name": "Tỉnh Hải Dương",
+   "now": "31",
+   "plates": [
+    "34"
+   ]
+  },
+  {
+   "code": "31",
+   "name": "Thành phố Hải Phòng",
+   "now": "31",
+   "plates": [
+    "15",
+    "16"
+   ]
+  },
+  {
+   "code": "33",
+   "name": "Tỉnh Hưng Yên",
+   "now": "33",
+   "plates": [
+    "89"
+   ]
+  },
+  {
+   "code": "34",
+   "name": "Tỉnh Thái Bình",
+   "now": "33",
+   "plates": [
+    "17"
+   ]
+  },
+  {
+   "code": "35",
+   "name": "Tỉnh Hà Nam",
+   "now": "37",
+   "plates": [
+    "90"
+   ]
+  },
+  {
+   "code": "36",
+   "name": "Tỉnh Nam Định",
+   "now": "37",
+   "plates": [
+    "18"
+   ]
+  },
+  {
+   "code": "37",
+   "name": "Tỉnh Ninh Bình",
+   "now": "37",
+   "plates": [
+    "35"
+   ]
+  },
+  {
+   "code": "38",
+   "name": "Tỉnh Thanh Hóa",
+   "now": "38",
+   "plates": [
+    "36"
+   ]
+  },
+  {
+   "code": "40",
+   "name": "Tỉnh Nghệ An",
+   "now": "40",
+   "plates": [
+    "37"
+   ]
+  },
+  {
+   "code": "42",
+   "name": "Tỉnh Hà Tĩnh",
+   "now": "42",
+   "plates": [
+    "38"
+   ]
+  },
+  {
+   "code": "44",
+   "name": "Tỉnh Quảng Bình",
+   "now": "44",
+   "plates": [
+    "73"
+   ]
+  },
+  {
+   "code": "45",
+   "name": "Tỉnh Quảng Trị",
+   "now": "44",
+   "plates": [
+    "74"
+   ]
+  },
+  {
+   "code": "46",
+   "name": "Thành phố Huế",
+   "now": "46",
+   "plates": [
+    "75"
+   ]
+  },
+  {
+   "code": "48",
+   "name": "Thành phố Đà Nẵng",
+   "now": "48",
+   "plates": [
+    "43"
+   ]
+  },
+  {
+   "code": "49",
+   "name": "Tỉnh Quảng Nam",
+   "now": "48",
+   "plates": [
+    "92"
+   ]
+  },
+  {
+   "code": "51",
+   "name": "Tỉnh Quảng Ngãi",
+   "now": "51",
+   "plates": [
+    "76"
+   ]
+  },
+  {
+   "code": "52",
+   "name": "Tỉnh Bình Định",
+   "now": "52",
+   "plates": [
+    "77"
+   ]
+  },
+  {
+   "code": "54",
+   "name": "Tỉnh Phú Yên",
+   "now": "66",
+   "plates": [
+    "78"
+   ]
+  },
+  {
+   "code": "56",
+   "name": "Tỉnh Khánh Hòa",
+   "now": "56",
+   "plates": [
+    "79"
+   ]
+  },
+  {
+   "code": "58",
+   "name": "Tỉnh Ninh Thuận",
+   "now": "56",
+   "plates": [
+    "85"
+   ]
+  },
+  {
+   "code": "60",
+   "name": "Tỉnh Bình Thuận",
+   "now": "68",
+   "plates": [
+    "86"
+   ]
+  },
+  {
+   "code": "62",
+   "name": "Tỉnh Kon Tum",
+   "now": "51",
+   "plates": [
+    "82"
+   ]
+  },
+  {
+   "code": "64",
+   "name": "Tỉnh Gia Lai",
+   "now": "52",
+   "plates": [
+    "81"
+   ]
+  },
+  {
+   "code": "66",
+   "name": "Tỉnh Đắk Lắk",
+   "now": "66",
+   "plates": [
+    "47"
+   ]
+  },
+  {
+   "code": "67",
+   "name": "Tỉnh Đắk Nông",
+   "now": "68",
+   "plates": [
+    "48"
+   ]
+  },
+  {
+   "code": "68",
+   "name": "Tỉnh Lâm Đồng",
+   "now": "68",
+   "plates": [
+    "49"
+   ]
+  },
+  {
+   "code": "70",
+   "name": "Tỉnh Bình Phước",
+   "now": "75",
+   "plates": [
+    "93"
+   ]
+  },
+  {
+   "code": "72",
+   "name": "Tỉnh Tây Ninh",
+   "now": "80",
+   "plates": [
+    "70"
+   ]
+  },
+  {
+   "code": "74",
+   "name": "Tỉnh Bình Dương",
+   "now": "79",
+   "plates": [
+    "61"
+   ]
+  },
+  {
+   "code": "75",
+   "name": "Tỉnh Đồng Nai",
+   "now": "75",
+   "plates": [
+    "39",
+    "60"
+   ]
+  },
+  {
+   "code": "77",
+   "name": "Tỉnh Bà Rịa - Vũng Tàu",
+   "now": "79",
+   "plates": [
+    "72"
+   ]
+  },
+  {
+   "code": "79",
+   "name": "Thành phố Hồ Chí Minh",
+   "now": "79",
+   "plates": [
+    "41",
+    "50",
+    "51",
+    "52",
+    "53",
+    "54",
+    "55",
+    "56",
+    "57",
+    "58",
+    "59"
+   ]
+  },
+  {
+   "code": "80",
+   "name": "Tỉnh Long An",
+   "now": "80",
+   "plates": [
+    "62"
+   ]
+  },
+  {
+   "code": "82",
+   "name": "Tỉnh Tiền Giang",
+   "now": "82",
+   "plates": [
+    "63"
+   ]
+  },
+  {
+   "code": "83",
+   "name": "Tỉnh Bến Tre",
+   "now": "86",
+   "plates": [
+    "71"
+   ]
+  },
+  {
+   "code": "84",
+   "name": "Tỉnh Trà Vinh",
+   "now": "86",
+   "plates": [
+    "84"
+   ]
+  },
+  {
+   "code": "86",
+   "name": "Tỉnh Vĩnh Long",
+   "now": "86",
+   "plates": [
+    "64"
+   ]
+  },
+  {
+   "code": "87",
+   "name": "Tỉnh Đồng Tháp",
+   "now": "82",
+   "plates": [
+    "66"
+   ]
+  },
+  {
+   "code": "89",
+   "name": "Tỉnh An Giang",
+   "now": "91",
+   "plates": [
+    "67"
+   ]
+  },
+  {
+   "code": "91",
+   "name": "Tỉnh Kiên Giang",
+   "now": "91",
+   "plates": [
+    "68"
+   ]
+  },
+  {
+   "code": "92",
+   "name": "Thành phố Cần Thơ",
+   "now": "92",
+   "plates": [
+    "65"
+   ]
+  },
+  {
+   "code": "93",
+   "name": "Tỉnh Hậu Giang",
+   "now": "92",
+   "plates": [
+    "95"
+   ]
+  },
+  {
+   "code": "94",
+   "name": "Tỉnh Sóc Trăng",
+   "now": "92",
+   "plates": [
+    "83"
+   ]
+  },
+  {
+   "code": "95",
+   "name": "Tỉnh Bạc Liêu",
+   "now": "96",
+   "plates": [
+    "94"
+   ]
+  },
+  {
+   "code": "96",
+   "name": "Tỉnh Cà Mau",
+   "now": "96",
+   "plates": [
+    "69"
+   ]
+  }
+ ],
+ "special": {
+  "80": "Cục Cảnh sát giao thông (xe của các cơ quan trung ương, xe có yếu tố nước ngoài)"
+ }
+}

@@ -743,31 +743,331 @@
         { "q": "Đổi được những năm nào?", "a": "Từ năm 1800 đến 2199." }
       ]
     },
-    { "id": "zodiac-age", "slug": "xem-tuoi-con-giap", "name": "Xem tuổi, con giáp, mệnh", "group": "vn", "icon": "moon-star", "kind": "form", "desc": "Năm sinh âm lịch, con giáp, can chi, ngũ hành nạp âm và tuổi mụ.", "keywords": ["tuổi gì", "cầm tinh", "ngũ hành", "mệnh gì", "tuổi con gì", "tuổi mụ"], "status": "todo", "related": ["lunar-calendar", "age-calculator"] },
-    { "id": "tet-countdown", "slug": "dem-nguoc-tet", "name": "Đếm ngược Tết", "group": "vn", "icon": "party-popper", "kind": "interactive", "desc": "Còn bao nhiêu ngày, giờ, phút, giây nữa đến Tết Nguyên Đán.", "keywords": ["tết nguyên đán", "còn bao nhiêu ngày đến tết", "countdown tết", "giao thừa"], "status": "todo", "related": ["lunar-calendar", "countdown-timer"] },
-    { "id": "salary-gross-net", "slug": "tinh-luong-gross-net", "name": "Tính lương gross ↔ net", "group": "vn", "icon": "wallet", "kind": "form", "desc": "Đổi lương gross sang net và ngược lại theo BHXH, BHYT, BHTN và thuế TNCN hiện hành.", "keywords": ["lương thực nhận", "gross to net", "net to gross", "bảo hiểm", "lương net"], "data": ["thue-tncn", "bhxh", "luong-toi-thieu-vung"], "status": "todo", "popular": true, "related": ["pit-calculator", "number-to-words"] },
-    { "id": "pit-calculator", "slug": "tinh-thue-tncn", "name": "Tính thuế TNCN", "group": "vn", "icon": "receipt", "kind": "form", "desc": "Tính thuế thu nhập cá nhân từ tiền lương, có giảm trừ gia cảnh, người phụ thuộc.", "keywords": ["thuế thu nhập cá nhân", "giảm trừ gia cảnh", "pit", "quyết toán thuế", "thuế tncn"], "data": ["thue-tncn"], "status": "todo", "related": ["salary-gross-net", "vat"] },
-    { "id": "loan-calculator", "slug": "tinh-lai-vay-tra-gop", "name": "Tính lãi vay trả góp", "group": "vn", "icon": "hand-coins", "kind": "form", "desc": "Lịch trả nợ theo dư nợ giảm dần hoặc trả đều, tổng lãi phải trả.", "keywords": ["vay ngân hàng", "dư nợ giảm dần", "trả góp", "lãi vay mua nhà", "loan"], "status": "todo", "popular": true, "related": ["savings-calculator", "compound-interest"] },
-    { "id": "savings-calculator", "slug": "tinh-lai-tiet-kiem", "name": "Tính lãi tiết kiệm", "group": "vn", "icon": "piggy-bank", "kind": "form", "desc": "Tiền lãi gửi tiết kiệm theo kỳ hạn, lĩnh lãi cuối kỳ hoặc hàng tháng, tái tục.", "keywords": ["gửi tiết kiệm", "lãi suất ngân hàng", "tiền lãi"], "status": "todo", "related": ["loan-calculator", "compound-interest"] },
-    { "id": "electricity-bill", "slug": "tinh-tien-dien", "name": "Tính tiền điện bậc thang", "group": "vn", "icon": "zap", "kind": "form", "desc": "Tính tiền điện sinh hoạt theo biểu giá bậc thang EVN hiện hành, có VAT.", "keywords": ["tiền điện", "evn", "số điện", "kwh", "giá điện", "hoá đơn điện"], "data": ["gia-dien"], "status": "todo", "popular": true, "related": ["vat", "percentage"] },
-    { "id": "land-units", "slug": "doi-don-vi-dat", "name": "Đổi đơn vị đất", "group": "vn", "icon": "land-plot", "kind": "form", "desc": "Đổi m² ↔ sào, mẫu, công, thước theo từng vùng Bắc, Trung, Nam.", "keywords": ["sào bắc bộ", "mẫu", "công đất", "thước", "hecta", "1 sào bao nhiêu m2"], "data": ["don-vi-dat"], "status": "todo", "related": ["unit-converter"] },
-    { "id": "province-code", "slug": "tra-ma-tinh-cccd-bien-so", "name": "Tra mã tỉnh trên CCCD, biển số xe", "group": "vn", "icon": "id-card", "kind": "form", "desc": "Số CCCD, biển số xe thuộc tỉnh nào (cũ và mới sau sáp nhập 2025), giới tính, năm sinh trên CCCD.", "keywords": ["mã tỉnh cccd", "biển số xe tỉnh nào", "căn cước", "đầu số cccd", "biển số"], "data": ["ma-tinh"], "status": "todo", "related": ["admin-units", "zodiac-age"] },
-    { "id": "admin-units", "slug": "tra-don-vi-hanh-chinh-moi", "name": "Tra đơn vị hành chính mới", "group": "vn", "icon": "map", "kind": "form", "desc": "Tra xã/phường, tỉnh/thành mới sau sáp nhập năm 2025 để ghi địa chỉ cho đúng.", "keywords": ["sáp nhập tỉnh", "34 tỉnh", "phường mới", "địa chỉ mới", "xã mới"], "data": ["don-vi-hanh-chinh"], "status": "todo", "related": ["province-code"] },
-    { "id": "bhxh-lump-sum", "slug": "tinh-bhxh-mot-lan", "name": "Tính BHXH một lần", "group": "vn", "icon": "shield-check", "kind": "form", "desc": "Ước tính tiền BHXH một lần theo quá trình đóng và hệ số trượt giá.", "keywords": ["rút bảo hiểm xã hội", "bhxh 1 lần", "trợ cấp một lần"], "data": ["bhxh"], "status": "todo", "related": ["salary-gross-net"] },
+    {
+      "id": "zodiac-age", "slug": "xem-tuoi-con-giap", "name": "Xem tuổi, con giáp, mệnh", "group": "vn", "icon": "moon-star", "kind": "form",
+      "desc": "Năm sinh âm lịch, con giáp, can chi, ngũ hành nạp âm và tuổi mụ.",
+      "keywords": ["tuổi gì", "cầm tinh", "ngũ hành", "mệnh gì", "tuổi con gì", "tuổi mụ"],
+      "status": "done",
+      "aliases": ["xem-tuoi", "tuoi-con-giap", "xem-menh", "tuoi-mu"],
+      "related": ["lunar-calendar", "age-calculator"],
+      "howto": ["Nhập ngày sinh dương lịch (hoặc chỉ năm sinh âm lịch).", "Xem ngay năm can chi, con giáp, mệnh ngũ hành nạp âm và tuổi mụ năm nay.", "Bảng bên dưới liệt kê các năm cùng tuổi, kèm mệnh của từng năm."],
+      "faq": [
+        { "q": "Sinh tháng 1 dương lịch thì tuổi con gì?", "a": "Nếu sinh trước Tết Nguyên Đán năm đó thì vẫn thuộc năm âm lịch trước. Ví dụ sinh ngày 20/1/1990 (trước Tết 27/1/1990) là tuổi Kỷ Tỵ, không phải Canh Ngọ. Hãy nhập đủ ngày sinh để công cụ tự tính." },
+        { "q": "Tuổi mụ tính thế nào?", "a": "Tuổi mụ (tuổi âm) = năm âm lịch hiện tại − năm âm lịch sinh + 1, tức là tính cả năm trong bụng mẹ và tăng thêm một tuổi mỗi dịp Tết." },
+        { "q": "Mệnh ngũ hành lấy từ đâu?", "a": "Theo bảng lục thập hoa giáp (nạp âm): mỗi cặp hai năm can chi liền nhau có chung một mệnh, ví dụ Giáp Tý, Ất Sửu là Hải Trung Kim (vàng trong biển)." }
+      ]
+    },
+    {
+      "id": "tet-countdown", "slug": "dem-nguoc-tet", "name": "Đếm ngược Tết", "group": "vn", "icon": "party-popper", "kind": "interactive",
+      "desc": "Còn bao nhiêu ngày, giờ, phút, giây nữa đến Tết Nguyên Đán.",
+      "keywords": ["tết nguyên đán", "còn bao nhiêu ngày đến tết", "countdown tết", "giao thừa"],
+      "status": "done",
+      "aliases": ["con-bao-nhieu-ngay-den-tet", "dem-ngay-tet", "countdown-tet"],
+      "related": ["lunar-calendar", "countdown-timer"],
+      "howto": ["Mở trang là thấy ngay số ngày, giờ, phút, giây còn lại tới giao thừa.", "Bấm “Toàn màn hình” để trình chiếu trên TV, máy chiếu.", "Bảng bên dưới cho biết ngày mùng 1 Tết của những năm tới."],
+      "faq": [
+        { "q": "Đếm ngược theo giờ nào?", "a": "Theo giờ Việt Nam (UTC+7), tới 0 giờ ngày mùng 1 Tết — đúng thời khắc giao thừa ở Việt Nam, kể cả khi bạn đang ở nước ngoài." },
+        { "q": "Ngày Tết được tính thế nào?", "a": "Theo lịch âm Việt Nam (thuật toán thiên văn của Hồ Ngọc Đức), có năm khác lịch Trung Quốc một ngày." }
+      ]
+    },
+    {
+      "id": "salary-gross-net", "slug": "tinh-luong-gross-net", "name": "Tính lương gross ↔ net", "group": "vn", "icon": "wallet", "kind": "form",
+      "desc": "Đổi lương gross sang net và ngược lại theo BHXH, BHYT, BHTN và thuế TNCN hiện hành.",
+      "keywords": ["lương thực nhận", "gross to net", "net to gross", "bảo hiểm", "lương net"],
+      "data": ["thue-tncn", "bhxh", "luong-toi-thieu-vung"], "status": "done", "popular": true,
+      "aliases": ["luong-gross-net", "gross-net", "tinh-luong-net", "luong-net"],
+      "related": ["pit-calculator", "number-to-words"],
+      "howto": ["Chọn chiều tính Gross → Net hoặc Net → Gross rồi nhập mức lương tháng.", "Nhập số người phụ thuộc, chọn vùng và mức lương đóng bảo hiểm (nếu công ty đóng thấp hơn lương thật).", "Xem lương thực nhận, từng khoản bảo hiểm, thuế theo từng bậc và tổng chi phí doanh nghiệp phải trả; bấm “Sao chép link” để gửi kết quả."],
+      "faq": [
+        { "q": "Công cụ dùng quy định nào?", "a": "Thuế TNCN theo biểu 5 bậc và mức giảm trừ gia cảnh 15,5 triệu đồng/tháng (người phụ thuộc 6,2 triệu) áp dụng từ kỳ tính thuế 2026; bảo hiểm 8% BHXH, 1,5% BHYT, 1% BHTN với trần 20 lần lương cơ sở và 20 lần lương tối thiểu vùng. Ngày cập nhật và nguồn ghi ở cuối trang." },
+        { "q": "Lương gross và net khác nhau thế nào?", "a": "Gross là tổng lương trước khi trừ bảo hiểm và thuế; net là số tiền thực nhận về tài khoản sau khi trừ 10,5% bảo hiểm bắt buộc và thuế TNCN." },
+        { "q": "Vì sao cần chọn vùng?", "a": "Mức trần đóng bảo hiểm thất nghiệp bằng 20 lần lương tối thiểu vùng, và lương đóng bảo hiểm không được thấp hơn lương tối thiểu vùng nơi doanh nghiệp hoạt động." },
+        { "q": "Số liệu lương có bị gửi đi đâu không?", "a": "Không. Mọi phép tính chạy trên trình duyệt của bạn; số liệu chỉ nằm trên đường link nếu bạn tự sao chép gửi đi." }
+      ]
+    },
+    {
+      "id": "pit-calculator", "slug": "tinh-thue-tncn", "name": "Tính thuế TNCN", "group": "vn", "icon": "receipt", "kind": "form",
+      "desc": "Tính thuế thu nhập cá nhân từ tiền lương, có giảm trừ gia cảnh, người phụ thuộc.",
+      "keywords": ["thuế thu nhập cá nhân", "giảm trừ gia cảnh", "pit", "quyết toán thuế", "thuế tncn"],
+      "data": ["thue-tncn", "bhxh", "luong-toi-thieu-vung"], "status": "done",
+      "aliases": ["thue-tncn", "thue-thu-nhap-ca-nhan", "tinh-thue-thu-nhap-ca-nhan", "quyet-toan-thue-tncn"],
+      "related": ["salary-gross-net", "vat"],
+      "howto": ["Chọn tính theo tháng hoặc cả năm (quyết toán) và nhập tổng thu nhập từ lương, thưởng.", "Nhập số người phụ thuộc, bảo hiểm đã đóng (hoặc để tự tính) và các khoản được trừ khác.", "Xem thu nhập tính thuế, thuế theo từng bậc và so sánh với cách tính năm 2025."],
+      "faq": [
+        { "q": "Biểu thuế năm 2026 có gì mới?", "a": "Luật Thuế TNCN số 109/2025/QH15 rút biểu thuế luỹ tiến từ 7 xuống 5 bậc (5%, 10%, 20%, 30%, 35%) và giảm trừ gia cảnh tăng lên 15,5 triệu đồng/tháng cho bản thân, 6,2 triệu cho mỗi người phụ thuộc, áp dụng cho thu nhập từ tiền lương từ kỳ tính thuế 2026." },
+        { "q": "Thu nhập bao nhiêu thì phải nộp thuế?", "a": "Người không có người phụ thuộc nộp thuế khi thu nhập sau khi trừ bảo hiểm vượt 15,5 triệu đồng/tháng; mỗi người phụ thuộc nâng ngưỡng thêm 6,2 triệu." },
+        { "q": "Khoản nào không tính thuế?", "a": "Ví dụ tiền ăn giữa ca theo mức quy định, phần tiền làm thêm giờ cao hơn lương ngày thường, một số phụ cấp, trợ cấp theo luật. Nhập tổng các khoản này vào ô “Khoản không chịu thuế”." }
+      ]
+    },
+    {
+      "id": "loan-calculator", "slug": "tinh-lai-vay-tra-gop", "name": "Tính lãi vay trả góp", "group": "vn", "icon": "hand-coins", "kind": "form",
+      "desc": "Lịch trả nợ theo dư nợ giảm dần hoặc trả đều, tổng lãi phải trả.",
+      "keywords": ["vay ngân hàng", "dư nợ giảm dần", "trả góp", "lãi vay mua nhà", "loan"],
+      "status": "done", "popular": true,
+      "aliases": ["lai-vay", "tinh-lai-vay", "vay-tra-gop", "lich-tra-no"],
+      "related": ["savings-calculator", "compound-interest"],
+      "howto": ["Nhập số tiền vay, thời hạn và lãi suất năm.", "Chọn cách trả: dư nợ giảm dần (gốc đều) hoặc trả đều hằng tháng; bật lãi suất ưu đãi nếu ngân hàng có gói ưu đãi những tháng đầu.", "Xem số tiền trả tháng đầu, tổng lãi và lịch trả nợ từng kỳ; tải bảng về dạng CSV để mở bằng Excel."],
+      "faq": [
+        { "q": "Dư nợ giảm dần và trả đều khác nhau thế nào?", "a": "Dư nợ giảm dần: tiền gốc chia đều mỗi tháng, lãi tính trên số còn nợ nên tháng đầu trả nhiều nhất rồi giảm dần, tổng lãi thấp hơn. Trả đều (annuity): mỗi tháng trả một số tiền như nhau, dễ lên kế hoạch nhưng tổng lãi cao hơn." },
+        { "q": "Sau thời gian ưu đãi thì tính thế nào?", "a": "Từ tháng hết ưu đãi, lãi được tính theo lãi suất thả nổi bạn nhập; với cách trả đều, khoản trả mỗi tháng được tính lại cho số tháng còn lại." },
+        { "q": "Kết quả có khớp với ngân hàng không?", "a": "Gần đúng. Ngân hàng thường tính lãi theo số ngày thực tế trong tháng và có thể làm tròn khác, nên mỗi kỳ có thể lệch vài nghìn đồng." }
+      ]
+    },
+    {
+      "id": "savings-calculator", "slug": "tinh-lai-tiet-kiem", "name": "Tính lãi tiết kiệm", "group": "vn", "icon": "piggy-bank", "kind": "form",
+      "desc": "Tiền lãi gửi tiết kiệm theo kỳ hạn, lĩnh lãi cuối kỳ hoặc hàng tháng, tái tục.",
+      "keywords": ["gửi tiết kiệm", "lãi suất ngân hàng", "tiền lãi"],
+      "status": "done",
+      "aliases": ["lai-tiet-kiem", "tinh-tien-lai", "gui-tiet-kiem", "lai-suat-tiet-kiem"],
+      "related": ["loan-calculator", "compound-interest"],
+      "howto": ["Nhập số tiền gửi, lãi suất năm và chọn kỳ hạn.", "Chọn hình thức lĩnh lãi: cuối kỳ, hằng tháng hoặc tái tục gốc + lãi qua nhiều kỳ.", "Xem tiền lãi, tổng nhận khi đáo hạn và bảng lãi từng kỳ."],
+      "faq": [
+        { "q": "Công thức tính lãi tiết kiệm?", "a": "Tiền lãi = tiền gửi × lãi suất năm × số tháng ÷ 12, hoặc × số ngày thực tế ÷ 365 nếu chọn cách tính theo ngày như nhiều ngân hàng." },
+        { "q": "Tái tục là gì?", "a": "Hết kỳ hạn, nếu bạn không rút, ngân hàng tự nhập lãi vào gốc và gửi tiếp kỳ hạn cũ, nên kỳ sau lãi được tính trên số tiền lớn hơn (lãi kép)." },
+        { "q": "Lãi tiết kiệm có phải nộp thuế không?", "a": "Không. Lãi tiền gửi tại ngân hàng, tổ chức tín dụng của cá nhân được miễn thuế thu nhập cá nhân." }
+      ]
+    },
+    {
+      "id": "electricity-bill", "slug": "tinh-tien-dien", "name": "Tính tiền điện bậc thang", "group": "vn", "icon": "zap", "kind": "form",
+      "desc": "Tính tiền điện sinh hoạt theo biểu giá bậc thang EVN hiện hành, có VAT.",
+      "keywords": ["tiền điện", "evn", "số điện", "kwh", "giá điện", "hoá đơn điện"],
+      "data": ["gia-dien"], "status": "done", "popular": true,
+      "aliases": ["tien-dien", "tinh-tien-dien-evn", "gia-dien", "bang-gia-dien"],
+      "related": ["vat", "percentage"],
+      "howto": ["Nhập số kWh đã dùng trong tháng (hoặc chỉ số công tơ cũ và mới).", "Nhập số hộ dùng chung công tơ nếu có và chọn mức thuế GTGT.", "Xem tiền điện từng bậc, tổng tiền phải trả; hoặc chọn “Từ tiền ra số điện” để ước tính số kWh từ hoá đơn."],
+      "faq": [
+        { "q": "Giá điện sinh hoạt hiện nay bao nhiêu?", "a": "Theo Quyết định 1279/QĐ-BCT (từ 10/5/2025), giá điện sinh hoạt chia 6 bậc từ 1.984 đến 3.460 đồng/kWh, chưa gồm thuế GTGT. Bảng giá đầy đủ hiện ngay trên trang." },
+        { "q": "Nhiều hộ dùng chung công tơ thì tính sao?", "a": "Mỗi hộ (có đăng ký cư trú riêng) được tính một định mức, nên số kWh của mỗi bậc được nhân với số hộ. Nhập số hộ để công cụ tính đúng." },
+        { "q": "Vì sao hoá đơn thực tế lệch một chút?", "a": "Khi kỳ ghi chỉ số không tròn một tháng hoặc có điều chỉnh giá giữa kỳ, EVN chia định mức theo số ngày, nên tiền điện có thể lệch nhẹ so với cách tính tròn tháng." }
+      ]
+    },
+    {
+      "id": "land-units", "slug": "doi-don-vi-dat", "name": "Đổi đơn vị đất", "group": "vn", "icon": "land-plot", "kind": "form",
+      "desc": "Đổi m² ↔ sào, mẫu, công, thước theo từng vùng Bắc, Trung, Nam.",
+      "keywords": ["sào bắc bộ", "mẫu", "công đất", "thước", "hecta", "1 sào bao nhiêu m2"],
+      "data": ["don-vi-dat"], "status": "done",
+      "aliases": ["sao-dat", "1-sao-bao-nhieu-m2", "doi-sao-ra-m2", "cong-dat"],
+      "related": ["unit-converter"],
+      "howto": ["Nhập diện tích và chọn đơn vị (m², ha, sào, mẫu, thước, công…).", "Chọn vùng để chỉ hiện đơn vị của miền Bắc, Trung hoặc Nam.", "Bảng kết quả đổi sang mọi đơn vị cùng lúc."],
+      "faq": [
+        { "q": "1 sào bao nhiêu m²?", "a": "Sào Bắc Bộ là 360 m², sào Trung Bộ khoảng 500 m². Ở Nam Bộ thường dùng “công”: công tầm nhỏ 1.000 m², công tầm lớn 1.296 m²." },
+        { "q": "1 mẫu bằng bao nhiêu?", "a": "1 mẫu = 10 sào: Bắc Bộ 3.600 m², Trung Bộ 5.000 m²; ở Nam Bộ 1 mẫu thường hiểu là 10 công nhỏ = 1 ha (10.000 m²)." },
+        { "q": "Đơn vị nào có giá trị pháp lý?", "a": "Giấy chứng nhận quyền sử dụng đất chỉ ghi m² hoặc ha. Sào, mẫu, công, thước là đơn vị dân gian, mỗi nơi có thể tính khác nhau." }
+      ]
+    },
+    {
+      "id": "province-code", "slug": "tra-ma-tinh-cccd-bien-so", "name": "Tra mã tỉnh trên CCCD, biển số xe", "group": "vn", "icon": "id-card", "kind": "form",
+      "desc": "Số CCCD, biển số xe thuộc tỉnh nào (cũ và mới sau sáp nhập 2025), giới tính, năm sinh trên CCCD.",
+      "keywords": ["mã tỉnh cccd", "biển số xe tỉnh nào", "căn cước", "đầu số cccd", "biển số"],
+      "data": ["ma-tinh"], "status": "done",
+      "aliases": ["ma-tinh-cccd", "bien-so-xe-tinh-nao", "tra-bien-so-xe", "ma-cccd"],
+      "related": ["admin-units", "zodiac-age"],
+      "howto": ["Nhập số CCCD (hoặc 3 số đầu) hay biển số xe (hoặc 2 số đầu).", "Xem tỉnh, thành nơi đăng ký khai sinh hoặc cấp biển, và tỉnh mới sau sáp nhập 2025.", "Mở “Bảng mã 34 tỉnh, thành phố” để tra cả danh sách."],
+      "faq": [
+        { "q": "12 số trên CCCD có ý nghĩa gì?", "a": "3 số đầu là mã tỉnh nơi đăng ký khai sinh, số thứ 4 là giới tính và thế kỷ sinh (0/1: nam/nữ sinh thế kỷ 20; 2/3: nam/nữ sinh thế kỷ 21), 2 số tiếp theo là năm sinh, 6 số cuối là dãy ngẫu nhiên." },
+        { "q": "Sau sáp nhập tỉnh có phải đổi CCCD, biển số không?", "a": "Không. Số CCCD giữ nguyên suốt đời; biển số cũ vẫn dùng bình thường. Tỉnh mới dùng chung các ký hiệu biển số của những tỉnh hợp thành (Thông tư 51/2025/TT-BCA)." },
+        { "q": "Số CCCD tôi nhập có bị lưu lại không?", "a": "Không. Việc tra cứu chạy hoàn toàn trên máy của bạn, không gửi dữ liệu đi đâu." }
+      ]
+    },
+    {
+      "id": "admin-units", "slug": "tra-don-vi-hanh-chinh-moi", "name": "Tra đơn vị hành chính mới", "group": "vn", "icon": "map", "kind": "form",
+      "desc": "Tra xã/phường, tỉnh/thành mới sau sáp nhập năm 2025 để ghi địa chỉ cho đúng.",
+      "keywords": ["sáp nhập tỉnh", "34 tỉnh", "phường mới", "địa chỉ mới", "xã mới"],
+      "data": ["don-vi-hanh-chinh"], "status": "done",
+      "aliases": ["sap-nhap-tinh", "phuong-moi", "xa-moi", "dia-chi-moi", "34-tinh"],
+      "related": ["province-code"],
+      "howto": ["Gõ tên xã, phường cũ (có thể kèm quận, huyện, tỉnh cũ, viết tắt như “p5 q3 hcm”).", "Xem xã, phường mới tương ứng; với đơn vị bị chia, công cụ liệt kê đủ các nơi nhận.", "Gõ tên xã, phường mới để xem được hợp nhất từ những đơn vị cũ nào; bấm biểu tượng sao chép để dán địa chỉ mới."],
+      "faq": [
+        { "q": "Địa chỉ mới ghi thế nào?", "a": "Từ 01/7/2025 bỏ cấp quận, huyện: ghi số nhà, đường (thôn, ấp), xã/phường/đặc khu, tỉnh/thành phố. Ví dụ: 12 Nguyễn Huệ, phường Sài Gòn, Thành phố Hồ Chí Minh." },
+        { "q": "Phường cũ bị chia cho nhiều phường mới thì sao?", "a": "Công cụ hiện tất cả phường mới nhận một phần của đơn vị cũ, đơn vị đầu tiên là nơi có trụ sở cũ. Địa chỉ cụ thể của bạn phụ thuộc vị trí nhà — hãy hỏi UBND phường hoặc xem bản đồ sáp nhập." },
+        { "q": "Dữ liệu lấy từ đâu?", "a": "Danh mục hành chính của Cục Thống kê (cập nhật cả các thay đổi năm 2026) và bảng chuyển đổi xã cũ → mới tổng hợp từ các Nghị quyết của Uỷ ban Thường vụ Quốc hội. Ngày cập nhật ghi ở cuối trang." }
+      ]
+    },
+    {
+      "id": "bhxh-lump-sum", "slug": "tinh-bhxh-mot-lan", "name": "Tính BHXH một lần", "group": "vn", "icon": "shield-check", "kind": "form",
+      "desc": "Ước tính tiền BHXH một lần theo quá trình đóng và hệ số trượt giá.",
+      "keywords": ["rút bảo hiểm xã hội", "bhxh 1 lần", "trợ cấp một lần"],
+      "data": ["bhxh"], "status": "done",
+      "aliases": ["bhxh-mot-lan", "rut-bhxh-mot-lan", "tinh-tien-bhxh-1-lan"],
+      "related": ["salary-gross-net"],
+      "howto": ["Nhập từng giai đoạn đóng BHXH: từ tháng, đến tháng và mức lương đóng (mỗi lần đổi lương là một giai đoạn).", "Công cụ tự nhân hệ số điều chỉnh tiền lương của từng năm và tính bình quân.", "Xem số tiền ước tính, số năm đóng trước và từ 2014, cách làm tròn tháng lẻ."],
+      "faq": [
+        { "q": "Công thức tính BHXH một lần?", "a": "Mức hưởng = bình quân tiền lương tháng đóng BHXH (đã điều chỉnh theo hệ số trượt giá) × (1,5 tháng cho mỗi năm đóng trước 2014 + 2 tháng cho mỗi năm đóng từ 2014). Đóng chưa đủ 1 năm thì được nhận bằng số đã đóng, tối đa 2 tháng lương bình quân." },
+        { "q": "Ai còn được rút BHXH một lần?", "a": "Theo Luật BHXH 2024 (từ 01/7/2025): người đã đóng trước 01/7/2025, nghỉ việc đủ 12 tháng không đóng tiếp và tổng thời gian đóng dưới 20 năm; ngoài ra là người ra nước ngoài định cư, mắc bệnh hiểm nghèo… Người bắt đầu đóng từ 01/7/2025 không được rút trừ các trường hợp đặc biệt." },
+        { "q": "Hệ số trượt giá lấy ở đâu?", "a": "Theo thông báo hệ số điều chỉnh tiền lương đã đóng BHXH năm 2026 của BHXH Việt Nam (Công văn 340/BHXH-CSXH ngày 03/02/2026)." }
+      ]
+    },
 
-    { "id": "percentage", "slug": "tinh-phan-tram", "name": "Máy tính phần trăm", "group": "calc", "icon": "percent", "kind": "form", "desc": "X% của Y, X là bao nhiêu % của Y, tăng/giảm bao nhiêu phần trăm.", "keywords": ["%", "phần trăm", "tăng giảm bao nhiêu phần trăm", "percent"], "status": "todo", "popular": true, "related": ["discount", "vat"] },
-    { "id": "discount", "slug": "tinh-giam-gia", "name": "Tính giảm giá", "group": "calc", "icon": "tag", "kind": "form", "desc": "Giá sau khi giảm, giảm nhiều lần liên tiếp, số tiền tiết kiệm.", "keywords": ["sale", "khuyến mãi", "giá sau giảm", "discount"], "status": "todo", "related": ["percentage", "vat"] },
-    { "id": "vat", "slug": "tinh-vat", "name": "Tính VAT", "group": "calc", "icon": "receipt-text", "kind": "form", "desc": "Tính thuế GTGT xuôi (chưa thuế → có thuế) và ngược, mức 5%, 8%, 10%.", "keywords": ["thuế giá trị gia tăng", "gtgt", "giá trước thuế", "tách vat"], "status": "todo", "related": ["percentage", "number-to-words"] },
-    { "id": "compound-interest", "slug": "tinh-lai-kep", "name": "Lãi kép", "group": "calc", "icon": "trending-up", "kind": "form", "desc": "Tính lãi kép khi đầu tư định kỳ, có biểu đồ tăng trưởng.", "keywords": ["compound interest", "đầu tư", "lãi suất kép"], "status": "todo", "related": ["savings-calculator", "loan-calculator"] },
-    { "id": "split-bill", "slug": "chia-tien-nhom", "name": "Chia tiền nhóm", "group": "calc", "icon": "users", "kind": "form", "desc": "Ai trả bao nhiêu, ai nợ ai — tính số lần chuyển khoản ít nhất.", "keywords": ["chia bill", "đi chơi chung", "góp tiền", "split bill", "ai nợ ai"], "status": "todo", "popular": true, "related": ["vietqr", "percentage"] },
-    { "id": "unit-converter", "slug": "doi-don-vi", "name": "Đổi đơn vị", "group": "calc", "icon": "arrow-left-right", "kind": "form", "desc": "Chiều dài, khối lượng, nhiệt độ, diện tích, thể tích, tốc độ, dữ liệu.", "keywords": ["convert unit", "inch sang cm", "kg sang lbs", "độ f sang độ c"], "status": "todo", "related": ["land-units", "base-converter"] },
-    { "id": "age-calculator", "slug": "tinh-tuoi", "name": "Tính tuổi", "group": "calc", "icon": "cake", "kind": "form", "desc": "Tuổi chính xác theo năm, tháng, ngày và ngày sinh nhật tiếp theo.", "keywords": ["bao nhiêu tuổi", "ngày sinh", "age calculator"], "status": "todo", "related": ["zodiac-age", "date-calculator"] },
-    { "id": "date-calculator", "slug": "cong-tru-ngay", "name": "Cộng trừ ngày & đếm ngày làm việc", "group": "calc", "icon": "calendar-range", "kind": "form", "desc": "Khoảng cách giữa hai ngày, cộng trừ ngày, đếm ngày làm việc trừ lễ Tết.", "keywords": ["tính ngày", "khoảng cách ngày", "ngày làm việc", "đếm ngày"], "status": "todo", "related": ["age-calculator", "lunar-calendar"] },
-    { "id": "bmi", "slug": "tinh-bmi", "name": "Tính BMI", "group": "calc", "icon": "scale", "kind": "form", "desc": "Chỉ số khối cơ thể theo chuẩn cho người châu Á.", "keywords": ["chỉ số khối cơ thể", "béo phì", "cân nặng chuẩn", "bmi"], "status": "todo", "related": ["tdee"] },
-    { "id": "tdee", "slug": "tinh-calo-tdee", "name": "Calo cần mỗi ngày (TDEE)", "group": "calc", "icon": "flame", "kind": "form", "desc": "Tính BMR, TDEE và lượng calo để giữ, giảm hoặc tăng cân.", "keywords": ["bmr", "giảm cân", "calo", "tdee", "calories"], "status": "todo", "related": ["bmi"] },
-    { "id": "due-date", "slug": "tinh-ngay-du-sinh", "name": "Tính ngày dự sinh", "group": "calc", "icon": "baby", "kind": "form", "desc": "Ngày dự sinh và tuần thai theo ngày đầu kỳ kinh cuối.", "keywords": ["mang thai", "tuần thai", "bầu", "ngày sinh dự kiến"], "status": "todo", "related": ["date-calculator", "age-calculator"] },
-    { "id": "scientific-calculator", "slug": "may-tinh-khoa-hoc", "name": "Máy tính khoa học", "group": "calc", "icon": "calculator", "kind": "interactive", "desc": "Máy tính có sin, cos, log, luỹ thừa, lịch sử phép tính, dùng bàn phím.", "keywords": ["calculator", "sin cos", "casio", "máy tính bỏ túi"], "status": "todo", "related": ["percentage", "base-converter"] },
-    { "id": "roman-numerals", "slug": "so-la-ma", "name": "Đổi số La Mã", "group": "calc", "icon": "hash", "kind": "text", "desc": "Đổi số thường sang số La Mã và ngược lại.", "keywords": ["roman numerals", "số la mã", "XIV"], "status": "todo", "related": ["number-to-words", "base-converter"] },
+    {
+      "id": "percentage", "slug": "tinh-phan-tram", "name": "Máy tính phần trăm", "group": "calc", "icon": "percent", "kind": "form",
+      "desc": "X% của Y, X là bao nhiêu % của Y, tăng/giảm bao nhiêu phần trăm.",
+      "keywords": ["%", "phần trăm", "tăng giảm bao nhiêu phần trăm", "percent"],
+      "status": "done", "popular": true,
+      "aliases": ["phan-tram", "may-tinh-phan-tram"],
+      "related": ["discount", "vat"],
+      "howto": ["Chọn phép tính: X% của Y, X là bao nhiêu % của Y, tăng/giảm bao nhiêu %, cộng trừ phần trăm hoặc tìm số gốc.", "Nhập hai số (dùng dấu phẩy cho phần thập phân).", "Kết quả và cách tính hiện ngay; sao chép link để gửi người khác."],
+      "faq": [
+        { "q": "Tính phần trăm tăng giảm thế nào?", "a": "Lấy (giá trị mới − giá trị cũ) ÷ giá trị cũ × 100. Ví dụ từ 80 lên 100 là tăng 25%." },
+        { "q": "Giá đã gồm 10% thì giá gốc là bao nhiêu?", "a": "Chọn “X là Y% của số nào”, nhập X là giá đã tăng và Y = 110; không lấy giá trừ đi 10%." }
+      ]
+    },
+    {
+      "id": "discount", "slug": "tinh-giam-gia", "name": "Tính giảm giá", "group": "calc", "icon": "tag", "kind": "form",
+      "desc": "Giá sau khi giảm, giảm nhiều lần liên tiếp, số tiền tiết kiệm.",
+      "keywords": ["sale", "khuyến mãi", "giá sau giảm", "discount"],
+      "status": "done",
+      "aliases": ["giam-gia", "tinh-gia-sale", "gia-sau-giam"],
+      "related": ["percentage", "vat"],
+      "howto": ["Nhập giá gốc.", "Nhập mức giảm theo phần trăm (giảm nhiều lần viết 20+10) hoặc số tiền được giảm.", "Xem giá phải trả, số tiền tiết kiệm và tổng mức giảm thực tế."],
+      "faq": [
+        { "q": "Giảm 20% rồi giảm thêm 10% có phải giảm 30%?", "a": "Không. Lần giảm thứ hai tính trên giá đã giảm, nên tổng chỉ là 28%: 100.000 → 80.000 → 72.000." }
+      ]
+    },
+    {
+      "id": "vat", "slug": "tinh-vat", "name": "Tính VAT", "group": "calc", "icon": "receipt-text", "kind": "form",
+      "desc": "Tính thuế GTGT xuôi (chưa thuế → có thuế) và ngược, mức 5%, 8%, 10%.",
+      "keywords": ["thuế giá trị gia tăng", "gtgt", "giá trước thuế", "tách vat"],
+      "status": "done",
+      "aliases": ["tinh-thue-vat", "thue-gtgt", "tach-vat", "tinh-thue-gtgt"],
+      "related": ["percentage", "number-to-words"],
+      "howto": ["Chọn chiều tính: từ giá chưa thuế ra giá có thuế, hoặc tách thuế từ giá đã gồm VAT.", "Nhập số tiền và chọn thuế suất (0%, 5%, 8%, 10% hoặc mức khác).", "Xem tiền thuế, tổng thanh toán và số tiền bằng chữ để ghi hoá đơn."],
+      "faq": [
+        { "q": "Thuế GTGT 8% áp dụng đến khi nào?", "a": "Mức giảm 2% (từ 10% xuống 8%) cho phần lớn hàng hoá, dịch vụ áp dụng đến hết 31/12/2026 theo Nghị quyết 204/2025/QH15; một số nhóm như viễn thông, tài chính, bất động sản, kim loại không được giảm." },
+        { "q": "Tách VAT từ giá đã gồm thuế thế nào?", "a": "Giá chưa thuế = giá đã gồm thuế ÷ (1 + thuế suất). Ví dụ 1.080.000 đ gồm VAT 8% thì giá chưa thuế là 1.000.000 đ, thuế 80.000 đ." }
+      ]
+    },
+    {
+      "id": "compound-interest", "slug": "tinh-lai-kep", "name": "Lãi kép", "group": "calc", "icon": "trending-up", "kind": "form",
+      "desc": "Tính lãi kép khi đầu tư định kỳ, có biểu đồ tăng trưởng.",
+      "keywords": ["compound interest", "đầu tư", "lãi suất kép"],
+      "status": "done",
+      "aliases": ["lai-kep", "lai-suat-kep", "compound-interest"],
+      "related": ["savings-calculator", "loan-calculator"],
+      "howto": ["Nhập vốn ban đầu, số tiền góp thêm mỗi tháng, lãi suất năm và số năm.", "Chọn tần suất nhập lãi (năm, quý, tháng, ngày).", "Xem giá trị cuối cùng, tiền lãi và biểu đồ tăng trưởng theo năm; tải bảng về dạng CSV."],
+      "faq": [
+        { "q": "Lãi kép là gì?", "a": "Là lãi được cộng dồn vào gốc để kỳ sau sinh lãi tiếp. Thời gian càng dài, phần lãi càng lớn so với số vốn bỏ ra." },
+        { "q": "Quy tắc 72 là gì?", "a": "Lấy 72 chia cho lãi suất năm (%) ra số năm gần đúng để tiền tăng gấp đôi. Ví dụ lãi 8%/năm thì khoảng 9 năm." }
+      ]
+    },
+    {
+      "id": "split-bill", "slug": "chia-tien-nhom", "name": "Chia tiền nhóm", "group": "calc", "icon": "users", "kind": "form",
+      "desc": "Ai trả bao nhiêu, ai nợ ai — tính số lần chuyển khoản ít nhất.",
+      "keywords": ["chia bill", "đi chơi chung", "góp tiền", "split bill", "ai nợ ai"],
+      "status": "done", "popular": true,
+      "aliases": ["chia-bill", "chia-tien", "ai-no-ai"],
+      "related": ["vietqr", "percentage"],
+      "howto": ["Thêm tên các thành viên trong nhóm.", "Thêm từng khoản chi: ai trả, bao nhiêu, chia cho những ai (bỏ chọn người không tham gia).", "Xem ai cần chuyển cho ai với số lần chuyển ít nhất; bấm “QR” để tạo mã chuyển khoản, “Sao chép link” để gửi cả nhóm."],
+      "faq": [
+        { "q": "Có cần tạo tài khoản không?", "a": "Không. Toàn bộ bảng chia nằm ngay trong đường link; gửi link cho nhóm là ai cũng mở xem được." },
+        { "q": "Tính số lần chuyển ít nhất thế nào?", "a": "Công cụ tính mỗi người đã trả dư hay thiếu bao nhiêu, rồi ghép người thiếu nhiều nhất với người dư nhiều nhất cho tới khi hết. Nhóm n người cần tối đa n − 1 lần chuyển." }
+      ]
+    },
+    {
+      "id": "unit-converter", "slug": "doi-don-vi", "name": "Đổi đơn vị", "group": "calc", "icon": "arrow-left-right", "kind": "form",
+      "desc": "Chiều dài, khối lượng, nhiệt độ, diện tích, thể tích, tốc độ, dữ liệu.",
+      "keywords": ["convert unit", "inch sang cm", "kg sang lbs", "độ f sang độ c"],
+      "status": "done",
+      "aliases": ["doi-don-vi-do", "chuyen-doi-don-vi", "inch-sang-cm", "do-f-sang-do-c"],
+      "related": ["land-units", "base-converter"],
+      "howto": ["Chọn loại đại lượng: chiều dài, khối lượng, nhiệt độ, diện tích, thể tích, tốc độ, thời gian, dữ liệu, áp suất, năng lượng.", "Nhập giá trị và chọn đơn vị gốc, đơn vị cần đổi (bấm ⇄ để đảo chiều).", "Bảng bên dưới đổi sang mọi đơn vị cùng loại."],
+      "faq": [
+        { "q": "1 inch bằng bao nhiêu cm?", "a": "1 inch = 2,54 cm; 1 foot = 30,48 cm; 1 dặm = 1,609 km." },
+        { "q": "Đổi độ F sang độ C thế nào?", "a": "°C = (°F − 32) × 5 ÷ 9. Ví dụ 100 °F ≈ 37,8 °C." },
+        { "q": "1 GB là 1000 hay 1024 MB?", "a": "Theo chuẩn SI, 1 GB = 1000 MB; còn 1 GiB = 1024 MiB. Windows hiển thị dung lượng theo GiB nhưng ghi là GB, nên ổ 1 TB hiện khoảng 931 GB." }
+      ]
+    },
+    {
+      "id": "age-calculator", "slug": "tinh-tuoi", "name": "Tính tuổi", "group": "calc", "icon": "cake", "kind": "form",
+      "desc": "Tuổi chính xác theo năm, tháng, ngày và ngày sinh nhật tiếp theo.",
+      "keywords": ["bao nhiêu tuổi", "ngày sinh", "age calculator"],
+      "status": "done",
+      "aliases": ["tinh-tuoi-chinh-xac", "bao-nhieu-tuoi", "tuoi"],
+      "related": ["zodiac-age", "date-calculator"],
+      "howto": ["Chọn ngày sinh.", "Đổi “Tính đến ngày” nếu muốn biết tuổi tại một ngày khác hôm nay.", "Xem tuổi chính xác theo năm, tháng, ngày, tổng số ngày, tuần và số ngày đến sinh nhật tiếp theo."],
+      "faq": [
+        { "q": "Sinh ngày 29/2 thì sinh nhật năm không nhuận là ngày nào?", "a": "Công cụ tính là ngày 28/2 ở những năm không nhuận." },
+        { "q": "Tuổi này khác tuổi mụ thế nào?", "a": "Đây là tuổi thật (tuổi tròn). Tuổi mụ tính theo năm âm lịch và cộng thêm 1, xem ở công cụ Xem tuổi, con giáp." }
+      ]
+    },
+    {
+      "id": "date-calculator", "slug": "cong-tru-ngay", "name": "Cộng trừ ngày & đếm ngày làm việc", "group": "calc", "icon": "calendar-range", "kind": "form",
+      "desc": "Khoảng cách giữa hai ngày, cộng trừ ngày, đếm ngày làm việc trừ lễ Tết.",
+      "keywords": ["tính ngày", "khoảng cách ngày", "ngày làm việc", "đếm ngày"],
+      "data": ["ngay-le"], "status": "done",
+      "aliases": ["tinh-ngay", "dem-ngay", "khoang-cach-ngay", "ngay-lam-viec"],
+      "related": ["age-calculator", "lunar-calendar"],
+      "howto": ["Chọn “Khoảng cách hai ngày” để đếm số ngày, tuần, tháng và ngày làm việc giữa hai ngày.", "Hoặc chọn “Cộng / trừ ngày” để biết ngày sau (trước) N ngày, ngày làm việc, tuần, tháng, năm.", "Tuỳ chỉnh làm việc thứ Bảy, trừ ngày lễ Tết và nghỉ bù."],
+      "faq": [
+        { "q": "Những ngày lễ nào được trừ?", "a": "Tết Dương lịch, 5 ngày Tết Âm lịch (ngày cuối năm và mùng 1–4), Giỗ Tổ Hùng Vương 10/3 âm lịch, 30/4, 1/5, Quốc khánh 1/9 và 2/9, và Ngày Văn hoá Việt Nam 24/11 từ năm 2026." },
+        { "q": "Có tính ngày làm bù do hoán đổi không?", "a": "Chưa. Lịch hoán đổi ngày làm việc do Nhà nước công bố từng năm và có thể khác giữa khối nhà nước và doanh nghiệp." }
+      ]
+    },
+    {
+      "id": "bmi", "slug": "tinh-bmi", "name": "Tính BMI", "group": "calc", "icon": "scale", "kind": "form",
+      "desc": "Chỉ số khối cơ thể theo chuẩn cho người châu Á.",
+      "keywords": ["chỉ số khối cơ thể", "béo phì", "cân nặng chuẩn", "bmi"],
+      "status": "done",
+      "aliases": ["chi-so-bmi", "tinh-chi-so-bmi", "can-nang-chuan"],
+      "related": ["tdee"],
+      "howto": ["Nhập chiều cao (cm) và cân nặng (kg).", "Chọn chuẩn phân loại cho người châu Á (mặc định) hoặc chuẩn WHO quốc tế.", "Xem chỉ số BMI, phân loại và khoảng cân nặng hợp lý với chiều cao của bạn."],
+      "faq": [
+        { "q": "BMI bao nhiêu là bình thường?", "a": "Với người châu Á: từ 18,5 đến dưới 23 là bình thường, 23 đến dưới 25 là thừa cân, từ 25 là béo phì." },
+        { "q": "Vì sao người châu Á dùng ngưỡng khác?", "a": "Ở cùng chỉ số BMI, người châu Á thường có tỉ lệ mỡ cơ thể cao hơn và nguy cơ bệnh tim mạch, tiểu đường xuất hiện sớm hơn, nên WHO khuyến nghị ngưỡng thấp hơn cho khu vực châu Á – Thái Bình Dương." }
+      ]
+    },
+    {
+      "id": "tdee", "slug": "tinh-calo-tdee", "name": "Calo cần mỗi ngày (TDEE)", "group": "calc", "icon": "flame", "kind": "form",
+      "desc": "Tính BMR, TDEE và lượng calo để giữ, giảm hoặc tăng cân.",
+      "keywords": ["bmr", "giảm cân", "calo", "tdee", "calories"],
+      "status": "done",
+      "aliases": ["tinh-calo", "tdee", "bmr", "calo-giam-can"],
+      "related": ["bmi"],
+      "howto": ["Chọn giới tính, nhập tuổi, chiều cao, cân nặng.", "Chọn mức vận động gần đúng nhất với bạn.", "Xem BMR, TDEE và lượng calo mỗi ngày để giữ, giảm hoặc tăng cân."],
+      "faq": [
+        { "q": "BMR và TDEE khác nhau thế nào?", "a": "BMR là năng lượng cơ thể cần khi nghỉ ngơi hoàn toàn; TDEE là tổng năng lượng tiêu hao trong ngày, gồm cả vận động. Ăn bằng TDEE thì giữ cân." },
+        { "q": "Muốn giảm 0,5 kg mỗi tuần thì ăn bao nhiêu?", "a": "Ăn ít hơn TDEE khoảng 550 kcal mỗi ngày (1 kg mỡ ≈ 7.700 kcal). Không nên giảm quá 1 kg/tuần hoặc ăn dưới 1.200 kcal (nữ), 1.500 kcal (nam) nếu không có bác sĩ theo dõi." }
+      ]
+    },
+    {
+      "id": "due-date", "slug": "tinh-ngay-du-sinh", "name": "Tính ngày dự sinh", "group": "calc", "icon": "baby", "kind": "form",
+      "desc": "Ngày dự sinh và tuần thai theo ngày đầu kỳ kinh cuối.",
+      "keywords": ["mang thai", "tuần thai", "bầu", "ngày sinh dự kiến"],
+      "status": "done",
+      "aliases": ["ngay-du-sinh", "tinh-tuan-thai", "tuan-thai"],
+      "related": ["date-calculator", "age-calculator"],
+      "howto": ["Nhập ngày đầu tiên của kỳ kinh cuối và độ dài chu kỳ (hoặc chọn tính theo kết quả siêu âm).", "Xem ngày dự sinh, tuổi thai hôm nay và tam cá nguyệt.", "Bảng các mốc khám thai cho biết khoảng ngày nên đi khám, siêu âm."],
+      "faq": [
+        { "q": "Ngày dự sinh tính thế nào?", "a": "Theo quy tắc Naegele: ngày đầu kỳ kinh cuối + 280 ngày (40 tuần), cộng hoặc trừ thêm nếu chu kỳ dài hoặc ngắn hơn 28 ngày." },
+        { "q": "Nên tin kỳ kinh cuối hay siêu âm?", "a": "Siêu âm trong 3 tháng đầu (đo chiều dài đầu mông) thường chính xác hơn khi bạn không nhớ rõ ngày kinh hoặc chu kỳ không đều; bác sĩ sẽ quyết định ngày dự sinh cuối cùng." }
+      ]
+    },
+    {
+      "id": "scientific-calculator", "slug": "may-tinh-khoa-hoc", "name": "Máy tính khoa học", "group": "calc", "icon": "calculator", "kind": "interactive",
+      "desc": "Máy tính có sin, cos, log, luỹ thừa, lịch sử phép tính, dùng bàn phím.",
+      "keywords": ["calculator", "sin cos", "casio", "máy tính bỏ túi"],
+      "status": "done",
+      "aliases": ["may-tinh", "calculator", "may-tinh-bo-tui", "may-tinh-online"],
+      "related": ["percentage", "base-converter"],
+      "howto": ["Bấm nút hoặc gõ phép tính bằng bàn phím (Enter để tính, Esc để xoá).", "Chọn đơn vị góc độ (DEG) hoặc radian (RAD) cho sin, cos, tan.", "Bấm vào một dòng trong lịch sử để dùng lại phép tính; nút Ans lấy kết quả trước."],
+      "faq": [
+        { "q": "Bấm 200 + 10% ra bao nhiêu?", "a": "Ra 220, giống máy tính bỏ túi: phần trăm được tính trên số đứng trước. Còn 50% × 200 = 100." },
+        { "q": "Có viết được 2π hay 2sin30 không?", "a": "Được. Công cụ hiểu phép nhân ngầm: 2π, 3(4+5), 2sin30." },
+        { "q": "Lịch sử có bị gửi đi đâu không?", "a": "Không. Lịch sử phép tính chỉ lưu trong trình duyệt trên máy bạn." }
+      ]
+    },
+    {
+      "id": "roman-numerals", "slug": "so-la-ma", "name": "Đổi số La Mã", "group": "calc", "icon": "hash", "kind": "text",
+      "desc": "Đổi số thường sang số La Mã và ngược lại.",
+      "keywords": ["roman numerals", "số la mã", "XIV"],
+      "status": "done",
+      "aliases": ["doi-so-la-ma", "roman-numerals"],
+      "related": ["number-to-words", "base-converter"],
+      "howto": ["Gõ số thường (1–3.999.999) hoặc số La Mã, mỗi dòng một số.", "Công cụ tự nhận chiều đổi và hiện kết quả ngay.", "Bấm sao chép hoặc tải về."],
+      "faq": [
+        { "q": "Số La Mã lớn nhất viết được là bao nhiêu?", "a": "Theo cách viết chuẩn là 3.999 (MMMCMXCIX). Số lớn hơn dùng dấu gạch ngang phía trên để nhân 1.000, ví dụ V̅ = 5.000." },
+        { "q": "Vì sao IIII báo sai?", "a": "Cách viết chuẩn dùng phép trừ: 4 là IV, 9 là IX, 40 là XL, 90 là XC… IIII chỉ thấy trên mặt đồng hồ." }
+      ]
+    },
 
     {
       "id": "qr-generator", "slug": "tao-ma-qr", "name": "Tạo mã QR", "group": "qr", "icon": "qr-code", "kind": "form",

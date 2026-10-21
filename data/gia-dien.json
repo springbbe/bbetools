@@ -1,0 +1,19 @@
+{
+  "title": "giá bán lẻ điện sinh hoạt",
+  "updated": "2026-10-21",
+  "source": "Quyết định 1279/QĐ-BCT ngày 09/5/2025 của Bộ Công Thương (áp dụng từ 10/5/2025, vẫn hiện hành); thuế GTGT 8% đến hết 31/12/2026 theo Nghị quyết 204/2025/QH15",
+  "from": "2025-05-10",
+  "tiers": [
+    { "upTo": 50, "price": 1984 },
+    { "upTo": 100, "price": 2050 },
+    { "upTo": 200, "price": 2380 },
+    { "upTo": 300, "price": 2998 },
+    { "upTo": 400, "price": 3350 },
+    { "upTo": null, "price": 3460 }
+  ],
+  "prepaid": 2909,
+  "vat": 0.08,
+  "vatUntil": "2026-12-31",
+  "vatNormal": 0.10,
+  "note": "Giá chưa gồm thuế GTGT. Nhiều hộ dùng chung một công tơ thì định mức mỗi bậc nhân với số hộ."
+}

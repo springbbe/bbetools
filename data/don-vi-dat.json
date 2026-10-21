@@ -1,0 +1,22 @@
+{
+  "title": "đơn vị đo diện tích đất truyền thống",
+  "updated": "2026-10-21",
+  "source": "Quy ước đo đạc dân gian còn dùng phổ biến (không phải đơn vị pháp định; giấy tờ nhà đất chỉ ghi m² hoặc ha)",
+  "units": [
+    { "id": "m2", "name": "mét vuông (m²)", "m2": 1 },
+    { "id": "a", "name": "a (are)", "m2": 100 },
+    { "id": "ha", "name": "héc-ta (ha)", "m2": 10000 },
+    { "id": "km2", "name": "ki-lô-mét vuông (km²)", "m2": 1000000 },
+    { "id": "sao-bac", "name": "sào Bắc Bộ", "region": "Bắc Bộ", "m2": 360 },
+    { "id": "mau-bac", "name": "mẫu Bắc Bộ (10 sào)", "region": "Bắc Bộ", "m2": 3600 },
+    { "id": "thuoc-bac", "name": "thước Bắc Bộ (1/15 sào)", "region": "Bắc Bộ", "m2": 24 },
+    { "id": "sao-trung", "name": "sào Trung Bộ", "region": "Trung Bộ", "m2": 500 },
+    { "id": "mau-trung", "name": "mẫu Trung Bộ (10 sào)", "region": "Trung Bộ", "m2": 5000 },
+    { "id": "thuoc-trung", "name": "thước Trung Bộ (1/15 sào)", "region": "Trung Bộ", "m2": 33.3333333333 },
+    { "id": "cong-nho", "name": "công tầm nhỏ (Nam Bộ)", "region": "Nam Bộ", "m2": 1000 },
+    { "id": "cong-lon", "name": "công tầm lớn (Nam Bộ)", "region": "Nam Bộ", "m2": 1296 },
+    { "id": "mau-nam", "name": "mẫu Nam Bộ (10 công nhỏ)", "region": "Nam Bộ", "m2": 10000 },
+    { "id": "acre", "name": "mẫu Anh (acre)", "m2": 4046.8564224 }
+  ],
+  "note": "Ở một số địa phương Trung Bộ, 1 sào được tính khoảng 497 m². Khi mua bán, hãy hỏi rõ cách tính của nơi đó."
+}

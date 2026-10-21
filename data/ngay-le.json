@@ -1,0 +1,22 @@
+{
+  "title": "ngày nghỉ lễ, Tết hưởng nguyên lương",
+  "updated": "2026-10-21",
+  "source": "Điều 112 Bộ luật Lao động 2019; Ngày Văn hoá Việt Nam 24/11 được nghỉ hưởng lương từ năm 2026 (Nghị quyết của Quốc hội khoá XVI về phát triển văn hoá, hiệu lực 01/7/2026)",
+  "solar": [
+    { "date": "1/1", "name": "Tết Dương lịch" },
+    { "date": "30/4", "name": "Ngày Chiến thắng (30/4)" },
+    { "date": "1/5", "name": "Quốc tế Lao động" },
+    { "date": "1/9", "name": "Quốc khánh (ngày liền kề)", "from": 2021 },
+    { "date": "2/9", "name": "Quốc khánh" },
+    { "date": "24/11", "name": "Ngày Văn hoá Việt Nam", "from": 2026 }
+  ],
+  "lunar": [
+    { "date": "last/12", "name": "Tết Âm lịch (ngày cuối năm)" },
+    { "date": "1/1", "name": "Tết Âm lịch (mùng 1)" },
+    { "date": "2/1", "name": "Tết Âm lịch (mùng 2)" },
+    { "date": "3/1", "name": "Tết Âm lịch (mùng 3)" },
+    { "date": "4/1", "name": "Tết Âm lịch (mùng 4)" },
+    { "date": "10/3", "name": "Giỗ Tổ Hùng Vương" }
+  ],
+  "note": "Ngày nghỉ Quốc khánh thứ hai là 1/9 hoặc 3/9 tuỳ năm; 5 ngày Tết Âm lịch do Nhà nước chọn mỗi năm (thường là ngày cuối năm và mùng 1–4). Ngày làm bù do hoán đổi không được tính."
+}

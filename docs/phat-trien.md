@@ -15,11 +15,12 @@ assets/
   frames/form.js           khung 3: form / máy tính (trạng thái trên URL)
   frames/interactive.js    khung 4: tương tác (camera, âm thanh, hẹn giờ…)
   pdf.js, image.js, qr.js  tiện ích dùng chung cho nhóm PDF, ảnh, QR
+  calc.js                  tiện ích dùng chung cho công cụ tính toán: đọc data/*.json, định dạng tiền, bảng, thẻ số, tải CSV
   fonts.js                 font có dấu tiếng Việt để vẽ chữ lên canvas (tải khi cần)
   pdf-pages.js             "bảng trang" PDF: pageTool() dựng trên khung file, mỗi trang một thẻ (chọn, xoay, xoá, đổi chỗ, xem trước)
   pdf-objects.js           đi qua đối tượng bên trong PDF (nội dung trang, form, pattern, ảnh), giải nén luồng, đọc hệ màu
   ai/matting.js            AI tách nền (MODNet) + nhận diện khuôn mặt (UltraFace) chạy bằng onnxruntime-web
-  lib/*.js                 hàm thuần, có test: search, filetype, doc-so, am-lich, vietqr, json-tools, text-stats, page-ranges, pdf-geom, pdf-text, pdf-content, pdf-image, scan, image-geom, exif, image-data, ocr-text
+  lib/*.js                 hàm thuần, có test: search, filetype, doc-so, am-lich, vietqr, json-tools, text-stats, page-ranges, pdf-geom, pdf-text, pdf-content, pdf-image, scan, image-geom, exif, image-data, ocr-text, tien-luong, tai-chinh, tien-dien, bhxh, con-giap, don-vi, chia-tien, ngay, suc-khoe, bieu-thuc, so-la-ma, phan-tram, dvhc, ma-tinh
   tools/<id>.js            logic riêng của từng công cụ
   registry.js              (sinh tự động) bản rút gọn của tools.json cho trình duyệt
   icons.svg                sprite icon Lucide (ISC)
@@ -34,6 +35,7 @@ scripts/check.js           kiểm tra registry, đường dẫn tương đối, 
 scripts/icons.js           tạo assets/icons.svg từ Lucide
 scripts/make-samples.js    tạo lại file mẫu (Chrome headless + sips trên macOS)
 scripts/make-brand.js      tạo ảnh OG và icon ứng dụng
+scripts/data-dvhc.js       tạo lại data/don-vi-hanh-chinh.json và data/ma-tinh.json từ bộ dữ liệu mở (cần mạng)
 tests/                     test cho hàm thuần (node --test)
 CLAUDE.md                  quy ước cho AI (Claude Code) khi sửa repo
 docs/ke-hoach.md           kế hoạch xây dựng (tài liệu tạm, xoá khi xong)
@@ -130,3 +132,5 @@ node --test tests/*.test.js
 
 - Danh sách ngân hàng VietQR (`data/ngan-hang-vietqr.json`) chụp từ danh sách công khai của VietQR; chuỗi VietQR do BbeTools tạo đã được đối chiếu khớp từng ký tự với mã của img.vietqr.io (xem `tests/vietqr.test.js`).
 - Âm lịch theo thuật toán của Hồ Ngọc Đức, múi giờ UTC+7.
+- Thuế TNCN, BHXH, lương tối thiểu vùng, giá điện, ngày lễ: mỗi file trong `data/` ghi văn bản gốc trong `source`; công cụ đọc số liệu từ file, không viết cứng trong mã. Đổi mức (ví dụ lương cơ sở mới) chỉ cần sửa file JSON, cập nhật `updated` rồi chạy test.
+- Đơn vị hành chính sau sáp nhập (`data/don-vi-hanh-chinh.json`, ~570 KB, chỉ tải trên trang Tra đơn vị hành chính mới): lấy từ [DiaChiMoi](https://github.com/mahiepit/DiaChiMoi) (MIT), gộp danh mục hành chính của Cục Thống kê (qua thanglequoc/vietnamese-provinces-database, MIT) và bảng chuyển xã cũ → mới (tranngocminhhieu/vietnamadminunits, MIT). Chạy lại `node scripts/data-dvhc.js` sau khi đổi commit ghim trong script.

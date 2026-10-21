@@ -1,0 +1,20 @@
+{
+  "title": "bảo hiểm xã hội, y tế, thất nghiệp",
+  "updated": "2026-10-21",
+  "source": "Luật Bảo hiểm xã hội 2024 (số 41/2024/QH15), Luật Bảo hiểm y tế, Luật Việc làm 2025; lương cơ sở 2.530.000 đ/tháng từ 01/7/2026 (Nghị định 161/2026/NĐ-CP); hệ số điều chỉnh tiền lương đã đóng theo Công văn 340/BHXH-CSXH ngày 03/02/2026 của BHXH Việt Nam (Nghị định 158/2025/NĐ-CP)",
+  "baseSalary": 2530000,
+  "baseSalaryFrom": "2026-07-01",
+  "capMultiple": 20,
+  "employee": { "bhxh": 0.08, "bhyt": 0.015, "bhtn": 0.01 },
+  "employer": { "bhxh": 0.175, "bhyt": 0.03, "bhtn": 0.01 },
+  "employerNote": "BHXH phần doanh nghiệp: 14% hưu trí, tử tuất; 3% ốm đau, thai sản; 0,5% tai nạn lao động, bệnh nghề nghiệp.",
+  "adjustYear": 2026,
+  "adjust": {
+    "1994": 5.81, "1995": 4.91, "1996": 4.65, "1997": 4.50, "1998": 4.18, "1999": 4.01, "2000": 4.07, "2001": 4.09,
+    "2002": 3.94, "2003": 3.81, "2004": 3.54, "2005": 3.27, "2006": 3.05, "2007": 2.81, "2008": 2.29, "2009": 2.14,
+    "2010": 1.96, "2011": 1.65, "2012": 1.51, "2013": 1.42, "2014": 1.36, "2015": 1.36, "2016": 1.32, "2017": 1.28,
+    "2018": 1.23, "2019": 1.20, "2020": 1.16, "2021": 1.14, "2022": 1.11, "2023": 1.07, "2024": 1.03, "2025": 1.00, "2026": 1.00
+  },
+  "adjustNote": "Năm 1994 là hệ số cho mọi năm trước 1995.",
+  "lumpSum": { "monthsBefore2014": 1.5, "monthsFrom2014": 2, "under1YearRate": 0.22, "under1YearMaxMonths": 2 }
+}

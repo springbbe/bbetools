@@ -1,0 +1,8 @@
+{
+  "title": "lương tối thiểu vùng",
+  "updated": "2026-10-21",
+  "source": "Nghị định 293/2025/NĐ-CP, áp dụng từ 01/01/2026",
+  "from": "2026-01-01",
+  "regions": { "1": 5310000, "2": 4730000, "3": 4140000, "4": 3700000 },
+  "note": "Vùng xác định theo nơi doanh nghiệp hoạt động (xã, phường trong Phụ lục của Nghị định). Vùng I gồm phần lớn nội thành Hà Nội, TP. Hồ Chí Minh, Hải Phòng…"
+}

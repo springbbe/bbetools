@@ -1,0 +1,17 @@
+{
+  "title": "thuế thu nhập cá nhân từ tiền lương, tiền công",
+  "updated": "2026-10-21",
+  "source": "Luật Thuế thu nhập cá nhân số 109/2025/QH15 (biểu thuế luỹ tiến 5 bậc, áp dụng cho tiền lương, tiền công của cá nhân cư trú từ kỳ tính thuế năm 2026); Nghị quyết 110/2025/UBTVQH15 (giảm trừ gia cảnh từ kỳ tính thuế năm 2026)",
+  "from": "2026-01-01",
+  "personal": 15500000,
+  "dependent": 6200000,
+  "brackets": [[10000000, 0.05], [30000000, 0.10], [60000000, 0.20], [100000000, 0.30], [null, 0.35]],
+  "nonResidentRate": 0.20,
+  "previous": {
+    "label": "năm 2025 trở về trước",
+    "source": "Luật Thuế TNCN 2007 (sửa đổi 2012, 2014), Nghị quyết 954/2020/UBTVQH14",
+    "personal": 11000000,
+    "dependent": 4400000,
+    "brackets": [[5000000, 0.05], [10000000, 0.10], [18000000, 0.15], [32000000, 0.20], [52000000, 0.25], [80000000, 0.30], [null, 0.35]]
+  }
+}
