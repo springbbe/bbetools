@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><title>Báo cáo</title>
+<style>
+@page { size: A4; margin: 18mm 16mm; }
+body { font-family: "Be Vietnam Pro", "Helvetica Neue", Arial, sans-serif; color: #1f2230; font-size: 11.5pt; line-height: 1.55; margin: 0; }
+.page { page-break-after: always; }
+.page:last-child { page-break-after: auto; }
+header { border-bottom: 3px solid var(--c); padding-bottom: 8px; margin-bottom: 18px; display: flex; justify-content: space-between; align-items: end; }
+h1 { margin: 0; font-size: 22pt; color: var(--c); }
+h2 { font-size: 14pt; margin: 18px 0 6px; }
+.muted { color: #6b6f80; }
+table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10.5pt; }
+th, td { border-bottom: 1px solid #e1e2ea; padding: 6px 8px; text-align: left; }
+th { background: #f3f3f7; }
+td.n { text-align: right; font-variant-numeric: tabular-nums; }
+.foot { position: fixed; bottom: 0; left: 0; right: 0; font-size: 9pt; color: #999; text-align: center; }
+</style></head>
+<body>
+<script>
+const q = new URLSearchParams(location.search);
+const title = q.get("t") || "Báo cáo quý 1", color = q.get("c") || "#E5484D", pages = +(q.get("p") || 2), quarter = q.get("t").match(/\d/)?.[0] || "1";
+document.documentElement.style.setProperty("--c", color);
+const sections = [
+  ["Tóm tắt", "Doanh thu quý " + quarter + " tăng trưởng ổn định nhờ mở rộng kênh bán hàng trực tuyến. Chi phí vận hành được kiểm soát tốt, biên lợi nhuận cải thiện so với cùng kỳ năm trước."],
+  ["Số liệu chính", "Bảng dưới đây tổng hợp các chỉ tiêu quan trọng theo tháng. Đơn vị: triệu đồng."],
+  ["Kế hoạch quý tới", "Tập trung vào chăm sóc khách hàng cũ, ra mắt hai sản phẩm mới và tối ưu quy trình giao hàng tại Hà Nội, Đà Nẵng và Thành phố Hồ Chí Minh."],
+  ["Rủi ro", "Giá nguyên liệu biến động, tỷ giá ngoại tệ và cạnh tranh từ các sàn thương mại điện tử là ba yếu tố cần theo dõi sát."]
+];
+let html = "";
+for (let p = 0; p < pages; p++) {
+  const s = sections[(p * 2) % sections.length], s2 = sections[(p * 2 + 1) % sections.length];
+  const rows = ["Tháng " + (3 * (+quarter - 1) + 1), "Tháng " + (3 * (+quarter - 1) + 2), "Tháng " + (3 * (+quarter - 1) + 3)].map((m, i) => {
+    const dt = 1200 + ((p + 1) * 137 + i * 211 + +quarter * 97) % 900;
+    return `<tr><td>${m}</td><td class="n">${dt.toLocaleString("vi-VN")}</td><td class="n">${Math.round(dt * 0.62).toLocaleString("vi-VN")}</td><td class="n">${Math.round(dt * 0.38).toLocaleString("vi-VN")}</td></tr>`;
+  }).join("");
+  const bars = Array.from({ length: 7 }, (_, i) => 30 + ((i * 53 + p * 37 + +quarter * 11) % 90));
+  html += `<section class="page"><header><div><h1>${title}</h1><div class="muted">Công ty TNHH Mẫu Thử · Tài liệu mẫu của BbeTools</div></div><div class="muted">Trang ${p + 1}/${pages}</div></header>
+  <h2>${s[0]}</h2><p>${s[1]}</p>
+  <table><thead><tr><th>Tháng</th><th>Doanh thu</th><th>Chi phí</th><th>Lợi nhuận</th></tr></thead><tbody>${rows}</tbody></table>
+  <svg viewBox="0 0 700 220" width="100%" style="margin:12px 0"><rect width="700" height="220" rx="12" fill="${color}" fill-opacity=".08"/>${bars.map((b, i) => `<rect x="${40 + i * 92}" y="${200 - b * 1.7}" width="56" height="${b * 1.7}" rx="6" fill="${color}"/>`).join("")}</svg>
+  <h2>${s2[0]}</h2><p>${s2[1]}</p><p class="muted">Ghi chú: số liệu trong tài liệu này là giả lập, chỉ dùng để thử các công cụ PDF. Tiếng Việt có dấu: Đường Trường Sơn, Hồ Hoàn Kiếm, Phú Quốc, Hạ Long.</p></section>`;
+}
+document.body.innerHTML = html;
+</script>
+</body></html>

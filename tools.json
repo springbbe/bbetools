@@ -1,0 +1,339 @@
+{
+  "site": {
+    "name": "BbeTools",
+    "baseUrl": "https://springbbe.github.io/bbetools/",
+    "repo": "https://github.com/springbbe/bbetools",
+    "tagline": "Công cụ tiện ích miễn phí cho người Việt, chạy ngay trên trình duyệt",
+    "description": "Hơn 100 công cụ miễn phí: ghép, nén PDF, nén ảnh, HEIC sang JPG, ảnh thẻ, VietQR, đọc số thành chữ, lịch âm… Xử lý 100% trên máy bạn, file không bao giờ tải lên máy chủ."
+  },
+  "groups": [
+    { "id": "pdf", "slug": "pdf", "name": "PDF", "icon": "file-text", "color": "#E5484D", "desc": "Ghép, tách, nén, xoay, ký, đặt mật khẩu và chuyển đổi file PDF." },
+    { "id": "image", "slug": "anh", "name": "Ảnh", "icon": "image", "color": "#8E4EC6", "desc": "Nén, đổi cỡ, cắt, đổi định dạng, HEIC sang JPG, làm ảnh thẻ, xoá phông." },
+    { "id": "media", "slug": "am-thanh-video", "name": "Âm thanh & video", "icon": "film", "color": "#D6409F", "desc": "Ghi âm, quay màn hình, cắt và ghép âm thanh, video sang MP3, nén video." },
+    { "id": "text", "slug": "van-ban", "name": "Văn bản", "icon": "type", "color": "#0D74CE", "desc": "Đếm từ, đổi chữ hoa thường, bỏ dấu, so sánh văn bản, chuyển mã TCVN3/VNI." },
+    { "id": "vn", "slug": "viet-nam", "name": "Tiện ích Việt Nam", "icon": "flag", "color": "#C27C0E", "desc": "Đọc số thành chữ, VietQR, lịch âm, lương gross ↔ net, thuế TNCN, tiền điện." },
+    { "id": "calc", "slug": "tinh-toan", "name": "Tính toán & đời sống", "icon": "calculator", "color": "#E5701A", "desc": "Phần trăm, giảm giá, VAT, chia tiền nhóm, đổi đơn vị, BMI, ngày dự sinh." },
+    { "id": "qr", "slug": "qr-ma-vach", "name": "QR & mã vạch", "icon": "qr-code", "color": "#475569", "desc": "Tạo mã QR (link, WiFi, danh thiếp), quét QR từ camera, ảnh, PDF; tạo mã vạch." },
+    { "id": "office", "slug": "van-phong", "name": "Văn phòng & dữ liệu", "icon": "sheet", "color": "#18794E", "desc": "Xem Excel/CSV, chuyển đổi, gộp, tách file Excel, trộn thư, chữ ký email." },
+    { "id": "dev", "slug": "lap-trinh", "name": "Lập trình", "icon": "code", "color": "#3E63DD", "desc": "JSON, Base64, JWT, UUID, hash, regex, timestamp, cron, mã màu, SQL." },
+    { "id": "security", "slug": "bao-mat", "name": "Bảo mật", "icon": "shield", "color": "#0E7C86", "desc": "Tạo mật khẩu mạnh, mã hoá file và văn bản, checksum, mã 2FA." },
+    { "id": "productivity", "slug": "nang-suat", "name": "Năng suất & ngẫu nhiên", "icon": "timer", "color": "#5C8A1C", "desc": "Pomodoro, bấm giờ, hẹn giờ, vòng quay may mắn, chia đội, ghi chú nhanh." }
+  ],
+  "tools": [
+    {
+      "id": "merge-pdf", "slug": "ghep-pdf", "name": "Ghép PDF", "group": "pdf", "icon": "combine", "kind": "file",
+      "desc": "Nối nhiều file PDF thành một file, kéo thả để sắp thứ tự, xoay từng file nếu cần.",
+      "keywords": ["gộp pdf", "nối pdf", "ghép file pdf", "merge pdf", "combine pdf", "join pdf", "gom pdf"],
+      "accept": ["pdf"], "multiple": true, "output": "pdf", "status": "done", "popular": true,
+      "aliases": ["gop-pdf", "noi-pdf", "merge-pdf"],
+      "related": ["split-pdf", "organize-pdf", "compress-pdf", "image-to-pdf"],
+      "howto": ["Chọn, kéo thả hoặc dán (Ctrl/⌘ + V) các file PDF cần ghép.", "Kéo thả hoặc dùng nút ↑ ↓ để sắp đúng thứ tự; bấm nút xoay ↻ nếu file bị ngược.", "Bấm “Ghép PDF” rồi tải file kết quả, hoặc chuyển tiếp sang công cụ khác."],
+      "faq": [
+        { "q": "File của tôi có bị tải lên mạng không?", "a": "Không. Việc ghép chạy hoàn toàn bằng JavaScript trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Ghép được file PDF có mật khẩu không?", "a": "Được, nếu bạn biết mật khẩu. Trang sẽ hỏi mật khẩu khi mở file và file kết quả không còn mật khẩu." },
+        { "q": "Có giới hạn số file hay dung lượng không?", "a": "Không có giới hạn cố định; giới hạn thực tế là bộ nhớ của máy. Trên điện thoại nên ghép dưới khoảng 200 MB mỗi lần." }
+      ]
+    },
+    { "id": "split-pdf", "slug": "tach-pdf", "name": "Tách PDF", "group": "pdf", "icon": "scissors", "kind": "file", "desc": "Tách PDF theo khoảng trang, mỗi trang một file hoặc trích các trang bạn chọn.", "keywords": ["chia pdf", "cắt pdf", "tách trang pdf", "split pdf"], "accept": ["pdf"], "output": "pdf", "status": "todo", "popular": true, "related": ["merge-pdf", "extract-pages-pdf", "remove-pages-pdf"] },
+    { "id": "remove-pages-pdf", "slug": "xoa-trang-pdf", "name": "Xoá trang PDF", "group": "pdf", "icon": "file-minus", "kind": "file", "desc": "Bấm chọn những trang không cần rồi xoá khỏi file PDF.", "keywords": ["xóa trang pdf", "bỏ trang pdf", "delete pdf pages", "remove pages"], "accept": ["pdf"], "output": "pdf", "status": "todo", "related": ["split-pdf", "organize-pdf", "extract-pages-pdf"] },
+    { "id": "organize-pdf", "slug": "sap-xep-trang-pdf", "name": "Sắp xếp trang PDF", "group": "pdf", "icon": "layout-grid", "kind": "file", "desc": "Kéo thả đổi thứ tự trang, xoay, xoá, chèn trang trắng hoặc PDF khác.", "keywords": ["đổi thứ tự trang", "sắp xếp pdf", "reorder pdf", "organize pdf"], "accept": ["pdf"], "output": "pdf", "status": "todo", "related": ["merge-pdf", "rotate-pdf", "remove-pages-pdf"] },
+    { "id": "rotate-pdf", "slug": "xoay-pdf", "name": "Xoay PDF", "group": "pdf", "icon": "rotate-cw", "kind": "file", "desc": "Xoay từng trang hoặc cả file PDF cho đúng chiều đọc.", "keywords": ["quay pdf", "xoay trang pdf", "rotate pdf"], "accept": ["pdf"], "output": "pdf", "status": "todo", "related": ["organize-pdf", "merge-pdf"] },
+    {
+      "id": "compress-pdf", "slug": "nen-pdf", "name": "Nén PDF", "group": "pdf", "icon": "shrink", "kind": "file",
+      "desc": "Giảm dung lượng PDF để gửi email, Zalo mà chữ vẫn sắc nét, chọn được chữ.",
+      "keywords": ["giảm dung lượng pdf", "làm nhẹ pdf", "compress pdf", "reduce pdf size", "nén file pdf", "pdf nhỏ lại"],
+      "accept": ["pdf"], "multiple": true, "output": "pdf", "status": "done", "popular": true,
+      "aliases": ["giam-dung-luong-pdf", "compress-pdf"],
+      "related": ["merge-pdf", "compress-image", "pdf-to-image", "grayscale-pdf"],
+      "howto": ["Chọn hoặc kéo thả một hay nhiều file PDF.", "Chọn mức nén: nhẹ, khuyên dùng hoặc mạnh.", "Bấm “Nén PDF”, xem dung lượng giảm bao nhiêu rồi tải về."],
+      "faq": [
+        { "q": "Nén PDF có làm mờ chữ không?", "a": "Không. Công cụ chỉ nén lại các ảnh bên trong file; chữ và hình vẽ vector giữ nguyên nên vẫn sắc nét và chọn được chữ." },
+        { "q": "Vì sao file của tôi giảm rất ít?", "a": "File PDF chủ yếu là chữ thường đã gọn sẵn. Công cụ giảm mạnh nhất với PDF scan hoặc có nhiều ảnh chụp." },
+        { "q": "File có bị gửi lên máy chủ để nén không?", "a": "Không. Mọi bước xử lý chạy trên trình duyệt của bạn." }
+      ]
+    },
+    { "id": "pdf-to-image", "slug": "pdf-sang-anh", "name": "PDF sang ảnh", "group": "pdf", "icon": "file-image", "kind": "file", "desc": "Chuyển từng trang PDF thành ảnh JPG hoặc PNG chất lượng cao.", "keywords": ["pdf to jpg", "pdf to png", "chuyển pdf thành ảnh", "pdf sang jpg"], "accept": ["pdf"], "output": "image", "status": "todo", "popular": true, "related": ["image-to-pdf", "extract-images-pdf", "compress-image"] },
+    { "id": "image-to-pdf", "slug": "anh-sang-pdf", "name": "Ảnh sang PDF", "group": "pdf", "icon": "images", "kind": "file", "desc": "Ghép ảnh JPG, PNG, ảnh chụp màn hình thành một file PDF.", "keywords": ["jpg to pdf", "png to pdf", "chuyển ảnh sang pdf", "ảnh thành pdf", "scan ảnh"], "accept": ["image", "heic"], "multiple": true, "output": "pdf", "status": "todo", "popular": true, "related": ["pdf-to-image", "merge-pdf", "compress-image"] },
+    { "id": "pdf-to-text", "slug": "pdf-sang-van-ban", "name": "PDF sang văn bản", "group": "pdf", "icon": "file-text", "kind": "file", "desc": "Lấy toàn bộ chữ trong PDF để sao chép hoặc lưu file .txt.", "keywords": ["lấy chữ pdf", "trích xuất text", "pdf to txt", "copy chữ pdf", "pdf to text"], "accept": ["pdf"], "output": "text", "status": "todo", "related": ["ocr", "pdf-to-image"] },
+    { "id": "sign-pdf", "slug": "ky-pdf", "name": "Ký PDF", "group": "pdf", "icon": "signature", "kind": "file", "desc": "Vẽ, gõ hoặc dán chữ ký; thêm chữ và ngày tháng vào trang PDF.", "keywords": ["chữ ký pdf", "ký tên pdf", "sign pdf", "signature", "điền chữ vào pdf"], "accept": ["pdf"], "output": "pdf", "status": "todo", "popular": true, "related": ["fill-form-pdf", "signature-extract", "watermark-pdf"] },
+    { "id": "page-numbers-pdf", "slug": "danh-so-trang-pdf", "name": "Đánh số trang PDF", "group": "pdf", "icon": "list-ordered", "kind": "file", "desc": "Thêm số trang vào đầu hoặc cuối trang, chọn vị trí và kiểu số.", "keywords": ["số trang", "page number", "đánh số trang"], "accept": ["pdf"], "output": "pdf", "status": "todo", "related": ["watermark-pdf", "merge-pdf"] },
+    { "id": "watermark-pdf", "slug": "watermark-pdf", "name": "Chèn watermark PDF", "group": "pdf", "icon": "stamp", "kind": "file", "desc": "Đóng dấu chữ hoặc logo mờ lên các trang PDF.", "keywords": ["đóng dấu pdf", "chữ chìm", "logo mờ", "watermark"], "accept": ["pdf"], "output": "pdf", "status": "todo", "related": ["page-numbers-pdf", "protect-pdf", "watermark-image"] },
+    { "id": "protect-pdf", "slug": "dat-mat-khau-pdf", "name": "Đặt mật khẩu PDF", "group": "pdf", "icon": "lock", "kind": "file", "desc": "Khoá file PDF bằng mật khẩu, mã hoá AES-256.", "keywords": ["khoá pdf", "bảo vệ pdf", "encrypt pdf", "password pdf", "mã hoá pdf"], "accept": ["pdf"], "output": "pdf", "status": "todo", "related": ["unlock-pdf", "file-encrypt", "watermark-pdf"] },
+    { "id": "unlock-pdf", "slug": "mo-khoa-pdf", "name": "Mở khoá PDF", "group": "pdf", "icon": "lock-open", "kind": "file", "desc": "Gỡ mật khẩu (khi bạn biết mật khẩu) và gỡ giới hạn in, sao chép.", "keywords": ["bỏ mật khẩu pdf", "unlock pdf", "decrypt pdf", "remove password", "gỡ khoá pdf"], "accept": ["pdf"], "output": "pdf", "status": "todo", "related": ["protect-pdf", "merge-pdf"] },
+    { "id": "extract-pages-pdf", "slug": "trich-xuat-trang-pdf", "name": "Trích xuất trang PDF", "group": "pdf", "icon": "file-output", "kind": "file", "desc": "Chọn các trang cần lấy và lưu thành file PDF mới.", "keywords": ["lấy trang pdf", "extract pages", "tách lấy trang"], "accept": ["pdf"], "output": "pdf", "status": "todo", "related": ["split-pdf", "remove-pages-pdf"] },
+    { "id": "extract-images-pdf", "slug": "trich-anh-pdf", "name": "Trích ảnh trong PDF", "group": "pdf", "icon": "image-down", "kind": "file", "desc": "Lấy nguyên bản các ảnh nằm trong file PDF.", "keywords": ["lấy ảnh từ pdf", "extract images", "tải ảnh trong pdf"], "accept": ["pdf"], "output": "image", "status": "todo", "related": ["pdf-to-image", "pdf-to-text"] },
+    { "id": "crop-pdf", "slug": "cat-le-pdf", "name": "Cắt lề PDF", "group": "pdf", "icon": "crop", "kind": "file", "desc": "Cắt bớt lề trắng hoặc vùng thừa trên các trang PDF.", "keywords": ["crop pdf", "cắt viền pdf", "bỏ lề pdf"], "accept": ["pdf"], "output": "pdf", "status": "todo", "related": ["rotate-pdf", "organize-pdf"] },
+    { "id": "insert-blank-pdf", "slug": "chen-trang-trang-pdf", "name": "Chèn trang trắng", "group": "pdf", "icon": "file-plus", "kind": "file", "desc": "Thêm trang trắng vào vị trí bất kỳ, ví dụ để in hai mặt.", "keywords": ["thêm trang trống", "blank page", "trang trắng pdf"], "accept": ["pdf"], "output": "pdf", "status": "todo", "related": ["organize-pdf", "merge-pdf"] },
+    { "id": "grayscale-pdf", "slug": "pdf-den-trang", "name": "PDF đen trắng", "group": "pdf", "icon": "contrast", "kind": "file", "desc": "Chuyển PDF màu sang thang xám để in tiết kiệm mực, chữ vẫn chọn được.", "keywords": ["grayscale pdf", "trắng đen", "pdf xám", "in đen trắng"], "accept": ["pdf"], "output": "pdf", "status": "todo", "related": ["compress-pdf"] },
+    { "id": "metadata-pdf", "slug": "sua-thong-tin-pdf", "name": "Sửa thông tin PDF", "group": "pdf", "icon": "info", "kind": "file", "desc": "Xem và sửa tiêu đề, tác giả, chủ đề, từ khoá (metadata) của PDF.", "keywords": ["metadata pdf", "tiêu đề pdf", "tác giả pdf", "pdf properties"], "accept": ["pdf"], "output": "pdf", "status": "todo", "related": ["strip-exif", "protect-pdf"] },
+    { "id": "fill-form-pdf", "slug": "dien-form-pdf", "name": "Điền form PDF", "group": "pdf", "icon": "text-cursor-input", "kind": "file", "desc": "Điền các ô biểu mẫu có sẵn trong PDF (tờ khai, đơn từ) rồi lưu lại.", "keywords": ["biểu mẫu pdf", "điền đơn", "fill form", "acroform", "tờ khai"], "accept": ["pdf"], "output": "pdf", "status": "todo", "related": ["flatten-pdf", "sign-pdf"] },
+    { "id": "flatten-pdf", "slug": "lam-phang-form-pdf", "name": "Làm phẳng form PDF", "group": "pdf", "icon": "layers", "kind": "file", "desc": "Biến các ô form đã điền thành nội dung cố định, không sửa được nữa.", "keywords": ["flatten pdf", "khoá form", "làm phẳng"], "accept": ["pdf"], "output": "pdf", "status": "todo", "related": ["fill-form-pdf", "protect-pdf"] },
+    { "id": "view-pdf", "slug": "xem-pdf", "name": "Xem PDF", "group": "pdf", "icon": "book-open", "kind": "file", "desc": "Mở và đọc PDF ngay trên trình duyệt, tìm chữ, phóng to, xem toàn màn hình.", "keywords": ["đọc pdf", "pdf viewer", "mở pdf"], "accept": ["pdf"], "status": "todo", "related": ["pdf-to-text", "pdf-to-image"] },
+    { "id": "scan-document", "slug": "scan-tai-lieu", "name": "Scan tài liệu bằng camera", "group": "pdf", "icon": "scan", "kind": "interactive", "desc": "Chụp giấy tờ bằng camera, tự nắn thẳng, làm trắng nền rồi xuất PDF.", "keywords": ["scan", "quét tài liệu", "camscanner", "chụp giấy tờ", "document scanner"], "accept": ["image"], "output": "pdf", "status": "todo", "related": ["image-to-pdf", "ocr", "compress-pdf"] },
+
+    {
+      "id": "compress-image", "slug": "nen-anh", "name": "Nén ảnh", "group": "image", "icon": "image-down", "kind": "file",
+      "desc": "Giảm dung lượng ảnh JPG, PNG, WebP hàng loạt; có chế độ nén xuống dưới số KB bạn cần.",
+      "keywords": ["giảm dung lượng ảnh", "làm nhẹ ảnh", "compress image", "tinypng", "optimize image", "nén ảnh dưới 100kb", "nén ảnh dưới 1mb", "nén jpg", "nén png"],
+      "accept": ["image"], "multiple": true, "output": "image", "status": "done", "popular": true,
+      "aliases": ["giam-dung-luong-anh", "compress-image"],
+      "related": ["resize-image", "convert-image", "heic-to-jpg", "strip-exif"],
+      "howto": ["Chọn, kéo thả hoặc dán (Ctrl/⌘ + V) một hay nhiều ảnh.", "Chọn chất lượng, hoặc bật “Nén xuống dưới” và nhập số KB cần đạt (ví dụ 200 KB cho hồ sơ trực tuyến).", "Bấm “Nén ảnh”, so sánh trước/sau rồi tải từng ảnh hoặc cả file .zip."],
+      "faq": [
+        { "q": "Ảnh có bị gửi lên máy chủ không?", "a": "Không. Ảnh được nén ngay trong trình duyệt bằng bộ mã hoá MozJPEG/WebP chạy WebAssembly." },
+        { "q": "Nén xuống dưới 100 KB được không?", "a": "Được. Bật “Nén xuống dưới”, nhập 100; công cụ tự giảm chất lượng và nếu cần thì thu nhỏ kích thước cho đến khi đạt." },
+        { "q": "Thông tin vị trí GPS trong ảnh có còn không?", "a": "Không. Ảnh sau khi nén không còn EXIF/GPS; hướng xoay ảnh đã được áp dụng sẵn." }
+      ]
+    },
+    { "id": "resize-image", "slug": "doi-kich-thuoc-anh", "name": "Đổi kích thước ảnh", "group": "image", "icon": "scaling", "kind": "file", "desc": "Thu nhỏ hoặc phóng to ảnh theo pixel, phần trăm hoặc cạnh dài nhất.", "keywords": ["resize ảnh", "thu nhỏ ảnh", "đổi cỡ ảnh", "resize image", "pixel"], "accept": ["image"], "multiple": true, "output": "image", "status": "todo", "popular": true, "related": ["compress-image", "crop-image"] },
+    { "id": "crop-image", "slug": "cat-anh", "name": "Cắt ảnh", "group": "image", "icon": "crop", "kind": "file", "desc": "Cắt ảnh theo khung tự do hoặc tỉ lệ 1:1, 4:3, 16:9, 3:4.", "keywords": ["crop ảnh", "cắt khung", "crop image", "tỉ lệ ảnh"], "accept": ["image"], "output": "image", "status": "todo", "related": ["resize-image", "rotate-image", "id-photo"] },
+    { "id": "rotate-image", "slug": "xoay-anh", "name": "Xoay, lật ảnh", "group": "image", "icon": "flip-horizontal-2", "kind": "file", "desc": "Xoay 90°, 180° hoặc lật gương ảnh hàng loạt.", "keywords": ["quay ảnh", "lật gương", "flip image", "rotate image"], "accept": ["image"], "multiple": true, "output": "image", "status": "todo", "related": ["crop-image", "resize-image"] },
+    { "id": "convert-image", "slug": "doi-dinh-dang-anh", "name": "Đổi định dạng ảnh", "group": "image", "icon": "refresh-cw", "kind": "file", "desc": "Chuyển qua lại giữa JPG, PNG, WebP và AVIF.", "keywords": ["chuyển đuôi ảnh", "convert image", "jpg to png", "png to jpg", "webp to jpg", "avif", "webp"], "accept": ["image", "heic"], "multiple": true, "output": "image", "status": "todo", "popular": true, "related": ["heic-to-jpg", "compress-image", "svg-to-png"] },
+    {
+      "id": "heic-to-jpg", "slug": "heic-sang-jpg", "name": "HEIC sang JPG", "group": "image", "icon": "smartphone", "kind": "file",
+      "desc": "Chuyển ảnh iPhone định dạng HEIC/HEIF sang JPG hoặc PNG, hàng loạt, ngay trên máy.",
+      "keywords": ["heif", "ảnh iphone", "heic to jpg", "heic to png", "mở file heic", "chuyển heic"],
+      "accept": ["heic"], "multiple": true, "output": "image", "status": "done", "popular": true,
+      "aliases": ["heic-to-jpg", "chuyen-heic-sang-jpg"],
+      "related": ["convert-image", "compress-image", "image-to-pdf"],
+      "howto": ["Chọn hoặc kéo thả các ảnh .heic / .heif (có thể chọn nhiều ảnh cùng lúc).", "Chọn định dạng JPG hoặc PNG và chất lượng.", "Bấm “Chuyển đổi” rồi tải từng ảnh hoặc cả file .zip."],
+      "faq": [
+        { "q": "HEIC là gì?", "a": "HEIC (HEIF) là định dạng ảnh mặc định của iPhone, nhẹ hơn JPG nhưng nhiều máy Windows, Zalo web và trang nộp hồ sơ không mở được." },
+        { "q": "Ảnh có bị tải lên máy chủ để chuyển đổi không?", "a": "Không. Việc giải mã HEIC chạy bằng WebAssembly (libheif) ngay trong trình duyệt." },
+        { "q": "Ảnh Live Photo hoặc ảnh chụp liên tiếp thì sao?", "a": "Công cụ lấy ảnh chính trong file HEIC. Phần video của Live Photo không nằm trong file .heic nên không bị ảnh hưởng." }
+      ]
+    },
+    {
+      "id": "id-photo", "slug": "anh-the", "name": "Làm ảnh thẻ", "group": "image", "icon": "square-user", "kind": "file",
+      "desc": "Làm ảnh thẻ 3x4, 4x6 từ ảnh chân dung: đổi nền xanh/trắng bằng AI, căn khung, xếp nhiều ảnh lên giấy để in.",
+      "keywords": ["ảnh hồ sơ", "ảnh 3x4", "ảnh 4x6", "ảnh cccd", "ảnh visa", "ảnh hộ chiếu", "passport photo", "nền xanh", "nền trắng", "id photo", "in ảnh thẻ"],
+      "accept": ["image", "heic"], "output": "image", "status": "done", "popular": true,
+      "aliases": ["lam-anh-the", "anh-ho-so", "id-photo"],
+      "related": ["remove-bg", "crop-image", "compress-image", "heic-to-jpg"],
+      "howto": ["Chọn một ảnh chân dung chụp thẳng, đủ sáng, thấy rõ vai.", "Chờ AI tách nền và tìm khuôn mặt (chạy trên máy, lần đầu tải khoảng 8 MB mô hình), chọn màu nền và cỡ ảnh.", "Kéo, thu phóng để đầu nằm trong khung hướng dẫn, rồi tải ảnh lẻ hoặc tờ in nhiều ảnh (10x15 cm hoặc A4)."],
+      "faq": [
+        { "q": "Ảnh của tôi có bị gửi đi đâu không?", "a": "Không. Mô hình AI tách nền được tải về và chạy ngay trong trình duyệt; ảnh không rời khỏi máy." },
+        { "q": "In ở tiệm như thế nào?", "a": "Tải tờ in 10x15 cm (khổ ảnh 4R) ở 300 dpi rồi in như một ảnh thường, cắt theo đường kẻ mờ. In ở nhà thì chọn khổ A4 và in đúng 100% kích thước." },
+        { "q": "Ảnh thẻ nộp hồ sơ cần nền gì?", "a": "Phần lớn hồ sơ dùng nền trắng hoặc xanh nhạt. Hãy kiểm tra yêu cầu của nơi nộp; ảnh hộ chiếu, visa thường cần nền trắng, cỡ 4x6." }
+      ]
+    },
+    { "id": "remove-bg", "slug": "xoa-phong-anh", "name": "Xoá phông ảnh", "group": "image", "icon": "eraser", "kind": "file", "desc": "Tách nền ảnh chân dung bằng AI chạy ngay trên máy, xuất PNG trong suốt hoặc nền màu.", "keywords": ["tách nền", "xóa nền", "remove background", "xoá background", "png trong suốt", "remove bg"], "accept": ["image", "heic"], "output": "image", "status": "todo", "popular": true, "related": ["id-photo", "signature-extract", "crop-image"] },
+    { "id": "blur-image", "slug": "che-mo-anh", "name": "Che, làm mờ vùng nhạy cảm", "group": "image", "icon": "eye-off", "kind": "file", "desc": "Làm mờ, che số CCCD, biển số xe, khuôn mặt trước khi gửi ảnh.", "keywords": ["che thông tin", "pixelate", "làm mờ ảnh", "blur", "censor", "che biển số", "che cccd"], "accept": ["image"], "output": "image", "status": "todo", "related": ["strip-exif", "crop-image"] },
+    { "id": "strip-exif", "slug": "xoa-exif-anh", "name": "Xoá thông tin EXIF/GPS", "group": "image", "icon": "map-pin-off", "kind": "file", "desc": "Xem và xoá thông tin máy chụp, ngày giờ, vị trí GPS trong ảnh.", "keywords": ["metadata ảnh", "vị trí gps", "exif remover", "xóa exif"], "accept": ["image"], "multiple": true, "output": "image", "status": "todo", "related": ["blur-image", "compress-image"] },
+    { "id": "watermark-image", "slug": "watermark-anh", "name": "Chèn watermark ảnh", "group": "image", "icon": "stamp", "kind": "file", "desc": "Đóng dấu chữ hoặc logo lên ảnh hàng loạt, chống lấy cắp ảnh bán hàng.", "keywords": ["đóng dấu ảnh", "logo ảnh", "chữ chìm", "watermark"], "accept": ["image"], "multiple": true, "output": "image", "status": "todo", "related": ["text-on-image", "watermark-pdf"] },
+    { "id": "text-on-image", "slug": "chen-chu-len-anh", "name": "Chèn chữ lên ảnh", "group": "image", "icon": "type", "kind": "file", "desc": "Viết chữ tiếng Việt lên ảnh, chọn font, màu, viền, bóng đổ.", "keywords": ["viết chữ lên ảnh", "caption", "meme", "thêm chữ vào ảnh"], "accept": ["image"], "output": "image", "status": "todo", "related": ["watermark-image", "crop-image"] },
+    { "id": "merge-images", "slug": "ghep-anh", "name": "Ghép ảnh", "group": "image", "icon": "layout-panel-left", "kind": "file", "desc": "Nối nhiều ảnh theo chiều ngang, dọc hoặc thành lưới.", "keywords": ["nối ảnh", "collage", "ghép nhiều ảnh", "combine images"], "accept": ["image"], "multiple": true, "output": "image", "status": "todo", "related": ["split-image", "image-to-pdf"] },
+    { "id": "split-image", "slug": "chia-anh", "name": "Chia ảnh thành lưới", "group": "image", "icon": "grid-3x3", "kind": "file", "desc": "Cắt một ảnh thành 2, 3, 6, 9 ô (đăng Instagram, Facebook).", "keywords": ["cắt lưới", "grid", "instagram", "split image"], "accept": ["image"], "output": "image", "status": "todo", "related": ["merge-images", "crop-image"] },
+    { "id": "favicon", "slug": "tao-favicon", "name": "Tạo favicon", "group": "image", "icon": "app-window", "kind": "file", "desc": "Tạo favicon .ico và bộ icon cho web, Apple, Android từ một ảnh.", "keywords": ["icon web", "ico", "apple touch icon", "favicon generator"], "accept": ["image", "svg"], "output": "zip", "status": "todo", "related": ["resize-image", "svg-to-png"] },
+    { "id": "svg-to-png", "slug": "svg-sang-png", "name": "SVG sang PNG", "group": "image", "icon": "pen-tool", "kind": "file", "desc": "Chuyển ảnh vector SVG thành PNG/JPG ở độ phân giải tuỳ chọn.", "keywords": ["convert svg", "vector sang ảnh", "svg to jpg"], "accept": ["svg"], "multiple": true, "output": "image", "status": "todo", "related": ["convert-image", "favicon"] },
+    { "id": "image-to-base64", "slug": "anh-sang-base64", "name": "Ảnh sang Base64", "group": "image", "icon": "binary", "kind": "file", "desc": "Chuyển ảnh thành chuỗi Base64 / data URI để nhúng vào HTML, CSS.", "keywords": ["data uri", "base64 image", "nhúng ảnh"], "accept": ["image", "svg"], "status": "todo", "related": ["base64", "compress-image"] },
+    { "id": "color-picker", "slug": "lay-mau-tu-anh", "name": "Lấy màu từ ảnh", "group": "image", "icon": "pipette", "kind": "file", "desc": "Chạm vào ảnh để lấy mã màu, tự trích bảng màu chủ đạo.", "keywords": ["color picker", "mã màu", "eyedropper", "bảng màu", "palette"], "accept": ["image"], "status": "todo", "related": ["color-converter", "css-generator"] },
+    { "id": "gif-maker", "slug": "tao-gif", "name": "Tạo GIF từ ảnh", "group": "image", "icon": "film", "kind": "file", "desc": "Ghép nhiều ảnh thành ảnh động GIF, chỉnh tốc độ và kích thước.", "keywords": ["ảnh động", "animated gif", "gif maker"], "accept": ["image"], "multiple": true, "output": "image", "status": "todo", "related": ["video-to-gif", "merge-images"] },
+    { "id": "ocr", "slug": "anh-sang-chu", "name": "Ảnh sang chữ (OCR)", "group": "image", "icon": "scan-text", "kind": "file", "desc": "Nhận dạng chữ trong ảnh chụp, ảnh scan, hỗ trợ tiếng Việt có dấu.", "keywords": ["ocr", "nhận dạng chữ", "lấy chữ từ ảnh", "image to text", "scan chữ", "chuyển ảnh thành văn bản"], "accept": ["image", "pdf"], "output": "text", "status": "todo", "popular": true, "related": ["pdf-to-text", "scan-document"] },
+    { "id": "signature-extract", "slug": "tach-chu-ky", "name": "Tách chữ ký, con dấu", "group": "image", "icon": "pen-line", "kind": "file", "desc": "Tách chữ ký hoặc con dấu chụp trên giấy thành ảnh PNG nền trong suốt.", "keywords": ["chữ ký trong suốt", "tách con dấu", "signature png", "xoá nền chữ ký"], "accept": ["image", "heic"], "output": "image", "status": "todo", "related": ["sign-pdf", "remove-bg"] },
+
+    { "id": "voice-recorder", "slug": "ghi-am", "name": "Ghi âm", "group": "media", "icon": "mic", "kind": "interactive", "desc": "Ghi âm bằng micro, nghe lại và tải về file âm thanh.", "keywords": ["thu âm", "recorder", "micro", "ghi âm online"], "output": "audio", "status": "todo", "related": ["trim-audio", "convert-audio", "screen-recorder"] },
+    { "id": "screen-recorder", "slug": "quay-man-hinh", "name": "Quay màn hình", "group": "media", "icon": "screen-share", "kind": "interactive", "desc": "Quay màn hình, cửa sổ hoặc tab kèm âm thanh và micro (trên máy tính).", "keywords": ["ghi màn hình", "screen record", "quay video màn hình"], "output": "video", "status": "todo", "related": ["voice-recorder", "trim-video", "compress-video"] },
+    { "id": "trim-audio", "slug": "cat-am-thanh", "name": "Cắt âm thanh", "group": "media", "icon": "audio-waveform", "kind": "file", "desc": "Cắt đoạn nhạc, làm nhạc chuông, có hiệu ứng tăng/giảm dần.", "keywords": ["cắt nhạc", "cắt mp3", "nhạc chuông", "trim audio"], "accept": ["audio"], "output": "audio", "status": "todo", "related": ["merge-audio", "convert-audio"] },
+    { "id": "merge-audio", "slug": "ghep-am-thanh", "name": "Ghép âm thanh", "group": "media", "icon": "audio-lines", "kind": "file", "desc": "Nối nhiều file âm thanh thành một.", "keywords": ["nối nhạc", "ghép mp3", "join audio"], "accept": ["audio"], "multiple": true, "output": "audio", "status": "todo", "related": ["trim-audio", "convert-audio"] },
+    { "id": "convert-audio", "slug": "doi-dinh-dang-am-thanh", "name": "Đổi định dạng âm thanh", "group": "media", "icon": "file-music", "kind": "file", "desc": "Chuyển qua lại MP3, WAV, M4A, OGG.", "keywords": ["convert audio", "mp3", "wav", "m4a", "chuyển đổi âm thanh"], "accept": ["audio"], "multiple": true, "output": "audio", "status": "todo", "related": ["video-to-mp3", "trim-audio"] },
+    { "id": "video-to-mp3", "slug": "video-sang-mp3", "name": "Video sang MP3", "group": "media", "icon": "music", "kind": "file", "desc": "Tách lấy phần âm thanh của video thành file MP3.", "keywords": ["tách nhạc", "lấy âm thanh từ video", "mp4 to mp3"], "accept": ["video"], "output": "audio", "status": "todo", "popular": true, "related": ["convert-audio", "trim-video"] },
+    { "id": "video-to-gif", "slug": "video-sang-gif", "name": "Video sang GIF", "group": "media", "icon": "clapperboard", "kind": "file", "desc": "Cắt một đoạn video và chuyển thành ảnh động GIF.", "keywords": ["mp4 to gif", "ảnh động từ video"], "accept": ["video"], "output": "image", "status": "todo", "related": ["gif-maker", "trim-video"] },
+    { "id": "trim-video", "slug": "cat-video", "name": "Cắt video", "group": "media", "icon": "scissors", "kind": "file", "desc": "Cắt lấy đoạn video cần dùng, giữ nguyên chất lượng khi có thể.", "keywords": ["trim video", "cắt clip", "cắt mp4"], "accept": ["video"], "output": "video", "status": "todo", "related": ["compress-video", "video-to-mp3"] },
+    { "id": "compress-video", "slug": "nen-video", "name": "Nén video", "group": "media", "icon": "video", "kind": "file", "desc": "Giảm dung lượng video để gửi Zalo, email, dùng mã hoá phần cứng của máy.", "keywords": ["giảm dung lượng video", "compress video", "nén mp4"], "accept": ["video"], "output": "video", "status": "todo", "popular": true, "related": ["trim-video", "video-to-mp3"] },
+    { "id": "video-frame", "slug": "chup-khung-hinh-video", "name": "Chụp khung hình từ video", "group": "media", "icon": "camera", "kind": "file", "desc": "Lấy ảnh chất lượng gốc từ một khung hình bất kỳ trong video.", "keywords": ["screenshot video", "thumbnail", "lấy ảnh từ video"], "accept": ["video"], "output": "image", "status": "todo", "related": ["video-to-gif", "trim-video"] },
+    { "id": "text-to-speech", "slug": "doc-van-ban", "name": "Đọc văn bản thành giọng nói", "group": "media", "icon": "volume-2", "kind": "interactive", "desc": "Đọc to văn bản tiếng Việt bằng giọng đọc có sẵn trên thiết bị.", "keywords": ["tts", "text to speech", "giọng đọc", "chị google đọc", "đọc chữ"], "status": "todo", "related": ["word-counter", "ocr"] },
+
+    {
+      "id": "word-counter", "slug": "dem-tu", "name": "Đếm từ & ký tự", "group": "text", "icon": "whole-word", "kind": "text",
+      "desc": "Đếm số từ (tiếng), ký tự, câu, đoạn, thời gian đọc; hiện ngay khi gõ.",
+      "keywords": ["đếm chữ", "đếm ký tự", "word count", "character count", "đếm số từ", "đếm tiếng"],
+      "status": "done", "popular": true,
+      "aliases": ["dem-ky-tu", "dem-chu", "word-counter"],
+      "related": ["case-converter", "remove-accents", "dedupe-lines", "text-diff"],
+      "howto": ["Gõ hoặc dán văn bản vào ô.", "Số từ, ký tự, câu, đoạn và thời gian đọc cập nhật ngay khi gõ.", "Xem các từ xuất hiện nhiều nhất để kiểm tra lặp từ."],
+      "faq": [
+        { "q": "Công cụ đếm “từ” tiếng Việt thế nào?", "a": "Mỗi tiếng cách nhau bởi khoảng trắng được tính là một từ (ví dụ “Việt Nam” là 2 từ), giống cách Word và Google Docs đếm." },
+        { "q": "Văn bản có bị lưu lại không?", "a": "Không gửi đi đâu cả. Bạn có thể bật “Nhớ văn bản” để lưu tạm trong trình duyệt của chính bạn." }
+      ]
+    },
+    { "id": "case-converter", "slug": "doi-chu-hoa-thuong", "name": "Đổi chữ hoa/thường", "group": "text", "icon": "case-sensitive", "kind": "text", "desc": "Đổi IN HOA, chữ thường, Viết Hoa Mỗi Từ, Viết hoa đầu câu, đúng với tiếng Việt.", "keywords": ["in hoa", "viết hoa", "uppercase", "lowercase", "title case", "chữ thường"], "status": "todo", "related": ["remove-accents", "word-counter"] },
+    { "id": "remove-accents", "slug": "bo-dau-tieng-viet", "name": "Bỏ dấu tiếng Việt", "group": "text", "icon": "remove-formatting", "kind": "text", "desc": "Chuyển văn bản tiếng Việt có dấu thành không dấu (đ → d).", "keywords": ["xoá dấu", "không dấu", "remove diacritics", "bỏ dấu"], "status": "todo", "popular": true, "related": ["slugify", "case-converter", "telex-fix"] },
+    { "id": "slugify", "slug": "tao-slug", "name": "Tạo slug", "group": "text", "icon": "link", "kind": "text", "desc": "Tạo đường dẫn thân thiện (slug) từ tiêu đề tiếng Việt.", "keywords": ["url thân thiện", "permalink", "đường dẫn", "slug"], "status": "todo", "related": ["remove-accents", "url-encode"] },
+    { "id": "text-diff", "slug": "so-sanh-van-ban", "name": "So sánh văn bản", "group": "text", "icon": "git-compare", "kind": "text", "desc": "Tìm khác biệt giữa hai đoạn văn bản, tô màu phần thêm/bớt.", "keywords": ["diff", "khác biệt", "compare text", "so sánh 2 văn bản"], "status": "todo", "related": ["dedupe-lines", "word-counter"] },
+    { "id": "dedupe-lines", "slug": "loc-dong-trung", "name": "Lọc dòng trùng & sắp xếp dòng", "group": "text", "icon": "list-filter", "kind": "text", "desc": "Xoá dòng trùng, dòng trống, sắp xếp A→Z theo tiếng Việt, đảo ngược.", "keywords": ["xoá trùng", "sort lines", "unique lines", "sắp xếp dòng"], "status": "todo", "related": ["find-replace", "text-diff"] },
+    { "id": "find-replace", "slug": "tim-va-thay-the", "name": "Tìm và thay thế", "group": "text", "icon": "replace", "kind": "text", "desc": "Tìm và thay thế hàng loạt, hỗ trợ biểu thức chính quy (regex).", "keywords": ["replace", "regex", "thay chữ", "find and replace"], "status": "todo", "related": ["regex-tester", "dedupe-lines"] },
+    { "id": "vn-encoding", "slug": "chuyen-ma-tcvn3-vni", "name": "Chuyển mã Unicode ↔ TCVN3 ↔ VNI", "group": "text", "icon": "languages", "kind": "text", "desc": "Sửa chữ lỗi font .VnTime, VNI-Times: chuyển qua lại Unicode, TCVN3 (ABC), VNI.", "keywords": ["vntime", ".vntime", "abc", "vni-times", "lỗi font", "unikey", "chuyển mã", "tcvn3"], "status": "todo", "popular": true, "related": ["telex-fix", "remove-accents"] },
+    { "id": "telex-fix", "slug": "sua-loi-go-telex", "name": "Sửa chữ gõ sai bộ gõ", "group": "text", "icon": "keyboard", "kind": "text", "desc": "Chuyển “Vieejt Nam” thành “Việt Nam” khi lỡ gõ mà chưa bật Telex/VNI.", "keywords": ["quên bật unikey", "telex", "vni", "gõ sai dấu", "sửa lỗi gõ"], "status": "todo", "related": ["vn-encoding", "remove-accents"] },
+    { "id": "fancy-text", "slug": "chu-kieu-nghe-thuat", "name": "Chữ kiểu nghệ thuật", "group": "text", "icon": "sparkles", "kind": "text", "desc": "Tạo chữ kiểu (𝓫𝓮𝓪𝓾𝓽𝓲𝓯𝓾𝓵) cho tiểu sử Facebook, TikTok, Instagram.", "keywords": ["chữ đẹp facebook", "tiktok bio", "font chữ đẹp", "fancy text", "chữ kiểu"], "status": "todo", "related": ["case-converter"] },
+    { "id": "markdown-to-html", "slug": "markdown-sang-html", "name": "Markdown sang HTML", "group": "text", "icon": "file-code", "kind": "text", "desc": "Chuyển Markdown thành HTML, xem trước trực tiếp.", "keywords": ["md", "markdown preview", "markdown to html"], "status": "todo", "related": ["html-entity", "minifier"] },
+    { "id": "lorem-vi", "slug": "lorem-ipsum-tieng-viet", "name": "Lorem ipsum tiếng Việt", "group": "text", "icon": "pilcrow", "kind": "text", "desc": "Tạo đoạn văn mẫu tiếng Việt để dàn trang, thiết kế.", "keywords": ["văn bản mẫu", "chữ giả", "placeholder", "lorem ipsum"], "status": "todo", "related": ["word-counter"] },
+
+    {
+      "id": "number-to-words", "slug": "doc-so-thanh-chu", "name": "Đọc số thành chữ", "group": "vn", "icon": "banknote", "kind": "text",
+      "desc": "Viết số tiền bằng chữ cho hoá đơn, chứng từ, hợp đồng: 1.250.000 → Một triệu hai trăm năm mươi nghìn đồng.",
+      "keywords": ["số tiền bằng chữ", "đọc số", "viết số thành chữ", "chuyển số sang chữ", "number to words", "đọc tiền"],
+      "status": "done", "popular": true,
+      "aliases": ["so-tien-bang-chu", "doc-so-tien", "number-to-words"],
+      "related": ["vietqr", "vat", "salary-gross-net", "case-converter"],
+      "howto": ["Gõ hoặc dán số (có thể có dấu chấm, phẩy, mỗi dòng một số).", "Chọn cách đọc: nghìn/ngàn, linh/lẻ, có thêm “đồng”, “chẵn”.", "Bấm sao chép để dán vào hoá đơn, chứng từ."],
+      "faq": [
+        { "q": "Đọc được số lớn đến đâu?", "a": "Không giới hạn: số lớn hơn tỷ được đọc lặp “nghìn tỷ”, “triệu tỷ”, “tỷ tỷ”…" },
+        { "q": "Số thập phân đọc thế nào?", "a": "Theo cách viết Việt Nam, dấu phẩy là phần thập phân: 12,5 đọc là “mười hai phẩy năm”. Dấu chấm được hiểu là phân cách hàng nghìn." }
+      ]
+    },
+    {
+      "id": "vietqr", "slug": "tao-ma-qr-chuyen-khoan", "name": "Tạo mã QR chuyển khoản (VietQR)", "group": "vn", "icon": "landmark", "kind": "form",
+      "desc": "Tạo mã QR nhận tiền cho mọi ngân hàng theo chuẩn VietQR (EMVCo/NAPAS), có sẵn số tiền và nội dung, tạo ngay trên máy.",
+      "keywords": ["vietqr", "qr ngân hàng", "qr nhận tiền", "qr chuyển khoản", "napas", "qr thanh toán", "mã qr tài khoản"],
+      "data": ["ngan-hang-vietqr"], "status": "done", "popular": true,
+      "aliases": ["vietqr", "qr-chuyen-khoan", "qr-ngan-hang"],
+      "related": ["qr-generator", "qr-scanner", "number-to-words", "split-bill"],
+      "howto": ["Chọn ngân hàng, nhập số tài khoản và tên chủ tài khoản.", "Nhập số tiền và nội dung nếu muốn (để trống số tiền thì người chuyển tự nhập).", "Tải ảnh QR, in ra hoặc gửi đường link để người khác quét bằng ứng dụng ngân hàng."],
+      "faq": [
+        { "q": "Mã QR có an toàn không?", "a": "Mã chỉ chứa mã ngân hàng, số tài khoản, số tiền và nội dung — giống thông tin bạn vẫn gửi cho người chuyển. Mã được tạo ngay trên máy, không qua máy chủ nào." },
+        { "q": "Ứng dụng nào quét được?", "a": "Mọi ứng dụng ngân hàng và ví hỗ trợ VietQR/NAPAS 247 tại Việt Nam." },
+        { "q": "Vì sao nội dung bị bỏ dấu?", "a": "Nhiều ngân hàng chỉ nhận nội dung không dấu, tối đa khoảng 25 ký tự, nên công cụ tự bỏ dấu để tránh lỗi." }
+      ]
+    },
+    {
+      "id": "lunar-calendar", "slug": "doi-lich-am-duong", "name": "Đổi lịch âm ↔ dương", "group": "vn", "icon": "calendar-days", "kind": "form",
+      "desc": "Đổi ngày dương sang âm và ngược lại, xem can chi, tháng nhuận, tiết khí, giờ hoàng đạo và lịch tháng.",
+      "keywords": ["âm lịch", "lịch vạn niên", "ngày âm", "can chi", "lịch âm hôm nay", "đổi ngày âm", "lunar calendar"],
+      "status": "done", "popular": true,
+      "aliases": ["lich-am", "lich-am-duong", "am-lich", "lich-van-nien"],
+      "related": ["tet-countdown", "zodiac-age", "date-calculator", "age-calculator"],
+      "howto": ["Chọn chiều đổi: dương → âm hoặc âm → dương (đánh dấu “tháng nhuận” nếu cần).", "Nhập ngày; kết quả và can chi hiện ngay.", "Xem lịch tháng bên dưới, bấm vào một ngày để xem chi tiết; sao chép link để gửi người khác."],
+      "faq": [
+        { "q": "Lịch âm tính theo múi giờ nào?", "a": "Theo giờ Việt Nam (UTC+7), dùng thuật toán thiên văn của Hồ Ngọc Đức, khớp với lịch âm chính thức của Việt Nam (khác lịch Trung Quốc ở một số năm)." },
+        { "q": "Đổi được những năm nào?", "a": "Từ năm 1800 đến 2199." }
+      ]
+    },
+    { "id": "zodiac-age", "slug": "xem-tuoi-con-giap", "name": "Xem tuổi, con giáp, mệnh", "group": "vn", "icon": "moon-star", "kind": "form", "desc": "Năm sinh âm lịch, con giáp, can chi, ngũ hành nạp âm và tuổi mụ.", "keywords": ["tuổi gì", "cầm tinh", "ngũ hành", "mệnh gì", "tuổi con gì", "tuổi mụ"], "status": "todo", "related": ["lunar-calendar", "age-calculator"] },
+    { "id": "tet-countdown", "slug": "dem-nguoc-tet", "name": "Đếm ngược Tết", "group": "vn", "icon": "party-popper", "kind": "interactive", "desc": "Còn bao nhiêu ngày, giờ, phút, giây nữa đến Tết Nguyên Đán.", "keywords": ["tết nguyên đán", "còn bao nhiêu ngày đến tết", "countdown tết", "giao thừa"], "status": "todo", "related": ["lunar-calendar", "countdown-timer"] },
+    { "id": "salary-gross-net", "slug": "tinh-luong-gross-net", "name": "Tính lương gross ↔ net", "group": "vn", "icon": "wallet", "kind": "form", "desc": "Đổi lương gross sang net và ngược lại theo BHXH, BHYT, BHTN và thuế TNCN hiện hành.", "keywords": ["lương thực nhận", "gross to net", "net to gross", "bảo hiểm", "lương net"], "data": ["thue-tncn", "bhxh", "luong-toi-thieu-vung"], "status": "todo", "popular": true, "related": ["pit-calculator", "number-to-words"] },
+    { "id": "pit-calculator", "slug": "tinh-thue-tncn", "name": "Tính thuế TNCN", "group": "vn", "icon": "receipt", "kind": "form", "desc": "Tính thuế thu nhập cá nhân từ tiền lương, có giảm trừ gia cảnh, người phụ thuộc.", "keywords": ["thuế thu nhập cá nhân", "giảm trừ gia cảnh", "pit", "quyết toán thuế", "thuế tncn"], "data": ["thue-tncn"], "status": "todo", "related": ["salary-gross-net", "vat"] },
+    { "id": "loan-calculator", "slug": "tinh-lai-vay-tra-gop", "name": "Tính lãi vay trả góp", "group": "vn", "icon": "hand-coins", "kind": "form", "desc": "Lịch trả nợ theo dư nợ giảm dần hoặc trả đều, tổng lãi phải trả.", "keywords": ["vay ngân hàng", "dư nợ giảm dần", "trả góp", "lãi vay mua nhà", "loan"], "status": "todo", "popular": true, "related": ["savings-calculator", "compound-interest"] },
+    { "id": "savings-calculator", "slug": "tinh-lai-tiet-kiem", "name": "Tính lãi tiết kiệm", "group": "vn", "icon": "piggy-bank", "kind": "form", "desc": "Tiền lãi gửi tiết kiệm theo kỳ hạn, lĩnh lãi cuối kỳ hoặc hàng tháng, tái tục.", "keywords": ["gửi tiết kiệm", "lãi suất ngân hàng", "tiền lãi"], "status": "todo", "related": ["loan-calculator", "compound-interest"] },
+    { "id": "electricity-bill", "slug": "tinh-tien-dien", "name": "Tính tiền điện bậc thang", "group": "vn", "icon": "zap", "kind": "form", "desc": "Tính tiền điện sinh hoạt theo biểu giá bậc thang EVN hiện hành, có VAT.", "keywords": ["tiền điện", "evn", "số điện", "kwh", "giá điện", "hoá đơn điện"], "data": ["gia-dien"], "status": "todo", "popular": true, "related": ["vat", "percentage"] },
+    { "id": "land-units", "slug": "doi-don-vi-dat", "name": "Đổi đơn vị đất", "group": "vn", "icon": "land-plot", "kind": "form", "desc": "Đổi m² ↔ sào, mẫu, công, thước theo từng vùng Bắc, Trung, Nam.", "keywords": ["sào bắc bộ", "mẫu", "công đất", "thước", "hecta", "1 sào bao nhiêu m2"], "data": ["don-vi-dat"], "status": "todo", "related": ["unit-converter"] },
+    { "id": "province-code", "slug": "tra-ma-tinh-cccd-bien-so", "name": "Tra mã tỉnh trên CCCD, biển số xe", "group": "vn", "icon": "id-card", "kind": "form", "desc": "Số CCCD, biển số xe thuộc tỉnh nào (cũ và mới sau sáp nhập 2025), giới tính, năm sinh trên CCCD.", "keywords": ["mã tỉnh cccd", "biển số xe tỉnh nào", "căn cước", "đầu số cccd", "biển số"], "data": ["ma-tinh"], "status": "todo", "related": ["admin-units", "zodiac-age"] },
+    { "id": "admin-units", "slug": "tra-don-vi-hanh-chinh-moi", "name": "Tra đơn vị hành chính mới", "group": "vn", "icon": "map", "kind": "form", "desc": "Tra xã/phường, tỉnh/thành mới sau sáp nhập năm 2025 để ghi địa chỉ cho đúng.", "keywords": ["sáp nhập tỉnh", "34 tỉnh", "phường mới", "địa chỉ mới", "xã mới"], "data": ["don-vi-hanh-chinh"], "status": "todo", "related": ["province-code"] },
+    { "id": "bhxh-lump-sum", "slug": "tinh-bhxh-mot-lan", "name": "Tính BHXH một lần", "group": "vn", "icon": "shield-check", "kind": "form", "desc": "Ước tính tiền BHXH một lần theo quá trình đóng và hệ số trượt giá.", "keywords": ["rút bảo hiểm xã hội", "bhxh 1 lần", "trợ cấp một lần"], "data": ["bhxh"], "status": "todo", "related": ["salary-gross-net"] },
+
+    { "id": "percentage", "slug": "tinh-phan-tram", "name": "Máy tính phần trăm", "group": "calc", "icon": "percent", "kind": "form", "desc": "X% của Y, X là bao nhiêu % của Y, tăng/giảm bao nhiêu phần trăm.", "keywords": ["%", "phần trăm", "tăng giảm bao nhiêu phần trăm", "percent"], "status": "todo", "popular": true, "related": ["discount", "vat"] },
+    { "id": "discount", "slug": "tinh-giam-gia", "name": "Tính giảm giá", "group": "calc", "icon": "tag", "kind": "form", "desc": "Giá sau khi giảm, giảm nhiều lần liên tiếp, số tiền tiết kiệm.", "keywords": ["sale", "khuyến mãi", "giá sau giảm", "discount"], "status": "todo", "related": ["percentage", "vat"] },
+    { "id": "vat", "slug": "tinh-vat", "name": "Tính VAT", "group": "calc", "icon": "receipt-text", "kind": "form", "desc": "Tính thuế GTGT xuôi (chưa thuế → có thuế) và ngược, mức 5%, 8%, 10%.", "keywords": ["thuế giá trị gia tăng", "gtgt", "giá trước thuế", "tách vat"], "status": "todo", "related": ["percentage", "number-to-words"] },
+    { "id": "compound-interest", "slug": "tinh-lai-kep", "name": "Lãi kép", "group": "calc", "icon": "trending-up", "kind": "form", "desc": "Tính lãi kép khi đầu tư định kỳ, có biểu đồ tăng trưởng.", "keywords": ["compound interest", "đầu tư", "lãi suất kép"], "status": "todo", "related": ["savings-calculator", "loan-calculator"] },
+    { "id": "split-bill", "slug": "chia-tien-nhom", "name": "Chia tiền nhóm", "group": "calc", "icon": "users", "kind": "form", "desc": "Ai trả bao nhiêu, ai nợ ai — tính số lần chuyển khoản ít nhất.", "keywords": ["chia bill", "đi chơi chung", "góp tiền", "split bill", "ai nợ ai"], "status": "todo", "popular": true, "related": ["vietqr", "percentage"] },
+    { "id": "unit-converter", "slug": "doi-don-vi", "name": "Đổi đơn vị", "group": "calc", "icon": "arrow-left-right", "kind": "form", "desc": "Chiều dài, khối lượng, nhiệt độ, diện tích, thể tích, tốc độ, dữ liệu.", "keywords": ["convert unit", "inch sang cm", "kg sang lbs", "độ f sang độ c"], "status": "todo", "related": ["land-units", "base-converter"] },
+    { "id": "age-calculator", "slug": "tinh-tuoi", "name": "Tính tuổi", "group": "calc", "icon": "cake", "kind": "form", "desc": "Tuổi chính xác theo năm, tháng, ngày và ngày sinh nhật tiếp theo.", "keywords": ["bao nhiêu tuổi", "ngày sinh", "age calculator"], "status": "todo", "related": ["zodiac-age", "date-calculator"] },
+    { "id": "date-calculator", "slug": "cong-tru-ngay", "name": "Cộng trừ ngày & đếm ngày làm việc", "group": "calc", "icon": "calendar-range", "kind": "form", "desc": "Khoảng cách giữa hai ngày, cộng trừ ngày, đếm ngày làm việc trừ lễ Tết.", "keywords": ["tính ngày", "khoảng cách ngày", "ngày làm việc", "đếm ngày"], "status": "todo", "related": ["age-calculator", "lunar-calendar"] },
+    { "id": "bmi", "slug": "tinh-bmi", "name": "Tính BMI", "group": "calc", "icon": "scale", "kind": "form", "desc": "Chỉ số khối cơ thể theo chuẩn cho người châu Á.", "keywords": ["chỉ số khối cơ thể", "béo phì", "cân nặng chuẩn", "bmi"], "status": "todo", "related": ["tdee"] },
+    { "id": "tdee", "slug": "tinh-calo-tdee", "name": "Calo cần mỗi ngày (TDEE)", "group": "calc", "icon": "flame", "kind": "form", "desc": "Tính BMR, TDEE và lượng calo để giữ, giảm hoặc tăng cân.", "keywords": ["bmr", "giảm cân", "calo", "tdee", "calories"], "status": "todo", "related": ["bmi"] },
+    { "id": "due-date", "slug": "tinh-ngay-du-sinh", "name": "Tính ngày dự sinh", "group": "calc", "icon": "baby", "kind": "form", "desc": "Ngày dự sinh và tuần thai theo ngày đầu kỳ kinh cuối.", "keywords": ["mang thai", "tuần thai", "bầu", "ngày sinh dự kiến"], "status": "todo", "related": ["date-calculator", "age-calculator"] },
+    { "id": "scientific-calculator", "slug": "may-tinh-khoa-hoc", "name": "Máy tính khoa học", "group": "calc", "icon": "calculator", "kind": "interactive", "desc": "Máy tính có sin, cos, log, luỹ thừa, lịch sử phép tính, dùng bàn phím.", "keywords": ["calculator", "sin cos", "casio", "máy tính bỏ túi"], "status": "todo", "related": ["percentage", "base-converter"] },
+    { "id": "roman-numerals", "slug": "so-la-ma", "name": "Đổi số La Mã", "group": "calc", "icon": "hash", "kind": "text", "desc": "Đổi số thường sang số La Mã và ngược lại.", "keywords": ["roman numerals", "số la mã", "XIV"], "status": "todo", "related": ["number-to-words", "base-converter"] },
+
+    {
+      "id": "qr-generator", "slug": "tao-ma-qr", "name": "Tạo mã QR", "group": "qr", "icon": "qr-code", "kind": "form",
+      "desc": "Tạo mã QR cho link, văn bản, WiFi, danh thiếp (vCard), SMS, email; đổi màu, chèn logo, tải PNG/SVG.",
+      "keywords": ["qr code", "tạo qr wifi", "vcard", "qr link", "tạo mã qr miễn phí", "qr generator", "qr danh thiếp"],
+      "status": "done", "popular": true,
+      "aliases": ["qr-code", "tao-qr", "qr-generator"],
+      "related": ["vietqr", "qr-scanner", "barcode-generator"],
+      "howto": ["Chọn loại nội dung: link, văn bản, WiFi, danh thiếp, SMS, email hoặc điện thoại.", "Nhập thông tin; mã QR cập nhật ngay.", "Đổi màu, thêm logo nếu muốn, rồi tải PNG/SVG hoặc sao chép ảnh."],
+      "faq": [
+        { "q": "Mã QR có hết hạn không?", "a": "Không. Mã QR chứa trực tiếp nội dung bạn nhập, không đi qua đường link trung gian nào nên dùng mãi mãi." },
+        { "q": "Chèn logo có làm mã khó quét không?", "a": "Khi có logo, công cụ tự dùng mức sửa lỗi cao nhất (H) để mã vẫn quét được. Nên giữ logo nhỏ hơn khoảng 20% chiều rộng mã." },
+        { "q": "Mật khẩu WiFi có bị lưu vào link chia sẻ không?", "a": "Không. Mật khẩu chỉ nằm trong mã QR trên máy bạn, không đưa vào đường link chia sẻ." }
+      ]
+    },
+    {
+      "id": "qr-scanner", "slug": "quet-ma-qr", "name": "Quét mã QR", "group": "qr", "icon": "scan-qr-code", "kind": "interactive",
+      "desc": "Quét QR và mã vạch bằng camera, từ ảnh chụp màn hình hoặc file PDF; đọc được cả QR chuyển khoản VietQR.",
+      "keywords": ["đọc qr", "scan qr", "quét mã vạch", "qr reader", "đọc mã qr từ ảnh", "barcode scanner"],
+      "accept": ["image", "pdf"], "status": "done", "popular": true,
+      "aliases": ["doc-ma-qr", "scan-qr", "qr-scanner"],
+      "related": ["qr-generator", "vietqr", "barcode-generator"],
+      "howto": ["Bấm “Bật camera” và đưa mã QR vào khung, hoặc chọn/dán ảnh, file PDF có mã.", "Kết quả hiện ngay; với link, WiFi, VietQR, danh thiếp sẽ có thông tin đã tách sẵn.", "Sao chép nội dung hoặc mở link (luôn kiểm tra kỹ địa chỉ trước khi mở)."],
+      "faq": [
+        { "q": "Hình ảnh camera có bị gửi đi không?", "a": "Không. Mỗi khung hình được giải mã ngay trên máy bằng WebAssembly hoặc tính năng có sẵn của trình duyệt." },
+        { "q": "Quét được những loại mã nào?", "a": "QR, Micro QR, Data Matrix, Aztec, PDF417 và các mã vạch phổ biến như EAN-13, Code 128, Code 39, UPC." }
+      ]
+    },
+    { "id": "barcode-generator", "slug": "tao-ma-vach", "name": "Tạo mã vạch", "group": "qr", "icon": "barcode", "kind": "form", "desc": "Tạo mã vạch EAN-13, Code 128, Code 39, UPC để in tem sản phẩm.", "keywords": ["barcode", "ean13", "code128", "mã vạch sản phẩm"], "status": "todo", "related": ["qr-generator", "qr-scanner"] },
+
+    { "id": "excel-viewer", "slug": "xem-file-excel", "name": "Xem file Excel/CSV", "group": "office", "icon": "sheet", "kind": "file", "desc": "Mở xem file .xlsx, .xls, .ods, .csv không cần cài Excel; lọc, tìm, sắp xếp.", "keywords": ["xlsx", "xls", "csv viewer", "mở excel", "đọc file excel"], "accept": ["excel", "csv"], "status": "todo", "related": ["excel-csv", "merge-excel"] },
+    { "id": "excel-csv", "slug": "excel-sang-csv", "name": "Excel ↔ CSV", "group": "office", "icon": "file-spreadsheet", "kind": "file", "desc": "Chuyển Excel sang CSV (UTF-8, đúng tiếng Việt) và CSV sang Excel.", "keywords": ["chuyển excel sang csv", "csv to excel", "xlsx to csv", "lỗi font csv"], "accept": ["excel", "csv"], "multiple": true, "output": "excel", "status": "todo", "related": ["excel-viewer", "json-excel"] },
+    { "id": "merge-excel", "slug": "gop-file-excel", "name": "Gộp nhiều file Excel", "group": "office", "icon": "combine", "kind": "file", "desc": "Gộp nhiều file hoặc nhiều sheet Excel thành một bảng.", "keywords": ["ghép excel", "nối sheet", "merge excel", "gộp sheet"], "accept": ["excel", "csv"], "multiple": true, "output": "excel", "status": "todo", "related": ["split-excel", "excel-viewer"] },
+    { "id": "split-excel", "slug": "tach-excel-theo-cot", "name": "Tách Excel theo cột", "group": "office", "icon": "split", "kind": "file", "desc": "Tách một bảng thành nhiều file/sheet theo giá trị của một cột.", "keywords": ["chia file excel", "tách sheet", "split excel"], "accept": ["excel", "csv"], "output": "excel", "status": "todo", "related": ["merge-excel", "mail-merge"] },
+    { "id": "json-excel", "slug": "json-sang-excel", "name": "JSON ↔ Excel", "group": "office", "icon": "braces", "kind": "file", "desc": "Chuyển mảng JSON thành bảng Excel và ngược lại.", "keywords": ["json to excel", "excel to json", "xlsx json"], "accept": ["json", "excel", "csv"], "output": "excel", "status": "todo", "related": ["json-convert", "excel-csv"] },
+    { "id": "mail-merge", "slug": "tron-thu", "name": "Trộn thư", "group": "office", "icon": "mails", "kind": "file", "desc": "Từ danh sách Excel và mẫu Word (.docx) hoặc văn bản, tạo hàng loạt giấy mời, thư, PDF.", "keywords": ["mail merge", "in hàng loạt", "giấy mời", "trộn thư word"], "accept": ["excel", "csv", "docx"], "multiple": true, "output": "zip", "status": "todo", "related": ["split-excel", "excel-viewer"] },
+    { "id": "email-signature", "slug": "tao-chu-ky-email", "name": "Tạo chữ ký email", "group": "office", "icon": "mail", "kind": "form", "desc": "Tạo chữ ký email HTML chuyên nghiệp cho Gmail, Outlook.", "keywords": ["gmail signature", "outlook signature", "chữ ký gmail"], "status": "todo", "related": ["qr-generator"] },
+    { "id": "invoice", "slug": "tao-hoa-don-bao-gia", "name": "Tạo hoá đơn, báo giá", "group": "office", "icon": "file-pen-line", "kind": "form", "desc": "Lập phiếu báo giá, hoá đơn bán lẻ có số tiền bằng chữ, xuất PDF.", "keywords": ["báo giá", "hoá đơn bán lẻ", "invoice", "phiếu thu"], "status": "todo", "related": ["number-to-words", "vat", "vietqr"] },
+
+    {
+      "id": "json-formatter", "slug": "dinh-dang-json", "name": "Định dạng & kiểm tra JSON", "group": "dev", "icon": "braces", "kind": "text",
+      "desc": "Làm đẹp, rút gọn, sắp xếp khoá và kiểm tra lỗi JSON, chỉ đúng dòng/cột bị sai.",
+      "keywords": ["json", "json beautify", "json validator", "pretty print", "minify json", "json formatter", "format json"],
+      "status": "done", "popular": true,
+      "aliases": ["json-formatter", "format-json", "kiem-tra-json"],
+      "related": ["json-convert", "base64", "jwt-decoder"],
+      "howto": ["Dán JSON vào ô bên trái.", "Kết quả định dạng hiện ngay; nếu sai cú pháp sẽ báo dòng, cột và đoạn bị lỗi.", "Chọn thụt lề, rút gọn hoặc sắp xếp khoá, rồi sao chép hay tải file .json."],
+      "faq": [
+        { "q": "Dữ liệu JSON có bị gửi lên máy chủ không?", "a": "Không. Mọi xử lý dùng JSON.parse ngay trên trình duyệt của bạn." },
+        { "q": "Có sửa được JSON “gần đúng” không?", "a": "Có tuỳ chọn sửa nhẹ: bỏ chú thích //, dấu phẩy thừa cuối mảng/đối tượng và chuyển nháy đơn thành nháy kép." }
+      ]
+    },
+    { "id": "json-convert", "slug": "json-sang-csv-yaml", "name": "JSON ↔ CSV/YAML", "group": "dev", "icon": "file-json", "kind": "text", "desc": "Chuyển đổi qua lại giữa JSON, CSV và YAML.", "keywords": ["json to csv", "json to yaml", "yaml to json", "csv to json"], "status": "todo", "related": ["json-formatter", "json-excel"] },
+    { "id": "base64", "slug": "ma-hoa-base64", "name": "Mã hoá/giải mã Base64", "group": "dev", "icon": "binary", "kind": "text", "desc": "Mã hoá và giải mã Base64 cho văn bản UTF-8 và file.", "keywords": ["encode base64", "decode base64", "base64"], "status": "todo", "related": ["url-encode", "image-to-base64", "jwt-decoder"] },
+    { "id": "url-encode", "slug": "ma-hoa-url", "name": "Mã hoá URL", "group": "dev", "icon": "link-2", "kind": "text", "desc": "Mã hoá/giải mã URL (percent-encoding), tách tham số query.", "keywords": ["urlencode", "urldecode", "percent encoding"], "status": "todo", "related": ["base64", "html-entity"] },
+    { "id": "html-entity", "slug": "html-entity", "name": "Mã hoá HTML entity", "group": "dev", "icon": "code-xml", "kind": "text", "desc": "Chuyển ký tự đặc biệt sang HTML entity và ngược lại.", "keywords": ["escape html", "unescape html", "entity"], "status": "todo", "related": ["url-encode", "markdown-to-html"] },
+    { "id": "jwt-decoder", "slug": "giai-ma-jwt", "name": "Giải mã JWT", "group": "dev", "icon": "key-round", "kind": "text", "desc": "Xem header, payload, thời hạn của JWT; kiểm tra chữ ký HMAC.", "keywords": ["jwt decode", "token", "json web token"], "status": "todo", "related": ["base64", "json-formatter"] },
+    { "id": "uuid", "slug": "tao-uuid", "name": "Tạo UUID", "group": "dev", "icon": "fingerprint", "kind": "form", "desc": "Tạo UUID v4, v7 hàng loạt.", "keywords": ["guid", "uuid v4", "uuid v7", "random id"], "status": "todo", "related": ["password-generator", "hash"] },
+    { "id": "hash", "slug": "tao-ma-hash", "name": "Hash MD5/SHA", "group": "dev", "icon": "hash", "kind": "text", "desc": "Tính MD5, SHA-1, SHA-256, SHA-512 của văn bản.", "keywords": ["md5", "sha1", "sha256", "băm", "hash generator"], "status": "todo", "related": ["checksum", "uuid"] },
+    { "id": "regex-tester", "slug": "kiem-tra-regex", "name": "Kiểm tra regex", "group": "dev", "icon": "regex", "kind": "text", "desc": "Thử biểu thức chính quy, tô sáng kết quả khớp và nhóm.", "keywords": ["regular expression", "biểu thức chính quy", "regex test"], "status": "todo", "related": ["find-replace"] },
+    { "id": "timestamp", "slug": "doi-timestamp", "name": "Đổi timestamp", "group": "dev", "icon": "clock", "kind": "form", "desc": "Đổi Unix timestamp ↔ ngày giờ theo múi giờ Việt Nam và UTC.", "keywords": ["unix time", "epoch", "timestamp converter"], "status": "todo", "related": ["cron", "date-calculator"] },
+    { "id": "cron", "slug": "giai-thich-cron", "name": "Giải thích cron", "group": "dev", "icon": "calendar-clock", "kind": "text", "desc": "Diễn giải biểu thức cron bằng tiếng Việt và liệt kê các lần chạy tới.", "keywords": ["crontab", "cron expression", "lịch chạy"], "status": "todo", "related": ["timestamp"] },
+    { "id": "color-converter", "slug": "doi-ma-mau", "name": "Đổi mã màu", "group": "dev", "icon": "palette", "kind": "form", "desc": "Đổi HEX, RGB, HSL, OKLCH; kiểm tra độ tương phản chữ/nền.", "keywords": ["màu", "hex to rgb", "rgb to hex", "contrast"], "status": "todo", "related": ["color-picker", "css-generator"] },
+    { "id": "css-generator", "slug": "tao-css-gradient-shadow", "name": "Tạo CSS gradient, box-shadow", "group": "dev", "icon": "paintbrush", "kind": "form", "desc": "Chỉnh trực quan gradient, box-shadow, border-radius và sao chép CSS.", "keywords": ["css gradient", "box shadow", "css generator"], "status": "todo", "related": ["color-converter"] },
+    { "id": "sql-formatter", "slug": "dinh-dang-sql", "name": "Định dạng SQL", "group": "dev", "icon": "database", "kind": "text", "desc": "Làm đẹp câu lệnh SQL (MySQL, PostgreSQL, SQL Server…).", "keywords": ["sql beautify", "format sql"], "status": "todo", "related": ["json-formatter", "minifier"] },
+    { "id": "minifier", "slug": "nen-js-css-html", "name": "Nén JS/CSS/HTML", "group": "dev", "icon": "package", "kind": "text", "desc": "Rút gọn mã JavaScript, CSS, HTML để giảm dung lượng.", "keywords": ["minify", "uglify", "nén code"], "status": "todo", "related": ["json-formatter", "sql-formatter"] },
+    { "id": "base-converter", "slug": "doi-co-so", "name": "Đổi cơ số", "group": "dev", "icon": "binary", "kind": "form", "desc": "Đổi số giữa nhị phân, bát phân, thập phân, thập lục phân và cơ số bất kỳ.", "keywords": ["binary", "hex", "decimal", "nhị phân", "thập lục phân"], "status": "todo", "related": ["unit-converter", "chmod"] },
+    { "id": "chmod", "slug": "tinh-chmod", "name": "Tính chmod", "group": "dev", "icon": "terminal", "kind": "form", "desc": "Đổi quyền file Linux giữa dạng số (755) và rwx.", "keywords": ["quyền file linux", "755", "644", "permission"], "status": "todo", "related": ["base-converter"] },
+    { "id": "user-agent", "slug": "phan-tich-user-agent", "name": "Phân tích User-Agent", "group": "dev", "icon": "globe", "kind": "text", "desc": "Xem trình duyệt, hệ điều hành, thiết bị từ chuỗi User-Agent.", "keywords": ["ua parser", "trình duyệt của tôi", "user agent"], "status": "todo", "related": ["http-status"] },
+    { "id": "http-status", "slug": "ma-trang-thai-http", "name": "Tra mã trạng thái HTTP", "group": "dev", "icon": "server", "kind": "text", "desc": "Ý nghĩa các mã 1xx–5xx (404, 500, 301…) giải thích bằng tiếng Việt.", "keywords": ["404", "500", "status code", "http code"], "status": "todo", "related": ["user-agent", "url-encode"] },
+
+    { "id": "password-generator", "slug": "tao-mat-khau", "name": "Tạo mật khẩu mạnh", "group": "security", "icon": "key", "kind": "form", "desc": "Sinh mật khẩu ngẫu nhiên an toàn hoặc cụm từ dễ nhớ, dùng bộ sinh số của trình duyệt.", "keywords": ["random password", "sinh mật khẩu", "password generator", "mật khẩu ngẫu nhiên"], "status": "todo", "popular": true, "related": ["password-strength", "totp"] },
+    { "id": "password-strength", "slug": "kiem-tra-mat-khau", "name": "Kiểm tra độ mạnh mật khẩu", "group": "security", "icon": "shield-check", "kind": "text", "desc": "Ước tính thời gian bẻ khoá và gợi ý cải thiện mật khẩu.", "keywords": ["mật khẩu yếu", "password strength", "kiểm tra mật khẩu"], "status": "todo", "related": ["password-generator"] },
+    { "id": "file-encrypt", "slug": "ma-hoa-file", "name": "Mã hoá/giải mã file", "group": "security", "icon": "file-lock", "kind": "file", "desc": "Khoá file bất kỳ bằng mật khẩu (AES-GCM 256, WebCrypto) và mở lại khi cần.", "keywords": ["encrypt file", "khoá file", "aes", "bảo vệ file"], "accept": ["any"], "multiple": true, "output": "any", "status": "todo", "related": ["text-encrypt", "protect-pdf", "checksum"] },
+    { "id": "text-encrypt", "slug": "ma-hoa-van-ban", "name": "Mã hoá văn bản", "group": "security", "icon": "lock-keyhole", "kind": "text", "desc": "Mã hoá tin nhắn bằng mật khẩu (AES-GCM) để gửi qua kênh không an toàn.", "keywords": ["encrypt text", "tin nhắn bí mật", "mã hoá tin nhắn"], "status": "todo", "related": ["file-encrypt", "password-generator"] },
+    { "id": "checksum", "slug": "tinh-checksum-file", "name": "Tính checksum file", "group": "security", "icon": "file-check", "kind": "file", "desc": "Tính SHA-256, SHA-1, MD5 của file để kiểm tra file tải về có nguyên vẹn.", "keywords": ["md5 file", "sha256sum", "kiểm tra file", "checksum"], "accept": ["any"], "multiple": true, "status": "todo", "related": ["hash", "file-encrypt"] },
+    { "id": "totp", "slug": "tao-ma-2fa", "name": "Tạo mã 2FA (TOTP)", "group": "security", "icon": "key-square", "kind": "form", "desc": "Tạo mã xác thực 6 số từ khoá bí mật 2FA, như Google Authenticator.", "keywords": ["google authenticator", "otp", "xác thực 2 bước", "2fa", "totp"], "status": "todo", "related": ["password-generator", "qr-scanner"] },
+
+    {
+      "id": "pomodoro", "slug": "pomodoro", "name": "Pomodoro", "group": "productivity", "icon": "timer", "kind": "interactive",
+      "desc": "Hẹn giờ tập trung 25 phút, nghỉ 5 phút theo phương pháp Pomodoro; có âm báo, thông báo và thống kê trong ngày.",
+      "keywords": ["tập trung", "focus timer", "cà chua", "hẹn giờ học", "pomodoro timer"],
+      "status": "done", "popular": true,
+      "aliases": ["pomodoro-timer", "hen-gio-pomodoro"],
+      "related": ["countdown-timer", "stopwatch", "checklist", "quick-notes"],
+      "howto": ["Ghi việc cần làm (tuỳ chọn) rồi bấm Bắt đầu hoặc nhấn phím cách.", "Làm việc đến khi chuông báo, nghỉ ngắn 5 phút; sau 4 phiên được nghỉ dài.", "Chỉnh thời lượng, âm báo, tự chuyển phiên trong phần Cài đặt."],
+      "faq": [
+        { "q": "Đóng tab thì đồng hồ có chạy tiếp không?", "a": "Đồng hồ tính theo giờ thực nên khi mở lại tab vẫn đúng thời gian còn lại. Để nhận chuông khi đang ở tab khác, hãy cho phép thông báo." },
+        { "q": "Thống kê được lưu ở đâu?", "a": "Trong bộ nhớ trình duyệt (localStorage) của chính bạn, không gửi đi đâu." }
+      ]
+    },
+    { "id": "stopwatch", "slug": "bam-gio", "name": "Bấm giờ", "group": "productivity", "icon": "watch", "kind": "interactive", "desc": "Đồng hồ bấm giờ chính xác đến 1/100 giây, có ghi vòng (lap).", "keywords": ["stopwatch", "đồng hồ bấm giờ", "bấm giây"], "status": "todo", "related": ["countdown-timer", "pomodoro"] },
+    { "id": "countdown-timer", "slug": "hen-gio", "name": "Hẹn giờ đếm ngược", "group": "productivity", "icon": "hourglass", "kind": "interactive", "desc": "Hẹn giờ đếm ngược có chuông, chế độ toàn màn hình.", "keywords": ["timer", "đếm ngược", "hẹn giờ nấu ăn", "báo thức"], "status": "todo", "related": ["pomodoro", "stopwatch"] },
+    { "id": "spin-wheel", "slug": "vong-quay-may-man", "name": "Vòng quay may mắn", "group": "productivity", "icon": "ferris-wheel", "kind": "interactive", "desc": "Nhập danh sách, quay vòng ngẫu nhiên để chọn người, chọn món, trúng thưởng.", "keywords": ["quay số", "random wheel", "bốc thăm trúng thưởng", "vòng quay", "ăn gì hôm nay"], "status": "todo", "popular": true, "related": ["team-picker", "random-number", "coin-dice"] },
+    { "id": "team-picker", "slug": "boc-tham-chia-doi", "name": "Bốc thăm, chia đội", "group": "productivity", "icon": "shuffle", "kind": "form", "desc": "Chia danh sách thành các đội ngẫu nhiên, bốc thăm thứ tự.", "keywords": ["chia nhóm", "random team", "bốc thăm", "chia đội bóng"], "status": "todo", "related": ["spin-wheel", "random-number"] },
+    { "id": "coin-dice", "slug": "tung-xu-xuc-xac", "name": "Tung xu & xúc xắc", "group": "productivity", "icon": "dices", "kind": "interactive", "desc": "Tung đồng xu, gieo một hoặc nhiều xúc xắc ngẫu nhiên.", "keywords": ["tung đồng xu", "xúc xắc", "dice", "coin flip"], "status": "todo", "related": ["random-number", "spin-wheel"] },
+    { "id": "random-number", "slug": "so-ngau-nhien", "name": "Số ngẫu nhiên", "group": "productivity", "icon": "dice-5", "kind": "form", "desc": "Sinh số ngẫu nhiên trong khoảng, không trùng, quay số trúng thưởng.", "keywords": ["random number", "quay số", "số may mắn"], "status": "todo", "related": ["spin-wheel", "team-picker"] },
+    { "id": "quick-notes", "slug": "ghi-chu-nhanh", "name": "Ghi chú nhanh", "group": "productivity", "icon": "notebook-pen", "kind": "interactive", "desc": "Ghi chú lưu ngay trong trình duyệt, tự lưu, tải về .txt.", "keywords": ["notepad", "note", "ghi chú online"], "status": "todo", "related": ["checklist", "word-counter"] },
+    { "id": "checklist", "slug": "checklist", "name": "Checklist", "group": "productivity", "icon": "list-checks", "kind": "interactive", "desc": "Danh sách việc cần làm đơn giản, kéo thả sắp xếp, lưu trên máy.", "keywords": ["việc cần làm", "todo list", "danh sách"], "status": "todo", "related": ["quick-notes", "pomodoro"] },
+    { "id": "world-clock", "slug": "dong-ho-the-gioi", "name": "Đồng hồ thế giới", "group": "productivity", "icon": "earth", "kind": "interactive", "desc": "Giờ hiện tại ở các thành phố, đổi giờ giữa các múi giờ.", "keywords": ["múi giờ", "giờ mỹ", "giờ nhật", "giờ hàn quốc", "time zone"], "status": "todo", "related": ["timestamp", "countdown-timer"] },
+    { "id": "device-test", "slug": "kiem-tra-thiet-bi", "name": "Kiểm tra camera, micro, bàn phím, màn hình", "group": "productivity", "icon": "monitor-check", "kind": "interactive", "desc": "Thử camera, micro, loa, bàn phím và điểm chết màn hình trước khi họp online.", "keywords": ["test webcam", "test micro", "test bàn phím", "dead pixel", "kiểm tra loa"], "status": "todo", "related": ["voice-recorder", "screen-recorder"] }
+  ]
+}

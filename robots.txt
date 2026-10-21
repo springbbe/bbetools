@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://springbbe.github.io/bbetools/sitemap.xml

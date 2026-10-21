@@ -1,0 +1,13 @@
+{
+  "name": "bbetools",
+  "private": true,
+  "description": "BbeTools – bộ công cụ tiện ích tiếng Việt chạy 100% trên trình duyệt",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "serve": "node scripts/serve.js",
+    "check": "node scripts/check.js",
+    "test": "node --test tests/*.test.js"
+  },
+  "engines": { "node": ">=20" }
+}

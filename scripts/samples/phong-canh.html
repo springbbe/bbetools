@@ -1,0 +1,22 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>html,body{margin:0;overflow:hidden}canvas{display:block}</style></head>
+<body><canvas id="c" width="2400" height="1600"></canvas><script>
+// Ảnh phong cảnh vẽ bằng thuật toán (núi, ruộng bậc thang, mây, nhiễu hạt như ảnh chụp) — không vướng bản quyền
+const c = document.getElementById("c"), g = c.getContext("2d"), W = c.width, H = c.height;
+let s = 42; const r = () => (s = (s * 16807) % 2147483647) / 2147483647;
+const sky = g.createLinearGradient(0, 0, 0, H * 0.6); sky.addColorStop(0, "#5b8fd6"); sky.addColorStop(0.6, "#a9cbe8"); sky.addColorStop(1, "#f3d9b1");
+g.fillStyle = sky; g.fillRect(0, 0, W, H);
+g.fillStyle = "rgba(255,240,200,.9)"; g.beginPath(); g.arc(W * 0.72, H * 0.3, 70, 0, 7); g.fill();
+for (let i = 0; i < 40; i++) { g.fillStyle = `rgba(255,255,255,${0.15 + r() * 0.25})`; g.beginPath(); g.ellipse(r() * W, r() * H * 0.35, 120 + r() * 220, 30 + r() * 40, 0, 0, 7); g.fill(); }
+function ridge(base, amp, color, rough) {
+  g.fillStyle = color; g.beginPath(); g.moveTo(0, H);
+  let y = base;
+  for (let x = 0; x <= W; x += 6) { y += (r() - 0.5) * rough; y = Math.max(base - amp, Math.min(base + amp * 0.4, y)); g.lineTo(x, y + Math.sin(x / 210) * amp * 0.5); }
+  g.lineTo(W, H); g.closePath(); g.fill();
+}
+ridge(H * 0.48, 160, "#6d86a3", 18); ridge(H * 0.56, 140, "#4e6c5c", 16); ridge(H * 0.64, 110, "#3f6b3a", 14);
+for (let k = 0; k < 14; k++) { const y0 = H * 0.68 + k * 38; g.fillStyle = k % 2 ? "#7aa246" : "#8fb352"; g.beginPath(); g.moveTo(0, y0); for (let x = 0; x <= W; x += 20) g.lineTo(x, y0 + Math.sin(x / 300 + k) * 18); g.lineTo(W, H); g.lineTo(0, H); g.fill(); g.strokeStyle = "rgba(60,80,30,.5)"; g.lineWidth = 3; g.stroke(); }
+const id = g.getImageData(0, 0, W, H), d = id.data;
+for (let i = 0; i < d.length; i += 4) { const n = (r() - 0.5) * 22; d[i] += n; d[i + 1] += n; d[i + 2] += n; }
+g.putImageData(id, 0, 0);
+</script></body></html>

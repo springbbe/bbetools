@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><title>Scan</title>
+<style>@page { size: A4; margin: 0; } body { margin: 0; } img { display: block; width: 210mm; height: 297mm; page-break-after: always; }</style></head>
+<body><script>
+// Trang "scan": nền giấy có nhiễu, chữ và con dấu vẽ bằng canvas, nhúng dưới dạng ảnh JPEG chất lượng cao (giống PDF từ máy scan)
+function rnd(s) { return () => (s = (s * 16807) % 2147483647) / 2147483647; }
+const W = 2480, H = 3508, K = 0.72; // vẽ theo toạ độ 300 dpi, xuất ở ~216 dpi
+for (let p = 0; p < 2; p++) {
+  const c = document.createElement("canvas"); c.width = Math.round(W * K); c.height = Math.round(H * K);
+  const g = c.getContext("2d"), r = rnd(1234 + p);
+  g.fillStyle = "#f4f1ea"; g.fillRect(0, 0, c.width, c.height);
+  const id = g.getImageData(0, 0, c.width, c.height), d = id.data;
+  for (let i = 0; i < d.length; i += 4) { const n = (r() - 0.5) * 26; d[i] += n; d[i + 1] += n; d[i + 2] += n - 3; }
+  g.putImageData(id, 0, 0);
+  g.scale(K, K);
+  g.fillStyle = "#222"; g.font = "bold 72px serif"; g.textAlign = "center";
+  g.fillText("CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM", W / 2, 260);
+  g.font = "60px serif"; g.fillText("Độc lập – Tự do – Hạnh phúc", W / 2, 350);
+  g.font = "bold 96px serif"; g.fillText(["HỢP ĐỒNG MẪU", "PHỤ LỤC HỢP ĐỒNG", "BIÊN BẢN NGHIỆM THU"][p], W / 2, 600);
+  g.textAlign = "left"; g.font = "54px serif";
+  const lines = "Hôm nay, tại Hà Nội, chúng tôi gồm các bên dưới đây cùng thoả thuận ký kết văn bản này với các điều khoản như sau. Tài liệu chỉ dùng để thử công cụ Nén PDF của BbeTools, mọi tên và số liệu đều là giả.".split(" ");
+  let y = 820;
+  for (let k = 0; k < 26; k++) {
+    let line = ""; while (line.length < 52) line += lines[(k * 7 + line.length) % lines.length] + " ";
+    g.save(); g.translate(200, y); g.rotate((r() - 0.5) * 0.004); g.fillText(line, 0, 0); g.restore();
+    y += 92;
+  }
+  g.strokeStyle = "rgba(200,30,30,.75)"; g.lineWidth = 14; g.beginPath(); g.arc(1850, 3150, 230, 0, Math.PI * 2); g.stroke();
+  g.fillStyle = "rgba(200,30,30,.75)"; g.font = "bold 64px serif"; g.textAlign = "center"; g.fillText("ĐÃ DUYỆT", 1850, 3172);
+  const img = new Image(); img.src = c.toDataURL("image/jpeg", 0.92); document.body.append(img);
+}
+</script></body></html>

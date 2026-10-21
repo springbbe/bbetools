@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><style>html,body{margin:0;background:#fff;font-family:system-ui,sans-serif}#c{display:block}</style></head>
+<body><canvas id="c"></canvas><script type="module">
+// Ảnh QR mẫu: một mã VietQR (tài khoản giả) để thử công cụ Quét mã QR
+import { buildVietQR } from "../../assets/lib/vietqr.js";
+import { qrMatrix, drawQR } from "../../assets/qr.js";
+const payload = buildVietQR({ bin: "970436", account: "0123456789", amount: 50000, message: "Thu nghiem BbeTools" });
+const m = await qrMatrix(payload, "M");
+const c = document.getElementById("c");
+drawQR(c, m, { px: 600, margin: 4 });
+document.title = "done";
+</script></body></html>

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="vi" data-root="../">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nén ảnh – BbeTools</title>
+<meta name="description" content="Giảm dung lượng ảnh JPG, PNG, WebP hàng loạt; có chế độ nén xuống dưới số KB bạn cần. Miễn phí, chạy ngay trên trình duyệt, không tải file lên máy chủ.">
+<link rel="canonical" href="https://springbbe.github.io/bbetools/nen-anh/">
+<meta name="generator" content="bbetools-build">
+<meta name="theme-color" content="#F6F7F9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111318" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BbeTools">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="Nén ảnh – BbeTools">
+<meta property="og:description" content="Giảm dung lượng ảnh JPG, PNG, WebP hàng loạt; có chế độ nén xuống dưới số KB bạn cần. Miễn phí, chạy ngay trên trình duyệt, không tải file lên máy chủ.">
+<meta property="og:url" content="https://springbbe.github.io/bbetools/nen-anh/">
+<meta property="og:image" content="https://springbbe.github.io/bbetools/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="../assets/app.css">
+<script>try{var t=localStorage.getItem("bt:theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="modulepreload" href="../assets/core.js">
+<script type="module" src="../assets/tools/compress-image.js"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Nén ảnh","url":"https://springbbe.github.io/bbetools/nen-anh/","description":"Giảm dung lượng ảnh JPG, PNG, WebP hàng loạt; có chế độ nén xuống dưới số KB bạn cần.","inLanguage":"vi","applicationCategory":"UtilitiesApplication","operatingSystem":"Mọi hệ điều hành có trình duyệt web","browserRequirements":"Cần bật JavaScript","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"VND"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trang chủ","item":"https://springbbe.github.io/bbetools/"},{"@type":"ListItem","position":2,"name":"Ảnh","item":"https://springbbe.github.io/bbetools/nhom/anh/"},{"@type":"ListItem","position":3,"name":"Nén ảnh","item":"https://springbbe.github.io/bbetools/nen-anh/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Ảnh có bị gửi lên máy chủ không?","acceptedAnswer":{"@type":"Answer","text":"Không. Ảnh được nén ngay trong trình duyệt bằng bộ mã hoá MozJPEG/WebP chạy WebAssembly."}},{"@type":"Question","name":"Nén xuống dưới 100 KB được không?","acceptedAnswer":{"@type":"Answer","text":"Được. Bật “Nén xuống dưới”, nhập 100; công cụ tự giảm chất lượng và nếu cần thì thu nhỏ kích thước cho đến khi đạt."}},{"@type":"Question","name":"Thông tin vị trí GPS trong ảnh có còn không?","acceptedAnswer":{"@type":"Answer","text":"Không. Ảnh sau khi nén không còn EXIF/GPS; hướng xoay ảnh đã được áp dụng sẵn."}}]},{"@type":"HowTo","name":"Cách dùng Nén ảnh","step":[{"@type":"HowToStep","position":1,"text":"Chọn, kéo thả hoặc dán (Ctrl/⌘ + V) một hay nhiều ảnh."},{"@type":"HowToStep","position":2,"text":"Chọn chất lượng, hoặc bật “Nén xuống dưới” và nhập số KB cần đạt (ví dụ 200 KB cho hồ sơ trực tuyến)."},{"@type":"HowToStep","position":3,"text":"Bấm “Nén ảnh”, so sánh trước/sau rồi tải từng ảnh hoặc cả file .zip."}]}]}</script>
+</head>
+<body data-tool="compress-image">
+<a class="skip" href="#main">Bỏ qua, tới nội dung chính</a>
+<header class="top">
+<div class="top-in">
+<a class="brand" href="../" aria-label="BbeTools – Trang chủ"><svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="var(--brand)"/><path d="M10 7.5h7.2c3.3 0 5.4 1.8 5.4 4.5 0 1.9-1 3.2-2.6 3.8 2.1.5 3.5 2.1 3.5 4.3 0 3.1-2.4 5.1-6 5.1H10z" fill="#fff"/><path d="M14.2 11v3.6h2.6c1.3 0 2-.7 2-1.8s-.7-1.8-2-1.8zm0 6.9v4h3c1.5 0 2.3-.8 2.3-2s-.8-2-2.3-2z" fill="var(--brand)"/><circle cx="25.5" cy="7" r="2.6" fill="#FFC53D"/></svg><span>Bbe<b>Tools</b></span></a>
+<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mega"><svg class="i only-m" aria-hidden="true"><use href="../assets/icons.svg#menu"></use></svg><span class="nav-label">Tất cả công cụ</span><svg class="i only-d" aria-hidden="true"><use href="../assets/icons.svg#chevron-down"></use></svg></button>
+<button class="search-trigger" type="button" data-palette aria-label="Tìm công cụ (phím /)"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#search"></use></svg><span>Tìm công cụ…</span><kbd>/</kbd></button>
+<button class="ib theme-toggle" type="button" data-theme-toggle aria-label="Đổi giao diện sáng/tối" title="Giao diện: tự động"><svg class="i t-auto" aria-hidden="true"><use href="../assets/icons.svg#monitor"></use></svg><svg class="i t-light" aria-hidden="true"><use href="../assets/icons.svg#sun"></use></svg><svg class="i t-dark" aria-hidden="true"><use href="../assets/icons.svg#moon"></use></svg></button>
+</div>
+<div id="mega" class="mega" hidden>
+<div class="mega-in">
+<div class="mega-head"><b>Tất cả công cụ</b><button class="ib" type="button" data-close-mega aria-label="Đóng menu"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#x"></use></svg></button></div>
+<div class="mega-grid">
+<section class="mega-col"><h2><a href="../nhom/pdf/"><span class="tile sm" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#file-text"></use></svg></span>PDF</a></h2>
+<ul><li><a href="../ghep-pdf/">Ghép PDF</a></li><li><a href="../nen-pdf/">Nén PDF</a></li></ul></section>
+<section class="mega-col"><h2><a href="../nhom/anh/"><span class="tile sm" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#image"></use></svg></span>Ảnh</a></h2>
+<ul><li><a href="../nen-anh/">Nén ảnh</a></li><li><a href="../heic-sang-jpg/">HEIC sang JPG</a></li><li><a href="../anh-the/">Làm ảnh thẻ</a></li></ul></section>
+<section class="mega-col"><h2><a href="../nhom/van-ban/"><span class="tile sm" style="--c:#0D74CE"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#type"></use></svg></span>Văn bản</a></h2>
+<ul><li><a href="../dem-tu/">Đếm từ &amp; ký tự</a></li></ul></section>
+<section class="mega-col"><h2><a href="../nhom/viet-nam/"><span class="tile sm" style="--c:#C27C0E"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#flag"></use></svg></span>Tiện ích Việt Nam</a></h2>
+<ul><li><a href="../doc-so-thanh-chu/">Đọc số thành chữ</a></li><li><a href="../tao-ma-qr-chuyen-khoan/">Tạo mã QR chuyển khoản (VietQR)</a></li><li><a href="../doi-lich-am-duong/">Đổi lịch âm ↔ dương</a></li></ul></section>
+<section class="mega-col"><h2><a href="../nhom/qr-ma-vach/"><span class="tile sm" style="--c:#475569"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#qr-code"></use></svg></span>QR &amp; mã vạch</a></h2>
+<ul><li><a href="../tao-ma-qr/">Tạo mã QR</a></li><li><a href="../quet-ma-qr/">Quét mã QR</a></li></ul></section>
+<section class="mega-col"><h2><a href="../nhom/lap-trinh/"><span class="tile sm" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#code"></use></svg></span>Lập trình</a></h2>
+<ul><li><a href="../dinh-dang-json/">Định dạng &amp; kiểm tra JSON</a></li></ul></section>
+<section class="mega-col"><h2><a href="../nhom/nang-suat/"><span class="tile sm" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#timer"></use></svg></span>Năng suất &amp; ngẫu nhiên</a></h2>
+<ul><li><a href="../pomodoro/">Pomodoro</a></li></ul></section>
+</div>
+</div>
+</div>
+</header>
+<main id="main" tabindex="-1">
+<div class="wrap">
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/anh/">Ảnh</a></li><li><span aria-current="page">Nén ảnh</span></li></ol></nav>
+<header class="tool-head">
+<span class="tile lg" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#image-down"></use></svg></span>
+<div class="tool-title"><h1>Nén ảnh</h1><p class="lead">Giảm dung lượng ảnh JPG, PNG, WebP hàng loạt; có chế độ nén xuống dưới số KB bạn cần.</p></div>
+<button class="fav-btn" type="button" data-fav="compress-image" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
+</header>
+<p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>File của bạn được xử lý ngay trên máy này, không bao giờ tải lên máy chủ.</span></p>
+<div id="app" class="app app-file" data-kind="file">
+<noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
+<div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
+</div>
+<p class="formats">Nhận: JPG, PNG, WebP, GIF, BMP, AVIF</p>
+
+<section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Chọn, kéo thả hoặc dán (Ctrl/⌘ + V) một hay nhiều ảnh.</li><li>Chọn chất lượng, hoặc bật “Nén xuống dưới” và nhập số KB cần đạt (ví dụ 200 KB cho hồ sơ trực tuyến).</li><li>Bấm “Nén ảnh”, so sánh trước/sau rồi tải từng ảnh hoặc cả file .zip.</li></ol></section>
+<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>Ảnh có bị gửi lên máy chủ không?</summary><p>Không. Ảnh được nén ngay trong trình duyệt bằng bộ mã hoá MozJPEG/WebP chạy WebAssembly.</p></details>
+<details><summary>Nén xuống dưới 100 KB được không?</summary><p>Được. Bật “Nén xuống dưới”, nhập 100; công cụ tự giảm chất lượng và nếu cần thì thu nhỏ kích thước cho đến khi đạt.</p></details>
+<details><summary>Thông tin vị trí GPS trong ảnh có còn không?</summary><p>Không. Ảnh sau khi nén không còn EXIF/GPS; hướng xoay ảnh đã được áp dụng sẵn.</p></details></section>
+<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="heic-to-jpg" data-group="image">
+<a class="card-link" href="../heic-sang-jpg/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#smartphone"></use></svg></span><span class="card-txt"><h3 class="card-name">HEIC sang JPG</h3><span class="card-desc">Chuyển ảnh iPhone định dạng HEIC/HEIF sang JPG hoặc PNG, hàng loạt, ngay trên máy.</span></span></a>
+<button class="star" type="button" data-fav="heic-to-jpg" aria-pressed="false" aria-label="Ghim HEIC sang JPG vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
+</li>
+<li class="card" data-id="id-photo" data-group="image">
+<a class="card-link" href="../anh-the/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#square-user"></use></svg></span><span class="card-txt"><h3 class="card-name">Làm ảnh thẻ</h3><span class="card-desc">Làm ảnh thẻ 3x4, 4x6 từ ảnh chân dung: đổi nền xanh/trắng bằng AI, căn khung, xếp nhiều ảnh lên giấy để in.</span></span></a>
+<button class="star" type="button" data-fav="id-photo" aria-pressed="false" aria-label="Ghim Làm ảnh thẻ vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
+</li></ul></section>
+</div>
+</main>
+<footer class="foot">
+<div class="foot-in">
+<div class="foot-brand">
+<a class="brand" href="../"><svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="var(--brand)"/><path d="M10 7.5h7.2c3.3 0 5.4 1.8 5.4 4.5 0 1.9-1 3.2-2.6 3.8 2.1.5 3.5 2.1 3.5 4.3 0 3.1-2.4 5.1-6 5.1H10z" fill="#fff"/><path d="M14.2 11v3.6h2.6c1.3 0 2-.7 2-1.8s-.7-1.8-2-1.8zm0 6.9v4h3c1.5 0 2.3-.8 2.3-2s-.8-2-2.3-2z" fill="var(--brand)"/><circle cx="25.5" cy="7" r="2.6" fill="#FFC53D"/></svg><span>Bbe<b>Tools</b></span></a>
+<p>Công cụ tiện ích miễn phí cho người Việt. Mọi xử lý chạy ngay trên trình duyệt của bạn: <b>file không bao giờ rời khỏi máy</b>.</p>
+</div>
+<nav aria-label="Nhóm công cụ"><h2>Nhóm công cụ</h2><ul><li><a href="../nhom/pdf/">PDF</a></li><li><a href="../nhom/anh/">Ảnh</a></li><li><a href="../nhom/van-ban/">Văn bản</a></li><li><a href="../nhom/viet-nam/">Tiện ích Việt Nam</a></li><li><a href="../nhom/qr-ma-vach/">QR &amp; mã vạch</a></li><li><a href="../nhom/lap-trinh/">Lập trình</a></li><li><a href="../nhom/nang-suat/">Năng suất &amp; ngẫu nhiên</a></li></ul></nav>
+<nav aria-label="Về BbeTools"><h2>BbeTools</h2><ul>
+<li><a href="../gioi-thieu/">Giới thiệu &amp; quyền riêng tư</a></li>
+<li><a href="https://github.com/springbbe/bbetools" rel="noopener">Mã nguồn trên GitHub</a></li>
+<li><a href="https://github.com/springbbe/bbetools/issues" rel="noopener">Góp ý, báo lỗi</a></li>
+</ul></nav>
+</div>
+<p class="copy">© 2026 BbeTools · Không quảng cáo, không theo dõi, không tải file lên máy chủ.</p>
+</footer>
+</body>
+</html>
