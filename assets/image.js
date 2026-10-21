@@ -1,5 +1,6 @@
-/* Tiện ích ảnh dùng chung: giải mã (kể cả HEIC, xoay theo EXIF), thu nhỏ chất lượng cao, mã hoá JPG (MozJPEG) / WebP / PNG. */
-import { lib, fileKinds } from "./core.js";
+/* Tiện ích ảnh dùng chung: giải mã (kể cả HEIC, xoay theo EXIF), thu nhỏ chất lượng cao, mã hoá JPG (MozJPEG) / WebP / PNG / AVIF,
+   nhóm tuỳ chọn "định dạng + chất lượng" cho các công cụ sửa ảnh. */
+import { h, lib, fileKinds } from "./core.js";
 
 const JSD = "https://cdn.jsdelivr.net/npm/";
 
@@ -65,9 +66,22 @@ async function webpEncoder() {
   return webpEnc;
 }
 
+let avifEnc = null;
+async function avifEncoder() {
+  if (!avifEnc) avifEnc = (async () => {
+    const factory = await lib("avif");
+    const mod = await factory({ noInitialRun: true });
+    // tuỳ chọn mặc định của @jsquash/avif (meta.js); speed 6 cân bằng giữa tốc độ và dung lượng
+    const base = { quality: 50, qualityAlpha: -1, denoiseLevel: 0, tileColsLog2: 0, tileRowsLog2: 0, speed: 6, subsample: 1, chromaDeltaQ: false, sharpness: 0, tune: 0, enableSharpYUV: false, bitDepth: 8, lossless: false };
+    return (d, q) => { const out = mod.encode(new Uint8Array(d.data.buffer), d.width, d.height, { ...base, quality: q }); if (!out) throw new Error("Không mã hoá được AVIF"); return out; };
+  })();
+  avifEnc.catch(() => { avifEnc = null; });
+  return avifEnc;
+}
+
 /**
  * Mã hoá canvas.
- * type: "image/jpeg" | "image/webp" | "image/png"; quality 0..1; colors (PNG giảm màu: 0 = không giảm)
+ * type: "image/jpeg" | "image/webp" | "image/png" | "image/avif"; quality 0..1; colors (PNG giảm màu: 0 = không giảm)
  */
 export async function encode(c, type, quality = 0.8, opts = {}) {
   if (type === "image/jpeg") {
@@ -86,6 +100,13 @@ export async function encode(c, type, quality = 0.8, opts = {}) {
     const enc = await webpEncoder(); // Safari: canvas không xuất được WebP
     return new Blob([await enc(imgData(c), Math.round(quality * 100))], { type });
   }
+  if (type === "image/avif") {
+    const b = await toBlob(c, type, quality);
+    if (b && b.type === "image/avif") return b;
+    const enc = await avifEncoder(); // phần lớn trình duyệt chưa tự xuất được AVIF
+    // thang chất lượng của libavif khắt khe hơn JPG/WebP: trừ 20 để cùng một con số cho độ nét tương đương
+    return new Blob([await enc(imgData(c), Math.max(1, Math.round(quality * 100) - 20))], { type });
+  }
   if (type === "image/png" && opts.colors) {
     const UPNG = await lib("upng");
     const d = imgData(c);
@@ -100,8 +121,30 @@ export function typeOfFile(f) {
   if (/jpe?g/.test(t) || /\.jpe?g$|\.jfif$/i.test(f.name)) return "image/jpeg";
   if (/png/.test(t) || /\.png$/i.test(f.name)) return "image/png";
   if (/webp/.test(t) || /\.webp$/i.test(f.name)) return "image/webp";
+  if (/avif/.test(t) || /\.avif$/i.test(f.name)) return "image/avif";
   return "";
 }
+export const FMT_LABEL = { "image/jpeg": "JPG", "image/png": "PNG", "image/webp": "WebP", "image/avif": "AVIF" };
+
+/**
+ * Nhóm tuỳ chọn "Lưu dưới dạng" + chất lượng, dùng cho công cụ sửa ảnh (đổi cỡ, cắt, xoay…).
+ * Trả về hàm lấy { fmt: "keep" | MIME, q: 0..1 }. Dùng outType(file, o) để ra định dạng thật.
+ */
+export function formatOptions(el, { q = 90, avif = false } = {}) {
+  const choices = [["keep", "Giữ định dạng gốc"], ["image/jpeg", "JPG"], ["image/png", "PNG"], ["image/webp", "WebP"], ...(avif ? [["image/avif", "AVIF (nhẹ nhất)"]] : [])];
+  const sel = h("select", { id: "fmt" }, choices.map(([v, l]) => h("option", { value: v, text: l })));
+  const range = h("input", { type: "range", min: 40, max: 100, value: q, id: "fq", "aria-label": "Chất lượng" });
+  const out = h("output", { for: "fq", text: String(q) });
+  const qg = h("div", { class: "opt-group" }, h("p", { class: "opt-title", text: "Chất lượng" }), h("div", { class: "range-row" }, range, out),
+    h("p", { class: "hint", text: "90 gần như không thấy khác ảnh gốc. PNG luôn giữ nguyên từng điểm ảnh." }));
+  el.append(h("div", { class: "opt-group" }, h("label", { class: "field" }, h("span", { text: "Lưu dưới dạng" }), sel)), qg);
+  const get = () => ({ fmt: sel.value, q: +range.value / 100 });
+  const upd = () => { out.textContent = range.value; qg.hidden = sel.value === "image/png"; };
+  el.addEventListener("input", upd); el.addEventListener("change", upd); upd();
+  return get;
+}
+/** Định dạng ảnh ra: "keep" → giữ JPG/PNG/WebP/AVIF của file gốc, định dạng khác (GIF, BMP, HEIC…) → PNG hoặc JPG */
+export const outType = (file, o, fallback = "image/png") => (o.fmt && o.fmt !== "keep" ? o.fmt : typeOfFile(file) || fallback);
 
 /** Ảnh thu nhỏ cho danh sách file */
 export async function thumbUrl(bitmapOrFile, size = 112) {

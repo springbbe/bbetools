@@ -1,6 +1,7 @@
 {
   "version": "0.0.1",
   "configurations": [
-    { "name": "bbetools", "runtimeExecutable": "node", "runtimeArgs": ["scripts/serve.js", "8080"], "port": 8080, "url": "http://localhost:8080" }
+    { "name": "bbetools", "runtimeExecutable": "node", "runtimeArgs": ["scripts/serve.js", "8080"], "port": 8080, "url": "http://localhost:8080" },
+    { "name": "bbetools-8791", "runtimeExecutable": "node", "runtimeArgs": ["scripts/serve.js", "8791"], "port": 8791, "url": "http://localhost:8791" }
   ]
 }

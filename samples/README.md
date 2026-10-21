@@ -12,6 +12,7 @@ Dùng cho nút "Thử với file mẫu" trên các trang công cụ. Trừ ảnh
 | `so-tay-nhan-vien.pdf` | 8 trang có số trang to; trang 5 là bảng in nằm ngang (bị xoay) | Tách, xoá, sắp xếp, xoay trang, PDF sang ảnh, PDF sang văn bản, đánh số trang, watermark |
 | `anh-phong-canh.jpg` | phong cảnh vẽ bằng thuật toán, 2400×1600 | Nén ảnh, Ảnh sang PDF |
 | `anh-chup-man-hinh.png` | ảnh chụp màn hình trang chủ BbeTools | Nén ảnh, Ảnh sang PDF |
+| `anh-co-gps.jpg`, `anh-iphone-co-gps.heic` | phong cảnh 1600 px gắn EXIF/GPS/XMP **giả** (Hồ Hoàn Kiếm), bản JPG và HEIC | Xoá thông tin EXIF/GPS |
 | `anh-iphone.heic` | ảnh HEIC tạo bằng `sips` | HEIC sang JPG |
 | `ma-qr-mau.png` | mã VietQR của một tài khoản giả | Quét mã QR, Ảnh sang PDF |
 | `chan-dung-mau.jpg` | chân dung **người không có thật** do StyleGAN tạo | Làm ảnh thẻ |

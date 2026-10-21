@@ -12,7 +12,7 @@ const UI = [
   "skip-forward", "settings", "bell", "volume-2", "volume-x", "camera", "camera-off", "image", "info", "triangle-alert", "circle-check",
   "plus", "minus", "external-link", "history", "sparkles", "maximize", "minimize", "wand-sparkles", "zoom-in", "zoom-out", "printer",
   "file-down", "shield-check", "move", "house", "layers", "palette", "type", "wifi", "contact", "message-square", "mail", "phone",
-  "flip-horizontal-2", "square", "circle", "corner-down-left", "keyboard", "list", "calendar", "clock", "coffee", "repeat", "rotate-ccw-square",
+  "flip-horizontal-2", "flip-vertical-2", "map-pin", "square", "circle", "corner-down-left", "keyboard", "list", "calendar", "clock", "coffee", "repeat", "rotate-ccw-square",
   "scan-line", "flashlight", "switch-camera", "file-text", "code", "heart", "git-branch"
 ];
 

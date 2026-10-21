@@ -534,3 +534,6 @@ details p { margin: 0; padding: 0 16px 14px; color: var(--muted); }
 .opt-more { margin: 0; }
 .opt-more > .opt-group { padding: 0 14px 14px; }
 .opt-more p { padding: 0; }
+
+/* Công cụ ảnh */
+.sm-chips .chip { min-height: 32px; padding: 4px 11px; font-size: 13.5px; cursor: pointer; }

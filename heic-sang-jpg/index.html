@@ -47,7 +47,7 @@
 <section class="mega-col"><h2><a href="../nhom/pdf/"><span class="tile sm" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#file-text"></use></svg></span>PDF</a></h2>
 <ul><li><a href="../ghep-pdf/">Ghép PDF</a></li><li><a href="../tach-pdf/">Tách PDF</a></li><li><a href="../xoa-trang-pdf/">Xoá trang PDF</a></li><li><a href="../sap-xep-trang-pdf/">Sắp xếp trang PDF</a></li><li><a href="../xoay-pdf/">Xoay PDF</a></li><li><a href="../nen-pdf/">Nén PDF</a></li><li><a href="../pdf-sang-anh/">PDF sang ảnh</a></li><li><a href="../anh-sang-pdf/">Ảnh sang PDF</a></li></ul><a class="more" href="../nhom/pdf/">Xem cả 24 công cụ <svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></section>
 <section class="mega-col"><h2><a href="../nhom/anh/"><span class="tile sm" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#image"></use></svg></span>Ảnh</a></h2>
-<ul><li><a href="../nen-anh/">Nén ảnh</a></li><li><a href="../heic-sang-jpg/">HEIC sang JPG</a></li><li><a href="../anh-the/">Làm ảnh thẻ</a></li></ul></section>
+<ul><li><a href="../nen-anh/">Nén ảnh</a></li><li><a href="../doi-kich-thuoc-anh/">Đổi kích thước ảnh</a></li><li><a href="../cat-anh/">Cắt ảnh</a></li><li><a href="../xoay-anh/">Xoay, lật ảnh</a></li><li><a href="../doi-dinh-dang-anh/">Đổi định dạng ảnh</a></li><li><a href="../heic-sang-jpg/">HEIC sang JPG</a></li><li><a href="../anh-the/">Làm ảnh thẻ</a></li><li><a href="../xoa-exif-anh/">Xoá thông tin EXIF/GPS</a></li></ul></section>
 <section class="mega-col"><h2><a href="../nhom/van-ban/"><span class="tile sm" style="--c:#0D74CE"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#type"></use></svg></span>Văn bản</a></h2>
 <ul><li><a href="../dem-tu/">Đếm từ &amp; ký tự</a></li></ul></section>
 <section class="mega-col"><h2><a href="../nhom/viet-nam/"><span class="tile sm" style="--c:#C27C0E"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#flag"></use></svg></span>Tiện ích Việt Nam</a></h2>
@@ -81,7 +81,11 @@
 <section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>HEIC là gì?</summary><p>HEIC (HEIF) là định dạng ảnh mặc định của iPhone, nhẹ hơn JPG nhưng nhiều máy Windows, Zalo web và trang nộp hồ sơ không mở được.</p></details>
 <details><summary>Ảnh có bị tải lên máy chủ để chuyển đổi không?</summary><p>Không. Việc giải mã HEIC chạy bằng WebAssembly (libheif) ngay trong trình duyệt.</p></details>
 <details><summary>Ảnh Live Photo hoặc ảnh chụp liên tiếp thì sao?</summary><p>Công cụ lấy ảnh chính trong file HEIC. Phần video của Live Photo không nằm trong file .heic nên không bị ảnh hưởng.</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="compress-image" data-group="image">
+<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="convert-image" data-group="image">
+<a class="card-link" href="../doi-dinh-dang-anh/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#refresh-cw"></use></svg></span><span class="card-txt"><h3 class="card-name">Đổi định dạng ảnh</h3><span class="card-desc">Chuyển qua lại giữa JPG, PNG, WebP và AVIF.</span></span></a>
+<button class="star" type="button" data-fav="convert-image" aria-pressed="false" aria-label="Ghim Đổi định dạng ảnh vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
+</li>
+<li class="card" data-id="compress-image" data-group="image">
 <a class="card-link" href="../nen-anh/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#image-down"></use></svg></span><span class="card-txt"><h3 class="card-name">Nén ảnh</h3><span class="card-desc">Giảm dung lượng ảnh JPG, PNG, WebP hàng loạt; có chế độ nén xuống dưới số KB bạn cần.</span></span></a>
 <button class="star" type="button" data-fav="compress-image" aria-pressed="false" aria-label="Ghim Nén ảnh vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -89,9 +93,9 @@
 <a class="card-link" href="../anh-sang-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#images"></use></svg></span><span class="card-txt"><h3 class="card-name">Ảnh sang PDF</h3><span class="card-desc">Ghép ảnh JPG, PNG, ảnh chụp màn hình thành một file PDF.</span></span></a>
 <button class="star" type="button" data-fav="image-to-pdf" aria-pressed="false" aria-label="Ghim Ảnh sang PDF vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="id-photo" data-group="image">
-<a class="card-link" href="../anh-the/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#square-user"></use></svg></span><span class="card-txt"><h3 class="card-name">Làm ảnh thẻ</h3><span class="card-desc">Làm ảnh thẻ 3x4, 4x6 từ ảnh chân dung: đổi nền xanh/trắng bằng AI, căn khung, xếp nhiều ảnh lên giấy để in.</span></span></a>
-<button class="star" type="button" data-fav="id-photo" aria-pressed="false" aria-label="Ghim Làm ảnh thẻ vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
+<li class="card" data-id="resize-image" data-group="image">
+<a class="card-link" href="../doi-kich-thuoc-anh/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#scaling"></use></svg></span><span class="card-txt"><h3 class="card-name">Đổi kích thước ảnh</h3><span class="card-desc">Thu nhỏ hoặc phóng to ảnh theo pixel, phần trăm hoặc cạnh dài nhất.</span></span></a>
+<button class="star" type="button" data-fav="resize-image" aria-pressed="false" aria-label="Ghim Đổi kích thước ảnh vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
 </div>
 </main>

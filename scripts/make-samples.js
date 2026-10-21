@@ -6,6 +6,7 @@
 import { spawn, execFileSync } from "node:child_process";
 import { existsSync, statSync, mkdirSync, writeFileSync } from "node:fs";
 import { ROOT } from "./registry.js";
+import { makeGpsJpeg } from "./samples/anh-co-gps.js";
 
 const CHROME = process.env.CHROME || ["/Applications/Google Chrome.app/Contents/MacOS/Google Chrome", "/usr/bin/google-chrome", "/usr/bin/chromium", "/opt/pw-browsers/chromium-1194/chrome-linux/chrome"].find(existsSync);
 if (!CHROME) { console.error("Không tìm thấy Chrome. Đặt biến CHROME=/đường/dẫn/chrome"); process.exit(1); }
@@ -39,12 +40,16 @@ try {
   shot("scripts/samples/phong-canh.html", TMP + "phong-canh.png", 2400, 1600);
   execFileSync("sips", ["-s", "format", "jpeg", "-s", "formatOptions", "92", TMP + "phong-canh.png", "--out", OUT + "anh-phong-canh.jpg"], { stdio: "ignore" });
   execFileSync("sips", ["-Z", "2016", "-s", "format", "heic", "-s", "formatOptions", "80", TMP + "phong-canh.png", "--out", OUT + "anh-iphone.heic"], { stdio: "ignore" });
+  // ảnh có EXIF/GPS giả (Xoá thông tin EXIF/GPS): bản JPEG và bản HEIC (sips giữ nguyên EXIF khi chuyển)
+  execFileSync("sips", ["-Z", "1600", "-s", "format", "jpeg", "-s", "formatOptions", "85", OUT + "anh-phong-canh.jpg", "--out", TMP + "pc.jpg"], { stdio: "ignore" });
+  makeGpsJpeg(TMP + "pc.jpg", OUT + "anh-co-gps.jpg");
+  execFileSync("sips", ["-s", "format", "heic", OUT + "anh-co-gps.jpg", "--out", OUT + "anh-iphone-co-gps.heic"], { stdio: "ignore" });
   shot("", OUT + "anh-chup-man-hinh.png", 1280, 800);
   shot("scripts/samples/qr.html", OUT + "ma-qr-mau.png", 600, 600);
 } finally {
   server.kill();
   execFileSync("rm", ["-rf", TMP]);
 }
-for (const f of ["bao-cao-quy-1.pdf", "bao-cao-quy-2.pdf", "tai-lieu-scan.pdf", "so-tay-nhan-vien.pdf", "tai-lieu-co-anh.pdf", "to-khai-mau.pdf", "to-khai-da-dien.pdf", "mau-co-mat-khau-1234.pdf", "giay-to-chup.jpg", "anh-phong-canh.jpg", "anh-iphone.heic", "anh-chup-man-hinh.png", "ma-qr-mau.png", "chan-dung-mau.jpg"]) {
+for (const f of ["bao-cao-quy-1.pdf", "bao-cao-quy-2.pdf", "tai-lieu-scan.pdf", "so-tay-nhan-vien.pdf", "tai-lieu-co-anh.pdf", "to-khai-mau.pdf", "to-khai-da-dien.pdf", "mau-co-mat-khau-1234.pdf", "giay-to-chup.jpg", "anh-phong-canh.jpg", "anh-iphone.heic", "anh-co-gps.jpg", "anh-iphone-co-gps.heic", "anh-chup-man-hinh.png", "ma-qr-mau.png", "chan-dung-mau.jpg"]) {
   console.log(existsSync(OUT + f) ? `✓ ${f}  ${(statSync(OUT + f).size / 1024).toFixed(0)} KB` : `✗ thiếu ${f}`);
 }

@@ -383,10 +383,62 @@
         { "q": "Thông tin vị trí GPS trong ảnh có còn không?", "a": "Không. Ảnh sau khi nén không còn EXIF/GPS; hướng xoay ảnh đã được áp dụng sẵn." }
       ]
     },
-    { "id": "resize-image", "slug": "doi-kich-thuoc-anh", "name": "Đổi kích thước ảnh", "group": "image", "icon": "scaling", "kind": "file", "desc": "Thu nhỏ hoặc phóng to ảnh theo pixel, phần trăm hoặc cạnh dài nhất.", "keywords": ["resize ảnh", "thu nhỏ ảnh", "đổi cỡ ảnh", "resize image", "pixel"], "accept": ["image"], "multiple": true, "output": "image", "status": "todo", "popular": true, "related": ["compress-image", "crop-image"] },
-    { "id": "crop-image", "slug": "cat-anh", "name": "Cắt ảnh", "group": "image", "icon": "crop", "kind": "file", "desc": "Cắt ảnh theo khung tự do hoặc tỉ lệ 1:1, 4:3, 16:9, 3:4.", "keywords": ["crop ảnh", "cắt khung", "crop image", "tỉ lệ ảnh"], "accept": ["image"], "output": "image", "status": "todo", "related": ["resize-image", "rotate-image", "id-photo"] },
-    { "id": "rotate-image", "slug": "xoay-anh", "name": "Xoay, lật ảnh", "group": "image", "icon": "flip-horizontal-2", "kind": "file", "desc": "Xoay 90°, 180° hoặc lật gương ảnh hàng loạt.", "keywords": ["quay ảnh", "lật gương", "flip image", "rotate image"], "accept": ["image"], "multiple": true, "output": "image", "status": "todo", "related": ["crop-image", "resize-image"] },
-    { "id": "convert-image", "slug": "doi-dinh-dang-anh", "name": "Đổi định dạng ảnh", "group": "image", "icon": "refresh-cw", "kind": "file", "desc": "Chuyển qua lại giữa JPG, PNG, WebP và AVIF.", "keywords": ["chuyển đuôi ảnh", "convert image", "jpg to png", "png to jpg", "webp to jpg", "avif", "webp"], "accept": ["image", "heic"], "multiple": true, "output": "image", "status": "todo", "popular": true, "related": ["heic-to-jpg", "compress-image", "svg-to-png"] },
+    {
+      "id": "resize-image", "slug": "doi-kich-thuoc-anh", "name": "Đổi kích thước ảnh", "group": "image", "icon": "scaling", "kind": "file",
+      "desc": "Thu nhỏ hoặc phóng to ảnh theo pixel, phần trăm hoặc cạnh dài nhất.",
+      "keywords": ["resize ảnh", "thu nhỏ ảnh", "đổi cỡ ảnh", "resize image", "pixel", "phóng to ảnh", "đổi cỡ ảnh hàng loạt", "resize ảnh 1920", "giảm kích thước ảnh"],
+      "accept": ["image", "heic"], "multiple": true, "output": "image", "status": "done", "popular": true,
+      "aliases": ["resize-anh", "thu-nho-anh", "resize-image"],
+      "related": ["compress-image", "crop-image", "convert-image", "rotate-image"],
+      "howto": ["Chọn, kéo thả hoặc dán một hay nhiều ảnh (JPG, PNG, WebP, HEIC…).", "Chọn cách đổi cỡ: nhập số pixel (bỏ trống một ô để giữ tỉ lệ), theo phần trăm, hoặc theo cạnh dài nhất (ví dụ 1920 px).", "Bấm “Đổi kích thước” rồi tải từng ảnh hoặc cả file .zip."],
+      "faq": [
+        { "q": "Ảnh có bị tải lên máy chủ không?", "a": "Không. Mọi bước xử lý chạy ngay trong trình duyệt của bạn; ảnh không rời khỏi máy." },
+        { "q": "Thu nhỏ ảnh có bị vỡ, răng cưa không?", "a": "Không. Ảnh được thu nhỏ dần từng nửa với bộ lọc chất lượng cao nên chi tiết mịn. Phóng to quá cỡ gốc thì ảnh sẽ mờ, vì vậy mặc định công cụ không phóng to ảnh nhỏ." },
+        { "q": "Muốn ảnh đúng kích thước như 800×800 thì sao?", "a": "Tắt “Giữ tỉ lệ” để kéo giãn ảnh đúng số pixel, hoặc dùng công cụ Cắt ảnh với tỉ lệ 1:1 trước rồi đổi kích thước để ảnh không bị méo." }
+      ]
+    },
+    {
+      "id": "crop-image", "slug": "cat-anh", "name": "Cắt ảnh", "group": "image", "icon": "crop", "kind": "file",
+      "desc": "Cắt ảnh theo khung tự do hoặc tỉ lệ 1:1, 4:3, 16:9, 3:4.",
+      "keywords": ["crop ảnh", "cắt khung", "crop image", "tỉ lệ ảnh", "cắt ảnh vuông", "cắt ảnh 16:9", "cắt ảnh online", "cắt ảnh avatar"],
+      "accept": ["image", "heic"], "output": "image", "status": "done",
+      "aliases": ["crop-anh", "cat-khung-anh", "crop-image"],
+      "related": ["resize-image", "rotate-image", "id-photo", "split-image"],
+      "howto": ["Chọn hoặc kéo thả một ảnh.", "Chọn tỉ lệ (tự do, 1:1, 4:3, 16:9…), rồi kéo khung, kéo góc để chọn vùng cần giữ; hoặc nhập số pixel chính xác.", "Bấm “Cắt ảnh” rồi tải ảnh đã cắt về."],
+      "faq": [
+        { "q": "Ảnh có bị tải lên máy chủ không?", "a": "Không. Mọi bước xử lý chạy ngay trong trình duyệt của bạn; ảnh không rời khỏi máy." },
+        { "q": "Ảnh cắt xong có bị giảm chất lượng không?", "a": "Vùng được giữ lại giữ nguyên độ phân giải gốc, không bị thu nhỏ. Ảnh JPG được lưu lại ở chất lượng 92 nên gần như không thấy khác biệt; chọn PNG nếu cần giữ nguyên từng điểm ảnh." },
+        { "q": "Dùng bàn phím được không?", "a": "Được. Bấm vào khung cắt rồi dùng phím mũi tên để di chuyển, giữ Shift + mũi tên để đổi cỡ khung." }
+      ]
+    },
+    {
+      "id": "rotate-image", "slug": "xoay-anh", "name": "Xoay, lật ảnh", "group": "image", "icon": "flip-vertical-2", "kind": "file",
+      "desc": "Xoay 90°, 180° hoặc lật gương ảnh hàng loạt.",
+      "keywords": ["quay ảnh", "lật gương", "flip image", "rotate image", "xoay ảnh 90 độ", "ảnh bị ngược", "lật ảnh selfie", "xoay ảnh hàng loạt"],
+      "accept": ["image", "heic"], "multiple": true, "output": "image", "status": "done",
+      "aliases": ["quay-anh", "lat-anh", "rotate-image"],
+      "related": ["crop-image", "resize-image", "convert-image"],
+      "howto": ["Chọn, kéo thả hoặc dán một hay nhiều ảnh.", "Bấm nút xoay trái/phải hoặc lật trên từng ảnh, hoặc dùng nút “Áp dụng cho tất cả ảnh”.", "Bấm “Lưu ảnh” rồi tải từng ảnh hoặc cả file .zip."],
+      "faq": [
+        { "q": "Ảnh có bị tải lên máy chủ không?", "a": "Không. Mọi bước xử lý chạy ngay trong trình duyệt của bạn; ảnh không rời khỏi máy." },
+        { "q": "Vì sao ảnh chụp bằng điện thoại hiện ngược trên máy tính?", "a": "Điện thoại thường chỉ ghi hướng xoay vào EXIF thay vì xoay thật điểm ảnh; một số phần mềm bỏ qua thông tin này. Công cụ xoay hẳn điểm ảnh nên ảnh hiện đúng ở mọi nơi." },
+        { "q": "Lật ảnh selfie bị ngược chữ được không?", "a": "Được. Bấm “Lật ngang” để soi gương ảnh, chữ trong ảnh sẽ đọc được bình thường." }
+      ]
+    },
+    {
+      "id": "convert-image", "slug": "doi-dinh-dang-anh", "name": "Đổi định dạng ảnh", "group": "image", "icon": "refresh-cw", "kind": "file",
+      "desc": "Chuyển qua lại giữa JPG, PNG, WebP và AVIF.",
+      "keywords": ["chuyển đuôi ảnh", "convert image", "jpg to png", "png to jpg", "webp to jpg", "avif", "webp", "png to webp", "jpg to webp", "jpg to avif", "gif to png", "bmp to jpg", "chuyển ảnh sang jpg"],
+      "accept": ["image", "heic"], "multiple": true, "output": "image", "status": "done", "popular": true,
+      "aliases": ["chuyen-dinh-dang-anh", "doi-duoi-anh", "convert-image"],
+      "related": ["heic-to-jpg", "compress-image", "resize-image", "svg-to-png"],
+      "howto": ["Chọn, kéo thả hoặc dán một hay nhiều ảnh (JPG, PNG, WebP, AVIF, GIF, BMP, HEIC).", "Chọn định dạng muốn chuyển sang và chất lượng; với JPG có thể chọn màu nền cho vùng trong suốt.", "Bấm “Chuyển đổi” rồi tải từng ảnh hoặc cả file .zip."],
+      "faq": [
+        { "q": "Ảnh có bị tải lên máy chủ không?", "a": "Không. Mọi bước xử lý chạy ngay trong trình duyệt của bạn; ảnh không rời khỏi máy." },
+        { "q": "Nên chọn định dạng nào?", "a": "JPG mở được ở mọi nơi. WebP nhẹ hơn JPG khoảng 25–35% và có nền trong suốt. AVIF nhẹ nhất nhưng mã hoá chậm hơn và một số phần mềm cũ chưa mở được. PNG giữ nguyên từng điểm ảnh, hợp với ảnh chụp màn hình, logo." },
+        { "q": "Ảnh GIF động có giữ được chuyển động không?", "a": "Không. Công cụ chỉ lấy khung hình đầu tiên của ảnh GIF động." }
+      ]
+    },
     {
       "id": "heic-to-jpg", "slug": "heic-sang-jpg", "name": "HEIC sang JPG", "group": "image", "icon": "smartphone", "kind": "file",
       "desc": "Chuyển ảnh iPhone định dạng HEIC/HEIF sang JPG hoặc PNG, hàng loạt, ngay trên máy.",
@@ -417,7 +469,21 @@
     },
     { "id": "remove-bg", "slug": "xoa-phong-anh", "name": "Xoá phông ảnh", "group": "image", "icon": "eraser", "kind": "file", "desc": "Tách nền ảnh chân dung bằng AI chạy ngay trên máy, xuất PNG trong suốt hoặc nền màu.", "keywords": ["tách nền", "xóa nền", "remove background", "xoá background", "png trong suốt", "remove bg"], "accept": ["image", "heic"], "output": "image", "status": "todo", "popular": true, "related": ["id-photo", "signature-extract", "crop-image"] },
     { "id": "blur-image", "slug": "che-mo-anh", "name": "Che, làm mờ vùng nhạy cảm", "group": "image", "icon": "eye-off", "kind": "file", "desc": "Làm mờ, che số CCCD, biển số xe, khuôn mặt trước khi gửi ảnh.", "keywords": ["che thông tin", "pixelate", "làm mờ ảnh", "blur", "censor", "che biển số", "che cccd"], "accept": ["image"], "output": "image", "status": "todo", "related": ["strip-exif", "crop-image"] },
-    { "id": "strip-exif", "slug": "xoa-exif-anh", "name": "Xoá thông tin EXIF/GPS", "group": "image", "icon": "map-pin-off", "kind": "file", "desc": "Xem và xoá thông tin máy chụp, ngày giờ, vị trí GPS trong ảnh.", "keywords": ["metadata ảnh", "vị trí gps", "exif remover", "xóa exif"], "accept": ["image"], "multiple": true, "output": "image", "status": "todo", "related": ["blur-image", "compress-image"] },
+    {
+      "id": "strip-exif", "slug": "xoa-exif-anh", "name": "Xoá thông tin EXIF/GPS", "group": "image", "icon": "map-pin-off", "kind": "file",
+      "desc": "Xem và xoá thông tin máy chụp, ngày giờ, vị trí GPS trong ảnh.",
+      "keywords": ["metadata ảnh", "vị trí gps", "exif remover", "xóa exif", "xem exif", "xóa vị trí ảnh", "ảnh có lộ vị trí không", "exif viewer", "xoá metadata ảnh", "remove gps from photo"],
+      "accept": ["image", "heic"], "multiple": true, "output": "image", "status": "done",
+      "aliases": ["xoa-exif", "xoa-gps-anh", "xoa-vi-tri-anh", "strip-exif"],
+      "related": ["blur-image", "compress-image", "heic-to-jpg"],
+      "howto": ["Chọn, kéo thả hoặc dán một hay nhiều ảnh (JPG, PNG, WebP, HEIC…).", "Xem ảnh nào có vị trí GPS, bấm biểu tượng trên từng ảnh để xem máy chụp, ngày giờ, toạ độ.", "Chọn “Xoá tất cả” hoặc “Chỉ xoá vị trí”, bấm “Xoá thông tin” rồi tải ảnh đã làm sạch."],
+      "faq": [
+        { "q": "Ảnh có bị tải lên máy chủ không?", "a": "Không. Mọi bước xử lý chạy ngay trong trình duyệt của bạn; ảnh không rời khỏi máy." },
+        { "q": "Ảnh chụp điện thoại có lộ vị trí không?", "a": "Có thể. Nếu bật định vị cho camera, ảnh lưu toạ độ GPS nơi chụp chính xác tới vài mét. Một số mạng xã hội tự xoá thông tin này, nhưng gửi ảnh gốc qua email, Zalo (gửi dạng file), Google Drive thì vẫn còn." },
+        { "q": "Xoá EXIF có làm giảm chất lượng ảnh không?", "a": "Không với JPG, PNG, WebP: công cụ chỉ bỏ phần thông tin trong file, không nén lại ảnh. Ảnh HEIC được lưu lại thành JPG chất lượng cao." },
+        { "q": "Ảnh có bị xoay ngang sau khi xoá không?", "a": "Không, nếu để bật “Giữ hướng xoay”: công cụ giữ lại đúng một thẻ cho biết ảnh dọc hay ngang." }
+      ]
+    },
     { "id": "watermark-image", "slug": "watermark-anh", "name": "Chèn watermark ảnh", "group": "image", "icon": "stamp", "kind": "file", "desc": "Đóng dấu chữ hoặc logo lên ảnh hàng loạt, chống lấy cắp ảnh bán hàng.", "keywords": ["đóng dấu ảnh", "logo ảnh", "chữ chìm", "watermark"], "accept": ["image"], "multiple": true, "output": "image", "status": "todo", "related": ["text-on-image", "watermark-pdf"] },
     { "id": "text-on-image", "slug": "chen-chu-len-anh", "name": "Chèn chữ lên ảnh", "group": "image", "icon": "type", "kind": "file", "desc": "Viết chữ tiếng Việt lên ảnh, chọn font, màu, viền, bóng đổ.", "keywords": ["viết chữ lên ảnh", "caption", "meme", "thêm chữ vào ảnh"], "accept": ["image"], "output": "image", "status": "todo", "related": ["watermark-image", "crop-image"] },
     { "id": "merge-images", "slug": "ghep-anh", "name": "Ghép ảnh", "group": "image", "icon": "layout-panel-left", "kind": "file", "desc": "Nối nhiều ảnh theo chiều ngang, dọc hoặc thành lưới.", "keywords": ["nối ảnh", "collage", "ghép nhiều ảnh", "combine images"], "accept": ["image"], "multiple": true, "output": "image", "status": "todo", "related": ["split-image", "image-to-pdf"] },
