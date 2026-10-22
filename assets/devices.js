@@ -210,28 +210,55 @@ export function spkPane(p) {
 
 /* ---------- Bàn phím ---------- */
 const K = (code, label, w = 1) => ({ code, label, w });
+const NA = (label, w = 1) => ({ code: "", label, w, na: true }); // phím trình duyệt không nhận được (fn)
 const L = (s) => s.split(" ").map((c) => K("Key" + c, c));
-const ROWS = [
-  [K("Escape", "Esc"), ...Array.from({ length: 12 }, (_, i) => K("F" + (i + 1), "F" + (i + 1)))],
-  [K("Backquote", "`"), ...[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((d) => K("Digit" + d, String(d))), K("Minus", "-"), K("Equal", "="), K("Backspace", "⌫ Xoá", 2)],
-  [K("Tab", "Tab", 1.5), ...L("Q W E R T Y U I O P"), K("BracketLeft", "["), K("BracketRight", "]"), K("Backslash", "\\", 1.5)],
-  [K("CapsLock", "Caps", 1.75), ...L("A S D F G H J K L"), K("Semicolon", ";"), K("Quote", "'"), K("Enter", "Enter", 2.25)],
-  [K("ShiftLeft", "Shift", 2.25), ...L("Z X C V B N M"), K("Comma", ","), K("Period", "."), K("Slash", "/"), K("ShiftRight", "Shift", 2.75)],
-  [K("ControlLeft", "Ctrl", 1.25), K(IS_MAC ? "AltLeft" : "MetaLeft", IS_MAC ? "⌥" : "Win", 1.25), K(IS_MAC ? "MetaLeft" : "AltLeft", IS_MAC ? "⌘" : "Alt", 1.25), K("Space", "Dấu cách", 6.25),
-    K(IS_MAC ? "MetaRight" : "AltRight", IS_MAC ? "⌘" : "Alt", 1.25), K(IS_MAC ? "AltRight" : "ContextMenu", IS_MAC ? "⌥" : "Menu", 1.25), K("ControlRight", "Ctrl", 1.25)]
-];
+const FK = (a, b) => Array.from({ length: b - a + 1 }, (_, i) => K("F" + (a + i), "F" + (a + i)));
 const ARROWS = [K("ArrowUp", "↑"), K("ArrowLeft", "←"), K("ArrowDown", "↓"), K("ArrowRight", "→")];
-// cụm phím điều hướng và bàn phím số (bàn phím đầy đủ)
-const NAV = [[K("PrintScreen", "PrtSc"), K("ScrollLock", "ScrLk"), K("Pause", "Pause")], [K("Insert", "Ins"), K("Home", "Home"), K("PageUp", "PgUp")], [K("Delete", "Del"), K("End", "End"), K("PageDown", "PgDn")]];
-const NUMPAD = [["NumLock", "Num", "a"], ["NumpadDivide", "/", "b"], ["NumpadMultiply", "*", "c"], ["NumpadSubtract", "−", "d"], ["Numpad7", "7", "e"], ["Numpad8", "8", "f"], ["Numpad9", "9", "g"], ["NumpadAdd", "+", "h"],
-  ["Numpad4", "4", "i"], ["Numpad5", "5", "j"], ["Numpad6", "6", "k"], ["Numpad1", "1", "l"], ["Numpad2", "2", "m"], ["Numpad3", "3", "n"], ["NumpadEnter", "Enter", "o"], ["Numpad0", "0", "p"], ["NumpadDecimal", ".", "q"]];
-const KEY_COUNT = ROWS.flat().length + ARROWS.length;
+const ROW_W = 15; // bề rộng một hàng, tính theo số phím chữ; phím cách tự lấp phần còn lại
 
-/** Thử bàn phím. opts.full: có chọn bố cục đầy đủ, thử giữ nhiều phím, phát hiện phím dội, lịch sử phím */
+/** Bố cục bàn phím: mac (Mac/Windows), desk (bàn phím rời: cụm Ins/Home…, mũi tên riêng), num (có bàn phím số).
+ *  Trả về { rows: hàng phím chính, nav: [phím, hàng, cột], num: [phím, hàng, cột, số hàng, số cột] } */
+function kbLayout(mac, desk, num) {
+  const top = [K("Escape", mac ? "esc" : "Esc"), ...FK(1, 12)];
+  if (!mac && !desk) top.push(K("Delete", "Del"));
+  const ctl = K("ControlLeft", mac ? "⌃ ctrl" : "Ctrl", 1.25), opt = (s) => K("Alt" + s, mac ? "⌥ opt" : "Alt", 1.25);
+  const cmd = (s) => K("Meta" + s, mac ? "⌘ cmd" : "Win", mac ? 1.5 : 1.25), space = K("Space", "Dấu cách", 0);
+  const bottom = mac
+    ? (desk ? [ctl, opt("Left"), cmd("Left"), space, cmd("Right"), opt("Right"), K("ControlRight", "⌃ ctrl", 1.25)]
+      : [NA("fn"), { ...ctl, w: 1 }, { ...opt("Left"), w: 1 }, cmd("Left"), space, cmd("Right"), { ...opt("Right"), w: 1 }, { code: "arrows", w: 3 }])
+    : (desk ? [ctl, cmd("Left"), opt("Left"), space, opt("Right"), cmd("Right"), K("ContextMenu", "Menu", 1.25), K("ControlRight", "Ctrl", 1.25)]
+      : [ctl, NA("Fn"), cmd("Left"), opt("Left"), space, opt("Right"), K("ControlRight", "Ctrl", 1.25), { code: "arrows", w: 3 }]);
+  space.w = ROW_W - bottom.reduce((s, k) => s + k.w, 0);
+  const rows = [top,
+    [K("Backquote", "`"), ...[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((d) => K("Digit" + d, String(d))), K("Minus", "-"), K("Equal", "="), K("Backspace", mac ? "delete" : "⌫ Xoá", 2)],
+    [K("Tab", mac ? "tab" : "Tab", 1.5), ...L("Q W E R T Y U I O P"), K("BracketLeft", "["), K("BracketRight", "]"), K("Backslash", "\\", 1.5)],
+    [K("CapsLock", mac ? "caps" : "Caps", 1.75), ...L("A S D F G H J K L"), K("Semicolon", ";"), K("Quote", "'"), K("Enter", mac ? "return" : "Enter", 2.25)],
+    [K("ShiftLeft", mac ? "⇧ shift" : "Shift", 2.25), ...L("Z X C V B N M"), K("Comma", ","), K("Period", "."), K("Slash", "/"), K("ShiftRight", mac ? "⇧ shift" : "Shift", 2.75)],
+    bottom];
+  // cụm điều hướng 3 cột × 6 hàng (hàng 1 ngang hàng phím F), mũi tên ở hai hàng cuối
+  const nav = !desk ? [] : [...(mac ? [[K("F13", "F13"), 1, 1], [K("F14", "F14"), 1, 2], [K("F15", "F15"), 1, 3],
+    [NA("fn"), 2, 1], [K("Home", "home"), 2, 2], [K("PageUp", "pg up"), 2, 3], [K("Delete", "⌦ del"), 3, 1], [K("End", "end"), 3, 2], [K("PageDown", "pg dn"), 3, 3]]
+    : [[K("PrintScreen", "PrtSc"), 1, 1], [K("ScrollLock", "ScrLk"), 1, 2], [K("Pause", "Pause"), 1, 3],
+      [K("Insert", "Ins"), 2, 1], [K("Home", "Home"), 2, 2], [K("PageUp", "PgUp"), 2, 3], [K("Delete", "Del"), 3, 1], [K("End", "End"), 3, 2], [K("PageDown", "PgDn"), 3, 3]]),
+    [ARROWS[0], 5, 2], [ARROWS[1], 6, 1], [ARROWS[2], 6, 2], [ARROWS[3], 6, 3]];
+  // bàn phím số 4 cột × 6 hàng; Mac có thêm F16–F19 ở hàng trên cùng và phím = (clear là NumLock)
+  const N = (code, label, r, c, rs = 1, cs = 1) => [K(code, label), r, c, rs, cs];
+  const pad = !num ? [] : mac
+    ? [...[16, 17, 18, 19].map((f, i) => N("F" + f, "F" + f, 1, i + 1)), N("NumLock", "clear", 2, 1), N("NumpadEqual", "=", 2, 2), N("NumpadDivide", "/", 2, 3), N("NumpadMultiply", "*", 2, 4),
+      N("Numpad7", "7", 3, 1), N("Numpad8", "8", 3, 2), N("Numpad9", "9", 3, 3), N("NumpadSubtract", "−", 3, 4), N("Numpad4", "4", 4, 1), N("Numpad5", "5", 4, 2), N("Numpad6", "6", 4, 3), N("NumpadAdd", "+", 4, 4),
+      N("Numpad1", "1", 5, 1), N("Numpad2", "2", 5, 2), N("Numpad3", "3", 5, 3), N("NumpadEnter", "enter", 5, 4, 2), N("Numpad0", "0", 6, 1, 1, 2), N("NumpadDecimal", ".", 6, 3)]
+    : [N("NumLock", "Num", 2, 1), N("NumpadDivide", "/", 2, 2), N("NumpadMultiply", "*", 2, 3), N("NumpadSubtract", "−", 2, 4),
+      N("Numpad7", "7", 3, 1), N("Numpad8", "8", 3, 2), N("Numpad9", "9", 3, 3), N("NumpadAdd", "+", 3, 4, 2), N("Numpad4", "4", 4, 1), N("Numpad5", "5", 4, 2), N("Numpad6", "6", 4, 3),
+      N("Numpad1", "1", 5, 1), N("Numpad2", "2", 5, 2), N("Numpad3", "3", 5, 3), N("NumpadEnter", "Enter", 5, 4, 2), N("Numpad0", "0", 6, 1, 1, 2), N("NumpadDecimal", ".", 6, 3)];
+  return { rows, nav, num: pad };
+}
+
+/** Thử bàn phím. opts.full: có chọn bố cục (Windows/Mac, laptop/bàn phím rời, bàn phím số), thử giữ nhiều phím, phát hiện phím dội, lịch sử phím */
 export function kbdPane(p, ctx, opts = {}) {
   p.textContent = "";
-  const S = ctx.store;
-  let full = !!opts.full && S.get("kbFull", false);
+  const S = ctx.store, oldFull = S.get("kbFull", false); // kbFull: lựa chọn của bản cũ (Laptop / Đầy đủ)
+  let mac = opts.full ? S.get("kbOS", IS_MAC ? "mac" : "win") === "mac" : IS_MAC;
+  let desk = !!opts.full && S.get("kbDesk", oldFull), num = !!opts.full && S.get("kbNum", oldFull);
   const seen = new Set(), keyEls = {}, held = new Set(), upAt = {}, chatter = new Set(), hist = [];
   let maxHeld = 0;
   const last = h("div", { class: "dt-lastkey", "aria-live": "polite" }, h("b", { text: "Bấm một phím bất kỳ" }));
@@ -241,26 +268,46 @@ export function kbdPane(p, ctx, opts = {}) {
   const rollEl = h("p", { class: "dt-roll", hidden: !opts.full });
   const chatEl = h("div");
   const histEl = h("div", { class: "dt-hist", hidden: !opts.full, "aria-label": "Các phím vừa bấm" });
+  const note = h("p", { class: "hint" });
   function build() {
     for (const k in keyEls) delete keyEls[k];
-    const mk = (k, extra = "") => (keyEls[k.code] = h("span", { class: "dt-k " + extra, style: k.w ? { flexGrow: k.w } : null, text: k.label }));
-    const main = h("div", { class: "dt-kb" },
-      ROWS.map((r) => h("div", { class: "dt-kr" }, r.map((k) => mk(k)))),
-      h("div", { class: "dt-kr dt-arrows" }, ARROWS.map((k) => mk({ ...k, w: 0 }, k.code))));
-    const board = h("div", { class: "dt-board" + (full ? " full" : ""), "aria-hidden": "true" }, main);
-    if (full) {
-      board.append(h("div", { class: "dt-nav" }, NAV.map((r) => h("div", { class: "dt-kr" }, r.map((k) => mk({ ...k, w: 0 }))))),
-        h("div", { class: "dt-num" }, NUMPAD.map(([code, label, area]) => { const e = mk({ code, label, w: 0 }); e.style.gridArea = area; return e; })));
-    }
+    const lay = kbLayout(mac, desk, num);
+    const mk = (k, extra = "") => {
+      const e = h("span", { class: "dt-k " + (k.na ? "na " : "") + extra, style: k.w ? { flexGrow: k.w } : null, text: k.label });
+      if (!k.na) keyEls[k.code] = e;
+      return e;
+    };
+    const at = (e, r, c, rs = 1, cs = 1) => { e.style.gridRow = `${r} / span ${rs}`; e.style.gridColumn = `${c} / span ${cs}`; return e; };
+    const arrows = (k) => h("div", { class: "dt-ar", style: { flexGrow: k.w } }, ARROWS.map((a) => mk(a, a.code)));
+    const main = h("div", { class: "dt-kb" }, lay.rows.map((r) => h("div", { class: "dt-kr" }, r.map((k) => (k.code === "arrows" ? arrows(k) : mk(k))))));
+    const board = h("div", { class: "dt-board" + (desk ? " desk" : "") + (num ? " num" : ""), "aria-hidden": "true" }, main);
+    if (lay.nav.length) board.append(h("div", { class: "dt-nav" }, lay.nav.map(([k, r, c]) => at(mk(k), r, c))));
+    if (lay.num.length) board.append(h("div", { class: "dt-num" }, lay.num.map(([k, r, c, rs, cs]) => at(mk(k), r, c, rs, cs))));
     wrap.textContent = ""; wrap.append(board);
     for (const c of seen) if (keyEls[c]) keyEls[c].classList.add("ok");
+    for (const c of chatter) if (keyEls[c]) keyEls[c].classList.add("bad");
+    note.textContent = (mac ? "Trên Mac, hàng F1–F12 mặc định là phím độ sáng, âm lượng… nên trang web không nhận: giữ fn rồi bấm để thử. " : "")
+      + "Phím viền đứt (Fn) và một số phím khác (Print Screen, phím đa phương tiện, tổ hợp hệ thống) do hệ điều hành giữ nên trang web không nhận được.";
+    drawCount();
   }
+  const seg = (label, name, items, cur, set) => h("div", { class: "seg", role: "radiogroup", "aria-label": label },
+    items.map(([v, l]) => h("label", null, h("input", { type: "radio", name, value: v, checked: v === cur, onchange: (e) => { set(v); unfocus(e); build(); } }), h("span", { text: l }))));
+  // bấm chuột chọn xong thì bỏ focus để phím bấm tiếp theo được tính; dùng bàn phím (Tab) thì giữ nguyên
+  const unfocus = (e) => { if (!e.target.matches(":focus-visible")) e.target.blur(); };
+  const numSw = h("input", { type: "checkbox", checked: num, onchange: (e) => { num = e.target.checked; S.set("kbNum", num); unfocus(e); build(); } });
+  const controls = opts.full ? h("div", { class: "row dt-kbopt" },
+    seg("Hệ điều hành", "kb-os", [["win", "Windows"], ["mac", "Mac"]], mac ? "mac" : "win", (v) => { mac = v === "mac"; S.set("kbOS", v); }),
+    seg("Kiểu bàn phím", "kb-desk", [["0", "Laptop"], ["1", "Bàn phím rời"]], desk ? "1" : "0", (v) => { desk = v === "1"; S.set("kbDesk", desk); }),
+    h("label", { class: "switch" }, numSw, h("span", { text: "Có bàn phím số" }))) : null;
   build();
-  const layout = opts.full ? h("div", { class: "seg", role: "radiogroup", "aria-label": "Bố cục bàn phím" },
-    [["0", "Laptop"], ["1", "Đầy đủ (có phím số)"]].map(([v, l]) => h("label", null, h("input", { type: "radio", name: "kb-layout", value: v, checked: (v === "1") === full, onchange: () => { full = v === "1"; S.set("kbFull", full); build(); } }), h("span", { text: l })))) : null;
-  p.append(layout || "", last, wrap, others, rollEl, chatEl, histEl,
+  p.append(controls || "", last, wrap, others, rollEl, chatEl, histEl,
     h("div", { class: "row", style: { justifyContent: "space-between" } }, count, h("button", { class: "btn ghost sm", type: "button", onclick: reset }, h("span", { html: icon("rotate-ccw"), style: { display: "contents" } }), "Thử lại từ đầu")),
-    h("p", { class: "hint", text: "Phím đã nhận chuyển màu xanh. Một số phím (Fn, Print Screen, phím đa phương tiện, tổ hợp hệ thống) do hệ điều hành giữ nên trang web không nhận được." }));
+    note);
+  function drawCount() {
+    if (!seen.size) { count.textContent = ""; return; }
+    const total = Object.keys(keyEls).length, onBoard = Object.keys(keyEls).filter((c) => seen.has(c)).length;
+    count.textContent = `Đã nhận ${seen.size} phím khác nhau · ${onBoard}/${total} phím trên hình`;
+  }
   function drawRoll() { rollEl.textContent = held.size ? `Đang giữ ${held.size} phím cùng lúc · nhiều nhất: ${maxHeld}` : maxHeld ? `Nhận được nhiều nhất ${maxHeld} phím giữ cùng lúc` : "Giữ nhiều phím cùng lúc (ví dụ A S D F J K L) để xem bàn phím nhận được bao nhiêu phím một lúc."; }
   function reset() {
     seen.clear(); held.clear(); chatter.clear(); hist.length = 0; maxHeld = 0;
@@ -286,7 +333,7 @@ export function kbdPane(p, ctx, opts = {}) {
     else if (!others.querySelector(`[data-c="${CSS.escape(code)}"]`)) others.append(h("span", { class: "chip", "data-c": code, text: code }));
     last.textContent = "";
     last.append(h("b", { text: e.key === " " ? "Dấu cách" : e.key }), h("span", { class: "hint", text: `code: ${e.code || "–"} · keyCode: ${e.keyCode}${e.location ? " · " + ["", "bên trái", "bên phải", "bàn phím số"][e.location] : ""}${e.repeat ? " · đang giữ" : ""}` }));
-    count.textContent = `Đã nhận ${seen.size} phím khác nhau` + (opts.full ? ` (bàn phím laptop có khoảng ${KEY_COUNT} phím)` : "");
+    drawCount();
     if (opts.full && !e.repeat) {
       hist.unshift(e.key === " " ? "Space" : e.key.length === 1 ? e.key.toUpperCase() : e.key);
       hist.length = Math.min(hist.length, 24);
@@ -294,8 +341,13 @@ export function kbdPane(p, ctx, opts = {}) {
     }
     drawRoll();
   };
-  const up = (e) => { const code = e.code || e.key; upAt[code] = performance.now(); held.delete(code); const k = keyEls[code]; if (k) k.classList.remove("down"); drawRoll(); };
   const blur = () => { held.clear(); Object.values(keyEls).forEach((x) => x.classList.remove("down")); drawRoll(); };
+  const up = (e) => {
+    const code = e.code || e.key; upAt[code] = performance.now();
+    // macOS không gửi keyup cho các phím bấm trong lúc giữ ⌘, nên nhả ⌘ thì coi như nhả hết
+    if (IS_MAC && /^Meta/.test(code)) return blur();
+    held.delete(code); const k = keyEls[code]; if (k) k.classList.remove("down"); drawRoll();
+  };
   document.addEventListener("keydown", down);
   document.addEventListener("keyup", up);
   window.addEventListener("blur", blur);
@@ -451,11 +503,13 @@ css.textContent = `.dt{display:grid;gap:16px}.dt-tabs{max-width:100%}.dt-tabs sp
 .dt-spk .i{width:24px;height:24px}
 .dt-lastkey{display:flex;flex-direction:column;align-items:center;gap:4px;min-height:70px;justify-content:center;text-align:center}.dt-lastkey b{font-size:28px;font-family:var(--mono)}
 .dt-kbwrap{overflow-x:auto;padding-bottom:4px}
-.dt-board{display:flex;gap:14px;align-items:flex-start;min-width:640px;user-select:none}.dt-board.full{min-width:960px}
-.dt-kb{display:grid;gap:5px;flex:1}
-.dt-nav{display:grid;gap:5px;flex:0 0 150px}.dt-nav .dt-kr:first-child{margin-bottom:40px}
-.dt-num{display:grid;gap:5px;flex:0 0 200px;margin-top:45px;grid-template-columns:repeat(4,1fr);grid-auto-rows:40px;grid-template-areas:"a b c d" "e f g h" "i j k h" "l m n o" "p p q o"}
-.dt-num .dt-k,.dt-nav .dt-k{height:auto;min-height:40px}
+.dt-kbopt{gap:10px 14px;align-items:center}.dt-kbopt .switch{align-items:center}
+.dt-board{display:flex;gap:14px;align-items:flex-start;min-width:640px;user-select:none}.dt-board.desk{min-width:800px}.dt-board.num{min-width:850px}.dt-board.desk.num{min-width:1020px}
+.dt-kb{display:grid;gap:5px;flex:1 1 620px}
+.dt-nav,.dt-num{display:grid;gap:5px;grid-template-rows:repeat(6,40px)}.dt-nav{flex:0 0 150px;grid-template-columns:repeat(3,1fr)}
+.dt-num{flex:0 0 200px;grid-template-columns:repeat(4,1fr)}
+.dt-num .dt-k,.dt-nav .dt-k{height:auto}
+.dt-k.na{border-style:dashed;border-bottom-width:1px;opacity:.6}
 .dt-k.ok.bad,.dt-k.bad{background:var(--warn-soft);border-color:var(--warn);color:var(--warn)}
 .dt-roll{margin:0;font-weight:600}
 .dt-hist{display:flex;flex-wrap:wrap;gap:5px;align-items:center}.dt-hist kbd{font:600 12.5px var(--mono);padding:2px 7px;border:1px solid var(--line-2);border-radius:6px;background:var(--surface)}
@@ -463,8 +517,9 @@ css.textContent = `.dt{display:grid;gap:16px}.dt-tabs{max-width:100%}.dt-tabs sp
 .dt-pane .btn{white-space:normal;max-width:100%}
 .dt-kr{display:flex;gap:5px}.dt-k{flex:1 1 0;min-width:0;height:40px;display:grid;place-items:center;border:1px solid var(--line-2);border-bottom-width:3px;border-radius:8px;background:var(--surface);font:600 12.5px var(--mono);color:var(--muted);white-space:nowrap;overflow:hidden}
 .dt-k.ok{background:var(--ok-soft);border-color:var(--ok);color:var(--ok)}.dt-k.down{transform:translateY(2px);border-bottom-width:1px;background:var(--ok);color:#fff}
-.dt-arrows{display:grid;grid-template-columns:repeat(3,44px);grid-template-areas:". u ." "l d r";justify-content:end;gap:5px}
-.dt-arrows .ArrowUp{grid-area:u}.dt-arrows .ArrowLeft{grid-area:l}.dt-arrows .ArrowDown{grid-area:d}.dt-arrows .ArrowRight{grid-area:r}
+.dt-ar{flex:1 1 0;min-width:0;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:1fr 1fr;grid-template-areas:". u ." "l d r";gap:2px;height:40px}
+.dt-ar .dt-k{height:auto;border-bottom-width:2px;border-radius:6px;font-size:11px}.dt-ar .dt-k.down{border-bottom-width:1px;transform:translateY(1px)}
+.dt-ar .ArrowUp{grid-area:u}.dt-ar .ArrowLeft{grid-area:l}.dt-ar .ArrowDown{grid-area:d}.dt-ar .ArrowRight{grid-area:r}
 .dt-others{display:flex;flex-wrap:wrap;gap:6px}.dt-others .chip{min-height:30px;font-family:var(--mono);font-size:13px;background:var(--ok-soft);border-color:var(--ok)}
 .dt-mouse{border:2px dashed var(--line-2);border-radius:14px;padding:16px;display:grid;gap:10px;justify-items:center;user-select:none}
 .dt-mouse:focus-visible{outline:3px solid var(--brand)}
