@@ -53,7 +53,7 @@ interactiveTool({
     function card(c, i, t, ref) {
       const p = zoned(c.zone, t), off = offsetMin(c.zone, t);
       const night = p.h < 6 || p.h >= 18, work = p.wd >= 1 && p.wd <= 5 && p.h >= 8 && p.h < 17;
-      return h("article", { class: "wc-card" + (night ? " night" : "") + (work ? " work" : "") },
+      return h("article", { class: "wc-card" + (night ? " night" : "") + (work ? " wc-work" : "") },
         h("div", { class: "wc-head" },
           h("div", { class: "wc-name" }, h("b", { text: c.name }), h("small", { text: c.country })),
           h("button", { class: "ib sm", type: "button", title: "Bỏ " + c.name, "aria-label": "Bỏ " + c.name, html: icon("x"), onclick: () => { picked.splice(i, 1); save(); fillZones(); tick(); } })),
@@ -96,7 +96,7 @@ css.textContent = `.wc{display:grid;gap:16px}
 .wc-conv-in{display:none;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}.wc-conv.on .wc-conv-in{display:grid}
 .wc-grid{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(min(100%,128px),1fr))}
 .wc-card{border:1px solid var(--line);border-radius:14px;padding:10px 12px;min-width:0;display:grid;gap:4px;background:var(--surface)}
-.wc-card.work{border-color:color-mix(in srgb,var(--ok) 45%,var(--line));background:color-mix(in srgb,var(--ok-soft) 55%,var(--surface))}
+.wc-card.wc-work{border-color:color-mix(in srgb,var(--ok) 45%,var(--line));background:color-mix(in srgb,var(--ok-soft) 55%,var(--surface))}
 .wc-card.night{background:color-mix(in srgb,var(--surface-2) 70%,var(--surface))}
 .wc-card{position:relative}.wc-head{padding-right:26px}.wc-head .ib{position:absolute;top:4px;right:4px;width:30px;height:30px}
 .wc-name{min-width:0;display:grid}.wc-name b{overflow-wrap:anywhere;line-height:1.25}.wc-name small{color:var(--muted);font-size:12.5px}

@@ -20,6 +20,8 @@ assets/
                            hiện ô kiểu Việt Nam (15.000.000; 15/01/2026), ghi .xlsx / .csv, bảng xem trước
   fonts.js                 font có dấu tiếng Việt để vẽ chữ lên canvas (tải khi cần)
   security.js              tiện ích dùng chung cho nhóm Bảo mật (thanh độ mạnh mật khẩu)
+  devices.js               các phần kiểm tra thiết bị (camera, micro, loa, bàn phím, chuột, màn hình): dùng chung cho trang gộp
+                           kiem-tra-thiet-bi và 6 trang riêng (mỗi trang một thiết bị, để có tiêu đề/FAQ riêng cho SEO)
   media.js                 tiện ích dùng chung cho nhóm Âm thanh & video: đọc thông tin file, chuyển đổi/cắt/nén (Mediabunny),
                            giải mã/mã hoá âm thanh, thanh chọn đoạn (dạng sóng hoặc dải ảnh), trình phát, xem trước kết quả
   pdf-pages.js             "bảng trang" PDF: pageTool() dựng trên khung file, mỗi trang một thẻ (chọn, xoay, xoá, đổi chỗ, xem trước)
@@ -151,6 +153,7 @@ Mọi công cụ dùng `assets/media.js` (Mediabunny + WebCodecs, không dùng f
 - PDF: font chuẩn của pdf-lib không có dấu tiếng Việt → `embedVnFont` (nhúng nguyên font, fontkit lỗi khi `subset`); pdf-lib ghi sai ToUnicode cho chữ ghép fi/fl nên đã tắt chữ ghép; `decodePDFRawStream` không bỏ Predictor PNG (`unPredict`); bản nén đổi tên lớp → dùng `instanceof`, không dùng `constructor.name`; PDF do Chrome in hay tách một chữ có dấu thành nhiều mảnh.
 - Ảnh: SVG chỉ có viewBox không có kích thước tự nhiên (`svgWithSize`); thang chất lượng AVIF khắt khe hơn JPG (trừ 20); ở lucide-static 1.52 `flip-vertical-2` là lật trái–phải.
 - Excel (SheetJS): ngày đọc ra là giờ UTC → định dạng bằng `getUTC*`; chép ô sang bảng khác phải bỏ công thức.
+- Lỗi TDZ chỉ lộ ra khi trang mở lại với trạng thái đã lưu (vd. thẻ đang chọn): khung gọi `mount` ngay lúc `interactiveTool(...)` chạy, nên mọi hằng mà `mount` dùng phải khai báo trước lời gọi đó (hoặc để ở module riêng).
 - Khung trang: công cụ `custom` có `onChange` gọi `ctx.refresh()` sẽ lặp vô hạn; `el.append(null)` chèn chữ "null"; `classList.toggle(tên, undefined)` đảo lớp; ô form tự đồng bộ lên URL → dữ liệu nhạy cảm đặt `url: false`, `share: false`.
 - Regex JS: `\b` chỉ hiểu chữ ASCII ("giờ\b" không khớp) → dùng lookahead.
 - Web Audio: `await audioContext.resume()` treo khi không có thao tác thật của người dùng → không `await`.

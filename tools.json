@@ -1982,16 +1982,102 @@
     },
     {
       "id": "device-test", "slug": "kiem-tra-thiet-bi", "name": "Kiểm tra camera, micro, bàn phím, màn hình", "group": "productivity", "icon": "monitor-check", "kind": "interactive",
-      "desc": "Thử camera, micro, loa trái/phải, bàn phím, chuột và điểm chết màn hình trước khi họp online.",
-      "keywords": ["test webcam", "test micro", "test bàn phím", "dead pixel", "kiểm tra loa"],
+      "desc": "Thử camera, micro, loa trái/phải, bàn phím, chuột và điểm chết màn hình trên một trang, trước khi họp online.",
+      "keywords": ["kiểm tra thiết bị", "test trước khi họp", "test webcam micro", "kiểm tra máy tính"],
       "status": "done",
-      "aliases": ["test-webcam", "test-micro", "test-ban-phim", "kiem-tra-diem-chet-man-hinh"],
-      "related": ["voice-recorder", "screen-recorder"],
-      "howto": ["Chọn thiết bị cần thử: Camera, Micro, Loa, Bàn phím/chuột hoặc Màn hình.", "Bấm Bật camera / Bật micro và cho phép trình duyệt truy cập khi được hỏi.", "Làm theo hướng dẫn ở từng phần: nói thử, ghi thử 5 giây, bấm từng phím, xem điểm chết."],
+      "aliases": ["kiem-tra-may-tinh", "test-thiet-bi"],
+      "related": ["webcam-test", "mic-test", "speaker-test", "keyboard-test", "mouse-test", "screen-test"],
+      "howto": ["Chọn thiết bị cần thử: Camera, Micro, Loa, Bàn phím, Chuột hoặc Màn hình.", "Bấm Bật camera / Bật micro và cho phép trình duyệt truy cập khi được hỏi.", "Làm theo hướng dẫn ở từng phần: nói thử, ghi thử 5 giây, bấm từng phím, xem điểm chết."],
       "faq": [
         { "q": "Cho trình duyệt dùng camera, micro có an toàn không?", "a": "Hình và tiếng chỉ hiện trên máy bạn, không ghi lại hay gửi đi (bản ghi thử 5 giây cũng chỉ nằm trong trình duyệt). Chuyển sang phần khác hoặc đóng trang là camera, micro được tắt." },
         { "q": "Camera báo đang bị dùng?", "a": "Đóng các ứng dụng đang dùng camera (Zoom, Teams, Meet ở tab khác…) rồi thử lại." },
         { "q": "Có phím bấm mà không sáng?", "a": "Một số phím do hệ điều hành giữ (Fn, Print Screen, phím âm lượng…) nên trang web không nhận được; điều đó không có nghĩa là phím hỏng." }
+      ]
+    },
+    {
+      "id": "webcam-test", "slug": "kiem-tra-webcam", "name": "Test webcam", "group": "productivity", "icon": "webcam", "kind": "interactive",
+      "desc": "Kiểm tra webcam, camera laptop online: xem hình, độ phân giải, số khung hình/giây, chụp thử ảnh.",
+      "keywords": ["test webcam", "kiểm tra camera", "test camera laptop", "webcam online", "camera không lên hình"],
+      "status": "done",
+      "aliases": ["test-webcam", "test-camera", "kiem-tra-camera"],
+      "related": ["mic-test", "speaker-test", "device-test", "screen-recorder"],
+      "howto": ["Bấm Bật camera và cho phép trình duyệt dùng camera khi được hỏi.", "Xem hình có rõ, đủ sáng không; đọc độ phân giải và số khung hình/giây.", "Máy có nhiều camera thì chọn camera khác trong danh sách; bấm Chụp thử để lưu một ảnh."],
+      "faq": [
+        { "q": "Webcam không lên hình phải làm sao?", "a": "Kiểm tra đã cho phép trình duyệt dùng camera (biểu tượng ổ khoá cạnh thanh địa chỉ), đóng ứng dụng khác đang dùng camera (Zoom, Teams…), xem laptop có nắp che hoặc phím tắt camera không. Trên macOS vào Cài đặt hệ thống → Quyền riêng tư & Bảo mật → Camera để cho phép trình duyệt." },
+        { "q": "Sao hình bị lật ngược trái phải?", "a": "Hình xem trước được lật như soi gương cho dễ nhìn; người khác trong cuộc họp vẫn thấy hình đúng chiều. Có thể tắt Lật gương." },
+        { "q": "Hình ảnh có bị gửi đi không?", "a": "Không. Hình chỉ hiện trên máy bạn; tắt camera hoặc đóng trang là camera được tắt." }
+      ]
+    },
+    {
+      "id": "mic-test", "slug": "kiem-tra-micro", "name": "Test micro", "group": "productivity", "icon": "mic-vocal", "kind": "interactive",
+      "desc": "Kiểm tra micro online: xem mức âm và dạng sóng khi nói, ghi thử 5 giây rồi nghe lại.",
+      "keywords": ["test micro", "kiểm tra mic", "test mic online", "micro không nhận", "kiểm tra tai nghe có mic"],
+      "status": "done",
+      "aliases": ["test-micro", "test-mic", "kiem-tra-mic"],
+      "related": ["voice-recorder", "speaker-test", "webcam-test", "device-test"],
+      "howto": ["Bấm Bật micro và cho phép trình duyệt dùng micro khi được hỏi.", "Nói thử “một, hai, ba”: thanh mức âm nên lên tới vùng xanh.", "Bấm Ghi thử 5 giây rồi nghe lại để biết người khác nghe giọng bạn thế nào."],
+      "faq": [
+        { "q": "Micro không nhận tiếng?", "a": "Chọn đúng micro trong danh sách (khi có nhiều), kiểm tra công tắc tắt tiếng trên tai nghe, cho phép trình duyệt dùng micro (biểu tượng ổ khoá), đóng Zoom/Teams nếu đang chiếm micro. Trên macOS vào Cài đặt hệ thống → Quyền riêng tư & Bảo mật → Micrô." },
+        { "q": "Tiếng bị nhỏ hoặc rè?", "a": "Thanh mức âm ở vùng xám là quá nhỏ: để micro gần miệng hơn hoặc tăng âm lượng đầu vào trong cài đặt âm thanh. Chạm vùng đỏ là quá to, dễ rè." },
+        { "q": "Bản ghi thử có bị gửi đi không?", "a": "Không. Âm thanh chỉ nằm trong trình duyệt trên máy bạn. Cần ghi âm dài và tải về thì dùng công cụ Ghi âm." }
+      ]
+    },
+    {
+      "id": "speaker-test", "slug": "kiem-tra-loa", "name": "Test loa, tai nghe", "group": "productivity", "icon": "speaker", "kind": "interactive",
+      "desc": "Kiểm tra loa trái, loa phải, tai nghe; phát âm thử nhiều tần số, quét từ trầm đến cao.",
+      "keywords": ["test loa", "test tai nghe", "kiểm tra loa trái phải", "test âm thanh", "left right test"],
+      "status": "done",
+      "aliases": ["test-loa", "test-tai-nghe", "kiem-tra-tai-nghe"],
+      "related": ["mic-test", "webcam-test", "device-test"],
+      "howto": ["Đặt âm lượng nhỏ trước.", "Bấm Loa trái, Loa phải, Cả hai để nghe âm thử ở từng bên.", "Đổi tần số hoặc bấm Quét từ trầm đến cao để nghe loa có rè, có mất dải âm nào không."],
+      "faq": [
+        { "q": "Bấm Loa trái mà nghe bên phải?", "a": "Tai nghe đeo ngược, dây cắm bị đảo hoặc cài đặt cân bằng âm thanh (balance) đang lệch. Kiểm tra lại trong cài đặt âm thanh của máy." },
+        { "q": "Không nghe thấy âm tần số cao?", "a": "Loa nhỏ và tai người lớn tuổi thường khó nghe âm trên 12.000 Hz; điều này bình thường." }
+      ]
+    },
+    {
+      "id": "keyboard-test", "slug": "kiem-tra-ban-phim", "name": "Test bàn phím", "group": "productivity", "icon": "keyboard", "kind": "interactive",
+      "desc": "Kiểm tra bàn phím online: phím nào đã nhận, bàn phím laptop và đầy đủ (có phím số), giữ nhiều phím cùng lúc, phát hiện phím bị dội.",
+      "keywords": ["test bàn phím", "kiểm tra bàn phím", "keyboard test", "test phím laptop", "phím bị liệt", "test bàn phím cơ", "n-key rollover"],
+      "privacy": "Phím bạn bấm chỉ được xử lý ngay trên trình duyệt, không ghi lại hay gửi đi đâu.",
+      "status": "done", "popular": true,
+      "aliases": ["test-ban-phim", "keyboard-test", "kiem-tra-phim"],
+      "related": ["mouse-test", "screen-test", "device-test"],
+      "howto": ["Chọn bố cục Laptop hoặc Đầy đủ (có phím số).", "Bấm lần lượt từng phím: phím đã nhận chuyển màu xanh, phím không đổi màu có thể bị liệt.", "Giữ nhiều phím cùng lúc để xem bàn phím nhận được mấy phím một lúc; phím bị dội sẽ được tô vàng."],
+      "faq": [
+        { "q": "Có phím bấm mà không sáng?", "a": "Một số phím do hệ điều hành giữ (Fn, Print Screen trên Windows, phím âm lượng, độ sáng…) nên trang web không nhận được; điều đó không có nghĩa là phím hỏng. Các phím khác không sáng thì có thể bị liệt." },
+        { "q": "Phím bị dội là gì?", "a": "Bấm một lần mà máy nhận thành hai (gõ “aa” thay vì “a”), thường do công tắc phím bị bẩn hoặc mòn. Công cụ đánh dấu phím nào vừa nhả ra đã nhận lại ngay trong vòng 35 ms." },
+        { "q": "Giữ nhiều phím cùng lúc để làm gì?", "a": "Để biết bàn phím nhận được bao nhiêu phím một lúc (rollover). Bàn phím văn phòng thường chỉ nhận 2–6 phím ở một số tổ hợp; bàn phím cơ chơi game thường nhận đủ (N-key rollover)." }
+      ]
+    },
+    {
+      "id": "mouse-test", "slug": "kiem-tra-chuot", "name": "Test chuột", "group": "productivity", "icon": "mouse", "kind": "interactive",
+      "desc": "Kiểm tra chuột online: các nút (cả Lùi/Tiến), nhấp đúp, phát hiện chuột tự nhấp đúp, con lăn, tần số báo (polling rate).",
+      "keywords": ["test chuột", "kiểm tra chuột", "test double click", "chuột bị double click", "mouse test", "polling rate", "test con lăn chuột"],
+      "privacy": "Thao tác chuột chỉ được xử lý ngay trên trình duyệt, không ghi lại hay gửi đi đâu.",
+      "status": "done",
+      "aliases": ["test-chuot", "test-double-click", "kiem-tra-double-click"],
+      "related": ["keyboard-test", "screen-test", "device-test"],
+      "howto": ["Bấm lần lượt các nút chuột trong khung thử: nút nào nhận sẽ chuyển màu xanh và đếm số lần.", "Bấm từng cái chậm rãi: nếu một lần bấm bị nhận thành hai, công cụ sẽ báo chuột tự nhấp đúp.", "Lăn con lăn và di chuột nhanh trong khung để xem con lăn và tần số báo."],
+      "faq": [
+        { "q": "Chuột bị tự nhấp đúp (double click) là sao?", "a": "Bấm một lần mà máy nhận hai lần, thường do công tắc trong chuột bị mòn. Người bấm hai lần liên tiếp mất ít nhất khoảng 80 ms; công cụ báo khi hai lần bấm của cùng một nút cách nhau dưới 60 ms." },
+        { "q": "Tần số báo (polling rate) là gì?", "a": "Số lần chuột báo vị trí cho máy mỗi giây: chuột văn phòng thường 125 Hz, chuột chơi game 500–1000 Hz trở lên. Kết quả đo trên trình duyệt chỉ gần đúng và có thể bị giới hạn bởi trình duyệt, màn hình." },
+        { "q": "Bấm nút Lùi/Tiến có làm trang chuyển đi không?", "a": "Không, trong khung thử các nút này bị chặn để bạn thử thoải mái." }
+      ]
+    },
+    {
+      "id": "screen-test", "slug": "kiem-tra-man-hinh", "name": "Kiểm tra điểm chết màn hình", "group": "productivity", "icon": "monitor-dot", "kind": "interactive",
+      "desc": "Tìm điểm chết, điểm kẹt, hở sáng, loang màu trên màn hình bằng màu phủ kín; xem độ phân giải, tần số quét.",
+      "keywords": ["dead pixel", "điểm chết màn hình", "test màn hình", "kiểm tra màn hình laptop", "hở sáng", "test màn hình mới mua", "tần số quét"],
+      "privacy": "Mọi thứ chạy ngay trên trình duyệt của bạn, không gửi gì đi đâu.",
+      "status": "done",
+      "aliases": ["kiem-tra-diem-chet-man-hinh", "test-man-hinh", "dead-pixel-test"],
+      "related": ["keyboard-test", "webcam-test", "device-test"],
+      "howto": ["Lau sạch màn hình rồi bấm Thử điểm chết (toàn màn hình).", "Bấm chuột, phím → hoặc vuốt để đổi lần lượt các màu: tìm chấm luôn đen hoặc luôn sáng một màu.", "Ở nền đen xem viền có bị hở sáng; nền xám xem có vết loang; Esc để thoát."],
+      "faq": [
+        { "q": "Điểm chết và điểm kẹt khác gì nhau?", "a": "Điểm chết luôn đen trên mọi màu nền. Điểm kẹt luôn sáng một màu (đỏ, xanh lá hoặc xanh dương) dù nền đổi màu; điểm kẹt đôi khi tự hết." },
+        { "q": "Nên kiểm tra khi nào?", "a": "Ngay khi mua máy, màn hình mới (còn trong thời gian đổi trả), và khi mua máy cũ. Hãy kiểm tra trong phòng tối để thấy rõ hở sáng." },
+        { "q": "Tần số quét đo có chính xác không?", "a": "Gần đúng: trang đo số khung hình trình duyệt vẽ mỗi giây, có thể thấp hơn tần số thật khi máy đang tiết kiệm pin." }
       ]
     }
   ]
