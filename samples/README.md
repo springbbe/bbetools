@@ -1,6 +1,6 @@
 # File mẫu
 
-Dùng cho nút "Thử với file mẫu" trên các trang công cụ. Trừ ảnh chân dung và `logo-mau.svg` (viết tay), mọi file được tạo bởi `node scripts/make-samples.js` từ mã trong `scripts/samples/` (nội dung tự vẽ, không vướng bản quyền). Các file PDF có form, ảnh, mật khẩu được sinh bằng pdf-lib trong `scripts/samples/pdf-lib.html`; file Excel, CSV, JSON, Word sinh bằng `node scripts/samples/van-phong.js` (dữ liệu giả, hạt giống cố định).
+Dùng cho nút "Thử với file mẫu" trên các trang công cụ. Trừ ảnh chân dung và `logo-mau.svg` (viết tay), mọi file được tạo bởi `node scripts/make-samples.js` từ mã trong `scripts/samples/` (nội dung tự vẽ, không vướng bản quyền). Các file PDF có form, ảnh, mật khẩu được sinh bằng pdf-lib trong `scripts/samples/pdf-lib.html`; file Excel, CSV, JSON, Word sinh bằng `node scripts/samples/van-phong.js` (dữ liệu giả, hạt giống cố định); nhạc và video sinh bằng `node scripts/samples/media.js` (Chrome headless + Mediabunny, nhạc tự tổng hợp, hình tự vẽ).
 
 | File | Nội dung | Dùng cho |
 |---|---|---|
@@ -24,6 +24,9 @@ Dùng cho nút "Thử với file mẫu" trên các trang công cụ. Trừ ảnh
 | `khach-moi.xlsx`, `giay-moi-mau.docx` | danh sách khách mời giả và mẫu giấy mời Word có trường `{{…}}`, `«…»` (bị cắt thành nhiều run) và một MERGEFIELD | Trộn thư |
 | `bao-cao-mat-khau-1234.pdf.bbe` | `bao-cao-quy-1.pdf` mã hoá bằng mật khẩu `1234` (định dạng BbeTools, AES-256-GCM); sinh bằng `node scripts/samples/bao-mat.js` | Mã hoá/giải mã file |
 | `bao-cao-quy-1.pdf.sha256` | mã SHA-256 của `bao-cao-quy-1.pdf` theo định dạng `sha256sum` | Tính checksum file |
+| `nhac-mau.mp3` | 30 giây nhạc tự tổng hợp (vòng hợp âm C–G–Am–F), MP3 160 kbps, có thẻ tên bài | Cắt, Ghép, Đổi định dạng âm thanh |
+| `nhac-mau-2.m4a` | 16 giây nhạc khác, AAC 128 kbps | Ghép, Đổi định dạng âm thanh |
+| `video-mau.mp4` | 12 giây 1280×720, 30 khung/giây, H.264 + AAC; đồng hồ lớn và số khung trên hình, tiếng bíp ở mỗi giây tròn, khung hình khoá mỗi 2 giây | Video sang MP3/GIF, Cắt, Nén video, Chụp khung hình |
 | `chan-dung-mau.jpg` | chân dung **người không có thật** do StyleGAN tạo | Làm ảnh thẻ, Xoá phông, Che/làm mờ |
 
 `chan-dung-mau.jpg`: [File:Woman 1.jpg](https://commons.wikimedia.org/wiki/File:Woman_1.jpg) trên Wikimedia Commons, **public domain** (ảnh do mạng nơ-ron tạo, người trong ảnh không tồn tại).

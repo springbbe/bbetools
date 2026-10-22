@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Tạo file mẫu âm thanh, video</title>
+</head>
+<body>
+<p>Trang này được <code>scripts/samples/media.js</code> mở bằng Chrome headless: gọi <code>makeSample("nhac-mau.mp3")</code>… để nhận file (base64).
+Nhạc tự tổng hợp (vòng hợp âm I–V–vi–IV), hình tự vẽ, không vướng bản quyền.</p>
+<script type="module">
+import { lib } from "../../assets/core.js";
+
+const SR = 44100;
+const NOTE = (n) => 440 * 2 ** ((n - 69) / 12); // số MIDI → Hz
+
+// Vòng hợp âm C – G – Am – F, mỗi hợp âm 1 ô nhịp (4 phách), 100 nhịp/phút
+const CHORDS = [[60, 64, 67], [55, 59, 62], [57, 60, 64], [53, 57, 60]];
+const MELODY_A = [72, 74, 76, 79, 76, 74, 72, 67, 71, 74, 79, 74, 72, 71, 69, 67, 72, 76, 81, 79, 76, 72, 69, 72, 69, 72, 77, 76, 74, 72, 71, 72];
+const MELODY_B = [79, 77, 76, 74, 74, 76, 74, 71, 76, 72, 69, 72, 77, 72, 69, 65];
+
+function tone(ctx, { f, t, dur, type = "triangle", gain = 0.2, pan = 0, attack = 0.01, release = 0.25 }) {
+  const o = ctx.createOscillator(), g = ctx.createGain(), p = ctx.createStereoPanner();
+  o.type = type; o.frequency.value = f;
+  g.gain.setValueAtTime(0, t);
+  g.gain.linearRampToValueAtTime(gain, t + attack);
+  g.gain.exponentialRampToValueAtTime(gain * 0.35, t + dur * 0.6);
+  g.gain.exponentialRampToValueAtTime(0.0001, t + dur + release);
+  p.pan.value = pan;
+  o.connect(g).connect(p).connect(ctx.destination);
+  o.start(t); o.stop(t + dur + release + 0.05);
+}
+function hat(ctx, t, gain = 0.05) {
+  const len = Math.floor(SR * 0.05), b = ctx.createBuffer(1, len, SR), d = b.getChannelData(0);
+  let s = 12345;
+  for (let i = 0; i < len; i++) { s = (s * 1103515245 + 12345) & 0x7fffffff; d[i] = ((s / 0x7fffffff) * 2 - 1) * (1 - i / len) ** 3; }
+  const src = ctx.createBufferSource(), g = ctx.createGain(), f = ctx.createBiquadFilter();
+  f.type = "highpass"; f.frequency.value = 6000; g.gain.value = gain;
+  src.buffer = b; src.connect(f).connect(g).connect(ctx.destination); src.start(t);
+}
+
+/** Nhạc dài dur giây. variant "a" | "b"; beepEachSecond: tiếng bíp ngắn ở mỗi giây tròn (để kiểm tra khớp hình–tiếng) */
+async function music(dur, variant = "a", beepEachSecond = false) {
+  const ctx = new OfflineAudioContext(2, Math.ceil(SR * dur), SR);
+  const beat = 60 / (variant === "a" ? 100 : 116);
+  const mel = variant === "a" ? MELODY_A : MELODY_B;
+  const nBeats = Math.floor((dur - 0.6) / beat);
+  for (let b = 0; b < nBeats; b++) {
+    const t = b * beat, ch = CHORDS[Math.floor(b / 4) % 4];
+    // bè trầm + rải hợp âm
+    if (b % 2 === 0) tone(ctx, { f: NOTE(ch[0] - 12), t, dur: beat * 1.8, type: "sine", gain: 0.28, pan: 0 });
+    for (let k = 0; k < 2; k++) tone(ctx, { f: NOTE(ch[(b * 2 + k) % 3]), t: t + (k * beat) / 2, dur: beat * 0.45, type: "triangle", gain: 0.09, pan: k ? 0.5 : -0.5 });
+    // giai điệu
+    const n = mel[b % mel.length];
+    tone(ctx, { f: NOTE(n), t, dur: beat * 0.85, type: variant === "a" ? "square" : "sawtooth", gain: 0.045, pan: 0.15 });
+    tone(ctx, { f: NOTE(n), t, dur: beat * 0.85, type: "sine", gain: 0.12, pan: 0.15 });
+    hat(ctx, t + beat / 2, 0.04);
+  }
+  if (beepEachSecond) for (let s = 0; s < dur; s++) tone(ctx, { f: 1760, t: s, dur: 0.04, type: "sine", gain: 0.12, release: 0.03 });
+  return ctx.startRendering();
+}
+
+const b64 = (buf) => { const u = new Uint8Array(buf); let s = ""; for (let i = 0; i < u.length; i += 0x8000) s += String.fromCharCode(...u.subarray(i, i + 0x8000)); return btoa(s); };
+
+async function encodeAudio(buffer, kind, tags) {
+  const M = await lib("mediabunny");
+  if (kind === "mp3" && !(await M.canEncodeAudio("mp3"))) (await lib("mp3enc")).registerMp3Encoder();
+  const target = new M.BufferTarget();
+  const output = new M.Output({ format: kind === "mp3" ? new M.Mp3OutputFormat() : new M.Mp4OutputFormat({ fastStart: "in-memory" }), target });
+  const src = new M.AudioBufferSource({ codec: kind === "mp3" ? "mp3" : "aac", quality: new M.Quality({ bitrate: kind === "mp3" ? 160000 : 128000 }) });
+  output.addAudioTrack(src);
+  output.setMetadataTags(tags);
+  await output.start();
+  await src.add(buffer);
+  await output.finalize();
+  return target.buffer;
+}
+
+function drawFrame(g, W, H, t, i) {
+  const sec = Math.floor(t);
+  const hues = [210, 160, 30, 340, 270, 190, 50, 120, 0, 300, 230, 90];
+  const hue = hues[sec % hues.length];
+  const grd = g.createLinearGradient(0, 0, W, H);
+  grd.addColorStop(0, `hsl(${hue} 70% 32%)`); grd.addColorStop(1, `hsl(${(hue + 50) % 360} 75% 18%)`);
+  g.fillStyle = grd; g.fillRect(0, 0, W, H);
+  // lưới mờ
+  g.strokeStyle = "rgba(255,255,255,.07)"; g.lineWidth = 2;
+  for (let x = 0; x < W; x += 80) { g.beginPath(); g.moveTo(x, 0); g.lineTo(x, H); g.stroke(); }
+  for (let y = 0; y < H; y += 80) { g.beginPath(); g.moveTo(0, y); g.lineTo(W, y); g.stroke(); }
+  // quả bóng chạy vòng
+  const a = t * 1.3, bx = W / 2 + Math.cos(a) * W * 0.36, by = H / 2 + Math.sin(a * 1.7) * H * 0.3;
+  g.fillStyle = "#ffd447"; g.beginPath(); g.arc(bx, by, 46, 0, 7); g.fill();
+  g.fillStyle = "rgba(0,0,0,.25)"; g.beginPath(); g.arc(bx + 12, by + 14, 30, 0, 7); g.fill();
+  // thanh tiến độ
+  g.fillStyle = "rgba(255,255,255,.25)"; g.fillRect(80, H - 90, W - 160, 14);
+  g.fillStyle = "#fff"; g.fillRect(80, H - 90, (W - 160) * (t / 12), 14);
+  // đồng hồ lớn và số khung hình
+  g.fillStyle = "#fff"; g.textAlign = "center"; g.textBaseline = "middle";
+  g.font = "700 150px system-ui, -apple-system, Segoe UI, sans-serif";
+  const cs = Math.floor(t * 10) % 10;
+  g.fillText(`0:${String(sec).padStart(2, "0")},${cs}`, W / 2, H / 2 - 20);
+  g.font = "600 40px system-ui, -apple-system, Segoe UI, sans-serif";
+  g.fillText(`Video mẫu BbeTools · khung ${i + 1}`, W / 2, H / 2 + 110);
+  g.textAlign = "left"; g.font = "600 28px system-ui, sans-serif"; g.fillStyle = "rgba(255,255,255,.8)";
+  g.fillText("Giây " + (sec + 1), 80, 70);
+}
+
+async function video() {
+  const M = await lib("mediabunny");
+  const W = 1280, H = 720, FPS = 30, DUR = 12;
+  const cv = new OffscreenCanvas(W, H), g = cv.getContext("2d");
+  const target = new M.BufferTarget();
+  const output = new M.Output({ format: new M.Mp4OutputFormat({ fastStart: "in-memory" }), target });
+  const vsrc = new M.CanvasSource(cv, { codec: "avc", quality: new M.Quality({ bitrate: 1500000 }), keyFrameInterval: 2 });
+  const asrc = new M.AudioBufferSource({ codec: "aac", quality: new M.Quality({ bitrate: 128000 }) });
+  output.addVideoTrack(vsrc, { frameRate: FPS });
+  output.addAudioTrack(asrc);
+  output.setMetadataTags({ title: "Video mẫu BbeTools", comment: "Hình tự vẽ, nhạc tự tổng hợp" });
+  await output.start();
+  await asrc.add(await music(DUR, "a", true));
+  for (let i = 0; i < DUR * FPS; i++) {
+    const t = i / FPS;
+    drawFrame(g, W, H, t, i);
+    await vsrc.add(t, 1 / FPS);
+  }
+  await output.finalize();
+  return target.buffer;
+}
+
+window.makeSample = async (name) => {
+  if (name === "nhac-mau.mp3") return b64(await encodeAudio(await music(30, "a"), "mp3", { title: "Nhạc mẫu BbeTools", artist: "BbeTools", comment: "Nhạc tự tổng hợp, dùng tự do" }));
+  if (name === "nhac-mau-2.m4a") return b64(await encodeAudio(await music(16, "b"), "m4a", { title: "Nhạc mẫu BbeTools 2", artist: "BbeTools" }));
+  if (name === "video-mau.mp4") return b64(await video());
+  throw new Error("Không có mẫu " + name);
+};
+window.sampleReady = true;
+</script>
+</body>
+</html>

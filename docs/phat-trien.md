@@ -20,12 +20,14 @@ assets/
                            hiện ô kiểu Việt Nam (15.000.000; 15/01/2026), ghi .xlsx / .csv, bảng xem trước
   fonts.js                 font có dấu tiếng Việt để vẽ chữ lên canvas (tải khi cần)
   security.js              tiện ích dùng chung cho nhóm Bảo mật (thanh độ mạnh mật khẩu)
+  media.js                 tiện ích dùng chung cho nhóm Âm thanh & video: đọc thông tin file, chuyển đổi/cắt/nén (Mediabunny),
+                           giải mã/mã hoá âm thanh, thanh chọn đoạn (dạng sóng hoặc dải ảnh), trình phát, xem trước kết quả
   pdf-pages.js             "bảng trang" PDF: pageTool() dựng trên khung file, mỗi trang một thẻ (chọn, xoay, xoá, đổi chỗ, xem trước)
   pdf-objects.js           đi qua đối tượng bên trong PDF (nội dung trang, form, pattern, ảnh), giải nén luồng, đọc hệ màu
   ai/matting.js            AI tách nền (MODNet) + nhận diện khuôn mặt (UltraFace) chạy bằng onnxruntime-web
   lib/*.js                 hàm thuần, có test: search, filetype, doc-so, am-lich, vietqr, json-tools, text-stats, page-ranges, pdf-geom, pdf-text, pdf-content, pdf-image, scan, image-geom, exif, image-data, ocr-text, tien-luong, tai-chinh, tien-dien, bhxh, con-giap, don-vi, chia-tien, ngay, suc-khoe, bieu-thuc, so-la-ma, phan-tram, dvhc, ma-tinh, van-ban, vn-encoding, telex, diff, encode, hash, uuid, color, co-so, cron, timestamp, csv,
                            fancy-text, lorem, http-status, minify, regex, css-gen, ma-vach, bang, tron-thu, hoa-don, chu-ky-email,
-                           ngau-nhien, mat-khau (+ tu-mat-khau), ma-hoa, totp, checksum, bam-gio, mui-gio, checklist
+                           ngau-nhien, mat-khau (+ tu-mat-khau), ma-hoa, totp, checksum, bam-gio, mui-gio, checklist, media, tts
   regex-run.js, regex-worker.js   chạy biểu thức chính quy trong Web Worker có giới hạn thời gian (không treo trang)
   tools/<id>.js            logic riêng của từng công cụ
   registry.js              (sinh tự động) bản rút gọn của tools.json cho trình duyệt
@@ -41,10 +43,10 @@ scripts/check.js           kiểm tra registry, đường dẫn tương đối, 
 scripts/icons.js           tạo assets/icons.svg từ Lucide
 scripts/make-samples.js    tạo lại file mẫu (Chrome headless + sips trên macOS)
 scripts/make-brand.js      tạo ảnh OG và icon ứng dụng
+scripts/samples/           trang và script tạo từng nhóm file mẫu (media.js: nhạc, video qua Chrome headless + DevTools Protocol)
 scripts/data-dvhc.js       tạo lại data/don-vi-hanh-chinh.json và data/ma-tinh.json từ bộ dữ liệu mở (cần mạng)
 tests/                     test cho hàm thuần (node --test)
 CLAUDE.md                  quy ước cho AI (Claude Code) khi sửa repo
-docs/ke-hoach.md           kế hoạch xây dựng (tài liệu tạm, xoá khi xong)
 .claude/launch.json        cấu hình chạy thử (preview) cho Claude Code
 ```
 
@@ -89,6 +91,8 @@ Khai báo trong bảng `LIBS` của `assets/core.js`, gọi bằng `lib("tên")`
 | `@e965/xlsx@0.20.3` (SheetJS) | đọc .xlsx/.xls/.ods, ghi .xlsx (nhóm Văn phòng). Bản chính thức 0.20.3 chỉ có trên cdn.sheetjs.com; gói `@e965/xlsx` trên npm giống hệt từng byte (đã so SHA-256). Bản `xlsx@0.18.5` trên npm cũ và có lỗi bảo mật, đừng dùng |
 | `hash-wasm@4.12.0` | MD5, SHA-1, SHA-256, SHA-512, CRC32 theo luồng (Tính checksum file: file vài GB không cần đọc hết vào bộ nhớ) |
 | `@zxcvbn-ts/core@4.2.0` + `@zxcvbn-ts/language-common@4.1.3` + `@zxcvbn-ts/language-en@4.1.1` (qua `/+esm` của jsDelivr, đã đóng gói phụ thuộc) | ước lượng độ mạnh mật khẩu; thêm từ điển tiếng Việt và lời khuyên tiếng Việt trong `tools/password-strength.js` |
+| `mediabunny@1.61.3` (MPL-2.0) | đọc/ghi MP4, MOV, WebM, MKV, MP3, WAV, OGG, AAC, FLAC bằng WebCodecs, theo luồng: chuyển đổi, cắt (chép nguyên hoặc mã hoá lại), nén, lấy khung hình (nhóm Âm thanh & video) |
+| `@mediabunny/mp3-encoder@1.61.3`, `@mediabunny/aac-encoder@1.61.3` | mã hoá MP3 (LAME, trình duyệt không tự làm được) và AAC (khi trình duyệt thiếu, vd. Firefox) bằng WebAssembly. Hai gói nhập `"mediabunny"` theo tên trần: `LIBS` khai báo `rewrite: { mediabunny: "mediabunny" }` để `lib()` tải mã nguồn, thay tên đó bằng đúng URL đã ghim rồi nhập từ `blob:`, nhờ vậy encoder đăng ký vào đúng bản Mediabunny đang chạy |
 | `@fontsource/be-vietnam-pro@5.3.0` | font chữ |
 | `@fontsource/dancing-script`, `great-vibes`, `pacifico`, `roboto-slab` `@5.3.0` | font chữ ký "gõ tên" trong Ký PDF và font chữ của Chèn chữ lên ảnh (`assets/fonts.js`), tải bằng `FontFace` khi cần |
 
@@ -128,6 +132,38 @@ Xem trước trên thẻ: khai báo `decorate(sheet, p, idx, B)` để thêm ph�
 
 `B.pages` là danh sách trang `{ it, n, rot, w, h, sel, off, blank }`; `B.build(list)` chép các trang (kèm góc xoay) sang PDF mới của pdf-lib; `B.rangeField(prop, …)` tạo ô "1-3, 5, 8-" đồng bộ hai chiều với lựa chọn trên bảng; `B.changed(structural)` gọi sau khi đổi trạng thái trang. Khoảng trang xử lý bằng `assets/lib/page-ranges.js` (có test).
 
+## Âm thanh & video
+
+Mọi công cụ dùng `assets/media.js` (Mediabunny + WebCodecs, không dùng ffmpeg.wasm): file được đọc dần từng phần nên video vài GB vẫn xử lý được, và mã hoá video dùng phần cứng của máy.
+
+- `probe(file)` → `{ input, format, duration, tags, video: { track, codec, width, height, fps, bitrate, canDecode }, audio: {…} }`; `probeFor(file, "video" | "audio")` báo lỗi tiếng Việt khi thiếu WebCodecs, thiếu hình/tiếng hoặc không giải mã được (AVI, WMV, AMR… không đọc được).
+- `convert({ input, format, mime, video, audio, trim, copy, need, signal, onProgress })` bọc `Conversion` của Mediabunny: huỷ theo `ctx.signal`, tiến trình kèm thời gian còn lại (`progressReporter`), lý do bỏ rãnh hình/tiếng thành câu tiếng Việt (`warnings`).
+- Cắt không mã hoá lại: `copy: {}` (mặc định) giữ khớp thời gian bằng edit list nên trình phát bắt đầu đúng điểm đã chọn dù khung hình khoá ở trước đó; MP3 cần `copy: { mode: "forced", shiftTolerance: 0.1 }`. Cắt "chính xác" dùng `copy: false`.
+- Bitrate truyền bằng `new Quality({ bitrate })`; `new Quality(số)` là mức chất lượng 0–1, không phải bitrate. Đặt cả `width` và `height` thì phải có `fit`.
+- Tăng/giảm dần: `fadeProcess(len, in, out)` làm hàm `process` của Conversion (thời gian của mẫu tính từ đầu đoạn đã cắt).
+- Ghép âm thanh giải mã từng file bằng Web Audio (`decodeAudio`, tự đổi tần số) rồi ghi dần bằng `audioWriter`.
+- `rangeEditor({ duration, media, onChange })`: thanh chọn đoạn có hai tay nắm (kéo, phím mũi tên, Shift = 1 giây), kéo cả đoạn, ô nhập phút:giây, nút ghim vị trí đang phát, phát thử đoạn; nền là dạng sóng (`setPeaks(waveform(file))`) hoặc dải ảnh thu nhỏ (`setThumbs(thumbStrip(p))`).
+- Ghi âm, quay màn hình dùng MediaRecorder; file WebM của MediaRecorder thiếu thời lượng (không tua được) nên được chép lại sang vỏ file chuẩn bằng `convert` (không mã hoá lại).
+- Đọc văn bản dùng `speechSynthesis`, chia câu bằng `lib/tts.js`; ưu tiên giọng có sẵn trên máy và ghi rõ giọng "trực tuyến" (văn bản được gửi tới máy chủ của hãng).
+
+## Bẫy kỹ thuật đã gặp
+
+- PDF: font chuẩn của pdf-lib không có dấu tiếng Việt → `embedVnFont` (nhúng nguyên font, fontkit lỗi khi `subset`); pdf-lib ghi sai ToUnicode cho chữ ghép fi/fl nên đã tắt chữ ghép; `decodePDFRawStream` không bỏ Predictor PNG (`unPredict`); bản nén đổi tên lớp → dùng `instanceof`, không dùng `constructor.name`; PDF do Chrome in hay tách một chữ có dấu thành nhiều mảnh.
+- Ảnh: SVG chỉ có viewBox không có kích thước tự nhiên (`svgWithSize`); thang chất lượng AVIF khắt khe hơn JPG (trừ 20); ở lucide-static 1.52 `flip-vertical-2` là lật trái–phải.
+- Excel (SheetJS): ngày đọc ra là giờ UTC → định dạng bằng `getUTC*`; chép ô sang bảng khác phải bỏ công thức.
+- Khung trang: công cụ `custom` có `onChange` gọi `ctx.refresh()` sẽ lặp vô hạn; `el.append(null)` chèn chữ "null"; `classList.toggle(tên, undefined)` đảo lớp; ô form tự đồng bộ lên URL → dữ liệu nhạy cảm đặt `url: false`, `share: false`.
+- Regex JS: `\b` chỉ hiểu chữ ASCII ("giờ\b" không khớp) → dùng lookahead.
+- Web Audio: `await audioContext.resume()` treo khi không có thao tác thật của người dùng → không `await`.
+- Mediabunny: xem mục Âm thanh & video ở trên (Quality, fit, copy MP3).
+- Chạy thử bằng Claude Code: khung Browser bị ẩn thì `setTimeout` giãn ra ~1 giây, `img.decode()`/pdf.js treo, camera/micro/quay màn hình bị chặn. Khi đó dùng Chrome headless qua DevTools Protocol (xem `scripts/samples/media.js`): camera giả chạy được; micro giả treo trên macOS → thay `getUserMedia` bằng luồng từ `OscillatorNode`; quay màn hình → thay `getDisplayMedia` bằng `canvas.captureStream()`. Kiểm tra file kết quả bằng cách đọc `blob:` rồi xem bằng `afinfo`, `qlmanage`, `pdfinfo`, `textutil`. Cổng 8080 có thể bị ứng dụng khác chiếm: dùng preview "bbetools-8791".
+- Công cụ Write của Claude Code biến chuỗi thoát `\uXXXX` thành ký tự thật (BOM, dấu kết hợp vô hình): kiểm tra lại bằng grep.
+
+## Chạy trên cloud
+
+- Phiên cloud thường làm trên nhánh riêng rồi mở pull request; GitHub Pages chỉ lấy từ `main`.
+- `scripts/make-samples.js` cần Google Chrome và `sips` (macOS). Môi trường cloud có Chromium + Playwright (`/opt/pw-browsers/chromium-1194/chrome-linux/chrome`, module ở `/opt/node22/lib/node_modules/playwright`); thư viện CDN đi qua proxy: truyền `--proxy-server=$HTTPS_PROXY` khi khởi động Chrome (đừng dùng tuỳ chọn `proxy` của Playwright vì nó ép cả `localhost` qua proxy).
+- Không có trình duyệt để chạy thử thì phải nói rõ là chưa thử.
+
 ## Kiểm tra trước khi commit
 
 ```bash
@@ -151,4 +187,5 @@ node --test tests/*.test.js
 - Danh sách ngân hàng VietQR (`data/ngan-hang-vietqr.json`) chụp từ danh sách công khai của VietQR; chuỗi VietQR do BbeTools tạo đã được đối chiếu khớp từng ký tự với mã của img.vietqr.io (xem `tests/vietqr.test.js`).
 - Âm lịch theo thuật toán của Hồ Ngọc Đức, múi giờ UTC+7.
 - Thuế TNCN, BHXH, lương tối thiểu vùng, giá điện, ngày lễ: mỗi file trong `data/` ghi văn bản gốc trong `source`; công cụ đọc số liệu từ file, không viết cứng trong mã. Đổi mức (ví dụ lương cơ sở mới) chỉ cần sửa file JSON, cập nhật `updated` rồi chạy test.
+- Mỗi năm cần xem lại: hệ số trượt giá BHXH (đầu năm), lương cơ sở và lương tối thiểu vùng (thường đổi 1/1 hoặc 1/7), giá điện EVN, thời hạn giảm VAT 8% (`gia-dien.json`, hiện tới 31/12/2026), lịch nghỉ lễ, biểu thuế TNCN.
 - Đơn vị hành chính sau sáp nhập (`data/don-vi-hanh-chinh.json`, ~570 KB, chỉ tải trên trang Tra đơn vị hành chính mới): lấy từ [DiaChiMoi](https://github.com/mahiepit/DiaChiMoi) (MIT), gộp danh mục hành chính của Cục Thống kê (qua thanglequoc/vietnamese-provinces-database, MIT) và bảng chuyển xã cũ → mới (tranngocminhhieu/vietnamadminunits, MIT). Chạy lại `node scripts/data-dvhc.js` sau khi đổi commit ghim trong script.

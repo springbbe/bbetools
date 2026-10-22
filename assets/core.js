@@ -112,15 +112,34 @@ const LIBS = {
   // ước lượng độ mạnh mật khẩu; jsDelivr đóng gói sẵn phụ thuộc (+esm)
   zxcvbn: { esm: JSD + "@zxcvbn-ts/core@4.2.0/+esm" },
   zxcvbnCommon: { esm: JSD + "@zxcvbn-ts/language-common@4.1.3/+esm" },
-  zxcvbnEn: { esm: JSD + "@zxcvbn-ts/language-en@4.1.1/+esm" }
+  zxcvbnEn: { esm: JSD + "@zxcvbn-ts/language-en@4.1.1/+esm" },
+  // Âm thanh & video: đọc/ghi MP4, MOV, WebM, MKV, MP3, WAV, OGG, M4A bằng WebCodecs, xử lý theo luồng (file lớn không cần đọc hết)
+  mediabunny: { esm: JSD + "mediabunny@1.61.3/dist/bundles/mediabunny.min.mjs" },
+  // bộ mã hoá MP3 (LAME) và AAC (khi trình duyệt không tự mã hoá được) của Mediabunny; gói nhập "mediabunny" theo tên trần
+  // nên lib() thay bằng đúng URL ở trên để dùng chung một bản (đăng ký encoder vào đúng bản đang chạy)
+  mp3enc: { esm: JSD + "@mediabunny/mp3-encoder@1.61.3/dist/bundles/mediabunny-mp3-encoder.min.mjs", rewrite: { mediabunny: "mediabunny" } },
+  aacenc: { esm: JSD + "@mediabunny/aac-encoder@1.61.3/dist/bundles/mediabunny-aac-encoder.min.mjs", rewrite: { mediabunny: "mediabunny" } }
 };
+// Tải module ESM có lệnh nhập theo tên trần (vd. "mediabunny"): đổi tên thành URL đã ghim rồi nhập từ blob:
+async function importRewritten(L) {
+  await Promise.all(Object.values(L.rewrite).map(lib));
+  const r = await fetch(L.esm);
+  if (!r.ok) throw new Error("HTTP " + r.status + " " + L.esm);
+  let src = await r.text();
+  for (const [spec, name] of Object.entries(L.rewrite)) {
+    const q = spec.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    src = src.replace(new RegExp(`(\\bfrom\\s*|\\bimport\\s*\\(\\s*)(["'])${q}\\2`, "g"), (m, a, b) => a + b + LIBS[name].esm + b);
+  }
+  const url = URL.createObjectURL(new Blob([src], { type: "text/javascript" }));
+  try { return await import(/* @vite-ignore */ url); } finally { URL.revokeObjectURL(url); }
+}
 const libCache = {};
 export function lib(name) {
   if (!libCache[name]) {
     const L = LIBS[name];
     if (!L) throw new Error("Không có thư viện " + name);
     libCache[name] = (L.esm
-      ? import(/* @vite-ignore */ L.esm).then((m) => (L.init ? L.init(m) : m))
+      ? (L.rewrite ? importRewritten(L) : import(/* @vite-ignore */ L.esm)).then((m) => (L.init ? L.init(m) : m))
       : Promise.all((L.deps || []).map(lib)).then(() => new Promise((res, rej) => {
         if (window[L.global]) return res(window[L.global]);
         const s = h("script", { src: L.script, crossorigin: "anonymous" });

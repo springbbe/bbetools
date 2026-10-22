@@ -666,17 +666,161 @@
       ]
     },
 
-    { "id": "voice-recorder", "slug": "ghi-am", "name": "Ghi âm", "group": "media", "icon": "mic", "kind": "interactive", "desc": "Ghi âm bằng micro, nghe lại và tải về file âm thanh.", "keywords": ["thu âm", "recorder", "micro", "ghi âm online"], "output": "audio", "status": "todo", "related": ["trim-audio", "convert-audio", "screen-recorder"] },
-    { "id": "screen-recorder", "slug": "quay-man-hinh", "name": "Quay màn hình", "group": "media", "icon": "screen-share", "kind": "interactive", "desc": "Quay màn hình, cửa sổ hoặc tab kèm âm thanh và micro (trên máy tính).", "keywords": ["ghi màn hình", "screen record", "quay video màn hình"], "output": "video", "status": "todo", "related": ["voice-recorder", "trim-video", "compress-video"] },
-    { "id": "trim-audio", "slug": "cat-am-thanh", "name": "Cắt âm thanh", "group": "media", "icon": "audio-waveform", "kind": "file", "desc": "Cắt đoạn nhạc, làm nhạc chuông, có hiệu ứng tăng/giảm dần.", "keywords": ["cắt nhạc", "cắt mp3", "nhạc chuông", "trim audio"], "accept": ["audio"], "output": "audio", "status": "todo", "related": ["merge-audio", "convert-audio"] },
-    { "id": "merge-audio", "slug": "ghep-am-thanh", "name": "Ghép âm thanh", "group": "media", "icon": "audio-lines", "kind": "file", "desc": "Nối nhiều file âm thanh thành một.", "keywords": ["nối nhạc", "ghép mp3", "join audio"], "accept": ["audio"], "multiple": true, "output": "audio", "status": "todo", "related": ["trim-audio", "convert-audio"] },
-    { "id": "convert-audio", "slug": "doi-dinh-dang-am-thanh", "name": "Đổi định dạng âm thanh", "group": "media", "icon": "file-music", "kind": "file", "desc": "Chuyển qua lại MP3, WAV, M4A, OGG.", "keywords": ["convert audio", "mp3", "wav", "m4a", "chuyển đổi âm thanh"], "accept": ["audio"], "multiple": true, "output": "audio", "status": "todo", "related": ["video-to-mp3", "trim-audio"] },
-    { "id": "video-to-mp3", "slug": "video-sang-mp3", "name": "Video sang MP3", "group": "media", "icon": "music", "kind": "file", "desc": "Tách lấy phần âm thanh của video thành file MP3.", "keywords": ["tách nhạc", "lấy âm thanh từ video", "mp4 to mp3"], "accept": ["video"], "output": "audio", "status": "todo", "popular": true, "related": ["convert-audio", "trim-video"] },
-    { "id": "video-to-gif", "slug": "video-sang-gif", "name": "Video sang GIF", "group": "media", "icon": "clapperboard", "kind": "file", "desc": "Cắt một đoạn video và chuyển thành ảnh động GIF.", "keywords": ["mp4 to gif", "ảnh động từ video"], "accept": ["video"], "output": "image", "status": "todo", "related": ["gif-maker", "trim-video"] },
-    { "id": "trim-video", "slug": "cat-video", "name": "Cắt video", "group": "media", "icon": "scissors", "kind": "file", "desc": "Cắt lấy đoạn video cần dùng, giữ nguyên chất lượng khi có thể.", "keywords": ["trim video", "cắt clip", "cắt mp4"], "accept": ["video"], "output": "video", "status": "todo", "related": ["compress-video", "video-to-mp3"] },
-    { "id": "compress-video", "slug": "nen-video", "name": "Nén video", "group": "media", "icon": "video", "kind": "file", "desc": "Giảm dung lượng video để gửi Zalo, email, dùng mã hoá phần cứng của máy.", "keywords": ["giảm dung lượng video", "compress video", "nén mp4"], "accept": ["video"], "output": "video", "status": "todo", "popular": true, "related": ["trim-video", "video-to-mp3"] },
-    { "id": "video-frame", "slug": "chup-khung-hinh-video", "name": "Chụp khung hình từ video", "group": "media", "icon": "camera", "kind": "file", "desc": "Lấy ảnh chất lượng gốc từ một khung hình bất kỳ trong video.", "keywords": ["screenshot video", "thumbnail", "lấy ảnh từ video"], "accept": ["video"], "output": "image", "status": "todo", "related": ["video-to-gif", "trim-video"] },
-    { "id": "text-to-speech", "slug": "doc-van-ban", "name": "Đọc văn bản thành giọng nói", "group": "media", "icon": "volume-2", "kind": "interactive", "desc": "Đọc to văn bản tiếng Việt bằng giọng đọc có sẵn trên thiết bị.", "keywords": ["tts", "text to speech", "giọng đọc", "chị google đọc", "đọc chữ"], "status": "todo", "related": ["word-counter", "ocr"] },
+    {
+      "id": "voice-recorder", "slug": "ghi-am", "name": "Ghi âm", "group": "media", "icon": "mic", "kind": "interactive",
+      "desc": "Ghi âm bằng micro, tạm dừng, nghe lại, đặt tên và tải về M4A, MP3 hoặc WAV.",
+      "keywords": ["thu âm", "recorder", "micro", "ghi âm online", "voice recorder", "ghi âm trên máy tính"],
+      "output": "audio", "status": "done",
+      "privacy": "Âm thanh chỉ được ghi và lưu tạm ngay trên máy bạn, không gửi đi đâu.",
+      "aliases": ["thu-am", "ghi-am-online", "voice-recorder"],
+      "related": ["trim-audio", "convert-audio", "screen-recorder", "device-test"],
+      "howto": ["Bấm nút đỏ và cho phép trình duyệt dùng micro khi được hỏi.", "Nói hoặc phát âm thanh cần ghi; có thể Tạm dừng rồi Ghi tiếp.", "Bấm nút vuông để dừng, nghe lại, đặt tên rồi tải về M4A, MP3 hoặc WAV (hoặc bấm Cắt để cắt bớt)."],
+      "faq": [
+        { "q": "Bản ghi có bị gửi lên mạng không?", "a": "Không. Âm thanh được ghi và giữ trong trình duyệt trên máy bạn. Hãy tải về trước khi đóng hoặc tải lại trang, vì bản ghi chưa tải sẽ mất." },
+        { "q": "Nên bật “Lọc ồn, khử tiếng vọng” không?", "a": "Bật khi ghi giọng nói (họp, bài giảng, ghi chú) để giảm tiếng ồn nền. Tắt khi ghi nhạc, nhạc cụ để giữ âm thanh tự nhiên." },
+        { "q": "Ghi được bao lâu?", "a": "Không giới hạn thời gian; chỉ phụ thuộc bộ nhớ máy. Màn hình được giữ sáng trong lúc ghi." }
+      ]
+    },
+    {
+      "id": "screen-recorder", "slug": "quay-man-hinh", "name": "Quay màn hình", "group": "media", "icon": "screen-share", "kind": "interactive",
+      "desc": "Quay màn hình, cửa sổ hoặc tab kèm âm thanh và micro (trên máy tính), tải về MP4/WebM.",
+      "keywords": ["ghi màn hình", "screen record", "quay video màn hình", "screen recorder", "quay màn hình máy tính"],
+      "output": "video", "status": "done",
+      "privacy": "Video chỉ được ghi ngay trên máy bạn, không tải lên đâu.",
+      "aliases": ["ghi-man-hinh", "quay-video-man-hinh", "screen-recorder"],
+      "related": ["trim-video", "compress-video", "video-to-gif", "voice-recorder"],
+      "howto": ["Chọn có thu âm thanh máy/tab, micro hay không, chất lượng và định dạng.", "Bấm Chọn màn hình và bắt đầu quay, chọn cả màn hình, một cửa sổ hoặc một tab.", "Bấm Dừng quay (hoặc Dừng chia sẻ của trình duyệt), xem lại rồi tải về hoặc chuyển sang Cắt, Nén video."],
+      "faq": [
+        { "q": "Quay màn hình điện thoại được không?", "a": "Trình duyệt trên điện thoại không cho trang web quay màn hình. Hãy dùng tính năng có sẵn: iPhone vào Trung tâm điều khiển → Ghi màn hình; Android kéo thanh thông báo → Quay màn hình. Sau đó có thể dùng Cắt video, Nén video ở đây." },
+        { "q": "Sao video không có tiếng?", "a": "Khi trình duyệt hỏi chia sẻ, hãy bật “Chia sẻ âm thanh”. Chrome và Edge thu được tiếng của một tab; trên Windows thu được cả tiếng toàn màn hình; macOS chỉ thu được tiếng của tab. Có thể bật micro để thuyết minh." },
+        { "q": "Video có bị gửi lên mạng không?", "a": "Không. Hình và tiếng được ghi trong trình duyệt trên máy bạn; hãy tải video về trước khi đóng trang." }
+      ]
+    },
+    {
+      "id": "trim-audio", "slug": "cat-am-thanh", "name": "Cắt âm thanh", "group": "media", "icon": "audio-waveform", "kind": "file",
+      "desc": "Cắt đoạn nhạc, làm nhạc chuông (cả M4R cho iPhone), có hiệu ứng tăng/giảm dần.",
+      "keywords": ["cắt nhạc", "cắt mp3", "nhạc chuông", "trim audio", "cắt file âm thanh", "nhạc chuông iphone", "m4r"],
+      "accept": ["audio"], "output": "audio", "status": "done", "popular": true,
+      "aliases": ["cat-nhac", "cat-mp3", "lam-nhac-chuong"],
+      "related": ["merge-audio", "convert-audio", "voice-recorder"],
+      "howto": ["Chọn file nhạc (MP3, M4A, WAV, OGG, FLAC…).", "Kéo hai tay nắm trên dạng sóng hoặc nhập thời gian bắt đầu, kết thúc; bấm Phát đoạn đã chọn để nghe thử.", "Chọn định dạng (M4R cho nhạc chuông iPhone), tăng/giảm dần nếu muốn, rồi bấm Cắt âm thanh."],
+      "faq": [
+        { "q": "Cắt có làm giảm chất lượng không?", "a": "Nếu giữ định dạng gốc và không dùng hiệu ứng tăng/giảm dần, dữ liệu được chép nguyên nên chất lượng không đổi. Khi đổi định dạng hoặc thêm hiệu ứng, âm thanh được mã hoá lại ở chất lượng bạn chọn." },
+        { "q": "Làm nhạc chuông iPhone thế nào?", "a": "Chọn đoạn dài tối đa 40 giây, định dạng M4R, tải về. Nối iPhone với máy tính, mở Finder (Mac) hoặc iTunes (Windows) rồi kéo file .m4r vào mục iPhone; sau đó chọn trong Cài đặt → Âm thanh → Nhạc chuông." },
+        { "q": "File có bị tải lên không?", "a": "Không. File được đọc và cắt ngay trên máy bạn." }
+      ]
+    },
+    {
+      "id": "merge-audio", "slug": "ghep-am-thanh", "name": "Ghép âm thanh", "group": "media", "icon": "audio-lines", "kind": "file",
+      "desc": "Nối nhiều file âm thanh thành một: nối liền, chèn khoảng lặng hoặc chồng mượt, làm đều âm lượng.",
+      "keywords": ["nối nhạc", "ghép mp3", "join audio", "ghép nhạc", "nối file âm thanh", "crossfade"],
+      "accept": ["audio"], "multiple": true, "output": "audio", "status": "done",
+      "aliases": ["noi-nhac", "ghep-mp3", "ghep-nhac"],
+      "related": ["trim-audio", "convert-audio"],
+      "howto": ["Chọn hai file âm thanh trở lên (khác định dạng vẫn được).", "Kéo thả hoặc dùng ↑↓ để sắp thứ tự; chọn cách nối và bật Làm đều âm lượng nếu các bài to nhỏ khác nhau.", "Chọn định dạng, bấm Ghép âm thanh rồi nghe thử và tải về."],
+      "faq": [
+        { "q": "“Chồng mượt” là gì?", "a": "Cuối bài trước nhỏ dần trong khi đầu bài sau to dần, chồng lên nhau vài giây, giống cách DJ chuyển bài. “Khoảng lặng” thì chèn vài giây im lặng giữa các bài." },
+        { "q": "Ghép file MP3 với M4A, WAV được không?", "a": "Được. Các file được giải mã rồi mã hoá lại thành một file theo định dạng bạn chọn." },
+        { "q": "File có bị tải lên không?", "a": "Không, mọi việc diễn ra ngay trên máy bạn." }
+      ]
+    },
+    {
+      "id": "convert-audio", "slug": "doi-dinh-dang-am-thanh", "name": "Đổi định dạng âm thanh", "group": "media", "icon": "file-music", "kind": "file",
+      "desc": "Chuyển qua lại MP3, WAV, M4A, OGG; chọn chất lượng, mono/stereo, nhiều file một lần.",
+      "keywords": ["convert audio", "mp3", "wav", "m4a", "chuyển đổi âm thanh", "m4a sang mp3", "wav sang mp3", "flac sang mp3"],
+      "accept": ["audio"], "multiple": true, "output": "audio", "status": "done",
+      "aliases": ["m4a-sang-mp3", "wav-sang-mp3", "mp3-sang-wav", "doi-duoi-mp3"],
+      "related": ["video-to-mp3", "trim-audio", "merge-audio"],
+      "howto": ["Chọn một hoặc nhiều file âm thanh.", "Chọn định dạng cần đổi sang và chất lượng (bitrate); có thể chuyển sang mono cho nhẹ.", "Bấm Đổi định dạng rồi tải từng file hoặc tải tất cả (.zip)."],
+      "faq": [
+        { "q": "Nên chọn định dạng nào?", "a": "MP3 mở được ở mọi nơi. M4A (AAC) nhỏ hơn ở cùng chất lượng, hợp iPhone. OGG (Opus) nhẹ nhất. WAV không nén, giữ nguyên chất lượng nhưng file rất lớn." },
+        { "q": "Đổi từ MP3 128 kbps lên 320 kbps có hay hơn không?", "a": "Không. Chất lượng đã mất khi nén lần đầu không lấy lại được; tăng bitrate chỉ làm file to hơn." },
+        { "q": "File có bị tải lên không?", "a": "Không. File được chuyển đổi ngay trên máy bạn." }
+      ]
+    },
+    {
+      "id": "video-to-mp3", "slug": "video-sang-mp3", "name": "Video sang MP3", "group": "media", "icon": "music", "kind": "file",
+      "desc": "Tách lấy phần âm thanh của video thành file MP3 (hoặc M4A, WAV), lấy cả video hoặc một đoạn.",
+      "keywords": ["tách nhạc", "lấy âm thanh từ video", "mp4 to mp3", "mp4 sang mp3", "tách tiếng video"],
+      "accept": ["video"], "output": "audio", "status": "done", "popular": true,
+      "aliases": ["mp4-sang-mp3", "tach-nhac-tu-video", "tach-am-thanh-video"],
+      "related": ["convert-audio", "trim-audio", "trim-video"],
+      "howto": ["Chọn file video (MP4, MOV, WebM, MKV).", "Chọn MP3 và chất lượng, hoặc M4A để giữ nguyên tiếng gốc; bật Chỉ lấy một đoạn nếu cần.", "Bấm Tách lấy âm thanh rồi nghe thử và tải về."],
+      "faq": [
+        { "q": "Video dài, nặng có được không?", "a": "Được. Video được đọc dần từng phần nên file vài GB vẫn làm được; chỉ phần âm thanh được giữ lại." },
+        { "q": "Chọn M4A khác gì MP3?", "a": "Phần lớn video MP4 có tiếng dạng AAC: chọn M4A thì tiếng được chép nguyên, rất nhanh và không giảm chất lượng. MP3 phải mã hoá lại nhưng mở được ở mọi nơi." },
+        { "q": "Video có bị tải lên không?", "a": "Không. Video được xử lý ngay trên máy bạn." }
+      ]
+    },
+    {
+      "id": "video-to-gif", "slug": "video-sang-gif", "name": "Video sang GIF", "group": "media", "icon": "clapperboard", "kind": "file",
+      "desc": "Cắt một đoạn video và chuyển thành ảnh động GIF, chọn cỡ, số khung hình, tốc độ.",
+      "keywords": ["mp4 to gif", "ảnh động từ video", "video thành gif", "tạo gif từ video"],
+      "accept": ["video"], "output": "image", "status": "done",
+      "aliases": ["mp4-sang-gif", "tao-gif-tu-video"],
+      "related": ["gif-maker", "trim-video", "video-frame"],
+      "howto": ["Chọn file video.", "Kéo hai tay nắm trên dải ảnh để chọn đoạn (nên ngắn, vài giây).", "Chọn bề rộng, số khung hình/giây, tốc độ rồi bấm Tạo GIF."],
+      "faq": [
+        { "q": "Sao GIF nặng hơn video?", "a": "GIF chỉ có 256 màu mỗi khung và nén kém hơn video nhiều. Muốn nhẹ: chọn đoạn ngắn, bề rộng nhỏ (320–480 px), 8–10 khung/giây, bảng màu “Nhẹ hơn”." },
+        { "q": "Video có bị tải lên không?", "a": "Không, ảnh động được tạo ngay trên máy bạn." }
+      ]
+    },
+    {
+      "id": "trim-video", "slug": "cat-video", "name": "Cắt video", "group": "media", "icon": "scissors", "kind": "file",
+      "desc": "Cắt lấy đoạn video cần dùng, giữ nguyên chất lượng (không mã hoá lại) hoặc cắt chính xác từng khung.",
+      "keywords": ["trim video", "cắt clip", "cắt mp4", "cắt đoạn video", "cắt video online"],
+      "accept": ["video"], "output": "video", "status": "done", "popular": true,
+      "aliases": ["cat-mp4", "cat-clip"],
+      "related": ["compress-video", "video-to-mp3", "video-to-gif"],
+      "howto": ["Chọn file video (MP4, MOV, WebM, MKV).", "Kéo hai tay nắm trên dải ảnh hoặc nhập thời gian; xem thử đoạn đã chọn.", "Chọn Nhanh (giữ chất lượng) hoặc Chính xác từng khung, bấm Cắt video."],
+      "faq": [
+        { "q": "Cắt “Nhanh” và “Chính xác” khác gì nhau?", "a": "Nhanh chép nguyên hình và tiếng nên xong trong vài giây và không giảm chất lượng; video bắt đầu đúng chỗ đã chọn trên hầu hết trình phát. Chính xác mã hoá lại đoạn đã chọn, chậm hơn, dùng khi trình phát cũ hiện hình đứng ở đầu video." },
+        { "q": "Video dài vài GB có cắt được không?", "a": "Được, với cách cắt Nhanh video được đọc từng phần nên rất nhẹ." },
+        { "q": "Video có bị tải lên không?", "a": "Không. Video được cắt ngay trên máy bạn." }
+      ]
+    },
+    {
+      "id": "compress-video", "slug": "nen-video", "name": "Nén video", "group": "media", "icon": "video", "kind": "file",
+      "desc": "Giảm dung lượng video để gửi Zalo, email: theo chất lượng hoặc dung lượng mong muốn, dùng mã hoá phần cứng của máy.",
+      "keywords": ["giảm dung lượng video", "compress video", "nén mp4", "giảm dung lượng mp4", "nén video gửi zalo"],
+      "accept": ["video"], "output": "video", "status": "done", "popular": true,
+      "aliases": ["giam-dung-luong-video", "nen-mp4"],
+      "related": ["trim-video", "video-to-mp3", "screen-recorder"],
+      "howto": ["Chọn file video.", "Chọn nén theo chất lượng (Cao, Cân bằng, Nhẹ nhất) hoặc nhập dung lượng mong muốn; xem dung lượng dự kiến.", "Bấm Nén video, xem lại rồi tải về MP4."],
+      "faq": [
+        { "q": "Nén mất bao lâu?", "a": "Tuỳ máy và độ dài video. Công cụ dùng bộ mã hoá phần cứng của máy qua WebCodecs nên thường nhanh hơn thời lượng video; điện thoại đời cũ sẽ chậm hơn. Giữ trang mở trong lúc nén." },
+        { "q": "Nên chọn H.264 hay H.265?", "a": "H.264 mở được ở mọi nơi. H.265 (chỉ hiện khi máy hỗ trợ) nhỏ hơn khoảng 30% ở cùng chất lượng nhưng máy, ứng dụng cũ có thể không mở được." },
+        { "q": "Video có bị tải lên không?", "a": "Không. Video được nén ngay trên máy bạn." }
+      ]
+    },
+    {
+      "id": "video-frame", "slug": "chup-khung-hinh-video", "name": "Chụp khung hình từ video", "group": "media", "icon": "camera", "kind": "file",
+      "desc": "Lấy ảnh đúng độ phân giải gốc từ một khung hình bất kỳ trong video, hoặc chụp tự động mỗi N giây.",
+      "keywords": ["screenshot video", "thumbnail", "lấy ảnh từ video", "cắt ảnh từ video", "trích khung hình"],
+      "accept": ["video"], "output": "image", "status": "done",
+      "aliases": ["lay-anh-tu-video", "cat-anh-tu-video"],
+      "related": ["video-to-gif", "trim-video", "compress-image"],
+      "howto": ["Chọn file video.", "Tua tới chỗ cần lấy, dùng Khung trước/Khung sau (phím , .) để chỉnh từng khung, bấm Chụp khung hình này; hoặc Chụp cả video mỗi N giây.", "Chọn PNG, JPG hoặc WebP rồi bấm Tải ảnh đã chụp."],
+      "faq": [
+        { "q": "Ảnh có nét hơn chụp màn hình không?", "a": "Có. Ảnh được giải mã trực tiếp từ video ở độ phân giải gốc (ví dụ 1920×1080 hay 4K), không phụ thuộc cỡ khung xem trên màn hình." },
+        { "q": "Video có bị tải lên không?", "a": "Không, ảnh được lấy ngay trên máy bạn." }
+      ]
+    },
+    {
+      "id": "text-to-speech", "slug": "doc-van-ban", "name": "Đọc văn bản thành giọng nói", "group": "media", "icon": "volume-2", "kind": "interactive",
+      "desc": "Đọc to văn bản tiếng Việt bằng giọng đọc có sẵn trên thiết bị, tô sáng câu đang đọc, chỉnh tốc độ.",
+      "keywords": ["tts", "text to speech", "giọng đọc", "chị google đọc", "đọc chữ", "chuyển văn bản thành giọng nói"],
+      "status": "done",
+      "privacy": "Văn bản được đọc bằng giọng có sẵn trên máy bạn; chỉ khi chọn giọng ghi “trực tuyến”, văn bản mới do máy chủ của nhà cung cấp giọng đó xử lý.",
+      "aliases": ["doc-chu", "chuyen-van-ban-thanh-giong-noi", "text-to-speech"],
+      "related": ["word-counter", "ocr", "voice-recorder"],
+      "howto": ["Gõ hoặc dán văn bản cần đọc.", "Chọn giọng tiếng Việt, tốc độ, cao độ.", "Bấm Đọc; câu đang đọc được tô sáng. Đặt con trỏ giữa văn bản để đọc từ câu đó."],
+      "faq": [
+        { "q": "Sao máy đọc tiếng Việt sai, không có giọng Việt?", "a": "Giọng đọc do hệ điều hành cung cấp. Nếu chưa có giọng tiếng Việt, công cụ sẽ hướng dẫn cách cài cho Windows, macOS, Android, iPhone; cài xong tải lại trang." },
+        { "q": "Có tải về file MP3 được không?", "a": "Không. Trình duyệt không cho trang web ghi lại giọng đọc của hệ điều hành, nên công cụ chỉ đọc trực tiếp." },
+        { "q": "Văn bản có bị gửi đi không?", "a": "Với giọng có sẵn trên máy thì không. Giọng ghi “trực tuyến” (như Google, Microsoft Online) gửi văn bản tới máy chủ của hãng để đọc; muốn giữ kín hãy chọn giọng khác." }
+      ]
+    },
 
     {
       "id": "word-counter", "slug": "dem-tu", "name": "Đếm từ & ký tự", "group": "text", "icon": "whole-word", "kind": "text",

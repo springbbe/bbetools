@@ -2,9 +2,7 @@
 
 Website tiếng Việt gồm nhiều công cụ tiện ích, chạy 100% trên trình duyệt. Repo `springbbe/bbetools`, deploy bằng GitHub Pages (nhánh `main`, thư mục gốc) tại https://springbbe.github.io/bbetools/. Luôn trả lời người dùng bằng tiếng Việt.
 
-Dự án đang trong giai đoạn xây dựng: đọc `docs/ke-hoach.md` để biết tiến độ và cách làm tiếp một giai đoạn. (Xoá dòng này cùng file kế hoạch khi xây xong.)
-
-Tài liệu kỹ thuật (cấu trúc, registry, 4 khung trang, thư viện, cách thêm công cụ): `docs/phat-trien.md`.
+Tài liệu kỹ thuật (cấu trúc, registry, 4 khung trang, thư viện, cách thêm công cụ, bẫy kỹ thuật đã gặp, dữ liệu cần xem lại hằng năm): `docs/phat-trien.md`.
 
 ## Ràng buộc bắt buộc
 
@@ -32,3 +30,4 @@ node scripts/build.js && node scripts/check.js && node --test tests/*.test.js
 - Biến module dùng trong callback của khung (`mount`, `options`…) phải khai báo trước khi gọi `fileTool(...)`, nếu không sẽ lỗi TDZ.
 - Trong `h()`, biến CSS (`--c`) truyền qua `style: { "--c": màu }` (core xử lý bằng `setProperty`).
 - Phần tử `position: fixed` nằm trong header (có backdrop-filter) bị giới hạn trong header.
+- Khung Browser của Claude Code bị ẩn thì hẹn giờ chạy chậm, camera/micro/quay màn hình bị chặn: chạy thử bằng Chrome headless (xem "Bẫy kỹ thuật đã gặp" trong `docs/phat-trien.md`).

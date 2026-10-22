@@ -9,6 +9,7 @@ import { ROOT } from "./registry.js";
 import { makeGpsJpeg } from "./samples/anh-co-gps.js";
 import { makeOfficeSamples } from "./samples/van-phong.js";
 import { makeSecuritySamples } from "./samples/bao-mat.js";
+import { makeMediaSamples, MEDIA_SAMPLES } from "./samples/media.js";
 
 const CHROME = process.env.CHROME || ["/Applications/Google Chrome.app/Contents/MacOS/Google Chrome", "/usr/bin/google-chrome", "/usr/bin/chromium", "/opt/pw-browsers/chromium-1194/chrome-linux/chrome"].find(existsSync);
 if (!CHROME) { console.error("Không tìm thấy Chrome. Đặt biến CHROME=/đường/dẫn/chrome"); process.exit(1); }
@@ -52,10 +53,11 @@ try {
   shot("scripts/samples/qr.html", OUT + "ma-qr-mau.png", 600, 600);
   await makeOfficeSamples(); // Excel, CSV, JSON, Word (không cần Chrome)
   await makeSecuritySamples(); // file mã hoá, file checksum (cần bao-cao-quy-1.pdf ở trên)
+  await makeMediaSamples(PORT); // nhạc, video (Chrome headless + Mediabunny từ CDN)
 } finally {
   server.kill();
   execFileSync("rm", ["-rf", TMP]);
 }
-for (const f of ["bao-cao-quy-1.pdf", "bao-cao-quy-2.pdf", "tai-lieu-scan.pdf", "so-tay-nhan-vien.pdf", "tai-lieu-co-anh.pdf", "to-khai-mau.pdf", "to-khai-da-dien.pdf", "mau-co-mat-khau-1234.pdf", "giay-to-chup.jpg", "chu-ky-chup.jpg", "van-ban-chup.jpg", "anh-phong-canh.jpg", "anh-iphone.heic", "anh-co-gps.jpg", "anh-iphone-co-gps.heic", "anh-chup-man-hinh.png", "ma-qr-mau.png", "chan-dung-mau.jpg", "nhan-vien.xlsx", "ban-hang-thang-9.xlsx", "ban-hang-thang-10.xlsx", "ban-hang-thang-11.csv", "san-pham.json", "khach-moi.xlsx", "giay-moi-mau.docx", "bao-cao-mat-khau-1234.pdf.bbe", "bao-cao-quy-1.pdf.sha256"]) {
+for (const f of ["bao-cao-quy-1.pdf", "bao-cao-quy-2.pdf", "tai-lieu-scan.pdf", "so-tay-nhan-vien.pdf", "tai-lieu-co-anh.pdf", "to-khai-mau.pdf", "to-khai-da-dien.pdf", "mau-co-mat-khau-1234.pdf", "giay-to-chup.jpg", "chu-ky-chup.jpg", "van-ban-chup.jpg", "anh-phong-canh.jpg", "anh-iphone.heic", "anh-co-gps.jpg", "anh-iphone-co-gps.heic", "anh-chup-man-hinh.png", "ma-qr-mau.png", "chan-dung-mau.jpg", "nhan-vien.xlsx", "ban-hang-thang-9.xlsx", "ban-hang-thang-10.xlsx", "ban-hang-thang-11.csv", "san-pham.json", "khach-moi.xlsx", "giay-moi-mau.docx", "bao-cao-mat-khau-1234.pdf.bbe", "bao-cao-quy-1.pdf.sha256", ...MEDIA_SAMPLES]) {
   console.log(existsSync(OUT + f) ? `✓ ${f}  ${(statSync(OUT + f).size / 1024).toFixed(0)} KB` : `✗ thiếu ${f}`);
 }
