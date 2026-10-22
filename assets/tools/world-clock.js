@@ -94,14 +94,16 @@ css.textContent = `.wc{display:grid;gap:16px}
 .wc-now>b small{font-size:.45em;color:var(--muted)}.wc-now>span{color:var(--muted);font-size:14px}
 .wc-conv{border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:grid;gap:10px}
 .wc-conv-in{display:none;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}.wc-conv.on .wc-conv-in{display:grid}
-.wc-grid{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(min(100%,128px),1fr))}
-.wc-card{border:1px solid var(--line);border-radius:14px;padding:10px 12px;min-width:0;display:grid;gap:4px;background:var(--surface)}
+.wc-grid{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(min(100%,150px),1fr))}
+.wc-card{border:1px solid var(--line);border-radius:14px;padding:10px 12px;min-width:0;display:grid;gap:4px;align-content:start;background:var(--surface)}
 .wc-card.wc-work{border-color:color-mix(in srgb,var(--ok) 45%,var(--line));background:color-mix(in srgb,var(--ok-soft) 55%,var(--surface))}
 .wc-card.night{background:color-mix(in srgb,var(--surface-2) 70%,var(--surface))}
 .wc-card{position:relative}.wc-head{padding-right:26px}.wc-head .ib{position:absolute;top:4px;right:4px;width:30px;height:30px}
 .wc-name{min-width:0;display:grid}.wc-name b{overflow-wrap:anywhere;line-height:1.25}.wc-name small{color:var(--muted);font-size:12.5px}
 .wc-ico{display:inline-flex;vertical-align:-3px;margin-right:4px;color:var(--warn)}.wc-ico .i{width:16px;height:16px}.wc-card.night .wc-ico{color:var(--brand)}
-.wc-time{font:800 clamp(26px,8vw,36px)/1.1 var(--mono);font-variant-numeric:tabular-nums}.wc-time small{font-size:.5em;color:var(--muted)}
+.wc-card{container-type:inline-size}
+.wc-time{font:800 clamp(26px,8vw,36px)/1.1 var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+@container (min-width:1px){.wc-time{font-size:clamp(18px,23cqw,42px)}}.wc-time small{font-size:.5em;color:var(--muted)}
 .wc-day{font-weight:600;font-size:14px}.wc-off{color:var(--muted);font-size:13px}
 .wc-add{display:grid;gap:8px}.wc-sug{display:flex;flex-wrap:wrap;gap:6px}.wc-sug .chip{white-space:normal}`;
 document.head.append(css);
