@@ -1,0 +1,22 @@
+{
+ "Chỉ Base64": "Base64 only",
+ "ảnh": "images",
+ "Chuyển sang Base64": "Convert to Base64",
+ "Dạng kết quả": "Output format",
+ "SVG: mã hoá URL thay cho Base64": "SVG: URL-encode instead of Base64",
+ "Chuỗi ngắn hơn khoảng 30% và vẫn đọc được; chỉ áp dụng cho file SVG.": "About 30% shorter and still readable; only applies to SVG files.",
+ "Base64 nặng hơn ảnh gốc khoảng 33%. Chỉ nên nhúng ảnh nhỏ (icon, logo dưới ~10 KB); ảnh lớn hãy nén trước bằng công cụ Nén ảnh.": "Base64 is about 33% larger than the original image. Only embed small images (icons, logos under ~10 KB); compress large images first with Compress images.",
+ "Dán vào src của <img>, url() trong CSS, hoặc mở thẳng trên thanh địa chỉ.": "Paste into an <img> src, a CSS url(), or open it directly in the address bar.",
+ "Chuỗi thuần, không có tiền tố data:… – dùng cho API, JSON.": "Plain string without the data:… prefix – for APIs and JSON.",
+ "Dán vào khối CSS của phần tử cần nền.": "Paste into the CSS block of the element that needs the background.",
+ "Thẻ <img> hoàn chỉnh, dán vào HTML hoặc email.": "A complete <img> tag to paste into HTML or email.",
+ "Cú pháp ảnh Markdown (một số nơi như GitHub không hiện ảnh data URI).": "Markdown image syntax (some places like GitHub don't show data URI images).",
+ "{0} ký tự · ảnh gốc {1}": "{0} characters · original image {1}",
+ "Kết quả của ": "Result for ",
+ "{0} ký tự": "{0} characters",
+ "Sao chép": "Copy",
+ "Xem thử: ": "Preview: ",
+ "anh-base64": "images-base64",
+ "Đã chuyển {0} ảnh sang Base64!": "Converted {0} images to Base64!",
+ "Đã chuyển sang Base64!": "Converted to Base64!"
+}

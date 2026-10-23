@@ -43,25 +43,30 @@ export function convert(cat, value, from, to) {
   return (v * f[2]) / t[2];
 }
 
-/** Hiển thị số gọn: tối đa 10 chữ số có nghĩa, bỏ số 0 thừa, dùng dấu phẩy thập phân kiểu Việt Nam */
+/** Dấu thập phân và dấu nhóm nghìn: kiểu Việt Nam (1.234,5); trang ngôn ngữ khác (html lang ≠ vi) dùng kiểu Anh (1,234.5) */
+const LANG = typeof document !== "undefined" ? document.documentElement.lang || "vi" : "vi";
+export const NUM = LANG === "vi" ? { dec: ",", group: "." } : { dec: ".", group: "," };
+
+/** Hiển thị số gọn: tối đa 10 chữ số có nghĩa, bỏ số 0 thừa, dùng dấu thập phân theo NUM */
 export function fmtUnit(n) {
   if (!Number.isFinite(n)) return "–";
   if (n === 0) return "0";
   const a = Math.abs(n);
-  if (a >= 1e15 || a < 1e-9) return n.toExponential(6).replace(/\.?0+e/, "e").replace(".", ",");
+  if (a >= 1e15 || a < 1e-9) return n.toExponential(6).replace(/\.?0+e/, "e").replace(".", NUM.dec);
   const p = Number(n.toPrecision(10));
   const [i, d] = String(Math.abs(p).toFixed(Math.max(0, Math.min(12, 9 - Math.floor(Math.log10(a)))))).replace(/\.?0+$/, "").split(".");
-  return (p < 0 ? "-" : "") + i.replace(/\B(?=(\d{3})+(?!\d))/g, ".") + (d ? "," + d : "");
+  return (p < 0 ? "-" : "") + i.replace(/\B(?=(\d{3})+(?!\d))/g, NUM.group) + (d ? NUM.dec + d : "");
 }
 
 /** Đọc số kiểu Việt ("1.234,5", "12,5") hoặc kiểu Anh ("1,234.5", "12.5").
-    Chỉ có một dấu chấm và đúng 3 chữ số sau nó ("1.500") được hiểu là phân cách hàng nghìn như cách viết Việt Nam. */
+    Chỉ có một dấu chấm và đúng 3 chữ số sau nó ("1.500") được hiểu là phân cách hàng nghìn như cách viết Việt Nam
+    (trang tiếng Anh: một dấu phẩy và đúng 3 chữ số sau nó, "1,500"). */
 export function parseNum(s) {
   let t = String(s == null ? "" : s).trim().replace(/\s/g, "").replace(/^\+/, "").replace(/[−–]/g, "-");
   if (!t) return NaN;
   const dots = (t.match(/\./g) || []).length, commas = (t.match(/,/g) || []).length;
   if (dots && commas) t = t.lastIndexOf(",") > t.lastIndexOf(".") ? t.replace(/\./g, "").replace(",", ".") : t.replace(/,/g, "");
-  else if (commas) t = commas > 1 ? t.replace(/,/g, "") : t.replace(",", ".");
-  else if (dots > 1 || /^-?[1-9]\d{0,2}\.\d{3}$/.test(t)) t = t.replace(/\./g, "");
+  else if (commas) t = commas > 1 || (NUM.dec === "." && /^-?[1-9]\d{0,2},\d{3}$/.test(t)) ? t.replace(/,/g, "") : t.replace(",", ".");
+  else if (dots > 1 || (NUM.dec === "," && /^-?[1-9]\d{0,2}\.\d{3}$/.test(t))) t = t.replace(/\./g, "");
   return /^-?(\d+\.?\d*|\.\d+)(e[-+]?\d+)?$/i.test(t) ? +t : NaN;
 }

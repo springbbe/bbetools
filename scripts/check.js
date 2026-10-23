@@ -3,12 +3,14 @@
    1. tools.json hợp lệ (id/slug không trùng, nhóm, related, file JS của công cụ đã xong…)
    2. các trang sinh ra khớp tools.json (build --check)
    3. mọi đường dẫn trong HTML/JS/CSS là tương đối và trỏ tới file có thật; không có đường dẫn tuyệt đối "/..."
-   4. mỗi trang có <title> dạng "… – BbeTools", meta description, canonical, JSON-LD hợp lệ */
+   4. mỗi trang có <title> dạng "… – BbeTools", meta description, canonical, JSON-LD hợp lệ, đúng lang
+   5. bản dịch đầy đủ (build --check báo câu, chuỗi JS, công cụ chưa dịch; xem scripts/i18n.js) */
 import { readFile, readdir } from "node:fs/promises";
 import { existsSync, statSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 import { dirname, join, relative } from "node:path";
 import { ROOT, loadRegistry, validate } from "./registry.js";
+import { LANGS } from "./i18n.js";
 
 const problems = [];
 const bad = (file, msg) => problems.push(`${relative(ROOT, file)}: ${msg}`);
@@ -47,7 +49,9 @@ for (const f of files.filter((x) => /\.html$/.test(x))) {
   if (!/<meta name="description" content="[^"]{30,}"/.test(html)) bad(f, "thiếu meta description");
   if (!is404 && !/<link rel="canonical" href="https:\/\/[^"]+"/.test(html)) bad(f, "thiếu canonical");
   for (const m of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) { try { JSON.parse(m[1]); } catch (e) { bad(f, "JSON-LD lỗi: " + e.message); } }
-  if (!html.includes('lang="vi"')) bad(f, 'thiếu lang="vi"');
+  const lang = (/^([a-z]{2})\//.exec(relative(ROOT, f)) || [])[1];
+  const want = lang && LANGS[lang] ? lang : "vi";
+  if (!html.includes(`<html lang="${want}"`)) bad(f, `thiếu lang="${want}"`);
 }
 for (const f of files.filter((x) => /\/assets\/.*\.(js|css)$/.test(x))) {
   const src = await readFile(f, "utf8");

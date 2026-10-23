@@ -1,0 +1,19 @@
+{
+ "Đầu vào": "Input",
+ "Kết quả": "Result",
+ "<p>Gõ HTML hoặc văn bản cần mã hoá…</p>": "<p>Type HTML or text to encode…</p>",
+ "<a href=\"/tim-kiem?q=áo&size=M\">Áo dài \"đỏ\" – giá 500.000đ</a>": "<a href=\"/search?q=café&size=M\">Crème brûlée \"special\" – $5.00</a>",
+ "&lt;p&gt;Gi&aacute; &amp; khuyến m&atilde;i: 50&#37; &hearts; &#x1F600;&lt;/p&gt;": "&lt;p&gt;Caf&eacute; &amp; cr&egrave;me: 50&#37; off &hearts; &#x1F600;&lt;/p&gt;",
+ "Chiều": "Direction",
+ "Mã hoá": "Encode",
+ "Giải mã": "Decode",
+ "Ký tự cần mã hoá": "Characters to encode",
+ "Chỉ ký tự đặc biệt < > & \" '": "Only special characters < > & \\\" '",
+ "Thêm ký tự ngoài ASCII (có dấu, emoji)": "Also non-ASCII characters (accents, emoji)",
+ "Mọi ký tự trừ chữ, số": "Every character except letters and digits",
+ "Dạng": "Format",
+ "Tên (&eacute;)": "Named (&eacute;)",
+ "Số thập phân (&#233;)": "Decimal (&#233;)",
+ "Số hex (&#xE9;)": "Hex (&#xE9;)",
+ "ket-qua.txt": "result.txt"
+}

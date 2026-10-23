@@ -1,0 +1,16 @@
+{
+ " trang · ": " pages · ",
+ "không có khoá": "not locked",
+ "bị chặn in / sao chép": "printing / copying restricted",
+ "đã nhập đúng mật khẩu": "correct password entered",
+ "Mở khoá PDF": "Unlock PDF",
+ "File chỉ bị chặn in, sao chép được mở khoá ngay, không cần mật khẩu. File cần mật khẩu để mở thì bạn phải biết mật khẩu đó: bấm 🔒 để nhập.": "Files that only restrict printing or copying are unlocked right away, no password needed. For files that need a password to open, you must know it: click 🔒 to enter it.",
+ "File mẫu có mật khẩu là 1234.": "The sample file's password is 1234.",
+ "Các file này không có mật khẩu hay giới hạn nào.": "These files have no password or restrictions.",
+ "File này không có mật khẩu hay giới hạn nào.": "This file has no password or restrictions.",
+ "Đang mở khoá {0}…": "Unlocking {0}…",
+ "-da-mo-khoa.pdf": "-unlocked.pdf",
+ "không còn khoá": "unlocked",
+ "Đã mở khoá {0} file PDF!": "Unlocked {0} PDF files!",
+ "Đã mở khoá PDF!": "PDF unlocked!"
+}

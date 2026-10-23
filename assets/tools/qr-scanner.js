@@ -1,6 +1,6 @@
 /* Quét mã QR / mã vạch: từ camera (BarcodeDetector có sẵn hoặc zxing-wasm), từ ảnh, ảnh chụp màn hình, PDF.
    Nhận diện sẵn: link, WiFi, VietQR (chuyển khoản), danh thiếp, email, SMS, điện thoại. */
-import { h, icon, ROOT, lib, intake, copyText, toast, fmtNum, esc, takeHandoff, fileKinds } from "../core.js";
+import { h, icon, ROOT, lib, intake, copyText, toast, fmtNum, esc, takeHandoff, fileKinds, LANG } from "../core.js";
 import { interactiveTool } from "../frames/interactive.js";
 import { parseVietQR } from "../lib/vietqr.js";
 import { readNumber } from "../lib/doc-so.js";
@@ -54,7 +54,7 @@ async function describe(text) {
   if (vq && vq.napas) {
     kind = "VietQR – chuyển khoản";
     rows.push(["Ngân hàng", await bankName(vq.bin)], [vq.service === "QRIBFTTC" ? "Số thẻ" : "Số tài khoản", vq.account]);
-    if (vq.amount) rows.push(["Số tiền", fmtNum(vq.amount) + " đ (" + readNumber(String(vq.amount), { unit: "đồng" }) + ")"]);
+    if (vq.amount) rows.push(["Số tiền", LANG === "vi" ? fmtNum(vq.amount) + " đ (" + readNumber(String(vq.amount), { unit: "đồng" }) + ")" : fmtNum(vq.amount) + " VND"]);
     if (vq.message) rows.push(["Nội dung", vq.message]);
     rows.push(["Kiểm tra mã", vq.crcOk ? "✓ Hợp lệ (CRC đúng)" : "⚠ Sai mã kiểm tra — mã có thể đã bị sửa"]);
     actions.push(["Sao chép số tài khoản", () => copyText(vq.account)]);

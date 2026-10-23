@@ -1,0 +1,19 @@
+{
+ "Mở được ở mọi nơi, nhẹ, hợp với ảnh chụp. Không có nền trong suốt: vùng trong suốt sẽ được tô màu nền bên dưới.": "Opens everywhere, lightweight, good for photos. No transparency: transparent areas are filled with the background color below.",
+ "Giữ nguyên từng điểm ảnh và nền trong suốt; hợp với ảnh chụp màn hình, logo. Ảnh chụp thật sẽ nặng hơn nhiều.": "Keeps every pixel and transparency; good for screenshots and logos. Real photos will be much larger.",
+ "Nhẹ hơn JPG khoảng 25–35%, có nền trong suốt; mọi trình duyệt hiện nay đều mở được.": "About 25–35% lighter than JPG, supports transparency; every modern browser opens it.",
+ "Nhẹ nhất (thường chỉ bằng một nửa JPG), có nền trong suốt. Mã hoá chậm hơn (vài giây mỗi ảnh); một số phần mềm cũ chưa mở được.": "Lightest (often half of JPG), supports transparency. Slower to encode (a few seconds per image); some older software can't open it yet.",
+ "ảnh": "images",
+ "Chuyển đổi": "Convert",
+ "Chất lượng": "Quality",
+ "Màu nền thay cho vùng trong suốt": "Background color for transparent areas",
+ "Chuyển sang": "Convert to",
+ "80–90 khó thấy khác biệt bằng mắt thường. 100 gần như không mất chi tiết nhưng nặng.": "At 80–90 the difference is hard to see. 100 loses almost no detail but is large.",
+ "Màu nền (cho vùng trong suốt)": "Background color (for transparent areas)",
+ "Các ảnh đã là {0}. Hãy chọn định dạng khác.": "The images are already {0}. Choose another format.",
+ "Đang tải bộ mã hoá AVIF (khoảng 3,5 MB, chỉ lần đầu)…": "Loading the AVIF encoder (about 3.5 MB, first time only)…",
+ "Đang chuyển {0} sang {1}{2}…": "Converting {0} to {1}{2}…",
+ "anh-doi-dinh-dang": "converted-images",
+ "Đã chuyển {0} ảnh sang {1}!": "Converted {0} images to {1}!",
+ "Tổng dung lượng: {0} → {1}": "Total size: {0} → {1}"
+}

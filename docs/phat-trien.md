@@ -27,7 +27,8 @@ assets/
   pdf-pages.js             "bảng trang" PDF: pageTool() dựng trên khung file, mỗi trang một thẻ (chọn, xoay, xoá, đổi chỗ, xem trước)
   pdf-objects.js           đi qua đối tượng bên trong PDF (nội dung trang, form, pattern, ảnh), giải nén luồng, đọc hệ màu
   ai/matting.js            AI tách nền (MODNet) + nhận diện khuôn mặt (UltraFace) chạy bằng onnxruntime-web
-  lib/*.js                 hàm thuần, có test: search, filetype, doc-so, am-lich, vietqr, json-tools, text-stats, page-ranges, pdf-geom, pdf-text, pdf-content, pdf-image, scan, image-geom, exif, image-data, ocr-text, tien-luong, tai-chinh, tien-dien, bhxh, con-giap, don-vi, chia-tien, ngay, suc-khoe, bieu-thuc, so-la-ma, phan-tram, dvhc, ma-tinh, van-ban, vn-encoding, telex, diff, encode, hash, uuid, color, co-so, cron, timestamp, csv,
+  en/                      (sinh tự động) bản dịch tiếng Anh của các module JS và registry, xem mục Đa ngôn ngữ
+  lib/*.js                 hàm thuần, có test: telegram, search, filetype, doc-so, am-lich, vietqr, json-tools, text-stats, page-ranges, pdf-geom, pdf-text, pdf-content, pdf-image, scan, image-geom, exif, image-data, ocr-text, tien-luong, tai-chinh, tien-dien, bhxh, con-giap, don-vi, chia-tien, ngay, suc-khoe, bieu-thuc, so-la-ma, phan-tram, dvhc, ma-tinh, van-ban, vn-encoding, telex, diff, encode, hash, uuid, color, co-so, cron, timestamp, csv,
                            fancy-text, lorem, http-status, minify, regex, css-gen, ma-vach, bang, tron-thu, hoa-don, chu-ky-email,
                            ngau-nhien, mat-khau (+ tu-mat-khau), ma-hoa, totp, checksum, bam-gio, mui-gio, checklist, media, tts
   regex-run.js, regex-worker.js   chạy biểu thức chính quy trong Web Worker có giới hạn thời gian (không treo trang)
@@ -37,9 +38,12 @@ assets/
 models/                    mô hình AI đặt trong repo (MODNet Apache-2.0, UltraFace MIT)
 samples/                   file mẫu cho nút "Thử với file mẫu"
 <slug>/index.html          (sinh tự động) trang từng công cụ: ghep-pdf/, nen-anh/, doc-so-thanh-chu/…
+en/                        (sinh tự động) trang tiếng Anh: en/index.html, en/<id>/, en/category/<nhóm>/, en/about/
+i18n/en/                   từ điển tiếng Anh: tools.json (nội dung registry), pages.json (khung trang), js/** (chuỗi trong JS)
 nhom/<nhóm>/index.html     (sinh tự động) trang nhóm: nhom/pdf/, nhom/anh/…
 index.html, 404.html, gioi-thieu/, sitemap.xml, robots.txt, manifest.webmanifest   (sinh tự động)
-scripts/build.js           sinh mọi trang từ tools.json
+scripts/build.js           sinh mọi trang từ tools.json (mọi ngôn ngữ)
+scripts/i18n.js            dịch module JS lúc build, đồ thị import, `extract` thêm khoá còn thiếu vào từ điển
 scripts/serve.js           server chạy thử ở máy (tắt cache, phục vụ dưới /bbetools/ giống GitHub Pages)
 scripts/check.js           kiểm tra registry, đường dẫn tương đối, thẻ SEO
 scripts/icons.js           tạo assets/icons.svg từ Lucide
@@ -51,6 +55,18 @@ tests/                     test cho hàm thuần (node --test)
 CLAUDE.md                  quy ước cho AI (Claude Code) khi sửa repo
 .claude/launch.json        cấu hình chạy thử (preview) cho Claude Code
 ```
+
+## Đa ngôn ngữ (tiếng Việt + tiếng Anh)
+
+- Tiếng Việt ở gốc site (`/bbetools/ghep-pdf/`), tiếng Anh dưới `/bbetools/en/` với slug là `id` công cụ (`/bbetools/en/merge-pdf/`), trang nhóm `en/category/<id>/`, giới thiệu `en/about/`. Mỗi trang có `hreflang` tới bản kia, nút đổi ngôn ngữ ở header; trang tiếng Việt gợi ý bản tiếng Anh (một lần) khi trình duyệt không dùng tiếng Việt.
+- Công cụ chỉ dành cho người Việt (`"vnOnly": true` trong `tools.json`: cả nhóm Tiện ích Việt Nam, bỏ dấu, TCVN3/VNI, sửa Telex, Lorem tiếng Việt, VAT, hoá đơn) không có trang tiếng Anh; nhóm không còn công cụ nào thì ẩn.
+- **Mã nguồn không đổi cách viết**: chuỗi tiếng Việt viết thẳng trong JS như cũ. `scripts/i18n.js` dùng acorn (`scripts/vendor/acorn.mjs`) đọc từng module mà trang tiếng Anh cần (đi theo `import`), thay mọi chuỗi và template literal có trong từ điển, ghi ra `assets/en/<cùng đường dẫn>` (import tương đối giữ nguyên nên các bản dịch nhập lẫn nhau; `assets/en/registry.js` do build sinh từ bản dịch registry).
+- Từ điển: `i18n/en/js/<đường dẫn trong assets>.json` (`{ "chuỗi gốc": "bản dịch" }`), dùng chung `i18n/en/js/_shared.json` (vd. `"vi-VN": "en-US"`). Template: `${…}` thành `{0}`, `{1}` theo thứ tự, bản dịch được đổi chỗ; số nhiều `{0|file|files}`. `null` = chưa dịch; ghi lại y nguyên chuỗi gốc nếu cố ý giữ; `"@keep": true` giữ cả file (vd. `lib/doc-so`). Chuỗi không dấu (tên file tải về như `"-da-nen.pdf"`) chỉ dịch khi có trong từ điển.
+- Nội dung trang: `i18n/en/tools.json` (`site`, `groups`, `tools.<id>`: name, desc, keywords, howto, faq, privacy; `data.<tên>`: title, source) và `i18n/en/pages.json` (câu của khung trang trong `build.js`, viết qua `tr("…")`).
+- Quy trình: sửa JS → `node scripts/i18n.js extract` (thêm khoá thiếu với giá trị `null`, bỏ khoá thừa chưa dịch) → điền bản dịch → `node scripts/build.js`. `build.js` cảnh báo, `check.js` báo lỗi khi còn chuỗi, câu hoặc công cụ chưa dịch. `node scripts/build.js --missing` in các câu khung trang còn thiếu.
+- Chỗ khác nhau về logic: `LANG`, `HOME` (trang chủ của ngôn ngữ hiện tại, dùng cho mọi link tới công cụ), `toolHref()` trong `core.js`; ví dụ ô tiền dùng dấu nhóm nghìn theo ngôn ngữ, Đổi timestamp/Giải thích cron lấy giờ máy làm mặc định ở trang tiếng Anh, Chia tiền nhóm ẩn nút VietQR. `lib/don-vi.js` tự chọn dấu thập phân theo `html lang`. Đừng viết cứng `ROOT + "slug-tieng-viet/"`: dùng `HOME + "slug/"` và thêm slug tiếng Anh vào từ điển của file.
+- Trang 404 dùng chung: đường dẫn dưới `en/` nạp `assets/en/notfound.js`, module tự đổi chữ trên trang.
+- Thêm ngôn ngữ mới: thêm vào `LANGS` trong `scripts/i18n.js`, tạo `i18n/<lang>/` (chép cấu trúc của `en`), chạy extract rồi dịch.
 
 ## Sinh trang và deploy
 
@@ -81,7 +97,8 @@ Khai báo trong bảng `LIBS` của `assets/core.js`, gọi bằng `lib("tên")`
 | `upng-js@2.1.0` + `pako@2.1.0` | PNG giảm màu |
 | `qrcode-generator@2.0.4` | tạo QR |
 | `zxing-wasm@3.1.5` | đọc QR, mã vạch (dự phòng khi trình duyệt không có BarcodeDetector) |
-| `gifenc@1.0.3` | mã hoá ảnh động GIF (Tạo GIF) |
+| `gifenc@1.0.3` | mã hoá ảnh động GIF (Tạo GIF, Video sang GIF, Tải sticker Telegram) |
+| `lottie-web@5.13.0` (bản canvas) | vẽ sticker động Telegram (.tgs = Lottie nén gzip) để xem trước và đổi sang GIF |
 | `tesseract.js@7.0.0` + `tesseract.js-core@7.0.0` + `@tesseract.js-data/vie`, `eng@1.0.0` | nhận dạng chữ (OCR), chạy WebAssembly trong Web Worker |
 | `@jsquash/avif@2.1.1` | xuất AVIF (bản đơn luồng) khi trình duyệt không tự xuất được |
 | `onnxruntime-web@1.30.0` | chạy mô hình AI (đơn luồng, không cần COOP/COEP) |
@@ -180,6 +197,10 @@ node scripts/check.js
 ```bash
 node --test tests/*.test.js
 ```
+
+## Tải sticker Telegram
+
+Bot API của Telegram trả header `access-control-allow-origin: *` cho cả `api.telegram.org/bot…/method` lẫn `api.telegram.org/file/bot…/path`, nên trình duyệt gọi thẳng được: `getStickerSet` → `getFile` từng sticker (4 luồng, tự chờ khi bị 429) → tải file. Cần token bot của chính người dùng (tạo bằng @BotFather); token chỉ gửi tới Telegram, không đưa lên URL, chỉ lưu localStorage khi người dùng bật "Nhớ token" (lưu ý: localStorage dùng chung cho mọi trang GitHub Pages của tài khoản). Không có token thì không thể lấy bộ sticker mà không cần máy chủ trung gian. Một số nhà mạng chặn Telegram: khi đó dùng mục "Từ file có sẵn" (đổi .tgs, .webm, .webp đã lưu). GIF: lấy mẫu 30 khung/giây, thời gian mỗi khung làm tròn tích luỹ theo 1/100 giây (`frameSchedule` trong `lib/telegram.js`), trong suốt 1 bit (`quantize(..., { format: "rgba4444", oneBitAlpha: true })`, `dispose: 2`). WEBM lấy khung bằng `<video>` + tua từng mốc.
 
 ## Định dạng file mã hoá của BbeTools (.bbe)
 

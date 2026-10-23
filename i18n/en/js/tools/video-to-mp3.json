@@ -1,0 +1,23 @@
+{
+ "Tách lấy âm thanh": "Extract audio",
+ " · tiếng {0}": " · audio {0}",
+ "Video này không có tiếng.": "This video has no audio.",
+ "Từ (phút:giây)": "From (min:sec)",
+ "Đến": "To",
+ "hết video": "end of video",
+ "Định dạng": "Format",
+ "Chỉ lấy một đoạn": "Only extract a segment",
+ "Bỏ trống ô “Đến” để lấy tới hết video.": "Leave “To” empty to go to the end of the video.",
+ "Nếu tiếng trong video là AAC (đa số video MP4, iPhone, Android), tiếng được chép nguyên: rất nhanh và không giảm chất lượng.": "If the video's audio is AAC (most MP4, iPhone and Android videos), it's copied as is: very fast with no quality loss.",
+ "WAV không nén: chất lượng gốc nhưng file lớn (khoảng 10 MB mỗi phút).": "WAV is uncompressed: original quality but large files (about 10 MB per minute).",
+ "MP3 mở được trên mọi máy, mọi ứng dụng nghe nhạc.": "MP3 plays on every device and music app.",
+ "Video này không có tiếng để tách.": "This video has no audio to extract.",
+ "Đang đọc video…": "Reading video…",
+ "Thời gian chưa đúng, ví dụ 1:05 hoặc 65.": "Invalid time, e.g. 1:05 or 65.",
+ "Đoạn cần lấy quá ngắn.": "The segment is too short.",
+ "Đang chuẩn bị…": "Preparing…",
+ "Đang tách âm thanh…": "Extracting audio…",
+ "M4A, giữ nguyên tiếng gốc": "M4A, original audio kept",
+ "đoạn {0} → {1} ({2})": "segment {0} → {1} ({2})",
+ "Đã tách xong {0}!": "Extracted {0}!"
+}

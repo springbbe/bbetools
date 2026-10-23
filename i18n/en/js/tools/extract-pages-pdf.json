@@ -1,0 +1,20 @@
+{
+ "Trích xuất trang": "Extract pages",
+ "Bấm để chọn hoặc bỏ chọn trang": "Click to select or deselect a page",
+ "Chọn hết": "Select all",
+ "Bỏ chọn": "Deselect",
+ "Trang cần lấy": "Pages to extract",
+ "Gõ số trang hoặc bấm chọn trên các trang.": "Type page numbers or click the pages.",
+ "Bấm vào những trang muốn lấy. Giữ <kbd>Shift</kbd> rồi bấm để chọn cả dãy.": "Click the pages you want. Hold <kbd>Shift</kbd> and click to select a range.",
+ "Mỗi trang thành một file riêng": "Each page as a separate file",
+ "Tải từng file hoặc cả .zip.": "Download each file or a .zip.",
+ "Lấy <b>{0}</b>/{1} trang thành <b>{2}</b> file PDF.": "Extract <b>{0}</b>/{1} pages into <b>{2}</b> PDF {2|file|files}.",
+ "Chưa chọn trang nào.": "No pages selected.",
+ "Bấm chọn ít nhất một trang.": "Select at least one page.",
+ "Đang tạo file {0}/{1}…": "Creating file {0}/{1}…",
+ "{0}-trang-{1}.pdf": "{0}-page-{1}.pdf",
+ " trang": " pages",
+ "trang-da-trich": "extracted-pages",
+ "Đã trích {0} trang thành {1} file!": "Extracted {0} pages into {1} files!",
+ "Đã trích xuất trang!": "Pages extracted!"
+}

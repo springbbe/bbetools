@@ -1,0 +1,13 @@
+{
+ "# Ghi chú cuộc họp\n\n**Ngày:** 21/10/2026 · *Phòng họp tầng 3*\n\n## Việc đã xong\n- [x] Thiết kế trang chủ\n- [x] Viết tài liệu hướng dẫn\n- [ ] Kiểm thử trên điện thoại\n\n## Số liệu\n\n| Hạng mục | Kế hoạch | Thực tế |\n|---|---:|---:|\n| Doanh thu | 120 tr | 135 tr |\n| Chi phí | 80 tr | 76 tr |\n\n> Mọi xử lý diễn ra ngay trên trình duyệt của bạn.\n\n```js\nconsole.log(\"Xin chào BbeTools\");\n```\n\nXem thêm tại [BbeTools](https://springbbe.github.io/bbetools/).": "# Meeting notes\n\n**Date:** 10/21/2026 · *3rd floor meeting room*\n\n## Done\n- [x] Home page design\n- [x] Write the user guide\n- [ ] Test on phones\n\n## Numbers\n\n| Item | Plan | Actual |\n|---|---:|---:|\n| Revenue | 120k | 135k |\n| Costs | 80k | 76k |\n\n> Everything is processed right in your browser.\n\n```js\nconsole.log(\"Hello BbeTools\");\n```\n\nLearn more at [BbeTools](https://springbbe.github.io/bbetools/).",
+ "# Tiêu đề\n\nGõ **Markdown** vào đây…": "# Title\n\nType **Markdown** here…",
+ "GitHub Flavored (bảng, gạch ngang, việc cần làm)": "GitHub Flavored (tables, strikethrough, task lists)",
+ "Xuống dòng = <br>": "Line break = <br>",
+ "Chế độ xem": "View",
+ "Xem trước": "Preview",
+ "Mã HTML": "HTML code",
+ "Tải file .html": "Download .html file",
+ "Chưa có nội dung": "No content yet",
+ "Tài liệu": "Document",
+ "tai-lieu.html": "document.html"
+}

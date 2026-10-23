@@ -1,0 +1,16 @@
+{
+ "kiem-tra-webcam": "webcam-test",
+ "kiem-tra-micro": "mic-test",
+ "Loa": "Speakers",
+ "kiem-tra-loa": "speaker-test",
+ "Bàn phím": "Keyboard",
+ "kiem-tra-ban-phim": "keyboard-test",
+ "Chuột": "Mouse",
+ "kiem-tra-chuot": "mouse-test",
+ "Màn hình": "Screen",
+ "kiem-tra-man-hinh": "screen-test",
+ "Thiết bị cần kiểm tra": "Device to test",
+ "Xem thêm kiểm tra chi tiết: ": "See the detailed test on ",
+ "trang ": "the ",
+ " riêng": " test page"
+}

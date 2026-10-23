@@ -1,0 +1,13 @@
+{
+ "Thiếu dấu “)” đóng nhóm.": "Missing “)” to close a group.",
+ "Thừa dấu “)”.": "Extra “)”.",
+ "Thiếu dấu “]” đóng lớp ký tự.": "Missing “]” to close a character class.",
+ "Ký hiệu lặp (*, +, ?, {n}) đứng sau chỗ không có gì để lặp.": "A quantifier (*, +, ?, {n}) follows nothing that can be repeated.",
+ "Cú pháp nhóm không hợp lệ (kiểm tra (?…)).": "Invalid group syntax (check (?…)).",
+ "Cờ không hợp lệ (chỉ dùng d, g, i, m, s, u, v, y, mỗi cờ một lần).": "Invalid flags (only d, g, i, m, s, u, v, y, each at most once).",
+ "Dấu “\\” đặt sai chỗ hoặc thoát ký tự không hợp lệ.": "A “\\” is misplaced or escapes an invalid character.",
+ "Khoảng bị ngược (ví dụ {5,2} hoặc [z-a]).": "Reversed range (e.g. {5,2} or [z-a]).",
+ "Tên nhóm không hợp lệ hoặc bị trùng.": "Invalid or duplicate group name.",
+ "Ký hiệu lặp {n,m} chưa đúng.": "Malformed {n,m} quantifier.",
+ "Biểu thức không hợp lệ: ": "Invalid expression: "
+}

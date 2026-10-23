@@ -1,5 +1,5 @@
 /* Cộng trừ ngày & đếm ngày làm việc: khoảng cách hai ngày, cộng/trừ ngày (lịch hoặc làm việc), trừ cuối tuần và lễ Tết Việt Nam */
-import { h, fmtNum } from "../core.js";
+import { h, fmtNum, LANG } from "../core.js";
 import { formTool } from "../frames/form.js";
 import { loadData, kv, stat, stats, table, alert, note } from "../calc.js";
 import { parseDate, diffYMD, toDays, iso, today, weekday, addDays, addMonths, countWorkdays, addWorkdays } from "../lib/ngay.js";
@@ -51,7 +51,8 @@ formTool({
       stat("Ngày lễ, Tết (rơi vào ngày thường)", fmtNum(c.holiday)),
       stat("Số ngày tính cả hai đầu", fmtNum(Math.abs(days) + 1))));
     if (c.list.length) out.append(holTable(c.list));
-    out.append(note(LE.note));
+    // ghi chú trong data/ngay-le.json viết tiếng Việt; trang ngôn ngữ khác dùng câu đã dịch
+    out.append(note(LANG === "vi" ? LE.note : "Ngày nghỉ Quốc khánh thứ hai là 1/9 hoặc 3/9 tuỳ năm; 5 ngày Tết Âm lịch do Nhà nước chọn mỗi năm (thường là ngày cuối năm và mùng 1–4). Ngày làm bù do hoán đổi không được tính."));
   }
 });
 

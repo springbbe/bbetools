@@ -1,0 +1,11 @@
+{
+ "{0} công cụ khớp “{1}”": "{0} {0|tool matches|tools match} “{1}”",
+ "Không tìm thấy": "Nothing found",
+ "Thả file để xem công cụ phù hợp": "Drop files to see matching tools",
+ "Chưa có công cụ cho loại file này": "No tool for this file type yet",
+ "Công cụ dùng được cho {0} file {1}": "Tools for these {0} {1} files",
+ "Công cụ dùng được cho file {0}": "Tools for this {0} file",
+ " — chọn một công cụ, file sẽ được mở sẵn ở đó (vẫn chỉ trên máy bạn).": " — pick a tool and the file will be opened there (still only on your device).",
+ "Đóng": "Close",
+ "nhom-": "group-"
+}

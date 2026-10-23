@@ -1,0 +1,23 @@
+{
+ "ảnh": "images",
+ "Tạo GIF": "Create GIF",
+ "Xem trước ảnh động": "Animation preview",
+ "Thời gian mỗi khung (ms)": "Frame duration (ms)",
+ "Mỗi ảnh hiện trong": "Each image shows for",
+ "Kích thước (cạnh dài)": "Size (long side)",
+ "320 px (nhẹ nhất)": "320 px (smallest)",
+ "Giữ trọn ảnh": "Keep whole image",
+ "Cắt cho đầy khung": "Crop to fill the frame",
+ "Ảnh khác tỉ lệ": "Different aspect ratios",
+ "Màu nền": "Background color",
+ "Lặp lại mãi": "Loop forever",
+ "Chạy xuôi rồi ngược": "Play forward then backward",
+ "1 → 2 → 3 → 2 → 1…, chuyển động mượt không bị giật về đầu.": "1 → 2 → 3 → 2 → 1…, smooth motion without jumping back to the start.",
+ " giây": " sec",
+ "{0} khung hình · {1}×{2} px · dài {3} giây.": "{0} frames · {1}×{2} px · {3} seconds long.",
+ "Chọn ít nhất 2 ảnh để làm ảnh động.": "Choose at least 2 images to make an animation.",
+ "Đang mã hoá khung {0}/{1}…": "Encoding frame {0}/{1}…",
+ "{0}-anh-dong.gif": "{0}-animated.gif",
+ "{0}×{1} · {2} khung · {3} giây/khung": "{0}×{1} · {2} frames · {3} sec/frame",
+ "Ảnh động GIF đã xong!": "Your GIF is ready!"
+}

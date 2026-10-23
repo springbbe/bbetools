@@ -1,5 +1,5 @@
 /* Tạo UUID v4 (ngẫu nhiên) và v7 (theo thời gian, sắp xếp được) hàng loạt bằng crypto.getRandomValues; đọc thông tin một UUID */
-import { h, icon, copyText, save } from "../core.js";
+import { h, icon, copyText, save, LANG } from "../core.js";
 import { formTool } from "../frames/form.js";
 import { generate, formatUuid, inspectUuid } from "../lib/uuid.js";
 import { kv, alert } from "../calc.js";
@@ -35,7 +35,7 @@ formTool({
         ["Dạng chuẩn", r.canonical],
         ["Phiên bản", r.variant === "nil" ? "Nil (toàn số 0)" : r.variant === "max" ? "Max (toàn F)" : "v" + r.version + ({ 1: " (thời gian + MAC)", 3: " (MD5 của tên)", 4: " (ngẫu nhiên)", 5: " (SHA-1 của tên)", 6: " (thời gian, sắp xếp được)", 7: " (thời gian Unix, sắp xếp được)", 8: " (tuỳ biến)" }[r.version] || "")],
         r.variant !== "nil" && r.variant !== "max" ? ["Biến thể", r.variant] : null,
-        r.time ? ["Thời điểm tạo", formatVN(r.time.getTime(), 420, true) + " (giờ VN)"] : null
+        r.time ? ["Thời điểm tạo", LANG === "vi" ? formatVN(r.time.getTime(), 420, true) + " (giờ VN)" : r.time.toISOString().replace("T", " ").replace(/\.\d+Z$/, " UTC")] : null
       ]));
     }
   }

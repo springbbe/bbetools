@@ -2,12 +2,17 @@
 /* Sinh toàn bộ trang tĩnh từ tools.json:
      index.html, nhom/<nhóm>/index.html, <slug>/index.html, gioi-thieu/index.html, 404.html,
      sitemap.xml, robots.txt, manifest.webmanifest, assets/registry.js
+   và bản ngôn ngữ khác (xem scripts/i18n.js): en/index.html, en/category/<nhóm>/, en/<id>/, en/about/,
+     assets/en/registry.js, assets/en/**.js (module JS đã dịch chuỗi)
    Kết quả được commit thẳng vào repo; GitHub Pages phục vụ nguyên trạng, không cần bước build khi deploy.
-   Chạy:  node scripts/build.js        (hoặc npm run build) */
+   Chạy:  node scripts/build.js        (hoặc npm run build)
+          node scripts/build.js --check    chỉ kiểm tra file sinh ra đã khớp chưa
+          node scripts/build.js --missing  in các câu của khung trang chưa dịch (i18n/<lang>/pages.json) */
 import { readFile, writeFile, mkdir, readdir, rm } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { loadRegistry, validate, isLive, ROOT } from "./registry.js";
-import { describeAccept } from "../assets/lib/filetype.js";
+import { LANGS, inLang, langData, langFiles, compile, lookupFor, loadJson, hasVi } from "./i18n.js";
+import { describeAccept as describeAcceptVi } from "../assets/lib/filetype.js";
 
 const reg = await loadRegistry();
 const errors = validate(reg);
@@ -20,79 +25,153 @@ const { site } = reg;
 const BASE = site.baseUrl;                         // https://springbbe.github.io/bbetools/
 const BASE_PATH = new URL(BASE).pathname;          // /bbetools/
 const YEAR = new Date().getFullYear();
-const live = reg.tools.filter(isLive);
-const byId = Object.fromEntries(reg.tools.map((t) => [t.id, t]));
-const groupOf = Object.fromEntries(reg.groups.map((g) => [g.id, g]));
-const liveIn = (gid) => live.filter((t) => t.group === gid);
-const liveGroups = reg.groups.filter((g) => liveIn(g.id).length);
+const CHECK = process.argv.includes("--check"); // chỉ kiểm tra file sinh ra đã khớp registry chưa, không ghi
+const LANG_CODES = ["vi", ...Object.keys(LANGS)];
 
 /* ---------- helpers ---------- */
 const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 const icon = (name, root, cls = "") => `<svg class="i${cls ? " " + cls : ""}" aria-hidden="true"><use href="${root}assets/icons.svg#${name}"></use></svg>`;
-const tile = (t, root, cls = "") => {
-  const g = groupOf[t.group] || t;
-  return `<span class="tile${cls ? " " + cls : ""}" style="--c:${g.color}">${icon(t.icon, root)}</span>`;
-};
 const jsonld = (obj) => `<script type="application/ld+json">${JSON.stringify(obj).replace(/</g, "\\u003c")}</script>`;
-const toolUrl = (t) => t.slug + "/";
 const metaDesc = (s) => (s.length > 155 ? s.slice(0, 152).replace(/\s+\S*$/, "") + "…" : s);
-const fmtDate = (iso) => { const [y, m, d] = iso.split("-"); return `${d}/${m}/${y}`; };
+const fmtDate = (iso, lang) => { const [y, m, d] = iso.split("-"); return lang === "vi" ? `${d}/${m}/${y}` : new Date(Date.UTC(+y, +m - 1, +d)).toLocaleDateString(LANGS[lang].locale, { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" }); };
+const rootOf = (path) => "../".repeat(path.split("/").length - 1) || "./";
 
 const LOGO = `<svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="var(--brand)"/><path d="M10 7.5h7.2c3.3 0 5.4 1.8 5.4 4.5 0 1.9-1 3.2-2.6 3.8 2.1.5 3.5 2.1 3.5 4.3 0 3.1-2.4 5.1-6 5.1H10z" fill="#fff"/><path d="M14.2 11v3.6h2.6c1.3 0 2-.7 2-1.8s-.7-1.8-2-1.8zm0 6.9v4h3c1.5 0 2.3-.8 2.3-2s-.8-2-2.3-2z" fill="var(--brand)"/><circle cx="25.5" cy="7" r="2.6" fill="#FFC53D"/></svg>`;
 
-function card(t, root, opts = {}) {
+/* ---------- ngữ cảnh từng ngôn ngữ ---------- */
+const missingPages = new Map(); // lang → Set(câu chưa dịch)
+async function makeLang(lang) {
+  const vi = lang === "vi";
+  const D = vi ? null : await langData(lang);
+  const dict = vi ? {} : (await loadJson(`i18n/${lang}/pages.json`)) || {};
+  const miss = new Set();
+  missingPages.set(lang, miss);
+  /** Câu của khung trang: tr("Xem cả {0} công cụ", n) */
+  const tr = (s, ...a) => {
+    let v = s;
+    if (!vi) { if (typeof dict[s] === "string") v = dict[s]; else miss.add(s); }
+    return v.replace(/\{(\d+)\}/g, (m, i) => (a[i] != null ? a[i] : m));
+  };
+  const prefix = vi ? "" : lang + "/";
+  const tools = [], skipped = [];
+  for (const t of reg.tools.filter((x) => inLang(x, lang))) {
+    if (vi) { tools.push(t); continue; }
+    const x = D.tools[t.id];
+    if (!x || !x.name || !x.desc) { skipped.push(t.id); continue; }
+    tools.push({ ...t, ...x, slug: x.slug || t.id, aliases: [], vi: t });
+  }
+  const groups = reg.groups.map((g) => (vi ? g : { ...g, ...(D.groups[g.id] || {}), slug: g.id, vi: g }));
+  const live = tools.filter(isLive);
+  const L = {
+    lang, vi, tr, prefix, locale: vi ? "vi-VN" : LANGS[lang].locale, og: vi ? "vi_VN" : LANGS[lang].og,
+    site: vi ? site : { ...site, ...D.site }, D, skipped,
+    live,
+    byId: Object.fromEntries(tools.map((t) => [t.id, t])),
+    groupOf: Object.fromEntries(groups.map((g) => [g.id, g])),
+    liveIn: (gid) => live.filter((t) => t.group === gid),
+    toolUrl: (t) => prefix + t.slug + "/",
+    groupUrl: (g) => prefix + (vi ? "nhom/" : LANGS[lang].groups) + g.slug + "/",
+    aboutUrl: prefix + (vi ? "gioi-thieu/" : LANGS[lang].about),
+    homeUrl: prefix,
+    js: (rel) => "assets/" + prefix + rel
+  };
+  L.liveGroups = groups.filter((g) => L.liveIn(g.id).length);
+  L.describeAccept = vi ? describeAcceptVi : (await importCompiled(lang, "lib/filetype.js")).describeAccept;
+  return L;
+}
+/** Nhập bản dịch của một module không có import (vd. lib/filetype.js) để dùng ngay trong build */
+async function importCompiled(lang, rel) {
+  const src = await readFile(ROOT + "assets/" + rel, "utf8");
+  const { code } = compile(src, await lookupFor(lang, rel), rel);
+  return import("data:text/javascript;base64," + Buffer.from(code).toString("base64"));
+}
+
+const LS = {};
+for (const code of LANG_CODES) LS[code] = await makeLang(code);
+/* Trang tương ứng ở các ngôn ngữ: khoá → { lang: đường dẫn } */
+const alt = (key) => {
+  const out = {};
+  for (const code of LANG_CODES) {
+    const L = LS[code];
+    if (key === "home") out[code] = L.homeUrl;
+    else if (key === "about") out[code] = L.aboutUrl;
+    else if (key.startsWith("group:")) { const g = L.liveGroups.find((x) => x.id === key.slice(6)); if (g) out[code] = L.groupUrl(g); }
+    else if (key.startsWith("tool:")) { const t = L.live.find((x) => x.id === key.slice(5)); if (t) out[code] = L.toolUrl(t); }
+  }
+  return out;
+};
+
+const tile = (L, t, root, cls = "") => {
+  const g = L.groupOf[t.group] || t;
+  return `<span class="tile${cls ? " " + cls : ""}" style="--c:${g.color}">${icon(t.icon, root)}</span>`;
+};
+
+function card(L, t, root, opts = {}) {
   const H = opts.h || "h3";
   return `<li class="card" data-id="${t.id}" data-group="${t.group}">
-<a class="card-link" href="${root}${toolUrl(t)}">${tile(t, root)}<span class="card-txt"><${H} class="card-name">${esc(t.name)}</${H}><span class="card-desc">${esc(t.desc)}</span></span></a>
-<button class="star" type="button" data-fav="${t.id}" aria-pressed="false" aria-label="Ghim ${esc(t.name)} vào Yêu thích" hidden>${icon("star", root)}</button>
+<a class="card-link" href="${root}${L.toolUrl(t)}">${tile(L, t, root)}<span class="card-txt"><${H} class="card-name">${esc(t.name)}</${H}><span class="card-desc">${esc(t.desc)}</span></span></a>
+<button class="star" type="button" data-fav="${t.id}" aria-pressed="false" aria-label="${esc(L.tr("Ghim {0} vào Yêu thích", t.name))}" hidden>${icon("star", root)}</button>
 </li>`;
 }
-const cards = (list, root, opts) => `<ul class="cards">${list.map((t) => card(t, root, opts)).join("\n")}</ul>`;
+const cards = (L, list, root, opts) => `<ul class="cards">${list.map((t) => card(L, t, root, opts)).join("\n")}</ul>`;
 
-function mega(root) {
+function mega(L, root) {
+  const { tr } = L;
   return `<div id="mega" class="mega" hidden>
 <div class="mega-in">
-<div class="mega-head"><b>Tất cả công cụ</b><button class="ib" type="button" data-close-mega aria-label="Đóng menu">${icon("x", root)}</button></div>
+<div class="mega-head"><b>${tr("Tất cả công cụ")}</b><button class="ib" type="button" data-close-mega aria-label="${tr("Đóng menu")}">${icon("x", root)}</button></div>
 <div class="mega-grid">
-${liveGroups.map((g) => {
-  const list = liveIn(g.id);
+${L.liveGroups.map((g) => {
+  const list = L.liveIn(g.id);
   const shown = list.slice(0, 8);
-  return `<section class="mega-col"><h2><a href="${root}nhom/${g.slug}/">${tile(g, root, "sm")}${esc(g.name)}</a></h2>
-<ul>${shown.map((t) => `<li><a href="${root}${toolUrl(t)}">${esc(t.name)}</a></li>`).join("")}</ul>${list.length > shown.length ? `<a class="more" href="${root}nhom/${g.slug}/">Xem cả ${list.length} công cụ ${icon("arrow-right", root)}</a>` : ""}</section>`;
+  return `<section class="mega-col"><h2><a href="${root}${L.groupUrl(g)}">${tile(L, g, root, "sm")}${esc(g.name)}</a></h2>
+<ul>${shown.map((t) => `<li><a href="${root}${L.toolUrl(t)}">${esc(t.name)}</a></li>`).join("")}</ul>${list.length > shown.length ? `<a class="more" href="${root}${L.groupUrl(g)}">${tr("Xem cả {0} công cụ", list.length)} ${icon("arrow-right", root)}</a>` : ""}</section>`;
 }).join("\n")}
 </div>
 </div>
 </div>`;
 }
 
-function header(root) {
-  return `<a class="skip" href="#main">Bỏ qua, tới nội dung chính</a>
+/** Nút đổi ngôn ngữ: tới trang tương ứng, hoặc trang chủ của ngôn ngữ kia nếu công cụ chỉ có ở một ngôn ngữ */
+function langSwitch(L, root, alts) {
+  return LANG_CODES.filter((c) => c !== L.lang).map((c) => {
+    const href = root + (alts[c] != null ? alts[c] : LS[c].homeUrl);
+    const name = c === "vi" ? "Tiếng Việt" : LANGS[c].name, short = c === "vi" ? "VI" : LANGS[c].short;
+    return `<a class="lang-switch" href="${href}" hreflang="${c}" lang="${c}" title="${name}" aria-label="${name}">${icon("languages", root)}<span>${short}</span></a>`;
+  }).join("");
+}
+
+function header(L, root, alts) {
+  const { tr } = L;
+  return `<a class="skip" href="#main">${tr("Bỏ qua, tới nội dung chính")}</a>
 <header class="top">
 <div class="top-in">
-<a class="brand" href="${root}" aria-label="BbeTools – Trang chủ">${LOGO}<span>Bbe<b>Tools</b></span></a>
-<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mega">${icon("menu", root, "only-m")}<span class="nav-label">Tất cả công cụ</span>${icon("chevron-down", root, "only-d")}</button>
-<button class="search-trigger" type="button" data-palette aria-label="Tìm công cụ (phím /)">${icon("search", root)}<span>Tìm công cụ…</span><kbd>/</kbd></button>
-<button class="ib theme-toggle" type="button" data-theme-toggle aria-label="Đổi giao diện sáng/tối" title="Giao diện: tự động">${icon("monitor", root, "t-auto")}${icon("sun", root, "t-light")}${icon("moon", root, "t-dark")}</button>
+<a class="brand" href="${root}${L.homeUrl}" aria-label="${tr("BbeTools – Trang chủ")}">${LOGO}<span>Bbe<b>Tools</b></span></a>
+<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mega">${icon("menu", root, "only-m")}<span class="nav-label">${tr("Tất cả công cụ")}</span>${icon("chevron-down", root, "only-d")}</button>
+<button class="search-trigger" type="button" data-palette aria-label="${tr("Tìm công cụ (phím /)")}">${icon("search", root)}<span>${tr("Tìm công cụ…")}</span><kbd>/</kbd></button>
+${langSwitch(L, root, alts)}
+<button class="ib theme-toggle" type="button" data-theme-toggle aria-label="${tr("Đổi giao diện sáng/tối")}" title="${tr("Giao diện: tự động")}">${icon("monitor", root, "t-auto")}${icon("sun", root, "t-light")}${icon("moon", root, "t-dark")}</button>
 </div>
-${mega(root)}
+${mega(L, root)}
 </header>`;
 }
 
-function footer(root) {
+function footer(L, root) {
+  const { tr } = L;
   return `<footer class="foot">
 <div class="foot-in">
 <div class="foot-brand">
-<a class="brand" href="${root}">${LOGO}<span>Bbe<b>Tools</b></span></a>
-<p>Công cụ tiện ích miễn phí cho người Việt. Mọi xử lý chạy ngay trên trình duyệt của bạn: <b>file không bao giờ rời khỏi máy</b>.</p>
+<a class="brand" href="${root}${L.homeUrl}">${LOGO}<span>Bbe<b>Tools</b></span></a>
+<p>${tr("Công cụ tiện ích miễn phí cho người Việt. Mọi xử lý chạy ngay trên trình duyệt của bạn: <b>file không bao giờ rời khỏi máy</b>.")}</p>
 </div>
-<nav aria-label="Nhóm công cụ"><h2>Nhóm công cụ</h2><ul>${liveGroups.map((g) => `<li><a href="${root}nhom/${g.slug}/">${esc(g.name)}</a></li>`).join("")}</ul></nav>
-<nav aria-label="Về BbeTools"><h2>BbeTools</h2><ul>
-<li><a href="${root}gioi-thieu/">Giới thiệu &amp; quyền riêng tư</a></li>
-<li><a href="${site.repo}" rel="noopener">Mã nguồn trên GitHub</a></li>
-<li><a href="${site.repo}/issues" rel="noopener">Góp ý, báo lỗi</a></li>
+<nav aria-label="${tr("Nhóm công cụ")}"><h2>${tr("Nhóm công cụ")}</h2><ul>${L.liveGroups.map((g) => `<li><a href="${root}${L.groupUrl(g)}">${esc(g.name)}</a></li>`).join("")}</ul></nav>
+<nav aria-label="${tr("Về BbeTools")}"><h2>BbeTools</h2><ul>
+<li><a href="${root}${L.aboutUrl}">${tr("Giới thiệu &amp; quyền riêng tư")}</a></li>
+<li><a href="${site.repo}" rel="noopener">${tr("Mã nguồn trên GitHub")}</a></li>
+<li><a href="${site.repo}/issues" rel="noopener">${tr("Góp ý, báo lỗi")}</a></li>
 </ul></nav>
 </div>
-<p class="copy">© ${YEAR} BbeTools · Không quảng cáo, không tải file lên máy chủ.</p>
+<p class="copy">© ${YEAR} BbeTools · ${tr("Không quảng cáo, không tải file lên máy chủ.")}</p>
 </footer>`;
 }
 
@@ -103,22 +182,26 @@ const analytics = () => (site.gaId ? `<script async src="https://www.googletagma
 <script>window.btReplaceState=history.replaceState.bind(history);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","${site.gaId}",{page_location:location.origin+location.pathname});</script>
 ` : "");
 
-function page({ root, path, title, desc, entry, ld, bodyAttrs = "", main, head = "", noindex = false }) {
+function page(L, { path, key, title, desc, entry, ld, bodyAttrs = "", main, head = "", noindex = false, root = rootOf(path) }) {
   const abs = BASE + path;
+  const alts = key ? alt(key) : {};
+  const hreflang = !noindex && Object.keys(alts).length > 1
+    ? Object.entries(alts).map(([c, u]) => `<link rel="alternate" hreflang="${c}" href="${BASE}${u}">`).join("\n") + (alts.vi != null ? `\n<link rel="alternate" hreflang="x-default" href="${BASE}${alts.vi}">` : "") + "\n"
+    : "";
   return `<!doctype html>
-<html lang="vi" data-root="${root}">
+<html lang="${L.lang}" data-root="${root}">
 <head>
 <meta charset="utf-8">
 ${analytics()}${head}<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(metaDesc(desc))}">
 ${noindex ? `<meta name="robots" content="noindex">` : `<link rel="canonical" href="${abs}">`}
-<meta name="generator" content="bbetools-build">
+${hreflang}<meta name="generator" content="bbetools-build">
 <meta name="theme-color" content="#F6F7F9" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#111318" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="${site.name}">
-<meta property="og:locale" content="vi_VN">
+<meta property="og:locale" content="${L.og}">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(metaDesc(desc))}">
 <meta property="og:url" content="${abs}">
@@ -132,16 +215,16 @@ ${noindex ? `<meta name="robots" content="noindex">` : `<link rel="canonical" hr
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="${root}assets/app.css">
 <script>try{var t=localStorage.getItem("bt:theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
-<link rel="modulepreload" href="${root}assets/core.js">
+<link rel="modulepreload" href="${root}${L.js("core.js")}">
 <script type="module" src="${root}${entry}"></script>
 ${ld ? jsonld(ld) : ""}
 </head>
 <body${bodyAttrs ? " " + bodyAttrs : ""}>
-${header(root)}
+${header(L, root, alts)}
 <main id="main" tabindex="-1">
 ${main}
 </main>
-${footer(root)}
+${footer(L, root)}
 </body>
 </html>
 `;
@@ -153,72 +236,75 @@ const breadcrumbLd = (items) => ({
 });
 
 /* ---------- trang chủ ---------- */
-function homePage() {
-  const root = "./";
+function homePage(L) {
+  const { tr, live, liveGroups, liveIn } = L;
+  const path = L.homeUrl, root = rootOf(path);
   const popular = live.filter((t) => t.popular);
   const main = `<section class="hero">
 <div class="wrap">
-<h1>Công cụ tiện ích <span class="nowrap">cho người Việt</span></h1>
-<p class="lead">${live.length} công cụ miễn phí cho PDF, ảnh, văn bản, VietQR, lịch âm… Chạy ngay trên trình duyệt, <b>file không bao giờ rời khỏi máy bạn</b>.</p>
+<h1>${tr("Công cụ tiện ích <span class=\"nowrap\">cho người Việt</span>")}</h1>
+<p class="lead">${tr("{0} công cụ miễn phí cho PDF, ảnh, văn bản, VietQR, lịch âm… Chạy ngay trên trình duyệt, <b>file không bao giờ rời khỏi máy bạn</b>.", live.length)}</p>
 <form class="search-box" role="search" action="./" onsubmit="return false">
 ${icon("search", root)}
-<input id="q" name="q" type="search" placeholder="Tìm: ghép pdf, nén ảnh, vietqr…" autocomplete="off" spellcheck="false" aria-label="Tìm công cụ" aria-controls="results" enterkeyhint="go">
+<input id="q" name="q" type="search" placeholder="${tr("Tìm: ghép pdf, nén ảnh, vietqr…")}" autocomplete="off" spellcheck="false" aria-label="${tr("Tìm công cụ")}" aria-controls="results" enterkeyhint="go">
 <kbd class="only-d">/</kbd>
 </form>
-<p class="drop-hint">${icon("upload", root)}<span>Thả hoặc dán (Ctrl/⌘ + V) một file vào trang để được gợi ý công cụ phù hợp, hoặc <button type="button" class="linkish" data-pick-any>chọn file</button>.</span></p>
+<p class="drop-hint">${icon("upload", root)}<span>${tr("Thả hoặc dán (Ctrl/⌘ + V) một file vào trang để được gợi ý công cụ phù hợp, hoặc <button type=\"button\" class=\"linkish\" data-pick-any>chọn file</button>.")}</span></p>
 </div>
 </section>
 <div class="wrap">
-<section id="results" class="block" hidden aria-live="polite"><h2 id="results-title">Kết quả tìm kiếm</h2><ul class="cards" id="results-list"></ul><p class="empty" id="results-empty" hidden>Chưa có công cụ khớp. Thử gõ ngắn hơn hoặc không dấu, ví dụ “pdf”, “anh”, “qr”.</p></section>
+<section id="results" class="block" hidden aria-live="polite"><h2 id="results-title">${tr("Kết quả tìm kiếm")}</h2><ul class="cards" id="results-list"></ul><p class="empty" id="results-empty" hidden>${tr("Chưa có công cụ khớp. Thử gõ ngắn hơn hoặc không dấu, ví dụ “pdf”, “anh”, “qr”.")}</p></section>
 <div id="home-main">
 <section id="suggest" class="block" hidden></section>
-<section id="favs" class="block" hidden><h2>${icon("star", root)} Yêu thích</h2><ul class="cards"></ul></section>
-<section id="recent" class="block" hidden><h2>${icon("history", root)} Dùng gần đây</h2><ul class="cards"></ul></section>
-<section class="block" id="popular"><h2>${icon("sparkles", root)} Phổ biến</h2>${cards(popular, root)}</section>
-<nav class="chips" aria-label="Lọc theo nhóm">
+<section id="favs" class="block" hidden><h2>${icon("star", root)} ${tr("Yêu thích")}</h2><ul class="cards"></ul></section>
+<section id="recent" class="block" hidden><h2>${icon("history", root)} ${tr("Dùng gần đây")}</h2><ul class="cards"></ul></section>
+<section class="block" id="popular"><h2>${icon("sparkles", root)} ${tr("Phổ biến")}</h2>${cards(L, popular, root)}</section>
+<nav class="chips" aria-label="${tr("Lọc theo nhóm")}">
 <div class="chips-in">
-<a href="#tat-ca" class="chip" data-filter="all" aria-current="true">Tất cả</a>
-${liveGroups.map((g) => `<a href="#nhom-${g.slug}" class="chip" data-filter="${g.id}">${esc(g.name)} <small>${liveIn(g.id).length}</small></a>`).join("\n")}
+<a href="#tat-ca" class="chip" data-filter="all" aria-current="true">${tr("Tất cả")}</a>
+${liveGroups.map((g) => `<a href="#${tr("nhom-")}${g.slug}" class="chip" data-filter="${g.id}">${esc(g.name)} <small>${liveIn(g.id).length}</small></a>`).join("\n")}
 </div>
 </nav>
 <div id="tat-ca">
-${liveGroups.map((g) => `<section class="block group-block" id="nhom-${g.slug}" data-group="${g.id}">
-<h2><a href="${root}nhom/${g.slug}/">${tile(g, root, "sm")}${esc(g.name)}</a> <small>${liveIn(g.id).length} công cụ</small></h2>
-${cards(liveIn(g.id), root)}
+${liveGroups.map((g) => `<section class="block group-block" id="${tr("nhom-")}${g.slug}" data-group="${g.id}">
+<h2><a href="${root}${L.groupUrl(g)}">${tile(L, g, root, "sm")}${esc(g.name)}</a> <small>${tr("{0} công cụ", liveIn(g.id).length)}</small></h2>
+${cards(L, liveIn(g.id), root)}
 </section>`).join("\n")}
 </div>
 </div>
 </div>`;
+  const url = BASE + path;
   const ld = {
     "@context": "https://schema.org",
     "@graph": [
-      { "@type": "WebSite", name: site.name, url: BASE, inLanguage: "vi", description: site.description,
-        potentialAction: { "@type": "SearchAction", target: { "@type": "EntryPoint", urlTemplate: BASE + "?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
-      { "@type": "ItemList", name: "Công cụ phổ biến", itemListElement: popular.map((t, i) => ({ "@type": "ListItem", position: i + 1, name: t.name, url: BASE + toolUrl(t) })) }
+      { "@type": "WebSite", name: site.name, url, inLanguage: L.lang, description: L.site.description,
+        potentialAction: { "@type": "SearchAction", target: { "@type": "EntryPoint", urlTemplate: url + "?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+      { "@type": "ItemList", name: tr("Công cụ phổ biến"), itemListElement: popular.map((t, i) => ({ "@type": "ListItem", position: i + 1, name: t.name, url: BASE + L.toolUrl(t) })) }
     ]
   };
-  return page({ root, path: "", title: `${site.name} – ${site.tagline}`, desc: site.description, entry: "assets/home.js", ld, bodyAttrs: 'class="home"', main });
+  return page(L, { path, key: "home", title: `${site.name} – ${L.site.tagline}`, desc: L.site.description, entry: L.js("home.js"), ld, bodyAttrs: 'class="home"', main });
 }
 
 /* ---------- trang nhóm ---------- */
-function groupPage(g) {
-  const root = "../../";
-  const list = liveIn(g.id);
+function groupPage(L, g) {
+  const { tr } = L;
+  const path = L.groupUrl(g), root = rootOf(path);
+  const list = L.liveIn(g.id);
   const main = `<div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="${root}">Trang chủ</a></li><li><span aria-current="page">${esc(g.name)}</span></li></ol></nav>
-<header class="page-head">${tile(g, root, "lg")}<div><h1>Công cụ ${esc(g.name)}</h1><p class="lead">${esc(g.desc)} ${list.length} công cụ miễn phí, chạy ngay trên trình duyệt.</p></div></header>
-${cards(list, root, { h: "h2" })}
-<section class="block"><h2>Nhóm khác</h2><ul class="chip-list">${liveGroups.filter((x) => x !== g).map((x) => `<li><a class="chip" href="${root}nhom/${x.slug}/">${tile(x, root, "xs")}${esc(x.name)}</a></li>`).join("")}</ul></section>
+<nav class="crumbs" aria-label="${tr("Đường dẫn")}"><ol><li><a href="${root}${L.homeUrl}">${tr("Trang chủ")}</a></li><li><span aria-current="page">${esc(g.name)}</span></li></ol></nav>
+<header class="page-head">${tile(L, g, root, "lg")}<div><h1>${esc(tr("Công cụ {0}", g.name))}</h1><p class="lead">${esc(g.desc)} ${tr("{0} công cụ miễn phí, chạy ngay trên trình duyệt.", list.length)}</p></div></header>
+${cards(L, list, root, { h: "h2" })}
+<section class="block"><h2>${tr("Nhóm khác")}</h2><ul class="chip-list">${L.liveGroups.filter((x) => x !== g).map((x) => `<li><a class="chip" href="${root}${L.groupUrl(x)}">${tile(L, x, root, "xs")}${esc(x.name)}</a></li>`).join("")}</ul></section>
 </div>`;
   const ld = {
     "@context": "https://schema.org",
     "@graph": [
-      { "@type": "CollectionPage", name: `Công cụ ${g.name}`, url: BASE + `nhom/${g.slug}/`, inLanguage: "vi", description: g.desc,
-        mainEntity: { "@type": "ItemList", itemListElement: list.map((t, i) => ({ "@type": "ListItem", position: i + 1, name: t.name, url: BASE + toolUrl(t) })) } },
-      breadcrumbLd([["Trang chủ", ""], [g.name, `nhom/${g.slug}/`]])
+      { "@type": "CollectionPage", name: tr("Công cụ {0}", g.name), url: BASE + path, inLanguage: L.lang, description: g.desc,
+        mainEntity: { "@type": "ItemList", itemListElement: list.map((t, i) => ({ "@type": "ListItem", position: i + 1, name: t.name, url: BASE + L.toolUrl(t) })) } },
+      breadcrumbLd([[tr("Trang chủ"), L.homeUrl], [g.name, path]])
     ]
   };
-  return page({ root, path: `nhom/${g.slug}/`, title: `Công cụ ${g.name} miễn phí – ${site.name}`, desc: `${g.desc} ${list.length} công cụ miễn phí, xử lý ngay trên trình duyệt, không tải file lên máy chủ.`, entry: "assets/core.js", ld, main });
+  return page(L, { path, key: "group:" + g.id, title: `${tr("Công cụ {0} miễn phí", g.name)} – ${site.name}`, desc: `${g.desc} ${tr("{0} công cụ miễn phí, xử lý ngay trên trình duyệt, không tải file lên máy chủ.", list.length)}`, entry: L.js("core.js"), ld, main });
 }
 
 /* ---------- trang công cụ ---------- */
@@ -229,120 +315,131 @@ const PRIVACY = {
   interactive: "Mọi thứ chạy ngay trên máy bạn; hình ảnh, âm thanh không gửi đi đâu."
 };
 
-async function dataNote(t) {
+async function dataNote(L, t, root) {
   const notes = [];
   for (const d of t.data || []) {
     const p = ROOT + `data/${d}.json`;
     if (!existsSync(p)) continue;
-    const j = JSON.parse(await readFile(p, "utf8"));
-    notes.push(`<p class="data-note">${icon("info", "../")}<span>Dữ liệu ${esc(j.title || "")} cập nhật ngày <b>${fmtDate(j.updated)}</b>. Nguồn: ${esc(j.source)}.</span></p>`);
+    const j = { ...JSON.parse(await readFile(p, "utf8")), ...((L.D && L.D.data[d]) || {}) };
+    notes.push(`<p class="data-note">${icon("info", root)}<span>${L.tr("Dữ liệu {0} cập nhật ngày {1}. Nguồn: {2}.", esc(j.title || ""), `<b>${fmtDate(j.updated, L.lang)}</b>`, esc(j.source))}</span></p>`);
   }
   return notes.join("\n");
 }
 
-async function toolPage(t) {
-  const root = "../";
-  const g = groupOf[t.group];
-  const related = (t.related || []).map((id) => byId[id]).filter((x) => x && isLive(x));
+async function toolPage(L, t) {
+  const { tr } = L;
+  const path = L.toolUrl(t), root = rootOf(path);
+  const g = L.groupOf[t.group];
+  const related = (t.related || []).map((id) => L.byId[id]).filter((x) => x && isLive(x));
   // bù thêm công cụ cùng nhóm cho đủ 4
-  for (const x of liveIn(t.group)) { if (related.length >= 4) break; if (x !== t && !related.includes(x)) related.push(x); }
-  const accept = t.accept && t.kind === "file" ? `<p class="formats">Nhận: ${esc(describeAccept(t.accept))}</p>` : "";
+  for (const x of L.liveIn(t.group)) { if (related.length >= 4) break; if (x !== t && !related.includes(x)) related.push(x); }
+  const accept = t.accept && t.kind === "file" ? `<p class="formats">${tr("Nhận: {0}", esc(L.describeAccept(t.accept)))}</p>` : "";
   const main = `<div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="${root}">Trang chủ</a></li><li><a href="${root}nhom/${g.slug}/">${esc(g.name)}</a></li><li><span aria-current="page">${esc(t.name)}</span></li></ol></nav>
+<nav class="crumbs" aria-label="${tr("Đường dẫn")}"><ol><li><a href="${root}${L.homeUrl}">${tr("Trang chủ")}</a></li><li><a href="${root}${L.groupUrl(g)}">${esc(g.name)}</a></li><li><span aria-current="page">${esc(t.name)}</span></li></ol></nav>
 <header class="tool-head">
-${tile(t, root, "lg")}
-<div class="tool-title"><h1>${esc(t.name)}${t.status === "beta" ? ' <span class="badge">Thử nghiệm</span>' : ""}</h1><p class="lead">${esc(t.desc)}</p></div>
-<button class="fav-btn" type="button" data-fav="${t.id}" aria-pressed="false" hidden>${icon("star", root)}<span>Ghim</span></button>
+${tile(L, t, root, "lg")}
+<div class="tool-title"><h1>${esc(t.name)}${t.status === "beta" ? ` <span class="badge">${tr("Thử nghiệm")}</span>` : ""}</h1><p class="lead">${esc(t.desc)}</p></div>
+<button class="fav-btn" type="button" data-fav="${t.id}" aria-pressed="false" hidden>${icon("star", root)}<span>${tr("Ghim")}</span></button>
 </header>
-<p class="privacy">${icon("shield-check", root)}<span>${esc(t.privacy || PRIVACY[t.kind])}</span></p>
+<p class="privacy">${icon("shield-check", root)}<span>${esc(t.privacy || tr(PRIVACY[t.kind]))}</span></p>
 <div id="app" class="app app-${t.kind}" data-kind="${t.kind}">
-<noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
+<noscript><p class="note">${tr("Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.")}</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 ${accept}
-${await dataNote(t)}
-${t.howto && t.howto.length ? `<section class="block info"><h2>Cách dùng</h2><ol class="steps">${t.howto.map((s) => `<li>${esc(s)}</li>`).join("")}</ol></section>` : ""}
-${t.faq && t.faq.length ? `<section class="block info"><h2>Câu hỏi thường gặp</h2>${t.faq.map((f) => `<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join("\n")}</section>` : ""}
-${related.length ? `<section class="block"><h2>Công cụ liên quan</h2>${cards(related.slice(0, 6), root)}</section>` : ""}
+${await dataNote(L, t, root)}
+${t.howto && t.howto.length ? `<section class="block info"><h2>${tr("Cách dùng")}</h2><ol class="steps">${t.howto.map((s) => `<li>${esc(s)}</li>`).join("")}</ol></section>` : ""}
+${t.faq && t.faq.length ? `<section class="block info"><h2>${tr("Câu hỏi thường gặp")}</h2>${t.faq.map((f) => `<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join("\n")}</section>` : ""}
+${related.length ? `<section class="block"><h2>${tr("Công cụ liên quan")}</h2>${cards(L, related.slice(0, 6), root)}</section>` : ""}
 </div>`;
   const graph = [
-    { "@type": "WebApplication", name: t.name, url: BASE + toolUrl(t), description: t.desc, inLanguage: "vi",
-      applicationCategory: "UtilitiesApplication", operatingSystem: "Mọi hệ điều hành có trình duyệt web", browserRequirements: "Cần bật JavaScript",
-      isAccessibleForFree: true, offers: { "@type": "Offer", price: "0", priceCurrency: "VND" } },
-    breadcrumbLd([["Trang chủ", ""], [g.name, `nhom/${g.slug}/`], [t.name, toolUrl(t)]])
+    { "@type": "WebApplication", name: t.name, url: BASE + path, description: t.desc, inLanguage: L.lang,
+      applicationCategory: "UtilitiesApplication", operatingSystem: tr("Mọi hệ điều hành có trình duyệt web"), browserRequirements: tr("Cần bật JavaScript"),
+      isAccessibleForFree: true, offers: { "@type": "Offer", price: "0", priceCurrency: L.vi ? "VND" : "USD" } },
+    breadcrumbLd([[tr("Trang chủ"), L.homeUrl], [g.name, L.groupUrl(g)], [t.name, path]])
   ];
   if (t.faq && t.faq.length) graph.push({ "@type": "FAQPage", mainEntity: t.faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) });
-  if (t.howto && t.howto.length) graph.push({ "@type": "HowTo", name: "Cách dùng " + t.name, step: t.howto.map((s, i) => ({ "@type": "HowToStep", position: i + 1, text: s })) });
-  const desc = `${t.desc} Miễn phí, chạy ngay trên trình duyệt, không tải file lên máy chủ.`;
-  return page({
-    root, path: toolUrl(t), title: `${t.name} – ${site.name}`, desc, entry: `assets/tools/${t.id}.js`,
+  if (t.howto && t.howto.length) graph.push({ "@type": "HowTo", name: tr("Cách dùng {0}", t.name), step: t.howto.map((s, i) => ({ "@type": "HowToStep", position: i + 1, text: s })) });
+  const desc = `${t.desc} ${tr("Miễn phí, chạy ngay trên trình duyệt, không tải file lên máy chủ.")}`;
+  return page(L, {
+    path, key: "tool:" + t.id, title: `${t.name} – ${site.name}`, desc, entry: L.js(`tools/${t.id}.js`),
     ld: { "@context": "https://schema.org", "@graph": graph }, bodyAttrs: `data-tool="${t.id}"`, main
   });
 }
 
 /* ---------- giới thiệu & quyền riêng tư ---------- */
-function aboutPage() {
-  const root = "../";
+function aboutPage(L) {
+  const { tr } = L;
+  const path = L.aboutUrl, root = rootOf(path);
   const main = `<div class="wrap narrow prose">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="${root}">Trang chủ</a></li><li><span aria-current="page">Giới thiệu</span></li></ol></nav>
-<h1>Giới thiệu &amp; quyền riêng tư</h1>
-<p class="lead">BbeTools là bộ công cụ tiện ích miễn phí, giao diện tiếng Việt, chạy hoàn toàn trên trình duyệt của bạn.</p>
-<h2>File của bạn không rời khỏi máy</h2>
-<p>BbeTools không có máy chủ xử lý. Khi bạn ghép PDF, nén ảnh hay làm ảnh thẻ, mọi phép tính diễn ra bằng JavaScript và WebAssembly ngay trong tab trình duyệt. File, văn bản, hình ảnh camera và âm thanh micro không được gửi đi đâu. Bạn có thể ngắt mạng sau khi trang và thư viện đã tải xong, công cụ vẫn chạy.</p>
-<h2>Trang tải những gì từ Internet?</h2>
+<nav class="crumbs" aria-label="${tr("Đường dẫn")}"><ol><li><a href="${root}${L.homeUrl}">${tr("Trang chủ")}</a></li><li><span aria-current="page">${tr("Giới thiệu")}</span></li></ol></nav>
+<h1>${tr("Giới thiệu &amp; quyền riêng tư")}</h1>
+<p class="lead">${tr("BbeTools là bộ công cụ tiện ích miễn phí, giao diện tiếng Việt, chạy hoàn toàn trên trình duyệt của bạn.")}</p>
+<h2>${tr("File của bạn không rời khỏi máy")}</h2>
+<p>${tr("BbeTools không có máy chủ xử lý. Khi bạn ghép PDF, nén ảnh hay làm ảnh thẻ, mọi phép tính diễn ra bằng JavaScript và WebAssembly ngay trong tab trình duyệt. File, văn bản, hình ảnh camera và âm thanh micro không được gửi đi đâu. Bạn có thể ngắt mạng sau khi trang và thư viện đã tải xong, công cụ vẫn chạy.")}</p>
+<h2>${tr("Trang tải những gì từ Internet?")}</h2>
 <ul>
-<li>Chính trang web, từ GitHub Pages.</li>
-<li>Font chữ và thư viện mã nguồn mở (pdf-lib, pdf.js, JSZip, bộ mã hoá ảnh, giải mã HEIC, đọc mã QR…) từ CDN jsDelivr, ghim đúng phiên bản. Thư viện nặng chỉ tải khi bạn mở công cụ cần đến nó. CDN chỉ thấy yêu cầu tải thư viện, không thấy file của bạn.</li>
-<li>Mô hình AI tách nền (cho Làm ảnh thẻ) đặt ngay trong trang web này.</li>
+<li>${tr("Chính trang web, từ GitHub Pages.")}</li>
+<li>${tr("Font chữ và thư viện mã nguồn mở (pdf-lib, pdf.js, JSZip, bộ mã hoá ảnh, giải mã HEIC, đọc mã QR…) từ CDN jsDelivr, ghim đúng phiên bản. Thư viện nặng chỉ tải khi bạn mở công cụ cần đến nó. CDN chỉ thấy yêu cầu tải thư viện, không thấy file của bạn.")}</li>
+<li>${tr("Mô hình AI tách nền (cho Làm ảnh thẻ) đặt ngay trong trang web này.")}</li>
+<li>${tr("Riêng công cụ Tải sticker Telegram: trình duyệt của bạn gọi thẳng máy chủ Telegram (api.telegram.org) bằng token bot của chính bạn để lấy bộ sticker. BbeTools không có máy chủ trung gian và không nhận token.")}</li>
 </ul>
-<h2>Thống kê lượt truy cập, không quảng cáo</h2>
-<p>BbeTools dùng Google Analytics để đếm lượt xem từng trang (trang nào được dùng nhiều, người dùng đến từ đâu, dùng điện thoại hay máy tính), nhờ đó biết nên cải thiện công cụ nào. Google Analytics chỉ nhận đường dẫn trang; tên file, nội dung file, văn bản và số liệu bạn nhập vào công cụ không bao giờ được gửi đi. Bạn có thể chặn bằng trình chặn quảng cáo hoặc <a href="https://tools.google.com/dlpage/gaoptout?hl=vi" rel="noopener">tiện ích chặn Google Analytics</a>; mọi công cụ vẫn chạy bình thường.</p>
-<p>Không có quảng cáo, không có cookie quảng cáo. “Dùng gần đây”, “Yêu thích” và cài đặt chỉ lưu trong bộ nhớ trình duyệt (localStorage) của chính bạn; xoá dữ liệu trang web là mất.</p>
-<h2>Mã nguồn mở</h2>
-<p>Toàn bộ mã nguồn ở <a href="${site.repo}" rel="noopener">${esc(site.repo.replace("https://", ""))}</a>. Bạn có thể tự kiểm tra, góp ý hoặc báo lỗi tại mục Issues.</p>
-<h2>Giới hạn</h2>
-<p>Vì chạy trên máy bạn nên tốc độ phụ thuộc vào máy: file rất lớn (vài trăm MB) có thể chậm hoặc thiếu bộ nhớ trên điện thoại cũ. Kết quả tính toán (thuế, lương, lãi…) chỉ để tham khảo; dữ liệu pháp lý có ghi rõ ngày cập nhật trên từng trang.</p>
+<h2>${tr("Thống kê lượt truy cập, không quảng cáo")}</h2>
+<p>${tr("BbeTools dùng Google Analytics để đếm lượt xem từng trang (trang nào được dùng nhiều, người dùng đến từ đâu, dùng điện thoại hay máy tính), nhờ đó biết nên cải thiện công cụ nào. Google Analytics chỉ nhận đường dẫn trang; tên file, nội dung file, văn bản và số liệu bạn nhập vào công cụ không bao giờ được gửi đi. Bạn có thể chặn bằng trình chặn quảng cáo hoặc <a href=\"https://tools.google.com/dlpage/gaoptout?hl=vi\" rel=\"noopener\">tiện ích chặn Google Analytics</a>; mọi công cụ vẫn chạy bình thường.")}</p>
+<p>${tr("Không có quảng cáo, không có cookie quảng cáo. “Dùng gần đây”, “Yêu thích” và cài đặt chỉ lưu trong bộ nhớ trình duyệt (localStorage) của chính bạn; xoá dữ liệu trang web là mất.")}</p>
+<h2>${tr("Mã nguồn mở")}</h2>
+<p>${tr("Toàn bộ mã nguồn ở {0}. Bạn có thể tự kiểm tra, góp ý hoặc báo lỗi tại mục Issues.", `<a href="${site.repo}" rel="noopener">${esc(site.repo.replace("https://", ""))}</a>`)}</p>
+<h2>${tr("Giới hạn")}</h2>
+<p>${tr("Vì chạy trên máy bạn nên tốc độ phụ thuộc vào máy: file rất lớn (vài trăm MB) có thể chậm hoặc thiếu bộ nhớ trên điện thoại cũ. Kết quả tính toán (thuế, lương, lãi…) chỉ để tham khảo; dữ liệu pháp lý có ghi rõ ngày cập nhật trên từng trang.")}</p>
 </div>`;
-  return page({ root, path: "gioi-thieu/", title: `Giới thiệu & quyền riêng tư – ${site.name}`, desc: "BbeTools xử lý mọi file ngay trên trình duyệt, không tải lên máy chủ, không quảng cáo. Mã nguồn mở.", entry: "assets/core.js", main });
+  return page(L, { path, key: "about", title: `${tr("Giới thiệu & quyền riêng tư")} – ${site.name}`, desc: tr("BbeTools xử lý mọi file ngay trên trình duyệt, không tải lên máy chủ, không quảng cáo. Mã nguồn mở."), entry: L.js("core.js"), main });
 }
 
 /* ---------- 404 ---------- */
-function notFoundPage() {
+function notFoundPage(L) {
   // GitHub Pages trả 404.html cho mọi đường dẫn sai ở mọi độ sâu, nên đường dẫn tương đối không dùng được.
   // Đoạn script đầu trang đặt <base href> về thư mục gốc của site (tính từ vị trí "/bbetools/" trong URL).
-  const baseScript = `<script>(function(){var b=${JSON.stringify(BASE_PATH)},p=location.pathname,i=p.toLowerCase().indexOf(b.toLowerCase());document.write('<base href="'+(i>=0?p.slice(0,i+b.length):"/")+'">')})()</script>\n`;
+  // Đường dẫn nằm dưới thư mục của ngôn ngữ khác (vd. /bbetools/en/…) thì nạp bản dịch của notfound.js; module đó tự đổi chữ trên trang.
+  const langs = Object.keys(LANGS);
+  const baseScript = `<script>(function(){var b=${JSON.stringify(BASE_PATH)},p=location.pathname,i=p.toLowerCase().indexOf(b.toLowerCase()),r=i>=0?p.slice(0,i+b.length):"/",l=(i>=0?p.slice(i+b.length):"").split("/")[0];document.write('<base href="'+r+'">');if(${JSON.stringify(langs)}.indexOf(l)>=0){document.documentElement.lang=l;window.btLang=l}})()</script>\n`;
   const root = "";
   const main = `<div class="wrap narrow nf">
 <p class="nf-code">404</p>
-<h1>Không tìm thấy trang này</h1>
+<h1 id="nf-title">Không tìm thấy trang này</h1>
 <p class="lead" id="nf-msg">Đường dẫn có thể đã đổi hoặc gõ nhầm.</p>
 <section id="nf-suggest" class="block" hidden><h2>Có phải bạn tìm:</h2><ul class="cards"></ul></section>
-<p class="row"><a class="btn" href="./">${icon("house", root)}Về trang chủ</a><button class="btn ghost" type="button" data-palette>${icon("search", root)}Tìm công cụ</button></p>
+<p class="row"><a class="btn" id="nf-home" href="./">${icon("house", root)}<span>Về trang chủ</span></a><button class="btn ghost" type="button" data-palette>${icon("search", root)}<span>Tìm công cụ</span></button></p>
 </div>`;
-  return page({ root, path: "404.html", title: `Không tìm thấy trang – ${site.name}`, desc: "Trang bạn tìm không tồn tại hoặc đã đổi địa chỉ. Tìm công cụ khác trên BbeTools.", entry: "assets/notfound.js", main, head: baseScript, noindex: true });
+  // nạp module theo ngôn ngữ (window.btLang do đoạn script đầu trang đặt)
+  const loader = `<script>(function(){var s=document.createElement("script");s.type="module";s.src="assets/"+(window.btLang?window.btLang+"/":"")+"notfound.js";document.head.appendChild(s)})()</script>\n`;
+  return page(L, { path: "404.html", root, title: `Không tìm thấy trang – ${site.name}`, desc: "Trang bạn tìm không tồn tại hoặc đã đổi địa chỉ. Tìm công cụ khác trên BbeTools.", entry: "assets/notfound.js", main, head: baseScript, noindex: true })
+    .replace(`<script type="module" src="assets/notfound.js"></script>\n`, loader)
+    .replace(`<link rel="modulepreload" href="assets/core.js">\n`, "");
 }
 
 /* ---------- registry cho trình duyệt ---------- */
-function clientRegistry() {
+function clientRegistry(L) {
   const pick = (t) => {
     const o = { id: t.id, slug: t.slug, name: t.name, group: t.group, icon: t.icon, kind: t.kind, desc: t.desc, keywords: t.keywords };
-    for (const k of ["accept", "output", "multiple", "popular", "aliases", "related", "status"]) if (t[k] != null) o[k] = t[k];
+    for (const k of ["accept", "output", "multiple", "popular", "aliases", "related", "status"]) if (t[k] != null && !(Array.isArray(t[k]) && !t[k].length)) o[k] = t[k];
+    if (o.related) o.related = o.related.filter((id) => L.byId[id]);
     return o;
   };
-  const groups = liveGroups.map((g) => ({ id: g.id, slug: g.slug, name: g.name, icon: g.icon, color: g.color }));
-  return `/* Tự sinh bởi scripts/build.js từ tools.json — đừng sửa tay. Chỉ gồm công cụ đã hoàn thành. */
+  const groups = L.liveGroups.map((g) => ({ id: g.id, slug: g.slug, name: g.name, icon: g.icon, color: g.color }));
+  return `/* Tự sinh bởi scripts/build.js từ tools.json${L.vi ? "" : ` và i18n/${L.lang}/tools.json`} — đừng sửa tay. Chỉ gồm công cụ đã hoàn thành. */
 export const site = ${JSON.stringify({ name: site.name, baseUrl: site.baseUrl })};
 export const groups = ${JSON.stringify(groups)};
 export const tools = [
-${live.map((t) => JSON.stringify(pick(t))).join(",\n")}
+${L.live.map((t) => JSON.stringify(pick(t))).join(",\n")}
 ];
 `;
 }
 
 /* ---------- ghi file ---------- */
-const CHECK = process.argv.includes("--check"); // chỉ kiểm tra file sinh ra đã khớp registry chưa, không ghi
 const stale = [];
+const written = new Set();
 async function write(rel, content) {
+  written.add(rel);
   const p = ROOT + rel;
   let old = null;
   try { old = await readFile(p, "utf8"); } catch (_) {}
@@ -362,20 +459,62 @@ async function cleanStale(keep) {
     const html = await readFile(f, "utf8");
     if (html.includes('content="bbetools-build"') && !keep.has(rel)) { await rm(dir, { recursive: true }); removed++; console.log("  đã xoá trang cũ:", rel); }
   };
-  for (const e of await readdir(ROOT, { withFileTypes: true })) if (e.isDirectory() && !e.name.startsWith(".")) await check(ROOT + e.name + "/", e.name + "/");
-  if (existsSync(ROOT + "nhom")) for (const e of await readdir(ROOT + "nhom", { withFileTypes: true })) if (e.isDirectory()) await check(ROOT + "nhom/" + e.name + "/", "nhom/" + e.name + "/");
+  const scan = async (rel) => {
+    if (!existsSync(ROOT + rel)) return;
+    for (const e of await readdir(ROOT + rel, { withFileTypes: true })) if (e.isDirectory() && !e.name.startsWith(".")) await check(ROOT + rel + e.name + "/", rel + e.name + "/");
+  };
+  await scan("");
+  await scan("nhom/");
+  for (const code of Object.keys(LANGS)) { await scan(code + "/"); await scan(code + "/" + LANGS[code].groups); }
+  // module JS đã dịch nhưng nay không còn dùng
+  for (const code of Object.keys(LANGS)) {
+    const walk = async (rel) => {
+      if (!existsSync(ROOT + rel)) return;
+      for (const e of await readdir(ROOT + rel, { withFileTypes: true })) {
+        const r = rel + e.name;
+        if (e.isDirectory()) await walk(r + "/");
+        else if (r.endsWith(".js") && !written.has(r)) { await rm(ROOT + r); removed++; console.log("  đã xoá module cũ:", r); }
+      }
+    };
+    await walk(`assets/${code}/`);
+  }
   return removed;
 }
 
-const keep = new Set(["gioi-thieu/", ...live.map(toolUrl), ...liveGroups.map((g) => `nhom/${g.slug}/`)]);
+const keep = new Set();
 let changed = 0;
-changed += await write("index.html", homePage());
-for (const g of liveGroups) changed += await write(`nhom/${g.slug}/index.html`, groupPage(g));
-for (const t of live) changed += await write(`${t.slug}/index.html`, await toolPage(t));
-changed += await write("gioi-thieu/index.html", aboutPage());
-changed += await write("404.html", notFoundPage());
-changed += await write("assets/registry.js", clientRegistry());
-const urls = ["", ...liveGroups.map((g) => `nhom/${g.slug}/`), ...live.map(toolUrl), "gioi-thieu/"];
+const urls = [];
+const missingJs = {};
+for (const code of LANG_CODES) {
+  const L = LS[code];
+  const pages = [
+    [L.homeUrl, () => homePage(L)],
+    ...L.liveGroups.map((g) => [L.groupUrl(g), () => groupPage(L, g)]),
+    ...L.live.map((t) => [L.toolUrl(t), () => toolPage(L, t)]),
+    [L.aboutUrl, () => aboutPage(L)]
+  ];
+  for (const [path, make] of pages) {
+    keep.add(path);
+    urls.push(path);
+    changed += await write(path + "index.html", await make());
+  }
+  if (L.vi) {
+    changed += await write("404.html", notFoundPage(L));
+    changed += await write("assets/registry.js", clientRegistry(L));
+    continue;
+  }
+  // module JS đã dịch
+  changed += await write(`assets/${code}/registry.js`, clientRegistry(L));
+  const miss = [];
+  for (const rel of await langFiles(code, reg)) {
+    const src = await readFile(ROOT + "assets/" + rel, "utf8");
+    const dict = (await loadJson(`i18n/${code}/js/${rel.replace(/\.js$/, "")}.json`)) || {};
+    const r = compile(src, await lookupFor(code, rel), rel);
+    if (!dict["@keep"]) miss.push(...r.missing.map((k) => [rel, k]));
+    changed += await write(`assets/${code}/${rel}`, `/* Tự sinh bởi scripts/build.js từ assets/${rel} và i18n/${code}/js/ — đừng sửa tay. */\n` + r.code);
+  }
+  missingJs[code] = miss;
+}
 changed += await write("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls.map((u) => `  <url><loc>${BASE}${u}</loc></url>`).join("\n")}
@@ -387,35 +526,22 @@ changed += await write("manifest.webmanifest", JSON.stringify({
   background_color: "#F6F7F9", theme_color: "#3E5BF2",
   icons: [{ src: "assets/favicon.svg", sizes: "any", type: "image/svg+xml" }, { src: "assets/icon-512.png", sizes: "512x512", type: "image/png" }, { src: "assets/apple-touch-icon.png", sizes: "180x180", type: "image/png" }]
 }, null, 2) + "\n");
-/* Kế hoạch xây dựng (tài liệu tạm, docs/ke-hoach.md): bảng Lộ trình và bảng Công cụ.
-   File này sẽ bị xoá khi xây xong; khi đó phần dưới tự bỏ qua. */
-{
-  const PLAN = "docs/ke-hoach.md";
-  let plan = await readFile(ROOT + PLAN, "utf8").catch(() => null);
-  const fill = (text, key, body) => text.replace(new RegExp(`<!-- ${key}:start -->[\\s\\S]*<!-- ${key}:end -->`), `<!-- ${key}:start -->${body}<!-- ${key}:end -->`);
-  if (plan) {
-    const phases = [...new Set(reg.groups.map((g) => g.phase))].sort((a, b) => a - b);
-    const roadmap = phases.map((n) => {
-      const groups = reg.groups.filter((g) => g.phase === n);
-      const list = reg.tools.filter((t) => groups.some((g) => g.id === t.group));
-      const done = list.filter(isLive).length;
-      const st = done === list.length ? "✅ Xong" : `⏳ Còn ${list.length - done} công cụ`;
-      const cmd = done === list.length ? "" : `\`Làm giai đoạn ${n} của BbeTools theo CLAUDE.md\``; // giai đoạn xong: không cần câu lệnh
-      return `| ${n} | ${groups.map((g) => g.name).join(" + ")} | ${done}/${list.length} | ${st} | ${cmd} |`;
-    });
-    plan = fill(plan, "roadmap", `\n| Giai đoạn | Nhóm | Công cụ xong | Trạng thái | Câu lệnh gợi ý cho AI |\n|---|---|---|---|---|\n| 1 | Lõi, registry, trang tự sinh + 13 công cụ tiêu biểu | 13 | ✅ Xong | |\n${roadmap.join("\n")}\n`);
-    const rows = reg.groups.map((g) => {
-      const list = reg.tools.filter((t) => t.group === g.id);
-      return `| ${g.name} | ${list.filter(isLive).length}/${list.length} | ${list.map((t) => (isLive(t) ? `[${t.name}](${BASE}${toolUrl(t)})` : t.name + " ⏳")).join(" · ")} |`;
-    });
-    plan = fill(plan, "tools", `\n${live.length}/${reg.tools.length} công cụ đã xong (⏳ = chưa làm, đang ẩn khỏi trang web).\n\n| Nhóm | Xong | Công cụ |\n|---|---|---|\n${rows.join("\n")}\n`);
-    changed += await write(PLAN, plan);
-  }
+
+/* ---------- báo phần chưa dịch ---------- */
+const report = [];
+for (const code of Object.keys(LANGS)) {
+  const L = LS[code], mp = [...missingPages.get(code)], mj = missingJs[code];
+  if (L.skipped.length) report.push(`${code}: ${L.skipped.length} công cụ chưa có bản dịch trong i18n/${code}/tools.json (chưa có trang): ${L.skipped.join(", ")}`);
+  if (mp.length) report.push(`${code}: ${mp.length} câu của khung trang chưa dịch trong i18n/${code}/pages.json (chạy build --missing để xem)`);
+  if (mj.length) report.push(`${code}: ${mj.length} chuỗi JS chưa dịch (chạy node scripts/i18n.js extract rồi điền giá trị null trong i18n/${code}/js/), vd. ${mj.slice(0, 3).map(([f, k]) => `${f}: ${JSON.stringify(k).slice(0, 60)}`).join(" · ")}`);
+  if (process.argv.includes("--missing")) console.log(JSON.stringify(Object.fromEntries(mp.map((k) => [k, null])), null, 1));
 }
 if (CHECK) {
   if (stale.length) { console.error("Trang sinh ra chưa khớp tools.json, hãy chạy: node scripts/build.js\n- " + stale.join("\n- ")); process.exit(1); }
+  if (report.length) { console.error("Còn phần chưa dịch:\n- " + report.join("\n- ")); process.exit(1); }
   console.log("Các trang đã khớp tools.json."); process.exit(0);
 }
 const removed = await cleanStale(keep);
 const todo = reg.tools.filter((t) => t.status === "todo").length;
-console.log(`BbeTools: ${live.length} công cụ đã xong, ${todo} chưa làm · ${liveGroups.length} nhóm · ${changed} file thay đổi${removed ? ", " + removed + " trang cũ đã xoá" : ""}`);
+console.log(`BbeTools: ${LS.vi.live.length} công cụ đã xong, ${todo} chưa làm · ${LS.vi.liveGroups.length} nhóm · ${Object.keys(LANGS).map((c) => `${c}: ${LS[c].live.length} công cụ`).join(" · ")} · ${changed} file thay đổi${removed ? ", " + removed + " file cũ đã xoá" : ""}`);
+if (report.length) console.warn("⚠ " + report.join("\n⚠ "));

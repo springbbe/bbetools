@@ -1,5 +1,5 @@
 /* Tính BMI theo ngưỡng cho người châu Á (WHO 2000), cân nặng hợp lý theo chiều cao */
-import { h, ROOT } from "../core.js";
+import { h, HOME } from "../core.js";
 import { formTool } from "../frames/form.js";
 import { num, stat, stats, table, alert } from "../calc.js";
 import { bmi, bmiClass, healthyRange, BMI_ASIA, BMI_WHO } from "../lib/suc-khoe.js";
@@ -29,7 +29,7 @@ formTool({
     else out.append(alert("ok", "Cân nặng của bạn đang ở mức bình thường."));
     out.append(table(["Phân loại", "BMI"], T.map((x, i) => [x.label, i === 0 ? `dưới ${num(x.max, 1)}` : x.max === Infinity ? `từ ${num(T[i - 1].max, 1)} trở lên` : `${num(T[i - 1].max, 1)} – dưới ${num(x.max, 1)}`]), { hl: (row) => row[0] === c.label, cls: ["l"] }),
       h("p", { class: "hint" }, "BMI = cân nặng (kg) ÷ chiều cao (m)². Người châu Á có tỉ lệ mỡ cao hơn ở cùng BMI nên ngưỡng thừa cân thấp hơn (23). BMI không áp dụng cho trẻ dưới 18 tuổi, phụ nữ mang thai, vận động viên nhiều cơ. Tính lượng calo cần mỗi ngày: ",
-        h("a", { href: ROOT + "tinh-calo-tdee/", text: "Calo cần mỗi ngày (TDEE)" }), "."));
+        h("a", { href: HOME + "tinh-calo-tdee/", text: "Calo cần mỗi ngày (TDEE)" }), "."));
   }
 });
 

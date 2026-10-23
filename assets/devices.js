@@ -371,10 +371,10 @@ export function mousePane(p) {
   p.append(area, warn, stats, h("p", { class: "hint", text: "Nút Lùi/Tiến là hai nút bên hông của nhiều chuột. Bàn di chuột (touchpad) thường không có nút giữa. Trong khung này, các nút không làm trang chuyển đi." }));
   const mlog = area.querySelector(".dt-mlog");
   function draw() {
-    btns.forEach((b, i) => { b.lastChild.textContent = cnt[i] + " lần"; });
+    btns.forEach((b, i) => { b.lastChild.textContent = `${cnt[i]} lần`; });
     stats.textContent = "";
     const row = (k, v) => [h("dt", { text: k }), h("dd", { text: v })];
-    stats.append(...row("Nhấp đúp", dbl + " lần"),
+    stats.append(...row("Nhấp đúp", `${dbl} lần`),
       ...row("Hai lần bấm sát nhau nhất", Number.isFinite(minGap) ? Math.round(minGap) + " ms" : "–"),
       ...row("Con lăn", `lên ${wheelUp} · xuống ${wheelDown}` + (wheelSide ? ` · ngang ${wheelSide}` : "")),
       ...row("Tần số báo (polling rate)", hzMax ? `khoảng ${hzMax} Hz` + (hz ? ` (hiện tại ${hz} Hz)` : "") : "di chuột nhanh trong khung để đo"));

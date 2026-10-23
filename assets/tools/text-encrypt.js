@@ -1,6 +1,6 @@
 /* Mã hoá văn bản bằng mật khẩu: AES-GCM 256 + PBKDF2-SHA256 (600.000 vòng), kết quả là chuỗi Base64 gửi được qua tin nhắn, email.
    Link giải mã để bản mã sau dấu # (trình duyệt không gửi phần này lên máy chủ). */
-import { h, icon, copyText, replaceUrl, sleep, ROOT } from "../core.js";
+import { h, icon, copyText, replaceUrl, sleep, HOME } from "../core.js";
 import { textTool } from "../frames/text.js";
 import { encryptText, decryptText, looksEncrypted } from "../lib/ma-hoa.js";
 
@@ -10,7 +10,7 @@ let tick = 0, api;
 const linkBtn = h("button", { class: "btn ghost sm", type: "button", title: "Link mở trang này với bản mã điền sẵn; người nhận chỉ cần nhập mật khẩu", onclick: () => {
   const r = api.result;
   if (api.opts.mode !== "enc" || !r.text) return;
-  copyText(new URL(ROOT + "ma-hoa-van-ban/", location.href).href.split("#")[0] + "#m=" + encodeURIComponent(r.text), "Đã sao chép link giải mã (không chứa mật khẩu)");
+  copyText(new URL(HOME + "ma-hoa-van-ban/", location.href).href.split("#")[0] + "#m=" + encodeURIComponent(r.text), "Đã sao chép link giải mã (không chứa mật khẩu)");
 } }, h("span", { html: icon("link"), style: { display: "contents" } }), "Link giải mã");
 
 api = textTool({

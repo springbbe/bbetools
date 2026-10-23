@@ -1,0 +1,20 @@
+{
+ "SQL chuẩn": "Standard SQL",
+ "Câu lệnh SQL": "SQL statement",
+ "Kết quả": "Result",
+ "select id, ho_ten from nhan_vien where phong_ban = 'Kế toán' order by ho_ten": "select id, full_name from employees where department = 'Accounting' order by full_name",
+ "select nv.ma_nv, nv.ho_ten, pb.ten_phong, sum(l.luong) as tong_luong from nhan_vien nv inner join phong_ban pb on pb.id = nv.phong_ban_id left join bang_luong l on l.ma_nv = nv.ma_nv and l.nam = 2026 where nv.trang_thai = 'dang_lam' and pb.ten_phong in ('Kế toán', 'Kinh doanh') group by nv.ma_nv, nv.ho_ten, pb.ten_phong having sum(l.luong) > 100000000 order by tong_luong desc limit 20;": "select e.emp_id, e.full_name, d.dept_name, sum(p.salary) as total_salary from employees e inner join departments d on d.id = e.dept_id left join payroll p on p.emp_id = e.emp_id and p.year = 2026 where e.status = 'active' and d.dept_name in ('Accounting', 'Sales') group by e.emp_id, e.full_name, d.dept_name having sum(p.salary) > 100000 order by total_salary desc limit 20;",
+ "Hệ quản trị": "Database",
+ "Từ khoá": "Keywords",
+ "IN HOA": "UPPERCASE",
+ "thường": "lowercase",
+ "Giữ nguyên": "Keep as is",
+ "Thụt lề": "Indent",
+ "2 dấu cách": "2 spaces",
+ "4 dấu cách": "4 spaces",
+ "Rút gọn 1 dòng": "Minify to 1 line",
+ "cau-lenh.sql": "query.sql",
+ "Không phân tích được câu lệnh": "Couldn't parse the statement",
+ " (dòng {0}, cột {1})": " (line {0}, column {1})",
+ ". Thử chọn đúng hệ quản trị đang dùng.": ". Try choosing the database you're using."
+}

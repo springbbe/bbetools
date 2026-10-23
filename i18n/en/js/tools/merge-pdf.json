@@ -1,0 +1,20 @@
+{
+ " trang": " pages",
+ " · đã mở khoá": " · unlocked",
+ "Có mật khẩu, bấm 🔒 để mở": "Password-protected, click 🔒 to unlock",
+ "Ghép PDF": "Merge PDF",
+ "Nhập mật khẩu": "Enter password",
+ "Nhập mật khẩu cho ": "Enter password for ",
+ "Xoay 90°": "Rotate 90°",
+ "Xoay ": "Rotate ",
+ " · xoay ": " · rotated ",
+ "Mẹo: kéo thả hoặc dùng nút ↑↓ để sắp thứ tự; bấm ↻ để xoay file bị ngược.": "Tip: drag and drop or use ↑↓ to set the order; click ↻ to rotate a file that's upside down.",
+ "<span>Sẽ ghép <b>{0}</b> file thành một PDF <b>{1}</b> trang.</span>": "<span>Will merge <b>{0}</b> files into one <b>{1}</b>-page PDF.</span>",
+ "Có file đang khoá: bấm 🔒 để nhập mật khẩu hoặc bỏ file đó.": "A file is locked: click 🔒 to enter its password or remove that file.",
+ "Thêm ít nhất 1 file PDF nữa để ghép.": "Add at least 1 more PDF file to merge.",
+ "Đang ghép file {0}/{1}…": "Merging file {0}/{1}…",
+ "Đang lưu file…": "Saving file…",
+ "ghep-": "merged-",
+ "-file.pdf": "-files.pdf",
+ "Đã ghép {0} file PDF!": "Merged {0} PDF files!"
+}

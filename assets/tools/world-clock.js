@@ -1,6 +1,6 @@
 /* Đồng hồ thế giới: giờ hiện tại ở các thành phố (tự tính giờ mùa hè), so với giờ Việt Nam, giờ làm việc / ban đêm;
    đổi một mốc giờ ở thành phố này sang các thành phố khác (hẹn họp online). Dữ liệu múi giờ lấy từ chính trình duyệt. */
-import { h, icon } from "../core.js";
+import { h, icon, LANG } from "../core.js";
 import { interactiveTool } from "../frames/interactive.js";
 import { CITIES, VN, zoned, offsetMin, fromZoned, fmtOffset, vsVietnam, isDst, dayLabel, WEEKDAYS } from "../lib/mui-gio.js";
 import { removeAccents } from "../lib/van-ban.js";
@@ -8,6 +8,13 @@ import { removeAccents } from "../lib/van-ban.js";
 const fold = (s) => removeAccents(s).toLowerCase();
 const DEFAULT = ["Hà Nội", "Tokyo", "Seoul", "Sydney", "London", "Paris", "New York", "Los Angeles"];
 const pad = (n) => String(n).padStart(2, "0");
+/** So với giờ máy người dùng (trang không phải tiếng Việt; trang tiếng Việt so với giờ Việt Nam) */
+const vsHere = (zone, t) => {
+  const d = offsetMin(zone, t) - offsetMin(LOCAL, t);
+  if (!d) return "Cùng giờ với bạn";
+  const a = Math.abs(d), hh = Math.floor(a / 60), mm = a % 60;
+  return (d > 0 ? "Nhanh hơn " : "Chậm hơn ") + [hh && hh + " giờ", mm && mm + " phút"].filter(Boolean).join(" ");
+};
 const LOCAL = (() => { try { return Intl.DateTimeFormat().resolvedOptions().timeZone || VN; } catch (_) { return VN; } })();
 // thành phố ngoài danh sách: lấy từ danh sách múi giờ của trình duyệt
 const extraZones = () => { try { return Intl.supportedValuesOf("timeZone"); } catch (_) { return []; } };
@@ -59,8 +66,8 @@ interactiveTool({
           h("button", { class: "ib sm", type: "button", title: "Bỏ " + c.name, "aria-label": "Bỏ " + c.name, html: icon("x"), onclick: () => { picked.splice(i, 1); save(); fillZones(); tick(); } })),
         h("div", { class: "wc-time", text: `${pad(p.h)}:${pad(p.mi)}`, "aria-label": `${c.name}: ${p.h} giờ ${p.mi} phút` }, conv.on ? "" : h("small", { text: ":" + pad(p.s) })),
         h("div", { class: "wc-day" }, h("span", { class: "wc-ico", title: night ? "Ban đêm" : "Ban ngày", html: icon(night ? "moon" : "sun") }),
-          dayLabel(p, ref) + (dayLabel(p, ref).startsWith("Thứ") || dayLabel(p, ref).startsWith("Chủ") ? "" : " · " + WEEKDAYS[p.wd] + ", " + p.d + "/" + p.mo)),
-        h("div", { class: "wc-off" }, fmtOffset(off) + (isDst(c.zone, t) ? " · giờ mùa hè" : ""), h("br"), vsVietnam(c.zone, t)));
+          dayLabel(p, ref) + (["Hôm nay", "Hôm qua", "Ngày mai"].includes(dayLabel(p, ref)) ? " · " + `${WEEKDAYS[p.wd]}, ${p.d}/${p.mo}` : "")),
+        h("div", { class: "wc-off" }, fmtOffset(off) + (isDst(c.zone, t) ? " · giờ mùa hè" : ""), h("br"), (LANG === "vi" ? vsVietnam : vsHere)(c.zone, t)));
     }
     function tick() {
       const t = moment(), ref = zoned(LOCAL, t), now = zoned(LOCAL, Date.now());

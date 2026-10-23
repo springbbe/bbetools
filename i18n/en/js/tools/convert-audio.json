@@ -1,0 +1,19 @@
+{
+ "file âm thanh": "audio files",
+ "Đổi định dạng": "Convert format",
+ "{0} không có tiếng.": "{0} has no audio.",
+ "Đổi sang": "Convert to",
+ "Kênh": "Channels",
+ "Giữ như gốc": "Same as original",
+ "Stereo (2 kênh)": "Stereo (2 channels)",
+ "Mono (1 kênh, nhẹ hơn)": "Mono (1 channel, smaller)",
+ "Tần số lấy mẫu": "Sample rate",
+ "22,05 kHz (giọng nói, nhẹ)": "22.05 kHz (voice, light)",
+ "Đang chuẩn bị…": "Preparing…",
+ "Trình duyệt này không tạo được file {0}. Hãy chọn định dạng khác (MP3 luôn dùng được).": "This browser can't create {0} files. Choose another format (MP3 always works).",
+ "Đang chuyển file {0}/{1}…": "Converting file {0}/{1}…",
+ "Đang chuyển…": "Converting…",
+ "-moi": "-new",
+ "Đã chuyển {0} file.": "Converted {0} files.",
+ "Đã đổi sang {0}!": "Converted to {0}!"
+}

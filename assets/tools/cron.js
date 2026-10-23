@@ -1,5 +1,5 @@
 /* Giải thích cron: diễn giải biểu thức cron bằng tiếng Việt, liệt kê 10 lần chạy tiếp theo theo giờ Việt Nam/UTC/giờ máy */
-import { h } from "../core.js";
+import { h, LANG } from "../core.js";
 import { textTool } from "../frames/text.js";
 import { parseCron, describe, nextRuns } from "../lib/cron.js";
 import { formatVN, relative } from "../lib/timestamp.js";
@@ -15,7 +15,7 @@ tool = textTool({
   placeholder: "*/15 9-17 * * 1-5",
   sample: "*/15 9-17 * * 1-5",
   initial: () => "0 9 * * 1-5",
-  options: [{ id: "tz", label: "Múi giờ", value: "vn", choices: [["vn", "Việt Nam (UTC+7)"], ["utc", "UTC (máy chủ thường dùng)"], ["local", "Giờ của máy này"]] }],
+  options: [{ id: "tz", label: "Múi giờ", value: LANG === "vi" ? "vn" : "local", choices: [["vn", "Việt Nam (UTC+7)"], ["utc", "UTC (máy chủ thường dùng)"], ["local", "Giờ của máy này"]] }],
   output: "custom",
   transform(text, o) {
     const line = text.split("\n").map((l) => l.trim()).find((l) => l && !l.startsWith("#")) || "";

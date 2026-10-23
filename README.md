@@ -2,13 +2,14 @@
 
 Bộ công cụ tiện ích miễn phí, giao diện tiếng Việt, chạy **100% trên trình duyệt**.
 
-**Dùng ngay:** https://springbbe.github.io/bbetools/
+**Dùng ngay:** https://springbbe.github.io/bbetools/ · English: https://springbbe.github.io/bbetools/en/
 
 ## Điểm nổi bật
 
 - **File không bao giờ rời khỏi máy bạn.** Không có máy chủ xử lý: ghép PDF, nén ảnh, tách nền ảnh thẻ… đều chạy bằng JavaScript và WebAssembly ngay trong trình duyệt.
 - **Miễn phí, không quảng cáo, không theo dõi, không cần tài khoản.**
 - **Dành cho người Việt:** VietQR chuyển khoản, đọc số thành chữ, lịch âm, ảnh thẻ 3×4 / 4×6, chuyển mã TCVN3/VNI…
+- **Có bản tiếng Anh** cho các công cụ dùng chung (công cụ chỉ dành cho người Việt chỉ có ở bản tiếng Việt).
 - **Dễ tìm công cụ:** tìm kiếm không cần gõ dấu, phím tắt `/` hoặc Ctrl/⌘ + K, thả một file vào trang chủ để được gợi ý công cụ phù hợp.
 - **Dùng tốt trên điện thoại,** có chế độ tối, dùng được bằng bàn phím.
 

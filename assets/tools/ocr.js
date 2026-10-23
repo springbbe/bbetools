@@ -1,6 +1,6 @@
 /* Ảnh sang chữ (OCR): Tesseract (WebAssembly, tesseract.js) chạy trên máy với dữ liệu tiếng Việt/tiếng Anh tải từ jsDelivr.
    Nhận ảnh chụp, ảnh scan, HEIC và PDF (vẽ từng trang rồi nhận dạng). Kết quả: ô văn bản sao chép được + file .txt. */
-import { h, icon, lib, copyText, baseName, sampleFiles, fmtNum } from "../core.js";
+import { h, icon, lib, copyText, baseName, sampleFiles, fmtNum, LANG } from "../core.js";
 import { fileTool, seg, radioVal } from "../frames/file.js";
 import { decodeImage, drawScaled, canvas, thumbUrl } from "../image.js";
 import { openPdf, renderPage, thumbnail } from "../pdf.js";
@@ -51,7 +51,7 @@ fileTool({
   },
   options(el) {
     el.append(
-      seg("lang", [["vie", "Tiếng Việt"], ["eng", "Tiếng Anh"]], "vie", "Ngôn ngữ trong ảnh"),
+      seg("lang", [["vie", "Tiếng Việt"], ["eng", "Tiếng Anh"]], LANG === "vi" ? "vie" : "eng", "Ngôn ngữ trong ảnh"),
       seg("layout", [["join", "Nối thành đoạn"], ["keep", "Giữ từng dòng"]], "join", "Xuống dòng"),
       h("p", { class: "hint", text: "Lần đầu cần tải bộ nhận dạng (khoảng 5 MB, lưu lại cho lần sau). Ảnh chụp thẳng, rõ nét, đủ sáng cho kết quả tốt nhất; chữ viết tay khó nhận dạng." }));
     return () => ({ lang: radioVal(el, "lang"), layout: radioVal(el, "layout") });

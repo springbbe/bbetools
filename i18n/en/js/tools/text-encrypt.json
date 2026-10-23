@@ -1,0 +1,23 @@
+{
+ "Link mở trang này với bản mã điền sẵn; người nhận chỉ cần nhập mật khẩu": "A link that opens this page with the ciphertext filled in; the recipient only needs to enter the password",
+ "ma-hoa-van-ban/": "text-encrypt/",
+ "Đã sao chép link giải mã (không chứa mật khẩu)": "Decryption link copied (it doesn't contain the password)",
+ "Link giải mã": "Decryption link",
+ "Văn bản": "Text",
+ "Kết quả": "Result",
+ "Gõ tin nhắn cần mã hoá, hoặc dán bản mã cần giải mã…": "Type a message to encrypt, or paste ciphertext to decrypt…",
+ "Mật khẩu wifi phòng họp: BbeTools@2026. Đừng chia sẻ ra ngoài nhé!": "Meeting room WiFi password: BbeTools@2026. Don't share it outside!",
+ "Chế độ": "Mode",
+ "Mã hoá": "Encrypt",
+ "Giải mã": "Decrypt",
+ "Mật khẩu": "Password",
+ "Người nhận cần đúng mật khẩu này": "The recipient needs exactly this password",
+ "Có vẻ đây là bản mã. ": "This looks like ciphertext. ",
+ "Chuyển sang Giải mã": "Switch to Decrypt",
+ "Nhập mật khẩu ở trên để ": "Enter the password above to ",
+ "mã hoá.": "encrypt.",
+ "giải mã.": "decrypt.",
+ "Mật khẩu ngắn hơn 8 ký tự: người khác có thể dò ra nếu lấy được bản mã. Nên dùng mật khẩu dài hơn.": "The password is shorter than 8 characters: someone could brute-force it if they get the ciphertext. Use a longer password.",
+ "Gửi bản mã này qua bất kỳ kênh nào; báo mật khẩu cho người nhận qua kênh khác.": "Send this ciphertext through any channel; give the recipient the password through a different channel.",
+ "Đã giải mã và kiểm tra toàn vẹn: nội dung không bị sửa.": "Decrypted and integrity-checked: the content hasn't been altered."
+}

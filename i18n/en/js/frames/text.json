@@ -1,0 +1,21 @@
+{
+ "Gõ hoặc dán văn bản vào đây…": "Type or paste text here…",
+ "Văn bản đầu vào": "Input text",
+ "Văn bản": "Text",
+ "Dán từ clipboard": "Paste from clipboard",
+ "Dán": "Paste",
+ "Mẫu": "Sample",
+ "Xoá hết": "Clear",
+ "Nhớ văn bản trên máy này": "Remember text on this device",
+ "Lưu trong trình duyệt của bạn, không gửi đi đâu": "Saved in your browser, never sent anywhere",
+ "Kết quả hiện ở đây…": "Result appears here…",
+ "Kết quả": "Result",
+ "Đưa kết quả lên ô nhập và đổi chiều": "Move the result to the input and swap direction",
+ "Đổi chiều": "Swap",
+ "Chưa có kết quả để sao chép": "Nothing to copy yet",
+ "Sao chép": "Copy",
+ "Tải về file": "Download as file",
+ "Tải về": "Download",
+ " ký tự": " characters",
+ "Trình duyệt chưa cho đọc clipboard. Hãy bấm vào ô rồi nhấn Ctrl/⌘ + V.": "The browser didn't allow reading the clipboard. Click in the box, then press Ctrl/⌘ + V."
+}

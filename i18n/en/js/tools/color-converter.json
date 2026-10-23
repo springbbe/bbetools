@@ -1,0 +1,23 @@
+{
+ " – bảng chọn màu": " – color picker",
+ "Sao chép ": "Copy ",
+ "Sao chép": "Copy",
+ "Màu": "Color",
+ "Nhận #3e63dd, rgb(62 99 221), hsl(…), oklch(…), tên màu CSS (tomato)…": "Accepts #3e63dd, rgb(62 99 221), hsl(…), oklch(…), CSS color names (tomato)…",
+ "Màu nền để kiểm tra tương phản": "Background color for the contrast check",
+ "Không đọc được màu. Thử dạng #3e63dd, rgb(62, 99, 221), hsl(226 70% 55%) hoặc tên màu tiếng Anh như red, navy.": "Couldn't read the color. Try #3e63dd, rgb(62, 99, 221), hsl(226 70% 55%) or a color name like red, navy.",
+ "Màu OKLCH này nằm ngoài dải sRGB, đã được cắt về màu gần nhất màn hình thông thường hiển thị được.": "This OKLCH color is outside the sRGB gamut and was clipped to the nearest color a normal screen can display.",
+ "CMYK (ước lượng)": "CMYK (estimated)",
+ "Dải sáng → tối (bấm để chọn)": "Light → dark scale (click to pick)",
+ "Màu nền chưa đúng định dạng.": "The background color format isn't valid.",
+ "Độ tương phản chữ / nền (WCAG 2.2)": "Text / background contrast (WCAG 2.2)",
+ "Chữ thường Aa": "Normal text Aa",
+ "Chữ lớn Aa": "Large text Aa",
+ "AA chữ thường (≥ 4,5)": "AA normal text (≥ 4.5)",
+ "AA chữ lớn (≥ 3)": "AA large text (≥ 3)",
+ "AAA chữ thường (≥ 7)": "AAA normal text (≥ 7)",
+ "AAA chữ lớn (≥ 4,5)": "AAA large text (≥ 4.5)",
+ "Chữ lớn: từ 24px, hoặc 18,66px đậm. Trên nền màu này, chữ {0} dễ đọc hơn.": "Large text: 24px and up, or 18.66px bold. On this background, {0} text is easier to read.",
+ "đen": "black",
+ "trắng": "white"
+}

@@ -1,0 +1,21 @@
+{
+ "Danh sách (mỗi dòng một mục)": "List (one item per line)",
+ "Kết quả": "Result",
+ "Dán danh sách, mỗi mục một dòng…": "Paste a list, one item per line…",
+ "Nguyễn Văn Bình\nTrần Thị An\nlê minh châu\nĐặng Quốc Đạt\nTrần Thị An\n\nÂu Dương Phong\nnguyễn văn bình\nBùi Thu Hà\nĐỗ Hữu Cường\n": "Nguyen Van Binh\nTran Thi An\nle minh chau\nDang Quoc Dat\nTran Thi An\n\nAu Duong Phong\nnguyen van binh\nBui Thu Ha\nDo Huu Cuong\n",
+ "Sắp xếp": "Sort",
+ "Giữ thứ tự": "Keep order",
+ "A → Z (tiếng Việt)": "A → Z",
+ "Ngắn → dài": "Short → long",
+ "Dài → ngắn": "Long → short",
+ "Đảo ngược thứ tự": "Reverse order",
+ "Trộn ngẫu nhiên": "Shuffle",
+ "Xoá dòng trùng": "Remove duplicate lines",
+ "Xoá dòng trống": "Remove empty lines",
+ "Cắt khoảng trắng 2 đầu": "Trim spaces at both ends",
+ "Không phân biệt hoa/thường": "Case-insensitive",
+ "danh-sach.txt": "list.txt",
+ "{0} dòng → còn {1} dòng": "{0} lines → {1} lines left",
+ "bỏ {0} dòng trùng": "removed {0} duplicate {0|line|lines}",
+ "{0} dòng trống": "{0} empty {0|line|lines}"
+}

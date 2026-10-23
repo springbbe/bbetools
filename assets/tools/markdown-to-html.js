@@ -1,5 +1,5 @@
 /* Markdown sang HTML: chuyển bằng marked, xem trước đã lọc mã độc bằng DOMPurify, sao chép hoặc tải file .html */
-import { h, lib, save, copyText, toast, icon } from "../core.js";
+import { h, lib, save, copyText, toast, icon, LANG } from "../core.js";
 import { textTool } from "../frames/text.js";
 
 let marked = null, purify = null, view = "preview";
@@ -30,7 +30,7 @@ console.log("Xin chào BbeTools");
 Xem thêm tại [BbeTools](https://springbbe.github.io/bbetools/).`;
 
 const doc = (body, title) => `<!doctype html>
-<html lang="vi">
+<html lang="${LANG}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">

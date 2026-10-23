@@ -1,0 +1,22 @@
+{
+ "ảnh": "images",
+ "Đổi kích thước": "Resize",
+ "tự tính": "auto",
+ "Phần trăm kích thước gốc": "Percent of original size",
+ "Cạnh dài nhất (px)": "Longest side (px)",
+ "Cạnh dài": "Long side",
+ "Đổi cỡ theo": "Resize by",
+ "Rộng (px)": "Width (px)",
+ "Giữ tỉ lệ": "Keep aspect ratio",
+ "Bỏ trống một ô để tự tính; nhập cả hai thì ảnh vừa khít trong khung.": "Leave one box empty to calculate it automatically; enter both to fit the image inside the box.",
+ "Cạnh dài nhất của mỗi ảnh (ngang hay dọc đều được) sẽ bằng số này.": "The longest side of each image (landscape or portrait) will equal this number.",
+ "Cỡ hay dùng": "Common sizes",
+ "Không phóng to ảnh nhỏ": "Don't enlarge small images",
+ "Ảnh đã nhỏ hơn cỡ yêu cầu thì giữ nguyên kích thước (phóng to làm ảnh mờ).": "Images already smaller than the requested size keep their size (enlarging makes them blurry).",
+ "Nhập chiều rộng hoặc chiều cao.": "Enter a width or height.",
+ "Nhập số pixel của cạnh dài nhất.": "Enter the pixel length of the longest side.",
+ "Đang đổi cỡ {0}{1}…": "Resizing {0}{1}…",
+ "anh-doi-kich-thuoc": "resized-images",
+ "Đã đổi kích thước {0} ảnh!": "Resized {0} images!",
+ "Đã đổi kích thước ảnh!": "Image resized!"
+}

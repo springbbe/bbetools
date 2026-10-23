@@ -1,0 +1,13 @@
+{
+ "Không đọc được ảnh ": "Couldn't read image ",
+ ". Định dạng chưa được trình duyệt hỗ trợ hoặc file bị hỏng.": ". The format isn't supported by this browser or the file is corrupted.",
+ "Không đọc được SVG ": "Couldn't read SVG ",
+ ". File có thể bị lỗi.": ". The file may be broken.",
+ "Không mã hoá được AVIF": "Couldn't encode AVIF",
+ "MozJPEG lỗi, dùng bộ mã hoá của trình duyệt": "MozJPEG failed, using the browser's encoder",
+ "Giữ định dạng gốc": "Keep original format",
+ "AVIF (nhẹ nhất)": "AVIF (smallest)",
+ "Chất lượng": "Quality",
+ "90 gần như không thấy khác ảnh gốc. PNG luôn giữ nguyên từng điểm ảnh.": "At 90 it's almost indistinguishable from the original. PNG always keeps every pixel.",
+ "Lưu dưới dạng": "Save as"
+}

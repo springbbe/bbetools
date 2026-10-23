@@ -1,0 +1,23 @@
+{
+ "Có mật khẩu, bấm 🔒 để mở": "Password-protected, click 🔒 to unlock",
+ "Lấy văn bản": "Extract text",
+ "Nhập mật khẩu": "Enter password",
+ "Nhập mật khẩu cho ": "Enter password for ",
+ "Ghi rõ số trang": "Show page numbers",
+ "Thêm dòng “— Trang 3 —” giữa các trang.": "Add a “— Page 3 —” line between pages.",
+ "Nối dòng bị ngắt giữa câu": "Join lines broken mid-sentence",
+ "Hợp khi dán vào Word, Zalo. Tắt để giữ đúng xuống dòng như PDF.": "Good for pasting into Word or chat apps. Turn off to keep the PDF's line breaks exactly.",
+ "PDF scan (chụp từ giấy) chỉ chứa ảnh, không có chữ để lấy. Khi đó hãy dùng công cụ Ảnh sang chữ (OCR).": "A scanned PDF (photographed from paper) only contains images, with no text to extract. Use the Image to Text (OCR) tool instead.",
+ "Có file đang khoá: bấm 🔒 để nhập mật khẩu hoặc bỏ file đó.": "A file is locked: click 🔒 to enter its password or remove that file.",
+ "Đang đọc {0}, trang {1}/{2}…": "Reading {0}, page {1}/{2}…",
+ "— Trang {0} —\n{1}": "— Page {0} —\n{1}",
+ "Không tìm thấy chữ nào: có thể đây là PDF scan (chỉ có ảnh).": "No text found: this may be a scanned PDF (images only).",
+ "Văn bản lấy được": "Extracted text",
+ "\n\n… (còn nữa, hãy tải file .txt để xem đủ)": "\n\n… (more, download the .txt file to see everything)",
+ "{0} ký tự": "{0} characters",
+ " · rất ít chữ, có thể có trang là ảnh scan": " · very little text, some pages may be scanned images",
+ "Đã sao chép {0} ký tự": "Copied {0} characters",
+ "Sao chép toàn bộ": "Copy all",
+ "Đã lấy văn bản từ {0} file!": "Extracted text from {0} files!",
+ "Đã lấy văn bản!": "Text extracted!"
+}

@@ -1,6 +1,6 @@
 /* Scan tài liệu bằng camera: chụp (hoặc chọn ảnh có sẵn), tự tìm 4 góc tờ giấy, kéo chỉnh góc, nắn thẳng,
    làm trắng nền / xám / đen trắng, sắp xếp nhiều trang rồi xuất PDF. Mọi xử lý ảnh chạy trên máy. */
-import { h, icon, lib, toast, save, fmtSize, sampleFiles, intake, toolsForFiles, sendTo, registry, ROOT, nextFrame, IS_TOUCH } from "../core.js";
+import { h, icon, lib, toast, save, fmtSize, sampleFiles, intake, toolsForFiles, sendTo, registry, ROOT, nextFrame, IS_TOUCH, toolHref } from "../core.js";
 import { interactiveTool } from "../frames/interactive.js";
 import { seg, radioVal } from "../frames/file.js";
 import { decodeImage } from "../image.js";
@@ -227,7 +227,7 @@ async function makePdf() {
   if (tools.length) {
     const reg = await registry();
     outEl.append(h("p", { class: "opt-title", text: "Tiếp tục với file này" }), h("ul", { class: "chip-list" }, tools.slice(0, 8).map((t) => h("li", null,
-      h("a", { class: "chip", href: ROOT + t.slug + "/", onclick: (ev) => { ev.preventDefault(); sendTo(t, [file]); } }, h("span", { class: "tile xs", style: { "--c": reg.groupOf[t.group].color }, html: icon(t.icon) }), t.name)))));
+      h("a", { class: "chip", href: toolHref(t), onclick: (ev) => { ev.preventDefault(); sendTo(t, [file]); } }, h("span", { class: "tile xs", style: { "--c": reg.groupOf[t.group].color }, html: icon(t.icon) }), t.name)))));
   }
   outEl.scrollIntoView({ block: "nearest", behavior: "smooth" });
 }

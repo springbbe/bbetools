@@ -50,7 +50,7 @@ export function pageTool(cfg) {
       const err = new Error("locked"); err.userMsg = `Chưa mở được ${it.name}: file có mật khẩu, cần nhập đúng mật khẩu.`; throw err;
     }
     Object.assign(it, { bytes: r.bytes, doc: r.doc, password: r.password, pages: r.pages });
-    it.info = r.pages + " trang";
+    it.info = `${r.pages} trang`;
     const list = [];
     for (let n = 1; n <= r.pages; n++) {
       const vp = (await r.doc.getPage(n)).getViewport({ scale: 1 });
@@ -164,7 +164,7 @@ export function pageTool(cfg) {
     const loading = items.some((i) => i.loading);
     spin.hidden = !loading;
     const n = B.pages.length;
-    countEl.textContent = n ? n + " trang" + (items.length === 1 ? " · " + items[0].name : items.length > 1 ? " · " + items.length + " file" : "") : "";
+    countEl.textContent = n ? `${n} trang` + (items.length === 1 ? " · " + items[0].name : items.length > 1 ? " · " + items.length + " file" : "") : "";
     banner.hidden = !items.some((i) => i.sample);
     toolbar();
     if (fKey) {

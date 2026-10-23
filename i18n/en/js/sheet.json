@@ -1,0 +1,7 @@
+{
+ "#LỖI": "#ERROR",
+ "{0} có mật khẩu mở. Hãy mở bằng Excel, bỏ mật khẩu rồi thử lại.": "{0} has an open password. Open it in Excel, remove the password, then try again.",
+ "Không đọc được {0}: file hỏng hoặc không phải Excel.": "Couldn't read {0}: the file is corrupted or not an Excel file.",
+ "Xem trước bảng": "Table preview",
+ "… và {0} dòng nữa": "… and {0} more rows"
+}

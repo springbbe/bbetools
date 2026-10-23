@@ -1,0 +1,16 @@
+{
+ " trang · ": " pages · ",
+ " ô form": " form fields",
+ "không có ô form": "no form fields",
+ "Làm phẳng form": "Flatten form",
+ "Nội dung đã điền được giữ nguyên trên trang nhưng không còn là ô để sửa. Hợp khi gửi tờ khai, hợp đồng đã điền để người nhận không chỉnh được.": "The filled-in content stays on the page but is no longer editable. Good for sending filled forms and contracts so recipients can't change them.",
+ "Muốn điền trước rồi làm phẳng: dùng công cụ Điền form PDF và bật “Làm phẳng sau khi điền”.": "To fill in first and then flatten: use Fill PDF form and turn on “Flatten after filling”.",
+ "Đang đọc file…": "Reading file…",
+ "Các file này không có ô form nào.": "These files have no form fields.",
+ "File này không có ô form nào để làm phẳng.": "This file has no form fields to flatten.",
+ "Đang làm phẳng {0}…": "Flattening {0}…",
+ "-da-lam-phang.pdf": "-flattened.pdf",
+ "{0} ô đã làm phẳng": "{0} {0|field|fields} flattened",
+ "Đã làm phẳng {0} file!": "Flattened {0} files!",
+ "Đã làm phẳng form!": "Form flattened!"
+}

@@ -1,0 +1,17 @@
+{
+ "Số không hợp lệ: ": "Invalid number: ",
+ "Không hiểu “": "Don't understand “",
+ "Ký tự không hợp lệ: ": "Invalid character: ",
+ "Chưa có phép tính": "No calculation yet",
+ "tan không xác định tại ": "tan is undefined at ",
+ "Không lấy căn bậc hai của số âm": "Can't take the square root of a negative number",
+ "Giai thừa chỉ dùng cho số nguyên không âm": "Factorial only works for non-negative integers",
+ "Không chia được cho 0": "Can't divide by 0",
+ "Phép tính chưa xong": "Incomplete calculation",
+ "Thiếu ngoặc đóng": "Missing closing parenthesis",
+ "Thừa ngoặc đóng": "Extra closing parenthesis",
+ "Thiếu số trước “": "Missing a number before “",
+ "Phép tính không hợp lệ": "Invalid calculation",
+ "Kết quả không xác định": "Undefined result",
+ "Lỗi": "Error"
+}

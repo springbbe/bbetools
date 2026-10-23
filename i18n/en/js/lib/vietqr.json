@@ -1,0 +1,12 @@
+{
+ "Trường ": "Field ",
+ " dài quá 99 ký tự": " is longer than 99 characters",
+ "Mã ngân hàng (BIN) phải gồm 6 chữ số": "The bank code (BIN) must be 6 digits",
+ "Số tài khoản/thẻ chỉ gồm chữ và số, tối đa 19 ký tự": "The account/card number may only contain letters and digits, up to 19 characters",
+ "Số tiền không hợp lệ": "Invalid amount",
+ "Số tiền quá lớn": "Amount too large",
+ "Chuỗi TLV bị cắt cụt": "The TLV string is truncated",
+ "Sai định dạng TLV": "Invalid TLV format",
+ "Độ dài trường ": "Length of field ",
+ " không khớp": " doesn't match"
+}

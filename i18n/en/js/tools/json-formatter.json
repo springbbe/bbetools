@@ -1,0 +1,14 @@
+{
+ "JSON đầu vào": "Input JSON",
+ "Kết quả": "Result",
+ "{\"ten\":\"BbeTools\",\"moTa\":\"Công cụ chạy trên trình duyệt\",\"phienBan\":1.2,\"mienPhi\":true,\"nhom\":[\"PDF\",\"Ảnh\",\"Văn bản\"],\"tacGia\":null,\"thongKe\":{\"congCu\":13,\"luotDung\":0}}": "{\"name\":\"BbeTools\",\"description\":\"Tools that run in the browser\",\"version\":1.2,\"free\":true,\"groups\":[\"PDF\",\"Image\",\"Text\"],\"author\":null,\"stats\":{\"tools\":13,\"uses\":0}}",
+ "Thụt lề": "Indent",
+ "2 dấu cách": "2 spaces",
+ "4 dấu cách": "4 spaces",
+ "Rút gọn (1 dòng)": "Minify (1 line)",
+ "Sắp xếp khoá A→Z": "Sort keys A→Z",
+ "Sửa JSON gần đúng (chú thích, nháy đơn, dấu phẩy thừa)": "Repair near-valid JSON (comments, single quotes, trailing commas)",
+ "du-lieu.json": "data.json",
+ "Dòng {0}, cột {1}: {2}": "Line {0}, column {1}: {2}",
+ " — thử bật “Sửa JSON gần đúng”.": " — try turning on “Repair near-valid JSON”."
+}

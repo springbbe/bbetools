@@ -1,0 +1,16 @@
+{
+ "Tiêu đề (mỗi dòng một tiêu đề)": "Titles (one per line)",
+ "Ví dụ: Hướng dẫn cài đặt Node.js trên Windows 11": "Example: How to install Node.js on Windows 11",
+ "Hướng dẫn cài đặt Node.js trên Windows 11\n10 món ăn đường phố Sài Gòn nhất định phải thử!\nĐánh giá iPhone 17 Pro: Có đáng tiền?": "How to install Node.js on Windows 11\n10 Street Foods You Must Try in Saigon!\niPhone 17 Pro review: Is it worth it?\nCafé crème & crêpes à la française",
+ "Nối bằng": "Separator",
+ "Gạch ngang (-)": "Hyphen (-)",
+ "Gạch dưới (_)": "Underscore (_)",
+ "Dấu chấm (.)": "Dot (.)",
+ "Dài tối đa": "Max length",
+ "Không giới hạn": "No limit",
+ "50 ký tự": "50 characters",
+ "60 ký tự": "60 characters",
+ "75 ký tự": "75 characters",
+ "100 ký tự": "100 characters",
+ "Chữ thường": "Lowercase"
+}

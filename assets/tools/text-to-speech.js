@@ -1,12 +1,14 @@
 /* Đọc văn bản thành giọng nói bằng giọng có sẵn của hệ điều hành/trình duyệt (speechSynthesis).
    Văn bản được chia thành từng câu ngắn (Chrome tự dừng khi một lần đọc quá dài) và câu đang đọc được tô sáng.
    Giọng có sẵn trên máy được ưu tiên; giọng "trực tuyến" được ghi rõ vì văn bản sẽ do máy chủ của nhà cung cấp xử lý. */
-import { h, icon, fmtNum } from "../core.js";
+import { h, icon, fmtNum, LANG } from "../core.js";
 import { interactiveTool } from "../frames/interactive.js";
 import { alertEl } from "../media.js";
 import { splitSpeech, rankVoices, isLang, speakSeconds } from "../lib/tts.js";
 import { fmtDuration } from "../lib/media.js";
 
+/** Ngôn ngữ ưu tiên của giọng đọc: theo ngôn ngữ trang */
+const VLANG = LANG;
 const SAMPLE = "Xin chào! Đây là công cụ đọc văn bản của BbeTools. Bạn có thể dán bài báo, tài liệu hay tin nhắn vào ô này, chọn giọng đọc và tốc độ, rồi bấm Đọc. Câu đang đọc sẽ được tô sáng để bạn dễ theo dõi.\n\nMẹo nhỏ: chọn giọng tiếng Việt có sẵn trên máy để văn bản không phải gửi đi đâu cả.";
 
 function help() {
@@ -64,12 +66,12 @@ interactiveTool({
     el.addEventListener("keydown", (e) => { if (e.target !== ta && e.key === "Enter" && (e.ctrlKey || e.metaKey)) { e.preventDefault(); playBtn.click(); } });
 
     function loadVoices() {
-      voices = rankVoices(synth.getVoices());
+      voices = rankVoices(synth.getVoices(), VLANG);
       // chỉ giữ giọng người dùng đã tự chọn; giọng tự chọn sẵn thì chọn lại mỗi lần danh sách đổi
       // (Chrome nạp danh sách làm nhiều đợt, đợt đầu có thể chỉ có giọng trực tuyến)
       const cur = S.get("voice", "");
       voiceSel.textContent = "";
-      const vi = voices.filter((v) => isLang(v)), other = voices.filter((v) => !isLang(v));
+      const vi = voices.filter((v) => isLang(v, VLANG)), other = voices.filter((v) => !isLang(v, VLANG));
       const opt = (v) => h("option", { value: v.voiceURI, text: `${v.name}${v.localService ? "" : " · trực tuyến"}` });
       if (vi.length) voiceSel.append(h("optgroup", { label: "Tiếng Việt" }, vi.map(opt)));
       if (other.length) voiceSel.append(h("optgroup", { label: "Ngôn ngữ khác" }, other.map(opt)));
@@ -82,7 +84,7 @@ interactiveTool({
     function noteVoice() {
       voiceNote.textContent = "";
       const v = voice();
-      if (!voices.some((x) => isLang(x))) voiceNote.append(alertEl("warn", "Máy này chưa có giọng đọc tiếng Việt nên văn bản tiếng Việt sẽ bị đọc sai. " + help()));
+      if (!voices.some((x) => isLang(x, VLANG))) voiceNote.append(alertEl("warn", "Máy này chưa có giọng đọc tiếng Việt nên văn bản tiếng Việt sẽ bị đọc sai. " + help()));
       else if (v && !v.localService) voiceNote.append(alertEl("info", "Giọng trực tuyến: văn bản được gửi tới máy chủ của nhà cung cấp giọng (Google, Microsoft…) để đọc. Muốn giữ kín, hãy chọn giọng không ghi “trực tuyến”."));
     }
     voiceSel.addEventListener("change", () => { S.set("voice", voiceSel.value); noteVoice(); if (state === "speaking") speakFrom(idx); });

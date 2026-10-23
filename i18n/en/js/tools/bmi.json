@@ -1,0 +1,20 @@
+{
+ "Chiều cao (cm)": "Height (cm)",
+ "Cân nặng (kg)": "Weight (kg)",
+ "Chuẩn phân loại": "Classification standard",
+ "Người châu Á": "Asian",
+ "WHO quốc tế": "International (WHO)",
+ "Nhập chiều cao (50–250 cm) và cân nặng (10–400 kg).": "Enter height (50–250 cm) and weight (10–400 kg).",
+ "Chỉ số BMI": "BMI",
+ "Phân loại": "Category",
+ "Cân nặng hợp lý": "Healthy weight",
+ "Cần tăng khoảng {0} kg để đạt mức bình thường.": "Gain about {0} kg to reach the normal range.",
+ "Cần giảm khoảng {0} kg để về mức bình thường.": "Lose about {0} kg to reach the normal range.",
+ "Cân nặng của bạn đang ở mức bình thường.": "Your weight is in the normal range.",
+ "dưới {0}": "under {0}",
+ "từ {0} trở lên": "{0} and above",
+ "{0} – dưới {1}": "{0} – under {1}",
+ "BMI = cân nặng (kg) ÷ chiều cao (m)². Người châu Á có tỉ lệ mỡ cao hơn ở cùng BMI nên ngưỡng thừa cân thấp hơn (23). BMI không áp dụng cho trẻ dưới 18 tuổi, phụ nữ mang thai, vận động viên nhiều cơ. Tính lượng calo cần mỗi ngày: ": "BMI = weight (kg) ÷ height (m)². Asians have more body fat at the same BMI, so the overweight threshold is lower (23). BMI doesn't apply to children under 18, pregnant women or very muscular athletes. Daily calorie needs: ",
+ "tinh-calo-tdee/": "tdee/",
+ "Calo cần mỗi ngày (TDEE)": "Daily calorie needs (TDEE)"
+}

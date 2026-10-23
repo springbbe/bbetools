@@ -1,0 +1,16 @@
+{
+ "Mật khẩu của file": "File password",
+ "Mật khẩu": "Password",
+ "File có mật khẩu": "Password-protected file",
+ " đang được khoá. Nhập mật khẩu để mở; mật khẩu chỉ dùng trên máy bạn.": " is locked. Enter the password to open it; the password is only used on your device.",
+ "Mật khẩu chưa đúng, thử lại nhé.": "Wrong password, please try again.",
+ "Bỏ qua": "Skip",
+ "Mở file": "Open file",
+ "Nhập mật khẩu PDF": "Enter PDF password",
+ " không phải PDF hợp lệ hoặc đã bị hỏng.": " is not a valid PDF or is corrupted.",
+ " · đã mở khoá": " · unlocked",
+ "Có mật khẩu, bấm 🔒 để mở": "Password-protected, click 🔒 to unlock",
+ "Nhập mật khẩu": "Enter password",
+ "Nhập mật khẩu cho ": "Enter password for ",
+ "Có file đang khoá: bấm 🔒 để nhập mật khẩu hoặc bỏ file đó.": "A file is locked: click 🔒 to enter its password or remove that file."
+}

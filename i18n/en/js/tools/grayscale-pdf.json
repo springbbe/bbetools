@@ -1,0 +1,14 @@
+{
+ "Chuyển đen trắng": "Convert to grayscale",
+ "PDF đen trắng (thang xám)": "Black & white PDF (grayscale)",
+ "Chữ, hình vẽ và ảnh được chuyển sang thang xám ngay trong file: chữ vẫn sắc nét và chọn, tìm được. Hợp để in tiết kiệm mực màu.": "Text, drawings and images are converted to grayscale inside the file: text stays sharp, selectable and searchable. Great for printing without color ink.",
+ "Ảnh JPEG được nén lại ở chất lượng cao; ảnh JPEG 2000 và vài kiểu chuyển màu đặc biệt (hiếm gặp) có thể giữ nguyên màu.": "JPEG images are recompressed at high quality; JPEG 2000 images and a few rare color spaces may keep their colors.",
+ "Đang chuyển {0}: trang {1}/{2}…": "Converting {0}: page {1}/{2}…",
+ "Bỏ qua một thành phần không đọc được": "Skipped an unreadable element",
+ "-den-trang.pdf": "-grayscale.pdf",
+ " trang": " pages",
+ "pdf-den-trang": "pdf-grayscale",
+ "Đã chuyển {0} file sang đen trắng!": "Converted {0} files to grayscale!",
+ "Đã chuyển PDF sang đen trắng!": "PDF converted to grayscale!",
+ "Có {0} thành phần đặc biệt chưa chuyển được nên có thể còn màu.": "{0} special {0|element|elements} couldn't be converted, so some color may remain."
+}

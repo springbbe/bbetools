@@ -1,0 +1,13 @@
+{
+ "Thiếu cân": "Underweight",
+ "Bình thường": "Normal",
+ "Thừa cân": "Overweight",
+ "Béo phì độ I": "Obese class I",
+ "Béo phì độ II": "Obese class II",
+ "Béo phì độ III": "Obese class III",
+ "Ít vận động (ngồi nhiều, không tập)": "Sedentary (mostly sitting, no exercise)",
+ "Vận động nhẹ (tập 1–3 buổi/tuần)": "Lightly active (exercise 1–3 times/week)",
+ "Vận động vừa (tập 3–5 buổi/tuần)": "Moderately active (exercise 3–5 times/week)",
+ "Vận động nhiều (tập 6–7 buổi/tuần)": "Very active (exercise 6–7 times/week)",
+ "Rất nhiều (lao động nặng, tập 2 lần/ngày)": "Extra active (physical job, training twice a day)"
+}

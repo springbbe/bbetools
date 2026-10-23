@@ -1,0 +1,19 @@
+{
+ "Có mật khẩu, bấm 🔒 để mở": "Password-protected, click 🔒 to unlock",
+ "Nén PDF": "Compress PDF",
+ "Nhập mật khẩu": "Enter password",
+ "Nhập mật khẩu cho ": "Enter password for ",
+ "Nhẹ": "Light",
+ "Vừa": "Medium",
+ "Mạnh": "Strong",
+ "Mức nén": "Compression level",
+ "Chữ và hình vẽ vector giữ nguyên nên vẫn sắc nét, chọn được chữ. File chủ yếu là chữ sẽ giảm ít; PDF scan, nhiều ảnh giảm nhiều.": "Text and vector graphics stay untouched, so they remain sharp and selectable. Mostly-text files shrink a little; scanned or image-heavy PDFs shrink a lot.",
+ "Gần như giữ nguyên chất lượng ảnh.": "Keeps image quality almost unchanged.",
+ "Khuyên dùng: nhỏ gọn, ảnh vẫn rõ khi xem trên máy.": "Recommended: compact, images still clear on screen.",
+ "Nhỏ nhất, ảnh mờ hơn — hợp gửi Zalo, email.": "Smallest, blurrier images — good for messaging apps and email.",
+ "Có file đang khoá: bấm 🔒 để nhập mật khẩu hoặc bỏ file đó.": "A file is locked: click 🔒 to enter its password or remove that file.",
+ "Đang nén ": "Compressing ",
+ "Đã nén PDF!": "PDF compressed!",
+ "File đã gọn sẵn, gần như không nén thêm được": "The file is already compact and can barely be compressed further",
+ "Giảm {0}%: {1} → {2}": "Reduced {0}%: {1} → {2}"
+}

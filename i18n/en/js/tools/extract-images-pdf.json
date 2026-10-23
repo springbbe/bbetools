@@ -1,0 +1,19 @@
+{
+ "Trích ảnh": "Extract images",
+ "Lấy tất cả": "Get all",
+ "Bỏ ảnh nhỏ hơn 50 px": "Skip images smaller than 50 px",
+ "Bỏ ảnh nhỏ hơn 150 px (biểu tượng, đường kẻ)": "Skip images smaller than 150 px (icons, lines)",
+ "Kích thước tối thiểu": "Minimum size",
+ "Ảnh JPEG được lấy nguyên bản, không nén lại. Ảnh khác lưu PNG, giữ nền trong suốt. Ảnh dùng lặp lại nhiều lần chỉ lấy một lần.": "JPEG images are extracted as is, without recompression. Other images are saved as PNG, keeping transparency. Images reused many times are extracted once.",
+ "Chữ và hình vẽ vector không phải ảnh nên không được lấy; muốn chụp cả trang hãy dùng PDF sang ảnh.": "Text and vector drawings aren't images, so they're not extracted; to capture whole pages use PDF to Image.",
+ "Đang lấy ảnh {0}/{1}{2}…": "Extracting image {0}/{1}{2}…",
+ " của ": " of ",
+ "{0}-trang-{1}-anh-{2}": "{0}-page-{1}-image-{2}",
+ "{0}×{1} px · trang {2}": "{0}×{1} px · page {2}",
+ "Không có ảnh đủ lớn (đã bỏ {0} ảnh nhỏ). Chọn “Lấy tất cả” để lấy cả ảnh nhỏ.": "No images large enough (skipped {0} small {0|image|images}). Choose “Get all” to include small images.",
+ "Không tìm thấy ảnh nào trong file: có thể nội dung toàn là chữ và hình vẽ vector.": "No images found in the file: the content may be all text and vector drawings.",
+ "anh-trong-pdf": "pdf-images",
+ "Đã lấy {0} ảnh!": "Extracted {0} {0|image|images}!",
+ "Đã bỏ {0} ảnh nhỏ.": "Skipped {0} small {0|image|images}.",
+ "{0} ảnh dùng định dạng đặc biệt (CCITT, JBIG2…) chưa lấy được.": "{0} {0|image uses|images use} special formats (CCITT, JBIG2…) that can't be extracted yet."
+}

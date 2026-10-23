@@ -1,0 +1,16 @@
+{
+ "Bấm để xoay phải 90°": "Click to rotate right 90°",
+ "Đặt lại": "Reset",
+ "Xoay tất cả trang": "Rotate all pages",
+ "Xoay trái": "Rotate left",
+ "Xoay phải": "Rotate right",
+ "Hoặc bấm vào từng trang để xoay trang đó 90°; dùng nút ↺ ↻ trên trang để xoay trái/phải.": "Or click a page to rotate it 90°; use the ↺ ↻ buttons on a page to rotate left/right.",
+ "File có cả trang ngang và dọc": "The file has both landscape and portrait pages",
+ "Xoay các trang ngang ↻": "Rotate landscape pages ↻",
+ "Xoay các trang dọc ↻": "Rotate portrait pages ↻",
+ "Đã xoay <b>{0}</b>/{1} trang.": "Rotated <b>{0}</b>/{1} pages.",
+ "Chưa xoay trang nào.": "No pages rotated yet.",
+ "Bấm vào trang cần xoay, hoặc xoay tất cả.": "Click the pages to rotate, or rotate all.",
+ "Đang lưu file…": "Saving file…",
+ "Đã xoay PDF!": "PDF rotated!"
+}

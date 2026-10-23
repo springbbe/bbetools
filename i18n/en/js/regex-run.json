@@ -1,0 +1,3 @@
+{
+ "Biểu thức chạy quá {0} giây nên đã dừng (thường do lặp lồng nhau như (a+)+ hoặc (.*)*). Hãy sửa lại biểu thức.": "The expression ran longer than {0} seconds and was stopped (usually due to nested repetition like (a+)+ or (.*)*). Please fix the expression."
+}

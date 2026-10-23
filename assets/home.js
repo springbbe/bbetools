@@ -70,7 +70,7 @@ async function suggest(files) {
   const what = kinds.length ? kinds.map((k) => KIND_LABEL[k] || k).join(", ") : "file";
   sug.textContent = "";
   sug.append(h("div", { class: "suggest-box" },
-    h("h2", { text: tools.length ? `Công cụ dùng được cho ${files.length > 1 ? files.length + " file " : "file "}${what}` : "Chưa có công cụ cho loại file này" }),
+    h("h2", { text: !tools.length ? "Chưa có công cụ cho loại file này" : files.length > 1 ? `Công cụ dùng được cho ${files.length} file ${what}` : `Công cụ dùng được cho file ${what}` }),
     h("p", { text: files.map((f) => `${f.name} (${fmtSize(f.size)})`).join(", ") + (tools.length ? " — chọn một công cụ, file sẽ được mở sẵn ở đó (vẫn chỉ trên máy bạn)." : "") }),
     tools.length ? h("ul", { class: "chip-list" }, tools.map((t) => h("li", null, h("a", { class: "chip", href: toolHref(t), onclick: (e) => { e.preventDefault(); sendTo(t, files); } },
       h("span", { class: "tile xs", style: { "--c": reg.groupOf[t.group].color }, html: icon(t.icon) }), t.name)))) : null,

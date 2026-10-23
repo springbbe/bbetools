@@ -1,0 +1,3823 @@
+{
+ "site": {
+  "tagline": "Free online tools that run right in your browser",
+  "description": "Free online tools: merge and compress PDFs, compress images, HEIC to JPG, ID photos, QR codes, video and audio tools, developer utilities… 100% processed on your device; files are never uploaded to any server."
+ },
+ "groups": {
+  "pdf": {
+   "name": "PDF",
+   "desc": "Merge, split, compress, rotate, sign, password-protect and convert PDF files."
+  },
+  "image": {
+   "name": "Image",
+   "desc": "Compress, resize, crop, convert, HEIC to JPG, ID photos, background removal."
+  },
+  "media": {
+   "name": "Audio & Video",
+   "desc": "Voice and screen recording, trim and merge audio, video to MP3, compress video."
+  },
+  "text": {
+   "name": "Text",
+   "desc": "Word counter, case converter, text compare, find and replace, slugs."
+  },
+  "calc": {
+   "name": "Calculators",
+   "desc": "Percentages, discounts, split the bill, unit converter, BMI, due date."
+  },
+  "qr": {
+   "name": "QR & Barcodes",
+   "desc": "Create QR codes (links, WiFi, contact cards), scan QR from camera, images, PDF; create barcodes."
+  },
+  "office": {
+   "name": "Office & Data",
+   "desc": "View Excel/CSV, convert, merge and split Excel files, mail merge, email signatures."
+  },
+  "dev": {
+   "name": "Developer",
+   "desc": "JSON, Base64, JWT, UUID, hashes, regex, timestamps, cron, colors, SQL."
+  },
+  "security": {
+   "name": "Security",
+   "desc": "Strong passwords, file and text encryption, checksums, 2FA codes."
+  },
+  "productivity": {
+   "name": "Productivity & Random",
+   "desc": "Pomodoro, stopwatch, timer, spin the wheel, team picker, quick notes."
+  }
+ },
+ "data": {
+  "ngay-le": {
+   "title": "Vietnam public holidays",
+   "source": "Article 112 of Vietnam's 2019 Labor Code; Vietnam Culture Day (November 24) is a paid holiday from 2026"
+  }
+ },
+ "tools": {
+  "merge-pdf": {
+   "name": "Merge PDF",
+   "desc": "Combine multiple PDF files into one, drag and drop to set the order, rotate files as needed.",
+   "keywords": [
+    "merge pdf",
+    "combine pdf",
+    "join pdf",
+    "pdf merger",
+    "combine pdf files"
+   ],
+   "howto": [
+    "Choose, drag and drop or paste (Ctrl/⌘ + V) the PDF files to merge.",
+    "Drag and drop or use the ↑ ↓ buttons to set the order; click ↻ to rotate a file that's upside down.",
+    "Click “Merge PDF” and download the result, or pass it on to another tool."
+   ],
+   "faq": [
+    {
+     "q": "Are my files uploaded anywhere?",
+     "a": "No. Merging runs entirely in JavaScript in your browser; files never leave your device."
+    },
+    {
+     "q": "Can I merge password-protected PDFs?",
+     "a": "Yes, if you know the password. You'll be asked for it when opening the file, and the result has no password."
+    },
+    {
+     "q": "Is there a limit on files or size?",
+     "a": "No fixed limit; the practical limit is your device's memory. On phones, keep each merge under about 200 MB."
+    }
+   ]
+  },
+  "split-pdf": {
+   "name": "Split PDF",
+   "desc": "Split a PDF by page ranges, one file per page, or extract the pages you pick.",
+   "keywords": [
+    "split pdf",
+    "separate pdf",
+    "pdf splitter",
+    "split pdf pages",
+    "cut pdf"
+   ],
+   "howto": [
+    "Choose, drag and drop or paste (Ctrl/⌘ + V) the PDF to split.",
+    "Choose how to split: by page ranges (e.g. 1-3, 4-8), every N pages, or click the pages to extract.",
+    "Click “Split PDF” and download each file or all of them as a .zip."
+   ],
+   "faq": [
+    {
+     "q": "Are my files uploaded anywhere?",
+     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+    },
+    {
+     "q": "How do I split every page into its own file?",
+     "a": "Choose “Every N pages” with N = 1, or choose “Pick pages”, select the pages and turn on “Each selected page becomes its own file”."
+    },
+    {
+     "q": "Does splitting reduce quality?",
+     "a": "No. Pages are copied intact into the new files: text stays selectable and images keep their sharpness."
+    },
+    {
+     "q": "What about password-protected files?",
+     "a": "Enter the password when asked; the split files won't have a password."
+    }
+   ]
+  },
+  "remove-pages-pdf": {
+   "name": "Delete PDF Pages",
+   "desc": "Click the pages you don't need and remove them from the PDF.",
+   "keywords": [
+    "delete pdf pages",
+    "remove pages from pdf",
+    "pdf page remover",
+    "delete page pdf"
+   ],
+   "howto": [
+    "Choose or drag and drop a PDF file.",
+    "Click the pages to remove (hold Shift to select a range) or type page numbers, e.g. 2, 5-7.",
+    "Click “Delete pages” and download the new file."
+   ],
+   "faq": [
+    {
+     "q": "Are my files uploaded anywhere?",
+     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+    },
+    {
+     "q": "Is the original file changed?",
+     "a": "No. The tool creates a new PDF without the selected pages; the original on your device stays the same."
+    },
+    {
+     "q": "I want to keep a few pages rather than delete many?",
+     "a": "Use Split PDF in “Pick pages” mode to extract exactly the pages you want to keep."
+    }
+   ]
+  },
+  "organize-pdf": {
+   "name": "Organize PDF Pages",
+   "desc": "Drag and drop to reorder pages, rotate, delete, insert blank pages or other PDFs.",
+   "keywords": [
+    "organize pdf",
+    "reorder pdf pages",
+    "rearrange pdf",
+    "sort pdf pages",
+    "move pdf pages"
+   ],
+   "howto": [
+    "Choose one or more PDF files; the pages of every file appear in a grid.",
+    "Drag and drop pages (or use the ← → buttons) to reorder; rotate ↺ ↻, delete 🗑 or add blank pages as needed.",
+    "Click “Save PDF” to download the file with the new page order."
+   ],
+   "faq": [
+    {
+     "q": "Are my files uploaded anywhere?",
+     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+    },
+    {
+     "q": "Does drag and drop work on phones?",
+     "a": "On phones, use the ← → buttons under each page to move it; the rotate and delete buttons are always visible."
+    },
+    {
+     "q": "Can I insert pages from another file in the middle?",
+     "a": "Yes. Click “Add PDF” to add a file; its pages appear at the end, then drag them where you need."
+    },
+    {
+     "q": "What are blank pages for?",
+     "a": "Usually for double-sided printing, so a new chapter starts on an odd page, or to leave room for notes."
+    }
+   ]
+  },
+  "rotate-pdf": {
+   "name": "Rotate PDF",
+   "desc": "Rotate individual pages or the whole PDF to the right reading orientation.",
+   "keywords": [
+    "rotate pdf",
+    "turn pdf pages",
+    "rotate pdf pages",
+    "flip pdf orientation"
+   ],
+   "howto": [
+    "Choose or drag and drop a PDF file.",
+    "Click an upside-down page to rotate it 90° (↺ ↻ to rotate left/right), or rotate all pages at once.",
+    "Click “Rotate PDF” and download the rotated file."
+   ],
+   "faq": [
+    {
+     "q": "Are my files uploaded anywhere?",
+     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+    },
+    {
+     "q": "Does rotating blur text or images?",
+     "a": "No. The tool only changes the page's display orientation in the file; content keeps its quality."
+    },
+    {
+     "q": "Can I rotate just a few pages?",
+     "a": "Yes. Click exactly the pages to rotate; the others stay as they are."
+    }
+   ]
+  },
+  "compress-pdf": {
+   "name": "Compress PDF",
+   "desc": "Reduce PDF size for email and messaging while text stays sharp and selectable.",
+   "keywords": [
+    "compress pdf",
+    "reduce pdf size",
+    "shrink pdf",
+    "pdf compressor",
+    "make pdf smaller"
+   ],
+   "howto": [
+    "Choose or drag and drop one or more PDF files.",
+    "Choose a compression level: light, recommended or strong.",
+    "Click “Compress PDF”, see how much smaller it got, then download."
+   ],
+   "faq": [
+    {
+     "q": "Does compressing blur the text?",
+     "a": "No. The tool only recompresses the images inside the file; text and vector graphics stay untouched, so they remain sharp and selectable."
+    },
+    {
+     "q": "Why did my file shrink so little?",
+     "a": "Mostly-text PDFs are already compact. The tool helps most with scanned PDFs or ones with many photos."
+    },
+    {
+     "q": "Is the file sent to a server for compression?",
+     "a": "No. Every step runs in your browser."
+    }
+   ]
+  },
+  "pdf-to-image": {
+   "name": "PDF to Image",
+   "desc": "Convert each PDF page into a high-quality JPG or PNG image.",
+   "keywords": [
+    "pdf to jpg",
+    "pdf to png",
+    "pdf to image",
+    "convert pdf to image",
+    "pdf page to picture"
+   ],
+   "howto": [
+    "Choose or drag and drop a PDF file.",
+    "Choose JPG or PNG and the resolution (DPI); deselect pages you don't need.",
+    "Click “Convert to images” and download each image or all of them as a .zip."
+   ],
+   "faq": [
+    {
+     "q": "Are my files uploaded anywhere?",
+     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+    },
+    {
+     "q": "Should I choose JPG or PNG?",
+     "a": "JPG is light, good for messaging and email. PNG is sharpest for pages with small text or tables, but the files are larger."
+    },
+    {
+     "q": "What is DPI and what should I pick?",
+     "a": "DPI is the number of pixels per inch of paper. 150 DPI is enough for screens; 300 DPI for printing. Higher DPI means sharper and larger images."
+    },
+    {
+     "q": "Can I convert hundreds of pages?",
+     "a": "Yes, pages are converted one by one. On phones, choose a lower DPI to run faster and use less memory."
+    }
+   ]
+  },
+  "image-to-pdf": {
+   "name": "Image to PDF",
+   "desc": "Combine JPG, PNG images and screenshots into a single PDF file.",
+   "keywords": [
+    "jpg to pdf",
+    "image to pdf",
+    "png to pdf",
+    "photos to pdf",
+    "convert images to pdf"
+   ],
+   "howto": [
+    "Choose, drag and drop or paste (Ctrl/⌘ + V) images: JPG, PNG, HEIC, screenshots…",
+    "Order the pages by dragging or with ↑↓, rotate upside-down images; choose paper size, orientation, margins and quality.",
+    "Click “Convert to PDF” and download the file."
+   ],
+   "faq": [
+    {
+     "q": "Are my files uploaded anywhere?",
+     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+    },
+    {
+     "q": "Do iPhone photos (HEIC) work?",
+     "a": "Yes. The tool reads HEIC images and rotates them correctly based on the image's orientation info."
+    },
+    {
+     "q": "How do I make the PDF smaller?",
+     "a": "Choose “Light” quality. If it's still large, run it through Compress PDF."
+    },
+    {
+     "q": "Can each image become its own PDF?",
+     "a": "Yes, turn off “Combine all images into one PDF”; download the files one by one or together in a .zip."
+    }
+   ]
+  },
+  "pdf-to-text": {
+   "name": "PDF to Text",
+   "desc": "Extract all the text from a PDF to copy or save as a .txt file.",
+   "keywords": [
+    "pdf to text",
+    "extract text from pdf",
+    "pdf to txt",
+    "copy text from pdf"
+   ],
+   "howto": [
+    "Choose or drag and drop one or more PDF files.",
+    "Choose whether to show page numbers and whether to join lines broken mid-sentence.",
+    "Click “Extract text”, view it right away, copy it all or download a .txt file."
+   ],
+   "faq": [
+    {
+     "q": "Are my files uploaded anywhere?",
+     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+    },
+    {
+     "q": "Why can't I get text from my file?",
+     "a": "Scanned PDFs (photographed or scanned from paper) only contain images, with no text layer. Use Image to Text (OCR)."
+    },
+    {
+     "q": "Do accented characters show correctly in the .txt file?",
+     "a": "Yes. The file is saved as UTF-8 with a BOM, so Notepad and Word read it correctly."
+    },
+    {
+     "q": "Are tables and formatting kept?",
+     "a": "No. The tool only extracts plain text; tables become lines of text."
+    }
+   ]
+  },
+  "sign-pdf": {
+   "name": "Sign PDF",
+   "desc": "Draw, type or upload your signature; add text and dates to PDF pages.",
+   "keywords": [
+    "sign pdf",
+    "esign pdf",
+    "add signature to pdf",
+    "pdf signature",
+    "fill and sign"
+   ],
+   "howto": [
+    "Choose or drag and drop the PDF to sign.",
+    "Click “Create a new signature”: draw it, type your name or choose a photo of your signature; you can also add text, dates, check marks and stamp images.",
+    "Drag the signature into place, drag a corner to resize, then click “Sign and download”."
+   ],
+   "faq": [
+    {
+     "q": "Are my files uploaded anywhere?",
+     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+    },
+    {
+     "q": "Is this a digital signature?",
+     "a": "No. It's an image signature (like signing by hand and scanning), fine for everyday contracts and forms. Digital signatures use certificates issued by a provider and need special software."
+    },
+    {
+     "q": "Where is my signature stored?",
+     "a": "Created signatures are only saved in this device's browser for reuse. Click × on a signature to delete it."
+    },
+    {
+     "q": "Can I sign several pages at once?",
+     "a": "Yes. Select the signature on the page and click “Copy to every page”."
+    }
+   ]
+  },
+  "page-numbers-pdf": {
+   "name": "Add Page Numbers to PDF",
+   "desc": "Add page numbers at the top or bottom of pages, choosing the position and style.",
+   "keywords": [
+    "add page numbers to pdf",
+    "number pdf pages",
+    "pdf page numbering",
+    "paginate pdf"
+   ],
+   "howto": [
+    "Choose or drag and drop a PDF file.",
+    "Choose the position, number style (1, Page 1, 1 / 10…), and whether to skip the cover; see the preview on the pages.",
+    "Click “Page numbers” and download the file."
+   ],
+   "faq": [
+    {
+     "q": "Are my files uploaded anywhere?",
+     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+    },
+    {
+     "q": "If I skip the cover, where does numbering start?",
+     "a": "The cover has no number and the second page gets the starting number (1 by default). You can change the starting number under “More options”."
+    },
+    {
+     "q": "Are landscape (rotated) pages numbered in the right spot?",
+     "a": "Yes. The number's position follows the page orientation as you see it."
+    }
+   ]
+  },
+  "watermark-pdf": {
+   "name": "Watermark PDF",
+   "desc": "Stamp semi-transparent text or a logo onto PDF pages.",
+   "keywords": [
+    "watermark pdf",
+    "add watermark to pdf",
+    "stamp pdf",
+    "pdf logo watermark"
+   ],
+   "howto": [
+    "Choose or drag and drop a PDF file.",
+    "Type text or choose a logo; adjust opacity, angle, position, or tile it across the page.",
+    "Preview it on the pages, click “Add watermark” and download the file."
+   ],
+   "faq": [
+    {
+     "q": "Are my files uploaded anywhere?",
+     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+    },
+    {
+     "q": "Can the watermark be removed?",
+     "a": "The watermark is drawn into the page content. Choose “Tile across the page” to make it harder to crop out."
+    },
+    {
+     "q": "Can I use a logo with a transparent background?",
+     "a": "Yes. Use a PNG with a transparent background for the best look on any page background."
+    },
+    {
+     "q": "Can I watermark only some pages?",
+     "a": "Yes. Choose “Some pages” and enter, e.g., 1-3, 5."
+    }
+   ]
+  },
+  "protect-pdf": {
+   "name": "Protect PDF with Password",
+   "desc": "Lock a PDF with a password using AES-256 encryption.",
+   "keywords": [
+    "password protect pdf",
+    "encrypt pdf",
+    "lock pdf",
+    "secure pdf",
+    "add password to pdf"
+   ],
+   "howto": [
+    "Choose or drag and drop one or more PDF files.",
+    "Enter the password twice; if needed, open “Restrict permissions” to block printing, copying or editing.",
+    "Click “Lock PDF” and download the encrypted file."
+   ],
+   "faq": [
+    {
+     "q": "Are my files uploaded anywhere?",
+     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+    },
+    {
+     "q": "Is the encryption secure?",
+     "a": "Files are encrypted with AES-256 per the PDF 2.0 standard. The longer and less guessable the password, the safer."
+    },
+    {
+     "q": "What if I forget the password?",
+     "a": "It can't be recovered. Keep the password somewhere safe and keep the unlocked original."
+    },
+    {
+     "q": "Are print and copy restrictions guaranteed?",
+     "a": "Popular PDF readers respect them, but some software may ignore them. The open password is the real protection."
+    }
+   ]
+  },
+  "unlock-pdf": {
+   "name": "Unlock PDF",
+   "desc": "Remove the password (when you know it) and print/copy restrictions from a PDF.",
+   "keywords": [
+    "unlock pdf",
+    "remove pdf password",
+    "decrypt pdf",
+    "remove pdf restrictions"
+   ],
+   "howto": [
+    "Choose or drag and drop one or more PDF files.",
+    "For files that need a password to open: click 🔒 and enter it. Files that only restrict printing or copying need nothing.",
+    "Click “Unlock PDF” and download the unlocked file."
+   ],
+   "faq": [
+    {
+     "q": "Are my files uploaded anywhere?",
+     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+    },
+    {
+     "q": "Can it crack a password I forgot?",
+     "a": "No. The tool only unlocks files when you know the open password. Print/copy restrictions (no password needed to open) are removed right away."
+    },
+    {
+     "q": "Is unlocking legal?",
+     "a": "Only unlock your own files or files you're allowed to use."
+    }
+   ]
+  },
+  "extract-pages-pdf": {
+   "name": "Extract PDF Pages",
+   "desc": "Pick the pages you want and save them as a new PDF file.",
+   "keywords": [
+    "extract pdf pages",
+    "save pdf pages",
+    "pdf page extractor",
+    "select pages from pdf"
+   ],
+   "howto": [
+    "Choose or drag and drop a PDF file.",
+    "Click the pages to extract (hold Shift to select a range) or type page numbers, e.g. 1, 3-5.",
+    "Click “Extract pages” to download the new file; turn on “Each page as a separate file” if needed."
+   ],
+   "faq": [
+    {
+     "q": "Are my files uploaded anywhere?",
+     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+    },
+    {
+     "q": "How is this different from Split PDF?",
+     "a": "Extract takes exactly the pages you pick into one file. Split PDF divides the whole file into parts by page ranges or every N pages."
+    },
+    {
+     "q": "Is page quality reduced?",
+     "a": "No. Pages are copied intact: text stays selectable and images keep their sharpness."
+    }
+   ]
+  },
+  "extract-images-pdf": {
+   "name": "Extract Images from PDF",
+   "desc": "Get the original images embedded in a PDF file.",
+   "keywords": [
+    "extract images from pdf",
+    "pdf image extractor",
+    "save images from pdf",
+    "get pictures from pdf"
+   ],
+   "howto": [
+    "Choose or drag and drop one or more PDF files.",
+    "Choose a minimum size to skip icons and thin lines.",
+    "Click “Extract images” and download each image or a .zip."
+   ],
+   "faq": [
+    {
+     "q": "Are my files uploaded anywhere?",
+     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+    },
+    {
+     "q": "Is image quality reduced?",
+     "a": "JPEG images are taken as is from the file, without recompression. Other images are saved as lossless PNG, keeping transparency."
+    },
+    {
+     "q": "Why can't I get charts or text?",
+     "a": "Charts and text are usually vector drawings, not images. Use PDF to Image to capture whole pages."
+    }
+   ]
+  },
+  "crop-pdf": {
+   "name": "Crop PDF",
+   "desc": "Trim white margins or unwanted areas from PDF pages.",
+   "keywords": [
+    "crop pdf",
+    "trim pdf margins",
+    "remove pdf margins",
+    "cut pdf page"
+   ],
+   "howto": [
+    "Choose or drag and drop a PDF file.",
+    "Choose “Auto-remove white margins” (optionally keep a few mm, crop all pages evenly) or enter the margins in mm; the blue frame on the page is the part that's kept.",
+    "Click “Crop margins” and download the file."
+   ],
+   "faq": [
+    {
+     "q": "Are my files uploaded anywhere?",
+     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+    },
+    {
+     "q": "Is the cropped area deleted?",
+     "a": "No. The tool resets the page's visible area (CropBox); content outside is only hidden. Don't rely on cropping to remove sensitive information."
+    },
+    {
+     "q": "What is cropping good for?",
+     "a": "Bigger text when reading on a phone, printing scans without black borders, or removing extra margins before combining with other documents."
+    }
+   ]
+  },
+  "insert-blank-pdf": {
+   "name": "Insert Blank Pages",
+   "desc": "Add blank pages anywhere in a PDF, e.g. for double-sided printing.",
+   "keywords": [
+    "insert blank page pdf",
+    "add blank page to pdf",
+    "pdf empty page",
+    "even page count"
+   ],
+   "howto": [
+    "Choose or drag and drop a PDF file.",
+    "Choose where to insert: after or before selected pages, after every page, at the end, or to make the page count even; click pages to pick positions.",
+    "Preview the blank pages in the page grid, click “Insert blank pages” and download the file."
+   ],
+   "faq": [
+    {
+     "q": "Are my files uploaded anywhere?",
+     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+    },
+    {
+     "q": "What size are the blank pages?",
+     "a": "The same size and orientation as the page right before them, so printing lines up."
+    },
+    {
+     "q": "Why make the page count even for double-sided printing?",
+     "a": "When printing several documents in a row double-sided, an odd page count makes the next document start on the back of the previous one's last sheet. One blank page avoids that."
+    }
+   ]
+  },
+  "grayscale-pdf": {
+   "name": "Grayscale PDF",
+   "desc": "Convert a color PDF to grayscale to save ink, with text still selectable.",
+   "keywords": [
+    "grayscale pdf",
+    "black and white pdf",
+    "convert pdf to grayscale",
+    "remove color from pdf"
+   ],
+   "howto": [
+    "Choose or drag and drop one or more PDF files.",
+    "Click “Convert to grayscale”.",
+    "Download the grayscale file to print without color ink."
+   ],
+   "faq": [
+    {
+     "q": "Are my files uploaded anywhere?",
+     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+    },
+    {
+     "q": "Is text turned into images?",
+     "a": "No. Colors are changed inside the page content, so text stays sharp, selectable and searchable like the original."
+    },
+    {
+     "q": "Why is there still some color?",
+     "a": "A few rare elements (JPEG 2000 images, special color spaces) can't be converted yet; the tool reports how many after converting."
+    }
+   ]
+  },
+  "metadata-pdf": {
+   "name": "Edit PDF Metadata",
+   "desc": "View and edit a PDF's title, author, subject and keywords (metadata).",
+   "keywords": [
+    "edit pdf metadata",
+    "pdf properties",
+    "change pdf title",
+    "remove pdf metadata",
+    "pdf author"
+   ],
+   "howto": [
+    "Choose or drag and drop a PDF file; its current info is filled in.",
+    "Edit the title, author, subject, keywords…, or turn on “Remove all hidden info”.",
+    "Click “Save info” and download the file."
+   ],
+   "faq": [
+    {
+     "q": "Are my files uploaded anywhere?",
+     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+    },
+    {
+     "q": "What is PDF metadata for?",
+     "a": "The title shows in the tab when the file is opened, and helps search and sort documents. The author and creator software may reveal information you don't want to share."
+    },
+    {
+     "q": "Why is the XMP block removed after editing?",
+     "a": "XMP is an XML copy of the info that some readers prefer; if kept, the old info might still show. The tool removes it so the new info takes effect."
+    }
+   ]
+  },
+  "fill-form-pdf": {
+   "name": "Fill PDF Form",
+   "desc": "Fill in the form fields of a PDF (applications, declarations) and save it.",
+   "keywords": [
+    "fill pdf form",
+    "pdf form filler",
+    "fill in pdf",
+    "complete pdf form",
+    "fillable pdf"
+   ],
+   "howto": [
+    "Choose or drag and drop a PDF that has form fields.",
+    "Click the blue boxes on the page to type, check or choose options; press Tab to go to the next field.",
+    "Click “Save filled PDF”; turn on “Flatten after filling” if recipients shouldn't be able to edit it."
+   ],
+   "faq": [
+    {
+     "q": "Are my files uploaded anywhere?",
+     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+    },
+    {
+     "q": "Will accented characters display correctly?",
+     "a": "Yes. When needed, the tool embeds the Be Vietnam Pro font into the file so every PDF reader shows the text correctly."
+    },
+    {
+     "q": "What if my file has no fields to fill?",
+     "a": "Use Sign PDF to add text, dates, check marks or signatures anywhere on the page."
+    },
+    {
+     "q": "Can XFA forms (Adobe LiveCycle) be filled?",
+     "a": "Only the regular form part (AcroForm) that comes with them. XFA-only forms need Adobe Acrobat."
+    }
+   ]
+  },
+  "flatten-pdf": {
+   "name": "Flatten PDF Form",
+   "desc": "Turn filled form fields into fixed content that can no longer be edited.",
+   "keywords": [
+    "flatten pdf",
+    "flatten pdf form",
+    "lock pdf form fields",
+    "make pdf non-editable"
+   ],
+   "howto": [
+    "Choose or drag and drop one or more PDFs with filled forms.",
+    "Click “Flatten form”.",
+    "Download the file: the filled content is fixed and can no longer be edited."
+   ],
+   "faq": [
+    {
+     "q": "Are my files uploaded anywhere?",
+     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+    },
+    {
+     "q": "Does flattening lose the filled content?",
+     "a": "No. The content stays on the page; only the fields are no longer editable."
+    },
+    {
+     "q": "Can it be undone?",
+     "a": "Not on the flattened file. Keep the original if you may need to edit it again."
+    }
+   ]
+  },
+  "view-pdf": {
+   "name": "PDF Viewer",
+   "desc": "Open and read PDFs right in your browser, search text, zoom and go full screen.",
+   "keywords": [
+    "pdf viewer",
+    "open pdf online",
+    "read pdf",
+    "view pdf in browser",
+    "pdf reader"
+   ],
+   "howto": [
+    "Choose, drag and drop or paste a PDF file.",
+    "Scroll to read; use the toolbar to jump to pages, zoom in and out or go full screen.",
+    "Type in the search box (accents optional) and press Enter for the next match; select text to copy it."
+   ],
+   "faq": [
+    {
+     "q": "Are my files uploaded anywhere?",
+     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+    },
+    {
+     "q": "Does searching “cafe” find “café”?",
+     "a": "Yes. Search ignores letter case and accents."
+    },
+    {
+     "q": "How do I print the file?",
+     "a": "Click the printer button to open the file in the browser's built-in PDF viewer, then print from there."
+    },
+    {
+     "q": "Can I view password-protected files?",
+     "a": "Yes, enter the password when asked. It's only used on your device."
+    }
+   ]
+  },
+  "scan-document": {
+   "name": "Document Scanner",
+   "desc": "Photograph documents with your camera, auto-straighten, whiten the background and export to PDF.",
+   "keywords": [
+    "document scanner",
+    "scan to pdf",
+    "camera scanner",
+    "scan documents online",
+    "photo to pdf"
+   ],
+   "howto": [
+    "Click “Open camera” and shoot the paper (on a darker surface, with enough light), or choose existing photos.",
+    "Check the 4 automatically detected corners and drag to adjust if needed; choose the Color, Gray or Black & white filter, then click “Add page”.",
+    "Capture more pages, reorder them, choose the paper size and click “Create PDF”."
+   ],
+   "faq": [
+    {
+     "q": "Are my files uploaded anywhere?",
+     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+    },
+    {
+     "q": "Are the photos sent online?",
+     "a": "No. The camera, the photos, the straightening and background whitening all run on your device."
+    },
+    {
+     "q": "How do I get the best scan?",
+     "a": "Place the paper on a dark surface, avoid shadows from your hand and phone, shoot straight down and hold steady. Black & white suits text documents; Color suits stamped papers and pictures."
+    },
+    {
+     "q": "What if the paper corners aren't found?",
+     "a": "Drag the 4 round handles to the 4 corners of the paper, or click “Use the whole image”. On a computer you can nudge each corner with the arrow keys."
+    }
+   ]
+  },
+  "compress-image": {
+   "name": "Compress Images",
+   "desc": "Reduce the size of JPG, PNG and WebP images in bulk, with a mode to get below the KB you need.",
+   "keywords": [
+    "compress image",
+    "reduce image size",
+    "image compressor",
+    "compress jpg",
+    "compress png",
+    "shrink photo"
+   ],
+   "howto": [
+    "Choose, drag and drop or paste (Ctrl/⌘ + V) one or more images.",
+    "Choose the quality, or turn on “Compress below” and enter the target size in KB (e.g. 200 KB for online forms).",
+    "Click “Compress images”, compare before/after, then download each image or a .zip."
+   ],
+   "faq": [
+    {
+     "q": "Are my images sent to a server?",
+     "a": "No. Images are compressed right in your browser with MozJPEG/WebP encoders running in WebAssembly."
+    },
+    {
+     "q": "Can I get below 100 KB?",
+     "a": "Yes. Turn on “Compress below” and enter 100; the tool lowers quality and, if needed, the dimensions until it gets there."
+    },
+    {
+     "q": "Is the GPS location kept in the image?",
+     "a": "No. Compressed images have no EXIF/GPS data; the orientation is already applied."
+    }
+   ]
+  },
+  "resize-image": {
+   "name": "Resize Image",
+   "desc": "Shrink or enlarge images by pixels, percentage or longest side.",
+   "keywords": [
+    "resize image",
+    "image resizer",
+    "change image size",
+    "resize photo",
+    "scale image"
+   ],
+   "howto": [
+    "Choose, drag and drop or paste one or more images (JPG, PNG, WebP, HEIC…).",
+    "Choose how to resize: enter pixels (leave one box empty to keep the ratio), a percentage, or the longest side (e.g. 1920 px).",
+    "Click “Resize” and download each image or a .zip."
+   ],
+   "faq": [
+    {
+     "q": "Are my images uploaded to a server?",
+     "a": "No. Every step runs right in your browser; images never leave your device."
+    },
+    {
+     "q": "Does shrinking make images jagged?",
+     "a": "No. Images are downscaled in halving steps with a high-quality filter, so details stay smooth. Enlarging beyond the original makes images blurry, so by default small images aren't enlarged."
+    },
+    {
+     "q": "How do I get an exact size like 800×800?",
+     "a": "Turn off “Keep aspect ratio” to stretch to the exact pixels, or crop to 1:1 with Crop Image first and then resize so it isn't distorted."
+    }
+   ]
+  },
+  "crop-image": {
+   "name": "Crop Image",
+   "desc": "Crop images freely or to 1:1, 4:3, 16:9, 3:4 ratios.",
+   "keywords": [
+    "crop image",
+    "crop photo",
+    "image cropper",
+    "cut image",
+    "crop picture online"
+   ],
+   "howto": [
+    "Choose or drag and drop an image.",
+    "Choose a ratio (free, 1:1, 4:3, 16:9…), then drag the box and its corners to select the area to keep; or enter exact pixels.",
+    "Click “Crop image” and download the cropped image."
+   ],
+   "faq": [
+    {
+     "q": "Are my images uploaded to a server?",
+     "a": "No. Every step runs right in your browser; images never leave your device."
+    },
+    {
+     "q": "Does cropping reduce quality?",
+     "a": "The kept area keeps its original resolution. JPGs are saved at quality 92, so the difference is barely visible; choose PNG to keep every pixel."
+    },
+    {
+     "q": "Can I use the keyboard?",
+     "a": "Yes. Click the crop box, then use the arrow keys to move it and Shift + arrows to resize it."
+    }
+   ]
+  },
+  "rotate-image": {
+   "name": "Rotate & Flip Image",
+   "desc": "Rotate images 90°, 180° or mirror-flip them in bulk.",
+   "keywords": [
+    "rotate image",
+    "flip image",
+    "mirror image",
+    "rotate photo",
+    "turn picture"
+   ],
+   "howto": [
+    "Choose, drag and drop or paste one or more images.",
+    "Click the rotate left/right or flip buttons on each image, or use “Apply to all images”.",
+    "Click “Save images” and download each image or a .zip."
+   ],
+   "faq": [
+    {
+     "q": "Are my images uploaded to a server?",
+     "a": "No. Every step runs right in your browser; images never leave your device."
+    },
+    {
+     "q": "Why do phone photos show up sideways on a computer?",
+     "a": "Phones often only record the orientation in EXIF instead of rotating the pixels; some software ignores it. This tool actually rotates the pixels, so the image displays correctly everywhere."
+    },
+    {
+     "q": "Can I fix a mirrored selfie with backwards text?",
+     "a": "Yes. Click “Flip horizontal” to mirror the image and the text reads normally."
+    }
+   ]
+  },
+  "convert-image": {
+   "name": "Image Converter",
+   "desc": "Convert between JPG, PNG, WebP and AVIF.",
+   "keywords": [
+    "convert image",
+    "png to jpg",
+    "jpg to png",
+    "webp to jpg",
+    "jpg to webp",
+    "avif converter"
+   ],
+   "howto": [
+    "Choose, drag and drop or paste one or more images (JPG, PNG, WebP, AVIF, GIF, BMP, HEIC).",
+    "Choose the target format and quality; for JPG you can choose a background color for transparent areas.",
+    "Click “Convert” and download each image or a .zip."
+   ],
+   "faq": [
+    {
+     "q": "Are my images uploaded to a server?",
+     "a": "No. Every step runs right in your browser; images never leave your device."
+    },
+    {
+     "q": "Which format should I choose?",
+     "a": "JPG opens everywhere. WebP is about 25–35% lighter than JPG and supports transparency. AVIF is lightest but slower to encode and some older software can't open it. PNG keeps every pixel, good for screenshots and logos."
+    },
+    {
+     "q": "Do animated GIFs keep their animation?",
+     "a": "No. The tool only takes the first frame of an animated GIF."
+    }
+   ]
+  },
+  "heic-to-jpg": {
+   "name": "HEIC to JPG",
+   "desc": "Convert iPhone HEIC/HEIF photos to JPG or PNG in bulk, right on your device.",
+   "keywords": [
+    "heic to jpg",
+    "heic converter",
+    "heif to jpg",
+    "iphone photo to jpg",
+    "heic to png"
+   ],
+   "howto": [
+    "Choose or drag and drop .heic / .heif images (you can pick many at once).",
+    "Choose JPG or PNG and the quality.",
+    "Click “Convert” and download each image or a .zip."
+   ],
+   "faq": [
+    {
+     "q": "What is HEIC?",
+     "a": "HEIC (HEIF) is the iPhone's default photo format. It's lighter than JPG, but many Windows PCs, web apps and upload forms can't open it."
+    },
+    {
+     "q": "Are photos uploaded to a server for conversion?",
+     "a": "No. HEIC decoding runs in WebAssembly (libheif) right in your browser."
+    },
+    {
+     "q": "What about Live Photos or burst shots?",
+     "a": "The tool takes the main image in the HEIC file. The video part of a Live Photo isn't in the .heic file, so it isn't affected."
+    }
+   ]
+  },
+  "id-photo": {
+   "name": "ID Photo Maker",
+   "desc": "Make passport and ID photos from a portrait: AI background replacement, framing and a print sheet with multiple photos.",
+   "keywords": [
+    "id photo",
+    "passport photo",
+    "visa photo",
+    "passport photo maker",
+    "2x2 photo",
+    "35x45 photo"
+   ],
+   "howto": [
+    "Choose a straight-on, well-lit portrait showing your shoulders.",
+    "Wait for the AI to remove the background and find the face (runs on your device; about 8 MB of models the first time), then choose the background color and photo size.",
+    "Drag and zoom so the head fits the guide frame, then download the single photo or a print sheet (4×6 in or A4)."
+   ],
+   "faq": [
+    {
+     "q": "Is my photo sent anywhere?",
+     "a": "No. The background-removal AI model is downloaded and runs right in your browser; the photo never leaves your device."
+    },
+    {
+     "q": "How do I print it at a photo shop?",
+     "a": "Download the 4×6 in (10×15 cm) sheet at 300 dpi and print it like a regular photo, then cut along the faint lines. To print at home, choose A4 and print at exactly 100% size."
+    },
+    {
+     "q": "What background does an ID photo need?",
+     "a": "Most documents use a white or light background. Check the requirements of where you're applying; US passports and visas need a white background and 2×2 in size."
+    }
+   ]
+  },
+  "remove-bg": {
+   "name": "Remove Background",
+   "desc": "Remove the background from portraits with AI running on your device; export transparent PNG or a colored background.",
+   "keywords": [
+    "remove background",
+    "background remover",
+    "transparent background",
+    "remove bg",
+    "cut out person"
+   ],
+   "howto": [
+    "Choose, drag and drop or paste one or more photos of people (portraits, product photos with models).",
+    "Choose the new background: transparent (PNG), white, another color or a blurred original.",
+    "Click “Remove background”, wait for the AI to process on your device, then download."
+   ],
+   "faq": [
+    {
+     "q": "Are photos sent to a server for AI processing?",
+     "a": "No. The AI model (MODNet) is downloaded to your browser and runs on your device; photos never leave it."
+    },
+    {
+     "q": "Does it work on objects and animals?",
+     "a": "The tool is trained to cut out people, so it works best on photos with people. Objects and animals may not be cut out perfectly."
+    },
+    {
+     "q": "Why is the first use a bit slow?",
+     "a": "The first time, the browser downloads about 6.6 MB of AI model; later uses reuse the cached copy and are much faster."
+    }
+   ]
+  },
+  "blur-image": {
+   "name": "Blur & Redact Image",
+   "desc": "Blur or black out ID numbers, license plates and faces before sending a photo.",
+   "keywords": [
+    "blur image",
+    "redact image",
+    "pixelate",
+    "blur face",
+    "hide license plate",
+    "censor photo"
+   ],
+   "howto": [
+    "Choose or drag and drop an image.",
+    "Drag on the image to outline areas to cover (ID numbers, plates, faces…), or click “Find faces” to let the AI outline them.",
+    "Choose a style (blur, pixelate, black out), click “Save covered image” and download."
+   ],
+   "faq": [
+    {
+     "q": "Are my images uploaded to a server?",
+     "a": "No. Every step runs right in your browser; images never leave your device."
+    },
+    {
+     "q": "Should I blur or black out?",
+     "a": "For text and numbers (IDs, account numbers, plates), black them out: light blurring can sometimes be reversed. Blur or pixelate suits faces and backgrounds."
+    },
+    {
+     "q": "Does the covered image keep the GPS location?",
+     "a": "No. The image is re-saved, so it has none of the original's EXIF/GPS data."
+    }
+   ]
+  },
+  "strip-exif": {
+   "name": "Remove EXIF & GPS Data",
+   "desc": "View and remove camera info, date/time and GPS location from photos.",
+   "keywords": [
+    "remove exif",
+    "exif remover",
+    "remove gps from photo",
+    "strip metadata",
+    "exif viewer",
+    "photo location"
+   ],
+   "howto": [
+    "Choose, drag and drop or paste one or more images (JPG, PNG, WebP, HEIC…).",
+    "See which images have a GPS location; click the icon on an image to see its camera, date/time and coordinates.",
+    "Choose “Remove all” or “Remove location only”, click “Remove info” and download the cleaned images."
+   ],
+   "faq": [
+    {
+     "q": "Are my images uploaded to a server?",
+     "a": "No. Every step runs right in your browser; images never leave your device."
+    },
+    {
+     "q": "Do phone photos reveal my location?",
+     "a": "They can. With location enabled for the camera, photos store the GPS coordinates to within a few meters. Some social networks strip this, but sending original files by email, chat apps (as files) or cloud drives keeps it."
+    },
+    {
+     "q": "Does removing EXIF reduce quality?",
+     "a": "Not for JPG, PNG or WebP: the tool only removes the info from the file, without recompressing. HEIC images are saved as high-quality JPG."
+    },
+    {
+     "q": "Will photos turn sideways afterwards?",
+     "a": "No, as long as “Keep orientation” is on: the tool keeps the one tag that says whether the photo is portrait or landscape."
+    }
+   ]
+  },
+  "watermark-image": {
+   "name": "Watermark Images",
+   "desc": "Stamp text or a logo onto images in bulk to protect product photos.",
+   "keywords": [
+    "watermark image",
+    "add watermark to photo",
+    "logo on photo",
+    "batch watermark",
+    "copyright photo"
+   ],
+   "howto": [
+    "Choose, drag and drop or paste one or more images.",
+    "Type text (or choose a logo), adjust size, opacity, angle and position; turn on “Tile across the image” to make it hard to crop out.",
+    "Preview on the first image, click “Add watermark” and download each image or a .zip."
+   ],
+   "faq": [
+    {
+     "q": "Are my images uploaded to a server?",
+     "a": "No. Every step runs right in your browser; images never leave your device."
+    },
+    {
+     "q": "Is the watermark consistent on images of different sizes?",
+     "a": "Yes. Text and logo size are a percentage of the image width, so every image gets a watermark proportioned like the preview."
+    },
+    {
+     "q": "Can I type accented characters?",
+     "a": "Yes. Text is drawn with the Be Vietnam Pro font, which supports accented Latin characters."
+    }
+   ]
+  },
+  "text-on-image": {
+   "name": "Add Text to Image",
+   "desc": "Write text on images with your choice of font, color, outline and shadow.",
+   "keywords": [
+    "add text to image",
+    "text on photo",
+    "write on picture",
+    "caption image",
+    "meme text"
+   ],
+   "howto": [
+    "Choose or drag and drop an image.",
+    "Type the text, choose the font, size, color, outline and shadow; click “Add text” to add more text layers.",
+    "Drag the text into place on the image, click “Save image” and download."
+   ],
+   "faq": [
+    {
+     "q": "Are my images uploaded to a server?",
+     "a": "No. Every step runs right in your browser; images never leave your device."
+    },
+    {
+     "q": "Which fonts are available?",
+     "a": "Be Vietnam Pro, Roboto Slab, Dancing Script, Pacifico and Great Vibes, all supporting accented characters, downloaded when you pick them."
+    },
+    {
+     "q": "Does the exported image match the preview?",
+     "a": "Yes. Text size and position scale with the image, so high-resolution originals come out exactly as you see them."
+    }
+   ]
+  },
+  "merge-images": {
+   "name": "Merge Images",
+   "desc": "Join multiple images horizontally, vertically or in a grid.",
+   "keywords": [
+    "merge images",
+    "combine images",
+    "join photos",
+    "photo collage",
+    "stitch images"
+   ],
+   "howto": [
+    "Choose, drag and drop or paste 2 or more images; drag and drop to reorder.",
+    "Choose the layout (horizontal, vertical, grid), spacing, corner radius and background color.",
+    "Preview, click “Merge images” and download the merged image."
+   ],
+   "faq": [
+    {
+     "q": "Are my images uploaded to a server?",
+     "a": "No. Every step runs right in your browser; images never leave your device."
+    },
+    {
+     "q": "Can I merge images of different sizes?",
+     "a": "Yes. Turn on “Same size” to give every image the same height (horizontal) or width (vertical); in a grid, images are cropped to fill cells or kept whole."
+    },
+    {
+     "q": "Can I join chat screenshots into one long image?",
+     "a": "Yes. Choose “Vertical” with spacing 0 to stack the screenshots seamlessly."
+    }
+   ]
+  },
+  "split-image": {
+   "name": "Split Image into Grid",
+   "desc": "Cut one image into 2, 3, 6 or 9 tiles (for Instagram, Facebook).",
+   "keywords": [
+    "split image",
+    "image grid",
+    "instagram grid",
+    "cut image into pieces",
+    "photo splitter"
+   ],
+   "howto": [
+    "Choose or drag and drop an image.",
+    "Choose rows × columns (1×3, 3×3…) and see the cut lines on the image; turn on Instagram numbering if needed.",
+    "Click “Split image” and download the set as a .zip."
+   ],
+   "faq": [
+    {
+     "q": "Are my images uploaded to a server?",
+     "a": "No. Every step runs right in your browser; images never leave your device."
+    },
+    {
+     "q": "In what order do I post a grid to Instagram?",
+     "a": "Turn on “Number in Instagram posting order”, then post images 1, 2, 3… in order; the bottom-right tile is posted first so the grid on your profile forms the original image."
+    },
+    {
+     "q": "Is quality reduced?",
+     "a": "No downscaling: each tile keeps the original resolution of its part of the image."
+    }
+   ]
+  },
+  "favicon": {
+   "name": "Favicon Generator",
+   "desc": "Create a .ico favicon and a full icon set for web, Apple and Android from one image.",
+   "keywords": [
+    "favicon generator",
+    "create favicon",
+    "ico converter",
+    "apple touch icon",
+    "png to ico"
+   ],
+   "howto": [
+    "Choose a logo (ideally SVG or a square PNG of 512 px or more).",
+    "Adjust the padding, background color, corner radius and site name, and preview at 16, 32 and 180 px.",
+    "Click “Create favicon”, download the .zip and paste the HTML code into your <head> tag."
+   ],
+   "faq": [
+    {
+     "q": "Are my images uploaded to a server?",
+     "a": "No. Every step runs right in your browser; images never leave your device."
+    },
+    {
+     "q": "Which files are in the favicon set?",
+     "a": "favicon.ico (16, 32, 48 px), favicon-16x16.png, favicon-32x32.png, apple-touch-icon.png (180 px), android-chrome 192 and 512 px and site.webmanifest; plus favicon.svg if the source is an SVG."
+    },
+    {
+     "q": "Why does the iPhone icon have a white background?",
+     "a": "iOS fills transparent areas of apple-touch-icon with black, so the tool uses your chosen background color, or white if you left it transparent."
+    }
+   ]
+  },
+  "svg-to-png": {
+   "name": "SVG to PNG",
+   "desc": "Convert SVG vector images to PNG/JPG at any resolution.",
+   "keywords": [
+    "svg to png",
+    "svg converter",
+    "svg to jpg",
+    "convert svg",
+    "vector to png"
+   ],
+   "howto": [
+    "Choose or drag and drop one or more SVG files.",
+    "Choose the resolution (1–8× scale, or enter a width), the PNG/JPG/WebP format and the background.",
+    "Click “Convert” and download each image or a .zip."
+   ],
+   "faq": [
+    {
+     "q": "Are my SVG files uploaded anywhere?",
+     "a": "No. The browser renders the SVG right on your device."
+    },
+    {
+     "q": "Does enlarging an SVG make it pixelated?",
+     "a": "No. SVG is vector, so rendering at 4× or 8× stays sharp; the tool caps the long side at 8192 px so the browser isn't overloaded."
+    },
+    {
+     "q": "Why don't images or fonts inside the SVG show?",
+     "a": "For security, browsers don't load images or fonts from the web when rendering an SVG to an image. Embed images and fonts (or convert text to paths) in the SVG file."
+    }
+   ]
+  },
+  "image-to-base64": {
+   "name": "Image to Base64",
+   "desc": "Convert images to Base64 strings / data URIs to embed in HTML and CSS.",
+   "keywords": [
+    "image to base64",
+    "base64 encode image",
+    "data uri",
+    "png to base64",
+    "img to data url"
+   ],
+   "howto": [
+    "Choose, drag and drop or paste images (JPG, PNG, WebP, GIF, SVG…).",
+    "Choose the output format: data URI, Base64 only, CSS, <img> tag or Markdown.",
+    "Click “Convert to Base64”, then copy the string or download a .txt file."
+   ],
+   "faq": [
+    {
+     "q": "Are my images uploaded to a server?",
+     "a": "No. Every step runs right in your browser; images never leave your device."
+    },
+    {
+     "q": "When should I embed images as Base64?",
+     "a": "For very small images like icons and logos under about 10 KB: it saves one file request. Keep large images as separate files, since Base64 is about 33% larger than the original."
+    },
+    {
+     "q": "Does SVG need Base64?",
+     "a": "Not necessarily. Turn on “SVG: URL-encode” for a string about 30% shorter that still works in CSS and HTML."
+    }
+   ]
+  },
+  "color-picker": {
+   "name": "Image Color Picker",
+   "desc": "Tap an image to get color codes and extract its dominant palette automatically.",
+   "keywords": [
+    "color picker from image",
+    "image color picker",
+    "get color from image",
+    "color palette from image",
+    "hex color picker"
+   ],
+   "howto": [
+    "Choose or drag and drop an image.",
+    "Hover, or tap and drag, over the image to inspect colors through the magnifier; click (or release) to pick a color; the dominant palette is extracted automatically.",
+    "Click a swatch to copy its HEX, RGB or HSL code; click “Download palette” to save an image and CSS code."
+   ],
+   "faq": [
+    {
+     "q": "Are my images uploaded to a server?",
+     "a": "No. Every step runs right in your browser; images never leave your device."
+    },
+    {
+     "q": "How is the dominant palette calculated?",
+     "a": "The tool groups pixels with similar colors (median cut algorithm) and sorts them by area, so the color covering the most space comes first."
+    },
+    {
+     "q": "Can I pick colors outside the image, on the screen?",
+     "a": "On desktop Chrome and Edge there's a “Pick any color on the screen” button. Other browsers don't support this yet."
+    }
+   ]
+  },
+  "gif-maker": {
+   "name": "GIF Maker",
+   "desc": "Turn several images into an animated GIF, adjusting speed and size.",
+   "keywords": [
+    "gif maker",
+    "make gif",
+    "images to gif",
+    "animated gif",
+    "create gif from photos"
+   ],
+   "howto": [
+    "Choose, drag and drop or paste 2 or more images; drag and drop to reorder the frames.",
+    "Adjust the frame duration, size, looping and back-and-forth playback, and preview the animation.",
+    "Click “Create GIF” and download the animation."
+   ],
+   "faq": [
+    {
+     "q": "Are my images uploaded to a server?",
+     "a": "No. Every step runs right in your browser; images never leave your device."
+    },
+    {
+     "q": "Why do the colors look a bit different?",
+     "a": "GIF only has up to 256 colors per frame. Photos with smooth gradients get some banding; illustrations, text and screenshots look great."
+    },
+    {
+     "q": "What if the GIF is too heavy?",
+     "a": "Choose a smaller size (320 or 480 px) and use fewer images; the file size drops quickly."
+    }
+   ]
+  },
+  "ocr": {
+   "name": "Image to Text (OCR)",
+   "desc": "Recognize text in photos and scans, including accented Vietnamese.",
+   "keywords": [
+    "ocr",
+    "image to text",
+    "extract text from image",
+    "photo to text",
+    "text recognition",
+    "scan to text"
+   ],
+   "howto": [
+    "Choose, drag and drop or paste photos, scans or scanned PDFs.",
+    "Choose the language (English or Vietnamese) and how lines are joined.",
+    "Click “Recognize text”, proofread the result, copy it or download a .txt file."
+   ],
+   "faq": [
+    {
+     "q": "Are images sent to a server for recognition?",
+     "a": "No. The Tesseract recognizer (WebAssembly) is downloaded to your browser and runs on your device."
+    },
+    {
+     "q": "How accurate is it?",
+     "a": "Quite good with straight, sharp photos of printed text. Blurry or tilted photos and handwriting cause mistakes; proofread and fix them. You can straighten photos first with the Document Scanner."
+    },
+    {
+     "q": "What about PDFs with selectable text?",
+     "a": "PDF to Text is faster and more accurate. OCR is for scanned PDFs (images only)."
+    }
+   ]
+  },
+  "signature-extract": {
+   "name": "Signature & Stamp Extractor",
+   "desc": "Extract a signature or stamp photographed on paper into a transparent PNG.",
+   "keywords": [
+    "extract signature",
+    "transparent signature",
+    "signature png",
+    "remove background from signature",
+    "stamp extractor"
+   ],
+   "howto": [
+    "Photograph the signature or stamp on white paper (straight, well lit) and choose that photo.",
+    "Choose which strokes to keep (blue for signatures, red for stamps), the output ink color and sensitivity; drag on the image to outline an area if needed.",
+    "Click “Download transparent PNG” and use it in Sign PDF, Word, Canva…"
+   ],
+   "faq": [
+    {
+     "q": "Are my images uploaded to a server?",
+     "a": "No. Every step runs right in your browser; images never leave your device."
+    },
+    {
+     "q": "Can a signature over a stamp be separated?",
+     "a": "Yes if the colors differ: choose “Blue” for just the signature, “Red” for just the stamp."
+    },
+    {
+     "q": "What about shadows or yellowed paper?",
+     "a": "The tool estimates the paper color region by region, so it works even with uneven lighting. If smudges remain, lower the sensitivity."
+    },
+    {
+     "q": "Is an extracted signature legally valid?",
+     "a": "A signature image is just a picture, not a digital signature. Only use your own signature and stamp, or ones you're authorized to use."
+    }
+   ]
+  },
+  "voice-recorder": {
+   "name": "Voice Recorder",
+   "desc": "Record with your microphone, pause, play back, name and download as M4A, MP3 or WAV.",
+   "privacy": "Audio is only recorded and kept temporarily on your device, never sent anywhere.",
+   "keywords": [
+    "voice recorder",
+    "online voice recorder",
+    "record audio",
+    "audio recorder",
+    "mic recorder",
+    "record mp3"
+   ],
+   "howto": [
+    "Press the red button and allow the browser to use the microphone when asked.",
+    "Speak or play the sound to record; you can Pause and Resume.",
+    "Press the square button to stop, play it back, name it and download it as M4A, MP3 or WAV (or click Trim to cut it down)."
+   ],
+   "faq": [
+    {
+     "q": "Are recordings sent online?",
+     "a": "No. Audio is recorded and kept in the browser on your device. Download it before closing or reloading the page, since recordings that aren't downloaded are lost."
+    },
+    {
+     "q": "Should I turn on “Noise suppression, echo cancellation”?",
+     "a": "Turn it on for voice (meetings, lectures, notes) to reduce background noise. Turn it off for music and instruments to keep the natural sound."
+    },
+    {
+     "q": "How long can I record?",
+     "a": "There's no time limit; it only depends on your device's memory. The screen stays on while recording."
+    }
+   ]
+  },
+  "screen-recorder": {
+   "name": "Screen Recorder",
+   "desc": "Record your screen, a window or a tab with system audio and microphone (on computers), download as MP4/WebM.",
+   "privacy": "The video is only recorded on your device and never uploaded anywhere.",
+   "keywords": [
+    "screen recorder",
+    "record screen",
+    "online screen recorder",
+    "screen capture video",
+    "record tab"
+   ],
+   "howto": [
+    "Choose whether to capture system/tab audio and the microphone, the quality and the format.",
+    "Click Choose a screen and start recording, then pick the entire screen, a window or a tab.",
+    "Click Stop recording (or the browser's Stop sharing), review it, then download it or send it to Trim or Compress video."
+   ],
+   "faq": [
+    {
+     "q": "Can I record a phone screen?",
+     "a": "Phone browsers don't let websites record the screen. Use the built-in feature: on iPhone, Control Center → Screen Recording; on Android, the notification shade → Screen record. Then you can use Trim video or Compress video here."
+    },
+    {
+     "q": "Why does the video have no sound?",
+     "a": "When the browser asks to share, turn on “Share audio”. Chrome and Edge capture a tab's audio; on Windows they can capture the whole screen's audio; on macOS only tab audio. You can turn on the microphone for narration."
+    },
+    {
+     "q": "Is the video sent online?",
+     "a": "No. Video and audio are recorded in the browser on your device; download the video before closing the page."
+    }
+   ]
+  },
+  "trim-audio": {
+   "name": "Trim Audio",
+   "desc": "Cut audio clips and make ringtones (including iPhone M4R), with fade in/out effects.",
+   "keywords": [
+    "trim audio",
+    "cut mp3",
+    "audio cutter",
+    "ringtone maker",
+    "m4r ringtone",
+    "mp3 cutter"
+   ],
+   "howto": [
+    "Choose an audio file (MP3, M4A, WAV, OGG, FLAC…).",
+    "Drag the two handles on the waveform or enter the start and end times; click Play selection to listen.",
+    "Choose the format (M4R for iPhone ringtones), add fades if you like, then click Trim audio."
+   ],
+   "faq": [
+    {
+     "q": "Does trimming reduce quality?",
+     "a": "If you keep the original format and don't use fades, the data is copied as is, so quality is unchanged. When changing format or adding effects, the audio is re-encoded at the quality you choose."
+    },
+    {
+     "q": "How do I make an iPhone ringtone?",
+     "a": "Select up to 40 seconds, choose M4R and download. Connect the iPhone to a computer, open Finder (Mac) or iTunes (Windows) and drag the .m4r file onto the iPhone; then pick it in Settings → Sounds → Ringtone."
+    },
+    {
+     "q": "Is the file uploaded?",
+     "a": "No. The file is read and trimmed right on your device."
+    }
+   ]
+  },
+  "merge-audio": {
+   "name": "Merge Audio",
+   "desc": "Join several audio files into one: back to back, with silence gaps or crossfades, with volume normalization.",
+   "keywords": [
+    "merge audio",
+    "join mp3",
+    "combine audio files",
+    "audio joiner",
+    "crossfade"
+   ],
+   "howto": [
+    "Choose two or more audio files (different formats are fine).",
+    "Drag and drop or use ↑↓ to order them; choose how to join and turn on Normalize volume if tracks differ in loudness.",
+    "Choose the format, click Merge audio, then listen and download."
+   ],
+   "faq": [
+    {
+     "q": "What is “Crossfade”?",
+     "a": "The end of one track fades out while the next fades in, overlapping for a few seconds, like a DJ transition. “Silence gap” inserts a few seconds of silence between tracks."
+    },
+    {
+     "q": "Can I merge MP3 with M4A or WAV?",
+     "a": "Yes. The files are decoded and re-encoded into one file in the format you choose."
+    },
+    {
+     "q": "Are files uploaded?",
+     "a": "No, everything happens on your device."
+    }
+   ]
+  },
+  "convert-audio": {
+   "name": "Audio Converter",
+   "desc": "Convert between MP3, WAV, M4A and OGG; choose quality and mono/stereo, many files at once.",
+   "keywords": [
+    "audio converter",
+    "convert to mp3",
+    "wav to mp3",
+    "m4a to mp3",
+    "mp3 to wav",
+    "ogg converter"
+   ],
+   "howto": [
+    "Choose one or more audio files.",
+    "Choose the target format and quality (bitrate); you can switch to mono for smaller files.",
+    "Click Convert format and download each file or all of them (.zip)."
+   ],
+   "faq": [
+    {
+     "q": "Which format should I choose?",
+     "a": "MP3 plays everywhere. M4A (AAC) is smaller at the same quality, good for iPhone. OGG (Opus) is the lightest. WAV is uncompressed, original quality but very large files."
+    },
+    {
+     "q": "Does converting a 128 kbps MP3 to 320 kbps sound better?",
+     "a": "No. Quality lost in the first compression can't be restored; a higher bitrate only makes the file bigger."
+    },
+    {
+     "q": "Are files uploaded?",
+     "a": "No. Files are converted right on your device."
+    }
+   ]
+  },
+  "video-to-mp3": {
+   "name": "Video to MP3",
+   "desc": "Extract the audio from a video into an MP3 (or M4A, WAV), the whole video or a segment.",
+   "keywords": [
+    "video to mp3",
+    "extract audio from video",
+    "mp4 to mp3",
+    "convert video to audio"
+   ],
+   "howto": [
+    "Choose a video file (MP4, MOV, WebM, MKV).",
+    "Choose MP3 and the quality, or M4A to keep the original audio; turn on Only extract a segment if needed.",
+    "Click Extract audio, then listen and download."
+   ],
+   "faq": [
+    {
+     "q": "Do long, large videos work?",
+     "a": "Yes. The video is read piece by piece, so files of several GB work; only the audio is kept."
+    },
+    {
+     "q": "How is M4A different from MP3?",
+     "a": "Most MP4 videos have AAC audio: with M4A the audio is copied as is, very fast with no quality loss. MP3 must be re-encoded but plays everywhere."
+    },
+    {
+     "q": "Is the video uploaded?",
+     "a": "No. The video is processed right on your device."
+    }
+   ]
+  },
+  "video-to-gif": {
+   "name": "Video to GIF",
+   "desc": "Cut a video segment and turn it into an animated GIF, choosing size, frame rate and speed.",
+   "keywords": [
+    "video to gif",
+    "mp4 to gif",
+    "gif from video",
+    "convert video to gif",
+    "make gif from video"
+   ],
+   "howto": [
+    "Choose a video file.",
+    "Drag the two handles on the filmstrip to choose a segment (keep it short, a few seconds).",
+    "Choose the width, frames per second and speed, then click Create GIF."
+   ],
+   "faq": [
+    {
+     "q": "Why is the GIF heavier than the video?",
+     "a": "GIF only has 256 colors per frame and compresses much worse than video. For lighter files: a short segment, small width (320–480 px), 8–10 fps and the “Lighter” palette."
+    },
+    {
+     "q": "Is the video uploaded?",
+     "a": "No, the animation is created right on your device."
+    }
+   ]
+  },
+  "trim-video": {
+   "name": "Trim Video",
+   "desc": "Cut out the part of a video you need, keeping the original quality (no re-encoding) or frame-accurate.",
+   "keywords": [
+    "trim video",
+    "cut video",
+    "video cutter",
+    "trim mp4",
+    "clip video"
+   ],
+   "howto": [
+    "Choose a video file (MP4, MOV, WebM, MKV).",
+    "Drag the two handles on the filmstrip or enter times; preview the selection.",
+    "Choose Fast (keeps quality) or Frame-accurate, then click Trim video."
+   ],
+   "faq": [
+    {
+     "q": "What's the difference between “Fast” and “Frame-accurate”?",
+     "a": "Fast copies video and audio as is, so it's done in seconds with no quality loss; the video starts at the chosen point in most players. Frame-accurate re-encodes the selection; it's slower, and useful when older players show a frozen frame at the start."
+    },
+    {
+     "q": "Can I trim videos of several GB?",
+     "a": "Yes, with Fast trimming the video is read piece by piece, so it's very light."
+    },
+    {
+     "q": "Is the video uploaded?",
+     "a": "No. The video is trimmed right on your device."
+    }
+   ]
+  },
+  "compress-video": {
+   "name": "Compress Video",
+   "desc": "Reduce video size for messaging and email, by quality or target size, using your device's hardware encoder.",
+   "keywords": [
+    "compress video",
+    "reduce video size",
+    "video compressor",
+    "shrink mp4",
+    "make video smaller"
+   ],
+   "howto": [
+    "Choose a video file.",
+    "Compress by quality (High, Balanced, Smallest) or enter a target size; see the estimated size.",
+    "Click Compress video, review it, then download the MP4."
+   ],
+   "faq": [
+    {
+     "q": "How long does compression take?",
+     "a": "It depends on your device and the video length. The tool uses your device's hardware encoder through WebCodecs, so it's usually faster than the video's duration; older phones are slower. Keep the page open while compressing."
+    },
+    {
+     "q": "Should I choose H.264 or H.265?",
+     "a": "H.264 plays everywhere. H.265 (only shown when supported) is about 30% smaller at the same quality, but older devices and apps may not play it."
+    },
+    {
+     "q": "Is the video uploaded?",
+     "a": "No. The video is compressed right on your device."
+    }
+   ]
+  },
+  "video-frame": {
+   "name": "Video Frame Capture",
+   "desc": "Grab full-resolution images from any frame of a video, or capture automatically every N seconds.",
+   "keywords": [
+    "video frame capture",
+    "extract frames from video",
+    "video to image",
+    "screenshot from video",
+    "video to jpg"
+   ],
+   "howto": [
+    "Choose a video file.",
+    "Seek to the spot you want, use Previous/Next frame (keys , .) to step frame by frame, click Capture this frame; or Capture the whole video every N seconds.",
+    "Choose PNG, JPG or WebP and click Download captured images."
+   ],
+   "faq": [
+    {
+     "q": "Are the images sharper than a screenshot?",
+     "a": "Yes. Images are decoded directly from the video at its original resolution (e.g. 1920×1080 or 4K), regardless of the preview size on screen."
+    },
+    {
+     "q": "Is the video uploaded?",
+     "a": "No, images are captured right on your device."
+    }
+   ]
+  },
+  "text-to-speech": {
+   "name": "Text to Speech",
+   "desc": "Read text aloud with the voices built into your device, highlighting the current sentence, with adjustable speed.",
+   "privacy": "Text is read with the voices on your device; only if you choose a voice marked “online” is the text processed by that voice provider's server.",
+   "keywords": [
+    "text to speech",
+    "read aloud",
+    "tts",
+    "text reader",
+    "speak text online"
+   ],
+   "howto": [
+    "Type or paste the text to read.",
+    "Choose a voice, speed and pitch.",
+    "Click Read; the current sentence is highlighted. Place the cursor mid-text to start from that sentence."
+   ],
+   "faq": [
+    {
+     "q": "Why is the voice wrong or missing for my language?",
+     "a": "Voices come from your operating system. If there's no voice for the language, the tool explains how to install one on Windows, macOS, Android or iPhone; reload the page afterwards."
+    },
+    {
+     "q": "Can I download an MP3?",
+     "a": "No. Browsers don't let web pages record the operating system's voices, so the tool only reads aloud live."
+    },
+    {
+     "q": "Is my text sent anywhere?",
+     "a": "Not with voices installed on your device. Voices marked “online” (like Google or Microsoft Online) send the text to the provider's server; choose another voice to keep it private."
+    }
+   ]
+  },
+  "word-counter": {
+   "name": "Word & Character Counter",
+   "desc": "Count words, characters, sentences, paragraphs and reading time as you type.",
+   "keywords": [
+    "word counter",
+    "character counter",
+    "count words",
+    "letter count",
+    "reading time"
+   ],
+   "howto": [
+    "Type or paste text into the box.",
+    "Word, character, sentence and paragraph counts and reading time update as you type.",
+    "See the most frequent words to check for repetition."
+   ],
+   "faq": [
+    {
+     "q": "How are words counted?",
+     "a": "Each group of characters separated by spaces counts as one word, the same way Word and Google Docs count."
+    },
+    {
+     "q": "Is my text saved?",
+     "a": "It's never sent anywhere. You can turn on “Remember text” to keep it temporarily in your own browser."
+    }
+   ]
+  },
+  "case-converter": {
+   "name": "Case Converter",
+   "desc": "Convert to UPPERCASE, lowercase, Title Case or Sentence case, with full Unicode support.",
+   "keywords": [
+    "case converter",
+    "uppercase",
+    "lowercase",
+    "title case",
+    "sentence case",
+    "camelcase"
+   ],
+   "howto": [
+    "Type or paste text into the box.",
+    "Choose a case: UPPERCASE, lowercase, Capitalize Each Word, Sentence case or programming styles (camelCase, snake_case…).",
+    "Copy or download the result."
+   ],
+   "faq": [
+    {
+     "q": "Does it handle accented letters correctly?",
+     "a": "Yes. The tool uses Unicode case rules, so “crème brûlée” becomes “CRÈME BRÛLÉE” and back."
+    },
+    {
+     "q": "Do camelCase and snake_case keep accents?",
+     "a": "No. Programming styles strip accents and special characters, e.g. “Phone number” becomes phoneNumber or phone_number."
+    }
+   ]
+  },
+  "slugify": {
+   "name": "Slug Generator",
+   "desc": "Create URL-friendly slugs from titles, removing accents.",
+   "keywords": [
+    "slug generator",
+    "slugify",
+    "url slug",
+    "seo friendly url",
+    "permalink"
+   ],
+   "howto": [
+    "Type article titles, one per line.",
+    "Choose the separator and maximum length.",
+    "Copy the slugs to use in your URLs."
+   ],
+   "faq": [
+    {
+     "q": "What is a slug?",
+     "a": "The readable part of a page's URL, e.g. “how-to-install” in example.com/how-to-install. Slugs without accents, in lowercase, joined by hyphens are easier to share and better for SEO."
+    },
+    {
+     "q": "Does the length limit cut words in half?",
+     "a": "No, the tool backs up to the nearest separator so no word is cut in two."
+    }
+   ]
+  },
+  "text-diff": {
+   "name": "Text Compare (Diff)",
+   "desc": "Find the differences between two texts, highlighting additions and deletions.",
+   "keywords": [
+    "text compare",
+    "diff checker",
+    "compare text",
+    "text difference",
+    "diff online"
+   ],
+   "howto": [
+    "Paste the original into the left box and the new version into the right box.",
+    "Compare by lines, words or characters; view side by side or unified.",
+    "Additions are green, deletions red; long identical sections are collapsed."
+   ],
+   "faq": [
+    {
+     "q": "Is my text sent to a server to compare?",
+     "a": "No. The diff algorithm (Myers) runs right in your browser."
+    },
+    {
+     "q": "Should I compare by lines or by words?",
+     "a": "Contracts and source code are best compared by lines (changed words within a line are still highlighted). Flowing prose is best compared by words."
+    }
+   ]
+  },
+  "dedupe-lines": {
+   "name": "Remove Duplicate Lines & Sort",
+   "desc": "Remove duplicate and empty lines, sort A→Z, reverse or shuffle lines.",
+   "keywords": [
+    "remove duplicate lines",
+    "dedupe",
+    "sort lines",
+    "unique lines",
+    "sort list alphabetically"
+   ],
+   "howto": [
+    "Paste a list, one item per line.",
+    "Choose the sort order and turn removal of duplicates and empty lines on or off.",
+    "See how many lines were removed, then copy the result."
+   ],
+   "faq": [
+    {
+     "q": "Is the A→Z sort correct for accented letters?",
+     "a": "Yes: accented letters sort next to their base letters, and numbers are compared by value (file2 comes before file10)."
+    },
+    {
+     "q": "Are “An” and “an” treated as duplicates?",
+     "a": "Yes when “Case-insensitive” is on; the first occurrence is kept."
+    }
+   ]
+  },
+  "find-replace": {
+   "name": "Find and Replace",
+   "desc": "Find and replace in bulk, with regular expression (regex) support.",
+   "keywords": [
+    "find and replace",
+    "replace text",
+    "search and replace",
+    "regex replace",
+    "bulk replace"
+   ],
+   "howto": [
+    "Paste the text into the box.",
+    "Enter the text to find and its replacement; choose match case, whole words or regex.",
+    "Replaced spots are highlighted; copy or download the result."
+   ],
+   "faq": [
+    {
+     "q": "How do I use regular expressions?",
+     "a": "Turn on “Regular expression”, use $1, $2 or $<name> to insert captured groups and \\n for a line break. Click “Sample” for an example that turns 10/21/2026 into 2026-10-21."
+    },
+    {
+     "q": "Can a bad expression freeze the page?",
+     "a": "No, the expression runs in a separate thread and stops automatically after a few seconds if it loops too long."
+    }
+   ]
+  },
+  "fancy-text": {
+   "name": "Fancy Text Generator",
+   "desc": "Create fancy text (𝓫𝓮𝓪𝓾𝓽𝓲𝓯𝓾𝓵) for Facebook, TikTok and Instagram bios.",
+   "keywords": [
+    "fancy text",
+    "font generator",
+    "cool text",
+    "instagram fonts",
+    "stylish text",
+    "bold text generator"
+   ],
+   "howto": [
+    "Type a name or a short phrase.",
+    "More than 20 styles appear right below.",
+    "Click the style you like to copy it, then paste it into Facebook, TikTok or Instagram."
+   ],
+   "faq": [
+    {
+     "q": "Is this a font?",
+     "a": "No, these are special Unicode characters (mathematical letters, circled letters…), so they keep their style wherever you paste them, no font installation needed."
+    },
+    {
+     "q": "Do accented letters look good?",
+     "a": "Accents are kept, but some devices place them off-center on styled letters. Preview before posting; Strikethrough, Spaced and Fullwidth keep accents best."
+    },
+    {
+     "q": "Should I use it as a display name?",
+     "a": "Screen readers for blind users read these characters very poorly, and some platforms block unusual characters in account names."
+    }
+   ]
+  },
+  "markdown-to-html": {
+   "name": "Markdown to HTML",
+   "desc": "Convert Markdown to HTML with a live preview.",
+   "keywords": [
+    "markdown to html",
+    "markdown converter",
+    "md to html",
+    "markdown preview",
+    "markdown editor"
+   ],
+   "howto": [
+    "Type or paste Markdown into the left box.",
+    "See the preview on the right, or switch to “HTML code”.",
+    "Copy the HTML or download it as a complete .html file."
+   ],
+   "faq": [
+    {
+     "q": "What syntax is supported?",
+     "a": "Standard Markdown and GitHub Flavored Markdown: tables, strikethrough, task lists, code blocks."
+    },
+    {
+     "q": "Is the preview safe from malicious code?",
+     "a": "Yes, the preview is sanitized with DOMPurify (removing scripts and event attributes). The exported HTML keeps exactly what the Markdown produced."
+    }
+   ]
+  },
+  "percentage": {
+   "name": "Percentage Calculator",
+   "desc": "X% of Y, X is what percent of Y, percentage increase/decrease.",
+   "keywords": [
+    "percentage calculator",
+    "percent of",
+    "percentage increase",
+    "percentage change",
+    "what percent"
+   ],
+   "howto": [
+    "Choose a calculation: X% of Y, X is what % of Y, percent change, add/subtract a percentage, or find the original number.",
+    "Enter two numbers.",
+    "The result and how it's calculated appear right away; copy the link to share it."
+   ],
+   "faq": [
+    {
+     "q": "How do I calculate a percentage change?",
+     "a": "(new value − old value) ÷ old value × 100. For example, from 80 to 100 is a 25% increase."
+    },
+    {
+     "q": "A price includes 10%; what was the original price?",
+     "a": "Choose “X is Y% of what number”, enter the increased price as X and Y = 110; don't just subtract 10%."
+    }
+   ]
+  },
+  "discount": {
+   "name": "Discount Calculator",
+   "desc": "Price after discount, stacked discounts and how much you save.",
+   "keywords": [
+    "discount calculator",
+    "sale price",
+    "percent off",
+    "price after discount",
+    "stacked discounts"
+   ],
+   "howto": [
+    "Enter the original price.",
+    "Enter the discount as a percentage (for stacked discounts write 20+10) or an amount off.",
+    "See the price to pay, how much you save and the real total discount."
+   ],
+   "faq": [
+    {
+     "q": "Is 20% off then another 10% off the same as 30% off?",
+     "a": "No. The second discount applies to the reduced price, so the total is only 28%: 100 → 80 → 72."
+    }
+   ]
+  },
+  "compound-interest": {
+   "name": "Compound Interest Calculator",
+   "desc": "Calculate compound interest with regular contributions, with a growth chart.",
+   "keywords": [
+    "compound interest calculator",
+    "investment calculator",
+    "savings growth",
+    "interest calculator",
+    "rule of 72"
+   ],
+   "howto": [
+    "Enter the initial deposit, the monthly contribution, the annual rate and the number of years.",
+    "Choose the compounding frequency (yearly, quarterly, monthly, daily).",
+    "See the final value, the interest earned and the yearly growth chart; download the table as CSV."
+   ],
+   "faq": [
+    {
+     "q": "What is compound interest?",
+     "a": "Interest that is added to the principal so it earns interest itself in the next period. The longer the time, the bigger the interest compared to what you put in."
+    },
+    {
+     "q": "What is the rule of 72?",
+     "a": "Divide 72 by the annual rate (%) to get roughly how many years it takes for money to double. At 8% a year, about 9 years."
+    }
+   ]
+  },
+  "split-bill": {
+   "name": "Split the Bill",
+   "desc": "Who paid what and who owes whom — with the fewest possible transfers.",
+   "keywords": [
+    "split bill",
+    "split expenses",
+    "group expenses",
+    "who owes whom",
+    "trip expense splitter",
+    "splitwise alternative"
+   ],
+   "howto": [
+    "Add the names of the group members.",
+    "Add each expense: who paid, how much, and who it's split between (uncheck people who didn't take part).",
+    "See who needs to pay whom with the fewest transfers; click “Copy link” to send it to the group."
+   ],
+   "faq": [
+    {
+     "q": "Do I need an account?",
+     "a": "No. The whole split lives in the link itself; send the link to the group and anyone can open it."
+    },
+    {
+     "q": "How is the minimum number of transfers calculated?",
+     "a": "The tool works out how much each person overpaid or underpaid, then matches the person who owes the most with the one owed the most until everything is settled. A group of n people needs at most n − 1 transfers."
+    }
+   ]
+  },
+  "unit-converter": {
+   "name": "Unit Converter",
+   "desc": "Length, mass, temperature, area, volume, speed, data and more.",
+   "keywords": [
+    "unit converter",
+    "convert units",
+    "cm to inches",
+    "kg to lbs",
+    "fahrenheit to celsius",
+    "metric converter"
+   ],
+   "howto": [
+    "Choose a quantity: length, mass, temperature, area, volume, speed, time, data, pressure, energy.",
+    "Enter a value and choose the source and target units (click ⇄ to swap).",
+    "The table below converts to every unit of that kind."
+   ],
+   "faq": [
+    {
+     "q": "How many cm is 1 inch?",
+     "a": "1 inch = 2.54 cm; 1 foot = 30.48 cm; 1 mile = 1.609 km."
+    },
+    {
+     "q": "How do I convert °F to °C?",
+     "a": "°C = (°F − 32) × 5 ÷ 9. For example, 100 °F ≈ 37.8 °C."
+    },
+    {
+     "q": "Is 1 GB 1000 or 1024 MB?",
+     "a": "In SI units, 1 GB = 1000 MB, while 1 GiB = 1024 MiB. Windows shows sizes in GiB but labels them GB, so a 1 TB drive shows about 931 GB."
+    }
+   ]
+  },
+  "age-calculator": {
+   "name": "Age Calculator",
+   "desc": "Your exact age in years, months and days, and the countdown to your next birthday.",
+   "keywords": [
+    "age calculator",
+    "how old am i",
+    "calculate age",
+    "birthday calculator",
+    "age in days"
+   ],
+   "howto": [
+    "Choose your date of birth.",
+    "Change “Age at date” to find your age on a date other than today.",
+    "See your exact age in years, months and days, total days and weeks, and the days until your next birthday."
+   ],
+   "faq": [
+    {
+     "q": "If I was born on February 29, when is my birthday in non-leap years?",
+     "a": "The tool uses February 28 in non-leap years."
+    },
+    {
+     "q": "What is the “East Asian age” shown?",
+     "a": "Your age as counted traditionally in Vietnam and East Asia: by lunar years, starting at 1 at birth. The main result is your actual age."
+    }
+   ]
+  },
+  "date-calculator": {
+   "name": "Date Calculator & Business Days",
+   "desc": "Days between two dates, add or subtract days, and count business days.",
+   "keywords": [
+    "date calculator",
+    "days between dates",
+    "add days to date",
+    "business days calculator",
+    "working days"
+   ],
+   "howto": [
+    "Choose “Days between two dates” to count the days, weeks, months and working days between two dates.",
+    "Or choose “Add / subtract days” to find the date N days, working days, weeks, months or years before or after.",
+    "Optionally treat Saturday as a working day and exclude Vietnam's public holidays and days off in lieu."
+   ],
+   "faq": [
+    {
+     "q": "Which holidays can be excluded?",
+     "a": "Vietnam's public holidays: New Year's Day, 5 days of Lunar New Year, Hung Kings' Day (10th day of the 3rd lunar month), April 30, May 1, National Day (September 1–2), and Vietnam Culture Day on November 24 from 2026."
+    },
+    {
+     "q": "Are swapped working days taken into account?",
+     "a": "Not yet. Swapped working days are announced each year and can differ between public agencies and businesses."
+    }
+   ]
+  },
+  "bmi": {
+   "name": "BMI Calculator",
+   "desc": "Body Mass Index with Asian and WHO international classifications.",
+   "keywords": [
+    "bmi calculator",
+    "body mass index",
+    "healthy weight",
+    "bmi asian",
+    "calculate bmi"
+   ],
+   "howto": [
+    "Enter your height (cm) and weight (kg).",
+    "Choose the Asian classification (default) or the international WHO standard.",
+    "See your BMI, its category and the healthy weight range for your height."
+   ],
+   "faq": [
+    {
+     "q": "What is a normal BMI?",
+     "a": "WHO: 18.5 to under 25 is normal, 25–30 overweight, 30+ obese. For Asians: 18.5 to under 23 is normal, 23 to under 25 overweight, 25+ obese."
+    },
+    {
+     "q": "Why do Asians use different thresholds?",
+     "a": "At the same BMI, Asians usually have more body fat and a higher, earlier risk of heart disease and diabetes, so the WHO recommends lower thresholds for the Asia-Pacific region."
+    }
+   ]
+  },
+  "tdee": {
+   "name": "TDEE Calorie Calculator",
+   "desc": "Calculate BMR, TDEE and the calories to maintain, lose or gain weight.",
+   "keywords": [
+    "tdee calculator",
+    "calorie calculator",
+    "bmr calculator",
+    "daily calories",
+    "calories to lose weight"
+   ],
+   "howto": [
+    "Choose your sex and enter your age, height and weight.",
+    "Choose the activity level closest to yours.",
+    "See your BMR, TDEE and the daily calories to maintain, lose or gain weight."
+   ],
+   "faq": [
+    {
+     "q": "What's the difference between BMR and TDEE?",
+     "a": "BMR is the energy your body needs at complete rest; TDEE is your total daily energy expenditure, including activity. Eating at your TDEE maintains your weight."
+    },
+    {
+     "q": "How much should I eat to lose 0.5 kg a week?",
+     "a": "About 550 kcal a day below your TDEE (1 kg of fat ≈ 7,700 kcal). Don't lose more than 1 kg a week or eat below 1,200 kcal (women) or 1,500 kcal (men) without medical supervision."
+    }
+   ]
+  },
+  "due-date": {
+   "name": "Due Date Calculator",
+   "desc": "Your due date and weeks of pregnancy from the first day of your last period.",
+   "keywords": [
+    "due date calculator",
+    "pregnancy calculator",
+    "how many weeks pregnant",
+    "conception date",
+    "pregnancy weeks"
+   ],
+   "howto": [
+    "Enter the first day of your last period and your cycle length (or calculate from an ultrasound).",
+    "See your due date, today's gestational age and trimester.",
+    "The checkup table shows the date ranges for common prenatal visits and scans."
+   ],
+   "faq": [
+    {
+     "q": "How is the due date calculated?",
+     "a": "With Naegele's rule: the first day of the last period + 280 days (40 weeks), adjusted if your cycle is longer or shorter than 28 days."
+    },
+    {
+     "q": "Should I trust my last period or the ultrasound?",
+     "a": "A first-trimester ultrasound (crown-rump length) is usually more accurate when you don't remember the date or your cycles are irregular; your doctor decides the final due date."
+    }
+   ]
+  },
+  "scientific-calculator": {
+   "name": "Scientific Calculator",
+   "desc": "Calculator with sin, cos, log, powers and history, usable from the keyboard.",
+   "keywords": [
+    "scientific calculator",
+    "online calculator",
+    "calculator",
+    "trig calculator",
+    "math calculator"
+   ],
+   "howto": [
+    "Click the buttons or type the calculation on the keyboard (Enter to calculate, Esc to clear).",
+    "Choose degrees (DEG) or radians (RAD) for sin, cos, tan.",
+    "Click a line in the history to reuse it; the Ans button inserts the previous result."
+   ],
+   "faq": [
+    {
+     "q": "What does 200 + 10% give?",
+     "a": "220, like a pocket calculator: the percentage is taken of the number before it. And 50% × 200 = 100."
+    },
+    {
+     "q": "Can I write 2π or 2sin30?",
+     "a": "Yes. Implicit multiplication works: 2π, 3(4+5), 2sin30."
+    },
+    {
+     "q": "Is the history sent anywhere?",
+     "a": "No. Calculation history is only stored in the browser on your device."
+    }
+   ]
+  },
+  "roman-numerals": {
+   "name": "Roman Numeral Converter",
+   "desc": "Convert numbers to Roman numerals and back.",
+   "keywords": [
+    "roman numerals",
+    "roman numeral converter",
+    "number to roman",
+    "roman to number"
+   ],
+   "howto": [
+    "Type numbers (1–3,999,999) or Roman numerals, one per line.",
+    "The tool detects the direction and shows the results right away.",
+    "Copy or download them."
+   ],
+   "faq": [
+    {
+     "q": "What's the largest Roman numeral?",
+     "a": "In standard notation, 3,999 (MMMCMXCIX). Larger numbers use an overline to multiply by 1,000, e.g. V̅ = 5,000."
+    },
+    {
+     "q": "Why is IIII marked as wrong?",
+     "a": "Standard notation uses subtraction: 4 is IV, 9 is IX, 40 is XL, 90 is XC… IIII only appears on clock faces."
+    }
+   ]
+  },
+  "qr-generator": {
+   "name": "QR Code Generator",
+   "desc": "Create QR codes for links, text, WiFi, contact cards (vCard), SMS and email; change colors, add a logo, download PNG/SVG.",
+   "keywords": [
+    "qr code generator",
+    "create qr code",
+    "wifi qr code",
+    "vcard qr",
+    "qr code with logo",
+    "free qr code"
+   ],
+   "howto": [
+    "Choose the content type: link, text, WiFi, contact card, SMS, email or phone.",
+    "Enter the details; the QR code updates instantly.",
+    "Change colors, add a logo if you like, then download PNG/SVG or copy the image."
+   ],
+   "faq": [
+    {
+     "q": "Do the QR codes expire?",
+     "a": "No. The QR code contains your content directly, without any redirect link, so it works forever."
+    },
+    {
+     "q": "Does a logo make it harder to scan?",
+     "a": "With a logo, the tool automatically uses the highest error correction (H) so it still scans. Keep the logo under about 20% of the code's width."
+    },
+    {
+     "q": "Is the WiFi password saved in the share link?",
+     "a": "No. The password is only in the QR code on your device, never in the share link."
+    }
+   ]
+  },
+  "qr-scanner": {
+   "name": "QR Code Scanner",
+   "desc": "Scan QR codes and barcodes with your camera, from screenshots or PDF files.",
+   "keywords": [
+    "qr scanner",
+    "scan qr code",
+    "qr reader",
+    "barcode scanner",
+    "read qr from image"
+   ],
+   "howto": [
+    "Click “Turn camera on” and point it at a QR code, or choose/paste an image or PDF containing one.",
+    "The result appears instantly; links, WiFi, contact cards and payment codes are broken down for you.",
+    "Copy the content or open the link (always check the address carefully before opening)."
+   ],
+   "faq": [
+    {
+     "q": "Is the camera image sent anywhere?",
+     "a": "No. Each frame is decoded on your device with WebAssembly or the browser's built-in feature."
+    },
+    {
+     "q": "Which codes can it read?",
+     "a": "QR, Micro QR, Data Matrix, Aztec, PDF417 and common barcodes such as EAN-13, Code 128, Code 39 and UPC."
+    }
+   ]
+  },
+  "barcode-generator": {
+   "name": "Barcode Generator",
+   "desc": "Create EAN-13, EAN-8, UPC-A, ITF-14, Code 128 and Code 39 barcodes; auto check digits, batch creation and printable label PDFs.",
+   "keywords": [
+    "barcode generator",
+    "ean-13",
+    "code 128",
+    "upc barcode",
+    "barcode labels",
+    "create barcode"
+   ],
+   "howto": [
+    "Choose the type: EAN-13 for retail products, Code 128 for internal codes and shipping labels, ITF-14 for cartons…",
+    "Enter the content (for EAN/UPC just the digits, the check digit is added automatically) or paste a whole list to create many codes.",
+    "Download PNG/SVG, copy the image, or click “Print labels” for an A4 PDF with the codes laid out."
+   ],
+   "faq": [
+    {
+     "q": "Can I sell products in stores with an EAN-13 I make myself?",
+     "a": "To sell in retail stores, a business must register a GS1 company prefix with its national GS1 organization before numbering products. The tool only draws a standards-compliant barcode from the digits you enter."
+    },
+    {
+     "q": "Will the codes scan?",
+     "a": "Codes are drawn to each type's standard and verified with the ZXing decoder. When printing, keep a white background and black bars, leave quiet zones on both sides and don't shrink too much (3 px per bar or more)."
+    },
+    {
+     "q": "Does Code 128 accept accented letters?",
+     "a": "No. Code 128 and Code 39 only encode ASCII characters; remove accents or use a QR code if you need them."
+    }
+   ]
+  },
+  "excel-viewer": {
+   "name": "Excel & CSV Viewer",
+   "desc": "Open .xlsx, .xls, .ods and .csv files without Excel; switch sheets, search, filter and sort.",
+   "keywords": [
+    "excel viewer",
+    "open xlsx online",
+    "csv viewer",
+    "view excel file",
+    "xls viewer"
+   ],
+   "howto": [
+    "Choose, drag and drop or paste an Excel/CSV file.",
+    "Click a sheet name to switch sheets; type in the search box (accents optional) to filter rows, or choose a column to search only in it.",
+    "Click a column header to sort, click a cell to see its full content and formula; download the filtered view as Excel or CSV."
+   ],
+   "faq": [
+    {
+     "q": "Is my Excel file uploaded anywhere?",
+     "a": "No. The file is read right in your browser with the SheetJS library; no server receives your file."
+    },
+    {
+     "q": "CSV accented characters look garbled?",
+     "a": "The tool auto-detects UTF-8 or Windows code pages and comma, semicolon or tab delimiters, so text displays correctly."
+    },
+    {
+     "q": "What about formulas and formatting?",
+     "a": "Formula cells show the value already calculated in the file; click a cell to see the formula. Colors, borders, images and charts aren't shown since the tool only reads data."
+    }
+   ]
+  },
+  "excel-csv": {
+   "name": "Excel ↔ CSV Converter",
+   "desc": "Convert Excel to UTF-8 CSV without garbled characters (one file per sheet) and CSV to Excel, keeping leading zeros.",
+   "keywords": [
+    "excel to csv",
+    "csv to excel",
+    "xlsx to csv",
+    "csv to xlsx",
+    "convert excel"
+   ],
+   "howto": [
+    "Choose one or more Excel (.xlsx, .xls, .ods) or CSV files.",
+    "Excel → CSV: choose the sheets and delimiter; CSV → Excel: turn on number detection and optionally combine several CSVs into one file.",
+    "Click “Convert” and download each file or all of them as a .zip."
+   ],
+   "faq": [
+    {
+     "q": "Why does a CSV look garbled in Excel?",
+     "a": "Excel only reads UTF-8 correctly when the file starts with a BOM. The tool adds one (you can turn it off), so Excel opens it without garbled characters."
+    },
+    {
+     "q": "Do phone numbers starting with 0 lose the zero?",
+     "a": "No. When converting CSV to Excel, numbers with leading zeros and numbers longer than 15 digits (IDs, account numbers) are kept as text."
+    },
+    {
+     "q": "Comma or semicolon?",
+     "a": "If your computer uses a comma as the decimal separator (many European locales), Excel needs semicolons. Other software, Google Sheets and programming usually use commas."
+    }
+   ]
+  },
+  "merge-excel": {
+   "name": "Merge Excel Files",
+   "desc": "Combine multiple Excel/CSV files or sheets into one table, lining up same-named columns and adding a source column.",
+   "keywords": [
+    "merge excel files",
+    "combine excel",
+    "merge csv",
+    "combine sheets",
+    "append excel"
+   ],
+   "howto": [
+    "Choose the Excel/CSV files to merge (drag and drop to reorder).",
+    "Choose “Stack into one table” (same-named columns lined up, with a Source column) or “Keep each sheet separate”.",
+    "Click “Merge files”, preview, then download the Excel or CSV file."
+   ],
+   "faq": [
+    {
+     "q": "What if the files have columns in different orders?",
+     "a": "With “First row is the header” on, columns are matched by name (case- and accent-insensitive), so the order doesn't matter; columns only in one file are added at the end."
+    },
+    {
+     "q": "Are formulas kept?",
+     "a": "Formula cells are copied as their calculated values, since cell positions change after merging and the formulas would break."
+    }
+   ]
+  },
+  "split-excel": {
+   "name": "Split Excel by Column",
+   "desc": "Split one table into several sheets or Excel/CSV files by the values of a column (branch, department…).",
+   "keywords": [
+    "split excel",
+    "split excel by column",
+    "split csv",
+    "separate excel sheets",
+    "excel splitter"
+   ],
+   "howto": [
+    "Choose an Excel or CSV file.",
+    "Choose the sheet and the column to split by (the tool suggests suitable columns); the list of parts and row counts appears right away.",
+    "Choose the output: one file with many sheets, many Excel files or many CSV files, then click “Split file”."
+   ],
+   "faq": [
+    {
+     "q": "Are values with different letter case split separately?",
+     "a": "No. “New York” and “new york ” are grouped together (extra spaces trimmed, case-insensitive); empty cells go into the “Empty” part."
+    },
+    {
+     "q": "Does each part keep the header row?",
+     "a": "Yes, with “First row is the header” on, every file/sheet gets the header row and a filter."
+    }
+   ]
+  },
+  "json-excel": {
+   "name": "JSON ↔ Excel Converter",
+   "desc": "Convert JSON arrays into Excel tables (flattening nested objects) and Excel/CSV into JSON.",
+   "keywords": [
+    "json to excel",
+    "excel to json",
+    "json to xlsx",
+    "csv to json",
+    "convert json"
+   ],
+   "howto": [
+    "Choose a .json file (to get Excel) or an Excel/CSV file (to get JSON).",
+    "Options: flatten nested objects into “a.b” columns, or the reverse, build nested objects from dotted column names.",
+    "Click “Convert”, preview, then download the file or copy the JSON."
+   ],
+   "faq": [
+    {
+     "q": "What if the JSON has several lists?",
+     "a": "If the JSON is an object containing several arrays (e.g. “employees” and “departments”), each array becomes its own sheet."
+    },
+    {
+     "q": "How do Excel dates come out in JSON?",
+     "a": "Date cells are written in standard ISO “yyyy-mm-dd” form (with the time if the cell has one); numbers stay numbers."
+    }
+   ]
+  },
+  "mail-merge": {
+   "name": "Mail Merge",
+   "desc": "Create letters and invitations in bulk from an Excel/CSV list and a Word (.docx) or text template: one DOCX per person, a combined DOCX for printing, or PDF.",
+   "keywords": [
+    "mail merge",
+    "word mail merge",
+    "excel to word",
+    "bulk letters",
+    "merge docx",
+    "generate documents from excel"
+   ],
+   "howto": [
+    "Choose an Excel/CSV list (first row = column names) and a Word template with fields like {{Full name}} together; or choose “Type a text template”.",
+    "Check which fields match columns, choose the column for file names and preview each person.",
+    "Click “Mail merge” to download one file per person (.zip), one combined Word file for printing, or PDF."
+   ],
+   "faq": [
+    {
+     "q": "How do I write fields in the Word file?",
+     "a": "Type the column name in double curly braces like {{Full name}} or «Full name», matching the column name in the Excel file (case- and accent-insensitive). Mail Merge fields (MERGEFIELD) created in Word also work. Text formatting (bold, color) applied to a field is kept."
+    },
+    {
+     "q": "Can it export PDF directly from a Word template?",
+     "a": "Browsers can't accurately rebuild Word layouts as PDF, so for Word templates the tool exports .docx (including a combined version to print in one go; open it in Word or Google Docs and save as PDF). For typed templates, it exports PDF directly."
+    },
+    {
+     "q": "Is my list sent anywhere?",
+     "a": "No. Both the Excel and Word files are processed right on your device."
+    }
+   ]
+  },
+  "email-signature": {
+   "name": "Email Signature Generator",
+   "desc": "Create a professional HTML email signature for Gmail and Outlook with photo, logo and social links, ready to paste.",
+   "keywords": [
+    "email signature generator",
+    "gmail signature",
+    "outlook signature",
+    "html signature",
+    "email signature template"
+   ],
+   "howto": [
+    "Enter your name, job title, company, phone, email and website; add photo, logo and social links if you like.",
+    "Choose the layout, accent color and font; preview it as in a real email.",
+    "Click “Copy signature” and paste it into the signature settings of Gmail or Outlook (step-by-step instructions included)."
+   ],
+   "faq": [
+    {
+     "q": "Why must images be links?",
+     "a": "Gmail and Outlook don't keep images embedded in a pasted signature; images must live at a public address (https://…), such as your company website."
+    },
+    {
+     "q": "Is my information saved?",
+     "a": "Only remembered in this device's browser so it's there next time; never sent anywhere. Click “Reset” to clear it."
+    }
+   ]
+  },
+  "json-formatter": {
+   "name": "JSON Formatter & Validator",
+   "desc": "Beautify, minify, sort keys and validate JSON, pointing to the exact line/column of errors.",
+   "keywords": [
+    "json formatter",
+    "json validator",
+    "json beautifier",
+    "pretty print json",
+    "json minify",
+    "json lint"
+   ],
+   "howto": [
+    "Paste JSON into the left box.",
+    "The formatted result appears instantly; syntax errors show the line, column and offending part.",
+    "Choose the indentation, minify or sort keys, then copy or download a .json file."
+   ],
+   "faq": [
+    {
+     "q": "Is my JSON sent to a server?",
+     "a": "No. Everything uses JSON.parse right in your browser."
+    },
+    {
+     "q": "Can it fix “almost valid” JSON?",
+     "a": "There's a light repair option: remove // comments and trailing commas, and turn single quotes into double quotes."
+    }
+   ]
+  },
+  "json-convert": {
+   "name": "JSON ↔ CSV/YAML Converter",
+   "desc": "Convert back and forth between JSON, CSV and YAML.",
+   "keywords": [
+    "json to csv",
+    "csv to json",
+    "json to yaml",
+    "yaml to json",
+    "convert json"
+   ],
+   "howto": [
+    "Paste JSON, CSV or YAML into the left box.",
+    "Choose the target format (and the CSV delimiter if needed).",
+    "Copy or download the result."
+   ],
+   "faq": [
+    {
+     "q": "How is nested JSON converted to CSV?",
+     "a": "Child objects are flattened into columns like “contact.email”; converting the CSV back to JSON rebuilds the nested structure."
+    },
+    {
+     "q": "The CSV opens in a single column in Excel?",
+     "a": "Excel on computers using a comma as the decimal separator expects semicolons. Choose “Semicolon (;)” before downloading."
+    },
+    {
+     "q": "Do phone numbers lose their leading zero?",
+     "a": "No, values with a leading zero are kept as strings when converting CSV to JSON."
+    }
+   ]
+  },
+  "base64": {
+   "name": "Base64 Encode/Decode",
+   "desc": "Encode and decode Base64 for UTF-8 text and files.",
+   "keywords": [
+    "base64 encode",
+    "base64 decode",
+    "base64 converter",
+    "base64 to file",
+    "decode base64 online"
+   ],
+   "howto": [
+    "Choose the direction: encode or decode.",
+    "Type or paste text, or click “File” to encode a file.",
+    "If the Base64 string is an image, PDF…, click “Save as file” to download it."
+   ],
+   "faq": [
+    {
+     "q": "Is Base64 secure encryption?",
+     "a": "No. Base64 only turns data into safe characters for transport; anyone can decode it. Use real encryption to keep things secret."
+    },
+    {
+     "q": "Does accented text decode correctly?",
+     "a": "Yes, the tool uses UTF-8, so accented letters and emoji are kept. It also accepts URL-safe Base64 (- _) and strings missing the = padding."
+    }
+   ]
+  },
+  "url-encode": {
+   "name": "URL Encode/Decode",
+   "desc": "Encode/decode URLs (percent-encoding) and break down query parameters.",
+   "keywords": [
+    "url encode",
+    "url decode",
+    "percent encoding",
+    "urlencode online",
+    "query string parser"
+   ],
+   "howto": [
+    "Choose encode or decode.",
+    "Paste a URL or text; for URLs, see the table of parts and decoded parameters.",
+    "Copy the result or individual parameters."
+   ],
+   "faq": [
+    {
+     "q": "What's the difference between “One parameter” and “Whole URL”?",
+     "a": "“One parameter” also encodes / ? & = (for a value placed after =). “Whole URL” keeps the structural characters so the link still works."
+    },
+    {
+     "q": "Why does + become a space?",
+     "a": "In form data, spaces are encoded as +. Turn off “Turn + into spaces” if the + is real."
+    }
+   ]
+  },
+  "html-entity": {
+   "name": "HTML Entity Encoder",
+   "desc": "Convert special characters to HTML entities and back.",
+   "keywords": [
+    "html entity encode",
+    "html entities",
+    "html escape",
+    "html decode",
+    "escape html characters"
+   ],
+   "howto": [
+    "Choose encode or decode.",
+    "Paste HTML or text; choose what to encode and the entity format.",
+    "Copy the result."
+   ],
+   "faq": [
+    {
+     "q": "When do I need HTML entities?",
+     "a": "When you want to show HTML code literally on a page (e.g. in a tutorial) or insert user data into HTML without it being parsed as tags."
+    },
+    {
+     "q": "Do accented letters need encoding?",
+     "a": "Not on UTF-8 pages. Only encode non-ASCII characters for old systems without UTF-8 support."
+    }
+   ]
+  },
+  "jwt-decoder": {
+   "name": "JWT Decoder",
+   "desc": "View a JWT's header, payload and expiry; verify HMAC and public-key signatures.",
+   "keywords": [
+    "jwt decoder",
+    "decode jwt",
+    "jwt parser",
+    "verify jwt signature",
+    "json web token"
+   ],
+   "howto": [
+    "Paste a JWT (with or without “Bearer”).",
+    "See the header, payload and expiry times.",
+    "Enter the secret (HS256…) or public key (RS256, ES256…) to verify the signature."
+   ],
+   "faq": [
+    {
+     "q": "Is it safe to paste a real token here?",
+     "a": "The token is only decoded and verified in your browser, never sent anywhere. Still, be careful with valid tokens from real systems."
+    },
+    {
+     "q": "What's the sample token's key?",
+     "a": "The sample token is signed with HS256 using the key “bbetools-bi-mat”. Change one character of the key to see the signature fail."
+    },
+    {
+     "q": "Which algorithms can be verified?",
+     "a": "HS256/384/512, RS256/384/512, PS256/384/512, ES256/384/512 and EdDSA (in browsers supporting Ed25519). Public keys are accepted as PEM or JWK."
+    }
+   ]
+  },
+  "uuid": {
+   "name": "UUID Generator",
+   "desc": "Generate UUID v4 and v7 in bulk.",
+   "keywords": [
+    "uuid generator",
+    "guid generator",
+    "uuid v4",
+    "uuid v7",
+    "random uuid"
+   ],
+   "howto": [
+    "Choose version v4 or v7 and how many.",
+    "Choose uppercase, hyphens or braces if needed.",
+    "Copy or download the list; paste a UUID into the inspect box to see its version and creation time."
+   ],
+   "faq": [
+    {
+     "q": "Should I use UUID v4 or v7?",
+     "a": "v4 is fully random. v7 starts with the creation time, so it's increasing, which makes database indexes faster when used as a primary key."
+    },
+    {
+     "q": "Can UUIDs collide?",
+     "a": "Practically never: UUID v4 has 122 random bits, generated with the browser's crypto.getRandomValues."
+    }
+   ]
+  },
+  "hash": {
+   "name": "Hash Generator (MD5/SHA)",
+   "desc": "Calculate MD5, SHA-1, SHA-256 and SHA-512 hashes of text.",
+   "keywords": [
+    "hash generator",
+    "md5",
+    "sha256",
+    "sha1",
+    "sha512",
+    "hmac generator"
+   ],
+   "howto": [
+    "Type or paste text.",
+    "MD5, SHA-1, SHA-256, SHA-384 and SHA-512 appear instantly; enter a key to calculate an HMAC.",
+    "Paste an existing hash into “Compare with” to check for a match."
+   ],
+   "faq": [
+    {
+     "q": "Why is my hash different from another tool?",
+     "a": "Hashes are very sensitive: a single space or trailing newline changes the result completely. The tool hashes the UTF-8 text exactly as it is in the box."
+    },
+    {
+     "q": "Can a hash be reversed into text?",
+     "a": "No. Hashes are one-way; they can only be guessed, which is why weak passwords are still easy to crack."
+    }
+   ]
+  },
+  "regex-tester": {
+   "name": "Regex Tester",
+   "desc": "Test regular expressions with highlighted matches and capture groups.",
+   "keywords": [
+    "regex tester",
+    "regular expression tester",
+    "regex online",
+    "test regex",
+    "regex replace"
+   ],
+   "howto": [
+    "Enter the expression (abc or /abc/gi) and choose flags.",
+    "Paste test text: matches are highlighted and a table lists each capture group.",
+    "Enter a replacement string to preview the replace result."
+   ],
+   "faq": [
+    {
+     "q": "Which regex flavor is used?",
+     "a": "JavaScript (ECMAScript) syntax, similar to Python, PHP and Java for the basics. Turn on the u flag to use \\p{L} (any letter, including accented ones)."
+    },
+    {
+     "q": "What if an expression runs forever?",
+     "a": "The expression runs in a separate thread and is stopped after 2.5 seconds, so the page never freezes."
+    }
+   ]
+  },
+  "timestamp": {
+   "name": "Unix Timestamp Converter",
+   "desc": "Convert Unix timestamps ↔ dates in your local time zone and UTC.",
+   "keywords": [
+    "unix timestamp converter",
+    "epoch converter",
+    "timestamp to date",
+    "date to timestamp",
+    "epoch time"
+   ],
+   "howto": [
+    "Paste a Unix timestamp (seconds, milliseconds…) or a date/time.",
+    "See the date in your local time, UTC, ISO 8601 and how long ago (or from now) it is.",
+    "Click the copy icon next to the format you need."
+   ],
+   "faq": [
+    {
+     "q": "What is a Unix timestamp?",
+     "a": "The number of seconds since 00:00:00 UTC on January 1, 1970. For example, 1767225600 is 00:00 UTC on January 1, 2026."
+    },
+    {
+     "q": "How do I know if it's seconds or milliseconds?",
+     "a": "The tool detects it from the length: 10 digits is seconds, 13 milliseconds, 16 microseconds, 19 nanoseconds."
+    }
+   ]
+  },
+  "cron": {
+   "name": "Cron Expression Explainer",
+   "desc": "Explain cron expressions in plain English and list the next run times.",
+   "keywords": [
+    "cron expression",
+    "crontab",
+    "cron explainer",
+    "cron schedule",
+    "cron parser",
+    "next cron run"
+   ],
+   "howto": [
+    "Paste a cron expression (or a whole crontab line with the command).",
+    "Read the plain-English explanation and the meaning of each field.",
+    "See the next 10 runs in your local time, UTC or Vietnam time."
+   ],
+   "faq": [
+    {
+     "q": "What are cron's five fields?",
+     "a": "In order: minute (0–59), hour (0–23), day of month (1–31), month (1–12), day of week (0–6, 0 is Sunday). 6-field expressions add seconds at the start."
+    },
+    {
+     "q": "The server runs at the wrong time?",
+     "a": "Servers are usually set to UTC, which may differ from your local time. Choose “UTC” to see exactly when the server will run it."
+    }
+   ]
+  },
+  "color-converter": {
+   "name": "Color Converter",
+   "desc": "Convert HEX, RGB, HSL and OKLCH; check text/background contrast.",
+   "keywords": [
+    "color converter",
+    "hex to rgb",
+    "rgb to hex",
+    "hsl",
+    "oklch",
+    "contrast checker"
+   ],
+   "howto": [
+    "Type a color code in any format or use the color picker.",
+    "Copy the HEX, RGB, HSL, OKLCH… format you need.",
+    "Choose a background color to check text contrast against WCAG."
+   ],
+   "faq": [
+    {
+     "q": "What contrast ratio passes?",
+     "a": "Per WCAG, normal text needs at least 4.5:1 (AA) and large text 3:1; AAA is 7:1 and 4.5:1."
+    },
+    {
+     "q": "What is OKLCH?",
+     "a": "A newer CSS color space with more perceptually even lightness than HSL; all modern browsers support oklch()."
+    },
+    {
+     "q": "Can I use the CMYK values for printing?",
+     "a": "They're only an approximation. Real print colors depend on the printer's color profile; ask your printer when accuracy matters."
+    }
+   ]
+  },
+  "css-generator": {
+   "name": "CSS Gradient & Box-Shadow Generator",
+   "desc": "Visually adjust gradients, box-shadows and border-radius, then copy the CSS.",
+   "keywords": [
+    "css gradient generator",
+    "box shadow generator",
+    "border radius generator",
+    "css generator",
+    "linear gradient"
+   ],
+   "howto": [
+    "Choose an effect: gradient, box-shadow or border radius.",
+    "Drag the sliders, pick colors and see the preview instantly.",
+    "Click “Copy CSS” and paste it into your CSS file."
+   ],
+   "faq": [
+    {
+     "q": "Does the CSS work in every browser?",
+     "a": "Yes, gradients, box-shadow and border-radius are supported by all modern browsers without -webkit- prefixes."
+    },
+    {
+     "q": "Why use two shadow layers?",
+     "a": "A wide, faint layer plus a close, sharper one feels more natural than a single shadow."
+    }
+   ]
+  },
+  "sql-formatter": {
+   "name": "SQL Formatter",
+   "desc": "Beautify SQL statements (MySQL, PostgreSQL, SQL Server…).",
+   "keywords": [
+    "sql formatter",
+    "format sql",
+    "sql beautifier",
+    "pretty print sql",
+    "sql minify"
+   ],
+   "howto": [
+    "Paste an SQL statement.",
+    "Choose the database, keyword case and indentation.",
+    "Copy or download a .sql file."
+   ],
+   "faq": [
+    {
+     "q": "Is my query sent to a server?",
+     "a": "No, formatting runs with the sql-formatter library right in your browser."
+    },
+    {
+     "q": "Can formatting change the meaning of the query?",
+     "a": "No, the tool only changes whitespace, line breaks and keyword case; quoted strings stay the same."
+    }
+   ]
+  },
+  "minifier": {
+   "name": "JS/CSS/HTML Minifier",
+   "desc": "Minify JavaScript, CSS and HTML code to reduce size.",
+   "keywords": [
+    "minify js",
+    "minify css",
+    "minify html",
+    "javascript minifier",
+    "css minifier",
+    "code compressor"
+   ],
+   "howto": [
+    "Paste JavaScript, CSS, HTML or JSON code.",
+    "Let it auto-detect the language or choose it.",
+    "See how many percent smaller it got, then copy or download."
+   ],
+   "faq": [
+    {
+     "q": "What does it use to minify?",
+     "a": "JavaScript uses Terser, CSS uses CSSO, and HTML collapses whitespace, removes comments and minifies inline scripts/styles. Everything runs in the browser."
+    },
+    {
+     "q": "Does minified code behave like the original?",
+     "a": "Yes, it only removes whitespace and comments and shortens local variable names. Keep the original for future edits."
+    }
+   ]
+  },
+  "base-converter": {
+   "name": "Number Base Converter",
+   "desc": "Convert numbers between binary, octal, decimal, hexadecimal and any base.",
+   "keywords": [
+    "base converter",
+    "binary to decimal",
+    "decimal to hex",
+    "hex to binary",
+    "number system converter"
+   ],
+   "howto": [
+    "Type a number and choose its base (decimal, hex, binary…).",
+    "Results in other bases appear instantly, with digits grouped for readability.",
+    "Negative numbers also get two's complement forms from 8 to 64 bits."
+   ],
+   "faq": [
+    {
+     "q": "How large can numbers be?",
+     "a": "Unlimited: the tool uses BigInt, so numbers with hundreds of digits stay exact."
+    },
+    {
+     "q": "Can it convert fractional numbers?",
+     "a": "Currently only integers are supported."
+    }
+   ]
+  },
+  "chmod": {
+   "name": "Chmod Calculator",
+   "desc": "Convert Linux file permissions between numeric (755) and rwx forms.",
+   "keywords": [
+    "chmod calculator",
+    "unix permissions",
+    "linux file permissions",
+    "chmod 755",
+    "rwx"
+   ],
+   "howto": [
+    "Type permissions as a number (755) or symbols (rwxr-xr-x), or tick the permission table.",
+    "See the numeric and symbolic forms and an explanation for each user group.",
+    "Enter a file name to get a ready-made chmod command to copy."
+   ],
+   "faq": [
+    {
+     "q": "What's the difference between 755 and 644?",
+     "a": "755: the owner can read/write/execute, others can read and execute (folders, scripts). 644: the owner can read/write, others can only read (regular files)."
+    },
+    {
+     "q": "Should I use 777?",
+     "a": "No. 777 lets every user on the machine write to the file, which is easy to abuse."
+    }
+   ]
+  },
+  "user-agent": {
+   "name": "User-Agent Parser",
+   "desc": "See the browser, operating system and device from a User-Agent string.",
+   "keywords": [
+    "user agent parser",
+    "what is my user agent",
+    "browser detection",
+    "user agent string",
+    "ua parser"
+   ],
+   "howto": [
+    "The box is prefilled with your browser's User-Agent; paste another string if needed.",
+    "See the browser, operating system and device type.",
+    "For this device, also see the screen, language and time zone."
+   ],
+   "faq": [
+    {
+     "q": "Why does Windows 11 show as Windows 10?",
+     "a": "Windows 11's User-Agent still says “Windows NT 10.0”. On Chrome and Edge, the tool also reads Client Hints to detect Windows 11 correctly."
+    },
+    {
+     "q": "Does it detect in-app browsers?",
+     "a": "Yes, the tool says when the page is opened inside apps like Facebook, Instagram, TikTok or Zalo."
+    }
+   ]
+  },
+  "http-status": {
+   "name": "HTTP Status Codes",
+   "desc": "What 1xx–5xx codes (404, 500, 301…) mean, explained in plain English.",
+   "keywords": [
+    "http status codes",
+    "404",
+    "500 error",
+    "301 redirect",
+    "http error codes",
+    "status code lookup"
+   ],
+   "howto": [
+    "Type a code (404, 5xx) or a keyword like “not found” or “timeout”.",
+    "Filter by class 1xx–5xx.",
+    "Read the explanation and how to fix common errors."
+   ],
+   "faq": [
+    {
+     "q": "What's the difference between 4xx and 5xx errors?",
+     "a": "4xx are errors on the request side (wrong address, missing permission, bad data). 5xx are server-side errors; users can usually only wait and retry."
+    },
+    {
+     "q": "301 or 302 for a redirect?",
+     "a": "Use 301 (or 308) for permanent moves so Google transfers ranking to the new page; 302 (or 307) for temporary ones."
+    }
+   ]
+  },
+  "password-generator": {
+   "name": "Strong Password Generator",
+   "desc": "Generate secure random passwords, memorable passphrases or PINs with the browser's secure random generator.",
+   "privacy": "Passwords are generated right in your browser with a secure random generator; they're never saved or sent anywhere.",
+   "keywords": [
+    "password generator",
+    "strong password",
+    "random password",
+    "passphrase generator",
+    "pin generator"
+   ],
+   "howto": [
+    "Choose a type: random, memorable passphrase or PIN.",
+    "Drag the length slider and choose character types; new passwords appear instantly.",
+    "Click Copy and paste it into the sign-up page or your password manager."
+   ],
+   "faq": [
+    {
+     "q": "Are passwords saved or sent anywhere?",
+     "a": "No. Passwords are generated with crypto.getRandomValues (a cryptographic random generator) on your device; BbeTools never stores or sends them."
+    },
+    {
+     "q": "How long should a password be?",
+     "a": "At least 12 random characters, preferably 16 or more; passphrases should have 5–6 words. Use a different password for each account."
+    },
+    {
+     "q": "What is a memorable passphrase?",
+     "a": "A few common English words picked at random and joined together (e.g. River-Cloud-Tiger-…), easy to remember and type on a phone but still hard to guess because there are trillions of combinations."
+    }
+   ]
+  },
+  "password-strength": {
+   "name": "Password Strength Checker",
+   "desc": "Estimate how long a password takes to crack, find predictable patterns (common passwords, names, dates, keyboard walks) and get tips to improve.",
+   "privacy": "The password is only checked in this browser; it's never saved or sent anywhere.",
+   "keywords": [
+    "password strength checker",
+    "how secure is my password",
+    "password tester",
+    "zxcvbn",
+    "password crack time"
+   ],
+   "howto": [
+    "Type or paste a password into the box.",
+    "See its strength, the time to crack it and any predictable patterns found.",
+    "Follow the tips, or use the Strong Password Generator."
+   ],
+   "faq": [
+    {
+     "q": "Is it safe to type my real password here?",
+     "a": "The check runs entirely in the browser: the password is never saved or sent. Still, it's a good habit to test a similar password instead."
+    },
+    {
+     "q": "How is the crack time calculated?",
+     "a": "With the zxcvbn library: it estimates the number of guesses from leaked password lists, names, common words (plus a Vietnamese dictionary), keyboard patterns, dates… then divides by the guessing speed of each attack type."
+    },
+    {
+     "q": "Does it check breached passwords (Have I Been Pwned)?",
+     "a": "No. That would require sending part of the password's hash to another server, against BbeTools' rule of never sending data."
+    }
+   ]
+  },
+  "file-encrypt": {
+   "name": "Encrypt / Decrypt Files",
+   "desc": "Lock any file with a password (AES-GCM 256, WebCrypto) and unlock it when needed.",
+   "keywords": [
+    "encrypt file",
+    "decrypt file",
+    "password protect file",
+    "aes encryption",
+    "file encryption online"
+   ],
+   "howto": [
+    "Choose one or more files (regular files are encrypted, .bbe files are decrypted).",
+    "Enter a password (re-enter it to confirm when encrypting).",
+    "Click Encrypt / Decrypt and download the result."
+   ],
+   "faq": [
+    {
+     "q": "Which algorithm is used?",
+     "a": "256-bit AES-GCM through the browser's Web Crypto; the key is derived from the password with PBKDF2-SHA256 at 600,000 iterations and a random salt. The file is split into 1 MB blocks, each with an authentication tag, so modifying or truncating even one byte is detected."
+    },
+    {
+     "q": "Can I recover the file if I forget the password?",
+     "a": "No. There's no back door; not even BbeTools can open it."
+    },
+    {
+     "q": "How does the recipient open a .bbe file?",
+     "a": "Open BbeTools' Encrypt/Decrypt Files page in any browser, choose the .bbe file and enter the right password. The original file name is stored (encrypted) inside."
+    },
+    {
+     "q": "Do large files work?",
+     "a": "Yes, files are processed in 1 MB blocks. The practical limit depends on your device's memory (usually several GB on a computer)."
+    }
+   ]
+  },
+  "text-encrypt": {
+   "name": "Encrypt Text",
+   "desc": "Encrypt messages with a password (AES-GCM) to send over insecure channels.",
+   "privacy": "Text and password are only processed in your browser and never sent anywhere.",
+   "keywords": [
+    "encrypt text",
+    "encrypt message",
+    "decrypt text",
+    "aes text encryption",
+    "secret message"
+   ],
+   "howto": [
+    "Type a message and set a password: the Base64 ciphertext appears instantly.",
+    "Send the ciphertext (or the decryption link) by message or email; share the password through another channel.",
+    "The recipient chooses Decrypt, pastes the ciphertext and enters the password to read it."
+   ],
+   "faq": [
+    {
+     "q": "Who can read the encrypted message?",
+     "a": "Only someone with the right password. The ciphertext uses 256-bit AES-GCM with a key derived by PBKDF2-SHA256 at 600,000 iterations; changing a single character of the ciphertext is detected."
+    },
+    {
+     "q": "Does the decryption link contain the password?",
+     "a": "No. The link only contains the ciphertext, after the # so browsers don't send it to the server. Whoever opens the link still has to enter the password."
+    },
+    {
+     "q": "Why is the output different every time?",
+     "a": "Each encryption uses a new random nonce, so the same message gives a different ciphertext. That's normal and more secure."
+    }
+   ]
+  },
+  "checksum": {
+   "name": "File Checksum Calculator",
+   "desc": "Calculate SHA-256, SHA-1, MD5, SHA-512 and CRC32 of files (even several GB) and compare with the hash on the download page.",
+   "keywords": [
+    "checksum calculator",
+    "sha256 checksum",
+    "md5 checksum",
+    "file hash",
+    "verify download"
+   ],
+   "howto": [
+    "Choose the file to check (files of several GB work).",
+    "Choose the algorithms; paste the hash from the download page into the compare box, or drop a .sha256 / .md5 file alongside.",
+    "Click Calculate checksum: the result says Matches or Doesn't match."
+   ],
+   "faq": [
+    {
+     "q": "What is a checksum for?",
+     "a": "To make sure a downloaded file is intact and hasn't been corrupted or replaced: calculate its hash and compare it with the one published by the vendor. A single wrong byte gives a completely different hash."
+    },
+    {
+     "q": "Should I use MD5, SHA-1 or SHA-256?",
+     "a": "Use the algorithm the download page provides. If you can choose, prefer SHA-256: MD5 and SHA-1 are only good for detecting download errors, not deliberate tampering."
+    },
+    {
+     "q": "Is the file uploaded?",
+     "a": "No. The file is read piece by piece on your device, even very large ones."
+    }
+   ]
+  },
+  "totp": {
+   "name": "2FA Code Generator (TOTP)",
+   "desc": "Generate 6-digit authentication codes from a 2FA secret key, like Google Authenticator.",
+   "privacy": "The secret key stays only in the browser: not saved, not put in the link, never sent anywhere.",
+   "keywords": [
+    "2fa code generator",
+    "totp generator",
+    "authenticator online",
+    "google authenticator",
+    "otp generator"
+   ],
+   "howto": [
+    "Paste the secret key (Base32) or an otpauth:// link, or click Read from QR image.",
+    "The 6-digit code appears instantly and changes every 30 seconds.",
+    "Click Copy and paste it into the 2-step verification box."
+   ],
+   "faq": [
+    {
+     "q": "Can it replace Google Authenticator?",
+     "a": "It shouldn't. The tool doesn't save keys, so closing the page loses them; use it for testing, checking or temporarily recovering from a backed-up key. For daily use, install an authenticator app on your phone."
+    },
+    {
+     "q": "The code doesn't match the website?",
+     "a": "Check that your device's clock is correct (TOTP is time-based), and that the digits / period / algorithm match the service's settings (usually 6 digits, 30 seconds, SHA-1)."
+    },
+    {
+     "q": "What is the Generate a new key button for?",
+     "a": "For developers testing 2-step login: it creates a random 160-bit key with a QR code to scan in an authenticator app."
+    }
+   ]
+  },
+  "pomodoro": {
+   "name": "Pomodoro Timer",
+   "desc": "A 25-minute focus, 5-minute break timer using the Pomodoro technique, with sounds, notifications and daily stats.",
+   "keywords": [
+    "pomodoro timer",
+    "focus timer",
+    "study timer",
+    "tomato timer",
+    "productivity timer"
+   ],
+   "howto": [
+    "Write what you're working on (optional) and click Start or press Space.",
+    "Work until the bell rings, then take a 5-minute short break; after 4 sessions take a long break.",
+    "Adjust durations, sounds and auto-start in Settings."
+   ],
+   "faq": [
+    {
+     "q": "Does the timer keep running if I close the tab?",
+     "a": "The timer follows real time, so reopening the tab shows the correct time left. To get the bell while on another tab, allow notifications."
+    },
+    {
+     "q": "Where are the stats stored?",
+     "a": "In your own browser storage (localStorage), never sent anywhere."
+    }
+   ]
+  },
+  "stopwatch": {
+   "name": "Online Stopwatch",
+   "desc": "A stopwatch accurate to 1/100 second, with laps.",
+   "privacy": "The stopwatch runs right in your browser; its state is only saved on this device, never sent anywhere.",
+   "keywords": [
+    "stopwatch",
+    "online stopwatch",
+    "lap timer",
+    "timer with laps",
+    "chronometer"
+   ],
+   "howto": [
+    "Click Start or press Space.",
+    "Click Lap (L key) to record lap times; the fastest lap is green, the slowest red.",
+    "Stop, then click Reset (R key); download the lap table as CSV if needed."
+   ],
+   "faq": [
+    {
+     "q": "Does it keep running if I close the tab or turn off the screen?",
+     "a": "Yes. Time follows the system clock, so reopening the page shows the right time; the state is saved in your browser."
+    },
+    {
+     "q": "How accurate is it?",
+     "a": "It displays to 1/100 second. The main error comes from when you press the button (human reaction time is about 0.1–0.2 seconds)."
+    }
+   ]
+  },
+  "countdown-timer": {
+   "name": "Countdown Timer",
+   "desc": "A countdown timer with an alarm and full-screen mode.",
+   "privacy": "The timer runs right in your browser; settings are only saved on this device, never sent anywhere.",
+   "keywords": [
+    "countdown timer",
+    "online timer",
+    "timer with alarm",
+    "kitchen timer",
+    "5 minute timer"
+   ],
+   "howto": [
+    "Quick-pick 1, 3, 5… minutes or enter hours, minutes and seconds.",
+    "Click Start (Space key); you can add 1 minute while it runs.",
+    "When time's up the alarm rings until you click Mute alarm."
+   ],
+   "faq": [
+    {
+     "q": "Will I hear the alarm on another tab?",
+     "a": "Yes, unless your device is muted. Click “Enable notifications when on another tab” to also get a system notification."
+    },
+    {
+     "q": "What if my phone's screen locks?",
+     "a": "Mobile browsers usually pause pages when the screen locks, so the alarm may ring late. While counting, the page keeps the screen on (if the browser supports it)."
+    }
+   ]
+  },
+  "spin-wheel": {
+   "name": "Spin the Wheel",
+   "desc": "Enter a list and spin a random wheel to pick a person, a meal or a prize winner.",
+   "privacy": "The list and results are only saved in this device's browser, never sent anywhere.",
+   "keywords": [
+    "spin the wheel",
+    "random wheel",
+    "wheel of names",
+    "random picker",
+    "prize wheel"
+   ],
+   "howto": [
+    "Enter a list, one item per line (or choose a sample list).",
+    "Click Spin, click the wheel or press Space.",
+    "Turn on “Remove the winner” for draws with several prizes where each person wins only once."
+   ],
+   "faq": [
+    {
+     "q": "Is the wheel fair?",
+     "a": "Yes. The result is picked with a secure random generator (crypto.getRandomValues) before the wheel spins; the animation is just for show. Every item has the same chance unless you set weights."
+    },
+    {
+     "q": "How do I make an item more likely to win?",
+     "a": "Add “* number” after the name, e.g. “Consolation prize * 5” is 5 times as likely as a regular item; its slice on the wheel is bigger too."
+    },
+    {
+     "q": "Is the list saved?",
+     "a": "Yes, in your device's browser so it's still there next time. Never sent anywhere."
+    }
+   ]
+  },
+  "team-picker": {
+   "name": "Random Team Generator",
+   "desc": "Split a list into random teams or draw a random order.",
+   "privacy": "Names are only processed in your browser, never sent anywhere or put in the link.",
+   "keywords": [
+    "random team generator",
+    "team picker",
+    "split into groups",
+    "random groups",
+    "draw names"
+   ],
+   "howto": [
+    "Enter a list of people, one name per line.",
+    "Choose the mode: number of teams, people per team, random order or pick a few people.",
+    "Click Draw again if needed, then copy or download the result."
+   ],
+   "faq": [
+    {
+     "q": "Are the teams even?",
+     "a": "Yes: teams differ by at most 1 person. People in the “Leaders” box are spread one per team first."
+    },
+    {
+     "q": "Is it really random?",
+     "a": "It uses crypto.getRandomValues and the Fisher–Yates shuffle, so every split is equally likely."
+    }
+   ]
+  },
+  "coin-dice": {
+   "name": "Coin Flip & Dice Roller",
+   "desc": "Flip a coin or roll one or more random dice.",
+   "privacy": "Results are generated right in your browser with a secure random generator, never sent anywhere.",
+   "keywords": [
+    "coin flip",
+    "flip a coin",
+    "dice roller",
+    "roll dice",
+    "heads or tails"
+   ],
+   "howto": [
+    "Choose Flip a coin or Roll dice.",
+    "Click the button (or press Space) to flip / roll.",
+    "For dice, choose the number of dice (1–10) and sides (4–100); the total shows instantly."
+   ],
+   "faq": [
+    {
+     "q": "Are the results truly random?",
+     "a": "Yes, they come from the browser's secure random generator with no bias toward any side; the flip animation is just for show."
+    },
+    {
+     "q": "Which side is heads?",
+     "a": "Heads is the side with the picture, tails the side with the number (denomination)."
+    }
+   ]
+  },
+  "random-number": {
+   "name": "Random Number Generator",
+   "desc": "Generate random numbers in a range, without duplicates, or run a raffle draw.",
+   "keywords": [
+    "random number generator",
+    "rng",
+    "random number",
+    "lottery number generator",
+    "raffle draw"
+   ],
+   "howto": [
+    "Enter the range From – To and how many numbers to draw.",
+    "Choose no duplicates, sorting, or exclude numbers you don't want.",
+    "Turn on “Raffle mode” so drawn numbers don't come up again."
+   ],
+   "faq": [
+    {
+     "q": "Does every number have the same chance?",
+     "a": "Yes. It uses crypto.getRandomValues with rejection sampling (no modulo bias), so every number in the range is equally likely."
+    },
+    {
+     "q": "How many numbers can I draw?",
+     "a": "Up to 10,000 numbers at a time, in a range up to about ±9 quadrillion."
+    }
+   ]
+  },
+  "quick-notes": {
+   "name": "Quick Notes",
+   "desc": "Notes saved right in your browser, auto-saved, downloadable as .txt.",
+   "privacy": "Notes are stored in this device's own browser (localStorage), never sent anywhere.",
+   "keywords": [
+    "online notepad",
+    "quick notes",
+    "notes in browser",
+    "scratchpad",
+    "text notes"
+   ],
+   "howto": [
+    "Type a note: it's saved automatically on this device.",
+    "Click New note to add one; search ignores accents.",
+    "Download as .txt, or download all (.zip) as a backup."
+   ],
+   "faq": [
+    {
+     "q": "Where are notes stored?",
+     "a": "In your device's browser storage (localStorage). Clearing browsing data, using a private window or switching browsers hides them, so download backups."
+    },
+    {
+     "q": "Do notes sync between phone and computer?",
+     "a": "No, since BbeTools has no server. Several tabs in the same browser stay in sync."
+    },
+    {
+     "q": "How much can I store?",
+     "a": "A few million characters (the browser limit, usually 5 MB). If it's full, the page tells you to download your notes."
+    }
+   ]
+  },
+  "checklist": {
+   "name": "Checklist",
+   "desc": "A simple to-do list with drag-and-drop ordering, saved on your device.",
+   "privacy": "Lists are stored in this device's own browser (localStorage), never sent anywhere.",
+   "keywords": [
+    "checklist",
+    "to do list",
+    "todo online",
+    "task list",
+    "packing list"
+   ],
+   "howto": [
+    "Type a task and press Enter (paste several lines to add several tasks at once).",
+    "Check off finished tasks; double-click to edit, drag and drop or use ↑↓ to reorder.",
+    "Create several lists, use templates, copy or download them as Markdown."
+   ],
+   "faq": [
+    {
+     "q": "Where are lists stored?",
+     "a": "In your device's browser (localStorage), never sent anywhere. Changing devices or clearing browsing data loses them, so download them if you need to keep them."
+    },
+    {
+     "q": "How do I reuse a list (packing list…)?",
+     "a": "Click “Uncheck all” to start over without retyping."
+    }
+   ]
+  },
+  "world-clock": {
+   "name": "World Clock & Time Zone Converter",
+   "desc": "Current time in cities around the world, and time conversion between time zones.",
+   "privacy": "Times are calculated right in your browser; the city list is only saved on this device.",
+   "keywords": [
+    "world clock",
+    "time zone converter",
+    "time in",
+    "meeting planner",
+    "current time"
+   ],
+   "howto": [
+    "See the current time in each city; green cells are office hours.",
+    "Type a city or country name to add it, click ✕ to remove it.",
+    "Turn on “Convert time”, choose a date and time in one city to see the matching times elsewhere (for scheduling online meetings)."
+   ],
+   "faq": [
+    {
+     "q": "Is daylight saving time handled?",
+     "a": "Yes. Browsers include the international time zone database (IANA), so DST is applied correctly for every date, including changeover days."
+    },
+    {
+     "q": "How is the difference shown?",
+     "a": "Each city shows its UTC offset and how far ahead of or behind your device's time it is."
+    }
+   ]
+  },
+  "device-test": {
+   "name": "Camera, Mic, Keyboard & Screen Test",
+   "desc": "Test your camera, microphone, left/right speakers, keyboard, mouse and dead pixels on one page before an online meeting.",
+   "keywords": [
+    "device test",
+    "test camera and mic",
+    "online meeting check",
+    "hardware test",
+    "webcam mic test"
+   ],
+   "howto": [
+    "Choose the device to test: Camera, Microphone, Speakers, Keyboard, Mouse or Screen.",
+    "Click Turn camera on / Turn microphone on and allow access when the browser asks.",
+    "Follow the instructions in each section: speak, record a 5-second test, press each key, look for dead pixels."
+   ],
+   "faq": [
+    {
+     "q": "Is it safe to let the browser use my camera and mic?",
+     "a": "Video and audio only show on your device and are never recorded or sent (the 5-second test recording also stays in the browser). Switching sections or closing the page turns the camera and mic off."
+    },
+    {
+     "q": "The camera says it's in use?",
+     "a": "Close other apps using the camera (Zoom, Teams, Meet in another tab…) and try again."
+    },
+    {
+     "q": "A key doesn't light up?",
+     "a": "Some keys are handled by the operating system (Fn, Print Screen, volume keys…) so web pages can't receive them; that doesn't mean the key is broken."
+    }
+   ]
+  },
+  "webcam-test": {
+   "name": "Webcam Test",
+   "desc": "Test your webcam or laptop camera online: see the image, resolution, frame rate and take a test photo.",
+   "keywords": [
+    "webcam test",
+    "camera test",
+    "test my webcam",
+    "online camera check",
+    "laptop camera test"
+   ],
+   "howto": [
+    "Click Turn camera on and allow the browser to use the camera when asked.",
+    "Check that the image is sharp and bright enough; read the resolution and frame rate.",
+    "With several cameras, choose another one from the list; click Take a test photo to save a picture."
+   ],
+   "faq": [
+    {
+     "q": "The webcam shows no image, what should I do?",
+     "a": "Check that the browser is allowed to use the camera (lock icon next to the address bar), close other apps using it (Zoom, Teams…), and see if the laptop has a privacy shutter or camera hotkey. On macOS, go to System Settings → Privacy & Security → Camera to allow the browser."
+    },
+    {
+     "q": "Why is the image mirrored?",
+     "a": "The preview is mirrored like a mirror so it's natural to look at; others in a meeting still see it the right way round. You can turn Mirror off."
+    },
+    {
+     "q": "Is the image sent anywhere?",
+     "a": "No. It only shows on your device; turning the camera off or closing the page stops it."
+    }
+   ]
+  },
+  "mic-test": {
+   "name": "Microphone Test",
+   "desc": "Test your microphone online: see the level and waveform as you speak, record 5 seconds and play it back.",
+   "keywords": [
+    "mic test",
+    "microphone test",
+    "test my mic",
+    "online mic check",
+    "microphone checker"
+   ],
+   "howto": [
+    "Click Turn microphone on and allow the browser to use it when asked.",
+    "Say “one, two, three”: the level bar should reach the green zone.",
+    "Click Record a 5-second test and play it back to hear how others hear you."
+   ],
+   "faq": [
+    {
+     "q": "The mic picks up nothing?",
+     "a": "Choose the right microphone in the list (when there are several), check the mute switch on your headset, allow the browser to use the mic (lock icon) and close Zoom/Teams if they're holding it. On macOS, go to System Settings → Privacy & Security → Microphone."
+    },
+    {
+     "q": "The sound is too quiet or distorted?",
+     "a": "A level bar in the gray zone is too quiet: move the mic closer or raise the input volume in your sound settings. Hitting the red zone is too loud and may distort."
+    },
+    {
+     "q": "Is the test recording sent anywhere?",
+     "a": "No. The audio stays in the browser on your device. For longer recordings to download, use the Voice Recorder."
+    }
+   ]
+  },
+  "speaker-test": {
+   "name": "Speaker & Headphone Test",
+   "desc": "Test left and right speakers and headphones; play test tones at many frequencies and a low-to-high sweep.",
+   "keywords": [
+    "speaker test",
+    "left right audio test",
+    "headphone test",
+    "stereo test",
+    "sound test"
+   ],
+   "howto": [
+    "Start with a low volume.",
+    "Click Left speaker, Right speaker and Both to hear the test tone on each side.",
+    "Change the frequency or click Sweep from low to high to check for distortion or missing ranges."
+   ],
+   "faq": [
+    {
+     "q": "Left speaker plays on the right?",
+     "a": "The headphones are worn the wrong way round, the cable is reversed or the balance setting is off. Check your device's sound settings."
+    },
+    {
+     "q": "I can't hear high frequencies?",
+     "a": "Small speakers and older ears often can't hear sounds above 12,000 Hz; that's normal."
+    }
+   ]
+  },
+  "keyboard-test": {
+   "name": "Keyboard Test",
+   "desc": "Test your keyboard online: Windows and Mac layouts, laptop or external, with or without a numpad; multi-key rollover and key chatter detection.",
+   "privacy": "The keys you press are only processed right in your browser, never recorded or sent anywhere.",
+   "keywords": [
+    "keyboard test",
+    "key tester",
+    "test keyboard online",
+    "keyboard checker",
+    "n-key rollover test"
+   ],
+   "howto": [
+    "Choose the operating system (Windows or Mac), the keyboard type (Laptop or External) and turn on “Has a numeric keypad” if yours has one.",
+    "Press each key in turn: received keys turn green; keys that don't change may be dead.",
+    "Hold several keys at once to see how many the keyboard registers; chattering keys are highlighted in yellow."
+   ],
+   "faq": [
+    {
+     "q": "A key doesn't light up?",
+     "a": "Some keys are handled by the operating system (Fn, Print Screen on Windows, volume and brightness keys…) so web pages can't receive them; that doesn't mean the key is broken. Other keys that don't light up may be dead."
+    },
+    {
+     "q": "What is key chatter?",
+     "a": "One press registers as two (typing “aa” instead of “a”), usually due to a dirty or worn switch. The tool flags any key re-registered within 35 ms of being released."
+    },
+    {
+     "q": "Which layout for a Mac keyboard on Windows (or vice versa)?",
+     "a": "Choose by the keyboard plugged in. Keys are detected by position, so a Mac keyboard's ⌘ key lights up at the ⌘ spot even on Windows. On a Mac, the F1–F12 row defaults to brightness, volume…: hold fn and press to test."
+    },
+    {
+     "q": "Why hold several keys at once?",
+     "a": "To see how many keys the keyboard registers at the same time (rollover). Office keyboards often only register 2–6 keys in some combinations; mechanical gaming keyboards usually register all of them (N-key rollover)."
+    }
+   ]
+  },
+  "mouse-test": {
+   "name": "Mouse Test",
+   "desc": "Test your mouse online: buttons (including Back/Forward), double-clicks, phantom double-click detection, wheel and polling rate.",
+   "privacy": "Mouse actions are only processed right in your browser, never recorded or sent anywhere.",
+   "keywords": [
+    "mouse test",
+    "double click test",
+    "mouse button test",
+    "polling rate test",
+    "mouse checker"
+   ],
+   "howto": [
+    "Press each mouse button inside the test area: received buttons turn green and are counted.",
+    "Click slowly one at a time: if one press registers as two, the tool reports a phantom double-click.",
+    "Scroll the wheel and move the mouse quickly inside the area to check the wheel and polling rate."
+   ],
+   "faq": [
+    {
+     "q": "What is a phantom double-click?",
+     "a": "One press registers as two, usually because the switch inside the mouse is worn. A person needs at least about 80 ms to click twice; the tool warns when two clicks of the same button are under 60 ms apart."
+    },
+    {
+     "q": "What is polling rate?",
+     "a": "How many times per second the mouse reports its position: office mice are usually 125 Hz, gaming mice 500–1000 Hz or more. Browser measurements are approximate and may be limited by the browser or display."
+    },
+    {
+     "q": "Do Back/Forward buttons navigate away?",
+     "a": "No, inside the test area these buttons are blocked so you can test freely."
+    }
+   ]
+  },
+  "screen-test": {
+   "name": "Dead Pixel Test",
+   "desc": "Find dead pixels, stuck pixels, backlight bleed and uneven colors with full-screen colors; see resolution and refresh rate.",
+   "privacy": "Everything runs right in your browser; nothing is sent anywhere.",
+   "keywords": [
+    "dead pixel test",
+    "screen test",
+    "stuck pixel",
+    "backlight bleed test",
+    "monitor test"
+   ],
+   "howto": [
+    "Clean the screen and click Dead pixel test (full screen).",
+    "Click, press → or swipe to cycle through colors: look for dots that stay black or stuck on one color.",
+    "On black, check the edges for backlight bleed; on gray, look for blotches; press Esc to exit."
+   ],
+   "faq": [
+    {
+     "q": "What's the difference between dead and stuck pixels?",
+     "a": "A dead pixel stays black on every background. A stuck pixel stays lit in one color (red, green or blue) whatever the background; stuck pixels sometimes fix themselves."
+    },
+    {
+     "q": "When should I test?",
+     "a": "Right after buying a new computer or monitor (while you can still return it), and when buying used. Test in a dark room to see backlight bleed clearly."
+    },
+    {
+     "q": "Is the measured refresh rate accurate?",
+     "a": "Approximately: the page counts how many frames the browser draws per second, which may be lower than the real rate when the device is saving power."
+    }
+   ]
+  },
+  "telegram-stickers": {
+   "name": "Telegram Sticker Downloader",
+   "desc": "Download whole Telegram sticker sets: original files (WEBP, TGS, WEBM) or converted to PNG and GIF; also converts .tgs and .webm files you already have.",
+   "privacy": "BbeTools has no server: your browser talks directly to api.telegram.org with your own bot token. .tgs and .webm files you choose are only processed on this device.",
+   "keywords": [
+    "telegram sticker downloader",
+    "download telegram stickers",
+    "tgs to gif",
+    "telegram stickers to gif",
+    "webm to gif",
+    "save telegram stickers",
+    "telegram emoji download"
+   ],
+   "howto": [
+    "In Telegram, open the sticker set → ⋮ → Copy link (like t.me/addstickers/…) and paste it into the Link box.",
+    "Paste your bot token (created for free in a minute with @BotFather, see the guide under the box) and click “Get sticker set”.",
+    "Choose PNG + GIF or the original format, then click “Download all (.zip)” or click a sticker to download just that one."
+   ],
+   "faq": [
+    {
+     "q": "Does downloading stickers need a server?",
+     "a": "No. Telegram lets websites call its Bot API directly, so your browser fetches the sticker list and files from api.telegram.org itself. BbeTools has no middleman server and never receives your token or stickers."
+    },
+    {
+     "q": "Why do I need a bot token?",
+     "a": "Telegram's Bot API only serves sticker files to registered bots. Create a token for free with @BotFather: send /newbot, choose a name, get the token. It's only used in this browser; to cancel it, send /revoke to BotFather."
+    },
+    {
+     "q": "What are TGS and WEBM files?",
+     "a": "TGS is an animated Lottie sticker (vector, gzip-compressed), WEBM is a video sticker, WEBP is a still image sticker. Choose “PNG + GIF” for files that open everywhere; choose “Original format” to keep full quality for reuse in Telegram."
+    },
+    {
+     "q": "Can't connect to Telegram?",
+     "a": "Some networks block Telegram, so the browser can't reach api.telegram.org. Try another network. If you saved stickers to your device (Telegram Desktop: right-click → Save), use “From existing files” to convert .tgs and .webm to GIF without any network."
+    },
+    {
+     "q": "Can I use downloaded stickers commercially?",
+     "a": "Stickers are copyrighted by their creators. Only download them for personal use, or with the creator's permission."
+    }
+   ]
+  }
+ }
+}

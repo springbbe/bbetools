@@ -1,0 +1,13 @@
+{
+ "Sai mật khẩu, hoặc dữ liệu đã bị sửa / hỏng.": "Wrong password, or the data was modified / corrupted.",
+ "File được mã hoá bằng phiên bản BbeTools mới hơn, hãy tải lại trang.": "The file was encrypted by a newer version of BbeTools; please reload the page.",
+ "Không hỗ trợ kiểu dẫn xuất khoá này.": "This key derivation type isn't supported.",
+ "Phần đầu file mã hoá không hợp lệ.": "Invalid encrypted file header.",
+ "Đã huỷ": "Cancelled",
+ "Cần mật khẩu.": "A password is required.",
+ "Đây không phải file do BbeTools mã hoá.": "This isn't a file encrypted by BbeTools.",
+ "File mã hoá bị thiếu dữ liệu (tải chưa hết?).": "The encrypted file is missing data (incomplete download?).",
+ "File mã hoá bị hỏng hoặc bị cắt ở khoảng ": "The encrypted file is corrupted or truncated around ",
+ "Thông tin file bên trong không hợp lệ.": "The embedded file information is invalid.",
+ "Không phải bản mã của BbeTools (cần chuỗi Base64 bắt đầu bằng “QkJFTkMB”).": "Not BbeTools ciphertext (expected a Base64 string starting with “QkJFTkMB”)."
+}

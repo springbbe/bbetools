@@ -1,0 +1,17 @@
+{
+ "Tuỳ ý": "Custom",
+ "ảnh": "images",
+ "Chia ảnh": "Split image",
+ "Xem trước các ô sẽ được cắt": "Preview of the tiles to be cut",
+ "Số hàng × số cột": "Rows × columns",
+ "Số hàng": "Rows",
+ "Số cột": "Columns",
+ "Đánh số theo thứ tự đăng Instagram": "Number in Instagram posting order",
+ "Ô dưới cùng bên phải là số 1: đăng lần lượt 1, 2, 3… thì lưới trên trang cá nhân ghép lại thành ảnh đầy đủ.": "The bottom-right tile is number 1: post 1, 2, 3… in order and the grid on your profile forms the full image.",
+ "{0} ảnh, mỗi ảnh khoảng {1}×{2} px.": "{0} images, each about {1}×{2} px.",
+ "Đang cắt ô {0}/{1}…": "Cutting tile {0}/{1}…",
+ "hàng {0}, cột {1} · {2}×{3}": "row {0}, column {1} · {2}×{3}",
+ "anh-chia-luoi": "grid-images",
+ "Đã chia thành {0} ảnh!": "Split into {0} images!",
+ "Đăng lên Instagram theo đúng số thứ tự: 1 trước, rồi 2, 3…": "Post to Instagram in number order: 1 first, then 2, 3…"
+}

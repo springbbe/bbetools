@@ -1,0 +1,9 @@
+{
+ "Bạn chưa cho phép dùng camera. Bấm vào biểu tượng ổ khoá cạnh thanh địa chỉ để cho phép, rồi thử lại.": "You haven't allowed camera access. Click the lock icon next to the address bar to allow it, then try again.",
+ "Không tìm thấy camera trên thiết bị này.": "No camera found on this device.",
+ "Camera đang được ứng dụng khác dùng. Hãy đóng ứng dụng đó rồi thử lại.": "The camera is being used by another app. Close that app and try again.",
+ "Camera không hỗ trợ cấu hình yêu cầu.": "The camera doesn't support the requested settings.",
+ "Trình duyệt chặn camera trên trang này.": "The browser is blocking the camera on this page.",
+ "Trình duyệt này không hỗ trợ camera.": "This browser doesn't support cameras.",
+ "Không bật được camera: ": "Couldn't start the camera: "
+}

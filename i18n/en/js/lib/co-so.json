@@ -1,0 +1,7 @@
+{
+ "Chưa nhập số.": "No number entered.",
+ "Chữ số “{0}” không có trong hệ cơ số {1}{2}.": "The digit “{0}” doesn't exist in base {1}{2}.",
+ " (chỉ dùng 0–{0})": " (only 0–{0} allowed)",
+ "Chưa nhập quyền.": "No permissions entered.",
+ "Không hiểu “{0}”. Ví dụ hợp lệ: 755, rwxr-xr-x, u=rwx,g=rx,o=r, a+x.": "Don't understand “{0}”. Valid examples: 755, rwxr-xr-x, u=rwx,g=rx,o=r, a+x."
+}

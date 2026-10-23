@@ -1,0 +1,9 @@
+{
+ "Gõ mã (404, 5xx) hoặc từ khoá: không tìm thấy, timeout…": "Type a code (404, 5xx) or a keyword: not found, timeout…",
+ "Nhóm mã": "Code class",
+ "Tất cả": "All",
+ "Tìm mã trạng thái": "Search status codes",
+ "Cách xử lý: ": "How to fix: ",
+ "{0} / {1} mã": "{0} / {1} codes",
+ "Không có mã nào khớp. Thử gõ số (ví dụ 4 hoặc 40) hoặc từ khoá khác.": "No matching codes. Try a number (e.g. 4 or 40) or another keyword."
+}

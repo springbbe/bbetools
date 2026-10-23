@@ -151,7 +151,7 @@ export function describe(c) {
   const d = describeDays(F);
   let s = t;
   if (d.length) s += ", " + d.join(", ");
-  else if (/^lúc /.test(t)) s += ", hằng ngày";
+  else if (t.startsWith("lúc ")) s += ", hằng ngày";
   return s.charAt(0).toUpperCase() + s.slice(1) + ".";
 }
 

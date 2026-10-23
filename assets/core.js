@@ -6,6 +6,10 @@ import { prepare, search } from "./lib/search.js";
 import { kindsOf, accepts, acceptAttr, KIND_LABEL } from "./lib/filetype.js";
 
 export const ROOT = document.documentElement.dataset.root ?? "./";
+/** Ngôn ngữ của trang ("vi" ở gốc site; "en"… nằm dưới thư mục riêng, module JS là bản đã dịch, xem scripts/i18n.js) */
+export const LANG = document.documentElement.lang || "vi";
+/** Trang chủ của ngôn ngữ hiện tại (tương đối) */
+export const HOME = ROOT + (LANG === "vi" ? "" : LANG + "/");
 export const IS_TOUCH = matchMedia("(hover: none)").matches;
 export const MOD = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent) ? "⌘" : "Ctrl";
 export const TOOL_ID = document.body.dataset.tool || null;
@@ -71,7 +75,7 @@ export function registry() {
   }));
   return regPromise;
 }
-export const toolHref = (t) => ROOT + t.slug + "/";
+export const toolHref = (t) => HOME + t.slug + "/";
 
 /* ---------- Thư viện ngoài: ghim phiên bản, chỉ tải khi công cụ cần ---------- */
 const JSD = "https://cdn.jsdelivr.net/npm/";
@@ -95,6 +99,8 @@ const LIBS = {
   ort: { esm: CDN.ort + "ort.wasm.min.mjs", init: (m) => { m.env.wasm.wasmPaths = CDN.ort; m.env.wasm.numThreads = 1; m.env.logLevel = "error"; return m; } },
   mozjpeg: { esm: JSD + "@jsquash/jpeg@1.6.0/encode.js", init: (m) => m.default },
   gifenc: { esm: JSD + "gifenc@1.0.3/dist/gifenc.esm.js" },
+  // vẽ sticker động Telegram (.tgs = Lottie nén gzip) lên canvas để xem trước và đổi sang GIF
+  lottie: { script: JSD + "lottie-web@5.13.0/build/player/lottie_canvas.min.js", global: "lottie" },
   tesseract: { esm: JSD + "tesseract.js@7.0.0/dist/tesseract.esm.min.js", init: (m) => m.default || m }, // OCR; lõi + dữ liệu ngôn ngữ khai báo trong tools/ocr.js
   avif: { esm: JSD + "@jsquash/avif@2.1.1/codec/enc/avif_enc.js", init: (m) => m.default }, // bản đơn luồng (không cần COOP/COEP)
   pako: { script: JSD + "pako@2.1.0/dist/pako.min.js", global: "pako" },
@@ -525,11 +531,22 @@ function initPalette() {
   });
 }
 
+/* ---------- Gợi ý trang ngôn ngữ khác (một lần, khi trình duyệt không dùng tiếng Việt) ---------- */
+function initLangHint() {
+  const a = $(".lang-switch");
+  if (!a || LANG !== "vi" || store.get("langHint")) return;
+  const langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""];
+  if (langs.some((l) => /^vi\b/i.test(l))) return;
+  store.set("langHint", 1);
+  setTimeout(() => toast("This page is also available in English.", { action: { label: "English", run: () => { location.href = a.href; } }, ms: 9000 }), 800);
+}
+
 /* ---------- Khởi động ---------- */
 initMenu();
 initTheme();
 initFavs();
 initPalette();
+initLangHint();
 
 /** Tải file mẫu trong thư mục samples/ thành File */
 export async function sampleFiles(...names) {

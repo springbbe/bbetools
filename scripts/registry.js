@@ -8,7 +8,7 @@ export const ROOT = fileURLToPath(new URL("..", import.meta.url));
 export const KINDS = ["file", "text", "form", "interactive"];
 export const STATUSES = ["done", "beta", "todo"];
 export const ACCEPT_KINDS = [...Object.keys(KIND_EXT), "any"];
-export const RESERVED = ["assets", "data", "nhom", "samples", "scripts", "tests", "models", "gioi-thieu", "node_modules", "404"];
+export const RESERVED = ["assets", "data", "nhom", "samples", "scripts", "tests", "models", "gioi-thieu", "node_modules", "404", "i18n", "en"];
 
 export async function loadRegistry() {
   return JSON.parse(await readFile(ROOT + "tools.json", "utf8"));
@@ -46,6 +46,7 @@ export function validate(reg) {
     if (!gids.has(t.group)) err(`${where}: nhóm "${t.group}" không tồn tại`);
     if (!KINDS.includes(t.kind)) err(`${where}: kind phải là ${KINDS.join("/")}`);
     if (!STATUSES.includes(t.status)) err(`${where}: status phải là ${STATUSES.join("/")}`);
+    if (t.vnOnly != null && typeof t.vnOnly !== "boolean") err(`${where}: vnOnly phải là true/false`);
     if (!Array.isArray(t.keywords) || !t.keywords.length) err(`${where}: cần ít nhất một từ khoá`);
     if (t.kind === "file" && !(t.accept && t.accept.length)) err(`${where}: công cụ kiểu file cần "accept"`);
     for (const a of t.accept || []) if (!ACCEPT_KINDS.includes(a)) err(`${where}: accept "${a}" không hợp lệ (${ACCEPT_KINDS.join(", ")})`);

@@ -1,0 +1,15 @@
+{
+ "Xoá trang": "Delete pages",
+ "Bấm để đánh dấu xoá hoặc giữ lại": "Click to mark for deletion or keep",
+ "Bỏ đánh dấu": "Clear marks",
+ "Trang sẽ xoá": "Pages to delete",
+ "Có thể gõ số trang thay vì bấm chọn.": "You can type page numbers instead of clicking.",
+ "Xoá trang PDF": "Delete PDF pages",
+ "Bấm vào những trang muốn bỏ đi. Giữ <kbd>Shift</kbd> rồi bấm để chọn cả dãy.": "Click the pages you want to remove. Hold <kbd>Shift</kbd> and click to select a range.",
+ "Xoá <b>{0}</b> trang · còn lại <b>{1}</b> trang.": "Delete <b>{0}</b> {0|page|pages} · <b>{1}</b> {1|page|pages} left.",
+ "Chưa chọn trang nào để xoá.": "No pages selected for deletion.",
+ "Bấm vào trang cần xoá.": "Click the pages to delete.",
+ "Không thể xoá hết mọi trang, hãy giữ lại ít nhất một trang.": "You can't delete every page; keep at least one.",
+ "Đang tạo file mới…": "Creating the new file…",
+ "Đã xoá trang!": "Pages deleted!"
+}

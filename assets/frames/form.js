@@ -7,7 +7,9 @@
      compute: (vals, out, ctx) => {},     // vẽ kết quả vào out
      share: true                          // nút "Sao chép link"
    }) */
-import { $, h, icon, copyText, debounce, replaceUrl } from "../core.js";
+import { $, h, icon, copyText, debounce, replaceUrl, LANG } from "../core.js";
+
+const GROUP = LANG === "vi" ? "." : ","; // dấu nhóm nghìn của ô tiền
 
 let uid = 0;
 export function formTool(cfg) {
@@ -45,7 +47,7 @@ export function formTool(cfg) {
       el = wrap(f, id, t); get = () => t.value; set = (v) => { t.value = v; };
     } else if (f.type === "money") {
       const i = h("input", Object.assign({ id, type: "text", inputmode: "numeric", autocomplete: "off", placeholder: f.placeholder || "" }, f.attrs));
-      const fmt = (d) => (d ? d.replace(/^0+(?=\d)/, "").replace(/\B(?=(\d{3})+(?!\d))/g, ".") : "");
+      const fmt = (d) => (d ? d.replace(/^0+(?=\d)/, "").replace(/\B(?=(\d{3})+(?!\d))/g, GROUP) : "");
       i.addEventListener("input", () => {
         const atEnd = i.selectionStart === i.value.length;
         const digitsBefore = i.value.slice(0, i.selectionStart).replace(/\D/g, "").length;

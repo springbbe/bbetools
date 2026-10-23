@@ -1,6 +1,6 @@
 /* Kiểm tra thiết bị trước khi họp online (trang gộp): camera, micro, loa, bàn phím, chuột, màn hình theo từng thẻ.
    Phần chi tiết của từng thiết bị nằm ở assets/devices.js, dùng chung với các trang riêng (Test webcam, Test micro…). */
-import { h, icon, ROOT } from "../core.js";
+import { h, icon, HOME } from "../core.js";
 import { interactiveTool } from "../frames/interactive.js";
 import { camPane, micPane, spkPane, kbdPane, mousePane, scrPane } from "../devices.js";
 
@@ -27,7 +27,7 @@ interactiveTool({
       body.append(pane);
       cleanup = t[3](pane, ctx) || null;
       more.textContent = "";
-      more.append("Xem thêm kiểm tra chi tiết: ", h("a", { href: ROOT + t[4] + "/", text: "trang " + t[1].toLowerCase() + " riêng" }), ".");
+      more.append("Xem thêm kiểm tra chi tiết: ", h("a", { href: HOME + t[4] + "/", text: "trang " + t[1].toLowerCase() + " riêng" }), ".");
     }
     window.addEventListener("pagehide", () => { if (cleanup) cleanup(); });
     show(tab);

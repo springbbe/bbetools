@@ -1,0 +1,10 @@
+{
+ "ảnh HEIC": "HEIC images",
+ "Chuyển đổi": "Convert",
+ "Chất lượng JPG": "JPG quality",
+ "Chuyển sang": "Convert to",
+ "JPG nhẹ, mở được ở mọi nơi (Zalo, Windows, trang nộp hồ sơ). PNG giữ nguyên từng điểm ảnh nhưng nặng hơn nhiều.": "JPG is light and opens everywhere (chat apps, Windows, upload forms). PNG keeps every pixel but is much larger.",
+ "Đang chuyển {0}{1}…": "Converting {0}{1}…",
+ "Không đọc được {0}. File có thể không phải HEIC hợp lệ.": "Couldn't read {0}. The file may not be a valid HEIC.",
+ "Đã chuyển {0} ảnh!": "Converted {0} images!"
+}

@@ -1,0 +1,15 @@
+{
+ "Văn bản của bạn": "Your text",
+ "Thống kê": "Statistics",
+ "Gõ hoặc dán văn bản cần đếm từ, ký tự…": "Type or paste the text to count words, characters…",
+ "Hà Nội mùa thu, cây cơm nguội vàng, cây bàng lá đỏ, nằm kề bên nhau, phố xưa nhà cổ, mái ngói thâm nâu.\n\nBbeTools đếm từ theo cách của Word và Google Docs: mỗi tiếng cách nhau bởi khoảng trắng được tính là một từ. Văn bản của bạn không rời khỏi máy!": "Autumn in the old city: golden leaves drift down quiet streets, past tiled roofs weathered by time.\n\nBbeTools counts words the way Word and Google Docs do: each group of characters separated by spaces counts as one word. Your text never leaves your device!",
+ "từ (tiếng)": "words",
+ "ký tự": "characters",
+ "ký tự không tính khoảng trắng": "characters excluding spaces",
+ "câu": "sentences",
+ "đoạn": "paragraphs",
+ "dòng": "lines",
+ "thời gian đọc": "reading time",
+ "thời gian nói": "speaking time",
+ "Từ dùng nhiều nhất": "Most used words"
+}

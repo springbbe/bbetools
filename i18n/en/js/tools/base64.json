@@ -1,0 +1,22 @@
+{
+ "Mã hoá một file sang Base64": "Encode a file to Base64",
+ "File lớn hơn 20 MB, chuỗi Base64 sẽ quá dài để hiện trong trang.": "The file is larger than 20 MB; the Base64 string would be too long to show on the page.",
+ "File {0} ({1}) → {2} ký tự Base64. Bấm Sao chép để lấy toàn bộ.": "File {0} ({1}) → {2} Base64 characters. Click Copy to get all of it.",
+ "Giải mã Base64 thành file và tải về": "Decode Base64 into a file and download it",
+ "Chưa có chuỗi Base64": "No Base64 string yet",
+ "giai-ma.": "decoded.",
+ "Lưu thành file": "Save as file",
+ "Đầu vào": "Input",
+ "Kết quả": "Result",
+ "Gõ văn bản để mã hoá, hoặc dán chuỗi Base64 để giải mã…": "Type text to encode, or paste a Base64 string to decode…",
+ "Xin chào Bạn! BbeTools chạy 100% trên trình duyệt.": "Hello there! BbeTools runs 100% in your browser. Xin chào!",
+ "Chiều": "Direction",
+ "Mã hoá → Base64": "Encode → Base64",
+ "Giải mã Base64 →": "Decode Base64 →",
+ "Chia dòng 76 ký tự (MIME)": "Wrap lines at 76 characters (MIME)",
+ "giai-ma.txt": "decoded.txt",
+ "{0} byte → {1} ký tự": "{0} bytes → {1} characters",
+ "Đây là dữ liệu nhị phân ({0}{1}), không phải văn bản. Bấm “Lưu thành file” để tải về.": "This is binary data ({0}{1}), not text. Click “Save as file” to download it.",
+ ", có vẻ là file .": ", looks like a .",
+ "{0} byte, văn bản UTF-8": "{0} bytes, UTF-8 text"
+}

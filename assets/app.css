@@ -164,6 +164,10 @@ input[type=checkbox]:not(.switch input), input[type=radio] { accent-color: var(-
 .search-trigger span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 @media (min-width: 720px) { .search-trigger { width: 280px; } .search-trigger kbd { margin-left: auto; } }
 @media (max-width: 719px) { .search-trigger { width: 40px; padding: 0; justify-content: center; border: 0; background: transparent; color: var(--ink); } .search-trigger span, .search-trigger kbd { display: none; } .search-trigger .i { width: 22px; height: 22px; } }
+.lang-switch { display: inline-flex; align-items: center; gap: 5px; height: 40px; padding: 0 9px; border-radius: 10px; color: var(--ink); text-decoration: none; font-weight: 700; font-size: 13.5px; letter-spacing: .02em; flex: 0 0 auto; }
+.lang-switch:hover { background: var(--surface-2); }
+.lang-switch .i { width: 18px; height: 18px; }
+@media (max-width: 719px) { .lang-switch { padding: 0 6px; gap: 3px; } .lang-switch .i { display: none; } }
 .theme-toggle .i { display: none; }
 :root:not([data-theme]) .theme-toggle .t-auto, :root[data-theme="light"] .theme-toggle .t-light, :root[data-theme="dark"] .theme-toggle .t-dark { display: block; }
 

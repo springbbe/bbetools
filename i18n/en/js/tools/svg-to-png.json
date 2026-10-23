@@ -1,0 +1,21 @@
+{
+ "Chuyển đổi": "Convert",
+ "{0} không phải file SVG hợp lệ.": "{0} isn't a valid SVG file.",
+ "Chiều rộng (px)": "Width (px)",
+ "Màu nền": "Background color",
+ "Gấp mấy lần": "Scale factor",
+ "Theo chiều rộng": "By width",
+ "Độ phân giải": "Resolution",
+ "px (chiều cao tự tính)": "px (height calculated automatically)",
+ "Lưu dưới dạng": "Save as",
+ "PNG (giữ nền trong suốt)": "PNG (keeps transparency)",
+ "Trong suốt": "Transparent",
+ "Tô màu nền": "Fill background",
+ "Nền": "Background",
+ "SVG là ảnh vector nên phóng to bao nhiêu cũng nét. Ảnh hay font chữ mà SVG lấy từ mạng có thể không hiện; hãy nhúng sẵn vào file.": "SVG is a vector image, so it stays sharp at any size. Images or fonts loaded from the web by the SVG may not show; embed them in the file.",
+ "Nhập chiều rộng ảnh cần xuất.": "Enter the output image width.",
+ "Đang vẽ {0} ở {1}×{2}…": "Drawing {0} at {1}×{2}…",
+ "Không vẽ được {0}: SVG có lỗi hoặc dùng tính năng trình duyệt chưa hỗ trợ.": "Couldn't draw {0}: the SVG has errors or uses features the browser doesn't support.",
+ "svg-sang-anh": "svg-to-image",
+ "Đã chuyển {0} file SVG!": "Converted {0} SVG files!"
+}

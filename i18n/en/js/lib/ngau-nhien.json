@@ -1,0 +1,6 @@
+{
+ "n phải ≥ 1": "n must be ≥ 1",
+ "Khoảng quá lớn": "Range too large",
+ "Chỉ có {0} số khả dụng trong khoảng, không đủ {1} số không trùng.": "Only {0} numbers are available in the range, not enough for {1} unique numbers.",
+ "Tổng trọng số bằng 0": "Total weight is 0"
+}

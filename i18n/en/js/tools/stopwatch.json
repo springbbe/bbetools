@@ -1,0 +1,19 @@
+{
+ "Vòng": "Lap",
+ "Thời gian vòng": "Lap time",
+ "Tổng": "Total",
+ "Toàn màn hình": "Full screen",
+ "Phím tắt: <kbd>Space</kbd> chạy/dừng · <kbd>L</kbd> ghi vòng · <kbd>R</kbd> đặt lại": "Shortcuts: <kbd>Space</kbd> start/stop · <kbd>L</kbd> lap · <kbd>R</kbd> reset",
+ "Vòng {0}: {1}": "Lap {0}: {1}",
+ " · Bấm giờ": " · Stopwatch",
+ "Dừng": "Stop",
+ "Chạy tiếp": "Resume",
+ "Bắt đầu": "Start",
+ "Đặt lại": "Reset",
+ "Vòng ": "Lap ",
+ " · nhanh nhất": " · fastest",
+ " · chậm nhất": " · slowest",
+ "bam-gio.csv": "stopwatch.csv",
+ "Thời gian vòng (giây)": "Lap time (seconds)",
+ "Tổng (giây)": "Total (seconds)"
+}

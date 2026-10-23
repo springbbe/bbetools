@@ -17,7 +17,7 @@
      onChange: (ctx) => {},                      // gọi mỗi khi danh sách/tuỳ chọn đổi
      custom: { mount(ctx) }                       // tự vẽ vùng làm việc (vd. Làm ảnh thẻ)
    }) */
-import { $, h, icon, toast, intake, save, zip, fmtSize, baseName, fileKinds, accepts, KIND_LABEL, takeHandoff, toolsForFiles, sendTo, registry, nextFrame, IS_TOUCH, MOD, ROOT, TOOL_ID } from "../core.js";
+import { $, h, icon, toast, intake, save, zip, fmtSize, baseName, fileKinds, accepts, KIND_LABEL, takeHandoff, toolsForFiles, sendTo, registry, nextFrame, IS_TOUCH, MOD, ROOT, TOOL_ID, toolHref } from "../core.js";
 import { describeAccept } from "../lib/filetype.js";
 
 export class Cancelled extends Error { constructor() { super("Đã huỷ"); this.cancelled = true; } }
@@ -251,7 +251,7 @@ export function fileTool(cfg) {
       if (!tools.length) return;
       const reg = await registry();
       cont.append(h("h3", { text: outs.length > 1 ? "Tiếp tục với các file này" : "Tiếp tục với file này" }),
-        h("ul", { class: "chip-list" }, tools.slice(0, 10).map((t) => h("li", null, h("a", { class: "chip", href: ROOT + t.slug + "/", onclick: (e) => { e.preventDefault(); sendTo(t, files); } },
+        h("ul", { class: "chip-list" }, tools.slice(0, 10).map((t) => h("li", null, h("a", { class: "chip", href: toolHref(t), onclick: (e) => { e.preventDefault(); sendTo(t, files); } },
           h("span", { class: "tile xs", style: { "--c": reg.groupOf[t.group].color }, html: icon(t.icon) }), t.name)))));
       cont.hidden = false;
     }).catch(() => {});

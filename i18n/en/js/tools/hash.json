@@ -1,0 +1,20 @@
+{
+ "Văn bản": "Text",
+ "Mã băm": "Hash",
+ "Gõ hoặc dán văn bản cần tính hash…": "Type or paste the text to hash…",
+ "Xin chào BbeTools": "Hello BbeTools",
+ "Dạng": "Format",
+ "hex thường": "lowercase hex",
+ "HEX hoa": "uppercase HEX",
+ "Khoá HMAC (tuỳ chọn)": "HMAC key (optional)",
+ "Để trống = hash thường": "Leave empty = plain hash",
+ "Đối chiếu với mã": "Compare with",
+ "Dán mã hash cần so khớp": "Paste the hash to match",
+ "Sao chép ": "Copy ",
+ "Sao chép": "Copy",
+ "Đã sao chép ": "Copied ",
+ " – chuỗi rỗng": " – empty string",
+ "Khớp với ": "Matches ",
+ "Không khớp với thuật toán nào. Kiểm tra lại văn bản (kể cả dấu cách, xuống dòng cuối) hoặc khoá HMAC.": "Doesn't match any algorithm. Check the text (including spaces and trailing newlines) or the HMAC key.",
+ "MD5 và SHA-1 đã bị phá về mặt bảo mật, chỉ nên dùng để kiểm tra dữ liệu không bị hỏng. Không dùng hash đơn thuần để lưu mật khẩu.": "MD5 and SHA-1 are cryptographically broken; only use them to check data integrity. Don't use plain hashes to store passwords."
+}

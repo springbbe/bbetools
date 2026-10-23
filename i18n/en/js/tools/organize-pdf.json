@@ -1,0 +1,19 @@
+{
+ "Lưu PDF": "Save PDF",
+ "Đảo ngược": "Reverse",
+ "Đảo ngược thứ tự trang": "Reverse page order",
+ "Trang trắng": "Blank page",
+ "Đã thêm trang trắng ở cuối, dùng ← → hoặc kéo thả để đưa đến chỗ cần.": "Added a blank page at the end; use ← → or drag and drop to move it where you need.",
+ "Thêm một trang trắng ở cuối": "Add a blank page at the end",
+ "Đặt lại": "Reset",
+ "Về thứ tự và chiều ban đầu (trang đã xoá không khôi phục)": "Back to the original order and orientation (deleted pages aren't restored)",
+ "Sắp xếp trang": "Organize pages",
+ "Kéo thả trang (trên máy tính) hoặc dùng nút ← → dưới mỗi trang để đổi thứ tự. Nút ↺ ↻ để xoay, 🗑 để xoá trang.": "Drag and drop pages (on a computer) or use the ← → buttons under each page to reorder. ↺ ↻ rotate, 🗑 deletes a page.",
+ "Bấm “Thêm PDF” để chèn trang của file khác vào; trang của mỗi file được đánh chữ A, B, C…": "Click “Add PDF” to insert pages from another file; each file's pages are labeled A, B, C…",
+ "File mới sẽ có <b>{0}</b> trang{1}{2}.": "The new file will have <b>{0}</b> {0|page|pages}{1}{2}.",
+ " từ <b>{0}</b> file": " from <b>{0}</b> files",
+ " (gồm {0} trang trắng)": " (including {0} blank {0|page|pages})",
+ "Cần ít nhất một trang có nội dung.": "At least one page with content is needed.",
+ "Đang lưu file…": "Saving file…",
+ "Đã lưu thứ tự trang mới!": "New page order saved!"
+}

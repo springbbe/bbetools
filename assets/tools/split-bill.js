@@ -1,6 +1,6 @@
 /* Chia tiền nhóm: thành viên, các khoản chi (ai trả, chia cho ai) → ai nợ ai với số lần chuyển khoản ít nhất.
    Trạng thái nằm trên URL để gửi cho cả nhóm; có nút tạo mã VietQR cho từng khoản chuyển. */
-import { h, icon, ROOT } from "../core.js";
+import { h, icon, ROOT, LANG } from "../core.js";
 import { formTool } from "../frames/form.js";
 import { money, stat, stats, table, alert, note } from "../calc.js";
 import { settle } from "../lib/chia-tien.js";
@@ -77,7 +77,8 @@ formTool({
   fields: [
     { id: "ppl", type: "custom", render: peopleEditor, value: "An,Bình,Chi,Dũng" },
     { id: "ex", type: "custom", render: expensesEditor, value: "0.1200000.*.Ăn tối~1.300000.*.Taxi~2.240000.7.Cà phê" },
-    { id: "round", type: "select", label: "Làm tròn số tiền chuyển", value: "1000", choices: [["1", "Không làm tròn"], ["1000", "Đến 1.000 đ"], ["10000", "Đến 10.000 đ"]] }
+    { id: "round", type: "select", label: "Làm tròn số tiền chuyển", value: LANG === "vi" ? "1000" : "1",
+      choices: LANG === "vi" ? [["1", "Không làm tròn"], ["1000", "Đến 1.000 đ"], ["10000", "Đến 10.000 đ"]] : [["1", "Không làm tròn"], ["10", "Đến 10"], ["100", "Đến 100"]] }
   ],
   init(api) { API = api; },
   compute(v, out) {
@@ -90,7 +91,7 @@ formTool({
       out.append(h("p", { class: "opt-title", text: "Ai chuyển cho ai" }),
         h("ul", { class: "sb-tx" }, r.transfers.map((t) => h("li", null,
           h("b", { text: people[t.from] }), h("span", { html: icon("arrow-right") }), h("b", { text: people[t.to] }), h("span", { class: "sb-money", text: money(t.amount) }),
-          h("a", { class: "btn ghost sm", href: `${ROOT}tao-ma-qr-chuyen-khoan/?amount=${t.amount}`, title: `Tạo mã QR để ${people[t.from]} chuyển cho ${people[t.to]}` }, h("span", { html: icon("qr-code"), style: { display: "contents" } }), "QR")))));
+          LANG !== "vi" ? null : h("a", { class: "btn ghost sm", href: `${ROOT}tao-ma-qr-chuyen-khoan/?amount=${t.amount}`, title: `Tạo mã QR để ${people[t.from]} chuyển cho ${people[t.to]}` }, h("span", { html: icon("qr-code"), style: { display: "contents" } }), "QR")))));
     } else out.append(alert("ok", "Mọi người đã trả đúng phần của mình, không ai nợ ai."));
     out.append(table(["Thành viên", "Đã trả", "Phần phải chịu", "Chênh lệch"], people.map((p, i) => [p, money(r.paid[i], ""), money(r.share[i], ""), (r.balance[i] > 0 ? "+" : "") + money(r.balance[i], "")]), { cls: ["l"] }),
       note("Đơn vị: đồng. Chênh lệch dương là được nhận lại, âm là phải trả thêm. Bấm “Sao chép link” để gửi bảng chia này cho cả nhóm — dữ liệu nằm ngay trong đường link, không lưu ở đâu cả."));

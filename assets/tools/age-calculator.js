@@ -1,5 +1,5 @@
 /* Tính tuổi chính xác: năm, tháng, ngày; tổng số ngày, tuần, giờ; sinh nhật tiếp theo; thứ trong tuần; ngày âm lịch */
-import { h, fmtNum, ROOT } from "../core.js";
+import { h, fmtNum, ROOT, LANG } from "../core.js";
 import { formTool } from "../frames/form.js";
 import { kv, stat, stats, alert } from "../calc.js";
 import { parseDate, diffYMD, toDays, iso, today, weekday, daysInMonth } from "../lib/ngay.js";
@@ -37,6 +37,8 @@ formTool({
       ["Con giáp", `${CON_GIAP[(l.year + 8) % 12]} (tuổi mụ ${solarToLunar(at.d, at.m, at.y).year - l.year + 1})`],
       ["Tổng số giờ", "≈ " + fmtNum(days * 24)],
       ["Mốc 10.000 ngày", (() => { const x = new Date(Date.UTC(b.y, b.m - 1, b.d) + 1e4 * 864e5); return `${x.getUTCDate()}/${x.getUTCMonth() + 1}/${x.getUTCFullYear()}`; })()]
-    ]), h("p", { class: "hint" }, "Xem thêm mệnh, can chi: ", h("a", { href: ROOT + "xem-tuoi-con-giap/?d=" + iso(b), text: "Xem tuổi, con giáp" }), "."));
+    ]));
+    // trang tiếng Việt: gợi ý công cụ Xem tuổi, con giáp (chỉ có ở tiếng Việt)
+    if (LANG === "vi") out.append(h("p", { class: "hint" }, "Xem thêm mệnh, can chi: ", h("a", { href: ROOT + "xem-tuoi-con-giap/?d=" + iso(b), text: "Xem tuổi, con giáp" }), "."));
   }
 });

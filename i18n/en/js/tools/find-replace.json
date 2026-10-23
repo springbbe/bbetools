@@ -1,0 +1,18 @@
+{
+ "Đã thay {0} chỗ.": "Replaced {0} {0|match|matches}.",
+ "<span class=\"hit-empty\" title=\"đã xoá\">⌫</span>": "<span class=\"hit-empty\" title=\"deleted\">⌫</span>",
+ "Không tìm thấy chỗ nào khớp.": "No matches found.",
+ "Văn bản": "Text",
+ "Sau khi thay": "After replacing",
+ "Dán văn bản cần tìm và thay thế…": "Paste the text to find and replace in…",
+ "Kính gửi: Ông Nguyễn Văn A\nNgày 21/10/2026, Công ty TNHH ABC đã gửi báo giá số BG-2026-015.\nLiên hệ: 0901 234 567 hoặc email lienhe@abc.vn\nNgày 25/10/2026 là hạn chót xác nhận.": "Dear Mr. John Smith,\nOn 10/21/2026, ABC Ltd. sent quotation no. QT-2026-015.\nContact: +1 555 0123 or email hello@abc.example\n10/25/2026 is the confirmation deadline.",
+ "Tìm": "Find",
+ "Từ cần tìm": "Text to find",
+ "Thay bằng": "Replace with",
+ "Để trống = xoá": "Leave empty = delete",
+ "Phân biệt hoa/thường": "Match case",
+ "Chỉ khớp nguyên từ": "Whole words only",
+ "Biểu thức chính quy (regex)": "Regular expression (regex)",
+ "da-thay-the.txt": "replaced.txt",
+ "Nhập từ cần tìm ở ô “Tìm”.": "Enter the text to find in the “Find” box."
+}

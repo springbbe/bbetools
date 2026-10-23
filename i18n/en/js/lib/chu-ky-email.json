@@ -1,0 +1,6 @@
+{
+ "<span style=\"{0}\">ĐT:</span> {1}": "<span style=\"{0}\">Tel:</span> {1}",
+ "<div><span style=\"{0}\">Địa chỉ:</span> {1}</div>": "<div><span style=\"{0}\">Address:</span> {1}</div>",
+ "ĐT: ": "Tel: ",
+ "Địa chỉ: ": "Address: "
+}

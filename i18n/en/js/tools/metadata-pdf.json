@@ -1,0 +1,20 @@
+{
+ "Tiêu đề": "Title",
+ "Tác giả": "Author",
+ "Chủ đề": "Subject",
+ "Từ khoá": "Keywords",
+ "Phần mềm tạo": "Creator",
+ "Phần mềm xuất PDF": "PDF producer",
+ "Tạo lúc: {0} · Sửa lúc: {1}": "Created: {0} · Modified: {1}",
+ "Lưu thông tin": "Save info",
+ "Ngăn cách bằng dấu phẩy.": "Separate with commas.",
+ "Xoá sạch thông tin ẩn": "Remove all hidden info",
+ "Bỏ hết các trường trên, ngày tạo/sửa và khối XMP trước khi gửi file đi.": "Clears all the fields above, the created/modified dates and the XMP block before you send the file.",
+ "Đang đọc thông tin…": "Reading info…",
+ "Đang lưu…": "Saving…",
+ "-da-xoa-thong-tin": "-metadata-removed",
+ "-da-sua-thong-tin": "-metadata-edited",
+ "đã xoá thông tin ẩn": "hidden info removed",
+ "đã cập nhật thông tin": "info updated",
+ "Đã lưu thông tin PDF!": "PDF info saved!"
+}
