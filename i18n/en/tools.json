@@ -43,12 +43,20 @@
   "productivity": {
    "name": "Productivity & Random",
    "desc": "Pomodoro, stopwatch, timer, spin the wheel, team picker, quick notes."
+  },
+  "download": {
+   "name": "Downloads",
+   "desc": "Download Telegram, LINE and Signal stickers and animated emoji straight from the source, with no middleman server."
   }
  },
  "data": {
   "ngay-le": {
    "title": "Vietnam public holidays",
    "source": "Article 112 of Vietnam's 2019 Labor Code; Vietnam Culture Day (November 24) is a paid holiday from 2026"
+  },
+  "noto-emoji": {
+   "title": "Noto Animated Emoji list",
+   "source": "Google's Noto Animated Emoji page (googlefonts.github.io/noto-emoji-animation), Vietnamese names from Unicode CLDR 47.0.0 annotations"
   }
  },
  "tools": {
@@ -3816,6 +3824,120 @@
     {
      "q": "Can I use downloaded stickers commercially?",
      "a": "Stickers are copyrighted by their creators. Only download them for personal use, or with the creator's permission."
+    }
+   ]
+  },
+  "line-stickers": {
+   "name": "LINE Sticker Downloader",
+   "desc": "Paste a LINE Store link to download a whole LINE sticker or emoji set: original PNG, animated APNG with sound, or converted to GIF. No login needed.",
+   "privacy": "BbeTools has no server: your browser downloads straight from LINE's server (stickershop.line-scdn.net). No login, and no LINE account details are sent.",
+   "keywords": [
+    "line sticker downloader",
+    "download line stickers",
+    "line stickers to gif",
+    "line emoji download",
+    "apng to gif",
+    "animated line stickers",
+    "line sticker sound"
+   ],
+   "howto": [
+    "Open the sticker or emoji set on store.line.me and copy the page address (or in the LINE app: sticker set page → Share → Copy link).",
+    "Paste it into the Link box and click “Get sticker set”; the whole set downloads, including animations and sounds.",
+    "Choose PNG + GIF or the original format, then click “Download all (.zip)” or click a sticker to download just that one."
+   ],
+   "faq": [
+    {
+     "q": "Do I need to log in to LINE or buy the set?",
+     "a": "No login is needed. The page only downloads the image files that the LINE Store shows publicly, for you to save for personal use. To send the stickers in LINE you still need to get or buy the set in LINE."
+    },
+    {
+     "q": "What file format are animated LINE stickers?",
+     "a": "The originals are animated PNG (APNG), which open in browsers, Telegram, Discord and graphics apps. Choose “PNG + GIF” to convert them to GIF that works everywhere. Stickers with sound also get an .m4a file with the same number."
+    },
+    {
+     "q": "Why do GIF edges look jagged?",
+     "a": "GIF pixels are either fully transparent or not, so soft sticker edges get rounded off. Pick a White (or Black) background that matches where you'll paste them for smooth edges, or keep the animated PNG (original format)."
+    },
+    {
+     "q": "Can I download LINE emoji too?",
+     "a": "Yes. Paste an emoji set link like store.line.me/emojishop/product/… ; animated emoji are converted to GIF just like stickers."
+    },
+    {
+     "q": "Can I use downloaded stickers commercially?",
+     "a": "No. Stickers are copyrighted by their creators. Download them for personal use only, or with the creator's permission."
+    }
+   ]
+  },
+  "noto-emoji": {
+   "name": "Animated Emoji Downloader",
+   "desc": "Search emoji and download Google's animated versions (Noto Animated Emoji) as GIF, WEBP or Lottie, plus large still PNGs.",
+   "privacy": "The emoji list ships with BbeTools; emoji images are downloaded by your browser straight from Google Fonts (fonts.gstatic.com). Smaller GIFs are made right on your device.",
+   "keywords": [
+    "animated emoji",
+    "emoji gif download",
+    "noto animated emoji",
+    "emoji png",
+    "emoji lottie",
+    "transparent emoji gif",
+    "animated emoji download"
+   ],
+   "howto": [
+    "Type an emoji name (e.g. “smile”, “heart”, “cat”) or paste an emoji into the Search box; you can filter by category.",
+    "Click an emoji to see it animated.",
+    "Click GIF, WEBP, PNG, SVG or Lottie to download Google's ready-made file, or choose a size and background and click “Make GIF” for a lighter GIF."
+   ],
+   "faq": [
+    {
+     "q": "Where do these animated emoji come from, and can I use them commercially?",
+     "a": "This is Google's Noto Animated Emoji set, released under the CC BY 4.0 license: you may use it in videos, apps and commercial projects, as long as you give credit (e.g. “Noto Emoji, Google”)."
+    },
+    {
+     "q": "Which format should I download?",
+     "a": "GIF opens everywhere but is heavy with slightly jagged edges; animated WEBP is light with smooth edges, good for the web and chat apps; PNG is a 512 px still image; SVG is a vector that scales without blur; Lottie (JSON) is for developers using lottie-web, lottie-ios or lottie-android."
+    },
+    {
+     "q": "The 512 px GIF is too big?",
+     "a": "Choose 128 px or 64 px and click “Make GIF”: the page redraws the emoji from its Lottie file into a much lighter GIF, with an optional white or black background for smooth edges."
+    },
+    {
+     "q": "Why are some emoji missing?",
+     "a": "Google only made animated versions of about 900 popular emoji (smileys, gestures, animals, food…). Emoji not in the list don't have an animated version yet."
+    }
+   ]
+  },
+  "signal-stickers": {
+   "name": "Signal Sticker Downloader",
+   "desc": "Paste a signal.art/addstickers link to download and decrypt a whole Signal sticker pack right in your browser, as WEBP, PNG or GIF.",
+   "privacy": "BbeTools has no server: your browser downloads the encrypted pack from Signal's server (cdn-ca.signal.org) and decrypts it itself. The pack_key is only used on your device and never sent anywhere.",
+   "keywords": [
+    "signal sticker downloader",
+    "download signal stickers",
+    "signal.art",
+    "signal stickers to gif",
+    "decrypt signal stickers",
+    "addstickers"
+   ],
+   "howto": [
+    "In Signal, open the sticker pack → Share → Copy link (like signal.art/addstickers/#pack_id=…&pack_key=…).",
+    "Paste it into the Link box and click “Get sticker pack”; the page downloads and decrypts the whole pack.",
+    "Choose PNG + GIF or the original format (WEBP, APNG), then click “Download all (.zip)” or click individual stickers."
+   ],
+   "faq": [
+    {
+     "q": "Why do Signal stickers need decrypting?",
+     "a": "Signal encrypts every sticker pack on its server (AES-256); only people with the full link have the key (pack_key) to open it. The page uses the key in the link to decrypt right in your browser with Web Crypto, so BbeTools never sees your stickers or key."
+    },
+    {
+     "q": "My link says the key is wrong?",
+     "a": "The link must include both pack_id (32 characters) and pack_key (64 characters). If you only copied part of it, open the pack in Signal again → Share → Copy link."
+    },
+    {
+     "q": "What format are Signal stickers?",
+     "a": "Still stickers are usually WEBP; animated ones are animated PNG (APNG) or animated WEBP. Choose “PNG + GIF” for files that open everywhere; choose “Original format” to keep full quality for reuse in Signal, Telegram, WhatsApp."
+    },
+    {
+     "q": "Can I use downloaded stickers commercially?",
+     "a": "Stickers are copyrighted by their creators. Download them for personal use only, or with the creator's permission."
     }
    ]
   }

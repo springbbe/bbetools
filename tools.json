@@ -18,7 +18,8 @@
     { "id": "office", "phase": 6, "slug": "van-phong", "name": "Văn phòng & dữ liệu", "icon": "sheet", "color": "#18794E", "desc": "Xem Excel/CSV, chuyển đổi, gộp, tách file Excel, trộn thư, chữ ký email." },
     { "id": "dev", "phase": 5, "slug": "lap-trinh", "name": "Lập trình", "icon": "code", "color": "#3E63DD", "desc": "JSON, Base64, JWT, UUID, hash, regex, timestamp, cron, mã màu, SQL." },
     { "id": "security", "phase": 7, "slug": "bao-mat", "name": "Bảo mật", "icon": "shield", "color": "#0E7C86", "desc": "Tạo mật khẩu mạnh, mã hoá file và văn bản, checksum, mã 2FA." },
-    { "id": "productivity", "phase": 7, "slug": "nang-suat", "name": "Năng suất & ngẫu nhiên", "icon": "timer", "color": "#5C8A1C", "desc": "Pomodoro, bấm giờ, hẹn giờ, vòng quay may mắn, chia đội, ghi chú nhanh." }
+    { "id": "productivity", "phase": 7, "slug": "nang-suat", "name": "Năng suất & ngẫu nhiên", "icon": "timer", "color": "#5C8A1C", "desc": "Pomodoro, bấm giờ, hẹn giờ, vòng quay may mắn, chia đội, ghi chú nhanh." },
+    { "id": "download", "phase": 9, "slug": "tai-ve", "name": "Tải về", "icon": "download", "color": "#0090FF", "desc": "Tải sticker Telegram, LINE, Signal và emoji động thẳng từ nguồn về máy, không qua máy chủ trung gian." }
   ],
   "tools": [
     {
@@ -667,13 +668,13 @@
     },
 
     {
-      "id": "telegram-stickers", "slug": "tai-sticker-telegram", "name": "Tải sticker Telegram", "group": "image", "icon": "sticker", "kind": "interactive",
+      "id": "telegram-stickers", "slug": "tai-sticker-telegram", "name": "Tải sticker Telegram", "group": "download", "icon": "sticker", "kind": "interactive",
       "desc": "Tải cả bộ sticker Telegram về máy: nguyên bản (WEBP, TGS, WEBM) hoặc đổi sang PNG, GIF; đổi được cả file .tgs, .webm có sẵn.",
       "privacy": "BbeTools không có máy chủ: trình duyệt của bạn gọi thẳng api.telegram.org bằng token bot của chính bạn. File .tgs, .webm bạn tự chọn chỉ được xử lý trên máy này.",
       "keywords": ["tải sticker telegram", "download sticker telegram", "telegram sticker downloader", "sticker telegram sang gif", "tgs sang gif", "tgs to gif", "webm sang gif", "lưu sticker telegram", "bộ sticker telegram", "telegram emoji"],
       "status": "done",
       "aliases": ["sticker-telegram", "telegram-sticker", "tgs-sang-gif"],
-      "related": ["gif-maker", "video-to-gif", "convert-image", "remove-bg"],
+      "related": ["line-stickers", "signal-stickers", "gif-maker", "video-to-gif"],
       "howto": ["Trong Telegram, mở bộ sticker → ⋮ → Sao chép link (dạng t.me/addstickers/…) rồi dán vào ô Link.", "Dán token bot của bạn (tạo miễn phí trong 1 phút bằng @BotFather, xem hướng dẫn ngay dưới ô) và bấm “Lấy bộ sticker”.", "Chọn PNG + GIF hoặc định dạng gốc, bấm “Tải tất cả (.zip)” hoặc bấm từng sticker để tải riêng."],
       "faq": [
         { "q": "Có cần máy chủ để tải sticker không?", "a": "Không. Telegram cho phép trang web gọi thẳng Bot API, nên trình duyệt của bạn tự lấy danh sách và file sticker từ api.telegram.org. BbeTools không có máy chủ trung gian, không nhận token hay sticker của bạn." },
@@ -2098,6 +2099,121 @@
         { "q": "Nên kiểm tra khi nào?", "a": "Ngay khi mua máy, màn hình mới (còn trong thời gian đổi trả), và khi mua máy cũ. Hãy kiểm tra trong phòng tối để thấy rõ hở sáng." },
         { "q": "Tần số quét đo có chính xác không?", "a": "Gần đúng: trang đo số khung hình trình duyệt vẽ mỗi giây, có thể thấp hơn tần số thật khi máy đang tiết kiệm pin." }
       ]
+    }
+ ,
+    {
+      "id": "line-stickers", "slug": "tai-sticker-line", "name": "Tải sticker LINE", "group": "download", "icon": "sticker", "kind": "interactive",
+      "desc": "Dán link cửa hàng LINE để tải cả bộ sticker hoặc emoji LINE: nguyên bản PNG, APNG động kèm âm thanh, hoặc đổi sang GIF. Không cần đăng nhập.",
+      "keywords": ["tải sticker line", "download sticker line", "line sticker downloader", "sticker line sang gif", "emoji line", "apng sang gif", "lưu sticker line", "sticker line động", "sticker line có âm thanh"],
+      "status": "done", "popular": true,
+      "privacy": "BbeTools không có máy chủ: trình duyệt của bạn tải thẳng từ máy chủ của LINE (stickershop.line-scdn.net). Không cần đăng nhập, không gửi thông tin tài khoản LINE.",
+      "aliases": ["sticker-line", "line-sticker", "tai-emoji-line"],
+      "related": ["telegram-stickers", "signal-stickers", "noto-emoji", "gif-maker"],
+      "howto": ["Mở bộ sticker hoặc emoji trên store.line.me và sao chép địa chỉ trang (hoặc trong app LINE: trang bộ sticker → Chia sẻ → Sao chép link).", "Dán vào ô Link rồi bấm “Lấy bộ sticker”; trang tự tải cả bộ, kể cả sticker động và âm thanh.", "Chọn PNG + GIF hoặc định dạng gốc, bấm “Tải tất cả (.zip)” hoặc bấm từng sticker để tải riêng."],
+      "faq": [
+        { "q": "Có cần đăng nhập LINE hay mua bộ sticker không?", "a": "Không cần đăng nhập. Trang chỉ tải các file ảnh mà cửa hàng LINE để công khai cho mọi người xem, để bạn lưu dùng cá nhân. Muốn gửi sticker trong LINE thì vẫn phải tải hoặc mua bộ đó trong LINE." },
+        { "q": "Sticker động LINE tải về là file gì?", "a": "Bản gốc là PNG động (APNG): mở được bằng trình duyệt, Telegram, Discord và phần mềm đồ hoạ. Chọn “PNG + GIF” để đổi sang GIF dùng được ở mọi nơi (Zalo, Messenger, Word…). Sticker có âm thanh kèm thêm file .m4a cùng số thứ tự." },
+        { "q": "Vì sao GIF có viền răng cưa?", "a": "GIF chỉ có điểm ảnh trong suốt hoàn toàn hoặc không, nên viền mờ của sticker bị làm tròn. Chọn nền Trắng (hoặc Đen) cho khớp với nơi dán để viền mịn, hoặc giữ PNG động (định dạng gốc)." },
+        { "q": "Tải được emoji LINE không?", "a": "Được. Dán link bộ emoji dạng store.line.me/emojishop/product/… ; emoji động cũng được đổi sang GIF như sticker." },
+        { "q": "Có được dùng sticker tải về cho mục đích thương mại không?", "a": "Không. Sticker thuộc bản quyền của tác giả và LINE. Chỉ nên tải để dùng cá nhân, hoặc khi được tác giả cho phép." }
+      ]
+    },
+    {
+      "id": "noto-emoji", "slug": "tai-emoji-dong", "name": "Tải emoji động", "group": "download", "icon": "smile", "kind": "interactive",
+      "desc": "Tìm emoji và tải bản động của Google (Noto Animated Emoji) dạng GIF, WEBP hoặc Lottie, cùng ảnh PNG tĩnh cỡ lớn.",
+      "keywords": ["emoji động", "tải emoji gif", "animated emoji", "noto emoji", "emoji png", "emoji lottie", "emoji trong suốt", "icon cảm xúc động", "emoji gif trong suốt"],
+      "status": "done",
+      "data": ["noto-emoji"],
+      "privacy": "Danh sách emoji nằm sẵn trong BbeTools; ảnh emoji được trình duyệt tải thẳng từ máy chủ Google Fonts (fonts.gstatic.com). GIF cỡ nhỏ được tạo ngay trên máy bạn.",
+      "aliases": ["emoji-dong", "animated-emoji"],
+      "related": ["line-stickers", "telegram-stickers", "gif-maker"],
+      "howto": ["Gõ tên emoji (có dấu hay không đều được, vd. “cuoi”, “tim”, “mèo”) hoặc dán thẳng emoji vào ô Tìm; có thể lọc theo nhóm.", "Bấm vào emoji để xem bản động.", "Bấm GIF, WEBP, PNG, SVG hoặc Lottie để tải file Google làm sẵn, hoặc chọn cỡ và nền rồi bấm “Tạo GIF” để có GIF nhẹ hơn."],
+      "faq": [
+        { "q": "Emoji động này lấy từ đâu, có được dùng thương mại không?", "a": "Đây là bộ Noto Animated Emoji của Google, phát hành theo giấy phép CC BY 4.0: được dùng cả cho video, ứng dụng, mục đích thương mại, chỉ cần ghi nguồn (vd. “Noto Emoji, Google”)." },
+        { "q": "Nên tải định dạng nào?", "a": "GIF mở được ở mọi nơi nhưng nặng và viền hơi răng cưa; WEBP động nhẹ, viền mịn, hợp với web và ứng dụng chat; PNG là ảnh tĩnh 512 px; SVG là vector phóng to không vỡ; Lottie (JSON) dành cho lập trình viên, dùng với thư viện lottie-web, lottie-ios, lottie-android." },
+        { "q": "GIF 512 px quá nặng?", "a": "Chọn cỡ 128 px hoặc 64 px rồi bấm “Tạo GIF”: trang vẽ lại emoji từ file Lottie thành GIF nhẹ hơn nhiều, chọn được nền trắng hoặc đen để viền mịn." },
+        { "q": "Vì sao không thấy một số emoji?", "a": "Google chỉ làm bản động cho khoảng 900 emoji phổ biến (mặt cười, cử chỉ, động vật, đồ ăn…). Emoji không có trong danh sách thì chưa có bản động." }
+      ]
+    },
+    {
+      "id": "signal-stickers", "slug": "tai-sticker-signal", "name": "Tải sticker Signal", "group": "download", "icon": "sticker", "kind": "interactive",
+      "desc": "Dán link signal.art/addstickers để tải và giải mã cả bộ sticker Signal ngay trên trình duyệt, xuất WEBP, PNG hoặc GIF.",
+      "keywords": ["tải sticker signal", "download sticker signal", "signal sticker downloader", "signal.art", "sticker signal sang gif", "giải mã sticker signal", "addstickers"],
+      "status": "done",
+      "privacy": "BbeTools không có máy chủ: trình duyệt tải bộ sticker đã mã hoá từ máy chủ của Signal (cdn-ca.signal.org) rồi tự giải mã. Khoá pack_key chỉ dùng trên máy bạn, không gửi đi đâu.",
+      "aliases": ["sticker-signal"],
+      "related": ["telegram-stickers", "line-stickers", "gif-maker"],
+      "howto": ["Trong Signal, mở bộ sticker → Chia sẻ → Sao chép link (dạng signal.art/addstickers/#pack_id=…&pack_key=…).", "Dán vào ô Link rồi bấm “Lấy bộ sticker”; trang tự tải và giải mã cả bộ.", "Chọn PNG + GIF hoặc định dạng gốc (WEBP, APNG), bấm “Tải tất cả (.zip)” hoặc bấm từng sticker."],
+      "faq": [
+        { "q": "Vì sao sticker Signal cần giải mã?", "a": "Signal mã hoá mọi bộ sticker trên máy chủ (AES-256); chỉ ai có link đầy đủ mới có khoá (pack_key) để mở. Trang dùng khoá trong link để giải mã ngay trên trình duyệt bằng Web Crypto, nên BbeTools không nhìn thấy sticker hay khoá của bạn." },
+        { "q": "Link của tôi báo sai khoá?", "a": "Link phải có đủ cả pack_id (32 ký tự) và pack_key (64 ký tự). Nếu chỉ chép được một phần, hãy mở lại bộ sticker trong Signal → Chia sẻ → Sao chép link." },
+        { "q": "Sticker Signal tải về là định dạng gì?", "a": "Sticker tĩnh thường là WEBP, sticker động là PNG động (APNG) hoặc WEBP động. Chọn “PNG + GIF” để có file mở được ở mọi nơi; chọn “Định dạng gốc” để giữ chất lượng, dùng lại trong Signal, Telegram, WhatsApp." },
+        { "q": "Có được dùng sticker tải về cho mục đích thương mại không?", "a": "Sticker thuộc bản quyền của tác giả. Chỉ nên tải để dùng cá nhân, hoặc khi được tác giả cho phép." }
+      ]
+    },
+    {
+      "id": "twitch-emotes", "slug": "tai-emote-twitch", "name": "Tải emote Twitch, 7TV, BTTV", "group": "download", "icon": "tv", "kind": "interactive",
+      "desc": "Nhập tên kênh Twitch để tải cả bộ emote 7TV, BetterTTV, FrankerFaceZ của kênh về file zip, giữ ảnh động.",
+      "keywords": ["tải emote twitch", "emote 7tv", "betterttv", "frankerfacez", "download twitch emotes", "emote streamer"],
+      "status": "todo",
+      "aliases": ["emote-twitch", "tai-emote-7tv"],
+      "related": ["telegram-stickers"]
+    },
+    {
+      "id": "discord-emoji", "slug": "tai-emoji-discord", "name": "Tải emoji, sticker Discord", "group": "download", "icon": "smile-plus", "kind": "interactive",
+      "desc": "Dán link hoặc ID emoji, sticker Discord để tải bản gốc cỡ lớn nhất (PNG, GIF, WEBP, Lottie đổi sang GIF).",
+      "keywords": ["tải emoji discord", "download emoji discord", "sticker discord", "emoji discord gif", "lưu emoji discord"],
+      "status": "todo",
+      "aliases": ["emoji-discord"],
+      "related": ["telegram-stickers"]
+    },
+    {
+      "id": "youtube-thumbnail", "slug": "tai-thumbnail-youtube", "name": "Tải ảnh thumbnail YouTube", "group": "download", "icon": "image-down", "kind": "interactive",
+      "desc": "Dán link video, Shorts YouTube để xem và tải ảnh thumbnail ở mọi cỡ, tới HD 1280×720.",
+      "keywords": ["tải thumbnail youtube", "lấy ảnh bìa youtube", "youtube thumbnail downloader", "ảnh đại diện video youtube", "thumbnail shorts"],
+      "status": "todo",
+      "aliases": ["thumbnail-youtube", "anh-bia-youtube"],
+      "related": ["crop-image", "compress-image"]
+    },
+    {
+      "id": "google-fonts", "slug": "tai-google-fonts", "name": "Tải font Google Fonts", "group": "download", "icon": "baseline", "kind": "interactive",
+      "desc": "Chọn font Google Fonts và tải file WOFF2, TTF kèm đoạn CSS để tự host, chọn được bộ ký tự tiếng Việt.",
+      "keywords": ["tải google fonts", "download google font", "font tiếng việt", "tự host font", "woff2", "ttf", "google webfonts helper"],
+      "status": "todo",
+      "aliases": ["google-fonts"],
+      "related": ["css-generator", "minifier"]
+    },
+    {
+      "id": "github-folder", "slug": "tai-thu-muc-github", "name": "Tải thư mục GitHub", "group": "download", "icon": "folder-down", "kind": "interactive",
+      "desc": "Dán link một thư mục hoặc file trên GitHub để tải riêng phần đó về dạng zip, không phải tải cả repo.",
+      "keywords": ["tải thư mục github", "download github folder", "downgit", "tải một thư mục github", "github zip"],
+      "status": "todo",
+      "aliases": ["github-folder", "downgit"],
+      "related": ["checksum"]
+    },
+    {
+      "id": "app-store-assets", "slug": "tai-icon-app-store", "name": "Tải icon, ảnh chụp app App Store", "group": "download", "icon": "app-window", "kind": "interactive",
+      "desc": "Dán link app trên App Store để tải icon cỡ lớn và ảnh chụp màn hình iPhone, iPad của app.",
+      "keywords": ["tải icon app", "app store icon", "ảnh chụp màn hình app store", "icon ios", "app icon downloader"],
+      "status": "todo",
+      "aliases": ["icon-app-store"],
+      "related": ["favicon", "resize-image"]
+    },
+    {
+      "id": "bluesky-media", "slug": "tai-anh-video-bluesky", "name": "Tải ảnh, video Bluesky", "group": "download", "icon": "cloud-download", "kind": "interactive",
+      "desc": "Dán link bài đăng Bluesky để tải ảnh gốc và video (ghép thành MP4) ngay trên trình duyệt.",
+      "keywords": ["tải video bluesky", "tải ảnh bluesky", "bluesky downloader", "bsky video"],
+      "status": "todo",
+      "aliases": ["bluesky-downloader"],
+      "related": ["video-to-mp3", "video-to-gif"]
+    },
+    {
+      "id": "mastodon-media", "slug": "tai-anh-video-mastodon", "name": "Tải ảnh, video Mastodon", "group": "download", "icon": "at-sign", "kind": "interactive",
+      "desc": "Dán link bài đăng Mastodon để tải ảnh, video, GIF gốc đính kèm.",
+      "keywords": ["tải video mastodon", "tải ảnh mastodon", "mastodon downloader", "fediverse"],
+      "status": "todo",
+      "aliases": ["mastodon-downloader"],
+      "related": ["video-to-mp3", "video-to-gif"]
     }
   ]
 }

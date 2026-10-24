@@ -16,7 +16,7 @@ test("mỗi công cụ có từ khoá tìm được theo tên không dấu", () 
   }
 });
 
-test("có đủ 11 nhóm và trên 100 công cụ trong registry", () => {
-  assert.equal(reg.groups.length, 11);
+test("có đủ 12 nhóm và trên 100 công cụ trong registry", () => {
+  assert.equal(reg.groups.length, 12);
   assert.ok(reg.tools.length > 100);
 });

@@ -2,9 +2,10 @@
    api.telegram.org — Telegram cho phép gọi từ trang web, BbeTools không có máy chủ trung gian), xem trước, tải nguyên bản
    (WEBP, TGS, WEBM) hoặc đổi sang PNG (ảnh tĩnh) và GIF (sticker động). Cũng đổi được file .tgs/.webm/.webp có sẵn.
    .tgs là Lottie JSON nén gzip: vẽ bằng lottie-web (canvas) theo từng khung rồi mã hoá GIF bằng gifenc. */
-import { h, icon, lib, toast, save, zip, intake, passwordField, sampleFiles, baseName, fmtSize, nextFrame } from "../core.js";
+import { h, icon, toast, save, zip, intake, passwordField, sampleFiles, baseName, fmtSize, nextFrame } from "../core.js";
 import { interactiveTool } from "../frames/interactive.js";
 import { packName, isToken, stickerKind, kindOfName, itemName, frameSchedule } from "../lib/telegram.js";
+import { userErr, canvasOf, paint, gifFrom, lottieData, lottieOn, lottieToGif, stillToPng } from "../sticker.js";
 
 const API = "https://api.telegram.org/";
 const GIF_FPS = 30;
@@ -33,7 +34,6 @@ css.textContent = `
 document.head.append(css);
 
 /* ---------- Telegram Bot API (gọi thẳng từ trình duyệt) ---------- */
-const userErr = (msg) => { const e = new Error(msg); e.userMsg = msg; return e; };
 async function call(token, method, params, signal) {
   for (let attempt = 0; ; attempt++) {
     let r;
@@ -59,73 +59,10 @@ async function download(token, fileId, signal) {
   return r.blob();
 }
 
-/* ---------- đọc, vẽ, đổi định dạng ---------- */
-async function gunzip(blob) {
-  const head = new Uint8Array(await blob.slice(0, 2).arrayBuffer());
-  if (head[0] !== 0x1f || head[1] !== 0x8b) return blob.text(); // .json Lottie chưa nén
-  if (typeof DecompressionStream !== "undefined") return new Response(blob.stream().pipeThrough(new DecompressionStream("gzip"))).text();
-  const pako = await lib("pako");
-  return pako.ungzip(new Uint8Array(await blob.arrayBuffer()), { to: "string" });
-}
-async function lottieData(blob) {
-  try { const d = JSON.parse(await gunzip(blob)); if (d && d.layers && d.fr) return d; } catch (_) {}
-  throw userErr("File .tgs không hợp lệ.");
-}
-/** Một hoạt ảnh Lottie vẽ lên canvas cho sẵn (không cần phần tử chứa) */
-async function lottieOn(canvas, data, loop) {
-  const L = await lib("lottie");
-  const anim = L.loadAnimation({ renderer: "canvas", loop, autoplay: false, animationData: JSON.parse(JSON.stringify(data)),
-    rendererSettings: { context: canvas.getContext("2d"), clearCanvas: true, preserveAspectRatio: "xMidYMid meet" } });
-  if (!anim.isLoaded) await new Promise((res) => { anim.addEventListener("DOMLoaded", res); setTimeout(res, 3000); });
-  return anim;
-}
-const durOf = (d) => Math.max(1, (d.op || 0) - (d.ip || 0)) / (d.fr || 60);
-
-function canvasOf(w, hh) { const c = document.createElement("canvas"); c.width = w; c.height = hh; return c; }
-const toBlob = (c, type, q) => new Promise((res, rej) => c.toBlob((b) => (b ? res(b) : rej(userErr("Trình duyệt không xuất được ảnh."))), type, q));
-
-/** Mã hoá dãy khung RGBA thành GIF; trong suốt 1 bit (GIF không có trong suốt mờ dần) hoặc nền màu */
-async function gifFrom(w, hh, frames, transparent) {
-  const { GIFEncoder, quantize, applyPalette } = await lib("gifenc");
-  const gif = GIFEncoder();
-  for await (const { rgba, delay } of frames) {
-    if (transparent) {
-      const palette = quantize(rgba, 256, { format: "rgba4444", oneBitAlpha: true });
-      const index = applyPalette(rgba, palette, "rgba4444");
-      const ti = palette.findIndex((c) => c[3] === 0);
-      gif.writeFrame(index, w, hh, { palette, delay, repeat: 0, transparent: ti >= 0, transparentIndex: Math.max(0, ti), dispose: 2 });
-    } else {
-      const palette = quantize(rgba, 256);
-      gif.writeFrame(applyPalette(rgba, palette), w, hh, { palette, delay, repeat: 0 });
-    }
-  }
-  gif.finish();
-  return new Blob([gif.bytes()], { type: "image/gif" });
-}
-function paint(dst, src, bg) {
-  const x = dst.getContext("2d", { willReadFrequently: true });
-  x.clearRect(0, 0, dst.width, dst.height);
-  if (bg) { x.fillStyle = bg; x.fillRect(0, 0, dst.width, dst.height); }
-  x.drawImage(src, 0, 0, dst.width, dst.height);
-  return x.getImageData(0, 0, dst.width, dst.height).data;
-}
-
+/* ---------- đổi định dạng (hàm chung ở assets/sticker.js) ---------- */
 async function tgsToGif(it, o) {
   const data = it.data || (it.data = await lottieData(it.blob));
-  const ratio = (data.w || 512) / (data.h || 512);
-  const w = ratio >= 1 ? o.size : Math.round(o.size * ratio), hh = ratio >= 1 ? Math.round(o.size / ratio) : o.size;
-  const src = canvasOf(w, hh), dst = canvasOf(w, hh);
-  const anim = await lottieOn(src, data, false);
-  const fr = data.fr || 60, plan = frameSchedule(durOf(data), Math.min(GIF_FPS, fr));
-  try {
-    return await gifFrom(w, hh, (async function* () {
-      for (const f of plan) {
-        anim.goToAndStop(Math.min(f.t * fr, anim.totalFrames - 1), true);
-        yield { rgba: paint(dst, src, o.bg), delay: f.delay };
-        await nextFrame();
-      }
-    })(), !o.bg);
-  } finally { anim.destroy(); }
+  return lottieToGif(data, o);
 }
 
 function videoOf(blob) {
@@ -155,13 +92,7 @@ async function webmToGif(it, o) {
     })(), !o.bg);
   } finally { URL.revokeObjectURL(v.src); }
 }
-async function webpToPng(it, o) {
-  let bmp;
-  try { bmp = await createImageBitmap(it.blob); } catch (_) { throw userErr("Không đọc được ảnh " + it.name + "."); }
-  const c = canvasOf(bmp.width, bmp.height);
-  paint(c, bmp, o.bg);
-  return toBlob(c, "image/png");
-}
+const webpToPng = (it, o) => stillToPng(it.blob, o.bg);
 /** Một sticker theo định dạng đã chọn → { blob, name } */
 async function exportOne(it, idx, total, o) {
   const base = it.fromFile ? baseName(it.name) : itemName(idx, total, "").slice(0, -1);

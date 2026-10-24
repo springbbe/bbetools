@@ -12,6 +12,7 @@
   <url><loc>https://springbbe.github.io/bbetools/nhom/lap-trinh/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/nhom/bao-mat/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/nhom/nang-suat/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/nhom/tai-ve/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/ghep-pdf/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/tach-pdf/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/xoa-trang-pdf/</loc></url>
@@ -161,6 +162,9 @@
   <url><loc>https://springbbe.github.io/bbetools/kiem-tra-ban-phim/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/kiem-tra-chuot/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/kiem-tra-man-hinh/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/tai-sticker-line/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/tai-emoji-dong/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/tai-sticker-signal/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/gioi-thieu/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/en/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/en/category/pdf/</loc></url>
@@ -173,6 +177,7 @@
   <url><loc>https://springbbe.github.io/bbetools/en/category/dev/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/en/category/security/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/en/category/productivity/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/en/category/download/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/en/merge-pdf/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/en/split-pdf/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/en/remove-pages-pdf/</loc></url>
@@ -302,5 +307,8 @@
   <url><loc>https://springbbe.github.io/bbetools/en/keyboard-test/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/en/mouse-test/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/en/screen-test/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/en/line-stickers/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/en/noto-emoji/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/en/signal-stickers/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/en/about/</loc></url>
 </urlset>

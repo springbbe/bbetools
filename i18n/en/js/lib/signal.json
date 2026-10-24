@@ -1,0 +1,6 @@
+{
+ "protobuf bị cắt": "truncated protobuf",
+ "protobuf không hợp lệ": "invalid protobuf",
+ "File quá ngắn": "File too short",
+ "MAC không khớp": "MAC mismatch"
+}

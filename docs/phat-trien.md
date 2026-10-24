@@ -22,6 +22,8 @@ assets/
   security.js              tiện ích dùng chung cho nhóm Bảo mật (thanh độ mạnh mật khẩu)
   devices.js               các phần kiểm tra thiết bị (camera, micro, loa, bàn phím, chuột, màn hình): dùng chung cho trang gộp
                            kiem-tra-thiet-bi và 6 trang riêng (mỗi trang một thiết bị, để có tiêu đề/FAQ riêng cho SEO)
+  sticker.js               dùng chung cho nhóm Tải về (sticker, emoji): Lottie/APNG/WEBP động → GIF, ảnh → PNG, tải nhiều luồng,
+                           packView() là khung một bộ sticker (chọn dạng file, lưới sticker, tải từng cái hoặc .zip)
   media.js                 tiện ích dùng chung cho nhóm Âm thanh & video: đọc thông tin file, chuyển đổi/cắt/nén (Mediabunny),
                            giải mã/mã hoá âm thanh, thanh chọn đoạn (dạng sóng hoặc dải ảnh), trình phát, xem trước kết quả
   pdf-pages.js             "bảng trang" PDF: pageTool() dựng trên khung file, mỗi trang một thẻ (chọn, xoay, xoá, đổi chỗ, xem trước)
@@ -30,7 +32,8 @@ assets/
   en/                      (sinh tự động) bản dịch tiếng Anh của các module JS và registry, xem mục Đa ngôn ngữ
   lib/*.js                 hàm thuần, có test: telegram, search, filetype, doc-so, am-lich, vietqr, json-tools, text-stats, page-ranges, pdf-geom, pdf-text, pdf-content, pdf-image, scan, image-geom, exif, image-data, ocr-text, tien-luong, tai-chinh, tien-dien, bhxh, con-giap, don-vi, chia-tien, ngay, suc-khoe, bieu-thuc, so-la-ma, phan-tram, dvhc, ma-tinh, van-ban, vn-encoding, telex, diff, encode, hash, uuid, color, co-so, cron, timestamp, csv,
                            fancy-text, lorem, http-status, minify, regex, css-gen, ma-vach, bang, tron-thu, hoa-don, chu-ky-email,
-                           ngau-nhien, mat-khau (+ tu-mat-khau), ma-hoa, totp, checksum, bam-gio, mui-gio, checklist, media, tts
+                           ngau-nhien, mat-khau (+ tu-mat-khau), ma-hoa, totp, checksum, bam-gio, mui-gio, checklist, media, tts,
+                           anim, line, signal, noto-emoji
   regex-run.js, regex-worker.js   chạy biểu thức chính quy trong Web Worker có giới hạn thời gian (không treo trang)
   tools/<id>.js            logic riêng của từng công cụ
   registry.js              (sinh tự động) bản rút gọn của tools.json cho trình duyệt
@@ -51,6 +54,7 @@ scripts/make-samples.js    tạo lại file mẫu (Chrome headless + sips trên 
 scripts/make-brand.js      tạo ảnh OG và icon ứng dụng
 scripts/samples/           trang và script tạo từng nhóm file mẫu (media.js: nhạc, video qua Chrome headless + DevTools Protocol)
 scripts/data-dvhc.js       tạo lại data/don-vi-hanh-chinh.json và data/ma-tinh.json từ bộ dữ liệu mở (cần mạng)
+scripts/data-noto-emoji.js tạo lại data/noto-emoji.json (danh sách Noto Animated Emoji + tên tiếng Việt theo CLDR, cần mạng)
 tests/                     test cho hàm thuần (node --test)
 CLAUDE.md                  quy ước cho AI (Claude Code) khi sửa repo
 .claude/launch.json        cấu hình chạy thử (preview) cho Claude Code
@@ -94,11 +98,11 @@ Khai báo trong bảng `LIBS` của `assets/core.js`, gọi bằng `lib("tên")`
 | `jszip@3.10.1` | tải nhiều file dạng .zip |
 | `heic-to@1.6.5` | giải mã HEIC (libheif WebAssembly) |
 | `@jsquash/jpeg@1.6.0`, `@jsquash/webp@1.5.0` | MozJPEG, WebP (khi trình duyệt không tự xuất WebP) |
-| `upng-js@2.1.0` + `pako@2.1.0` | PNG giảm màu |
+| `upng-js@2.1.0` + `pako@2.1.0` | PNG giảm màu; giải mã APNG (sticker LINE, Signal) thành từng khung để đổi sang GIF |
 | `qrcode-generator@2.0.4` | tạo QR |
 | `zxing-wasm@3.1.5` | đọc QR, mã vạch (dự phòng khi trình duyệt không có BarcodeDetector) |
-| `gifenc@1.0.3` | mã hoá ảnh động GIF (Tạo GIF, Video sang GIF, Tải sticker Telegram) |
-| `lottie-web@5.13.0` (bản canvas) | vẽ sticker động Telegram (.tgs = Lottie nén gzip) để xem trước và đổi sang GIF |
+| `gifenc@1.0.3` | mã hoá ảnh động GIF (Tạo GIF, Video sang GIF, nhóm Tải về) |
+| `lottie-web@5.13.0` (bản canvas) | vẽ sticker động Telegram (.tgs = Lottie nén gzip) và emoji Noto (lottie.json) để xem trước và đổi sang GIF |
 | `tesseract.js@7.0.0` + `tesseract.js-core@7.0.0` + `@tesseract.js-data/vie`, `eng@1.0.0` | nhận dạng chữ (OCR), chạy WebAssembly trong Web Worker |
 | `@jsquash/avif@2.1.1` | xuất AVIF (bản đơn luồng) khi trình duyệt không tự xuất được |
 | `onnxruntime-web@1.30.0` | chạy mô hình AI (đơn luồng, không cần COOP/COEP) |
@@ -202,6 +206,42 @@ node --test tests/*.test.js
 
 Bot API của Telegram trả header `access-control-allow-origin: *` cho cả `api.telegram.org/bot…/method` lẫn `api.telegram.org/file/bot…/path`, nên trình duyệt gọi thẳng được: `getStickerSet` → `getFile` từng sticker (4 luồng, tự chờ khi bị 429) → tải file. Cần token bot của chính người dùng (tạo bằng @BotFather); token chỉ gửi tới Telegram, không đưa lên URL, chỉ lưu localStorage khi người dùng bật "Nhớ token" (lưu ý: localStorage dùng chung cho mọi trang GitHub Pages của tài khoản). Không có token thì không thể lấy bộ sticker mà không cần máy chủ trung gian. Một số nhà mạng chặn Telegram: khi đó dùng mục "Từ file có sẵn" (đổi .tgs, .webm, .webp đã lưu). GIF: lấy mẫu 30 khung/giây, thời gian mỗi khung làm tròn tích luỹ theo 1/100 giây (`frameSchedule` trong `lib/telegram.js`), trong suốt 1 bit (`quantize(..., { format: "rgba4444", oneBitAlpha: true })`, `dispose: 2`). WEBM lấy khung bằng `<video>` + tua từng mốc.
 
+## Giai đoạn 9 – Tải về (đang làm)
+
+Nhóm `download` ("Tải về", `/nhom/tai-ve/`). Ngày 24/10/2026 xong 3 công cụ: Tải sticker LINE, Tải emoji động, Tải sticker Signal; Tải sticker Telegram đã chuyển từ nhóm Ảnh sang nhóm này (đường dẫn không đổi). Còn 8 công cụ `"status": "todo"`, nên làm tiếp theo thứ tự trong bảng: Twitch emote, Discord, thumbnail YouTube, Google Fonts, thư mục GitHub, App Store, Bluesky, Mastodon. Khi xong cả nhóm thì sửa lại `desc` của nhóm trong `tools.json` và `i18n/en/tools.json` (hiện chỉ kể các công cụ đã có). Câu lệnh gợi ý: `Làm tiếp giai đoạn 9 của BbeTools theo CLAUDE.md` (hoặc `Làm công cụ Tải ảnh thumbnail YouTube của BbeTools theo CLAUDE.md`).
+
+Đã làm (cách làm thực tế, khác kế hoạch ban đầu ở vài chỗ):
+
+- Khung chung `assets/sticker.js`: `packView()` (tiêu đề bộ, chọn PNG + GIF hay định dạng gốc, cỡ GIF, nền, lưới thẻ, nút nghe âm thanh, tải từng cái hoặc .zip), `convertImage()` (ảnh tĩnh → PNG, APNG/WEBP động → GIF), `lottieToGif()`, `fetchBlob()`, `pool()`. APNG giải bằng UPNG (chạy mọi trình duyệt, đã ghép khung theo dispose/blend); WEBP động, GIF giải bằng `ImageDecoder` (Safari chưa có → báo lỗi, gợi ý tải định dạng gốc). Thời gian khung GIF làm tròn tích luỹ (`gifDelays` trong `lib/anim.js`). Tải sticker Telegram dùng chung phần đổi định dạng này, giao diện vẫn riêng.
+- LINE: không dùng file zip mà tải từng sticker (xem trước dần, có tiến độ): `…/stickershop/v1/product/<id>/iphone/productInfo.meta` (bản `LINEStorePC` có danh sách sticker rỗng), rồi `…/stickershop/v1/sticker/<sid>/iPhone/sticker@2x.png` (tĩnh), `sticker_animation@2x.png` (động), `sticker_popup.png` (popup), `sticker_sound.m4a` (âm thanh). Loại bộ theo `stickerResourceType`: STATIC, ANIMATION, SOUND, ANIMATION_SOUND, POPUP, POPUP_SOUND, NAME_TEXT, PER_STICKER_TEXT (bộ chữ tuỳ chỉnh: chỉ có hình gốc). Emoji: `…/sticonshop/v1/product/<id>/iphone/meta.json` (`orders`, `altTexts`, `sticonResourceType: "ANIMATION"`), file `…/sticonshop/v1/sticon/<id>/iPhone/<001>.png` và `<001>_animation.png`; meta emoji không có tên bộ. Bộ mẫu: 11537 (miễn phí, động); để thử: 17647 (động + âm thanh), 7171 (popup + âm thanh), emoji 68df6dd180f1ba31c4b1c608 (động).
+- Emoji động: danh sách 881 emoji ở `data/noto-emoji.json` (sinh bằng `scripts/data-noto-emoji.js` từ `googlefonts.github.io/noto-emoji-animation/data/api.json`, tên và từ khoá tiếng Việt lấy từ chú giải CLDR qua jsDelivr; trang tiếng Anh dùng tên tiếng Anh từ thẻ `:tag:`). File: `512.gif`, `512.webp`, `512.png`, `emoji.svg`, `lottie.json`; GIF cỡ nhỏ tự vẽ từ Lottie. Giấy phép CC BY 4.0 (ghi trên trang). Chọn emoji thì URL thành `?e=<mã>` để chia sẻ được.
+- Signal: link → `pack_id`, `pack_key` (phần sau `#`, không gửi tới máy chủ nào); `manifest.proto` và `full/<id>` tải từ `cdn-ca.signal.org` (`cdn.signal.org` dùng chứng chỉ riêng của Signal, trình duyệt không tin), giải mã bằng Web Crypto (`lib/signal.js`, test dùng manifest thật của bộ "Bandit the Cat"). Sticker động là APNG hoặc WEBP động. Danh sách bộ công khai để tìm bộ thử: `api.signalstickers.org/v1/packs/`.
+
+Cùng ý tưởng với Tải sticker Telegram: chỉ làm được khi nguồn trả header CORS cho trang web gọi thẳng. Ngày 24/10/2026 đã kiểm tra bằng `curl -H "Origin: https://springbbe.github.io"`, mọi nguồn dưới đây đều trả `access-control-allow-origin` (`*` hoặc đúng origin). Kiểm tra lại trước khi làm.
+
+| Công cụ (`id`) | Nguồn | Ghi chú |
+|---|---|---|
+| ✅ Tải sticker LINE (`line-stickers`) | xem mục "Đã làm" ở trên | |
+| ✅ Tải emoji động (`noto-emoji`) | xem mục "Đã làm" ở trên | |
+| ✅ Tải sticker Signal (`signal-stickers`) | xem mục "Đã làm" ở trên | |
+| Tải emote Twitch, 7TV, BTTV (`twitch-emotes`) | `7tv.io/v3/users/twitch/<twitch_id>`, `api.betterttv.net/3/cached/users/twitch/<twitch_id>`, `api.frankerfacez.com/v1/room/<tên_kênh>`; ảnh ở `cdn.7tv.app`, `cdn.betterttv.net`, `cdn.frankerfacez.com` | Đổi tên kênh ra twitch_id: FFZ trả `room.twitch_id`. Emote Twitch gốc (`static-cdn.jtvnw.net`) có CORS nhưng liệt kê cần Twitch API (khoá bí mật) → chỉ làm 3 nguồn trên |
+| Tải emoji, sticker Discord (`discord-emoji`) | `cdn.discordapp.com/emojis/<id>.{png,gif,webp}?size=4096`, `media.discordapp.net/stickers/<id>.{png,gif,json}` | Chỉ từng cái theo link/ID: liệt kê emoji của server cần đăng nhập. Sticker Lottie (`.json`) đổi sang GIF bằng `lottie-web` có sẵn. Chưa thử với ID thật |
+| Tải ảnh thumbnail YouTube (`youtube-thumbnail`) | `i.ytimg.com/vi/<id>/{maxresdefault,sddefault,hqdefault,mqdefault}.jpg`, bản `vi_webp/…webp` | Nhận link watch, youtu.be, shorts, embed, live. `maxresdefault` có thể không tồn tại (ảnh 120×90) → tự lùi cỡ. Không tải video (YouTube chặn và trái điều khoản) |
+| Tải font Google Fonts (`google-fonts`) | `fonts.googleapis.com/css2?family=…` (CSS), file ở `fonts.gstatic.com` | Danh sách font: dùng gói npm metadata (vd. `@fontsource`) hoặc file `data/` tự chụp, không dùng Google Fonts Developer API (cần khoá). User-Agent khác nhau cho ra WOFF2 hay TTF: trình duyệt không đổi được UA, cần thử xem cách lấy TTF (có thể chỉ hỗ trợ WOFF2, hoặc lấy TTF từ jsDelivr `gh/google/fonts`) |
+| Tải thư mục GitHub (`github-folder`) | `api.github.com/repos/<o>/<r>/git/trees/<ref>?recursive=1`, `raw.githubusercontent.com/…` | Không token: 60 lần gọi API/giờ (raw không tính). Cho dán token cá nhân tuỳ chọn (như Telegram). `codeload.github.com` (zip cả repo) không cho CORS → không dùng |
+| Tải icon, ảnh chụp app App Store (`app-store-assets`) | `itunes.apple.com/lookup?id=<id>&country=vn`, ảnh ở `is1-ssl.mzstatic.com` | Đổi cỡ icon bằng cách sửa đuôi `…/512x512bb.png` thành `1024x1024bb.png` |
+| Tải ảnh, video Bluesky (`bluesky-media`) | `public.api.bsky.app/xrpc/app.bsky.feed.getPostThread`, ảnh `cdn.bsky.app`, video HLS `video.bsky.app/watch/<did>/<cid>/playlist.m3u8` | Video: tải các đoạn HLS rồi ghép sang MP4 (mp4box.js hoặc ffmpeg.wasm đơn luồng). Đổi link `bsky.app/profile/<handle>/post/<rkey>` ra `at://` qua `resolveHandle` |
+| Tải ảnh, video Mastodon (`mastodon-media`) | `<máy chủ>/api/v1/statuses/<id>` | API chuẩn có CORS `*`, nhưng nơi lưu file (S3, CDN) là tuỳ từng máy chủ: máy chủ nào không cho CORS thì chỉ hiện link mở file |
+
+Quy trình riêng cho giai đoạn này:
+
+1. Mỗi công cụ có ghi chú bản quyền như Tải sticker Telegram (sticker, emoji, thumbnail thuộc tác giả; chỉ dùng cá nhân hoặc khi được phép).
+2. Hàm thuần (đọc link, dựng URL, giải mã Signal, đọc protobuf/m3u8, lịch khung GIF) ở `assets/lib/` có test. Test không gọi mạng; nếu cần thì lưu sẵn phản hồi mẫu trong `tests/`.
+3. Nguồn nào lúc làm không còn CORS thì bỏ công cụ đó, không dựng máy chủ trung gian.
+4. Công cụ hiện danh sách bộ sticker dùng `packView()` của `assets/sticker.js`; nguồn trả từng file lẻ thì tải bằng `pool()` (6 luồng) để xem trước dần.
+
+Đã xét và bỏ (không có CORS, cần khoá bí mật hoặc trái điều khoản): video YouTube, TikTok, Facebook, Instagram; Reddit (403), X/Twitter (CORS chỉ cho platform.twitter.com); sticker Zalo (không có API công khai); Giphy, Tenor, Imgur (cần khoá API); emoji Slack (cần token, CDN không CORS); tải cả repo GitHub qua codeload.
+
 ## Định dạng file mã hoá của BbeTools (.bbe)
 
 "Mã hoá/giải mã file" và "Mã hoá văn bản" dùng chung `assets/lib/ma-hoa.js` (Web Crypto, chạy cả trong Node để test): AES-GCM 256, khoá dẫn xuất bằng PBKDF2-HMAC-SHA256 600.000 vòng, salt 16 byte. Phần đầu 38 byte: `BBENC` + phiên bản `0x01`, mã thuật toán dẫn xuất khoá, số vòng, salt, tiền tố nonce 7 byte, cỡ khối (1 MiB). Sau đó là các khối mã, mỗi khối có thẻ xác thực 16 byte; nonce = tiền tố ‖ số thứ tự khối ‖ cờ khối cuối (kiểu STREAM) và phần đầu là dữ liệu xác thực bổ sung, nên đổi thứ tự, cắt bớt hay sửa một byte đều bị phát hiện. Bản rõ bắt đầu bằng độ dài + JSON `{ name, type }` của file gốc. Văn bản mã hoá là cả gói trên viết bằng Base64 (bắt đầu bằng `QkJFTkMB`). Muốn đổi định dạng thì tăng số phiên bản và giữ khả năng giải mã bản cũ.
@@ -211,5 +251,6 @@ Bot API của Telegram trả header `access-control-allow-origin: *` cho cả `a
 - Danh sách ngân hàng VietQR (`data/ngan-hang-vietqr.json`) chụp từ danh sách công khai của VietQR; chuỗi VietQR do BbeTools tạo đã được đối chiếu khớp từng ký tự với mã của img.vietqr.io (xem `tests/vietqr.test.js`).
 - Âm lịch theo thuật toán của Hồ Ngọc Đức, múi giờ UTC+7.
 - Thuế TNCN, BHXH, lương tối thiểu vùng, giá điện, ngày lễ: mỗi file trong `data/` ghi văn bản gốc trong `source`; công cụ đọc số liệu từ file, không viết cứng trong mã. Đổi mức (ví dụ lương cơ sở mới) chỉ cần sửa file JSON, cập nhật `updated` rồi chạy test.
+- Danh sách emoji động (`data/noto-emoji.json`): Google thêm emoji động theo từng đợt; chạy lại `node scripts/data-noto-emoji.js` khi có đợt mới (đổi số phiên bản CLDR trong script khi Unicode ra bản mới).
 - Mỗi năm cần xem lại: hệ số trượt giá BHXH (đầu năm), lương cơ sở và lương tối thiểu vùng (thường đổi 1/1 hoặc 1/7), giá điện EVN, thời hạn giảm VAT 8% (`gia-dien.json`, hiện tới 31/12/2026), lịch nghỉ lễ, biểu thuế TNCN.
 - Đơn vị hành chính sau sáp nhập (`data/don-vi-hanh-chinh.json`, ~570 KB, chỉ tải trên trang Tra đơn vị hành chính mới): lấy từ [DiaChiMoi](https://github.com/mahiepit/DiaChiMoi) (MIT), gộp danh mục hành chính của Cục Thống kê (qua thanglequoc/vietnamese-provinces-database, MIT) và bảng chuyển xã cũ → mới (tranngocminhhieu/vietnamadminunits, MIT). Chạy lại `node scripts/data-dvhc.js` sau khi đổi commit ghim trong script.
