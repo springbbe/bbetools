@@ -165,6 +165,9 @@
   <url><loc>https://springbbe.github.io/bbetools/tai-sticker-line/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/tai-emoji-dong/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/tai-sticker-signal/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/tai-emote-twitch/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/tai-emoji-discord/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/tai-thumbnail-youtube/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/gioi-thieu/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/en/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/en/category/pdf/</loc></url>
@@ -310,5 +313,8 @@
   <url><loc>https://springbbe.github.io/bbetools/en/line-stickers/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/en/noto-emoji/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/en/signal-stickers/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/en/twitch-emotes/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/en/discord-emoji/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/en/youtube-thumbnail/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/en/about/</loc></url>
 </urlset>

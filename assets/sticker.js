@@ -148,10 +148,17 @@ export async function animToGif(blob, o, kind) {
 
 /* ---------- tải từ nguồn ---------- */
 /** fetch có thông báo lỗi tiếng Việt; notFound: câu báo khi 404 (mặc định là lỗi chung) */
-export async function fetchBlob(url, signal, { host = "máy chủ", notFound } = {}) {
+export async function fetchBlob(url, signal, { host = "máy chủ", notFound, retries = 2 } = {}) {
   let r;
-  try { r = await fetch(url, { credentials: "omit", signal }); }
-  catch (e) { if (e.name === "AbortError") throw e; throw userErr(`Không kết nối được tới ${host}. Hãy kiểm tra mạng rồi thử lại.`); }
+  for (let i = 0; ; i++) {
+    try { r = await fetch(url, { credentials: "omit", signal }); break; }
+    catch (e) {
+      if (e.name === "AbortError") throw e;
+      // lỗi mạng chập chờn (vd. ERR_QUIC_PROTOCOL_ERROR khi tải nhiều file): chờ chút rồi thử lại
+      if (i < retries) { await new Promise((res) => setTimeout(res, 400 * (i + 1))); continue; }
+      throw userErr(`Không kết nối được tới ${host}. Hãy kiểm tra mạng rồi thử lại.`);
+    }
+  }
   if (r.status === 404 && notFound) throw userErr(notFound);
   if (!r.ok) { const e = userErr(`${host} báo lỗi HTTP ${r.status}.`); e.status = r.status; throw e; }
   return r.blob();
@@ -208,11 +215,16 @@ export const btnIcon = (name) => h("span", { html: icon(name), style: { display:
  *  hint(o): câu giải thích theo dạng file đang chọn; extra: phần tử tuỳ chọn thêm (đặt trong lưới tuỳ chọn)
  *  exportOne(it, idx, o) → [{ blob, name }] (một sticker có thể ra nhiều file, vd. kèm âm thanh)
  *  zipName(o) → tên file .zip
- * Phần tử của bộ: { blob, kind ("apng"|"png"|"webp"|…), label, tag, sound (Blob), failed }
+ *  Tuỳ chọn: word (danh từ: "sticker" | "emoji" | "emote"), bg: false (ẩn ô Nền), sizeAll: true (ô cỡ hiện cả khi chọn
+ *  định dạng gốc), sizeLabel, search: true (ô lọc theo tên; "Tải tất cả" chỉ tải phần đang hiện), parallel: số việc
+ *  cùng lúc khi tải cả bộ, preview(it, pv) → true nếu tự vẽ phần xem trước (vd. Lottie)
+ * Phần tử của bộ: { blob, src (link ảnh xem trước khi chưa tải blob), kind ("apng"|"png"|"webp"|…), label, find (chữ để lọc),
+ *  tag, sound (Blob), failed }
  */
 export function packView(cfg) {
-  const S = cfg.store, id = cfg.id;
+  const S = cfg.store, id = cfg.id, word = cfg.word || "sticker";
   let items = [];
+  const ready = (x) => !!(x.blob || x.src) && !x.failed;
   const fmtSeg = h("div", { class: "seg full", role: "radiogroup", "aria-labelledby": id + "-fmt-l" }, [["conv", "PNG + GIF"], ["orig", "Định dạng gốc"]].map(([v, l]) =>
     h("label", null, h("input", { type: "radio", name: id + "-fmt", value: v, checked: v === S.get("format", "conv"), onchange: () => { S.set("format", v); sync(); } }), h("span", { text: l }))));
   const sizeSel = h("select", { id: id + "-size" }, cfg.sizes.map(([v, l]) => h("option", { value: v, text: l, selected: v === +S.get("size", cfg.size) })));
@@ -220,7 +232,10 @@ export function packView(cfg) {
   const bgSel = h("select", { id: id + "-bg" }, [["", "Trong suốt"], ["#ffffff", "Trắng"], ["#000000", "Đen"]].map(([v, l]) => h("option", { value: v, text: l, selected: v === S.get("bg", "") })));
   bgSel.addEventListener("change", () => S.set("bg", bgSel.value));
   const fmtHint = h("p", { class: "hint" });
-  const zipBtn = h("button", { class: "btn", type: "button", onclick: () => saveAll() }, btnIcon("file-archive"), h("span", { text: "Tải tất cả (.zip)" }));
+  const zipLabel = h("span", { text: "Tải tất cả (.zip)" });
+  const zipBtn = h("button", { class: "btn", type: "button", onclick: () => saveAll() }, btnIcon("file-archive"), zipLabel);
+  const findIn = cfg.search ? h("input", { id: id + "-find", class: "input", type: "search", autocomplete: "off", spellcheck: "false", placeholder: "Gõ một phần tên…" }) : null;
+  if (findIn) findIn.addEventListener("input", () => filter());
   const prog = h("div", { class: "progress", hidden: true }, h("div"));
   const grid = h("div", { class: "stk-grid" });
   const headTitle = h("h2"), headInfo = h("span", { class: "hint" }), note = h("p", { class: "hint", hidden: true });
@@ -228,15 +243,24 @@ export function packView(cfg) {
     h("div", { class: "stk-head" }, headTitle, headInfo), note,
     h("div", { class: "stk-opts" },
       h("div", { class: "field" }, h("span", { id: id + "-fmt-l", text: "Tải về dạng" }), fmtSeg),
-      h("div", { class: "field gif-only" }, h("label", { for: id + "-size", text: "Cỡ GIF (cạnh dài)" }), sizeSel),
-      h("div", { class: "field gif-only" }, h("label", { for: id + "-bg", text: "Nền" }), bgSel),
+      h("div", { class: "field" + (cfg.sizeAll ? "" : " gif-only") }, h("label", { for: id + "-size", text: cfg.sizeLabel || "Cỡ GIF (cạnh dài)" }), sizeSel),
+      cfg.bg === false ? null : h("div", { class: "field gif-only" }, h("label", { for: id + "-bg", text: "Nền" }), bgSel),
       cfg.extra || null),
     fmtHint,
+    findIn ? h("div", { class: "field" }, h("label", { for: id + "-find", text: "Lọc theo tên" }), findIn) : null,
     h("div", { class: "row" }, zipBtn), prog,
-    h("p", { class: "hint", text: "Bấm vào một sticker để tải riêng sticker đó." }),
+    h("p", { class: "hint", text: `Bấm vào một ${word} để tải riêng ${word} đó.` }),
     grid);
 
-  const opts = () => ({ format: fmtSeg.querySelector("input:checked").value, size: +sizeSel.value, bg: bgSel.value });
+  const opts = () => ({ format: fmtSeg.querySelector("input:checked").value, size: +sizeSel.value, bg: cfg.bg === false ? "" : bgSel.value });
+  const visible = () => items.filter((x) => !x.el || !x.el.hidden);
+  function filter() {
+    const q = findIn ? findIn.value.trim().toLowerCase() : "";
+    for (const it of items) if (it.el) it.el.hidden = !!q && !String(it.find || it.label || "").toLowerCase().includes(q);
+    const n = visible().length;
+    zipLabel.textContent = q ? `Tải ${n} ${word} đang hiện (.zip)` : "Tải tất cả (.zip)";
+    zipBtn.disabled = !n;
+  }
   function sync() {
     const o = opts();
     el.querySelectorAll(".gif-only").forEach((x) => { x.hidden = o.format === "orig"; });
@@ -246,21 +270,25 @@ export function packView(cfg) {
   let audio = null;
   function card(it, idx) {
     const pv = h("span", { class: "pv" });
-    const dl = h("button", { class: "stk-dl", type: "button", title: "Tải sticker này", "aria-label": `Tải sticker ${idx + 1}${it.label ? " " + it.label : ""}`, onclick: () => saveOne(it, idx) },
+    const dl = h("button", { class: "stk-dl", type: "button", title: it.label || `Tải ${word} này`, "aria-label": `Tải ${word} ${idx + 1}${it.label ? " " + it.label : ""}`, onclick: () => saveOne(it, idx) },
       pv, h("small", null, it.label ? h("span", { text: it.label }) : null, h("span", { class: "tag", text: it.tag || "", hidden: !it.tag })));
     const c = h("div", { class: "stk-card" }, dl);
     it.el = c; it.pv = pv; it.dl = dl; it.tagEl = dl.querySelector(".tag");
-    if (it.blob) preview(it); else if (it.failed) fail(it); else pv.append(h("span", { class: "spinner sm" }));
+    if (it.blob || it.src) preview(it); else if (it.failed) fail(it); else pv.append(h("span", { class: "spinner sm" }));
     return c;
   }
   function preview(it) {
     it.pv.textContent = "";
-    if (it.url) URL.revokeObjectURL(it.url);
-    it.url = URL.createObjectURL(it.blob);
-    it.pv.append(h("img", { src: it.url, alt: it.label || "", loading: "lazy" }));
+    if (it.url) { URL.revokeObjectURL(it.url); it.url = null; }
+    if (!(cfg.preview && cfg.preview(it, it.pv))) {
+      if (it.blob) it.url = URL.createObjectURL(it.blob);
+      const img = h("img", { src: it.url || it.src, alt: it.label || "", loading: "lazy", decoding: "async" });
+      if (!it.blob) img.addEventListener("error", () => { if (!it.blob) img.replaceWith(h("span", { text: "?", "aria-hidden": "true" })); });
+      it.pv.append(img);
+    }
     if (it.tag) { it.tagEl.textContent = it.tag; it.tagEl.hidden = false; }
     if (it.sound && !it.el.querySelector(".stk-play")) {
-      it.el.append(h("button", { class: "stk-play", type: "button", title: "Nghe âm thanh", "aria-label": "Nghe âm thanh của sticker", html: icon("volume-2"), onclick: () => {
+      it.el.append(h("button", { class: "stk-play", type: "button", title: "Nghe âm thanh", "aria-label": `Nghe âm thanh của ${word}`, html: icon("volume-2"), onclick: () => {
         if (audio) { audio.pause(); URL.revokeObjectURL(audio.src); }
         audio = new Audio(URL.createObjectURL(it.sound));
         audio.play().catch(() => toast("Trình duyệt không phát được âm thanh này.", { type: "err" }));
@@ -270,32 +298,34 @@ export function packView(cfg) {
   function fail(it) { it.pv.textContent = "✕"; it.dl.disabled = true; }
 
   async function saveOne(it, idx) {
-    if (!it.blob) return;
+    if (!ready(it)) return;
     it.el.classList.add("busy"); it.el.append(h("span", { class: "spinner sm" }));
     try { for (const f of await cfg.exportOne(it, idx, opts())) save(f.blob, f.name); }
-    catch (e) { toast(e.userMsg || "Không đổi được sticker này.", { type: "err" }); console.error(e); }
+    catch (e) { toast(e.userMsg || `Không đổi được ${word} này.`, { type: "err" }); console.error(e); }
     finally { it.el.classList.remove("busy"); const sp = it.el.querySelector(":scope > .spinner"); if (sp) sp.remove(); }
   }
   async function saveAll() {
-    const list = items.filter((x) => x.blob);
+    const list = visible().filter(ready);
     if (!list.length) return;
     const o = opts();
     zipBtn.disabled = true; prog.hidden = false;
-    const bar = prog.firstChild, out = [];
-    let failed = 0;
+    const bar = prog.firstChild, parts = new Array(list.length);
+    let failed = 0, done = 0;
     try {
-      for (let i = 0; i < list.length; i++) {
-        bar.style.width = Math.round((i / list.length) * 100) + "%";
-        if (o.format !== "orig") say(cfg.status, "info", `Đang đổi ${i + 1}/${list.length}…`);
-        try { out.push(...await cfg.exportOne(list[i], items.indexOf(list[i]), o)); }
+      // giữ đúng thứ tự trong bộ dù chạy nhiều việc cùng lúc
+      await pool(list.map((it, i) => ({ it, i })), Math.max(1, cfg.parallel || 1), async ({ it, i }) => {
+        try { parts[i] = await cfg.exportOne(it, items.indexOf(it), o); }
         catch (e) { failed++; console.error(e); }
+        done++;
+        bar.style.width = Math.round((done / list.length) * 100) + "%";
+        say(cfg.status, "info", `Đang chuẩn bị ${done}/${list.length}…`);
         await nextFrame();
-      }
-      bar.style.width = "100%";
-      if (!out.length) { say(cfg.status, "err", "Không đổi được sticker nào."); return; }
+      });
+      const out = parts.filter(Boolean).flat();
+      if (!out.length) { say(cfg.status, "err", `Không tải được ${word} nào.`); return; }
       const z = await zip(out);
       save(z, cfg.zipName(o) + ".zip");
-      say(cfg.status, failed ? "err" : "ok", (failed ? `${failed} sticker không đổi được. ` : "") + `Đã tạo file .zip gồm ${out.length} file (${fmtSize(z.size)}).`);
+      say(cfg.status, failed ? "err" : "ok", (failed ? `${failed} ${word} không tải hoặc không đổi được. ` : "") + `Đã tạo file .zip gồm ${out.length} file (${fmtSize(z.size)}).`);
     } finally { zipBtn.disabled = false; setTimeout(() => { prog.hidden = true; bar.style.width = "0"; }, 600); }
   }
 
@@ -311,10 +341,12 @@ export function packView(cfg) {
       grid.textContent = "";
       items.forEach((it, i) => grid.append(card(it, i)));
       el.hidden = !items.length;
+      if (findIn) findIn.value = "";
+      filter();
       sync();
     },
     /** Một phần tử đã tải xong (hoặc lỗi: it.failed = true) */
-    update(it) { if (!it.pv) return; if (it.blob) preview(it); else if (it.failed) fail(it); },
+    update(it) { if (!it.pv) return; if (it.failed) fail(it); else if (it.blob || it.src) preview(it); },
     items: () => items,
     hide() { el.hidden = true; }
   };

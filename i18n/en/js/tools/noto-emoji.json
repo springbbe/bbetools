@@ -16,6 +16,7 @@
  "Tìm emoji": "Search emoji",
  "Nhóm": "Category",
  "Emoji động Noto của Google, phát hành theo giấy phép ": "Google's animated Noto Emoji, released under the ",
+ "https://creativecommons.org/licenses/by/4.0/deed.vi": "https://creativecommons.org/licenses/by/4.0/",
  ": dùng được cả cho mục đích thương mại, nhớ ghi nguồn “Noto Emoji, Google”.": " license: commercial use is allowed, just credit “Noto Emoji, Google”.",
  "{0} emoji{1}. Bấm vào một emoji để xem bản động và tải về.": "{0} emoji{1}. Click an emoji to see it animated and download it.",
  " khớp": " found",
@@ -34,6 +35,5 @@
  "Đã tạo GIF {0} px ({1})": "Made a {0} px GIF ({1})",
  "Đang tải danh sách emoji…": "Loading the emoji list…",
  "Tất cả": "All",
- "Không tải được danh sách emoji. Hãy tải lại trang.": "Couldn't load the emoji list. Reload the page.",
- "https://creativecommons.org/licenses/by/4.0/deed.vi": "https://creativecommons.org/licenses/by/4.0/"
+ "Không tải được danh sách emoji. Hãy tải lại trang.": "Couldn't load the emoji list. Reload the page."
 }

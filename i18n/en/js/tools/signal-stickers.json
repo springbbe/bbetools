@@ -16,11 +16,11 @@
  "Không tìm thấy bộ sticker này trên máy chủ Signal. Hãy kiểm tra lại link.": "This sticker pack wasn't found on Signal's server. Check the link.",
  "Không giải mã được bộ sticker: pack_key trong link không đúng với pack_id. Hãy sao chép lại cả link.": "Couldn't decrypt the pack: the pack_key in the link doesn't match the pack_id. Copy the whole link again.",
  "Bộ này không có sticker nào.": "This pack has no stickers.",
+ "{0} sticker": "{0} {0|sticker|stickers}",
  "của ": "by ",
  "Đang tải và giải mã 0/{0}…": "Downloading and decrypting 0/{0}…",
  " động": " animated",
  "Đang tải và giải mã {0}/{1}…": "Downloading and decrypting {0}/{1}…",
  "Đã tải {0}/{1} sticker; {2} sticker không tải được.": "Downloaded {0}/{1} stickers; {2} {2|sticker|stickers} couldn't be downloaded.",
- "Đã tải và giải mã xong {0} sticker. Chọn dạng file rồi bấm “Tải tất cả”, hoặc bấm từng sticker.": "Downloaded and decrypted all {0} stickers. Choose a format, then click “Download all”, or click individual stickers.",
- "{0} sticker": "{0} {0|sticker|stickers}"
+ "Đã tải và giải mã xong {0} sticker. Chọn dạng file rồi bấm “Tải tất cả”, hoặc bấm từng sticker.": "Downloaded and decrypted all {0} stickers. Choose a format, then click “Download all”, or click individual stickers."
 }

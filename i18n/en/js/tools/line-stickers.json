@@ -12,12 +12,14 @@
  "Mở bộ trên store.line.me rồi sao chép địa chỉ trang, hoặc trong app LINE: trang bộ sticker → Chia sẻ → Sao chép link. Dán mã số của bộ cũng được.": "Open the set on store.line.me and copy the page address, or in the LINE app: sticker set page → Share → Copy link. The set's number works too.",
  "Thử với bộ mẫu": "Try a sample set",
  "Tìm bộ trên ": "Find sets in the ",
+ "https://store.line.me/stickershop/home/general/vi": "https://store.line.me/stickershop/home/general/en",
  "cửa hàng LINE": "LINE Store",
  ". Sticker thuộc bản quyền của tác giả: chỉ dùng cá nhân, hoặc khi được tác giả cho phép.": ". Stickers are copyrighted by their creators: use them personally, or with the creator's permission.",
  "Chưa nhận ra link. Dán link dạng https://store.line.me/stickershop/product/12345 (sticker) hoặc …/emojishop/product/… (emoji).": "Link not recognized. Paste a link like https://store.line.me/stickershop/product/12345 (stickers) or …/emojishop/product/… (emoji).",
  "Đang lấy thông tin bộ…": "Getting set info…",
  "Không tìm thấy bộ sticker này. Hãy kiểm tra lại link hoặc mã bộ (bộ đã ngừng bán có thể không còn file).": "Sticker set not found. Check the link or set number (sets no longer on sale may have no files).",
  "Bộ sticker LINE ": "LINE sticker set ",
+ "{0} sticker": "{0} {0|sticker|stickers}",
  "popup động": "animated pop-up",
  "động": "animated",
  "tĩnh": "still",
@@ -31,7 +33,5 @@
  "Đang tải 0/{0}…": "Downloading 0/{0}…",
  "Đang tải {0}/{1}…": "Downloading {0}/{1}…",
  "Đã tải {0}/{1}; {2} file không tải được.": "Downloaded {0}/{1}; {2} {2|file|files} couldn't be downloaded.",
- "Đã tải xong {0} {1}. Chọn dạng file rồi bấm “Tải tất cả”, hoặc bấm từng cái.": "Downloaded all {0}. Choose a format, then click “Download all”, or click individual ones.",
- "https://store.line.me/stickershop/home/general/vi": "https://store.line.me/stickershop/home/general/en",
- "{0} sticker": "{0} {0|sticker|stickers}"
+ "Đã tải xong {0} {1}. Chọn dạng file rồi bấm “Tải tất cả”, hoặc bấm từng cái.": "Downloaded all {0}. Choose a format, then click “Download all”, or click individual ones."
 }

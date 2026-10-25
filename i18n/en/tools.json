@@ -46,7 +46,7 @@
   },
   "download": {
    "name": "Downloads",
-   "desc": "Download Telegram, LINE and Signal stickers and animated emoji straight from the source, with no middleman server."
+   "desc": "Download Telegram, LINE and Signal stickers, Discord emoji, Twitch emotes, YouTube thumbnails and animated emoji straight from the source, with no middleman server."
   }
  },
  "data": {
@@ -3938,6 +3938,127 @@
     {
      "q": "Can I use downloaded stickers commercially?",
      "a": "Stickers are copyrighted by their creators. Download them for personal use only, or with the creator's permission."
+    }
+   ]
+  },
+  "twitch-emotes": {
+   "name": "Twitch Emote Downloader (7TV, FFZ)",
+   "desc": "Enter a Twitch channel name to view and download its whole 7TV and FrankerFaceZ emote set as a zip: PNG, animated GIF or WEBP, in all 4 sizes.",
+   "privacy": "BbeTools has no server: your browser calls the public APIs of 7TV (7tv.io) and FrankerFaceZ (api.frankerfacez.com) directly and downloads images from their servers. If the channel isn't on FrankerFaceZ, the channel name is sent to api.ivr.fi to look up its ID. No Twitch login needed.",
+   "keywords": [
+    "twitch emote downloader",
+    "download twitch emotes",
+    "7tv emote downloader",
+    "download 7tv emotes",
+    "frankerfacez",
+    "ffz emotes",
+    "twitch emotes gif",
+    "emotes for discord"
+   ],
+   "howto": [
+    "Enter the Twitch channel name (the part after twitch.tv/) or paste a channel link or 7tv.app link, then click “Get emotes”.",
+    "Pick a size (4x is the largest) and format: PNG + GIF or the original (WEBP); type a name to filter the emotes you need.",
+    "Click “Download all (.zip)” to get the whole set (or the filtered part), or click an emote to download just that one."
+   ],
+   "faq": [
+    {
+     "q": "Which emotes can I download?",
+     "a": "The 7TV and FrankerFaceZ (FFZ) emotes the channel has added, including animated ones. Native Twitch emotes (subscriber, Bits emotes) aren't available because Twitch only lists them through an API that needs a secret key; BetterTTV emotes can't be downloaded because BetterTTV's image server doesn't let other websites fetch files."
+    },
+    {
+     "q": "PNG + GIF or WEBP?",
+     "a": "GIF opens everywhere but is larger and has slightly jagged edges. WEBP (7TV's original format) is small with smooth edges and animated emotes keep moving: great for Discord, Telegram and websites. For still emotes PNG and WEBP look the same."
+    },
+    {
+     "q": "How big are 1x, 2x, 3x, 4x?",
+     "a": "1x is the Twitch chat size (about 28–32 px), 2x is double, 4x is about 112–128 px. To make Discord emoji (max 128 px) choose 4x. FrankerFaceZ only has 1x, 2x and 4x."
+    },
+    {
+     "q": "My channel shows no emotes?",
+     "a": "The tool only sees emotes the channel has added on 7TV or FrankerFaceZ. Check the channel name (no spaces). The active 7TV set may change with the season (e.g. a Halloween set); to get another set, paste its 7tv.app/emote-sets/… link."
+    },
+    {
+     "q": "Can I use downloaded emotes commercially?",
+     "a": "Emotes are copyrighted by their artists or streamers. Download them for personal use only, or with permission."
+    }
+   ]
+  },
+  "discord-emoji": {
+   "name": "Discord Emoji & Sticker Downloader",
+   "desc": "Paste Discord emoji or sticker links or codes to download the original, largest version (PNG, GIF, WEBP), convert Lottie stickers to GIF, and get whole official sticker packs.",
+   "privacy": "BbeTools has no server: your browser downloads straight from Discord's servers (cdn.discordapp.com, media.discordapp.net, discord.com). No login and no Discord token needed.",
+   "keywords": [
+    "discord emoji downloader",
+    "download discord emoji",
+    "discord sticker downloader",
+    "download discord stickers",
+    "discord emoji gif",
+    "save discord emoji",
+    "lottie sticker to gif",
+    "wumpus stickers"
+   ],
+   "howto": [
+    "In Discord (desktop or browser), right-click an emoji or sticker in a message → Copy Link; or type \\:emoji_name: to get the code <:name:123…>.",
+    "Paste it into the box (several, one per line) and click “Get emoji, stickers”; or choose “Official sticker packs” to get a whole pack from Discord.",
+    "Choose PNG + GIF or the original format and a size, then click “Download all (.zip)” or click each one."
+   ],
+   "faq": [
+    {
+     "q": "Can I download all emoji of a server?",
+     "a": "No. Discord only shows a server's emoji list to logged-in members of that server, so the tool takes emoji one by one from links or codes. You can paste many links at once. Discord's 14 official sticker packs can be downloaded whole."
+    },
+    {
+     "q": "How do I get a Discord emoji link?",
+     "a": "In Discord on desktop or in a browser: right-click the emoji in a message → Copy Link. Or type a backslash before the emoji (\\:name:) and send it; Discord shows a code like <:name:123456…> (or <a:name:…> for animated emoji): paste that code."
+    },
+    {
+     "q": "What size are the downloaded emoji?",
+     "a": "The original size the creator uploaded to Discord (usually 128 px, sometimes larger), not the small size shown in chat. Pick a smaller size if you need lighter files."
+    },
+    {
+     "q": "What is a Lottie sticker?",
+     "a": "Most of Discord's official stickers (Wumpus, Clyde…) are Lottie vector animations (.json). Choose “PNG + GIF” and the tool redraws them as GIF right on your device; “Original format” keeps the .json file for developers using lottie-web."
+    },
+    {
+     "q": "Can I use downloaded emoji and stickers commercially?",
+     "a": "Emoji and stickers are copyrighted by their creators or Discord. Download them for personal use only, or with permission."
+    }
+   ]
+  },
+  "youtube-thumbnail": {
+   "name": "YouTube Thumbnail Downloader",
+   "desc": "Paste a YouTube video or Shorts link to view and download its thumbnail in every size, up to HD 1280×720; black bars removed automatically, as JPG, PNG or WEBP.",
+   "privacy": "BbeTools has no server: your browser downloads images straight from YouTube's image server (i.ytimg.com) and gets the video title via youtube.com/oembed. Format conversion and black-bar removal happen on your device.",
+   "keywords": [
+    "youtube thumbnail downloader",
+    "download youtube thumbnail",
+    "get youtube thumbnail",
+    "youtube video cover image",
+    "shorts thumbnail",
+    "hd thumbnail",
+    "maxresdefault"
+   ],
+   "howto": [
+    "Copy a YouTube video link (Share → Copy link); Shorts and youtu.be links work too.",
+    "Paste it into the box and click “Get thumbnails”; paste several links, one per line, to get many videos.",
+    "Click “Download largest image” or any size; choose JPG, PNG or WEBP and turn on “Remove black bars” if needed."
+   ],
+   "faq": [
+    {
+     "q": "What is the largest thumbnail?",
+     "a": "HD 1280×720 (maxresdefault). Old videos or videos uploaded in low resolution have no HD version; the tool then uses the largest available size (SD 640×480 or HQ 480×360)."
+    },
+    {
+     "q": "Why do SD and HQ images have black bars?",
+     "a": "YouTube makes SD and HQ images in 4:3, so 16:9 videos get black bars at the top and bottom (Shorts at the sides). Turn on “Remove black bars” to detect and crop them when downloading; for videos without HD, the cropped SD image (640×360) is usually the sharpest."
+    },
+    {
+     "q": "Can I download YouTube videos?",
+     "a": "No. YouTube doesn't let other websites download videos, and its terms don't allow it. The tool only gets the thumbnail images YouTube makes public."
+    },
+    {
+     "q": "Can I use someone else's thumbnail?",
+     "a": "Thumbnails are copyrighted by the channel owner. Using them for reference or personal material is fine; to republish or use them commercially you need the owner's permission."
     }
    ]
   }

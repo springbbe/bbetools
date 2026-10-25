@@ -19,7 +19,7 @@
     { "id": "dev", "phase": 5, "slug": "lap-trinh", "name": "Lập trình", "icon": "code", "color": "#3E63DD", "desc": "JSON, Base64, JWT, UUID, hash, regex, timestamp, cron, mã màu, SQL." },
     { "id": "security", "phase": 7, "slug": "bao-mat", "name": "Bảo mật", "icon": "shield", "color": "#0E7C86", "desc": "Tạo mật khẩu mạnh, mã hoá file và văn bản, checksum, mã 2FA." },
     { "id": "productivity", "phase": 7, "slug": "nang-suat", "name": "Năng suất & ngẫu nhiên", "icon": "timer", "color": "#5C8A1C", "desc": "Pomodoro, bấm giờ, hẹn giờ, vòng quay may mắn, chia đội, ghi chú nhanh." },
-    { "id": "download", "phase": 9, "slug": "tai-ve", "name": "Tải về", "icon": "download", "color": "#0090FF", "desc": "Tải sticker Telegram, LINE, Signal và emoji động thẳng từ nguồn về máy, không qua máy chủ trung gian." }
+    { "id": "download", "phase": 9, "slug": "tai-ve", "name": "Tải về", "icon": "download", "color": "#0090FF", "desc": "Tải sticker Telegram, LINE, Signal, emoji Discord, emote Twitch, thumbnail YouTube và emoji động thẳng từ nguồn về máy, không qua máy chủ trung gian." }
   ],
   "tools": [
     {
@@ -2152,28 +2152,54 @@
       ]
     },
     {
-      "id": "twitch-emotes", "slug": "tai-emote-twitch", "name": "Tải emote Twitch, 7TV, BTTV", "group": "download", "icon": "tv", "kind": "interactive",
-      "desc": "Nhập tên kênh Twitch để tải cả bộ emote 7TV, BetterTTV, FrankerFaceZ của kênh về file zip, giữ ảnh động.",
-      "keywords": ["tải emote twitch", "emote 7tv", "betterttv", "frankerfacez", "download twitch emotes", "emote streamer"],
-      "status": "todo",
-      "aliases": ["emote-twitch", "tai-emote-7tv"],
-      "related": ["telegram-stickers"]
+      "id": "twitch-emotes", "slug": "tai-emote-twitch", "name": "Tải emote Twitch (7TV, FFZ)", "group": "download", "icon": "tv", "kind": "interactive",
+      "desc": "Nhập tên kênh Twitch để xem và tải cả bộ emote 7TV, FrankerFaceZ của kênh về file zip: PNG, GIF động hoặc WEBP, đủ 4 cỡ.",
+      "keywords": ["tải emote twitch", "emote 7tv", "tải emote 7tv", "frankerfacez", "ffz", "download twitch emotes", "7tv emote downloader", "emote streamer", "emote twitch gif", "emote discord"],
+      "status": "done",
+      "privacy": "BbeTools không có máy chủ: trình duyệt của bạn gọi thẳng API công khai của 7TV (7tv.io), FrankerFaceZ (api.frankerfacez.com) và tải ảnh từ máy chủ của họ. Khi kênh không có trên FrankerFaceZ, tên kênh được gửi tới api.ivr.fi để tra mã số kênh. Không cần đăng nhập Twitch.",
+      "aliases": ["emote-twitch", "tai-emote-7tv", "tai-emote-ffz"],
+      "related": ["discord-emoji", "telegram-stickers", "noto-emoji", "gif-maker"],
+      "howto": ["Nhập tên kênh Twitch (phần sau twitch.tv/) hoặc dán link kênh, link 7tv.app rồi bấm “Lấy emote”.", "Chọn cỡ (4x là lớn nhất) và dạng file: PNG + GIF hoặc định dạng gốc (WEBP); gõ tên để lọc emote cần lấy.", "Bấm “Tải tất cả (.zip)” để tải cả bộ (hoặc phần đang lọc), hoặc bấm từng emote để tải riêng."],
+      "faq": [
+        { "q": "Tải được những emote nào?", "a": "Emote 7TV và FrankerFaceZ (FFZ) mà kênh đã thêm, cả emote động. Emote gốc của Twitch (emote đăng ký kênh, emote Bits) không lấy được vì Twitch chỉ cho xem danh sách qua API có khoá bí mật; emote BetterTTV không tải được vì máy chủ ảnh của BetterTTV không cho trang web khác tải file." },
+        { "q": "Nên tải PNG + GIF hay WEBP?", "a": "GIF mở được ở mọi nơi nhưng nặng hơn và viền hơi răng cưa. WEBP (định dạng gốc của 7TV) nhẹ, viền mịn, emote động vẫn chạy: dùng tốt cho Discord, Telegram, trang web. Emote tĩnh thì PNG và WEBP như nhau." },
+        { "q": "Cỡ 1x, 2x, 3x, 4x là bao nhiêu?", "a": "1x là cỡ trong khung chat Twitch (khoảng 28–32 px), 2x gấp đôi, 4x khoảng 112–128 px. Muốn làm emoji Discord (tối đa 128 px) thì chọn 4x. FrankerFaceZ chỉ có 1x, 2x, 4x." },
+        { "q": "Kênh của tôi không có emote?", "a": "Trang chỉ thấy emote mà kênh đã thêm trên 7TV hoặc FrankerFaceZ. Kiểm tra lại tên kênh (không dấu, không khoảng trắng). Bộ 7TV đang dùng có thể đổi theo mùa (vd. bộ Halloween); muốn lấy một bộ khác thì dán link 7tv.app/emote-sets/…" },
+        { "q": "Có được dùng emote tải về cho mục đích thương mại không?", "a": "Emote thuộc bản quyền của người vẽ hoặc streamer. Chỉ nên tải để dùng cá nhân, hoặc khi được cho phép." }
+      ]
     },
     {
       "id": "discord-emoji", "slug": "tai-emoji-discord", "name": "Tải emoji, sticker Discord", "group": "download", "icon": "smile-plus", "kind": "interactive",
-      "desc": "Dán link hoặc ID emoji, sticker Discord để tải bản gốc cỡ lớn nhất (PNG, GIF, WEBP, Lottie đổi sang GIF).",
-      "keywords": ["tải emoji discord", "download emoji discord", "sticker discord", "emoji discord gif", "lưu emoji discord"],
-      "status": "todo",
-      "aliases": ["emoji-discord"],
-      "related": ["telegram-stickers"]
+      "desc": "Dán link hoặc mã emoji, sticker Discord để tải bản gốc cỡ lớn nhất (PNG, GIF, WEBP), đổi sticker Lottie sang GIF, tải cả bộ sticker chính thức.",
+      "keywords": ["tải emoji discord", "download emoji discord", "sticker discord", "tải sticker discord", "emoji discord gif", "lưu emoji discord", "discord emoji downloader", "sticker lottie sang gif", "wumpus sticker"],
+      "status": "done",
+      "privacy": "BbeTools không có máy chủ: trình duyệt của bạn tải thẳng từ máy chủ của Discord (cdn.discordapp.com, media.discordapp.net, discord.com). Không cần đăng nhập, không cần token Discord.",
+      "aliases": ["emoji-discord", "sticker-discord"],
+      "related": ["twitch-emotes", "telegram-stickers", "line-stickers", "gif-maker"],
+      "howto": ["Trên Discord (máy tính hoặc trình duyệt), chuột phải vào emoji, sticker trong tin nhắn → Sao chép liên kết; hoặc gõ \\:tên_emoji: để lấy mã <:tên:123…>.", "Dán vào ô (nhiều cái, mỗi cái một dòng) rồi bấm “Lấy emoji, sticker”; hoặc chọn “Bộ sticker chính thức” để lấy cả bộ của Discord.", "Chọn PNG + GIF hoặc định dạng gốc và cỡ, bấm “Tải tất cả (.zip)” hoặc bấm từng cái."],
+      "faq": [
+        { "q": "Có tải được hết emoji của một server không?", "a": "Không. Discord chỉ cho xem danh sách emoji của server khi đã đăng nhập bằng tài khoản ở trong server đó, nên trang chỉ nhận từng emoji theo link hoặc mã. Dán được nhiều link cùng lúc. Riêng 14 bộ sticker chính thức của Discord thì tải được cả bộ." },
+        { "q": "Lấy link emoji Discord thế nào?", "a": "Trên Discord máy tính hoặc trình duyệt: chuột phải vào emoji trong tin nhắn → Sao chép liên kết. Hoặc gõ dấu gạch chéo ngược trước emoji (\\:tên:) rồi gửi, Discord hiện mã dạng <:tên:123456…> hoặc <a:tên:…> với emoji động: dán mã đó vào." },
+        { "q": "Emoji tải về cỡ bao nhiêu?", "a": "Cỡ gốc mà người tạo đã tải lên Discord (thường 128 px, có khi lớn hơn), không phải cỡ nhỏ hiện trong khung chat. Chọn cỡ nhỏ hơn nếu cần file nhẹ." },
+        { "q": "Sticker Lottie là gì?", "a": "Sticker chính thức của Discord (Wumpus, Clyde…) phần lớn là hoạt ảnh vector Lottie (.json). Chọn “PNG + GIF” để trang vẽ lại thành GIF ngay trên máy; “Định dạng gốc” giữ file .json cho lập trình viên dùng với lottie-web." },
+        { "q": "Có được dùng emoji, sticker tải về cho mục đích thương mại không?", "a": "Emoji, sticker thuộc bản quyền của người tạo hoặc Discord. Chỉ nên tải để dùng cá nhân, hoặc khi được cho phép." }
+      ]
     },
     {
       "id": "youtube-thumbnail", "slug": "tai-thumbnail-youtube", "name": "Tải ảnh thumbnail YouTube", "group": "download", "icon": "image-down", "kind": "interactive",
-      "desc": "Dán link video, Shorts YouTube để xem và tải ảnh thumbnail ở mọi cỡ, tới HD 1280×720.",
-      "keywords": ["tải thumbnail youtube", "lấy ảnh bìa youtube", "youtube thumbnail downloader", "ảnh đại diện video youtube", "thumbnail shorts"],
-      "status": "todo",
-      "aliases": ["thumbnail-youtube", "anh-bia-youtube"],
-      "related": ["crop-image", "compress-image"]
+      "desc": "Dán link video, Shorts YouTube để xem và tải ảnh thumbnail ở mọi cỡ, tới HD 1280×720; tự bỏ viền đen, xuất JPG, PNG, WEBP.",
+      "keywords": ["tải thumbnail youtube", "lấy thumbnail youtube", "lấy ảnh bìa youtube", "tải ảnh bìa video youtube", "youtube thumbnail downloader", "ảnh đại diện video youtube", "thumbnail shorts", "thumbnail hd", "maxresdefault"],
+      "status": "done", "popular": true,
+      "privacy": "BbeTools không có máy chủ: trình duyệt của bạn tải ảnh thẳng từ máy chủ ảnh của YouTube (i.ytimg.com) và lấy tên video qua youtube.com/oembed. Đổi định dạng, bỏ viền đen làm ngay trên máy bạn.",
+      "aliases": ["thumbnail-youtube", "anh-bia-youtube", "lay-thumbnail-youtube"],
+      "related": ["crop-image", "compress-image", "convert-image", "video-to-gif"],
+      "howto": ["Sao chép link video YouTube (nút Chia sẻ → Sao chép đường liên kết), link Shorts hay youtu.be đều được.", "Dán vào ô rồi bấm “Lấy thumbnail”; dán nhiều link, mỗi dòng một link, để lấy nhiều video.", "Bấm “Tải ảnh lớn nhất” hoặc bấm một cỡ bất kỳ; chọn JPG, PNG hay WEBP và bật “Bỏ viền đen” nếu cần."],
+      "faq": [
+        { "q": "Thumbnail lớn nhất là bao nhiêu?", "a": "HD 1280×720 (maxresdefault). Video cũ hoặc video tải lên ở độ phân giải thấp không có bản HD; khi đó trang tự lấy cỡ lớn nhất còn có (SD 640×480 hoặc HQ 480×360)." },
+        { "q": "Vì sao ảnh SD, HQ có viền đen?", "a": "YouTube làm ảnh SD, HQ theo khổ 4:3 nên video 16:9 bị thêm viền đen trên và dưới (Shorts thì viền hai bên). Bật “Bỏ viền đen” để trang tự tìm và cắt viền khi tải; với video không có bản HD, ảnh SD sau khi cắt (640×360) thường là ảnh nét nhất." },
+        { "q": "Có tải được video YouTube không?", "a": "Không. YouTube không cho trang web khác tải video và điều khoản của YouTube cũng không cho phép. Trang chỉ lấy các ảnh thumbnail mà YouTube để công khai." },
+        { "q": "Có được dùng thumbnail của người khác không?", "a": "Thumbnail thuộc bản quyền của chủ kênh. Dùng để tham khảo, làm tư liệu cá nhân thì được; muốn đăng lại hoặc dùng thương mại thì cần chủ kênh cho phép." }
+      ]
     },
     {
       "id": "google-fonts", "slug": "tai-google-fonts", "name": "Tải font Google Fonts", "group": "download", "icon": "baseline", "kind": "interactive",
