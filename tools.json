@@ -895,15 +895,18 @@
     },
     {
       "id": "text-diff", "slug": "so-sanh-van-ban", "name": "So sánh văn bản", "group": "text", "icon": "git-compare", "kind": "text",
-      "desc": "Tìm khác biệt giữa hai đoạn văn bản, tô màu phần thêm/bớt.",
-      "keywords": ["diff", "khác biệt", "compare text", "so sánh 2 văn bản"],
+      "desc": "So sánh hai văn bản hoặc hai file (TXT, PDF, Word, Excel): tô màu chỗ thêm/bớt, tính % giống nhau.",
+      "keywords": ["diff", "khác biệt", "compare text", "so sánh 2 văn bản", "text compare", "so sánh file", "so sánh 2 file word", "so sánh pdf", "đối chiếu hợp đồng", "diffchecker"],
       "status": "done",
-      "aliases": ["diff", "so-sanh-2-van-ban", "text-diff"],
-      "related": ["dedupe-lines", "word-counter"],
-      "howto": ["Dán bản gốc vào ô bên trái, bản mới vào ô bên phải.", "Chọn so theo dòng, từ hoặc ký tự; xem song song hay gộp một cột.", "Phần thêm tô xanh, phần bớt tô đỏ; đoạn giống nhau dài được gấp gọn."],
+      "aliases": ["diff", "so-sanh-2-van-ban", "text-diff", "so-sanh-file", "text-compare"],
+      "related": ["dedupe-lines", "word-counter", "pdf-to-text"],
+      "privacy": "Văn bản và file bạn mở (TXT, PDF, Word, Excel) chỉ được đọc và so sánh ngay trên trình duyệt, không tải lên máy chủ nào.",
+      "howto": ["Dán bản gốc vào ô bên trái, bản mới vào ô bên phải; hoặc bấm nút tải lên, kéo thả file TXT, PDF, Word (.docx), Excel vào từng ô (thả hai file một lúc thì mỗi ô một file).", "Chọn so theo dòng, từ hoặc ký tự; xem song song hay gộp một cột; bật bỏ qua hoa/thường, khoảng trắng nếu cần.", "Xem tỉ lệ giống nhau và số dòng sửa/thêm/bớt; phần thêm tô xanh, phần bớt tô đỏ, đoạn giống nhau dài được gấp gọn.", "Bấm mũi tên lên/xuống (hoặc Alt + ↑/↓) để nhảy giữa các chỗ khác; sao chép hoặc tải bản so sánh (.html) để in, lưu PDF."],
       "faq": [
-        { "q": "Văn bản có bị gửi lên máy chủ để so sánh không?", "a": "Không. Thuật toán so sánh (Myers) chạy ngay trên trình duyệt của bạn." },
-        { "q": "Nên so theo dòng hay theo từ?", "a": "Hợp đồng, mã nguồn nên so theo dòng (trong dòng sửa vẫn tô đúng từ thay đổi). Đoạn văn liền mạch nên so theo từ." }
+        { "q": "Văn bản có bị gửi lên máy chủ để so sánh không?", "a": "Không. Thuật toán so sánh (Myers) và việc đọc file PDF, Word, Excel đều chạy ngay trên trình duyệt của bạn." },
+        { "q": "Nên so theo dòng hay theo từ?", "a": "Hợp đồng, mã nguồn nên so theo dòng (trong dòng sửa vẫn tô đúng từ thay đổi). Đoạn văn liền mạch nên so theo từ." },
+        { "q": "So sánh được file nào?", "a": "File văn bản (TXT, Markdown, CSV, JSON, mã nguồn… tự nhận UTF-8, UTF-16, Windows-1258), PDF có lớp chữ, Word .docx và Excel (.xlsx, .xls, .ods; mỗi ô cách nhau bằng tab). PDF scan chỉ có ảnh thì cần chạy OCR trước; file Word .doc cũ cần lưu lại dạng .docx." },
+        { "q": "Tỉ lệ giống nhau tính thế nào?", "a": "Bằng 2 × số ký tự trùng khớp chia cho tổng số ký tự của hai bản (không tính khoảng trắng), so theo từng từ. 100% nghĩa là hai bản giống hệt nhau." }
       ]
     },
     {

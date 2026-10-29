@@ -641,6 +641,14 @@ pre.lorem-out { white-space: pre-wrap; background: var(--surface-2); padding: 12
 .df-c.del { background: var(--err-soft); } .df-c.ins { background: var(--ok-soft); } .df-c.empty { background: repeating-linear-gradient(135deg, transparent 0 6px, var(--surface-2) 6px 8px); }
 .df-c.del del, .df-c.ins ins { text-decoration: none; }
 .df-fold { display: block; width: 100%; text-align: center; padding: 4px; border: 0; background: var(--brand-soft); color: var(--brand); font-size: 13px; font-family: var(--font); }
+.df-in { position: relative; }
+.df-in.drop::after { content: ""; position: absolute; inset: 6px; border: 2px dashed var(--brand); border-radius: 12px; background: color-mix(in srgb, var(--brand) 8%, transparent); pointer-events: none; }
+.df-in textarea:disabled { opacity: .6; }
+.df-file { max-width: 40%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; color: var(--brand); background: var(--brand-soft); padding: 2px 8px; border-radius: 999px; }
+.df-nav { display: inline-flex; align-items: center; gap: 2px; }
+.df-chg { color: var(--brand); font-weight: 700; }
+.df-sim { font-variant-numeric: tabular-nums; }
+.df-cur { outline: 2px solid var(--brand); outline-offset: -2px; border-radius: 3px; scroll-margin: 80px; }
 
 /* bảng giá trị có nút chép (timestamp, màu, cơ số) */
 .ts-list { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--surface); }

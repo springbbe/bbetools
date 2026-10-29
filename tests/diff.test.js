@@ -40,3 +40,16 @@ test("văn bản dài khác nhiều vẫn chạy nhanh", () => {
   const x = apply(r.parts);
   assert.equal(x.a, a); assert.equal(x.b, b);
 });
+
+test("tỉ lệ giống nhau và đếm dòng sửa/thêm/bớt", async () => {
+  const { similarity, lineStats } = await import("../assets/lib/diff.js");
+  assert.equal(similarity(diffText("abc", "abc", { by: "char" }).parts), 1);
+  assert.equal(similarity(diffText("", "", { by: "char" }).parts), 1);
+  assert.equal(similarity(diffText("abcd", "wxyz", { by: "char" }).parts), 0);
+  assert.equal(similarity(diffText("ab", "abcd", { by: "char" }).parts), 4 / 6);
+  // khoảng trắng không tính
+  assert.equal(similarity(diffText("a b\n", "a  b\n", { by: "word" }).parts), 1);
+  const s = lineStats(diffText("a\nb\nc\nd\n", "a\nB\nc\nd\ne\nf\n").parts);
+  assert.deepEqual(s, { same: 3, changed: 1, added: 2, removed: 0, hunks: 2 });
+  assert.deepEqual(lineStats(diffText("a\nb\nc\n", "c\n").parts), { same: 1, changed: 0, added: 0, removed: 2, hunks: 1 });
+});

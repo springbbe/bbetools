@@ -110,3 +110,34 @@ export function diffText(a, b, o = {}) {
   });
   return { parts, added, removed };
 }
+
+/** Tỉ lệ giống nhau (0–1) từ kết quả diffText: 2 × số ký tự trùng / tổng số ký tự hai bản (giống difflib của Python).
+    Khoảng trắng không được tính để việc xuống dòng, thụt lề không làm lệch tỉ lệ. */
+export function similarity(parts) {
+  const len = (items) => items.reduce((n, t) => n + t.replace(/\s+/g, "").length, 0);
+  let same = 0, total = 0;
+  for (const p of parts) {
+    const n = len(p.items);
+    if (p.op === "=") { same += n + len(p.right || p.items); total += n + len(p.right || p.items); }
+    else total += n;
+  }
+  return total ? same / total : 1;
+}
+
+/** Đếm dòng theo kết quả so theo dòng: cặp bớt–thêm liền nhau tính là dòng sửa.
+    → { same, changed, added, removed, hunks } (hunks = số chỗ khác nhau) */
+export function lineStats(parts) {
+  const r = { same: 0, changed: 0, added: 0, removed: 0, hunks: 0 };
+  for (let i = 0; i < parts.length; i++) {
+    const p = parts[i];
+    if (p.op === "=") { r.same += p.items.length; continue; }
+    r.hunks++;
+    const nx = parts[i + 1];
+    if (p.op === "-" && nx && nx.op === "+") {
+      const c = Math.min(p.items.length, nx.items.length);
+      r.changed += c; r.removed += p.items.length - c; r.added += nx.items.length - c; i++;
+    } else if (p.op === "-") r.removed += p.items.length;
+    else r.added += p.items.length;
+  }
+  return r;
+}

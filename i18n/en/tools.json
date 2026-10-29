@@ -1864,29 +1864,42 @@
   },
   "text-diff": {
    "name": "Text Compare (Diff)",
-   "desc": "Find the differences between two texts, highlighting additions and deletions.",
+   "desc": "Compare two texts or two files (TXT, PDF, Word, Excel): highlight additions and deletions, see the similarity percentage.",
    "keywords": [
     "text compare",
     "diff checker",
     "compare text",
     "text difference",
-    "diff online"
+    "diff online",
+    "compare files",
+    "compare word documents",
+    "compare pdf"
    ],
    "howto": [
-    "Paste the original into the left box and the new version into the right box.",
-    "Compare by lines, words or characters; view side by side or unified.",
-    "Additions are green, deletions red; long identical sections are collapsed."
+    "Paste the original into the left box and the new version into the right box, or use the upload button / drag and drop a TXT, PDF, Word (.docx) or Excel file onto each box (drop two files at once to fill both).",
+    "Compare by lines, words or characters; view side by side or unified; ignore case or whitespace if needed.",
+    "See the similarity percentage and how many lines were changed, added and removed; additions are green, deletions red, and long identical runs are folded.",
+    "Use the up/down arrows (or Alt + ↑/↓) to jump between differences; copy the comparison or download it as .html to print or save as PDF."
    ],
    "faq": [
     {
-     "q": "Is my text sent to a server to compare?",
-     "a": "No. The diff algorithm (Myers) runs right in your browser."
+     "q": "Is my text sent to a server for comparison?",
+     "a": "No. The diff algorithm (Myers) and reading PDF, Word and Excel files all run right in your browser."
     },
     {
      "q": "Should I compare by lines or by words?",
-     "a": "Contracts and source code are best compared by lines (changed words within a line are still highlighted). Flowing prose is best compared by words."
+     "a": "Contracts and source code are best compared by lines (changed words are still highlighted within edited lines). Flowing paragraphs are best compared by words."
+    },
+    {
+     "q": "Which files can I compare?",
+     "a": "Text files (TXT, Markdown, CSV, JSON, source code… UTF-8, UTF-16 and Windows-1258 are detected), PDFs with a text layer, Word .docx and Excel (.xlsx, .xls, .ods; cells are separated by tabs). Scanned PDFs need OCR first; old Word .doc files must be re-saved as .docx."
+    },
+    {
+     "q": "How is the similarity calculated?",
+     "a": "It is 2 × the number of matching characters divided by the total characters of both versions (whitespace not counted), compared word by word. 100% means the two versions are identical."
     }
-   ]
+   ],
+   "privacy": "The texts and files you open (TXT, PDF, Word, Excel) are read and compared right in your browser, never uploaded to any server."
   },
   "dedupe-lines": {
    "name": "Remove Duplicate Lines & Sort",
