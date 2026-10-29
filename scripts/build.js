@@ -361,8 +361,11 @@ ${related.length ? `<section class="block"><h2>${tr("Công cụ liên quan")}</h
   if (t.faq && t.faq.length) graph.push({ "@type": "FAQPage", mainEntity: t.faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) });
   if (t.howto && t.howto.length) graph.push({ "@type": "HowTo", name: tr("Cách dùng {0}", t.name), step: t.howto.map((s, i) => ({ "@type": "HowToStep", position: i + 1, text: s })) });
   const desc = `${t.desc} ${tr("Miễn phí, chạy ngay trên trình duyệt, không tải file lên máy chủ.")}`;
+  // Thêm "online miễn phí" cho khớp cách người dùng tìm kiếm; tên dài quá 60 ký tự thì giữ tên gọn.
+  const seoTitle = `${tr("{0} online miễn phí", t.name)} – ${site.name}`;
+  const title = seoTitle.length <= 60 ? seoTitle : `${t.name} – ${site.name}`;
   return page(L, {
-    path, key: "tool:" + t.id, title: `${t.name} – ${site.name}`, desc, entry: L.js(`tools/${t.id}.js`),
+    path, key: "tool:" + t.id, title, desc, entry: L.js(`tools/${t.id}.js`),
     ld: { "@context": "https://schema.org", "@graph": graph }, bodyAttrs: `data-tool="${t.id}"`, main
   });
 }
