@@ -3,3 +3,9 @@ node_modules/
 *.log
 .claude/*
 !.claude/launch.json
+!.claude/settings.json
+!.claude/skills/
+!.claude/agents/
+.claude/settings.local.json
+# Engine của Impeccable (~17 MB, riêng từng hệ điều hành); launcher tự tải khi thiếu
+.claude/skills/impeccable/scripts/bin/
