@@ -77,24 +77,31 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#0D74CE">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/van-ban/">Văn bản</a></li><li><span aria-current="page">Đổi chữ hoa/thường</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/van-ban/">Văn bản</a></li><li><span aria-current="page">Đổi chữ hoa/thường</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#0D74CE"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#case-sensitive"></use></svg></span>
 <div class="tool-title"><h1>Đổi chữ hoa/thường</h1><p class="lead">Đổi IN HOA, chữ thường, Viết Hoa Mỗi Từ, Viết hoa đầu câu, đúng với tiếng Việt.</p></div>
 <button class="fav-btn" type="button" data-fav="case-converter" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>Văn bản bạn nhập chỉ được xử lý trên trình duyệt, không gửi đi đâu.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-text" data-kind="text">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 
 
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Gõ hoặc dán văn bản vào ô.</li><li>Chọn kiểu chữ: IN HOA, chữ thường, Viết Hoa Mỗi Từ, Viết hoa đầu câu hoặc kiểu lập trình (camelCase, snake_case…).</li><li>Sao chép hoặc tải kết quả về.</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>Có đổi đúng chữ có dấu như “đ”, “ư”, “ơ” không?</summary><p>Có. Công cụ dùng quy tắc chữ hoa/thường của tiếng Việt nên “đường phố” thành “ĐƯỜNG PHỐ” và ngược lại.</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>Có đổi đúng chữ có dấu như “đ”, “ư”, “ơ” không?</summary><p>Có. Công cụ dùng quy tắc chữ hoa/thường của tiếng Việt nên “đường phố” thành “ĐƯỜNG PHỐ” và ngược lại.</p></details>
 <details><summary>camelCase, snake_case có giữ dấu không?</summary><p>Không. Các kiểu dành cho lập trình tự bỏ dấu và ký tự đặc biệt, ví dụ “Số điện thoại” thành soDienThoai hoặc so_dien_thoai.</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="remove-accents" data-group="text" style="--c:#0D74CE">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/van-ban/">Xem cả 12 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="remove-accents" data-group="text" style="--c:#0D74CE">
 <a class="card-link" href="../bo-dau-tieng-viet/"><span class="tile" style="--c:#0D74CE"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#remove-formatting"></use></svg></span><span class="card-txt"><h3 class="card-name">Bỏ dấu tiếng Việt</h3><span class="card-desc">Chuyển văn bản tiếng Việt có dấu thành không dấu (đ → d).</span></span></a>
 <button class="star" type="button" data-fav="remove-accents" aria-pressed="false" aria-label="Ghim Bỏ dấu tiếng Việt vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -110,6 +117,7 @@
 <a class="card-link" href="../so-sanh-van-ban/"><span class="tile" style="--c:#0D74CE"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#git-compare"></use></svg></span><span class="card-txt"><h3 class="card-name">So sánh văn bản</h3><span class="card-desc">So sánh hai văn bản hoặc hai file (TXT, PDF, Word, Excel): tô màu chỗ thêm/bớt, tính % giống nhau.</span></span></a>
 <button class="star" type="button" data-fav="text-diff" aria-pressed="false" aria-label="Ghim So sánh văn bản vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

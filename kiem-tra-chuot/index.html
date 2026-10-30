@@ -77,25 +77,32 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#5C8A1C">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/nang-suat/">Năng suất &amp; ngẫu nhiên</a></li><li><span aria-current="page">Test chuột</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/nang-suat/">Năng suất &amp; ngẫu nhiên</a></li><li><span aria-current="page">Test chuột</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#mouse"></use></svg></span>
 <div class="tool-title"><h1>Test chuột</h1><p class="lead">Kiểm tra chuột online: các nút (cả Lùi/Tiến), nhấp đúp, phát hiện chuột tự nhấp đúp, con lăn, tần số báo (polling rate).</p></div>
 <button class="fav-btn" type="button" data-fav="mouse-test" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>Thao tác chuột chỉ được xử lý ngay trên trình duyệt, không ghi lại hay gửi đi đâu.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-interactive" data-kind="interactive">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 
 
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Bấm lần lượt các nút chuột trong khung thử: nút nào nhận sẽ chuyển màu xanh và đếm số lần.</li><li>Bấm từng cái chậm rãi: nếu một lần bấm bị nhận thành hai, công cụ sẽ báo chuột tự nhấp đúp.</li><li>Lăn con lăn và di chuột nhanh trong khung để xem con lăn và tần số báo.</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>Chuột bị tự nhấp đúp (double click) là sao?</summary><p>Bấm một lần mà máy nhận hai lần, thường do công tắc trong chuột bị mòn. Người bấm hai lần liên tiếp mất ít nhất khoảng 80 ms; công cụ báo khi hai lần bấm của cùng một nút cách nhau dưới 60 ms.</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>Chuột bị tự nhấp đúp (double click) là sao?</summary><p>Bấm một lần mà máy nhận hai lần, thường do công tắc trong chuột bị mòn. Người bấm hai lần liên tiếp mất ít nhất khoảng 80 ms; công cụ báo khi hai lần bấm của cùng một nút cách nhau dưới 60 ms.</p></details>
 <details><summary>Tần số báo (polling rate) là gì?</summary><p>Số lần chuột báo vị trí cho máy mỗi giây: chuột văn phòng thường 125 Hz, chuột chơi game 500–1000 Hz trở lên. Kết quả đo trên trình duyệt chỉ gần đúng và có thể bị giới hạn bởi trình duyệt, màn hình.</p></details>
 <details><summary>Bấm nút Lùi/Tiến có làm trang chuyển đi không?</summary><p>Không, trong khung thử các nút này bị chặn để bạn thử thoải mái.</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="keyboard-test" data-group="productivity" style="--c:#5C8A1C">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/nang-suat/">Xem cả 17 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="keyboard-test" data-group="productivity" style="--c:#5C8A1C">
 <a class="card-link" href="../kiem-tra-ban-phim/"><span class="tile" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#keyboard"></use></svg></span><span class="card-txt"><h3 class="card-name">Test bàn phím</h3><span class="card-desc">Kiểm tra bàn phím online: bố cục Windows và Mac, laptop hoặc bàn phím rời, có hoặc không có bàn phím số; giữ nhiều phím cùng lúc, phát hiện phím bị dội.</span></span></a>
 <button class="star" type="button" data-fav="keyboard-test" aria-pressed="false" aria-label="Ghim Test bàn phím vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -111,6 +118,7 @@
 <a class="card-link" href="../pomodoro/"><span class="tile" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#timer"></use></svg></span><span class="card-txt"><h3 class="card-name">Pomodoro</h3><span class="card-desc">Hẹn giờ tập trung 25 phút, nghỉ 5 phút theo phương pháp Pomodoro; có âm báo, thông báo và thống kê trong ngày.</span></span></a>
 <button class="star" type="button" data-fav="pomodoro" aria-pressed="false" aria-label="Ghim Pomodoro vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

@@ -77,25 +77,32 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#5C8A1C">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/nang-suat/">Năng suất &amp; ngẫu nhiên</a></li><li><span aria-current="page">Kiểm tra camera, micro, bàn phím, màn hình</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/nang-suat/">Năng suất &amp; ngẫu nhiên</a></li><li><span aria-current="page">Kiểm tra camera, micro, bàn phím, màn hình</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#monitor-check"></use></svg></span>
 <div class="tool-title"><h1>Kiểm tra camera, micro, bàn phím, màn hình</h1><p class="lead">Thử camera, micro, loa trái/phải, bàn phím, chuột và điểm chết màn hình trên một trang, trước khi họp online.</p></div>
 <button class="fav-btn" type="button" data-fav="device-test" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>Mọi thứ chạy ngay trên máy bạn; hình ảnh, âm thanh không gửi đi đâu.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-interactive" data-kind="interactive">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 
 
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Chọn thiết bị cần thử: Camera, Micro, Loa, Bàn phím, Chuột hoặc Màn hình.</li><li>Bấm Bật camera / Bật micro và cho phép trình duyệt truy cập khi được hỏi.</li><li>Làm theo hướng dẫn ở từng phần: nói thử, ghi thử 5 giây, bấm từng phím, xem điểm chết.</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>Cho trình duyệt dùng camera, micro có an toàn không?</summary><p>Hình và tiếng chỉ hiện trên máy bạn, không ghi lại hay gửi đi (bản ghi thử 5 giây cũng chỉ nằm trong trình duyệt). Chuyển sang phần khác hoặc đóng trang là camera, micro được tắt.</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>Cho trình duyệt dùng camera, micro có an toàn không?</summary><p>Hình và tiếng chỉ hiện trên máy bạn, không ghi lại hay gửi đi (bản ghi thử 5 giây cũng chỉ nằm trong trình duyệt). Chuyển sang phần khác hoặc đóng trang là camera, micro được tắt.</p></details>
 <details><summary>Camera báo đang bị dùng?</summary><p>Đóng các ứng dụng đang dùng camera (Zoom, Teams, Meet ở tab khác…) rồi thử lại.</p></details>
 <details><summary>Có phím bấm mà không sáng?</summary><p>Một số phím do hệ điều hành giữ (Fn, Print Screen, phím âm lượng…) nên trang web không nhận được; điều đó không có nghĩa là phím hỏng.</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="webcam-test" data-group="productivity" style="--c:#5C8A1C">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/nang-suat/">Xem cả 17 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="webcam-test" data-group="productivity" style="--c:#5C8A1C">
 <a class="card-link" href="../kiem-tra-webcam/"><span class="tile" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#webcam"></use></svg></span><span class="card-txt"><h3 class="card-name">Test webcam</h3><span class="card-desc">Kiểm tra webcam, camera laptop online: xem hình, độ phân giải, số khung hình/giây, chụp thử ảnh.</span></span></a>
 <button class="star" type="button" data-fav="webcam-test" aria-pressed="false" aria-label="Ghim Test webcam vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -119,6 +126,7 @@
 <a class="card-link" href="../kiem-tra-man-hinh/"><span class="tile" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#monitor-dot"></use></svg></span><span class="card-txt"><h3 class="card-name">Kiểm tra điểm chết màn hình</h3><span class="card-desc">Tìm điểm chết, điểm kẹt, hở sáng, loang màu trên màn hình bằng màu phủ kín; xem độ phân giải, tần số quét.</span></span></a>
 <button class="star" type="button" data-fav="screen-test" aria-pressed="false" aria-label="Ghim Kiểm tra điểm chết màn hình vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

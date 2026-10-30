@@ -77,25 +77,32 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#D6409F">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/am-thanh-video/">Âm thanh &amp; video</a></li><li><span aria-current="page">Cắt âm thanh</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/am-thanh-video/">Âm thanh &amp; video</a></li><li><span aria-current="page">Cắt âm thanh</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#D6409F"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#audio-waveform"></use></svg></span>
 <div class="tool-title"><h1>Cắt âm thanh</h1><p class="lead">Cắt đoạn nhạc, làm nhạc chuông (cả M4R cho iPhone), có hiệu ứng tăng/giảm dần.</p></div>
 <button class="fav-btn" type="button" data-fav="trim-audio" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>File của bạn được xử lý ngay trên máy này, không bao giờ tải lên máy chủ.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-file" data-kind="file">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 <p class="formats">Nhận: MP3, WAV, M4A, OGG, FLAC</p>
 
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Chọn file nhạc (MP3, M4A, WAV, OGG, FLAC…).</li><li>Kéo hai tay nắm trên dạng sóng hoặc nhập thời gian bắt đầu, kết thúc; bấm Phát đoạn đã chọn để nghe thử.</li><li>Chọn định dạng (M4R cho nhạc chuông iPhone), tăng/giảm dần nếu muốn, rồi bấm Cắt âm thanh.</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>Cắt có làm giảm chất lượng không?</summary><p>Nếu giữ định dạng gốc và không dùng hiệu ứng tăng/giảm dần, dữ liệu được chép nguyên nên chất lượng không đổi. Khi đổi định dạng hoặc thêm hiệu ứng, âm thanh được mã hoá lại ở chất lượng bạn chọn.</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>Cắt có làm giảm chất lượng không?</summary><p>Nếu giữ định dạng gốc và không dùng hiệu ứng tăng/giảm dần, dữ liệu được chép nguyên nên chất lượng không đổi. Khi đổi định dạng hoặc thêm hiệu ứng, âm thanh được mã hoá lại ở chất lượng bạn chọn.</p></details>
 <details><summary>Làm nhạc chuông iPhone thế nào?</summary><p>Chọn đoạn dài tối đa 40 giây, định dạng M4R, tải về. Nối iPhone với máy tính, mở Finder (Mac) hoặc iTunes (Windows) rồi kéo file .m4r vào mục iPhone; sau đó chọn trong Cài đặt → Âm thanh → Nhạc chuông.</p></details>
 <details><summary>File có bị tải lên không?</summary><p>Không. File được đọc và cắt ngay trên máy bạn.</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="merge-audio" data-group="media" style="--c:#D6409F">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/am-thanh-video/">Xem cả 11 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="merge-audio" data-group="media" style="--c:#D6409F">
 <a class="card-link" href="../ghep-am-thanh/"><span class="tile" style="--c:#D6409F"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#audio-lines"></use></svg></span><span class="card-txt"><h3 class="card-name">Ghép âm thanh</h3><span class="card-desc">Nối nhiều file âm thanh thành một: nối liền, chèn khoảng lặng hoặc chồng mượt, làm đều âm lượng.</span></span></a>
 <button class="star" type="button" data-fav="merge-audio" aria-pressed="false" aria-label="Ghim Ghép âm thanh vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -111,6 +118,7 @@
 <a class="card-link" href="../quay-man-hinh/"><span class="tile" style="--c:#D6409F"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#screen-share"></use></svg></span><span class="card-txt"><h3 class="card-name">Quay màn hình</h3><span class="card-desc">Quay màn hình, cửa sổ hoặc tab kèm âm thanh và micro (trên máy tính), tải về MP4/WebM.</span></span></a>
 <button class="star" type="button" data-fav="screen-recorder" aria-pressed="false" aria-label="Ghim Quay màn hình vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

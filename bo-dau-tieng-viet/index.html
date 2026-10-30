@@ -74,24 +74,31 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#0D74CE">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/van-ban/">Văn bản</a></li><li><span aria-current="page">Bỏ dấu tiếng Việt</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/van-ban/">Văn bản</a></li><li><span aria-current="page">Bỏ dấu tiếng Việt</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#0D74CE"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#remove-formatting"></use></svg></span>
 <div class="tool-title"><h1>Bỏ dấu tiếng Việt</h1><p class="lead">Chuyển văn bản tiếng Việt có dấu thành không dấu (đ → d).</p></div>
 <button class="fav-btn" type="button" data-fav="remove-accents" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>Văn bản bạn nhập chỉ được xử lý trên trình duyệt, không gửi đi đâu.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-text" data-kind="text">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 
 
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Dán văn bản tiếng Việt có dấu vào ô.</li><li>Kết quả không dấu hiện ngay; bật “Giữ chữ đ” nếu cần.</li><li>Sao chép hoặc tải về.</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>Chữ “đ” được đổi thế nào?</summary><p>Mặc định “đ” thành “d”, “Đ” thành “D”. Bật tuỳ chọn “Giữ chữ đ/Đ” nếu muốn giữ nguyên.</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>Chữ “đ” được đổi thế nào?</summary><p>Mặc định “đ” thành “d”, “Đ” thành “D”. Bật tuỳ chọn “Giữ chữ đ/Đ” nếu muốn giữ nguyên.</p></details>
 <details><summary>Văn bản gõ kiểu tổ hợp (dấu tách rời) có bỏ được không?</summary><p>Có, công cụ chuẩn hoá Unicode trước khi bỏ dấu nên cả chữ dựng sẵn lẫn tổ hợp đều xử lý được.</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="slugify" data-group="text" style="--c:#0D74CE">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/van-ban/">Xem cả 12 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="slugify" data-group="text" style="--c:#0D74CE">
 <a class="card-link" href="../tao-slug/"><span class="tile" style="--c:#0D74CE"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#link"></use></svg></span><span class="card-txt"><h3 class="card-name">Tạo slug</h3><span class="card-desc">Tạo đường dẫn thân thiện (slug) từ tiêu đề tiếng Việt.</span></span></a>
 <button class="star" type="button" data-fav="slugify" aria-pressed="false" aria-label="Ghim Tạo slug vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -107,6 +114,7 @@
 <a class="card-link" href="../dem-tu/"><span class="tile" style="--c:#0D74CE"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#whole-word"></use></svg></span><span class="card-txt"><h3 class="card-name">Đếm từ &amp; ký tự</h3><span class="card-desc">Đếm số từ (tiếng), ký tự, câu, đoạn, thời gian đọc; hiện ngay khi gõ.</span></span></a>
 <button class="star" type="button" data-fav="word-counter" aria-pressed="false" aria-label="Ghim Đếm từ &amp; ký tự vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

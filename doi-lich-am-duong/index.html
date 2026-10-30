@@ -74,24 +74,31 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#C27C0E">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/viet-nam/">Tiện ích Việt Nam</a></li><li><span aria-current="page">Đổi lịch âm ↔ dương</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/viet-nam/">Tiện ích Việt Nam</a></li><li><span aria-current="page">Đổi lịch âm ↔ dương</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#C27C0E"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#calendar-days"></use></svg></span>
 <div class="tool-title"><h1>Đổi lịch âm ↔ dương</h1><p class="lead">Đổi ngày dương sang âm và ngược lại, xem can chi, tháng nhuận, tiết khí, giờ hoàng đạo và lịch tháng.</p></div>
 <button class="fav-btn" type="button" data-fav="lunar-calendar" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>Số liệu bạn nhập chỉ được tính trên trình duyệt, không gửi đi đâu.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-form" data-kind="form">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 
 
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Chọn chiều đổi: dương → âm hoặc âm → dương (đánh dấu “tháng nhuận” nếu cần).</li><li>Nhập ngày; kết quả và can chi hiện ngay.</li><li>Xem lịch tháng bên dưới, bấm vào một ngày để xem chi tiết; sao chép link để gửi người khác.</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>Lịch âm tính theo múi giờ nào?</summary><p>Theo giờ Việt Nam (UTC+7), dùng thuật toán thiên văn của Hồ Ngọc Đức, khớp với lịch âm chính thức của Việt Nam (khác lịch Trung Quốc ở một số năm).</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>Lịch âm tính theo múi giờ nào?</summary><p>Theo giờ Việt Nam (UTC+7), dùng thuật toán thiên văn của Hồ Ngọc Đức, khớp với lịch âm chính thức của Việt Nam (khác lịch Trung Quốc ở một số năm).</p></details>
 <details><summary>Đổi được những năm nào?</summary><p>Từ năm 1800 đến 2199.</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="tet-countdown" data-group="vn" style="--c:#C27C0E">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/viet-nam/">Xem cả 14 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="tet-countdown" data-group="vn" style="--c:#C27C0E">
 <a class="card-link" href="../dem-nguoc-tet/"><span class="tile" style="--c:#C27C0E"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#party-popper"></use></svg></span><span class="card-txt"><h3 class="card-name">Đếm ngược Tết</h3><span class="card-desc">Còn bao nhiêu ngày, giờ, phút, giây nữa đến Tết Nguyên Đán.</span></span></a>
 <button class="star" type="button" data-fav="tet-countdown" aria-pressed="false" aria-label="Ghim Đếm ngược Tết vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -107,6 +114,7 @@
 <a class="card-link" href="../tinh-tuoi/"><span class="tile" style="--c:#E5701A"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#cake"></use></svg></span><span class="card-txt"><h3 class="card-name">Tính tuổi</h3><span class="card-desc">Tuổi chính xác theo năm, tháng, ngày và ngày sinh nhật tiếp theo.</span></span></a>
 <button class="star" type="button" data-fav="age-calculator" aria-pressed="false" aria-label="Ghim Tính tuổi vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

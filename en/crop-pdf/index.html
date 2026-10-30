@@ -75,25 +75,32 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#E5484D">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../../en/">Home</a></li><li><a href="../../en/category/pdf/">PDF</a></li><li><span aria-current="page">Crop PDF</span></li></ol></nav>
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../../en/">Home</a></li><li><a class="crumb-tab" href="../../en/category/pdf/">PDF</a></li><li><span aria-current="page">Crop PDF</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#crop"></use></svg></span>
 <div class="tool-title"><h1>Crop PDF</h1><p class="lead">Trim white margins or unwanted areas from PDF pages.</p></div>
 <button class="fav-btn" type="button" data-fav="crop-pdf" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#star"></use></svg><span>Pin</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#shield-check"></use></svg><span>Your files are processed right on this device and never uploaded to any server.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-file" data-kind="file">
 <noscript><p class="note">This tool needs JavaScript enabled to run on your device.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 <p class="formats">Accepts: PDF</p>
 
+<div class="tool-info">
 <section class="block info"><h2>How to use</h2><ol class="steps"><li>Choose or drag and drop a PDF file.</li><li>Choose “Auto-remove white margins” (optionally keep a few mm, crop all pages evenly) or enter the margins in mm; the blue frame on the page is the part that&#39;s kept.</li><li>Click “Crop margins” and download the file.</li></ol></section>
-<section class="block info"><h2>Frequently asked questions</h2><details><summary>Are my files uploaded anywhere?</summary><p>No. Every step runs in JavaScript right in your browser; files never leave your device.</p></details>
+<section class="block info faq"><h2>Frequently asked questions</h2><details><summary>Are my files uploaded anywhere?</summary><p>No. Every step runs in JavaScript right in your browser; files never leave your device.</p></details>
 <details><summary>Is the cropped area deleted?</summary><p>No. The tool resets the page&#39;s visible area (CropBox); content outside is only hidden. Don&#39;t rely on cropping to remove sensitive information.</p></details>
 <details><summary>What is cropping good for?</summary><p>Bigger text when reading on a phone, printing scans without black borders, or removing extra margins before combining with other documents.</p></details></section>
-<section class="block"><h2>Related tools</h2><ul class="cards"><li class="card" data-id="rotate-pdf" data-group="pdf" style="--c:#E5484D">
+</div>
+<section class="block"><h2>Related tools <a class="see-all" href="../../en/category/pdf/">See all 24 tools<svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="rotate-pdf" data-group="pdf" style="--c:#E5484D">
 <a class="card-link" href="../../en/rotate-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#rotate-cw"></use></svg></span><span class="card-txt"><h3 class="card-name">Rotate PDF</h3><span class="card-desc">Rotate individual pages or the whole PDF to the right reading orientation.</span></span></a>
 <button class="star" type="button" data-fav="rotate-pdf" aria-pressed="false" aria-label="Pin Rotate PDF to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -109,6 +116,7 @@
 <a class="card-link" href="../../en/split-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#scissors"></use></svg></span><span class="card-txt"><h3 class="card-name">Split PDF</h3><span class="card-desc">Split a PDF by page ranges, one file per page, or extract the pages you pick.</span></span></a>
 <button class="star" type="button" data-fav="split-pdf" aria-pressed="false" aria-label="Pin Split PDF to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

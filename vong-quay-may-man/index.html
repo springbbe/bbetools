@@ -77,25 +77,32 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#5C8A1C">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/nang-suat/">Năng suất &amp; ngẫu nhiên</a></li><li><span aria-current="page">Vòng quay may mắn</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/nang-suat/">Năng suất &amp; ngẫu nhiên</a></li><li><span aria-current="page">Vòng quay may mắn</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#ferris-wheel"></use></svg></span>
 <div class="tool-title"><h1>Vòng quay may mắn</h1><p class="lead">Nhập danh sách, quay vòng ngẫu nhiên để chọn người, chọn món, trúng thưởng.</p></div>
 <button class="fav-btn" type="button" data-fav="spin-wheel" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>Danh sách và kết quả quay chỉ lưu trong trình duyệt của máy này, không gửi đi đâu.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-interactive" data-kind="interactive">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 
 
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Nhập danh sách, mỗi dòng một mục (hoặc chọn danh sách mẫu).</li><li>Bấm Quay, bấm vào vòng hoặc nhấn phím cách.</li><li>Bật “Bỏ mục trúng” khi bốc thăm nhiều giải, mỗi người chỉ trúng một lần.</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>Vòng quay có công bằng không?</summary><p>Có. Kết quả được chọn bằng bộ sinh số ngẫu nhiên an toàn (crypto.getRandomValues) trước khi vòng quay chạy; hiệu ứng chỉ để xem. Các mục có cơ hội như nhau, trừ khi bạn đặt trọng số.</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>Vòng quay có công bằng không?</summary><p>Có. Kết quả được chọn bằng bộ sinh số ngẫu nhiên an toàn (crypto.getRandomValues) trước khi vòng quay chạy; hiệu ứng chỉ để xem. Các mục có cơ hội như nhau, trừ khi bạn đặt trọng số.</p></details>
 <details><summary>Làm sao cho một mục dễ trúng hơn?</summary><p>Thêm “* số” sau tên, ví dụ “Giải khuyến khích * 5” có cơ hội gấp 5 mục thường; ô trên vòng cũng to hơn tương ứng.</p></details>
 <details><summary>Danh sách có được lưu không?</summary><p>Có, trong trình duyệt của máy bạn để lần sau mở lại vẫn còn. Không gửi đi đâu.</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="team-picker" data-group="productivity" style="--c:#5C8A1C">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/nang-suat/">Xem cả 17 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="team-picker" data-group="productivity" style="--c:#5C8A1C">
 <a class="card-link" href="../boc-tham-chia-doi/"><span class="tile" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shuffle"></use></svg></span><span class="card-txt"><h3 class="card-name">Bốc thăm, chia đội</h3><span class="card-desc">Chia danh sách thành các đội ngẫu nhiên, bốc thăm thứ tự.</span></span></a>
 <button class="star" type="button" data-fav="team-picker" aria-pressed="false" aria-label="Ghim Bốc thăm, chia đội vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -111,6 +118,7 @@
 <a class="card-link" href="../pomodoro/"><span class="tile" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#timer"></use></svg></span><span class="card-txt"><h3 class="card-name">Pomodoro</h3><span class="card-desc">Hẹn giờ tập trung 25 phút, nghỉ 5 phút theo phương pháp Pomodoro; có âm báo, thông báo và thống kê trong ngày.</span></span></a>
 <button class="star" type="button" data-fav="pomodoro" aria-pressed="false" aria-label="Ghim Pomodoro vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

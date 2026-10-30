@@ -74,25 +74,32 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#C27C0E">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/viet-nam/">Tiện ích Việt Nam</a></li><li><span aria-current="page">Tính lãi tiết kiệm</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/viet-nam/">Tiện ích Việt Nam</a></li><li><span aria-current="page">Tính lãi tiết kiệm</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#C27C0E"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#piggy-bank"></use></svg></span>
 <div class="tool-title"><h1>Tính lãi tiết kiệm</h1><p class="lead">Tiền lãi gửi tiết kiệm theo kỳ hạn, lĩnh lãi cuối kỳ hoặc hàng tháng, tái tục.</p></div>
 <button class="fav-btn" type="button" data-fav="savings-calculator" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>Số liệu bạn nhập chỉ được tính trên trình duyệt, không gửi đi đâu.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-form" data-kind="form">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 
 
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Nhập số tiền gửi, lãi suất năm và chọn kỳ hạn.</li><li>Chọn hình thức lĩnh lãi: cuối kỳ, hằng tháng hoặc tái tục gốc + lãi qua nhiều kỳ.</li><li>Xem tiền lãi, tổng nhận khi đáo hạn và bảng lãi từng kỳ.</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>Công thức tính lãi tiết kiệm?</summary><p>Tiền lãi = tiền gửi × lãi suất năm × số tháng ÷ 12, hoặc × số ngày thực tế ÷ 365 nếu chọn cách tính theo ngày như nhiều ngân hàng.</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>Công thức tính lãi tiết kiệm?</summary><p>Tiền lãi = tiền gửi × lãi suất năm × số tháng ÷ 12, hoặc × số ngày thực tế ÷ 365 nếu chọn cách tính theo ngày như nhiều ngân hàng.</p></details>
 <details><summary>Tái tục là gì?</summary><p>Hết kỳ hạn, nếu bạn không rút, ngân hàng tự nhập lãi vào gốc và gửi tiếp kỳ hạn cũ, nên kỳ sau lãi được tính trên số tiền lớn hơn (lãi kép).</p></details>
 <details><summary>Lãi tiết kiệm có phải nộp thuế không?</summary><p>Không. Lãi tiền gửi tại ngân hàng, tổ chức tín dụng của cá nhân được miễn thuế thu nhập cá nhân.</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="loan-calculator" data-group="vn" style="--c:#C27C0E">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/viet-nam/">Xem cả 14 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="loan-calculator" data-group="vn" style="--c:#C27C0E">
 <a class="card-link" href="../tinh-lai-vay-tra-gop/"><span class="tile" style="--c:#C27C0E"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#hand-coins"></use></svg></span><span class="card-txt"><h3 class="card-name">Tính lãi vay trả góp</h3><span class="card-desc">Lịch trả nợ theo dư nợ giảm dần hoặc trả đều, tổng lãi phải trả.</span></span></a>
 <button class="star" type="button" data-fav="loan-calculator" aria-pressed="false" aria-label="Ghim Tính lãi vay trả góp vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -108,6 +115,7 @@
 <a class="card-link" href="../tao-ma-qr-chuyen-khoan/"><span class="tile" style="--c:#C27C0E"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#landmark"></use></svg></span><span class="card-txt"><h3 class="card-name">Tạo mã QR chuyển khoản (VietQR)</h3><span class="card-desc">Tạo mã QR nhận tiền cho mọi ngân hàng theo chuẩn VietQR (EMVCo/NAPAS), có sẵn số tiền và nội dung, tạo ngay trên máy.</span></span></a>
 <button class="star" type="button" data-fav="vietqr" aria-pressed="false" aria-label="Ghim Tạo mã QR chuyển khoản (VietQR) vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

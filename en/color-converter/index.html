@@ -75,25 +75,32 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#3E63DD">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../../en/">Home</a></li><li><a href="../../en/category/dev/">Developer</a></li><li><span aria-current="page">Color Converter</span></li></ol></nav>
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../../en/">Home</a></li><li><a class="crumb-tab" href="../../en/category/dev/">Developer</a></li><li><span aria-current="page">Color Converter</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#palette"></use></svg></span>
 <div class="tool-title"><h1>Color Converter</h1><p class="lead">Convert HEX, RGB, HSL and OKLCH; check text/background contrast.</p></div>
 <button class="fav-btn" type="button" data-fav="color-converter" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#star"></use></svg><span>Pin</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#shield-check"></use></svg><span>The numbers you enter are only calculated in your browser and never sent anywhere.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-form" data-kind="form">
 <noscript><p class="note">This tool needs JavaScript enabled to run on your device.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 
 
+<div class="tool-info">
 <section class="block info"><h2>How to use</h2><ol class="steps"><li>Type a color code in any format or use the color picker.</li><li>Copy the HEX, RGB, HSL, OKLCH… format you need.</li><li>Choose a background color to check text contrast against WCAG.</li></ol></section>
-<section class="block info"><h2>Frequently asked questions</h2><details><summary>What contrast ratio passes?</summary><p>Per WCAG, normal text needs at least 4.5:1 (AA) and large text 3:1; AAA is 7:1 and 4.5:1.</p></details>
+<section class="block info faq"><h2>Frequently asked questions</h2><details><summary>What contrast ratio passes?</summary><p>Per WCAG, normal text needs at least 4.5:1 (AA) and large text 3:1; AAA is 7:1 and 4.5:1.</p></details>
 <details><summary>What is OKLCH?</summary><p>A newer CSS color space with more perceptually even lightness than HSL; all modern browsers support oklch().</p></details>
 <details><summary>Can I use the CMYK values for printing?</summary><p>They&#39;re only an approximation. Real print colors depend on the printer&#39;s color profile; ask your printer when accuracy matters.</p></details></section>
-<section class="block"><h2>Related tools</h2><ul class="cards"><li class="card" data-id="color-picker" data-group="image" style="--c:#8E4EC6">
+</div>
+<section class="block"><h2>Related tools <a class="see-all" href="../../en/category/dev/">See all 19 tools<svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="color-picker" data-group="image" style="--c:#8E4EC6">
 <a class="card-link" href="../../en/color-picker/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#pipette"></use></svg></span><span class="card-txt"><h3 class="card-name">Image Color Picker</h3><span class="card-desc">Tap an image to get color codes and extract its dominant palette automatically.</span></span></a>
 <button class="star" type="button" data-fav="color-picker" aria-pressed="false" aria-label="Pin Image Color Picker to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -109,6 +116,7 @@
 <a class="card-link" href="../../en/json-convert/"><span class="tile" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#file-json"></use></svg></span><span class="card-txt"><h3 class="card-name">JSON ↔ CSV/YAML Converter</h3><span class="card-desc">Convert back and forth between JSON, CSV and YAML.</span></span></a>
 <button class="star" type="button" data-fav="json-convert" aria-pressed="false" aria-label="Pin JSON ↔ CSV/YAML Converter to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

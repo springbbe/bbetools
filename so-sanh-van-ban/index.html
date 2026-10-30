@@ -77,26 +77,33 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#0D74CE">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/van-ban/">Văn bản</a></li><li><span aria-current="page">So sánh văn bản</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/van-ban/">Văn bản</a></li><li><span aria-current="page">So sánh văn bản</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#0D74CE"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#git-compare"></use></svg></span>
 <div class="tool-title"><h1>So sánh văn bản</h1><p class="lead">So sánh hai văn bản hoặc hai file (TXT, PDF, Word, Excel): tô màu chỗ thêm/bớt, tính % giống nhau.</p></div>
 <button class="fav-btn" type="button" data-fav="text-diff" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>Văn bản và file bạn mở (TXT, PDF, Word, Excel) chỉ được đọc và so sánh ngay trên trình duyệt, không tải lên máy chủ nào.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-text" data-kind="text">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 
 
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Dán bản gốc vào ô bên trái, bản mới vào ô bên phải; hoặc bấm nút tải lên, kéo thả file TXT, PDF, Word (.docx), Excel vào từng ô (thả hai file một lúc thì mỗi ô một file).</li><li>Chọn so theo dòng, từ hoặc ký tự; xem song song hay gộp một cột; bật bỏ qua hoa/thường, khoảng trắng nếu cần.</li><li>Xem tỉ lệ giống nhau và số dòng sửa/thêm/bớt; phần thêm tô xanh, phần bớt tô đỏ, đoạn giống nhau dài được gấp gọn.</li><li>Bấm mũi tên lên/xuống (hoặc Alt + ↑/↓) để nhảy giữa các chỗ khác; sao chép hoặc tải bản so sánh (.html) để in, lưu PDF.</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>Văn bản có bị gửi lên máy chủ để so sánh không?</summary><p>Không. Thuật toán so sánh (Myers) và việc đọc file PDF, Word, Excel đều chạy ngay trên trình duyệt của bạn.</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>Văn bản có bị gửi lên máy chủ để so sánh không?</summary><p>Không. Thuật toán so sánh (Myers) và việc đọc file PDF, Word, Excel đều chạy ngay trên trình duyệt của bạn.</p></details>
 <details><summary>Nên so theo dòng hay theo từ?</summary><p>Hợp đồng, mã nguồn nên so theo dòng (trong dòng sửa vẫn tô đúng từ thay đổi). Đoạn văn liền mạch nên so theo từ.</p></details>
 <details><summary>So sánh được file nào?</summary><p>File văn bản (TXT, Markdown, CSV, JSON, mã nguồn… tự nhận UTF-8, UTF-16, Windows-1258), PDF có lớp chữ, Word .docx và Excel (.xlsx, .xls, .ods; mỗi ô cách nhau bằng tab). PDF scan chỉ có ảnh thì cần chạy OCR trước; file Word .doc cũ cần lưu lại dạng .docx.</p></details>
 <details><summary>Tỉ lệ giống nhau tính thế nào?</summary><p>Bằng 2 × số ký tự trùng khớp chia cho tổng số ký tự của hai bản (không tính khoảng trắng), so theo từng từ. 100% nghĩa là hai bản giống hệt nhau.</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="dedupe-lines" data-group="text" style="--c:#0D74CE">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/van-ban/">Xem cả 12 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="dedupe-lines" data-group="text" style="--c:#0D74CE">
 <a class="card-link" href="../loc-dong-trung/"><span class="tile" style="--c:#0D74CE"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#list-filter"></use></svg></span><span class="card-txt"><h3 class="card-name">Lọc dòng trùng &amp; sắp xếp dòng</h3><span class="card-desc">Xoá dòng trùng, dòng trống, sắp xếp A→Z theo tiếng Việt, đảo ngược.</span></span></a>
 <button class="star" type="button" data-fav="dedupe-lines" aria-pressed="false" aria-label="Ghim Lọc dòng trùng &amp; sắp xếp dòng vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -112,6 +119,7 @@
 <a class="card-link" href="../doi-chu-hoa-thuong/"><span class="tile" style="--c:#0D74CE"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#case-sensitive"></use></svg></span><span class="card-txt"><h3 class="card-name">Đổi chữ hoa/thường</h3><span class="card-desc">Đổi IN HOA, chữ thường, Viết Hoa Mỗi Từ, Viết hoa đầu câu, đúng với tiếng Việt.</span></span></a>
 <button class="star" type="button" data-fav="case-converter" aria-pressed="false" aria-label="Ghim Đổi chữ hoa/thường vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

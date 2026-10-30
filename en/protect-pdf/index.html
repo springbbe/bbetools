@@ -75,26 +75,33 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#E5484D">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../../en/">Home</a></li><li><a href="../../en/category/pdf/">PDF</a></li><li><span aria-current="page">Protect PDF with Password</span></li></ol></nav>
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../../en/">Home</a></li><li><a class="crumb-tab" href="../../en/category/pdf/">PDF</a></li><li><span aria-current="page">Protect PDF with Password</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#lock"></use></svg></span>
 <div class="tool-title"><h1>Protect PDF with Password</h1><p class="lead">Lock a PDF with a password using AES-256 encryption.</p></div>
 <button class="fav-btn" type="button" data-fav="protect-pdf" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#star"></use></svg><span>Pin</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#shield-check"></use></svg><span>Your files are processed right on this device and never uploaded to any server.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-file" data-kind="file">
 <noscript><p class="note">This tool needs JavaScript enabled to run on your device.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 <p class="formats">Accepts: PDF</p>
 
+<div class="tool-info">
 <section class="block info"><h2>How to use</h2><ol class="steps"><li>Choose or drag and drop one or more PDF files.</li><li>Enter the password twice; if needed, open “Restrict permissions” to block printing, copying or editing.</li><li>Click “Lock PDF” and download the encrypted file.</li></ol></section>
-<section class="block info"><h2>Frequently asked questions</h2><details><summary>Are my files uploaded anywhere?</summary><p>No. Every step runs in JavaScript right in your browser; files never leave your device.</p></details>
+<section class="block info faq"><h2>Frequently asked questions</h2><details><summary>Are my files uploaded anywhere?</summary><p>No. Every step runs in JavaScript right in your browser; files never leave your device.</p></details>
 <details><summary>Is the encryption secure?</summary><p>Files are encrypted with AES-256 per the PDF 2.0 standard. The longer and less guessable the password, the safer.</p></details>
 <details><summary>What if I forget the password?</summary><p>It can&#39;t be recovered. Keep the password somewhere safe and keep the unlocked original.</p></details>
 <details><summary>Are print and copy restrictions guaranteed?</summary><p>Popular PDF readers respect them, but some software may ignore them. The open password is the real protection.</p></details></section>
-<section class="block"><h2>Related tools</h2><ul class="cards"><li class="card" data-id="unlock-pdf" data-group="pdf" style="--c:#E5484D">
+</div>
+<section class="block"><h2>Related tools <a class="see-all" href="../../en/category/pdf/">See all 24 tools<svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="unlock-pdf" data-group="pdf" style="--c:#E5484D">
 <a class="card-link" href="../../en/unlock-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#lock-open"></use></svg></span><span class="card-txt"><h3 class="card-name">Unlock PDF</h3><span class="card-desc">Remove the password (when you know it) and print/copy restrictions from a PDF.</span></span></a>
 <button class="star" type="button" data-fav="unlock-pdf" aria-pressed="false" aria-label="Pin Unlock PDF to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -110,6 +117,7 @@
 <a class="card-link" href="../../en/merge-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#combine"></use></svg></span><span class="card-txt"><h3 class="card-name">Merge PDF</h3><span class="card-desc">Combine multiple PDF files into one, drag and drop to set the order, rotate files as needed.</span></span></a>
 <button class="star" type="button" data-fav="merge-pdf" aria-pressed="false" aria-label="Pin Merge PDF to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

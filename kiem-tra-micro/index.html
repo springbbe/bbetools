@@ -77,25 +77,32 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#5C8A1C">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/nang-suat/">Năng suất &amp; ngẫu nhiên</a></li><li><span aria-current="page">Test micro</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/nang-suat/">Năng suất &amp; ngẫu nhiên</a></li><li><span aria-current="page">Test micro</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#mic-vocal"></use></svg></span>
 <div class="tool-title"><h1>Test micro</h1><p class="lead">Kiểm tra micro online: xem mức âm và dạng sóng khi nói, ghi thử 5 giây rồi nghe lại.</p></div>
 <button class="fav-btn" type="button" data-fav="mic-test" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>Mọi thứ chạy ngay trên máy bạn; hình ảnh, âm thanh không gửi đi đâu.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-interactive" data-kind="interactive">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 
 
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Bấm Bật micro và cho phép trình duyệt dùng micro khi được hỏi.</li><li>Nói thử “một, hai, ba”: thanh mức âm nên lên tới vùng xanh.</li><li>Bấm Ghi thử 5 giây rồi nghe lại để biết người khác nghe giọng bạn thế nào.</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>Micro không nhận tiếng?</summary><p>Chọn đúng micro trong danh sách (khi có nhiều), kiểm tra công tắc tắt tiếng trên tai nghe, cho phép trình duyệt dùng micro (biểu tượng ổ khoá), đóng Zoom/Teams nếu đang chiếm micro. Trên macOS vào Cài đặt hệ thống → Quyền riêng tư &amp; Bảo mật → Micrô.</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>Micro không nhận tiếng?</summary><p>Chọn đúng micro trong danh sách (khi có nhiều), kiểm tra công tắc tắt tiếng trên tai nghe, cho phép trình duyệt dùng micro (biểu tượng ổ khoá), đóng Zoom/Teams nếu đang chiếm micro. Trên macOS vào Cài đặt hệ thống → Quyền riêng tư &amp; Bảo mật → Micrô.</p></details>
 <details><summary>Tiếng bị nhỏ hoặc rè?</summary><p>Thanh mức âm ở vùng xám là quá nhỏ: để micro gần miệng hơn hoặc tăng âm lượng đầu vào trong cài đặt âm thanh. Chạm vùng đỏ là quá to, dễ rè.</p></details>
 <details><summary>Bản ghi thử có bị gửi đi không?</summary><p>Không. Âm thanh chỉ nằm trong trình duyệt trên máy bạn. Cần ghi âm dài và tải về thì dùng công cụ Ghi âm.</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="voice-recorder" data-group="media" style="--c:#D6409F">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/nang-suat/">Xem cả 17 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="voice-recorder" data-group="media" style="--c:#D6409F">
 <a class="card-link" href="../ghi-am/"><span class="tile" style="--c:#D6409F"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#mic"></use></svg></span><span class="card-txt"><h3 class="card-name">Ghi âm</h3><span class="card-desc">Ghi âm bằng micro, tạm dừng, nghe lại, đặt tên và tải về M4A, MP3 hoặc WAV.</span></span></a>
 <button class="star" type="button" data-fav="voice-recorder" aria-pressed="false" aria-label="Ghim Ghi âm vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -111,6 +118,7 @@
 <a class="card-link" href="../kiem-tra-thiet-bi/"><span class="tile" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#monitor-check"></use></svg></span><span class="card-txt"><h3 class="card-name">Kiểm tra camera, micro, bàn phím, màn hình</h3><span class="card-desc">Thử camera, micro, loa trái/phải, bàn phím, chuột và điểm chết màn hình trên một trang, trước khi họp online.</span></span></a>
 <button class="star" type="button" data-fav="device-test" aria-pressed="false" aria-label="Ghim Kiểm tra camera, micro, bàn phím, màn hình vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

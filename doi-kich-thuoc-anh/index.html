@@ -77,25 +77,32 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#8E4EC6">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/anh/">Ảnh</a></li><li><span aria-current="page">Đổi kích thước ảnh</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/anh/">Ảnh</a></li><li><span aria-current="page">Đổi kích thước ảnh</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#scaling"></use></svg></span>
 <div class="tool-title"><h1>Đổi kích thước ảnh</h1><p class="lead">Thu nhỏ hoặc phóng to ảnh theo pixel, phần trăm hoặc cạnh dài nhất.</p></div>
 <button class="fav-btn" type="button" data-fav="resize-image" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>File của bạn được xử lý ngay trên máy này, không bao giờ tải lên máy chủ.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-file" data-kind="file">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 <p class="formats">Nhận: JPG, PNG, WebP, GIF, BMP, AVIF, HEIC, HEIF</p>
 
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Chọn, kéo thả hoặc dán một hay nhiều ảnh (JPG, PNG, WebP, HEIC…).</li><li>Chọn cách đổi cỡ: nhập số pixel (bỏ trống một ô để giữ tỉ lệ), theo phần trăm, hoặc theo cạnh dài nhất (ví dụ 1920 px).</li><li>Bấm “Đổi kích thước” rồi tải từng ảnh hoặc cả file .zip.</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>Ảnh có bị tải lên máy chủ không?</summary><p>Không. Mọi bước xử lý chạy ngay trong trình duyệt của bạn; ảnh không rời khỏi máy.</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>Ảnh có bị tải lên máy chủ không?</summary><p>Không. Mọi bước xử lý chạy ngay trong trình duyệt của bạn; ảnh không rời khỏi máy.</p></details>
 <details><summary>Thu nhỏ ảnh có bị vỡ, răng cưa không?</summary><p>Không. Ảnh được thu nhỏ dần từng nửa với bộ lọc chất lượng cao nên chi tiết mịn. Phóng to quá cỡ gốc thì ảnh sẽ mờ, vì vậy mặc định công cụ không phóng to ảnh nhỏ.</p></details>
 <details><summary>Muốn ảnh đúng kích thước như 800×800 thì sao?</summary><p>Tắt “Giữ tỉ lệ” để kéo giãn ảnh đúng số pixel, hoặc dùng công cụ Cắt ảnh với tỉ lệ 1:1 trước rồi đổi kích thước để ảnh không bị méo.</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="compress-image" data-group="image" style="--c:#8E4EC6">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/anh/">Xem cả 21 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="compress-image" data-group="image" style="--c:#8E4EC6">
 <a class="card-link" href="../nen-anh/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#image-down"></use></svg></span><span class="card-txt"><h3 class="card-name">Nén ảnh</h3><span class="card-desc">Giảm dung lượng ảnh JPG, PNG, WebP hàng loạt; có chế độ nén xuống dưới số KB bạn cần.</span></span></a>
 <button class="star" type="button" data-fav="compress-image" aria-pressed="false" aria-label="Ghim Nén ảnh vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -111,6 +118,7 @@
 <a class="card-link" href="../xoay-anh/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#flip-vertical-2"></use></svg></span><span class="card-txt"><h3 class="card-name">Xoay, lật ảnh</h3><span class="card-desc">Xoay 90°, 180° hoặc lật gương ảnh hàng loạt.</span></span></a>
 <button class="star" type="button" data-fav="rotate-image" aria-pressed="false" aria-label="Ghim Xoay, lật ảnh vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

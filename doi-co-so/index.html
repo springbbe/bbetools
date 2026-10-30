@@ -77,24 +77,31 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#3E63DD">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/lap-trinh/">Lập trình</a></li><li><span aria-current="page">Đổi cơ số</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/lap-trinh/">Lập trình</a></li><li><span aria-current="page">Đổi cơ số</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#binary"></use></svg></span>
 <div class="tool-title"><h1>Đổi cơ số</h1><p class="lead">Đổi số giữa nhị phân, bát phân, thập phân, thập lục phân và cơ số bất kỳ.</p></div>
 <button class="fav-btn" type="button" data-fav="base-converter" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>Số liệu bạn nhập chỉ được tính trên trình duyệt, không gửi đi đâu.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-form" data-kind="form">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 
 
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Gõ số và chọn hệ đang dùng (thập phân, hex, nhị phân…).</li><li>Kết quả ở các hệ khác hiện ngay, chữ số được nhóm cho dễ đọc.</li><li>Số âm có thêm dạng bù 2 với 8–64 bit.</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>Đổi được số lớn tới đâu?</summary><p>Không giới hạn: công cụ dùng BigInt nên số hàng trăm chữ số vẫn chính xác.</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>Đổi được số lớn tới đâu?</summary><p>Không giới hạn: công cụ dùng BigInt nên số hàng trăm chữ số vẫn chính xác.</p></details>
 <details><summary>Có đổi được số thập phân (có phần lẻ) không?</summary><p>Hiện công cụ chỉ đổi số nguyên.</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="unit-converter" data-group="calc" style="--c:#E5701A">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/lap-trinh/">Xem cả 19 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="unit-converter" data-group="calc" style="--c:#E5701A">
 <a class="card-link" href="../doi-don-vi/"><span class="tile" style="--c:#E5701A"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-left-right"></use></svg></span><span class="card-txt"><h3 class="card-name">Đổi đơn vị</h3><span class="card-desc">Chiều dài, khối lượng, nhiệt độ, diện tích, thể tích, tốc độ, dữ liệu.</span></span></a>
 <button class="star" type="button" data-fav="unit-converter" aria-pressed="false" aria-label="Ghim Đổi đơn vị vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -110,6 +117,7 @@
 <a class="card-link" href="../json-sang-csv-yaml/"><span class="tile" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#file-json"></use></svg></span><span class="card-txt"><h3 class="card-name">JSON ↔ CSV/YAML</h3><span class="card-desc">Chuyển đổi qua lại giữa JSON, CSV và YAML.</span></span></a>
 <button class="star" type="button" data-fav="json-convert" aria-pressed="false" aria-label="Ghim JSON ↔ CSV/YAML vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

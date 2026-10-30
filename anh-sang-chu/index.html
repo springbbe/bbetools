@@ -77,25 +77,32 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#8E4EC6">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/anh/">Ảnh</a></li><li><span aria-current="page">Ảnh sang chữ (OCR)</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/anh/">Ảnh</a></li><li><span aria-current="page">Ảnh sang chữ (OCR)</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#scan-text"></use></svg></span>
 <div class="tool-title"><h1>Ảnh sang chữ (OCR)</h1><p class="lead">Nhận dạng chữ trong ảnh chụp, ảnh scan, hỗ trợ tiếng Việt có dấu.</p></div>
 <button class="fav-btn" type="button" data-fav="ocr" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>File của bạn được xử lý ngay trên máy này, không bao giờ tải lên máy chủ.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-file" data-kind="file">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 <p class="formats">Nhận: JPG, PNG, WebP, GIF, BMP, AVIF, HEIC, HEIF, PDF</p>
 
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Chọn, kéo thả hoặc dán ảnh chụp, ảnh scan hoặc file PDF scan.</li><li>Chọn ngôn ngữ (tiếng Việt hoặc tiếng Anh) và cách xuống dòng.</li><li>Bấm “Nhận dạng chữ”, đọc lại kết quả, sao chép hoặc tải file .txt.</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>Ảnh có bị gửi lên máy chủ để nhận dạng không?</summary><p>Không. Bộ nhận dạng Tesseract (WebAssembly) được tải về trình duyệt và chạy ngay trên máy bạn.</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>Ảnh có bị gửi lên máy chủ để nhận dạng không?</summary><p>Không. Bộ nhận dạng Tesseract (WebAssembly) được tải về trình duyệt và chạy ngay trên máy bạn.</p></details>
 <details><summary>Nhận dạng tiếng Việt có dấu có chính xác không?</summary><p>Khá tốt với ảnh chụp thẳng, rõ nét, chữ in. Ảnh mờ, nghiêng, chữ viết tay dễ sai dấu; hãy đọc lại và sửa. Có thể dùng Scan tài liệu để nắn thẳng ảnh trước.</p></details>
 <details><summary>PDF có chữ chọn được thì sao?</summary><p>Dùng công cụ PDF sang văn bản sẽ nhanh và chính xác hơn. OCR dành cho PDF scan (chỉ có ảnh).</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="pdf-to-text" data-group="pdf" style="--c:#E5484D">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/anh/">Xem cả 21 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="pdf-to-text" data-group="pdf" style="--c:#E5484D">
 <a class="card-link" href="../pdf-sang-van-ban/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#file-text"></use></svg></span><span class="card-txt"><h3 class="card-name">PDF sang văn bản</h3><span class="card-desc">Lấy toàn bộ chữ trong PDF để sao chép hoặc lưu file .txt.</span></span></a>
 <button class="star" type="button" data-fav="pdf-to-text" aria-pressed="false" aria-label="Ghim PDF sang văn bản vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -111,6 +118,7 @@
 <a class="card-link" href="../nen-anh/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#image-down"></use></svg></span><span class="card-txt"><h3 class="card-name">Nén ảnh</h3><span class="card-desc">Giảm dung lượng ảnh JPG, PNG, WebP hàng loạt; có chế độ nén xuống dưới số KB bạn cần.</span></span></a>
 <button class="star" type="button" data-fav="compress-image" aria-pressed="false" aria-label="Ghim Nén ảnh vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

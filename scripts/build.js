@@ -340,23 +340,31 @@ async function toolPage(L, t) {
   // bù thêm công cụ cùng nhóm cho đủ 4
   for (const x of L.liveIn(t.group)) { if (related.length >= 4) break; if (x !== t && !related.includes(x)) related.push(x); }
   const accept = t.accept && t.kind === "file" ? `<p class="formats">${tr("Nhận: {0}", esc(L.describeAccept(t.accept)))}</p>` : "";
-  const main = `<div class="wrap">
-<nav class="crumbs" aria-label="${tr("Đường dẫn")}"><ol><li><a href="${root}${L.homeUrl}">${tr("Trang chủ")}</a></li><li><a href="${root}${L.groupUrl(g)}">${esc(g.name)}</a></li><li><span aria-current="page">${esc(t.name)}</span></li></ol></nav>
+  const howto = t.howto && t.howto.length ? `<section class="block info"><h2>${tr("Cách dùng")}</h2><ol class="steps">${t.howto.map((s) => `<li>${esc(s)}</li>`).join("")}</ol></section>` : "";
+  const faq = t.faq && t.faq.length ? `<section class="block info faq"><h2>${tr("Câu hỏi thường gặp")}</h2>${t.faq.map((f) => `<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join("\n")}</section>` : "";
+  // dải đầu trang mang màu chuyên mục (nhóm); khung ứng dụng đè lên mép dưới của dải
+  const main = `<div class="tool-page" style="--c:${g.color}">
+<div class="tool-band">
+<div class="wrap">
+<nav class="crumbs" aria-label="${tr("Đường dẫn")}"><ol><li><a href="${root}${L.homeUrl}">${tr("Trang chủ")}</a></li><li><a class="crumb-tab" href="${root}${L.groupUrl(g)}">${esc(g.name)}</a></li><li><span aria-current="page">${esc(t.name)}</span></li></ol></nav>
 <header class="tool-head">
 ${tile(L, t, root, "lg")}
 <div class="tool-title"><h1>${esc(t.name)}${t.status === "beta" ? ` <span class="badge">${tr("Thử nghiệm")}</span>` : ""}</h1><p class="lead">${esc(t.desc)}</p></div>
 <button class="fav-btn" type="button" data-fav="${t.id}" aria-pressed="false" hidden>${icon("star", root)}<span>${tr("Ghim")}</span></button>
 </header>
 <p class="privacy">${icon("shield-check", root)}<span>${esc(t.privacy || tr(PRIVACY[t.kind]))}</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-${t.kind}" data-kind="${t.kind}">
 <noscript><p class="note">${tr("Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.")}</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 ${accept}
 ${await dataNote(L, t, root)}
-${t.howto && t.howto.length ? `<section class="block info"><h2>${tr("Cách dùng")}</h2><ol class="steps">${t.howto.map((s) => `<li>${esc(s)}</li>`).join("")}</ol></section>` : ""}
-${t.faq && t.faq.length ? `<section class="block info"><h2>${tr("Câu hỏi thường gặp")}</h2>${t.faq.map((f) => `<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join("\n")}</section>` : ""}
-${related.length ? `<section class="block"><h2>${tr("Công cụ liên quan")}</h2>${cards(L, related.slice(0, 6), root)}</section>` : ""}
+${howto && faq ? `<div class="tool-info">\n${howto}\n${faq}\n</div>` : howto + faq}
+${related.length ? `<section class="block"><h2>${tr("Công cụ liên quan")} <a class="see-all" href="${root}${L.groupUrl(g)}">${tr("Xem cả {0} công cụ", L.liveIn(g.id).length)}${icon("arrow-right", root)}</a></h2>${cards(L, related.slice(0, 6), root)}</section>` : ""}
+</div>
 </div>`;
   const graph = [
     { "@type": "WebApplication", name: t.name, url: BASE + path, description: t.desc, inLanguage: L.lang,

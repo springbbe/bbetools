@@ -77,25 +77,32 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#3E63DD">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/lap-trinh/">Lập trình</a></li><li><span aria-current="page">Đổi mã màu</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/lap-trinh/">Lập trình</a></li><li><span aria-current="page">Đổi mã màu</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#palette"></use></svg></span>
 <div class="tool-title"><h1>Đổi mã màu</h1><p class="lead">Đổi HEX, RGB, HSL, OKLCH; kiểm tra độ tương phản chữ/nền.</p></div>
 <button class="fav-btn" type="button" data-fav="color-converter" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>Số liệu bạn nhập chỉ được tính trên trình duyệt, không gửi đi đâu.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-form" data-kind="form">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 
 
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Gõ mã màu theo bất kỳ dạng nào hoặc dùng bảng chọn màu.</li><li>Sao chép dạng HEX, RGB, HSL, OKLCH… cần dùng.</li><li>Chọn màu nền để kiểm tra độ tương phản chữ theo chuẩn WCAG.</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>Độ tương phản bao nhiêu là đạt?</summary><p>Theo WCAG, chữ thường cần tối thiểu 4,5:1 (mức AA), chữ lớn cần 3:1; mức AAA là 7:1 và 4,5:1.</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>Độ tương phản bao nhiêu là đạt?</summary><p>Theo WCAG, chữ thường cần tối thiểu 4,5:1 (mức AA), chữ lớn cần 3:1; mức AAA là 7:1 và 4,5:1.</p></details>
 <details><summary>OKLCH là gì?</summary><p>Hệ màu mới của CSS, chỉnh độ sáng đều mắt hơn HSL; trình duyệt hiện đại đều hỗ trợ oklch().</p></details>
 <details><summary>Mã CMYK có dùng để in được không?</summary><p>Đây chỉ là quy đổi gần đúng. Màu in thật phụ thuộc hồ sơ màu của máy in, hãy hỏi nhà in khi cần chính xác.</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="color-picker" data-group="image" style="--c:#8E4EC6">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/lap-trinh/">Xem cả 19 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="color-picker" data-group="image" style="--c:#8E4EC6">
 <a class="card-link" href="../lay-mau-tu-anh/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#pipette"></use></svg></span><span class="card-txt"><h3 class="card-name">Lấy màu từ ảnh</h3><span class="card-desc">Chạm vào ảnh để lấy mã màu, tự trích bảng màu chủ đạo.</span></span></a>
 <button class="star" type="button" data-fav="color-picker" aria-pressed="false" aria-label="Ghim Lấy màu từ ảnh vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -111,6 +118,7 @@
 <a class="card-link" href="../json-sang-csv-yaml/"><span class="tile" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#file-json"></use></svg></span><span class="card-txt"><h3 class="card-name">JSON ↔ CSV/YAML</h3><span class="card-desc">Chuyển đổi qua lại giữa JSON, CSV và YAML.</span></span></a>
 <button class="star" type="button" data-fav="json-convert" aria-pressed="false" aria-label="Ghim JSON ↔ CSV/YAML vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

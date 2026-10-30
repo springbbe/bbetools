@@ -77,24 +77,31 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#3E63DD">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/lap-trinh/">Lập trình</a></li><li><span aria-current="page">Mã hoá/giải mã Base64</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/lap-trinh/">Lập trình</a></li><li><span aria-current="page">Mã hoá/giải mã Base64</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#binary"></use></svg></span>
 <div class="tool-title"><h1>Mã hoá/giải mã Base64</h1><p class="lead">Mã hoá và giải mã Base64 cho văn bản UTF-8 và file.</p></div>
 <button class="fav-btn" type="button" data-fav="base64" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>Văn bản bạn nhập chỉ được xử lý trên trình duyệt, không gửi đi đâu.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-text" data-kind="text">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 
 
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Chọn chiều: mã hoá hoặc giải mã.</li><li>Gõ/dán văn bản, hoặc bấm “File” để mã hoá một file.</li><li>Chuỗi Base64 là ảnh, PDF… thì bấm “Lưu thành file” để tải về.</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>Base64 có phải mã hoá bảo mật không?</summary><p>Không. Base64 chỉ đổi dữ liệu sang ký tự an toàn để truyền đi, ai cũng giải ngược được. Muốn giữ bí mật hãy dùng mã hoá thật.</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>Base64 có phải mã hoá bảo mật không?</summary><p>Không. Base64 chỉ đổi dữ liệu sang ký tự an toàn để truyền đi, ai cũng giải ngược được. Muốn giữ bí mật hãy dùng mã hoá thật.</p></details>
 <details><summary>Văn bản có dấu có giải mã đúng không?</summary><p>Có, công cụ dùng UTF-8 nên tiếng Việt và emoji giữ nguyên. Nhận cả Base64 URL-safe (- _) và chuỗi thiếu dấu =.</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="url-encode" data-group="dev" style="--c:#3E63DD">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/lap-trinh/">Xem cả 19 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="url-encode" data-group="dev" style="--c:#3E63DD">
 <a class="card-link" href="../ma-hoa-url/"><span class="tile" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#link-2"></use></svg></span><span class="card-txt"><h3 class="card-name">Mã hoá URL</h3><span class="card-desc">Mã hoá/giải mã URL (percent-encoding), tách tham số query.</span></span></a>
 <button class="star" type="button" data-fav="url-encode" aria-pressed="false" aria-label="Ghim Mã hoá URL vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -110,6 +117,7 @@
 <a class="card-link" href="../dinh-dang-json/"><span class="tile" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#braces"></use></svg></span><span class="card-txt"><h3 class="card-name">Định dạng &amp; kiểm tra JSON</h3><span class="card-desc">Làm đẹp, rút gọn, sắp xếp khoá và kiểm tra lỗi JSON, chỉ đúng dòng/cột bị sai.</span></span></a>
 <button class="star" type="button" data-fav="json-formatter" aria-pressed="false" aria-label="Ghim Định dạng &amp; kiểm tra JSON vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

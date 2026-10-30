@@ -77,25 +77,32 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#0E7C86">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/bao-mat/">Bảo mật</a></li><li><span aria-current="page">Tạo mật khẩu mạnh</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/bao-mat/">Bảo mật</a></li><li><span aria-current="page">Tạo mật khẩu mạnh</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#0E7C86"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#key"></use></svg></span>
 <div class="tool-title"><h1>Tạo mật khẩu mạnh</h1><p class="lead">Sinh mật khẩu ngẫu nhiên an toàn, cụm từ tiếng Việt dễ nhớ hoặc mã PIN, dùng bộ sinh số ngẫu nhiên của trình duyệt.</p></div>
 <button class="fav-btn" type="button" data-fav="password-generator" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>Mật khẩu được tạo ngay trên trình duyệt bằng bộ sinh số ngẫu nhiên an toàn, không lưu, không gửi đi đâu.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-form" data-kind="form">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 
 
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Chọn kiểu: ngẫu nhiên, cụm từ dễ nhớ hoặc mã PIN.</li><li>Kéo thanh độ dài, chọn loại ký tự; mật khẩu mới hiện ngay.</li><li>Bấm Sao chép rồi dán vào trang đăng ký hoặc trình quản lý mật khẩu.</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>Mật khẩu có bị lưu lại hay gửi đi không?</summary><p>Không. Mật khẩu được tạo bằng crypto.getRandomValues (bộ sinh số dùng cho mật mã) ngay trên máy bạn; BbeTools không lưu và không gửi mật khẩu đi đâu.</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>Mật khẩu có bị lưu lại hay gửi đi không?</summary><p>Không. Mật khẩu được tạo bằng crypto.getRandomValues (bộ sinh số dùng cho mật mã) ngay trên máy bạn; BbeTools không lưu và không gửi mật khẩu đi đâu.</p></details>
 <details><summary>Nên dùng mật khẩu dài bao nhiêu?</summary><p>Tối thiểu 12 ký tự ngẫu nhiên, nên dùng từ 16 trở lên; cụm từ dễ nhớ nên có 5–6 từ. Mỗi tài khoản dùng một mật khẩu riêng.</p></details>
 <details><summary>Cụm từ dễ nhớ là gì?</summary><p>Là vài từ tiếng Việt quen thuộc được chọn ngẫu nhiên rồi ghép lại (vd. ConMeo-BauTroi-…), dễ nhớ, dễ gõ trên điện thoại nhưng vẫn khó đoán vì có hàng trăm nghìn tỷ cách ghép.</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="password-strength" data-group="security" style="--c:#0E7C86">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/bao-mat/">Xem cả 6 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="password-strength" data-group="security" style="--c:#0E7C86">
 <a class="card-link" href="../kiem-tra-mat-khau/"><span class="tile" style="--c:#0E7C86"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg></span><span class="card-txt"><h3 class="card-name">Kiểm tra độ mạnh mật khẩu</h3><span class="card-desc">Ước tính thời gian bị dò ra, tìm các mẫu dễ đoán (mật khẩu phổ biến, tên, ngày sinh, phím liền nhau) và gợi ý cải thiện.</span></span></a>
 <button class="star" type="button" data-fav="password-strength" aria-pressed="false" aria-label="Ghim Kiểm tra độ mạnh mật khẩu vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -111,6 +118,7 @@
 <a class="card-link" href="../ma-hoa-van-ban/"><span class="tile" style="--c:#0E7C86"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#lock-keyhole"></use></svg></span><span class="card-txt"><h3 class="card-name">Mã hoá văn bản</h3><span class="card-desc">Mã hoá tin nhắn bằng mật khẩu (AES-GCM) để gửi qua kênh không an toàn.</span></span></a>
 <button class="star" type="button" data-fav="text-encrypt" aria-pressed="false" aria-label="Ghim Mã hoá văn bản vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

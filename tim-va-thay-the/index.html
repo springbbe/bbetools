@@ -77,24 +77,31 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#0D74CE">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/van-ban/">Văn bản</a></li><li><span aria-current="page">Tìm và thay thế</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/van-ban/">Văn bản</a></li><li><span aria-current="page">Tìm và thay thế</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#0D74CE"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#replace"></use></svg></span>
 <div class="tool-title"><h1>Tìm và thay thế</h1><p class="lead">Tìm và thay thế hàng loạt, hỗ trợ biểu thức chính quy (regex).</p></div>
 <button class="fav-btn" type="button" data-fav="find-replace" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>Văn bản bạn nhập chỉ được xử lý trên trình duyệt, không gửi đi đâu.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-text" data-kind="text">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 
 
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Dán văn bản vào ô.</li><li>Nhập từ cần tìm và từ thay thế; chọn phân biệt hoa/thường, nguyên từ hoặc regex.</li><li>Chỗ được thay tô màu; sao chép hoặc tải kết quả.</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>Dùng biểu thức chính quy thế nào?</summary><p>Bật “Biểu thức chính quy”, dùng $1, $2 hoặc $&lt;tên&gt; để chèn nhóm bắt được và \n để xuống dòng. Bấm “Mẫu” để xem ví dụ đổi ngày 21/10/2026 thành 2026-10-21.</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>Dùng biểu thức chính quy thế nào?</summary><p>Bật “Biểu thức chính quy”, dùng $1, $2 hoặc $&lt;tên&gt; để chèn nhóm bắt được và \n để xuống dòng. Bấm “Mẫu” để xem ví dụ đổi ngày 21/10/2026 thành 2026-10-21.</p></details>
 <details><summary>Biểu thức viết sai có làm treo trang không?</summary><p>Không, biểu thức chạy trong luồng riêng và tự dừng sau vài giây nếu lặp quá lâu.</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="regex-tester" data-group="dev" style="--c:#3E63DD">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/van-ban/">Xem cả 12 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="regex-tester" data-group="dev" style="--c:#3E63DD">
 <a class="card-link" href="../kiem-tra-regex/"><span class="tile" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#regex"></use></svg></span><span class="card-txt"><h3 class="card-name">Kiểm tra regex</h3><span class="card-desc">Thử biểu thức chính quy, tô sáng kết quả khớp và nhóm.</span></span></a>
 <button class="star" type="button" data-fav="regex-tester" aria-pressed="false" aria-label="Ghim Kiểm tra regex vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -110,6 +117,7 @@
 <a class="card-link" href="../doi-chu-hoa-thuong/"><span class="tile" style="--c:#0D74CE"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#case-sensitive"></use></svg></span><span class="card-txt"><h3 class="card-name">Đổi chữ hoa/thường</h3><span class="card-desc">Đổi IN HOA, chữ thường, Viết Hoa Mỗi Từ, Viết hoa đầu câu, đúng với tiếng Việt.</span></span></a>
 <button class="star" type="button" data-fav="case-converter" aria-pressed="false" aria-label="Ghim Đổi chữ hoa/thường vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

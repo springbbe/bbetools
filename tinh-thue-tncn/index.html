@@ -74,14 +74,19 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#C27C0E">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/viet-nam/">Tiện ích Việt Nam</a></li><li><span aria-current="page">Tính thuế TNCN</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/viet-nam/">Tiện ích Việt Nam</a></li><li><span aria-current="page">Tính thuế TNCN</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#C27C0E"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#receipt"></use></svg></span>
 <div class="tool-title"><h1>Tính thuế TNCN</h1><p class="lead">Tính thuế thu nhập cá nhân từ tiền lương, có giảm trừ gia cảnh, người phụ thuộc.</p></div>
 <button class="fav-btn" type="button" data-fav="pit-calculator" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>Số liệu bạn nhập chỉ được tính trên trình duyệt, không gửi đi đâu.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-form" data-kind="form">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
@@ -90,11 +95,13 @@
 <p class="data-note"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#info"></use></svg><span>Dữ liệu thuế thu nhập cá nhân từ tiền lương, tiền công cập nhật ngày <b>21/10/2026</b>. Nguồn: Luật Thuế thu nhập cá nhân số 109/2025/QH15 (biểu thuế luỹ tiến 5 bậc, áp dụng cho tiền lương, tiền công của cá nhân cư trú từ kỳ tính thuế năm 2026); Nghị quyết 110/2025/UBTVQH15 (giảm trừ gia cảnh từ kỳ tính thuế năm 2026).</span></p>
 <p class="data-note"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#info"></use></svg><span>Dữ liệu bảo hiểm xã hội, y tế, thất nghiệp cập nhật ngày <b>21/10/2026</b>. Nguồn: Luật Bảo hiểm xã hội 2024 (số 41/2024/QH15), Luật Bảo hiểm y tế, Luật Việc làm 2025; lương cơ sở 2.530.000 đ/tháng từ 01/7/2026 (Nghị định 161/2026/NĐ-CP); hệ số điều chỉnh tiền lương đã đóng theo Công văn 340/BHXH-CSXH ngày 03/02/2026 của BHXH Việt Nam (Nghị định 158/2025/NĐ-CP).</span></p>
 <p class="data-note"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#info"></use></svg><span>Dữ liệu lương tối thiểu vùng cập nhật ngày <b>21/10/2026</b>. Nguồn: Nghị định 293/2025/NĐ-CP, áp dụng từ 01/01/2026.</span></p>
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Chọn tính theo tháng hoặc cả năm (quyết toán) và nhập tổng thu nhập từ lương, thưởng.</li><li>Nhập số người phụ thuộc, bảo hiểm đã đóng (hoặc để tự tính) và các khoản được trừ khác.</li><li>Xem thu nhập tính thuế, thuế theo từng bậc và so sánh với cách tính năm 2025.</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>Biểu thuế năm 2026 có gì mới?</summary><p>Luật Thuế TNCN số 109/2025/QH15 rút biểu thuế luỹ tiến từ 7 xuống 5 bậc (5%, 10%, 20%, 30%, 35%) và giảm trừ gia cảnh tăng lên 15,5 triệu đồng/tháng cho bản thân, 6,2 triệu cho mỗi người phụ thuộc, áp dụng cho thu nhập từ tiền lương từ kỳ tính thuế 2026.</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>Biểu thuế năm 2026 có gì mới?</summary><p>Luật Thuế TNCN số 109/2025/QH15 rút biểu thuế luỹ tiến từ 7 xuống 5 bậc (5%, 10%, 20%, 30%, 35%) và giảm trừ gia cảnh tăng lên 15,5 triệu đồng/tháng cho bản thân, 6,2 triệu cho mỗi người phụ thuộc, áp dụng cho thu nhập từ tiền lương từ kỳ tính thuế 2026.</p></details>
 <details><summary>Thu nhập bao nhiêu thì phải nộp thuế?</summary><p>Người không có người phụ thuộc nộp thuế khi thu nhập sau khi trừ bảo hiểm vượt 15,5 triệu đồng/tháng; mỗi người phụ thuộc nâng ngưỡng thêm 6,2 triệu.</p></details>
 <details><summary>Khoản nào không tính thuế?</summary><p>Ví dụ tiền ăn giữa ca theo mức quy định, phần tiền làm thêm giờ cao hơn lương ngày thường, một số phụ cấp, trợ cấp theo luật. Nhập tổng các khoản này vào ô “Khoản không chịu thuế”.</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="salary-gross-net" data-group="vn" style="--c:#C27C0E">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/viet-nam/">Xem cả 14 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="salary-gross-net" data-group="vn" style="--c:#C27C0E">
 <a class="card-link" href="../tinh-luong-gross-net/"><span class="tile" style="--c:#C27C0E"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#wallet"></use></svg></span><span class="card-txt"><h3 class="card-name">Tính lương gross ↔ net</h3><span class="card-desc">Đổi lương gross sang net và ngược lại theo BHXH, BHYT, BHTN và thuế TNCN hiện hành.</span></span></a>
 <button class="star" type="button" data-fav="salary-gross-net" aria-pressed="false" aria-label="Ghim Tính lương gross ↔ net vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -110,6 +117,7 @@
 <a class="card-link" href="../tao-ma-qr-chuyen-khoan/"><span class="tile" style="--c:#C27C0E"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#landmark"></use></svg></span><span class="card-txt"><h3 class="card-name">Tạo mã QR chuyển khoản (VietQR)</h3><span class="card-desc">Tạo mã QR nhận tiền cho mọi ngân hàng theo chuẩn VietQR (EMVCo/NAPAS), có sẵn số tiền và nội dung, tạo ngay trên máy.</span></span></a>
 <button class="star" type="button" data-fav="vietqr" aria-pressed="false" aria-label="Ghim Tạo mã QR chuyển khoản (VietQR) vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

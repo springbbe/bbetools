@@ -77,26 +77,33 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#0090FF">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/tai-ve/">Tải về</a></li><li><span aria-current="page">Tải sticker Signal</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/tai-ve/">Tải về</a></li><li><span aria-current="page">Tải sticker Signal</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#0090FF"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#sticker"></use></svg></span>
 <div class="tool-title"><h1>Tải sticker Signal</h1><p class="lead">Dán link signal.art/addstickers để tải và giải mã cả bộ sticker Signal ngay trên trình duyệt, xuất WEBP, PNG hoặc GIF.</p></div>
 <button class="fav-btn" type="button" data-fav="signal-stickers" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>BbeTools không có máy chủ: trình duyệt tải bộ sticker đã mã hoá từ máy chủ của Signal (cdn-ca.signal.org) rồi tự giải mã. Khoá pack_key chỉ dùng trên máy bạn, không gửi đi đâu.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-interactive" data-kind="interactive">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 
 
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Trong Signal, mở bộ sticker → Chia sẻ → Sao chép link (dạng signal.art/addstickers/#pack_id=…&amp;pack_key=…).</li><li>Dán vào ô Link rồi bấm “Lấy bộ sticker”; trang tự tải và giải mã cả bộ.</li><li>Chọn PNG + GIF hoặc định dạng gốc (WEBP, APNG), bấm “Tải tất cả (.zip)” hoặc bấm từng sticker.</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>Vì sao sticker Signal cần giải mã?</summary><p>Signal mã hoá mọi bộ sticker trên máy chủ (AES-256); chỉ ai có link đầy đủ mới có khoá (pack_key) để mở. Trang dùng khoá trong link để giải mã ngay trên trình duyệt bằng Web Crypto, nên BbeTools không nhìn thấy sticker hay khoá của bạn.</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>Vì sao sticker Signal cần giải mã?</summary><p>Signal mã hoá mọi bộ sticker trên máy chủ (AES-256); chỉ ai có link đầy đủ mới có khoá (pack_key) để mở. Trang dùng khoá trong link để giải mã ngay trên trình duyệt bằng Web Crypto, nên BbeTools không nhìn thấy sticker hay khoá của bạn.</p></details>
 <details><summary>Link của tôi báo sai khoá?</summary><p>Link phải có đủ cả pack_id (32 ký tự) và pack_key (64 ký tự). Nếu chỉ chép được một phần, hãy mở lại bộ sticker trong Signal → Chia sẻ → Sao chép link.</p></details>
 <details><summary>Sticker Signal tải về là định dạng gì?</summary><p>Sticker tĩnh thường là WEBP, sticker động là PNG động (APNG) hoặc WEBP động. Chọn “PNG + GIF” để có file mở được ở mọi nơi; chọn “Định dạng gốc” để giữ chất lượng, dùng lại trong Signal, Telegram, WhatsApp.</p></details>
 <details><summary>Có được dùng sticker tải về cho mục đích thương mại không?</summary><p>Sticker thuộc bản quyền của tác giả. Chỉ nên tải để dùng cá nhân, hoặc khi được tác giả cho phép.</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="telegram-stickers" data-group="download" style="--c:#0090FF">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/tai-ve/">Xem cả 7 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="telegram-stickers" data-group="download" style="--c:#0090FF">
 <a class="card-link" href="../tai-sticker-telegram/"><span class="tile" style="--c:#0090FF"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#sticker"></use></svg></span><span class="card-txt"><h3 class="card-name">Tải sticker Telegram</h3><span class="card-desc">Tải cả bộ sticker Telegram về máy: nguyên bản (WEBP, TGS, WEBM) hoặc đổi sang PNG, GIF; đổi được cả file .tgs, .webm có sẵn.</span></span></a>
 <button class="star" type="button" data-fav="telegram-stickers" aria-pressed="false" aria-label="Ghim Tải sticker Telegram vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -112,6 +119,7 @@
 <a class="card-link" href="../tai-emoji-dong/"><span class="tile" style="--c:#0090FF"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#smile"></use></svg></span><span class="card-txt"><h3 class="card-name">Tải emoji động</h3><span class="card-desc">Tìm emoji và tải bản động của Google (Noto Animated Emoji) dạng GIF, WEBP hoặc Lottie, cùng ảnh PNG tĩnh cỡ lớn.</span></span></a>
 <button class="star" type="button" data-fav="noto-emoji" aria-pressed="false" aria-label="Ghim Tải emoji động vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

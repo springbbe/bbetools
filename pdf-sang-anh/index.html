@@ -77,26 +77,33 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#E5484D">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/pdf/">PDF</a></li><li><span aria-current="page">PDF sang ảnh</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/pdf/">PDF</a></li><li><span aria-current="page">PDF sang ảnh</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#file-image"></use></svg></span>
 <div class="tool-title"><h1>PDF sang ảnh</h1><p class="lead">Chuyển từng trang PDF thành ảnh JPG hoặc PNG chất lượng cao.</p></div>
 <button class="fav-btn" type="button" data-fav="pdf-to-image" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>File của bạn được xử lý ngay trên máy này, không bao giờ tải lên máy chủ.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-file" data-kind="file">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 <p class="formats">Nhận: PDF</p>
 
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Chọn hoặc kéo thả file PDF.</li><li>Chọn định dạng JPG hoặc PNG và độ nét (DPI); bỏ chọn những trang không cần.</li><li>Bấm “Chuyển sang ảnh” rồi tải từng ảnh hoặc tất cả dạng .zip.</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>File có bị tải lên mạng không?</summary><p>Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy.</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>File có bị tải lên mạng không?</summary><p>Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy.</p></details>
 <details><summary>Nên chọn JPG hay PNG?</summary><p>JPG nhẹ, hợp để gửi Zalo, email. PNG nét nhất cho trang nhiều chữ nhỏ hoặc bảng biểu, nhưng file nặng hơn.</p></details>
 <details><summary>DPI là gì, chọn bao nhiêu?</summary><p>DPI là số điểm ảnh trên mỗi inch giấy. 150 DPI đủ xem trên máy; 300 DPI để in. DPI càng cao ảnh càng nét và càng nặng.</p></details>
 <details><summary>Chuyển cả trăm trang được không?</summary><p>Được, các trang được chuyển lần lượt. Trên điện thoại nên chọn DPI thấp hơn để chạy nhanh và đỡ tốn bộ nhớ.</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="image-to-pdf" data-group="pdf" style="--c:#E5484D">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/pdf/">Xem cả 24 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="image-to-pdf" data-group="pdf" style="--c:#E5484D">
 <a class="card-link" href="../anh-sang-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#images"></use></svg></span><span class="card-txt"><h3 class="card-name">Ảnh sang PDF</h3><span class="card-desc">Ghép ảnh JPG, PNG, ảnh chụp màn hình thành một file PDF.</span></span></a>
 <button class="star" type="button" data-fav="image-to-pdf" aria-pressed="false" aria-label="Ghim Ảnh sang PDF vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -112,6 +119,7 @@
 <a class="card-link" href="../ghep-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#combine"></use></svg></span><span class="card-txt"><h3 class="card-name">Ghép PDF</h3><span class="card-desc">Nối nhiều file PDF thành một file, kéo thả để sắp thứ tự, xoay từng file nếu cần.</span></span></a>
 <button class="star" type="button" data-fav="merge-pdf" aria-pressed="false" aria-label="Ghim Ghép PDF vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

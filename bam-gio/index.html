@@ -77,24 +77,31 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#5C8A1C">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/nang-suat/">Năng suất &amp; ngẫu nhiên</a></li><li><span aria-current="page">Bấm giờ</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/nang-suat/">Năng suất &amp; ngẫu nhiên</a></li><li><span aria-current="page">Bấm giờ</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#watch"></use></svg></span>
 <div class="tool-title"><h1>Bấm giờ</h1><p class="lead">Đồng hồ bấm giờ chính xác đến 1/100 giây, có ghi vòng (lap).</p></div>
 <button class="fav-btn" type="button" data-fav="stopwatch" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>Đồng hồ chạy ngay trên trình duyệt; trạng thái chỉ lưu trên máy này, không gửi đi đâu.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-interactive" data-kind="interactive">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 
 
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Bấm Bắt đầu hoặc nhấn phím cách.</li><li>Bấm Vòng (phím L) để ghi thời gian từng vòng; vòng nhanh nhất màu xanh, chậm nhất màu đỏ.</li><li>Dừng rồi bấm Đặt lại (phím R); tải bảng vòng ra CSV nếu cần.</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>Đóng tab hay tắt màn hình thì đồng hồ có chạy tiếp không?</summary><p>Có. Thời gian tính theo đồng hồ hệ thống nên mở lại trang vẫn đúng; trạng thái được lưu trong trình duyệt của bạn.</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>Đóng tab hay tắt màn hình thì đồng hồ có chạy tiếp không?</summary><p>Có. Thời gian tính theo đồng hồ hệ thống nên mở lại trang vẫn đúng; trạng thái được lưu trong trình duyệt của bạn.</p></details>
 <details><summary>Chính xác đến đâu?</summary><p>Hiển thị đến 1/100 giây. Sai số chủ yếu do thời điểm bấm nút (phản xạ của người thường khoảng 0,1–0,2 giây).</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="countdown-timer" data-group="productivity" style="--c:#5C8A1C">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/nang-suat/">Xem cả 17 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="countdown-timer" data-group="productivity" style="--c:#5C8A1C">
 <a class="card-link" href="../hen-gio/"><span class="tile" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#hourglass"></use></svg></span><span class="card-txt"><h3 class="card-name">Hẹn giờ đếm ngược</h3><span class="card-desc">Hẹn giờ đếm ngược có chuông, chế độ toàn màn hình.</span></span></a>
 <button class="star" type="button" data-fav="countdown-timer" aria-pressed="false" aria-label="Ghim Hẹn giờ đếm ngược vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -110,6 +117,7 @@
 <a class="card-link" href="../boc-tham-chia-doi/"><span class="tile" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shuffle"></use></svg></span><span class="card-txt"><h3 class="card-name">Bốc thăm, chia đội</h3><span class="card-desc">Chia danh sách thành các đội ngẫu nhiên, bốc thăm thứ tự.</span></span></a>
 <button class="star" type="button" data-fav="team-picker" aria-pressed="false" aria-label="Ghim Bốc thăm, chia đội vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

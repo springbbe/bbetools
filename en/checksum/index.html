@@ -75,25 +75,32 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#0E7C86">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../../en/">Home</a></li><li><a href="../../en/category/security/">Security</a></li><li><span aria-current="page">File Checksum Calculator</span></li></ol></nav>
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../../en/">Home</a></li><li><a class="crumb-tab" href="../../en/category/security/">Security</a></li><li><span aria-current="page">File Checksum Calculator</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#0E7C86"><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#file-check"></use></svg></span>
 <div class="tool-title"><h1>File Checksum Calculator</h1><p class="lead">Calculate SHA-256, SHA-1, MD5, SHA-512 and CRC32 of files (even several GB) and compare with the hash on the download page.</p></div>
 <button class="fav-btn" type="button" data-fav="checksum" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#star"></use></svg><span>Pin</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#shield-check"></use></svg><span>Your files are processed right on this device and never uploaded to any server.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-file" data-kind="file">
 <noscript><p class="note">This tool needs JavaScript enabled to run on your device.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 <p class="formats">Accepts: any file</p>
 
+<div class="tool-info">
 <section class="block info"><h2>How to use</h2><ol class="steps"><li>Choose the file to check (files of several GB work).</li><li>Choose the algorithms; paste the hash from the download page into the compare box, or drop a .sha256 / .md5 file alongside.</li><li>Click Calculate checksum: the result says Matches or Doesn&#39;t match.</li></ol></section>
-<section class="block info"><h2>Frequently asked questions</h2><details><summary>What is a checksum for?</summary><p>To make sure a downloaded file is intact and hasn&#39;t been corrupted or replaced: calculate its hash and compare it with the one published by the vendor. A single wrong byte gives a completely different hash.</p></details>
+<section class="block info faq"><h2>Frequently asked questions</h2><details><summary>What is a checksum for?</summary><p>To make sure a downloaded file is intact and hasn&#39;t been corrupted or replaced: calculate its hash and compare it with the one published by the vendor. A single wrong byte gives a completely different hash.</p></details>
 <details><summary>Should I use MD5, SHA-1 or SHA-256?</summary><p>Use the algorithm the download page provides. If you can choose, prefer SHA-256: MD5 and SHA-1 are only good for detecting download errors, not deliberate tampering.</p></details>
 <details><summary>Is the file uploaded?</summary><p>No. The file is read piece by piece on your device, even very large ones.</p></details></section>
-<section class="block"><h2>Related tools</h2><ul class="cards"><li class="card" data-id="hash" data-group="dev" style="--c:#3E63DD">
+</div>
+<section class="block"><h2>Related tools <a class="see-all" href="../../en/category/security/">See all 6 tools<svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="hash" data-group="dev" style="--c:#3E63DD">
 <a class="card-link" href="../../en/hash/"><span class="tile" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#hash"></use></svg></span><span class="card-txt"><h3 class="card-name">Hash Generator (MD5/SHA)</h3><span class="card-desc">Calculate MD5, SHA-1, SHA-256 and SHA-512 hashes of text.</span></span></a>
 <button class="star" type="button" data-fav="hash" aria-pressed="false" aria-label="Pin Hash Generator (MD5/SHA) to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -109,6 +116,7 @@
 <a class="card-link" href="../../en/password-strength/"><span class="tile" style="--c:#0E7C86"><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#shield-check"></use></svg></span><span class="card-txt"><h3 class="card-name">Password Strength Checker</h3><span class="card-desc">Estimate how long a password takes to crack, find predictable patterns (common passwords, names, dates, keyboard walks) and get tips to improve.</span></span></a>
 <button class="star" type="button" data-fav="password-strength" aria-pressed="false" aria-label="Pin Password Strength Checker to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

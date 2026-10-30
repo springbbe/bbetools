@@ -75,25 +75,32 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#0E7C86">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../../en/">Home</a></li><li><a href="../../en/category/security/">Security</a></li><li><span aria-current="page">Encrypt Text</span></li></ol></nav>
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../../en/">Home</a></li><li><a class="crumb-tab" href="../../en/category/security/">Security</a></li><li><span aria-current="page">Encrypt Text</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#0E7C86"><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#lock-keyhole"></use></svg></span>
 <div class="tool-title"><h1>Encrypt Text</h1><p class="lead">Encrypt messages with a password (AES-GCM) to send over insecure channels.</p></div>
 <button class="fav-btn" type="button" data-fav="text-encrypt" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#star"></use></svg><span>Pin</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#shield-check"></use></svg><span>Text and password are only processed in your browser and never sent anywhere.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-text" data-kind="text">
 <noscript><p class="note">This tool needs JavaScript enabled to run on your device.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 
 
+<div class="tool-info">
 <section class="block info"><h2>How to use</h2><ol class="steps"><li>Type a message and set a password: the Base64 ciphertext appears instantly.</li><li>Send the ciphertext (or the decryption link) by message or email; share the password through another channel.</li><li>The recipient chooses Decrypt, pastes the ciphertext and enters the password to read it.</li></ol></section>
-<section class="block info"><h2>Frequently asked questions</h2><details><summary>Who can read the encrypted message?</summary><p>Only someone with the right password. The ciphertext uses 256-bit AES-GCM with a key derived by PBKDF2-SHA256 at 600,000 iterations; changing a single character of the ciphertext is detected.</p></details>
+<section class="block info faq"><h2>Frequently asked questions</h2><details><summary>Who can read the encrypted message?</summary><p>Only someone with the right password. The ciphertext uses 256-bit AES-GCM with a key derived by PBKDF2-SHA256 at 600,000 iterations; changing a single character of the ciphertext is detected.</p></details>
 <details><summary>Does the decryption link contain the password?</summary><p>No. The link only contains the ciphertext, after the # so browsers don&#39;t send it to the server. Whoever opens the link still has to enter the password.</p></details>
 <details><summary>Why is the output different every time?</summary><p>Each encryption uses a new random nonce, so the same message gives a different ciphertext. That&#39;s normal and more secure.</p></details></section>
-<section class="block"><h2>Related tools</h2><ul class="cards"><li class="card" data-id="file-encrypt" data-group="security" style="--c:#0E7C86">
+</div>
+<section class="block"><h2>Related tools <a class="see-all" href="../../en/category/security/">See all 6 tools<svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="file-encrypt" data-group="security" style="--c:#0E7C86">
 <a class="card-link" href="../../en/file-encrypt/"><span class="tile" style="--c:#0E7C86"><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#file-lock"></use></svg></span><span class="card-txt"><h3 class="card-name">Encrypt / Decrypt Files</h3><span class="card-desc">Lock any file with a password (AES-GCM 256, WebCrypto) and unlock it when needed.</span></span></a>
 <button class="star" type="button" data-fav="file-encrypt" aria-pressed="false" aria-label="Pin Encrypt / Decrypt Files to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -109,6 +116,7 @@
 <a class="card-link" href="../../en/checksum/"><span class="tile" style="--c:#0E7C86"><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#file-check"></use></svg></span><span class="card-txt"><h3 class="card-name">File Checksum Calculator</h3><span class="card-desc">Calculate SHA-256, SHA-1, MD5, SHA-512 and CRC32 of files (even several GB) and compare with the hash on the download page.</span></span></a>
 <button class="star" type="button" data-fav="checksum" aria-pressed="false" aria-label="Pin File Checksum Calculator to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

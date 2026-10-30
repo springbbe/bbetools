@@ -77,25 +77,32 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#8E4EC6">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/anh/">Ảnh</a></li><li><span aria-current="page">Xoá phông ảnh</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/anh/">Ảnh</a></li><li><span aria-current="page">Xoá phông ảnh</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#eraser"></use></svg></span>
 <div class="tool-title"><h1>Xoá phông ảnh</h1><p class="lead">Tách nền ảnh chân dung bằng AI chạy ngay trên máy, xuất PNG trong suốt hoặc nền màu.</p></div>
 <button class="fav-btn" type="button" data-fav="remove-bg" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>File của bạn được xử lý ngay trên máy này, không bao giờ tải lên máy chủ.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-file" data-kind="file">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 <p class="formats">Nhận: JPG, PNG, WebP, GIF, BMP, AVIF, HEIC, HEIF</p>
 
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Chọn, kéo thả hoặc dán một hay nhiều ảnh có người (chân dung, ảnh bán hàng có người mẫu).</li><li>Chọn nền mới: trong suốt (PNG), trắng, màu khác hoặc làm mờ nền gốc.</li><li>Bấm “Xoá phông”, chờ AI tách nền ngay trên máy rồi tải ảnh về.</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>Ảnh có bị gửi lên máy chủ để AI xử lý không?</summary><p>Không. Mô hình AI (MODNet) được tải về trình duyệt và chạy ngay trên máy bạn; ảnh không rời khỏi máy.</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>Ảnh có bị gửi lên máy chủ để AI xử lý không?</summary><p>Không. Mô hình AI (MODNet) được tải về trình duyệt và chạy ngay trên máy bạn; ảnh không rời khỏi máy.</p></details>
 <details><summary>Xoá phông ảnh đồ vật, con vật được không?</summary><p>Công cụ được huấn luyện để tách người nên đạt kết quả tốt nhất với ảnh có người. Ảnh đồ vật, con vật có thể tách chưa chuẩn.</p></details>
 <details><summary>Lần đầu dùng sao hơi lâu?</summary><p>Lần đầu trình duyệt tải mô hình AI khoảng 6,6 MB; các lần sau dùng lại bản đã lưu nên nhanh hơn nhiều.</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="id-photo" data-group="image" style="--c:#8E4EC6">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/anh/">Xem cả 21 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="id-photo" data-group="image" style="--c:#8E4EC6">
 <a class="card-link" href="../anh-the/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#square-user"></use></svg></span><span class="card-txt"><h3 class="card-name">Làm ảnh thẻ</h3><span class="card-desc">Làm ảnh thẻ 3x4, 4x6 từ ảnh chân dung: đổi nền xanh/trắng bằng AI, căn khung, xếp nhiều ảnh lên giấy để in.</span></span></a>
 <button class="star" type="button" data-fav="id-photo" aria-pressed="false" aria-label="Ghim Làm ảnh thẻ vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -111,6 +118,7 @@
 <a class="card-link" href="../nen-anh/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#image-down"></use></svg></span><span class="card-txt"><h3 class="card-name">Nén ảnh</h3><span class="card-desc">Giảm dung lượng ảnh JPG, PNG, WebP hàng loạt; có chế độ nén xuống dưới số KB bạn cần.</span></span></a>
 <button class="star" type="button" data-fav="compress-image" aria-pressed="false" aria-label="Ghim Nén ảnh vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

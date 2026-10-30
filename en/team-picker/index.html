@@ -75,24 +75,31 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#5C8A1C">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../../en/">Home</a></li><li><a href="../../en/category/productivity/">Productivity &amp; Random</a></li><li><span aria-current="page">Random Team Generator</span></li></ol></nav>
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../../en/">Home</a></li><li><a class="crumb-tab" href="../../en/category/productivity/">Productivity &amp; Random</a></li><li><span aria-current="page">Random Team Generator</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#shuffle"></use></svg></span>
 <div class="tool-title"><h1>Random Team Generator</h1><p class="lead">Split a list into random teams or draw a random order.</p></div>
 <button class="fav-btn" type="button" data-fav="team-picker" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#star"></use></svg><span>Pin</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#shield-check"></use></svg><span>Names are only processed in your browser, never sent anywhere or put in the link.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-form" data-kind="form">
 <noscript><p class="note">This tool needs JavaScript enabled to run on your device.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 
 
+<div class="tool-info">
 <section class="block info"><h2>How to use</h2><ol class="steps"><li>Enter a list of people, one name per line.</li><li>Choose the mode: number of teams, people per team, random order or pick a few people.</li><li>Click Draw again if needed, then copy or download the result.</li></ol></section>
-<section class="block info"><h2>Frequently asked questions</h2><details><summary>Are the teams even?</summary><p>Yes: teams differ by at most 1 person. People in the “Leaders” box are spread one per team first.</p></details>
+<section class="block info faq"><h2>Frequently asked questions</h2><details><summary>Are the teams even?</summary><p>Yes: teams differ by at most 1 person. People in the “Leaders” box are spread one per team first.</p></details>
 <details><summary>Is it really random?</summary><p>It uses crypto.getRandomValues and the Fisher–Yates shuffle, so every split is equally likely.</p></details></section>
-<section class="block"><h2>Related tools</h2><ul class="cards"><li class="card" data-id="spin-wheel" data-group="productivity" style="--c:#5C8A1C">
+</div>
+<section class="block"><h2>Related tools <a class="see-all" href="../../en/category/productivity/">See all 17 tools<svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="spin-wheel" data-group="productivity" style="--c:#5C8A1C">
 <a class="card-link" href="../../en/spin-wheel/"><span class="tile" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#ferris-wheel"></use></svg></span><span class="card-txt"><h3 class="card-name">Spin the Wheel</h3><span class="card-desc">Enter a list and spin a random wheel to pick a person, a meal or a prize winner.</span></span></a>
 <button class="star" type="button" data-fav="spin-wheel" aria-pressed="false" aria-label="Pin Spin the Wheel to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -108,6 +115,7 @@
 <a class="card-link" href="../../en/stopwatch/"><span class="tile" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#watch"></use></svg></span><span class="card-txt"><h3 class="card-name">Online Stopwatch</h3><span class="card-desc">A stopwatch accurate to 1/100 second, with laps.</span></span></a>
 <button class="star" type="button" data-fav="stopwatch" aria-pressed="false" aria-label="Pin Online Stopwatch to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

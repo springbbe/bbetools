@@ -77,25 +77,32 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#3E63DD">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/lap-trinh/">Lập trình</a></li><li><span aria-current="page">JSON ↔ CSV/YAML</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/lap-trinh/">Lập trình</a></li><li><span aria-current="page">JSON ↔ CSV/YAML</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#file-json"></use></svg></span>
 <div class="tool-title"><h1>JSON ↔ CSV/YAML</h1><p class="lead">Chuyển đổi qua lại giữa JSON, CSV và YAML.</p></div>
 <button class="fav-btn" type="button" data-fav="json-convert" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>Văn bản bạn nhập chỉ được xử lý trên trình duyệt, không gửi đi đâu.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-text" data-kind="text">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 
 
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Dán JSON, CSV hoặc YAML vào ô bên trái.</li><li>Chọn định dạng đích (và dấu phân cách CSV nếu cần).</li><li>Sao chép hoặc tải file kết quả.</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>JSON lồng nhau chuyển sang CSV thế nào?</summary><p>Đối tượng con được làm phẳng thành cột kiểu “lienHe.email”; chuyển CSV ngược lại JSON sẽ dựng lại đúng cấu trúc lồng nhau.</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>JSON lồng nhau chuyển sang CSV thế nào?</summary><p>Đối tượng con được làm phẳng thành cột kiểu “lienHe.email”; chuyển CSV ngược lại JSON sẽ dựng lại đúng cấu trúc lồng nhau.</p></details>
 <details><summary>Mở file CSV bằng Excel bị dồn một cột?</summary><p>Excel trên máy đặt định dạng số kiểu Việt Nam dùng dấu chấm phẩy. Chọn “Chấm phẩy (;)” trước khi tải về.</p></details>
 <details><summary>Số điện thoại có bị mất số 0 đầu không?</summary><p>Không, giá trị có số 0 đứng đầu được giữ dạng chuỗi khi chuyển CSV sang JSON.</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="json-formatter" data-group="dev" style="--c:#3E63DD">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/lap-trinh/">Xem cả 19 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="json-formatter" data-group="dev" style="--c:#3E63DD">
 <a class="card-link" href="../dinh-dang-json/"><span class="tile" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#braces"></use></svg></span><span class="card-txt"><h3 class="card-name">Định dạng &amp; kiểm tra JSON</h3><span class="card-desc">Làm đẹp, rút gọn, sắp xếp khoá và kiểm tra lỗi JSON, chỉ đúng dòng/cột bị sai.</span></span></a>
 <button class="star" type="button" data-fav="json-formatter" aria-pressed="false" aria-label="Ghim Định dạng &amp; kiểm tra JSON vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -111,6 +118,7 @@
 <a class="card-link" href="../ma-hoa-url/"><span class="tile" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#link-2"></use></svg></span><span class="card-txt"><h3 class="card-name">Mã hoá URL</h3><span class="card-desc">Mã hoá/giải mã URL (percent-encoding), tách tham số query.</span></span></a>
 <button class="star" type="button" data-fav="url-encode" aria-pressed="false" aria-label="Ghim Mã hoá URL vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

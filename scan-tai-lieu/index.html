@@ -77,26 +77,33 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#E5484D">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/pdf/">PDF</a></li><li><span aria-current="page">Scan tài liệu bằng camera</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/pdf/">PDF</a></li><li><span aria-current="page">Scan tài liệu bằng camera</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#scan"></use></svg></span>
 <div class="tool-title"><h1>Scan tài liệu bằng camera</h1><p class="lead">Chụp giấy tờ bằng camera, tự nắn thẳng, làm trắng nền rồi xuất PDF.</p></div>
 <button class="fav-btn" type="button" data-fav="scan-document" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>Mọi thứ chạy ngay trên máy bạn; hình ảnh, âm thanh không gửi đi đâu.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-interactive" data-kind="interactive">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 
 
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Bấm “Mở camera” và chụp tờ giấy (đặt trên nền tối hơn, đủ sáng), hoặc chọn ảnh đã chụp sẵn.</li><li>Kiểm tra 4 góc được tìm tự động, kéo chỉnh nếu cần; chọn bộ lọc Màu, Xám hoặc Đen trắng rồi bấm “Thêm trang”.</li><li>Chụp thêm trang, sắp thứ tự, chọn khổ giấy rồi bấm “Tạo PDF”.</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>File có bị tải lên mạng không?</summary><p>Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy.</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>File có bị tải lên mạng không?</summary><p>Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy.</p></details>
 <details><summary>Ảnh chụp có bị gửi lên mạng không?</summary><p>Không. Camera, ảnh và việc nắn thẳng, làm trắng nền đều chạy trên máy của bạn.</p></details>
 <details><summary>Làm sao để scan đẹp nhất?</summary><p>Đặt giấy trên nền tối, tránh bóng tay và bóng điện thoại, chụp thẳng từ trên xuống, giữ máy chắc tay. Bộ lọc Đen trắng hợp với văn bản chữ, Màu hợp với giấy có con dấu, hình ảnh.</p></details>
 <details><summary>Không tự tìm được góc giấy thì sao?</summary><p>Kéo 4 chấm tròn tới 4 góc tờ giấy, hoặc bấm “Lấy cả ảnh”. Trên máy tính có thể dùng phím mũi tên để dịch từng góc.</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="image-to-pdf" data-group="pdf" style="--c:#E5484D">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/pdf/">Xem cả 24 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="image-to-pdf" data-group="pdf" style="--c:#E5484D">
 <a class="card-link" href="../anh-sang-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#images"></use></svg></span><span class="card-txt"><h3 class="card-name">Ảnh sang PDF</h3><span class="card-desc">Ghép ảnh JPG, PNG, ảnh chụp màn hình thành một file PDF.</span></span></a>
 <button class="star" type="button" data-fav="image-to-pdf" aria-pressed="false" aria-label="Ghim Ảnh sang PDF vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -112,6 +119,7 @@
 <a class="card-link" href="../ghep-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#combine"></use></svg></span><span class="card-txt"><h3 class="card-name">Ghép PDF</h3><span class="card-desc">Nối nhiều file PDF thành một file, kéo thả để sắp thứ tự, xoay từng file nếu cần.</span></span></a>
 <button class="star" type="button" data-fav="merge-pdf" aria-pressed="false" aria-label="Ghim Ghép PDF vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

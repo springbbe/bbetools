@@ -77,25 +77,32 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#8E4EC6">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/anh/">Ảnh</a></li><li><span aria-current="page">Ảnh sang Base64</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/anh/">Ảnh</a></li><li><span aria-current="page">Ảnh sang Base64</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#binary"></use></svg></span>
 <div class="tool-title"><h1>Ảnh sang Base64</h1><p class="lead">Chuyển ảnh thành chuỗi Base64 / data URI để nhúng vào HTML, CSS.</p></div>
 <button class="fav-btn" type="button" data-fav="image-to-base64" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>File của bạn được xử lý ngay trên máy này, không bao giờ tải lên máy chủ.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-file" data-kind="file">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 <p class="formats">Nhận: JPG, PNG, WebP, GIF, BMP, AVIF, SVG</p>
 
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Chọn, kéo thả hoặc dán ảnh (JPG, PNG, WebP, GIF, SVG…).</li><li>Chọn dạng kết quả: data URI, chỉ Base64, CSS, thẻ &lt;img&gt; hoặc Markdown.</li><li>Bấm “Chuyển sang Base64”, rồi sao chép chuỗi hoặc tải file .txt.</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>Ảnh có bị tải lên máy chủ không?</summary><p>Không. Mọi bước xử lý chạy ngay trong trình duyệt của bạn; ảnh không rời khỏi máy.</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>Ảnh có bị tải lên máy chủ không?</summary><p>Không. Mọi bước xử lý chạy ngay trong trình duyệt của bạn; ảnh không rời khỏi máy.</p></details>
 <details><summary>Khi nào nên nhúng ảnh dạng Base64?</summary><p>Với ảnh rất nhỏ như icon, logo dưới khoảng 10 KB: bớt một lượt tải file. Ảnh lớn nên để file riêng vì Base64 nặng hơn ảnh gốc khoảng 33%.</p></details>
 <details><summary>SVG có cần Base64 không?</summary><p>Không bắt buộc. Bật “SVG: mã hoá URL” để có chuỗi ngắn hơn khoảng 30% mà vẫn dùng được trong CSS, HTML.</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="base64" data-group="dev" style="--c:#3E63DD">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/anh/">Xem cả 21 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="base64" data-group="dev" style="--c:#3E63DD">
 <a class="card-link" href="../ma-hoa-base64/"><span class="tile" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#binary"></use></svg></span><span class="card-txt"><h3 class="card-name">Mã hoá/giải mã Base64</h3><span class="card-desc">Mã hoá và giải mã Base64 cho văn bản UTF-8 và file.</span></span></a>
 <button class="star" type="button" data-fav="base64" aria-pressed="false" aria-label="Ghim Mã hoá/giải mã Base64 vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -111,6 +118,7 @@
 <a class="card-link" href="../tao-favicon/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#app-window"></use></svg></span><span class="card-txt"><h3 class="card-name">Tạo favicon</h3><span class="card-desc">Tạo favicon .ico và bộ icon cho web, Apple, Android từ một ảnh.</span></span></a>
 <button class="star" type="button" data-fav="favicon" aria-pressed="false" aria-label="Ghim Tạo favicon vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

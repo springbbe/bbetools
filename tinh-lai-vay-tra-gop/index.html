@@ -74,25 +74,32 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#C27C0E">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/viet-nam/">Tiện ích Việt Nam</a></li><li><span aria-current="page">Tính lãi vay trả góp</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/viet-nam/">Tiện ích Việt Nam</a></li><li><span aria-current="page">Tính lãi vay trả góp</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#C27C0E"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#hand-coins"></use></svg></span>
 <div class="tool-title"><h1>Tính lãi vay trả góp</h1><p class="lead">Lịch trả nợ theo dư nợ giảm dần hoặc trả đều, tổng lãi phải trả.</p></div>
 <button class="fav-btn" type="button" data-fav="loan-calculator" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>Số liệu bạn nhập chỉ được tính trên trình duyệt, không gửi đi đâu.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-form" data-kind="form">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 
 
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Nhập số tiền vay, thời hạn và lãi suất năm.</li><li>Chọn cách trả: dư nợ giảm dần (gốc đều) hoặc trả đều hằng tháng; bật lãi suất ưu đãi nếu ngân hàng có gói ưu đãi những tháng đầu.</li><li>Xem số tiền trả tháng đầu, tổng lãi và lịch trả nợ từng kỳ; tải bảng về dạng CSV để mở bằng Excel.</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>Dư nợ giảm dần và trả đều khác nhau thế nào?</summary><p>Dư nợ giảm dần: tiền gốc chia đều mỗi tháng, lãi tính trên số còn nợ nên tháng đầu trả nhiều nhất rồi giảm dần, tổng lãi thấp hơn. Trả đều (annuity): mỗi tháng trả một số tiền như nhau, dễ lên kế hoạch nhưng tổng lãi cao hơn.</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>Dư nợ giảm dần và trả đều khác nhau thế nào?</summary><p>Dư nợ giảm dần: tiền gốc chia đều mỗi tháng, lãi tính trên số còn nợ nên tháng đầu trả nhiều nhất rồi giảm dần, tổng lãi thấp hơn. Trả đều (annuity): mỗi tháng trả một số tiền như nhau, dễ lên kế hoạch nhưng tổng lãi cao hơn.</p></details>
 <details><summary>Sau thời gian ưu đãi thì tính thế nào?</summary><p>Từ tháng hết ưu đãi, lãi được tính theo lãi suất thả nổi bạn nhập; với cách trả đều, khoản trả mỗi tháng được tính lại cho số tháng còn lại.</p></details>
 <details><summary>Kết quả có khớp với ngân hàng không?</summary><p>Gần đúng. Ngân hàng thường tính lãi theo số ngày thực tế trong tháng và có thể làm tròn khác, nên mỗi kỳ có thể lệch vài nghìn đồng.</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="savings-calculator" data-group="vn" style="--c:#C27C0E">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/viet-nam/">Xem cả 14 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="savings-calculator" data-group="vn" style="--c:#C27C0E">
 <a class="card-link" href="../tinh-lai-tiet-kiem/"><span class="tile" style="--c:#C27C0E"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#piggy-bank"></use></svg></span><span class="card-txt"><h3 class="card-name">Tính lãi tiết kiệm</h3><span class="card-desc">Tiền lãi gửi tiết kiệm theo kỳ hạn, lĩnh lãi cuối kỳ hoặc hàng tháng, tái tục.</span></span></a>
 <button class="star" type="button" data-fav="savings-calculator" aria-pressed="false" aria-label="Ghim Tính lãi tiết kiệm vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -108,6 +115,7 @@
 <a class="card-link" href="../tao-ma-qr-chuyen-khoan/"><span class="tile" style="--c:#C27C0E"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#landmark"></use></svg></span><span class="card-txt"><h3 class="card-name">Tạo mã QR chuyển khoản (VietQR)</h3><span class="card-desc">Tạo mã QR nhận tiền cho mọi ngân hàng theo chuẩn VietQR (EMVCo/NAPAS), có sẵn số tiền và nội dung, tạo ngay trên máy.</span></span></a>
 <button class="star" type="button" data-fav="vietqr" aria-pressed="false" aria-label="Ghim Tạo mã QR chuyển khoản (VietQR) vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

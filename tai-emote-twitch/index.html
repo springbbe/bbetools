@@ -77,27 +77,34 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#0090FF">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/tai-ve/">Tải về</a></li><li><span aria-current="page">Tải emote Twitch (7TV, FFZ)</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/tai-ve/">Tải về</a></li><li><span aria-current="page">Tải emote Twitch (7TV, FFZ)</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#0090FF"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#tv"></use></svg></span>
 <div class="tool-title"><h1>Tải emote Twitch (7TV, FFZ)</h1><p class="lead">Nhập tên kênh Twitch để xem và tải cả bộ emote 7TV, FrankerFaceZ của kênh về file zip: PNG, GIF động hoặc WEBP, đủ 4 cỡ.</p></div>
 <button class="fav-btn" type="button" data-fav="twitch-emotes" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>BbeTools không có máy chủ: trình duyệt của bạn gọi thẳng API công khai của 7TV (7tv.io), FrankerFaceZ (api.frankerfacez.com) và tải ảnh từ máy chủ của họ. Khi kênh không có trên FrankerFaceZ, tên kênh được gửi tới api.ivr.fi để tra mã số kênh. Không cần đăng nhập Twitch.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-interactive" data-kind="interactive">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 
 
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Nhập tên kênh Twitch (phần sau twitch.tv/) hoặc dán link kênh, link 7tv.app rồi bấm “Lấy emote”.</li><li>Chọn cỡ (4x là lớn nhất) và dạng file: PNG + GIF hoặc định dạng gốc (WEBP); gõ tên để lọc emote cần lấy.</li><li>Bấm “Tải tất cả (.zip)” để tải cả bộ (hoặc phần đang lọc), hoặc bấm từng emote để tải riêng.</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>Tải được những emote nào?</summary><p>Emote 7TV và FrankerFaceZ (FFZ) mà kênh đã thêm, cả emote động. Emote gốc của Twitch (emote đăng ký kênh, emote Bits) không lấy được vì Twitch chỉ cho xem danh sách qua API có khoá bí mật; emote BetterTTV không tải được vì máy chủ ảnh của BetterTTV không cho trang web khác tải file.</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>Tải được những emote nào?</summary><p>Emote 7TV và FrankerFaceZ (FFZ) mà kênh đã thêm, cả emote động. Emote gốc của Twitch (emote đăng ký kênh, emote Bits) không lấy được vì Twitch chỉ cho xem danh sách qua API có khoá bí mật; emote BetterTTV không tải được vì máy chủ ảnh của BetterTTV không cho trang web khác tải file.</p></details>
 <details><summary>Nên tải PNG + GIF hay WEBP?</summary><p>GIF mở được ở mọi nơi nhưng nặng hơn và viền hơi răng cưa. WEBP (định dạng gốc của 7TV) nhẹ, viền mịn, emote động vẫn chạy: dùng tốt cho Discord, Telegram, trang web. Emote tĩnh thì PNG và WEBP như nhau.</p></details>
 <details><summary>Cỡ 1x, 2x, 3x, 4x là bao nhiêu?</summary><p>1x là cỡ trong khung chat Twitch (khoảng 28–32 px), 2x gấp đôi, 4x khoảng 112–128 px. Muốn làm emoji Discord (tối đa 128 px) thì chọn 4x. FrankerFaceZ chỉ có 1x, 2x, 4x.</p></details>
 <details><summary>Kênh của tôi không có emote?</summary><p>Trang chỉ thấy emote mà kênh đã thêm trên 7TV hoặc FrankerFaceZ. Kiểm tra lại tên kênh (không dấu, không khoảng trắng). Bộ 7TV đang dùng có thể đổi theo mùa (vd. bộ Halloween); muốn lấy một bộ khác thì dán link 7tv.app/emote-sets/…</p></details>
 <details><summary>Có được dùng emote tải về cho mục đích thương mại không?</summary><p>Emote thuộc bản quyền của người vẽ hoặc streamer. Chỉ nên tải để dùng cá nhân, hoặc khi được cho phép.</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="discord-emoji" data-group="download" style="--c:#0090FF">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/tai-ve/">Xem cả 7 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="discord-emoji" data-group="download" style="--c:#0090FF">
 <a class="card-link" href="../tai-emoji-discord/"><span class="tile" style="--c:#0090FF"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#smile-plus"></use></svg></span><span class="card-txt"><h3 class="card-name">Tải emoji, sticker Discord</h3><span class="card-desc">Dán link hoặc mã emoji, sticker Discord để tải bản gốc cỡ lớn nhất (PNG, GIF, WEBP), đổi sticker Lottie sang GIF, tải cả bộ sticker chính thức.</span></span></a>
 <button class="star" type="button" data-fav="discord-emoji" aria-pressed="false" aria-label="Ghim Tải emoji, sticker Discord vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -113,6 +120,7 @@
 <a class="card-link" href="../tao-gif/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#film"></use></svg></span><span class="card-txt"><h3 class="card-name">Tạo GIF từ ảnh</h3><span class="card-desc">Ghép nhiều ảnh thành ảnh động GIF, chỉnh tốc độ và kích thước.</span></span></a>
 <button class="star" type="button" data-fav="gif-maker" aria-pressed="false" aria-label="Ghim Tạo GIF từ ảnh vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

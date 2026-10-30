@@ -77,26 +77,33 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#8E4EC6">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/anh/">Ảnh</a></li><li><span aria-current="page">Tách chữ ký, con dấu</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/anh/">Ảnh</a></li><li><span aria-current="page">Tách chữ ký, con dấu</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#pen-line"></use></svg></span>
 <div class="tool-title"><h1>Tách chữ ký, con dấu</h1><p class="lead">Tách chữ ký hoặc con dấu chụp trên giấy thành ảnh PNG nền trong suốt.</p></div>
 <button class="fav-btn" type="button" data-fav="signature-extract" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>File của bạn được xử lý ngay trên máy này, không bao giờ tải lên máy chủ.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-file" data-kind="file">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 <p class="formats">Nhận: JPG, PNG, WebP, GIF, BMP, AVIF, HEIC, HEIF</p>
 
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Chụp chữ ký hoặc con dấu trên giấy trắng (thẳng, đủ sáng) rồi chọn ảnh đó.</li><li>Chọn lấy nét nào (xanh cho chữ ký, đỏ cho con dấu), màu mực khi xuất, độ nhạy; kéo trên ảnh để khoanh vùng nếu cần.</li><li>Bấm “Tải PNG trong suốt” rồi dùng ảnh trong Ký PDF, Word, Canva…</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>Ảnh có bị tải lên máy chủ không?</summary><p>Không. Mọi bước xử lý chạy ngay trong trình duyệt của bạn; ảnh không rời khỏi máy.</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>Ảnh có bị tải lên máy chủ không?</summary><p>Không. Mọi bước xử lý chạy ngay trong trình duyệt của bạn; ảnh không rời khỏi máy.</p></details>
 <details><summary>Chữ ký đè lên con dấu có tách riêng được không?</summary><p>Được nếu khác màu: chọn “Xanh” để lấy riêng chữ ký, “Đỏ” để lấy riêng con dấu.</p></details>
 <details><summary>Ảnh có bóng đổ, giấy ngả vàng thì sao?</summary><p>Công cụ ước lượng màu giấy theo từng vùng nhỏ nên vẫn tách được khi ánh sáng không đều. Nếu còn vết bẩn, giảm độ nhạy.</p></details>
 <details><summary>Dùng chữ ký đã tách có hợp lệ không?</summary><p>Ảnh chữ ký chỉ là hình ảnh, không phải chữ ký số. Chỉ dùng chữ ký, con dấu của chính bạn hoặc khi được phép.</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="sign-pdf" data-group="pdf" style="--c:#E5484D">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/anh/">Xem cả 21 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="sign-pdf" data-group="pdf" style="--c:#E5484D">
 <a class="card-link" href="../ky-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#signature"></use></svg></span><span class="card-txt"><h3 class="card-name">Ký PDF</h3><span class="card-desc">Vẽ, gõ hoặc dán chữ ký; thêm chữ và ngày tháng vào trang PDF.</span></span></a>
 <button class="star" type="button" data-fav="sign-pdf" aria-pressed="false" aria-label="Ghim Ký PDF vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -112,6 +119,7 @@
 <a class="card-link" href="../nen-anh/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#image-down"></use></svg></span><span class="card-txt"><h3 class="card-name">Nén ảnh</h3><span class="card-desc">Giảm dung lượng ảnh JPG, PNG, WebP hàng loạt; có chế độ nén xuống dưới số KB bạn cần.</span></span></a>
 <button class="star" type="button" data-fav="compress-image" aria-pressed="false" aria-label="Ghim Nén ảnh vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

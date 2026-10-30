@@ -77,26 +77,33 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#0090FF">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/tai-ve/">Tải về</a></li><li><span aria-current="page">Tải ảnh thumbnail YouTube</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/tai-ve/">Tải về</a></li><li><span aria-current="page">Tải ảnh thumbnail YouTube</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#0090FF"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#image-down"></use></svg></span>
 <div class="tool-title"><h1>Tải ảnh thumbnail YouTube</h1><p class="lead">Dán link video, Shorts YouTube để xem và tải ảnh thumbnail ở mọi cỡ, tới HD 1280×720; tự bỏ viền đen, xuất JPG, PNG, WEBP.</p></div>
 <button class="fav-btn" type="button" data-fav="youtube-thumbnail" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>BbeTools không có máy chủ: trình duyệt của bạn tải ảnh thẳng từ máy chủ ảnh của YouTube (i.ytimg.com) và lấy tên video qua youtube.com/oembed. Đổi định dạng, bỏ viền đen làm ngay trên máy bạn.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-interactive" data-kind="interactive">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 
 
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Sao chép link video YouTube (nút Chia sẻ → Sao chép đường liên kết), link Shorts hay youtu.be đều được.</li><li>Dán vào ô rồi bấm “Lấy thumbnail”; dán nhiều link, mỗi dòng một link, để lấy nhiều video.</li><li>Bấm “Tải ảnh lớn nhất” hoặc bấm một cỡ bất kỳ; chọn JPG, PNG hay WEBP và bật “Bỏ viền đen” nếu cần.</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>Thumbnail lớn nhất là bao nhiêu?</summary><p>HD 1280×720 (maxresdefault). Video cũ hoặc video tải lên ở độ phân giải thấp không có bản HD; khi đó trang tự lấy cỡ lớn nhất còn có (SD 640×480 hoặc HQ 480×360).</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>Thumbnail lớn nhất là bao nhiêu?</summary><p>HD 1280×720 (maxresdefault). Video cũ hoặc video tải lên ở độ phân giải thấp không có bản HD; khi đó trang tự lấy cỡ lớn nhất còn có (SD 640×480 hoặc HQ 480×360).</p></details>
 <details><summary>Vì sao ảnh SD, HQ có viền đen?</summary><p>YouTube làm ảnh SD, HQ theo khổ 4:3 nên video 16:9 bị thêm viền đen trên và dưới (Shorts thì viền hai bên). Bật “Bỏ viền đen” để trang tự tìm và cắt viền khi tải; với video không có bản HD, ảnh SD sau khi cắt (640×360) thường là ảnh nét nhất.</p></details>
 <details><summary>Có tải được video YouTube không?</summary><p>Không. YouTube không cho trang web khác tải video và điều khoản của YouTube cũng không cho phép. Trang chỉ lấy các ảnh thumbnail mà YouTube để công khai.</p></details>
 <details><summary>Có được dùng thumbnail của người khác không?</summary><p>Thumbnail thuộc bản quyền của chủ kênh. Dùng để tham khảo, làm tư liệu cá nhân thì được; muốn đăng lại hoặc dùng thương mại thì cần chủ kênh cho phép.</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="crop-image" data-group="image" style="--c:#8E4EC6">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/tai-ve/">Xem cả 7 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="crop-image" data-group="image" style="--c:#8E4EC6">
 <a class="card-link" href="../cat-anh/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#crop"></use></svg></span><span class="card-txt"><h3 class="card-name">Cắt ảnh</h3><span class="card-desc">Cắt ảnh theo khung tự do hoặc tỉ lệ 1:1, 4:3, 16:9, 3:4.</span></span></a>
 <button class="star" type="button" data-fav="crop-image" aria-pressed="false" aria-label="Ghim Cắt ảnh vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -112,6 +119,7 @@
 <a class="card-link" href="../video-sang-gif/"><span class="tile" style="--c:#D6409F"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#clapperboard"></use></svg></span><span class="card-txt"><h3 class="card-name">Video sang GIF</h3><span class="card-desc">Cắt một đoạn video và chuyển thành ảnh động GIF, chọn cỡ, số khung hình, tốc độ.</span></span></a>
 <button class="star" type="button" data-fav="video-to-gif" aria-pressed="false" aria-label="Ghim Video sang GIF vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

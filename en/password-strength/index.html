@@ -75,25 +75,32 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#0E7C86">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../../en/">Home</a></li><li><a href="../../en/category/security/">Security</a></li><li><span aria-current="page">Password Strength Checker</span></li></ol></nav>
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../../en/">Home</a></li><li><a class="crumb-tab" href="../../en/category/security/">Security</a></li><li><span aria-current="page">Password Strength Checker</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#0E7C86"><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#shield-check"></use></svg></span>
 <div class="tool-title"><h1>Password Strength Checker</h1><p class="lead">Estimate how long a password takes to crack, find predictable patterns (common passwords, names, dates, keyboard walks) and get tips to improve.</p></div>
 <button class="fav-btn" type="button" data-fav="password-strength" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#star"></use></svg><span>Pin</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#shield-check"></use></svg><span>The password is only checked in this browser; it&#39;s never saved or sent anywhere.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-form" data-kind="form">
 <noscript><p class="note">This tool needs JavaScript enabled to run on your device.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 
 
+<div class="tool-info">
 <section class="block info"><h2>How to use</h2><ol class="steps"><li>Type or paste a password into the box.</li><li>See its strength, the time to crack it and any predictable patterns found.</li><li>Follow the tips, or use the Strong Password Generator.</li></ol></section>
-<section class="block info"><h2>Frequently asked questions</h2><details><summary>Is it safe to type my real password here?</summary><p>The check runs entirely in the browser: the password is never saved or sent. Still, it&#39;s a good habit to test a similar password instead.</p></details>
+<section class="block info faq"><h2>Frequently asked questions</h2><details><summary>Is it safe to type my real password here?</summary><p>The check runs entirely in the browser: the password is never saved or sent. Still, it&#39;s a good habit to test a similar password instead.</p></details>
 <details><summary>How is the crack time calculated?</summary><p>With the zxcvbn library: it estimates the number of guesses from leaked password lists, names, common words (plus a Vietnamese dictionary), keyboard patterns, dates… then divides by the guessing speed of each attack type.</p></details>
 <details><summary>Does it check breached passwords (Have I Been Pwned)?</summary><p>No. That would require sending part of the password&#39;s hash to another server, against BbeTools&#39; rule of never sending data.</p></details></section>
-<section class="block"><h2>Related tools</h2><ul class="cards"><li class="card" data-id="password-generator" data-group="security" style="--c:#0E7C86">
+</div>
+<section class="block"><h2>Related tools <a class="see-all" href="../../en/category/security/">See all 6 tools<svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="password-generator" data-group="security" style="--c:#0E7C86">
 <a class="card-link" href="../../en/password-generator/"><span class="tile" style="--c:#0E7C86"><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#key"></use></svg></span><span class="card-txt"><h3 class="card-name">Strong Password Generator</h3><span class="card-desc">Generate secure random passwords, memorable passphrases or PINs with the browser&#39;s secure random generator.</span></span></a>
 <button class="star" type="button" data-fav="password-generator" aria-pressed="false" aria-label="Pin Strong Password Generator to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -109,6 +116,7 @@
 <a class="card-link" href="../../en/checksum/"><span class="tile" style="--c:#0E7C86"><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#file-check"></use></svg></span><span class="card-txt"><h3 class="card-name">File Checksum Calculator</h3><span class="card-desc">Calculate SHA-256, SHA-1, MD5, SHA-512 and CRC32 of files (even several GB) and compare with the hash on the download page.</span></span></a>
 <button class="star" type="button" data-fav="checksum" aria-pressed="false" aria-label="Pin File Checksum Calculator to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

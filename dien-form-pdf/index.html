@@ -77,26 +77,33 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#E5484D">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/pdf/">PDF</a></li><li><span aria-current="page">Điền form PDF</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/pdf/">PDF</a></li><li><span aria-current="page">Điền form PDF</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#text-cursor-input"></use></svg></span>
 <div class="tool-title"><h1>Điền form PDF</h1><p class="lead">Điền các ô biểu mẫu có sẵn trong PDF (tờ khai, đơn từ) rồi lưu lại.</p></div>
 <button class="fav-btn" type="button" data-fav="fill-form-pdf" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>File của bạn được xử lý ngay trên máy này, không bao giờ tải lên máy chủ.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-file" data-kind="file">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 <p class="formats">Nhận: PDF</p>
 
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Chọn hoặc kéo thả file PDF có sẵn ô form (tờ khai, đơn từ).</li><li>Bấm vào các ô xanh trên trang để điền chữ, đánh dấu, chọn mục; phím Tab để sang ô tiếp theo.</li><li>Bấm “Lưu PDF đã điền”; bật “Làm phẳng sau khi điền” nếu không muốn người nhận sửa được.</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>File có bị tải lên mạng không?</summary><p>Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy.</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>File có bị tải lên mạng không?</summary><p>Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy.</p></details>
 <details><summary>Gõ tiếng Việt có dấu có bị lỗi font không?</summary><p>Không. Khi có chữ có dấu, công cụ nhúng font Be Vietnam Pro vào file để mọi trình đọc PDF đều hiện đúng.</p></details>
 <details><summary>File của tôi không có ô để điền thì sao?</summary><p>Dùng công cụ Ký PDF để thêm chữ, ngày tháng, dấu tích, chữ ký vào bất kỳ chỗ nào trên trang.</p></details>
 <details><summary>Biểu mẫu XFA (Adobe LiveCycle) có điền được không?</summary><p>Chỉ điền được phần form thường (AcroForm) đi kèm. Biểu mẫu chỉ có XFA cần mở bằng Adobe Acrobat.</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="flatten-pdf" data-group="pdf" style="--c:#E5484D">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/pdf/">Xem cả 24 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="flatten-pdf" data-group="pdf" style="--c:#E5484D">
 <a class="card-link" href="../lam-phang-form-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#layers"></use></svg></span><span class="card-txt"><h3 class="card-name">Làm phẳng form PDF</h3><span class="card-desc">Biến các ô form đã điền thành nội dung cố định, không sửa được nữa.</span></span></a>
 <button class="star" type="button" data-fav="flatten-pdf" aria-pressed="false" aria-label="Ghim Làm phẳng form PDF vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -112,6 +119,7 @@
 <a class="card-link" href="../tach-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#scissors"></use></svg></span><span class="card-txt"><h3 class="card-name">Tách PDF</h3><span class="card-desc">Tách PDF theo khoảng trang, mỗi trang một file hoặc trích các trang bạn chọn.</span></span></a>
 <button class="star" type="button" data-fav="split-pdf" aria-pressed="false" aria-label="Ghim Tách PDF vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

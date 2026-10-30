@@ -77,24 +77,31 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#18794E">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/van-phong/">Văn phòng &amp; dữ liệu</a></li><li><span aria-current="page">JSON ↔ Excel</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/van-phong/">Văn phòng &amp; dữ liệu</a></li><li><span aria-current="page">JSON ↔ Excel</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#18794E"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#braces"></use></svg></span>
 <div class="tool-title"><h1>JSON ↔ Excel</h1><p class="lead">Chuyển mảng JSON thành bảng Excel (làm phẳng đối tượng lồng nhau) và Excel/CSV thành JSON.</p></div>
 <button class="fav-btn" type="button" data-fav="json-excel" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>File của bạn được xử lý ngay trên máy này, không bao giờ tải lên máy chủ.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-file" data-kind="file">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 <p class="formats">Nhận: JSON, XLSX, XLS, ODS, CSV, TSV</p>
 
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Chọn file .json (để ra Excel) hoặc file Excel/CSV (để ra JSON).</li><li>Tuỳ chọn: làm phẳng đối tượng lồng nhau thành cột “a.b”, hoặc ngược lại tạo đối tượng lồng từ tên cột có dấu chấm.</li><li>Bấm “Chuyển đổi”, xem trước rồi tải file hoặc sao chép JSON.</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>JSON có nhiều danh sách thì sao?</summary><p>Nếu JSON là một đối tượng chứa nhiều mảng (ví dụ “nhanVien” và “phongBan”), mỗi mảng thành một sheet riêng.</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>JSON có nhiều danh sách thì sao?</summary><p>Nếu JSON là một đối tượng chứa nhiều mảng (ví dụ “nhanVien” và “phongBan”), mỗi mảng thành một sheet riêng.</p></details>
 <details><summary>Ngày tháng trong Excel ra JSON thế nào?</summary><p>Ô ngày được ghi dạng chuẩn ISO “yyyy-mm-dd” (có giờ nếu ô có giờ), số giữ nguyên là số.</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="json-convert" data-group="dev" style="--c:#3E63DD">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/van-phong/">Xem cả 8 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="json-convert" data-group="dev" style="--c:#3E63DD">
 <a class="card-link" href="../json-sang-csv-yaml/"><span class="tile" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#file-json"></use></svg></span><span class="card-txt"><h3 class="card-name">JSON ↔ CSV/YAML</h3><span class="card-desc">Chuyển đổi qua lại giữa JSON, CSV và YAML.</span></span></a>
 <button class="star" type="button" data-fav="json-convert" aria-pressed="false" aria-label="Ghim JSON ↔ CSV/YAML vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -110,6 +117,7 @@
 <a class="card-link" href="../xem-file-excel/"><span class="tile" style="--c:#18794E"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#sheet"></use></svg></span><span class="card-txt"><h3 class="card-name">Xem file Excel/CSV</h3><span class="card-desc">Mở xem file .xlsx, .xls, .ods, .csv không cần cài Excel; chuyển sheet, tìm không cần dấu, lọc, sắp xếp.</span></span></a>
 <button class="star" type="button" data-fav="excel-viewer" aria-pressed="false" aria-label="Ghim Xem file Excel/CSV vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

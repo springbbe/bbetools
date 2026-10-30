@@ -74,25 +74,32 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#18794E">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/van-phong/">Văn phòng &amp; dữ liệu</a></li><li><span aria-current="page">Tạo hoá đơn, báo giá</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/van-phong/">Văn phòng &amp; dữ liệu</a></li><li><span aria-current="page">Tạo hoá đơn, báo giá</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#18794E"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#file-pen-line"></use></svg></span>
 <div class="tool-title"><h1>Tạo hoá đơn, báo giá</h1><p class="lead">Lập báo giá, phiếu bán hàng (hoá đơn bán lẻ): chiết khấu, thuế GTGT, số tiền bằng chữ, mã QR chuyển khoản, xuất PDF.</p></div>
 <button class="fav-btn" type="button" data-fav="invoice" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>Số liệu bạn nhập chỉ được tính trên trình duyệt, không gửi đi đâu.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-form" data-kind="form">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 
 <p class="data-note"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#info"></use></svg><span>Dữ liệu danh sách ngân hàng VietQR cập nhật ngày <b>21/10/2026</b>. Nguồn: Danh sách ngân hàng công khai của VietQR (api.vietqr.io/v2/banks), chụp lại ngày cập nhật.</span></p>
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Chọn Báo giá hoặc Hoá đơn bán lẻ, nhập số, thông tin bên bán và khách hàng.</li><li>Thêm từng dòng hàng hoá (tên, đơn vị tính, số lượng, đơn giá); chọn chiết khấu, thuế GTGT, phí vận chuyển. Tổng tiền và số tiền bằng chữ tự tính.</li><li>Chọn ngân hàng để in mã QR chuyển khoản có sẵn số tiền, rồi bấm “Tải PDF”. Thông tin bên bán được nhớ cho lần sau.</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>Phiếu này có thay được hoá đơn điện tử không?</summary><p>Không. Đây là báo giá, phiếu bán hàng để giao cho khách. Khi bên mua cần hoá đơn hợp lệ để kê khai thuế, người bán phải xuất hoá đơn điện tử theo Nghị định 123/2020/NĐ-CP.</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>Phiếu này có thay được hoá đơn điện tử không?</summary><p>Không. Đây là báo giá, phiếu bán hàng để giao cho khách. Khi bên mua cần hoá đơn hợp lệ để kê khai thuế, người bán phải xuất hoá đơn điện tử theo Nghị định 123/2020/NĐ-CP.</p></details>
 <details><summary>Thuế GTGT tính thế nào?</summary><p>Thuế tính trên tiền hàng sau chiết khấu, làm tròn đến đồng; phí vận chuyển cộng sau thuế. Có sẵn các mức 0%, 5%, 8%, 10%.</p></details>
 <details><summary>Dữ liệu có bị lưu lên mạng không?</summary><p>Không. Phiếu được dựng và xuất PDF ngay trên trình duyệt; thông tin chỉ được nhớ trong trình duyệt trên máy bạn.</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="number-to-words" data-group="vn" style="--c:#C27C0E">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/van-phong/">Xem cả 8 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="number-to-words" data-group="vn" style="--c:#C27C0E">
 <a class="card-link" href="../doc-so-thanh-chu/"><span class="tile" style="--c:#C27C0E"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#banknote"></use></svg></span><span class="card-txt"><h3 class="card-name">Đọc số thành chữ</h3><span class="card-desc">Viết số tiền bằng chữ cho hoá đơn, chứng từ, hợp đồng: 1.250.000 → Một triệu hai trăm năm mươi nghìn đồng.</span></span></a>
 <button class="star" type="button" data-fav="number-to-words" aria-pressed="false" aria-label="Ghim Đọc số thành chữ vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -108,6 +115,7 @@
 <a class="card-link" href="../tao-ma-vach/"><span class="tile" style="--c:#475569"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#barcode"></use></svg></span><span class="card-txt"><h3 class="card-name">Tạo mã vạch</h3><span class="card-desc">Tạo mã vạch EAN-13, EAN-8, UPC-A, ITF-14, Code 128, Code 39; tự tính số kiểm tra, tạo hàng loạt và in tem ra PDF.</span></span></a>
 <button class="star" type="button" data-fav="barcode-generator" aria-pressed="false" aria-label="Ghim Tạo mã vạch vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

@@ -77,25 +77,32 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#D6409F">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/am-thanh-video/">Âm thanh &amp; video</a></li><li><span aria-current="page">Đọc văn bản thành giọng nói</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/am-thanh-video/">Âm thanh &amp; video</a></li><li><span aria-current="page">Đọc văn bản thành giọng nói</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#D6409F"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#volume-2"></use></svg></span>
 <div class="tool-title"><h1>Đọc văn bản thành giọng nói</h1><p class="lead">Đọc to văn bản tiếng Việt bằng giọng đọc có sẵn trên thiết bị, tô sáng câu đang đọc, chỉnh tốc độ.</p></div>
 <button class="fav-btn" type="button" data-fav="text-to-speech" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>Văn bản được đọc bằng giọng có sẵn trên máy bạn; chỉ khi chọn giọng ghi “trực tuyến”, văn bản mới do máy chủ của nhà cung cấp giọng đó xử lý.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-interactive" data-kind="interactive">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 
 
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Gõ hoặc dán văn bản cần đọc.</li><li>Chọn giọng tiếng Việt, tốc độ, cao độ.</li><li>Bấm Đọc; câu đang đọc được tô sáng. Đặt con trỏ giữa văn bản để đọc từ câu đó.</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>Sao máy đọc tiếng Việt sai, không có giọng Việt?</summary><p>Giọng đọc do hệ điều hành cung cấp. Nếu chưa có giọng tiếng Việt, công cụ sẽ hướng dẫn cách cài cho Windows, macOS, Android, iPhone; cài xong tải lại trang.</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>Sao máy đọc tiếng Việt sai, không có giọng Việt?</summary><p>Giọng đọc do hệ điều hành cung cấp. Nếu chưa có giọng tiếng Việt, công cụ sẽ hướng dẫn cách cài cho Windows, macOS, Android, iPhone; cài xong tải lại trang.</p></details>
 <details><summary>Có tải về file MP3 được không?</summary><p>Không. Trình duyệt không cho trang web ghi lại giọng đọc của hệ điều hành, nên công cụ chỉ đọc trực tiếp.</p></details>
 <details><summary>Văn bản có bị gửi đi không?</summary><p>Với giọng có sẵn trên máy thì không. Giọng ghi “trực tuyến” (như Google, Microsoft Online) gửi văn bản tới máy chủ của hãng để đọc; muốn giữ kín hãy chọn giọng khác.</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="word-counter" data-group="text" style="--c:#0D74CE">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/am-thanh-video/">Xem cả 11 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="word-counter" data-group="text" style="--c:#0D74CE">
 <a class="card-link" href="../dem-tu/"><span class="tile" style="--c:#0D74CE"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#whole-word"></use></svg></span><span class="card-txt"><h3 class="card-name">Đếm từ &amp; ký tự</h3><span class="card-desc">Đếm số từ (tiếng), ký tự, câu, đoạn, thời gian đọc; hiện ngay khi gõ.</span></span></a>
 <button class="star" type="button" data-fav="word-counter" aria-pressed="false" aria-label="Ghim Đếm từ &amp; ký tự vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -111,6 +118,7 @@
 <a class="card-link" href="../quay-man-hinh/"><span class="tile" style="--c:#D6409F"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#screen-share"></use></svg></span><span class="card-txt"><h3 class="card-name">Quay màn hình</h3><span class="card-desc">Quay màn hình, cửa sổ hoặc tab kèm âm thanh và micro (trên máy tính), tải về MP4/WebM.</span></span></a>
 <button class="star" type="button" data-fav="screen-recorder" aria-pressed="false" aria-label="Ghim Quay màn hình vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

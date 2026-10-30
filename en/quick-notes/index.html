@@ -75,25 +75,32 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#5C8A1C">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../../en/">Home</a></li><li><a href="../../en/category/productivity/">Productivity &amp; Random</a></li><li><span aria-current="page">Quick Notes</span></li></ol></nav>
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../../en/">Home</a></li><li><a class="crumb-tab" href="../../en/category/productivity/">Productivity &amp; Random</a></li><li><span aria-current="page">Quick Notes</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#notebook-pen"></use></svg></span>
 <div class="tool-title"><h1>Quick Notes</h1><p class="lead">Notes saved right in your browser, auto-saved, downloadable as .txt.</p></div>
 <button class="fav-btn" type="button" data-fav="quick-notes" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#star"></use></svg><span>Pin</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#shield-check"></use></svg><span>Notes are stored in this device&#39;s own browser (localStorage), never sent anywhere.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-interactive" data-kind="interactive">
 <noscript><p class="note">This tool needs JavaScript enabled to run on your device.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 
 
+<div class="tool-info">
 <section class="block info"><h2>How to use</h2><ol class="steps"><li>Type a note: it&#39;s saved automatically on this device.</li><li>Click New note to add one; search ignores accents.</li><li>Download as .txt, or download all (.zip) as a backup.</li></ol></section>
-<section class="block info"><h2>Frequently asked questions</h2><details><summary>Where are notes stored?</summary><p>In your device&#39;s browser storage (localStorage). Clearing browsing data, using a private window or switching browsers hides them, so download backups.</p></details>
+<section class="block info faq"><h2>Frequently asked questions</h2><details><summary>Where are notes stored?</summary><p>In your device&#39;s browser storage (localStorage). Clearing browsing data, using a private window or switching browsers hides them, so download backups.</p></details>
 <details><summary>Do notes sync between phone and computer?</summary><p>No, since BbeTools has no server. Several tabs in the same browser stay in sync.</p></details>
 <details><summary>How much can I store?</summary><p>A few million characters (the browser limit, usually 5 MB). If it&#39;s full, the page tells you to download your notes.</p></details></section>
-<section class="block"><h2>Related tools</h2><ul class="cards"><li class="card" data-id="checklist" data-group="productivity" style="--c:#5C8A1C">
+</div>
+<section class="block"><h2>Related tools <a class="see-all" href="../../en/category/productivity/">See all 17 tools<svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="checklist" data-group="productivity" style="--c:#5C8A1C">
 <a class="card-link" href="../../en/checklist/"><span class="tile" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#list-checks"></use></svg></span><span class="card-txt"><h3 class="card-name">Checklist</h3><span class="card-desc">A simple to-do list with drag-and-drop ordering, saved on your device.</span></span></a>
 <button class="star" type="button" data-fav="checklist" aria-pressed="false" aria-label="Pin Checklist to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -109,6 +116,7 @@
 <a class="card-link" href="../../en/stopwatch/"><span class="tile" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#watch"></use></svg></span><span class="card-txt"><h3 class="card-name">Online Stopwatch</h3><span class="card-desc">A stopwatch accurate to 1/100 second, with laps.</span></span></a>
 <button class="star" type="button" data-fav="stopwatch" aria-pressed="false" aria-label="Pin Online Stopwatch to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

@@ -77,24 +77,31 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#3E63DD">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/lap-trinh/">Lập trình</a></li><li><span aria-current="page">Tạo UUID</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/lap-trinh/">Lập trình</a></li><li><span aria-current="page">Tạo UUID</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#fingerprint"></use></svg></span>
 <div class="tool-title"><h1>Tạo UUID</h1><p class="lead">Tạo UUID v4, v7 hàng loạt.</p></div>
 <button class="fav-btn" type="button" data-fav="uuid" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>Số liệu bạn nhập chỉ được tính trên trình duyệt, không gửi đi đâu.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-form" data-kind="form">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 
 
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Chọn phiên bản v4 hoặc v7 và số lượng.</li><li>Chọn chữ hoa, dấu gạch ngang, ngoặc nhọn nếu cần.</li><li>Sao chép hoặc tải danh sách; dán một UUID vào ô kiểm tra để xem phiên bản và thời điểm tạo.</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>Nên dùng UUID v4 hay v7?</summary><p>v4 hoàn toàn ngẫu nhiên. v7 mở đầu bằng thời điểm tạo nên tăng dần, giúp chỉ mục cơ sở dữ liệu nhanh hơn khi làm khoá chính.</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>Nên dùng UUID v4 hay v7?</summary><p>v4 hoàn toàn ngẫu nhiên. v7 mở đầu bằng thời điểm tạo nên tăng dần, giúp chỉ mục cơ sở dữ liệu nhanh hơn khi làm khoá chính.</p></details>
 <details><summary>UUID có bị trùng không?</summary><p>Gần như không thể: UUID v4 có 122 bit ngẫu nhiên, tạo bằng crypto.getRandomValues của trình duyệt.</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="password-generator" data-group="security" style="--c:#0E7C86">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/lap-trinh/">Xem cả 19 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="password-generator" data-group="security" style="--c:#0E7C86">
 <a class="card-link" href="../tao-mat-khau/"><span class="tile" style="--c:#0E7C86"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#key"></use></svg></span><span class="card-txt"><h3 class="card-name">Tạo mật khẩu mạnh</h3><span class="card-desc">Sinh mật khẩu ngẫu nhiên an toàn, cụm từ tiếng Việt dễ nhớ hoặc mã PIN, dùng bộ sinh số ngẫu nhiên của trình duyệt.</span></span></a>
 <button class="star" type="button" data-fav="password-generator" aria-pressed="false" aria-label="Ghim Tạo mật khẩu mạnh vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -110,6 +117,7 @@
 <a class="card-link" href="../json-sang-csv-yaml/"><span class="tile" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#file-json"></use></svg></span><span class="card-txt"><h3 class="card-name">JSON ↔ CSV/YAML</h3><span class="card-desc">Chuyển đổi qua lại giữa JSON, CSV và YAML.</span></span></a>
 <button class="star" type="button" data-fav="json-convert" aria-pressed="false" aria-label="Ghim JSON ↔ CSV/YAML vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

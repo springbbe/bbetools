@@ -77,27 +77,34 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#0090FF">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/tai-ve/">Tải về</a></li><li><span aria-current="page">Tải emoji, sticker Discord</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/tai-ve/">Tải về</a></li><li><span aria-current="page">Tải emoji, sticker Discord</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#0090FF"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#smile-plus"></use></svg></span>
 <div class="tool-title"><h1>Tải emoji, sticker Discord</h1><p class="lead">Dán link hoặc mã emoji, sticker Discord để tải bản gốc cỡ lớn nhất (PNG, GIF, WEBP), đổi sticker Lottie sang GIF, tải cả bộ sticker chính thức.</p></div>
 <button class="fav-btn" type="button" data-fav="discord-emoji" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>BbeTools không có máy chủ: trình duyệt của bạn tải thẳng từ máy chủ của Discord (cdn.discordapp.com, media.discordapp.net, discord.com). Không cần đăng nhập, không cần token Discord.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-interactive" data-kind="interactive">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 
 
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Trên Discord (máy tính hoặc trình duyệt), chuột phải vào emoji, sticker trong tin nhắn → Sao chép liên kết; hoặc gõ \:tên_emoji: để lấy mã &lt;:tên:123…&gt;.</li><li>Dán vào ô (nhiều cái, mỗi cái một dòng) rồi bấm “Lấy emoji, sticker”; hoặc chọn “Bộ sticker chính thức” để lấy cả bộ của Discord.</li><li>Chọn PNG + GIF hoặc định dạng gốc và cỡ, bấm “Tải tất cả (.zip)” hoặc bấm từng cái.</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>Có tải được hết emoji của một server không?</summary><p>Không. Discord chỉ cho xem danh sách emoji của server khi đã đăng nhập bằng tài khoản ở trong server đó, nên trang chỉ nhận từng emoji theo link hoặc mã. Dán được nhiều link cùng lúc. Riêng 14 bộ sticker chính thức của Discord thì tải được cả bộ.</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>Có tải được hết emoji của một server không?</summary><p>Không. Discord chỉ cho xem danh sách emoji của server khi đã đăng nhập bằng tài khoản ở trong server đó, nên trang chỉ nhận từng emoji theo link hoặc mã. Dán được nhiều link cùng lúc. Riêng 14 bộ sticker chính thức của Discord thì tải được cả bộ.</p></details>
 <details><summary>Lấy link emoji Discord thế nào?</summary><p>Trên Discord máy tính hoặc trình duyệt: chuột phải vào emoji trong tin nhắn → Sao chép liên kết. Hoặc gõ dấu gạch chéo ngược trước emoji (\:tên:) rồi gửi, Discord hiện mã dạng &lt;:tên:123456…&gt; hoặc &lt;a:tên:…&gt; với emoji động: dán mã đó vào.</p></details>
 <details><summary>Emoji tải về cỡ bao nhiêu?</summary><p>Cỡ gốc mà người tạo đã tải lên Discord (thường 128 px, có khi lớn hơn), không phải cỡ nhỏ hiện trong khung chat. Chọn cỡ nhỏ hơn nếu cần file nhẹ.</p></details>
 <details><summary>Sticker Lottie là gì?</summary><p>Sticker chính thức của Discord (Wumpus, Clyde…) phần lớn là hoạt ảnh vector Lottie (.json). Chọn “PNG + GIF” để trang vẽ lại thành GIF ngay trên máy; “Định dạng gốc” giữ file .json cho lập trình viên dùng với lottie-web.</p></details>
 <details><summary>Có được dùng emoji, sticker tải về cho mục đích thương mại không?</summary><p>Emoji, sticker thuộc bản quyền của người tạo hoặc Discord. Chỉ nên tải để dùng cá nhân, hoặc khi được cho phép.</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="twitch-emotes" data-group="download" style="--c:#0090FF">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/tai-ve/">Xem cả 7 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="twitch-emotes" data-group="download" style="--c:#0090FF">
 <a class="card-link" href="../tai-emote-twitch/"><span class="tile" style="--c:#0090FF"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#tv"></use></svg></span><span class="card-txt"><h3 class="card-name">Tải emote Twitch (7TV, FFZ)</h3><span class="card-desc">Nhập tên kênh Twitch để xem và tải cả bộ emote 7TV, FrankerFaceZ của kênh về file zip: PNG, GIF động hoặc WEBP, đủ 4 cỡ.</span></span></a>
 <button class="star" type="button" data-fav="twitch-emotes" aria-pressed="false" aria-label="Ghim Tải emote Twitch (7TV, FFZ) vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -113,6 +120,7 @@
 <a class="card-link" href="../tao-gif/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#film"></use></svg></span><span class="card-txt"><h3 class="card-name">Tạo GIF từ ảnh</h3><span class="card-desc">Ghép nhiều ảnh thành ảnh động GIF, chỉnh tốc độ và kích thước.</span></span></a>
 <button class="star" type="button" data-fav="gif-maker" aria-pressed="false" aria-label="Ghim Tạo GIF từ ảnh vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

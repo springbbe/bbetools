@@ -77,25 +77,32 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#D6409F">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/am-thanh-video/">Âm thanh &amp; video</a></li><li><span aria-current="page">Quay màn hình</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/am-thanh-video/">Âm thanh &amp; video</a></li><li><span aria-current="page">Quay màn hình</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#D6409F"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#screen-share"></use></svg></span>
 <div class="tool-title"><h1>Quay màn hình</h1><p class="lead">Quay màn hình, cửa sổ hoặc tab kèm âm thanh và micro (trên máy tính), tải về MP4/WebM.</p></div>
 <button class="fav-btn" type="button" data-fav="screen-recorder" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>Video chỉ được ghi ngay trên máy bạn, không tải lên đâu.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-interactive" data-kind="interactive">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 
 
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Chọn có thu âm thanh máy/tab, micro hay không, chất lượng và định dạng.</li><li>Bấm Chọn màn hình và bắt đầu quay, chọn cả màn hình, một cửa sổ hoặc một tab.</li><li>Bấm Dừng quay (hoặc Dừng chia sẻ của trình duyệt), xem lại rồi tải về hoặc chuyển sang Cắt, Nén video.</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>Quay màn hình điện thoại được không?</summary><p>Trình duyệt trên điện thoại không cho trang web quay màn hình. Hãy dùng tính năng có sẵn: iPhone vào Trung tâm điều khiển → Ghi màn hình; Android kéo thanh thông báo → Quay màn hình. Sau đó có thể dùng Cắt video, Nén video ở đây.</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>Quay màn hình điện thoại được không?</summary><p>Trình duyệt trên điện thoại không cho trang web quay màn hình. Hãy dùng tính năng có sẵn: iPhone vào Trung tâm điều khiển → Ghi màn hình; Android kéo thanh thông báo → Quay màn hình. Sau đó có thể dùng Cắt video, Nén video ở đây.</p></details>
 <details><summary>Sao video không có tiếng?</summary><p>Khi trình duyệt hỏi chia sẻ, hãy bật “Chia sẻ âm thanh”. Chrome và Edge thu được tiếng của một tab; trên Windows thu được cả tiếng toàn màn hình; macOS chỉ thu được tiếng của tab. Có thể bật micro để thuyết minh.</p></details>
 <details><summary>Video có bị gửi lên mạng không?</summary><p>Không. Hình và tiếng được ghi trong trình duyệt trên máy bạn; hãy tải video về trước khi đóng trang.</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="trim-video" data-group="media" style="--c:#D6409F">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/am-thanh-video/">Xem cả 11 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="trim-video" data-group="media" style="--c:#D6409F">
 <a class="card-link" href="../cat-video/"><span class="tile" style="--c:#D6409F"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#scissors"></use></svg></span><span class="card-txt"><h3 class="card-name">Cắt video</h3><span class="card-desc">Cắt lấy đoạn video cần dùng, giữ nguyên chất lượng (không mã hoá lại) hoặc cắt chính xác từng khung.</span></span></a>
 <button class="star" type="button" data-fav="trim-video" aria-pressed="false" aria-label="Ghim Cắt video vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -111,6 +118,7 @@
 <a class="card-link" href="../ghi-am/"><span class="tile" style="--c:#D6409F"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#mic"></use></svg></span><span class="card-txt"><h3 class="card-name">Ghi âm</h3><span class="card-desc">Ghi âm bằng micro, tạm dừng, nghe lại, đặt tên và tải về M4A, MP3 hoặc WAV.</span></span></a>
 <button class="star" type="button" data-fav="voice-recorder" aria-pressed="false" aria-label="Ghim Ghi âm vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

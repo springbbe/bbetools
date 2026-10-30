@@ -13,6 +13,7 @@ Màu chủ đạo **vàng đất** (người dùng chọn, thay cho tím ở b�
 - **12 màu chuyên mục** (trường `color` của nhóm trong `tools.json`): icon nhóm là ô vuông bo tròn có viền trắng; tiêu đề mỗi nhóm là một tab màu.
 - **Chữ:** tiêu đề Bricolage Grotesque 800 (có đủ dấu tiếng Việt), thân bài Be Vietnam Pro.
 - **Hình khối:** nút dạng viên thuốc, thẻ bo 16 px, bóng có độ lệch, ám nâu.
+- **Trang công cụ:** dải đầu trang nhuộm nhạt màu nhóm, gạch màu nhóm 4 px ở mép trên; nhóm trong đường dẫn là nhãn đặc màu nhóm; câu quyền riêng tư tô dạ quang như trang chủ; khung ứng dụng đè lên mép dưới của dải. Bước "Cách dùng" đánh số trong ô vuông màu nhóm.
 
 Bản đầy đủ cho AI (hợp đồng thiết kế): `.impeccable/surfaces/index-html.md`. Bối cảnh sản phẩm: `PRODUCT.md`.
 
@@ -21,7 +22,7 @@ Bản đầy đủ cho AI (hợp đồng thiết kế): `.impeccable/surfaces/in
 | GĐ | Nội dung | Trạng thái |
 |---|---|---|
 | 1 | Nền móng: bảng màu sáng/tối, font tiêu đề, nút, ô nhập, chip, focus, bôi chọn chữ, thanh cuộn; header, footer, logo; **trang chủ** | ✅ Xong |
-| 2 | **Trang công cụ**: dải đầu trang theo màu nhóm, đường dẫn, dòng quyền riêng tư, ô thả file, khung ứng dụng, cách dùng/FAQ/công cụ liên quan; 4 khung (file, văn bản, form, tương tác), kết quả, thông báo, toast, hộp thoại | ⏳ Chưa làm |
+| 2 | **Trang công cụ**: dải đầu trang theo màu nhóm, đường dẫn, dòng quyền riêng tư, ô thả file, khung ứng dụng, cách dùng/FAQ/công cụ liên quan; 4 khung (file, văn bản, form, tương tác), kết quả, thông báo, toast, hộp thoại | ✅ Xong |
 | 3 | **Điều hướng và trang phụ**: menu "Tất cả công cụ" (máy tính) và ngăn kéo (điện thoại), bảng lệnh tìm kiếm, trang nhóm, Giới thiệu, 404; kiểm tra bản tiếng Anh | ⏳ Chưa làm |
 | 4 | **Rà từng nhóm công cụ**: bảng trang PDF, so sánh ảnh, thanh cắt âm thanh/video, bảng và thẻ số của nhóm Tính toán, bảng Excel, QR, khung tải sticker, trang kiểm tra thiết bị. Chạy thử với file mẫu | ⏳ Chưa làm |
 | 5 | **Hoàn thiện**: chuyển động có chủ đích, ảnh OG và icon ứng dụng theo màu mới (`scripts/make-brand.js`), rà soát tương phản/bàn phím/375 px, review cuối, viết `DESIGN.md` | ⏳ Chưa làm |
@@ -46,3 +47,14 @@ Mở phiên Claude Code mới trong thư mục dự án và gõ prompt của gia
 - Đã thử ở 1280 px và 375 px, sáng và tối; console không lỗi; build, check, test đều qua.
 - Đổi theo yêu cầu: màu chủ đạo từ tím sang **vàng đất**; khối đầu trang gọn lại (lưới nhãn nhóm 2 cột cùng chiều cao, bỏ mọi hiệu ứng nghiêng/xoay).
 - Việc để lại cho giai đoạn sau (từ `impeccable detect`): thanh tiến trình chạy vô hạn `.progress.indet` (GĐ 2); `.mega-head` sát mép dưới (GĐ 3); viền trái 4 px của trích dẫn trong `.md-preview` (GĐ 4). Nền ô vuông của `.compare` là để thấy vùng trong suốt, giữ lại.
+
+### GĐ 2
+- Mẫu trang công cụ (`scripts/build.js`): bọc trong `.tool-page` có `--c` = màu nhóm; dải `.tool-band` chứa đường dẫn, tên, mô tả, câu quyền riêng tư; khung ứng dụng đè lên mép dưới dải (`--ov`: 16 px điện thoại, 28 px máy tính). Biến `--band`, `--band-ink`, `--band-muted`, `--tab` tính từ màu nhóm bằng `color-mix`, có bản tối riêng. Đã đo tương phản đủ 12 màu: chữ trắng trên nhãn nhóm ≥ 6:1, chữ trong dải ≥ 6:1 (sáng và tối).
+- Điện thoại: icon + tên + nút Ghim trên một hàng, mô tả trải hết chiều ngang.
+- Câu quyền riêng tư: bỏ hộp xanh, thay bằng chữ tô dạ quang (`--hl`) kèm khiên xanh.
+- Màn chọn file: chính khung ứng dụng là vùng thả (viền đứt nhuộm màu nhóm, dùng `:has()`), bỏ hộp lồng bên trong và ô vuông quanh icon tải lên.
+- Thẻ số (`.stat`, dùng ở khung văn bản và nhóm Tính toán): thành cột số có gạch trên, không đóng hộp; ô nổi bật gạch màu thương hiệu.
+- Cách dùng và FAQ xếp hai cột trên màn ≥ 1000 px; FAQ là một khối có vạch ngăn, dấu +/− vẽ bằng CSS. "Công cụ liên quan" có thêm link "Xem cả N công cụ" của nhóm.
+- Toast nền nâu đất, nút hành động viền vàng; toast lỗi nền đỏ đậm cố định (trước đây chế độ tối chữ trắng trên đỏ nhạt khó đọc). Nền mờ sau hộp thoại và bảng lệnh ám nâu. `.result-big` dùng font tiêu đề.
+- Đã thử bằng Chrome headless ở 1280 px và 375 px, sáng và tối, bản tiếng Anh: Ghép PDF (file mẫu → ghép → kết quả), Đếm từ, Tính lương gross/net, Thuế TNCN, VietQR, Test webcam, hộp thoại và toast lỗi; console không lỗi; build, check, test đều qua.
+- Để lại cho GĐ 4 (từ `impeccable detect`): bảng `.tbl-wrap` trong khung form vẫn bị tính là thẻ lồng thẻ (Thuế TNCN); màn bắt đầu của Scan tài liệu; số tiền dài trong thẻ số ở khổ 375 px vẫn xuống dòng ("1.082.500 đ/tháng"); khung camera của Test webcam chưa căn giữa trong khung.

@@ -75,25 +75,32 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#8E4EC6">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../../en/">Home</a></li><li><a href="../../en/category/image/">Image</a></li><li><span aria-current="page">Compress Images</span></li></ol></nav>
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../../en/">Home</a></li><li><a class="crumb-tab" href="../../en/category/image/">Image</a></li><li><span aria-current="page">Compress Images</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#image-down"></use></svg></span>
 <div class="tool-title"><h1>Compress Images</h1><p class="lead">Reduce the size of JPG, PNG and WebP images in bulk, with a mode to get below the KB you need.</p></div>
 <button class="fav-btn" type="button" data-fav="compress-image" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#star"></use></svg><span>Pin</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#shield-check"></use></svg><span>Your files are processed right on this device and never uploaded to any server.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-file" data-kind="file">
 <noscript><p class="note">This tool needs JavaScript enabled to run on your device.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 <p class="formats">Accepts: JPG, PNG, WebP, GIF, BMP, AVIF</p>
 
+<div class="tool-info">
 <section class="block info"><h2>How to use</h2><ol class="steps"><li>Choose, drag and drop or paste (Ctrl/⌘ + V) one or more images.</li><li>Choose the quality, or turn on “Compress below” and enter the target size in KB (e.g. 200 KB for online forms).</li><li>Click “Compress images”, compare before/after, then download each image or a .zip.</li></ol></section>
-<section class="block info"><h2>Frequently asked questions</h2><details><summary>Are my images sent to a server?</summary><p>No. Images are compressed right in your browser with MozJPEG/WebP encoders running in WebAssembly.</p></details>
+<section class="block info faq"><h2>Frequently asked questions</h2><details><summary>Are my images sent to a server?</summary><p>No. Images are compressed right in your browser with MozJPEG/WebP encoders running in WebAssembly.</p></details>
 <details><summary>Can I get below 100 KB?</summary><p>Yes. Turn on “Compress below” and enter 100; the tool lowers quality and, if needed, the dimensions until it gets there.</p></details>
 <details><summary>Is the GPS location kept in the image?</summary><p>No. Compressed images have no EXIF/GPS data; the orientation is already applied.</p></details></section>
-<section class="block"><h2>Related tools</h2><ul class="cards"><li class="card" data-id="resize-image" data-group="image" style="--c:#8E4EC6">
+</div>
+<section class="block"><h2>Related tools <a class="see-all" href="../../en/category/image/">See all 21 tools<svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="resize-image" data-group="image" style="--c:#8E4EC6">
 <a class="card-link" href="../../en/resize-image/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#scaling"></use></svg></span><span class="card-txt"><h3 class="card-name">Resize Image</h3><span class="card-desc">Shrink or enlarge images by pixels, percentage or longest side.</span></span></a>
 <button class="star" type="button" data-fav="resize-image" aria-pressed="false" aria-label="Pin Resize Image to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -109,6 +116,7 @@
 <a class="card-link" href="../../en/strip-exif/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#map-pin-off"></use></svg></span><span class="card-txt"><h3 class="card-name">Remove EXIF &amp; GPS Data</h3><span class="card-desc">View and remove camera info, date/time and GPS location from photos.</span></span></a>
 <button class="star" type="button" data-fav="strip-exif" aria-pressed="false" aria-label="Pin Remove EXIF &amp; GPS Data to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

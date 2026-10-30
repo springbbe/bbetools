@@ -77,25 +77,32 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#8E4EC6">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/anh/">Ảnh</a></li><li><span aria-current="page">Ghép ảnh</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/anh/">Ảnh</a></li><li><span aria-current="page">Ghép ảnh</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#layout-panel-left"></use></svg></span>
 <div class="tool-title"><h1>Ghép ảnh</h1><p class="lead">Nối nhiều ảnh theo chiều ngang, dọc hoặc thành lưới.</p></div>
 <button class="fav-btn" type="button" data-fav="merge-images" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>File của bạn được xử lý ngay trên máy này, không bao giờ tải lên máy chủ.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-file" data-kind="file">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 <p class="formats">Nhận: JPG, PNG, WebP, GIF, BMP, AVIF, HEIC, HEIF</p>
 
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Chọn, kéo thả hoặc dán từ 2 ảnh trở lên; kéo thả để đổi thứ tự.</li><li>Chọn kiểu ghép (ngang, dọc, lưới), khoảng cách, bo góc, màu nền.</li><li>Xem trước, bấm “Ghép ảnh” rồi tải ảnh đã ghép về.</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>Ảnh có bị tải lên máy chủ không?</summary><p>Không. Mọi bước xử lý chạy ngay trong trình duyệt của bạn; ảnh không rời khỏi máy.</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>Ảnh có bị tải lên máy chủ không?</summary><p>Không. Mọi bước xử lý chạy ngay trong trình duyệt của bạn; ảnh không rời khỏi máy.</p></details>
 <details><summary>Ảnh khác kích thước có ghép được không?</summary><p>Được. Bật “Cùng cỡ” để mọi ảnh cùng chiều cao (ghép ngang) hoặc cùng chiều rộng (ghép dọc); với kiểu lưới, ảnh được cắt vừa ô hoặc giữ trọn trong ô.</p></details>
 <details><summary>Ghép ảnh chụp màn hình tin nhắn thành một ảnh dài được không?</summary><p>Được. Chọn kiểu “Dọc”, khoảng cách 0 để nối các ảnh chụp màn hình liền nhau.</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="split-image" data-group="image" style="--c:#8E4EC6">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/anh/">Xem cả 21 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="split-image" data-group="image" style="--c:#8E4EC6">
 <a class="card-link" href="../chia-anh/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#grid-3x3"></use></svg></span><span class="card-txt"><h3 class="card-name">Chia ảnh thành lưới</h3><span class="card-desc">Cắt một ảnh thành 2, 3, 6, 9 ô (đăng Instagram, Facebook).</span></span></a>
 <button class="star" type="button" data-fav="split-image" aria-pressed="false" aria-label="Ghim Chia ảnh thành lưới vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -111,6 +118,7 @@
 <a class="card-link" href="../doi-kich-thuoc-anh/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#scaling"></use></svg></span><span class="card-txt"><h3 class="card-name">Đổi kích thước ảnh</h3><span class="card-desc">Thu nhỏ hoặc phóng to ảnh theo pixel, phần trăm hoặc cạnh dài nhất.</span></span></a>
 <button class="star" type="button" data-fav="resize-image" aria-pressed="false" aria-label="Ghim Đổi kích thước ảnh vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

@@ -77,27 +77,34 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#0090FF">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/tai-ve/">Tải về</a></li><li><span aria-current="page">Tải sticker Telegram</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/tai-ve/">Tải về</a></li><li><span aria-current="page">Tải sticker Telegram</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#0090FF"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#sticker"></use></svg></span>
 <div class="tool-title"><h1>Tải sticker Telegram</h1><p class="lead">Tải cả bộ sticker Telegram về máy: nguyên bản (WEBP, TGS, WEBM) hoặc đổi sang PNG, GIF; đổi được cả file .tgs, .webm có sẵn.</p></div>
 <button class="fav-btn" type="button" data-fav="telegram-stickers" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>BbeTools không có máy chủ: trình duyệt của bạn gọi thẳng api.telegram.org bằng token bot của chính bạn. File .tgs, .webm bạn tự chọn chỉ được xử lý trên máy này.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-interactive" data-kind="interactive">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 
 
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Trong Telegram, mở bộ sticker → ⋮ → Sao chép link (dạng t.me/addstickers/…) rồi dán vào ô Link.</li><li>Dán token bot của bạn (tạo miễn phí trong 1 phút bằng @BotFather, xem hướng dẫn ngay dưới ô) và bấm “Lấy bộ sticker”.</li><li>Chọn PNG + GIF hoặc định dạng gốc, bấm “Tải tất cả (.zip)” hoặc bấm từng sticker để tải riêng.</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>Có cần máy chủ để tải sticker không?</summary><p>Không. Telegram cho phép trang web gọi thẳng Bot API, nên trình duyệt của bạn tự lấy danh sách và file sticker từ api.telegram.org. BbeTools không có máy chủ trung gian, không nhận token hay sticker của bạn.</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>Có cần máy chủ để tải sticker không?</summary><p>Không. Telegram cho phép trang web gọi thẳng Bot API, nên trình duyệt của bạn tự lấy danh sách và file sticker từ api.telegram.org. BbeTools không có máy chủ trung gian, không nhận token hay sticker của bạn.</p></details>
 <details><summary>Vì sao phải có token bot?</summary><p>Bot API của Telegram chỉ trả file sticker cho bot đã đăng ký. Token tạo miễn phí bằng @BotFather: gửi /newbot, đặt tên, nhận token. Token chỉ dùng trên trình duyệt này; muốn huỷ thì gửi /revoke cho BotFather.</p></details>
 <details><summary>File TGS, WEBM là gì?</summary><p>TGS là sticker động dạng Lottie (vector, nén gzip), WEBM là sticker video, WEBP là sticker ảnh tĩnh. Chọn “PNG + GIF” để có file mở được ở mọi nơi; chọn “Định dạng gốc” để giữ nguyên chất lượng, dùng lại trong Telegram.</p></details>
 <details><summary>Không kết nối được tới Telegram?</summary><p>Một số nhà mạng chặn Telegram nên trình duyệt không tới được api.telegram.org. Hãy thử mạng khác. Nếu đã lưu sticker về máy (Telegram Desktop: chuột phải → Lưu), dùng mục “Từ file có sẵn” để đổi .tgs, .webm sang GIF mà không cần mạng.</p></details>
 <details><summary>Có được dùng sticker tải về cho mục đích thương mại không?</summary><p>Sticker thuộc bản quyền của tác giả. Chỉ nên tải để dùng cá nhân, hoặc khi được tác giả cho phép.</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="line-stickers" data-group="download" style="--c:#0090FF">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/tai-ve/">Xem cả 7 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="line-stickers" data-group="download" style="--c:#0090FF">
 <a class="card-link" href="../tai-sticker-line/"><span class="tile" style="--c:#0090FF"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#sticker"></use></svg></span><span class="card-txt"><h3 class="card-name">Tải sticker LINE</h3><span class="card-desc">Dán link cửa hàng LINE để tải cả bộ sticker hoặc emoji LINE: nguyên bản PNG, APNG động kèm âm thanh, hoặc đổi sang GIF. Không cần đăng nhập.</span></span></a>
 <button class="star" type="button" data-fav="line-stickers" aria-pressed="false" aria-label="Ghim Tải sticker LINE vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -113,6 +120,7 @@
 <a class="card-link" href="../video-sang-gif/"><span class="tile" style="--c:#D6409F"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#clapperboard"></use></svg></span><span class="card-txt"><h3 class="card-name">Video sang GIF</h3><span class="card-desc">Cắt một đoạn video và chuyển thành ảnh động GIF, chọn cỡ, số khung hình, tốc độ.</span></span></a>
 <button class="star" type="button" data-fav="video-to-gif" aria-pressed="false" aria-label="Ghim Video sang GIF vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

@@ -77,25 +77,32 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#18794E">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/van-phong/">Văn phòng &amp; dữ liệu</a></li><li><span aria-current="page">Xem file Excel/CSV</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/van-phong/">Văn phòng &amp; dữ liệu</a></li><li><span aria-current="page">Xem file Excel/CSV</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#18794E"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#sheet"></use></svg></span>
 <div class="tool-title"><h1>Xem file Excel/CSV</h1><p class="lead">Mở xem file .xlsx, .xls, .ods, .csv không cần cài Excel; chuyển sheet, tìm không cần dấu, lọc, sắp xếp.</p></div>
 <button class="fav-btn" type="button" data-fav="excel-viewer" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>File của bạn được xử lý ngay trên máy này, không bao giờ tải lên máy chủ.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-file" data-kind="file">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 <p class="formats">Nhận: XLSX, XLS, ODS, CSV, TSV</p>
 
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Chọn, kéo thả hoặc dán file Excel/CSV.</li><li>Bấm tên sheet để chuyển trang tính; gõ vào ô tìm (không cần dấu) để lọc dòng, chọn cột để chỉ tìm trong cột đó.</li><li>Bấm tiêu đề cột để sắp xếp, bấm một ô để xem đủ nội dung và công thức; tải phần đang lọc ra Excel hoặc CSV.</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>File Excel có bị tải lên mạng không?</summary><p>Không. File được đọc ngay trong trình duyệt bằng thư viện SheetJS; không có máy chủ nào nhận file của bạn.</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>File Excel có bị tải lên mạng không?</summary><p>Không. File được đọc ngay trong trình duyệt bằng thư viện SheetJS; không có máy chủ nào nhận file của bạn.</p></details>
 <details><summary>Mở file CSV bị lỗi font tiếng Việt?</summary><p>Công cụ tự nhận bảng mã UTF-8 hoặc Windows-1258 (hay gặp ở file xuất từ phần mềm cũ) và dấu phân cách phẩy, chấm phẩy, tab, nên tiếng Việt hiện đúng.</p></details>
 <details><summary>File có công thức, định dạng thì sao?</summary><p>Ô có công thức hiện giá trị đã tính sẵn trong file; bấm vào ô để xem công thức. Màu, khung, ảnh, biểu đồ không hiện vì công cụ chỉ đọc dữ liệu.</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="excel-csv" data-group="office" style="--c:#18794E">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/van-phong/">Xem cả 8 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="excel-csv" data-group="office" style="--c:#18794E">
 <a class="card-link" href="../excel-sang-csv/"><span class="tile" style="--c:#18794E"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#file-spreadsheet"></use></svg></span><span class="card-txt"><h3 class="card-name">Excel ↔ CSV</h3><span class="card-desc">Chuyển Excel sang CSV UTF-8 không lỗi font tiếng Việt (mỗi sheet một file) và CSV sang Excel, giữ số 0 đầu.</span></span></a>
 <button class="star" type="button" data-fav="excel-csv" aria-pressed="false" aria-label="Ghim Excel ↔ CSV vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -111,6 +118,7 @@
 <a class="card-link" href="../json-sang-excel/"><span class="tile" style="--c:#18794E"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#braces"></use></svg></span><span class="card-txt"><h3 class="card-name">JSON ↔ Excel</h3><span class="card-desc">Chuyển mảng JSON thành bảng Excel (làm phẳng đối tượng lồng nhau) và Excel/CSV thành JSON.</span></span></a>
 <button class="star" type="button" data-fav="json-excel" aria-pressed="false" aria-label="Ghim JSON ↔ Excel vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

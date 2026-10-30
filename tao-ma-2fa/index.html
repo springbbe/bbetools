@@ -77,25 +77,32 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#0E7C86">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/bao-mat/">Bảo mật</a></li><li><span aria-current="page">Tạo mã 2FA (TOTP)</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/bao-mat/">Bảo mật</a></li><li><span aria-current="page">Tạo mã 2FA (TOTP)</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#0E7C86"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#key-square"></use></svg></span>
 <div class="tool-title"><h1>Tạo mã 2FA (TOTP)</h1><p class="lead">Tạo mã xác thực 6 số từ khoá bí mật 2FA, như Google Authenticator.</p></div>
 <button class="fav-btn" type="button" data-fav="totp" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>Khoá bí mật chỉ nằm trong trình duyệt: không lưu, không đưa lên đường link, không gửi đi đâu.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-form" data-kind="form">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 
 
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Dán khoá bí mật (Base32) hoặc link otpauth://, hoặc bấm Đọc từ ảnh QR.</li><li>Mã 6 số hiện ngay và tự đổi sau mỗi 30 giây.</li><li>Bấm Sao chép để dán vào ô xác thực 2 bước.</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>Có thay được Google Authenticator không?</summary><p>Không nên. Công cụ không lưu khoá nên đóng trang là mất; hãy dùng để thử, kiểm tra hoặc khôi phục tạm từ khoá đã sao lưu. Dùng hằng ngày nên cài ứng dụng xác thực trên điện thoại.</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>Có thay được Google Authenticator không?</summary><p>Không nên. Công cụ không lưu khoá nên đóng trang là mất; hãy dùng để thử, kiểm tra hoặc khôi phục tạm từ khoá đã sao lưu. Dùng hằng ngày nên cài ứng dụng xác thực trên điện thoại.</p></details>
 <details><summary>Mã không khớp với trang web?</summary><p>Kiểm tra giờ trên máy đã đúng chưa (TOTP dựa vào thời gian), và số chữ số / chu kỳ / thuật toán trùng với cài đặt của dịch vụ (thường là 6 số, 30 giây, SHA-1).</p></details>
 <details><summary>Nút Tạo khoá mới dùng để làm gì?</summary><p>Cho lập trình viên thử tính năng đăng nhập 2 bước: tạo khoá ngẫu nhiên 160 bit kèm mã QR để quét bằng ứng dụng xác thực.</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="password-generator" data-group="security" style="--c:#0E7C86">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/bao-mat/">Xem cả 6 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="password-generator" data-group="security" style="--c:#0E7C86">
 <a class="card-link" href="../tao-mat-khau/"><span class="tile" style="--c:#0E7C86"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#key"></use></svg></span><span class="card-txt"><h3 class="card-name">Tạo mật khẩu mạnh</h3><span class="card-desc">Sinh mật khẩu ngẫu nhiên an toàn, cụm từ tiếng Việt dễ nhớ hoặc mã PIN, dùng bộ sinh số ngẫu nhiên của trình duyệt.</span></span></a>
 <button class="star" type="button" data-fav="password-generator" aria-pressed="false" aria-label="Ghim Tạo mật khẩu mạnh vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -111,6 +118,7 @@
 <a class="card-link" href="../ma-hoa-file/"><span class="tile" style="--c:#0E7C86"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#file-lock"></use></svg></span><span class="card-txt"><h3 class="card-name">Mã hoá/giải mã file</h3><span class="card-desc">Khoá file bất kỳ bằng mật khẩu (AES-GCM 256, WebCrypto) và mở lại khi cần.</span></span></a>
 <button class="star" type="button" data-fav="file-encrypt" aria-pressed="false" aria-label="Ghim Mã hoá/giải mã file vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">

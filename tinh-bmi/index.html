@@ -77,24 +77,31 @@
 </div>
 </header>
 <main id="main" tabindex="-1">
+<div class="tool-page" style="--c:#E5701A">
+<div class="tool-band">
 <div class="wrap">
-<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a href="../nhom/tinh-toan/">Tính toán &amp; đời sống</a></li><li><span aria-current="page">Tính BMI</span></li></ol></nav>
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../">Trang chủ</a></li><li><a class="crumb-tab" href="../nhom/tinh-toan/">Tính toán &amp; đời sống</a></li><li><span aria-current="page">Tính BMI</span></li></ol></nav>
 <header class="tool-head">
 <span class="tile lg" style="--c:#E5701A"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#scale"></use></svg></span>
 <div class="tool-title"><h1>Tính BMI</h1><p class="lead">Chỉ số khối cơ thể theo chuẩn cho người châu Á.</p></div>
 <button class="fav-btn" type="button" data-fav="bmi" aria-pressed="false" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg><span>Ghim</span></button>
 </header>
 <p class="privacy"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg><span>Số liệu bạn nhập chỉ được tính trên trình duyệt, không gửi đi đâu.</span></p>
+</div>
+</div>
+<div class="wrap">
 <div id="app" class="app app-form" data-kind="form">
 <noscript><p class="note">Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
 
 
+<div class="tool-info">
 <section class="block info"><h2>Cách dùng</h2><ol class="steps"><li>Nhập chiều cao (cm) và cân nặng (kg).</li><li>Chọn chuẩn phân loại cho người châu Á (mặc định) hoặc chuẩn WHO quốc tế.</li><li>Xem chỉ số BMI, phân loại và khoảng cân nặng hợp lý với chiều cao của bạn.</li></ol></section>
-<section class="block info"><h2>Câu hỏi thường gặp</h2><details><summary>BMI bao nhiêu là bình thường?</summary><p>Với người châu Á: từ 18,5 đến dưới 23 là bình thường, 23 đến dưới 25 là thừa cân, từ 25 là béo phì.</p></details>
+<section class="block info faq"><h2>Câu hỏi thường gặp</h2><details><summary>BMI bao nhiêu là bình thường?</summary><p>Với người châu Á: từ 18,5 đến dưới 23 là bình thường, 23 đến dưới 25 là thừa cân, từ 25 là béo phì.</p></details>
 <details><summary>Vì sao người châu Á dùng ngưỡng khác?</summary><p>Ở cùng chỉ số BMI, người châu Á thường có tỉ lệ mỡ cơ thể cao hơn và nguy cơ bệnh tim mạch, tiểu đường xuất hiện sớm hơn, nên WHO khuyến nghị ngưỡng thấp hơn cho khu vực châu Á – Thái Bình Dương.</p></details></section>
-<section class="block"><h2>Công cụ liên quan</h2><ul class="cards"><li class="card" data-id="tdee" data-group="calc" style="--c:#E5701A">
+</div>
+<section class="block"><h2>Công cụ liên quan <a class="see-all" href="../nhom/tinh-toan/">Xem cả 13 công cụ<svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-right"></use></svg></a></h2><ul class="cards"><li class="card" data-id="tdee" data-group="calc" style="--c:#E5701A">
 <a class="card-link" href="../tinh-calo-tdee/"><span class="tile" style="--c:#E5701A"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#flame"></use></svg></span><span class="card-txt"><h3 class="card-name">Calo cần mỗi ngày (TDEE)</h3><span class="card-desc">Tính BMR, TDEE và lượng calo để giữ, giảm hoặc tăng cân.</span></span></a>
 <button class="star" type="button" data-fav="tdee" aria-pressed="false" aria-label="Ghim Calo cần mỗi ngày (TDEE) vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
@@ -110,6 +117,7 @@
 <a class="card-link" href="../tinh-vat/"><span class="tile" style="--c:#E5701A"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#receipt-text"></use></svg></span><span class="card-txt"><h3 class="card-name">Tính VAT</h3><span class="card-desc">Tính thuế GTGT xuôi (chưa thuế → có thuế) và ngược, mức 5%, 8%, 10%.</span></span></a>
 <button class="star" type="button" data-fav="vat" aria-pressed="false" aria-label="Ghim Tính VAT vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
+</div>
 </div>
 </main>
 <footer class="foot">
