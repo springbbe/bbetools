@@ -4,7 +4,7 @@ import { h, icon, toolHref, favs } from "./core.js";
 export function cardEl(t, reg) {
   const g = reg.groupOf[t.group];
   const on = favs.has(t.id);
-  return h("li", { class: "card", "data-id": t.id, "data-group": t.group },
+  return h("li", { class: "card", "data-id": t.id, "data-group": t.group, style: { "--c": g.color } },
     h("a", { class: "card-link", href: toolHref(t) },
       h("span", { class: "tile", style: { "--c": g.color }, html: icon(t.icon) }),
       h("span", { class: "card-txt" }, h("h3", { class: "card-name", text: t.name }), h("span", { class: "card-desc", text: t.desc }))),

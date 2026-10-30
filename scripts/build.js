@@ -36,7 +36,7 @@ const metaDesc = (s) => (s.length > 155 ? s.slice(0, 152).replace(/\s+\S*$/, "")
 const fmtDate = (iso, lang) => { const [y, m, d] = iso.split("-"); return lang === "vi" ? `${d}/${m}/${y}` : new Date(Date.UTC(+y, +m - 1, +d)).toLocaleDateString(LANGS[lang].locale, { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" }); };
 const rootOf = (path) => "../".repeat(path.split("/").length - 1) || "./";
 
-const LOGO = `<svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="var(--brand)"/><path d="M10 7.5h7.2c3.3 0 5.4 1.8 5.4 4.5 0 1.9-1 3.2-2.6 3.8 2.1.5 3.5 2.1 3.5 4.3 0 3.1-2.4 5.1-6 5.1H10z" fill="#fff"/><path d="M14.2 11v3.6h2.6c1.3 0 2-.7 2-1.8s-.7-1.8-2-1.8zm0 6.9v4h3c1.5 0 2.3-.8 2.3-2s-.8-2-2.3-2z" fill="var(--brand)"/><circle cx="25.5" cy="7" r="2.6" fill="#FFC53D"/></svg>`;
+const LOGO = `<svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="var(--logo)"/><path d="M10 7.5h7.2c3.3 0 5.4 1.8 5.4 4.5 0 1.9-1 3.2-2.6 3.8 2.1.5 3.5 2.1 3.5 4.3 0 3.1-2.4 5.1-6 5.1H10z" fill="#fff"/><path d="M14.2 11v3.6h2.6c1.3 0 2-.7 2-1.8s-.7-1.8-2-1.8zm0 6.9v4h3c1.5 0 2.3-.8 2.3-2s-.8-2-2.3-2z" fill="var(--logo)"/><circle cx="25.5" cy="7" r="2.6" fill="#FFC53D"/></svg>`;
 
 /* ---------- ngữ cảnh từng ngôn ngữ ---------- */
 const missingPages = new Map(); // lang → Set(câu chưa dịch)
@@ -108,7 +108,8 @@ const tile = (L, t, root, cls = "") => {
 
 function card(L, t, root, opts = {}) {
   const H = opts.h || "h3";
-  return `<li class="card" data-id="${t.id}" data-group="${t.group}">
+  const gc = (L.groupOf[t.group] || {}).color;
+  return `<li class="card" data-id="${t.id}" data-group="${t.group}"${gc ? ` style="--c:${gc}"` : ""}>
 <a class="card-link" href="${root}${L.toolUrl(t)}">${tile(L, t, root)}<span class="card-txt"><${H} class="card-name">${esc(t.name)}</${H}><span class="card-desc">${esc(t.desc)}</span></span></a>
 <button class="star" type="button" data-fav="${t.id}" aria-pressed="false" aria-label="${esc(L.tr("Ghim {0} vào Yêu thích", t.name))}" hidden>${icon("star", root)}</button>
 </li>`;
@@ -197,8 +198,8 @@ ${analytics()}${head}<meta name="viewport" content="width=device-width,initial-s
 <meta name="description" content="${esc(metaDesc(desc))}">
 ${noindex ? `<meta name="robots" content="noindex">` : `<link rel="canonical" href="${abs}">`}
 ${hreflang}<meta name="generator" content="bbetools-build">
-<meta name="theme-color" content="#F6F7F9" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#111318" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1C1830" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="${site.name}">
 <meta property="og:locale" content="${L.og}">
@@ -241,7 +242,8 @@ function homePage(L) {
   const path = L.homeUrl, root = rootOf(path);
   const popular = live.filter((t) => t.popular);
   const main = `<section class="hero">
-<div class="wrap">
+<div class="wrap hero-in">
+<div class="hero-main">
 <h1>${tr("Công cụ tiện ích <span class=\"nowrap\">cho người Việt</span>")}</h1>
 <p class="lead">${tr("{0} công cụ miễn phí cho PDF, ảnh, văn bản, VietQR, lịch âm… Chạy ngay trên trình duyệt, <b>file không bao giờ rời khỏi máy bạn</b>.", live.length)}</p>
 <form class="search-box" role="search" action="./" onsubmit="return false">
@@ -250,6 +252,10 @@ ${icon("search", root)}
 <kbd class="only-d">/</kbd>
 </form>
 <p class="drop-hint">${icon("upload", root)}<span>${tr("Thả hoặc dán (Ctrl/⌘ + V) một file vào trang để được gợi ý công cụ phù hợp, hoặc <button type=\"button\" class=\"linkish\" data-pick-any>chọn file</button>.")}</span></p>
+</div>
+<nav aria-label="${tr("Nhóm công cụ")}"><ul class="hero-cats">
+${liveGroups.map((g) => `<li><a href="#${tr("nhom-")}${g.slug}" data-filter="${g.id}" style="--c:${g.color}">${tile(L, g, root)}<b>${esc(g.name)}</b><small>${tr("{0} công cụ", liveIn(g.id).length)}</small></a></li>`).join("\n")}
+</ul></nav>
 </div>
 </section>
 <div class="wrap">
@@ -262,12 +268,12 @@ ${icon("search", root)}
 <nav class="chips" aria-label="${tr("Lọc theo nhóm")}">
 <div class="chips-in">
 <a href="#tat-ca" class="chip" data-filter="all" aria-current="true">${tr("Tất cả")}</a>
-${liveGroups.map((g) => `<a href="#${tr("nhom-")}${g.slug}" class="chip" data-filter="${g.id}">${esc(g.name)} <small>${liveIn(g.id).length}</small></a>`).join("\n")}
+${liveGroups.map((g) => `<a href="#${tr("nhom-")}${g.slug}" class="chip" data-filter="${g.id}" style="--c:${g.color}">${esc(g.name)} <small>${liveIn(g.id).length}</small></a>`).join("\n")}
 </div>
 </nav>
 <div id="tat-ca">
 ${liveGroups.map((g) => `<section class="block group-block" id="${tr("nhom-")}${g.slug}" data-group="${g.id}">
-<h2><a href="${root}${L.groupUrl(g)}">${tile(L, g, root, "sm")}${esc(g.name)}</a> <small>${tr("{0} công cụ", liveIn(g.id).length)}</small></h2>
+<h2 class="tab"><a href="${root}${L.groupUrl(g)}" style="--c:${g.color}">${icon(g.icon, root)}${esc(g.name)}</a> <small>${tr("{0} công cụ", liveIn(g.id).length)}</small></h2>
 ${cards(L, liveIn(g.id), root)}
 </section>`).join("\n")}
 </div>
@@ -526,7 +532,7 @@ ${urls.map((u) => `  <url><loc>${BASE}${u}</loc></url>`).join("\n")}
 changed += await write("robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${BASE}sitemap.xml\n`);
 changed += await write("manifest.webmanifest", JSON.stringify({
   name: site.name, short_name: site.name, description: site.tagline, lang: "vi", start_url: "./", scope: "./", display: "standalone",
-  background_color: "#F6F7F9", theme_color: "#3E5BF2",
+  background_color: "#F5F3FC", theme_color: "#5B2EE0",
   icons: [{ src: "assets/favicon.svg", sizes: "any", type: "image/svg+xml" }, { src: "assets/icon-512.png", sizes: "512x512", type: "image/png" }, { src: "assets/apple-touch-icon.png", sizes: "180x180", type: "image/png" }]
 }, null, 2) + "\n");
 

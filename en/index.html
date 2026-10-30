@@ -12,8 +12,8 @@
 <link rel="alternate" hreflang="en" href="https://springbbe.github.io/bbetools/en/">
 <link rel="alternate" hreflang="x-default" href="https://springbbe.github.io/bbetools/">
 <meta name="generator" content="bbetools-build">
-<meta name="theme-color" content="#F6F7F9" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#111318" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1C1830" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="BbeTools">
 <meta property="og:locale" content="en_US">
@@ -38,7 +38,7 @@
 <a class="skip" href="#main">Skip to main content</a>
 <header class="top">
 <div class="top-in">
-<a class="brand" href="../en/" aria-label="BbeTools – Home"><svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="var(--brand)"/><path d="M10 7.5h7.2c3.3 0 5.4 1.8 5.4 4.5 0 1.9-1 3.2-2.6 3.8 2.1.5 3.5 2.1 3.5 4.3 0 3.1-2.4 5.1-6 5.1H10z" fill="#fff"/><path d="M14.2 11v3.6h2.6c1.3 0 2-.7 2-1.8s-.7-1.8-2-1.8zm0 6.9v4h3c1.5 0 2.3-.8 2.3-2s-.8-2-2.3-2z" fill="var(--brand)"/><circle cx="25.5" cy="7" r="2.6" fill="#FFC53D"/></svg><span>Bbe<b>Tools</b></span></a>
+<a class="brand" href="../en/" aria-label="BbeTools – Home"><svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="var(--logo)"/><path d="M10 7.5h7.2c3.3 0 5.4 1.8 5.4 4.5 0 1.9-1 3.2-2.6 3.8 2.1.5 3.5 2.1 3.5 4.3 0 3.1-2.4 5.1-6 5.1H10z" fill="#fff"/><path d="M14.2 11v3.6h2.6c1.3 0 2-.7 2-1.8s-.7-1.8-2-1.8zm0 6.9v4h3c1.5 0 2.3-.8 2.3-2s-.8-2-2.3-2z" fill="var(--logo)"/><circle cx="25.5" cy="7" r="2.6" fill="#FFC53D"/></svg><span>Bbe<b>Tools</b></span></a>
 <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mega"><svg class="i only-m" aria-hidden="true"><use href="../assets/icons.svg#menu"></use></svg><span class="nav-label">All tools</span><svg class="i only-d" aria-hidden="true"><use href="../assets/icons.svg#chevron-down"></use></svg></button>
 <button class="search-trigger" type="button" data-palette aria-label="Search tools (press /)"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#search"></use></svg><span>Search tools…</span><kbd>/</kbd></button>
 <a class="lang-switch" href="../" hreflang="vi" lang="vi" title="Tiếng Việt" aria-label="Tiếng Việt"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#languages"></use></svg><span>VI</span></a>
@@ -76,7 +76,8 @@
 </header>
 <main id="main" tabindex="-1">
 <section class="hero">
-<div class="wrap">
+<div class="wrap hero-in">
+<div class="hero-main">
 <h1>Free online tools <span class="nowrap">that run in your browser</span></h1>
 <p class="lead">135 free tools for PDF, images, video, text, QR codes, developers… They run right in your browser, <b>your files never leave your device</b>.</p>
 <form class="search-box" role="search" action="./" onsubmit="return false">
@@ -86,6 +87,20 @@
 </form>
 <p class="drop-hint"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#upload"></use></svg><span>Drop or paste (Ctrl/⌘ + V) a file onto the page to get matching tool suggestions, or <button type="button" class="linkish" data-pick-any>choose a file</button>.</span></p>
 </div>
+<nav aria-label="Tool categories"><ul class="hero-cats">
+<li><a href="#group-pdf" data-filter="pdf" style="--c:#E5484D"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#file-text"></use></svg></span><b>PDF</b><small>24 tools</small></a></li>
+<li><a href="#group-image" data-filter="image" style="--c:#8E4EC6"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#image"></use></svg></span><b>Image</b><small>21 tools</small></a></li>
+<li><a href="#group-media" data-filter="media" style="--c:#D6409F"><span class="tile" style="--c:#D6409F"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#film"></use></svg></span><b>Audio &amp; Video</b><small>11 tools</small></a></li>
+<li><a href="#group-text" data-filter="text" style="--c:#0D74CE"><span class="tile" style="--c:#0D74CE"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#type"></use></svg></span><b>Text</b><small>8 tools</small></a></li>
+<li><a href="#group-calc" data-filter="calc" style="--c:#E5701A"><span class="tile" style="--c:#E5701A"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#calculator"></use></svg></span><b>Calculators</b><small>12 tools</small></a></li>
+<li><a href="#group-qr" data-filter="qr" style="--c:#475569"><span class="tile" style="--c:#475569"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#qr-code"></use></svg></span><b>QR &amp; Barcodes</b><small>3 tools</small></a></li>
+<li><a href="#group-office" data-filter="office" style="--c:#18794E"><span class="tile" style="--c:#18794E"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#sheet"></use></svg></span><b>Office &amp; Data</b><small>7 tools</small></a></li>
+<li><a href="#group-dev" data-filter="dev" style="--c:#3E63DD"><span class="tile" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#code"></use></svg></span><b>Developer</b><small>19 tools</small></a></li>
+<li><a href="#group-security" data-filter="security" style="--c:#0E7C86"><span class="tile" style="--c:#0E7C86"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield"></use></svg></span><b>Security</b><small>6 tools</small></a></li>
+<li><a href="#group-productivity" data-filter="productivity" style="--c:#5C8A1C"><span class="tile" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#timer"></use></svg></span><b>Productivity &amp; Random</b><small>17 tools</small></a></li>
+<li><a href="#group-download" data-filter="download" style="--c:#0090FF"><span class="tile" style="--c:#0090FF"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#download"></use></svg></span><b>Downloads</b><small>7 tools</small></a></li>
+</ul></nav>
+</div>
 </section>
 <div class="wrap">
 <section id="results" class="block" hidden aria-live="polite"><h2 id="results-title">Search results</h2><ul class="cards" id="results-list"></ul><p class="empty" id="results-empty" hidden>No matching tools. Try a shorter query, e.g. “pdf”, “image”, “qr”.</p></section>
@@ -93,712 +108,712 @@
 <section id="suggest" class="block" hidden></section>
 <section id="favs" class="block" hidden><h2><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg> Favorites</h2><ul class="cards"></ul></section>
 <section id="recent" class="block" hidden><h2><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#history"></use></svg> Recently used</h2><ul class="cards"></ul></section>
-<section class="block" id="popular"><h2><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#sparkles"></use></svg> Popular</h2><ul class="cards"><li class="card" data-id="merge-pdf" data-group="pdf">
+<section class="block" id="popular"><h2><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#sparkles"></use></svg> Popular</h2><ul class="cards"><li class="card" data-id="merge-pdf" data-group="pdf" style="--c:#E5484D">
 <a class="card-link" href="../en/merge-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#combine"></use></svg></span><span class="card-txt"><h3 class="card-name">Merge PDF</h3><span class="card-desc">Combine multiple PDF files into one, drag and drop to set the order, rotate files as needed.</span></span></a>
 <button class="star" type="button" data-fav="merge-pdf" aria-pressed="false" aria-label="Pin Merge PDF to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="split-pdf" data-group="pdf">
+<li class="card" data-id="split-pdf" data-group="pdf" style="--c:#E5484D">
 <a class="card-link" href="../en/split-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#scissors"></use></svg></span><span class="card-txt"><h3 class="card-name">Split PDF</h3><span class="card-desc">Split a PDF by page ranges, one file per page, or extract the pages you pick.</span></span></a>
 <button class="star" type="button" data-fav="split-pdf" aria-pressed="false" aria-label="Pin Split PDF to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="compress-pdf" data-group="pdf">
+<li class="card" data-id="compress-pdf" data-group="pdf" style="--c:#E5484D">
 <a class="card-link" href="../en/compress-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shrink"></use></svg></span><span class="card-txt"><h3 class="card-name">Compress PDF</h3><span class="card-desc">Reduce PDF size for email and messaging while text stays sharp and selectable.</span></span></a>
 <button class="star" type="button" data-fav="compress-pdf" aria-pressed="false" aria-label="Pin Compress PDF to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="pdf-to-image" data-group="pdf">
+<li class="card" data-id="pdf-to-image" data-group="pdf" style="--c:#E5484D">
 <a class="card-link" href="../en/pdf-to-image/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#file-image"></use></svg></span><span class="card-txt"><h3 class="card-name">PDF to Image</h3><span class="card-desc">Convert each PDF page into a high-quality JPG or PNG image.</span></span></a>
 <button class="star" type="button" data-fav="pdf-to-image" aria-pressed="false" aria-label="Pin PDF to Image to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="image-to-pdf" data-group="pdf">
+<li class="card" data-id="image-to-pdf" data-group="pdf" style="--c:#E5484D">
 <a class="card-link" href="../en/image-to-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#images"></use></svg></span><span class="card-txt"><h3 class="card-name">Image to PDF</h3><span class="card-desc">Combine JPG, PNG images and screenshots into a single PDF file.</span></span></a>
 <button class="star" type="button" data-fav="image-to-pdf" aria-pressed="false" aria-label="Pin Image to PDF to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="sign-pdf" data-group="pdf">
+<li class="card" data-id="sign-pdf" data-group="pdf" style="--c:#E5484D">
 <a class="card-link" href="../en/sign-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#signature"></use></svg></span><span class="card-txt"><h3 class="card-name">Sign PDF</h3><span class="card-desc">Draw, type or upload your signature; add text and dates to PDF pages.</span></span></a>
 <button class="star" type="button" data-fav="sign-pdf" aria-pressed="false" aria-label="Pin Sign PDF to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="compress-image" data-group="image">
+<li class="card" data-id="compress-image" data-group="image" style="--c:#8E4EC6">
 <a class="card-link" href="../en/compress-image/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#image-down"></use></svg></span><span class="card-txt"><h3 class="card-name">Compress Images</h3><span class="card-desc">Reduce the size of JPG, PNG and WebP images in bulk, with a mode to get below the KB you need.</span></span></a>
 <button class="star" type="button" data-fav="compress-image" aria-pressed="false" aria-label="Pin Compress Images to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="resize-image" data-group="image">
+<li class="card" data-id="resize-image" data-group="image" style="--c:#8E4EC6">
 <a class="card-link" href="../en/resize-image/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#scaling"></use></svg></span><span class="card-txt"><h3 class="card-name">Resize Image</h3><span class="card-desc">Shrink or enlarge images by pixels, percentage or longest side.</span></span></a>
 <button class="star" type="button" data-fav="resize-image" aria-pressed="false" aria-label="Pin Resize Image to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="convert-image" data-group="image">
+<li class="card" data-id="convert-image" data-group="image" style="--c:#8E4EC6">
 <a class="card-link" href="../en/convert-image/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#refresh-cw"></use></svg></span><span class="card-txt"><h3 class="card-name">Image Converter</h3><span class="card-desc">Convert between JPG, PNG, WebP and AVIF.</span></span></a>
 <button class="star" type="button" data-fav="convert-image" aria-pressed="false" aria-label="Pin Image Converter to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="heic-to-jpg" data-group="image">
+<li class="card" data-id="heic-to-jpg" data-group="image" style="--c:#8E4EC6">
 <a class="card-link" href="../en/heic-to-jpg/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#smartphone"></use></svg></span><span class="card-txt"><h3 class="card-name">HEIC to JPG</h3><span class="card-desc">Convert iPhone HEIC/HEIF photos to JPG or PNG in bulk, right on your device.</span></span></a>
 <button class="star" type="button" data-fav="heic-to-jpg" aria-pressed="false" aria-label="Pin HEIC to JPG to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="id-photo" data-group="image">
+<li class="card" data-id="id-photo" data-group="image" style="--c:#8E4EC6">
 <a class="card-link" href="../en/id-photo/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#square-user"></use></svg></span><span class="card-txt"><h3 class="card-name">ID Photo Maker</h3><span class="card-desc">Make passport and ID photos from a portrait: AI background replacement, framing and a print sheet with multiple photos.</span></span></a>
 <button class="star" type="button" data-fav="id-photo" aria-pressed="false" aria-label="Pin ID Photo Maker to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="remove-bg" data-group="image">
+<li class="card" data-id="remove-bg" data-group="image" style="--c:#8E4EC6">
 <a class="card-link" href="../en/remove-bg/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#eraser"></use></svg></span><span class="card-txt"><h3 class="card-name">Remove Background</h3><span class="card-desc">Remove the background from portraits with AI running on your device; export transparent PNG or a colored background.</span></span></a>
 <button class="star" type="button" data-fav="remove-bg" aria-pressed="false" aria-label="Pin Remove Background to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="ocr" data-group="image">
+<li class="card" data-id="ocr" data-group="image" style="--c:#8E4EC6">
 <a class="card-link" href="../en/ocr/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#scan-text"></use></svg></span><span class="card-txt"><h3 class="card-name">Image to Text (OCR)</h3><span class="card-desc">Recognize text in photos and scans, including accented Vietnamese.</span></span></a>
 <button class="star" type="button" data-fav="ocr" aria-pressed="false" aria-label="Pin Image to Text (OCR) to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="trim-audio" data-group="media">
+<li class="card" data-id="trim-audio" data-group="media" style="--c:#D6409F">
 <a class="card-link" href="../en/trim-audio/"><span class="tile" style="--c:#D6409F"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#audio-waveform"></use></svg></span><span class="card-txt"><h3 class="card-name">Trim Audio</h3><span class="card-desc">Cut audio clips and make ringtones (including iPhone M4R), with fade in/out effects.</span></span></a>
 <button class="star" type="button" data-fav="trim-audio" aria-pressed="false" aria-label="Pin Trim Audio to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="video-to-mp3" data-group="media">
+<li class="card" data-id="video-to-mp3" data-group="media" style="--c:#D6409F">
 <a class="card-link" href="../en/video-to-mp3/"><span class="tile" style="--c:#D6409F"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#music"></use></svg></span><span class="card-txt"><h3 class="card-name">Video to MP3</h3><span class="card-desc">Extract the audio from a video into an MP3 (or M4A, WAV), the whole video or a segment.</span></span></a>
 <button class="star" type="button" data-fav="video-to-mp3" aria-pressed="false" aria-label="Pin Video to MP3 to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="trim-video" data-group="media">
+<li class="card" data-id="trim-video" data-group="media" style="--c:#D6409F">
 <a class="card-link" href="../en/trim-video/"><span class="tile" style="--c:#D6409F"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#scissors"></use></svg></span><span class="card-txt"><h3 class="card-name">Trim Video</h3><span class="card-desc">Cut out the part of a video you need, keeping the original quality (no re-encoding) or frame-accurate.</span></span></a>
 <button class="star" type="button" data-fav="trim-video" aria-pressed="false" aria-label="Pin Trim Video to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="compress-video" data-group="media">
+<li class="card" data-id="compress-video" data-group="media" style="--c:#D6409F">
 <a class="card-link" href="../en/compress-video/"><span class="tile" style="--c:#D6409F"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#video"></use></svg></span><span class="card-txt"><h3 class="card-name">Compress Video</h3><span class="card-desc">Reduce video size for messaging and email, by quality or target size, using your device&#39;s hardware encoder.</span></span></a>
 <button class="star" type="button" data-fav="compress-video" aria-pressed="false" aria-label="Pin Compress Video to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="word-counter" data-group="text">
+<li class="card" data-id="word-counter" data-group="text" style="--c:#0D74CE">
 <a class="card-link" href="../en/word-counter/"><span class="tile" style="--c:#0D74CE"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#whole-word"></use></svg></span><span class="card-txt"><h3 class="card-name">Word &amp; Character Counter</h3><span class="card-desc">Count words, characters, sentences, paragraphs and reading time as you type.</span></span></a>
 <button class="star" type="button" data-fav="word-counter" aria-pressed="false" aria-label="Pin Word &amp; Character Counter to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="percentage" data-group="calc">
+<li class="card" data-id="percentage" data-group="calc" style="--c:#E5701A">
 <a class="card-link" href="../en/percentage/"><span class="tile" style="--c:#E5701A"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#percent"></use></svg></span><span class="card-txt"><h3 class="card-name">Percentage Calculator</h3><span class="card-desc">X% of Y, X is what percent of Y, percentage increase/decrease.</span></span></a>
 <button class="star" type="button" data-fav="percentage" aria-pressed="false" aria-label="Pin Percentage Calculator to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="split-bill" data-group="calc">
+<li class="card" data-id="split-bill" data-group="calc" style="--c:#E5701A">
 <a class="card-link" href="../en/split-bill/"><span class="tile" style="--c:#E5701A"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#users"></use></svg></span><span class="card-txt"><h3 class="card-name">Split the Bill</h3><span class="card-desc">Who paid what and who owes whom — with the fewest possible transfers.</span></span></a>
 <button class="star" type="button" data-fav="split-bill" aria-pressed="false" aria-label="Pin Split the Bill to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="qr-generator" data-group="qr">
+<li class="card" data-id="qr-generator" data-group="qr" style="--c:#475569">
 <a class="card-link" href="../en/qr-generator/"><span class="tile" style="--c:#475569"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#qr-code"></use></svg></span><span class="card-txt"><h3 class="card-name">QR Code Generator</h3><span class="card-desc">Create QR codes for links, text, WiFi, contact cards (vCard), SMS and email; change colors, add a logo, download PNG/SVG.</span></span></a>
 <button class="star" type="button" data-fav="qr-generator" aria-pressed="false" aria-label="Pin QR Code Generator to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="qr-scanner" data-group="qr">
+<li class="card" data-id="qr-scanner" data-group="qr" style="--c:#475569">
 <a class="card-link" href="../en/qr-scanner/"><span class="tile" style="--c:#475569"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#scan-qr-code"></use></svg></span><span class="card-txt"><h3 class="card-name">QR Code Scanner</h3><span class="card-desc">Scan QR codes and barcodes with your camera, from screenshots or PDF files.</span></span></a>
 <button class="star" type="button" data-fav="qr-scanner" aria-pressed="false" aria-label="Pin QR Code Scanner to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="excel-viewer" data-group="office">
+<li class="card" data-id="excel-viewer" data-group="office" style="--c:#18794E">
 <a class="card-link" href="../en/excel-viewer/"><span class="tile" style="--c:#18794E"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#sheet"></use></svg></span><span class="card-txt"><h3 class="card-name">Excel &amp; CSV Viewer</h3><span class="card-desc">Open .xlsx, .xls, .ods and .csv files without Excel; switch sheets, search, filter and sort.</span></span></a>
 <button class="star" type="button" data-fav="excel-viewer" aria-pressed="false" aria-label="Pin Excel &amp; CSV Viewer to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="json-formatter" data-group="dev">
+<li class="card" data-id="json-formatter" data-group="dev" style="--c:#3E63DD">
 <a class="card-link" href="../en/json-formatter/"><span class="tile" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#braces"></use></svg></span><span class="card-txt"><h3 class="card-name">JSON Formatter &amp; Validator</h3><span class="card-desc">Beautify, minify, sort keys and validate JSON, pointing to the exact line/column of errors.</span></span></a>
 <button class="star" type="button" data-fav="json-formatter" aria-pressed="false" aria-label="Pin JSON Formatter &amp; Validator to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="password-generator" data-group="security">
+<li class="card" data-id="password-generator" data-group="security" style="--c:#0E7C86">
 <a class="card-link" href="../en/password-generator/"><span class="tile" style="--c:#0E7C86"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#key"></use></svg></span><span class="card-txt"><h3 class="card-name">Strong Password Generator</h3><span class="card-desc">Generate secure random passwords, memorable passphrases or PINs with the browser&#39;s secure random generator.</span></span></a>
 <button class="star" type="button" data-fav="password-generator" aria-pressed="false" aria-label="Pin Strong Password Generator to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="pomodoro" data-group="productivity">
+<li class="card" data-id="pomodoro" data-group="productivity" style="--c:#5C8A1C">
 <a class="card-link" href="../en/pomodoro/"><span class="tile" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#timer"></use></svg></span><span class="card-txt"><h3 class="card-name">Pomodoro Timer</h3><span class="card-desc">A 25-minute focus, 5-minute break timer using the Pomodoro technique, with sounds, notifications and daily stats.</span></span></a>
 <button class="star" type="button" data-fav="pomodoro" aria-pressed="false" aria-label="Pin Pomodoro Timer to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="spin-wheel" data-group="productivity">
+<li class="card" data-id="spin-wheel" data-group="productivity" style="--c:#5C8A1C">
 <a class="card-link" href="../en/spin-wheel/"><span class="tile" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#ferris-wheel"></use></svg></span><span class="card-txt"><h3 class="card-name">Spin the Wheel</h3><span class="card-desc">Enter a list and spin a random wheel to pick a person, a meal or a prize winner.</span></span></a>
 <button class="star" type="button" data-fav="spin-wheel" aria-pressed="false" aria-label="Pin Spin the Wheel to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="keyboard-test" data-group="productivity">
+<li class="card" data-id="keyboard-test" data-group="productivity" style="--c:#5C8A1C">
 <a class="card-link" href="../en/keyboard-test/"><span class="tile" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#keyboard"></use></svg></span><span class="card-txt"><h3 class="card-name">Keyboard Test</h3><span class="card-desc">Test your keyboard online: Windows and Mac layouts, laptop or external, with or without a numpad; multi-key rollover and key chatter detection.</span></span></a>
 <button class="star" type="button" data-fav="keyboard-test" aria-pressed="false" aria-label="Pin Keyboard Test to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="line-stickers" data-group="download">
+<li class="card" data-id="line-stickers" data-group="download" style="--c:#0090FF">
 <a class="card-link" href="../en/line-stickers/"><span class="tile" style="--c:#0090FF"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#sticker"></use></svg></span><span class="card-txt"><h3 class="card-name">LINE Sticker Downloader</h3><span class="card-desc">Paste a LINE Store link to download a whole LINE sticker or emoji set: original PNG, animated APNG with sound, or converted to GIF. No login needed.</span></span></a>
 <button class="star" type="button" data-fav="line-stickers" aria-pressed="false" aria-label="Pin LINE Sticker Downloader to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="youtube-thumbnail" data-group="download">
+<li class="card" data-id="youtube-thumbnail" data-group="download" style="--c:#0090FF">
 <a class="card-link" href="../en/youtube-thumbnail/"><span class="tile" style="--c:#0090FF"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#image-down"></use></svg></span><span class="card-txt"><h3 class="card-name">YouTube Thumbnail Downloader</h3><span class="card-desc">Paste a YouTube video or Shorts link to view and download its thumbnail in every size, up to HD 1280×720; black bars removed automatically, as JPG, PNG or WEBP.</span></span></a>
 <button class="star" type="button" data-fav="youtube-thumbnail" aria-pressed="false" aria-label="Pin YouTube Thumbnail Downloader to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul></section>
 <nav class="chips" aria-label="Filter by category">
 <div class="chips-in">
 <a href="#tat-ca" class="chip" data-filter="all" aria-current="true">All</a>
-<a href="#group-pdf" class="chip" data-filter="pdf">PDF <small>24</small></a>
-<a href="#group-image" class="chip" data-filter="image">Image <small>21</small></a>
-<a href="#group-media" class="chip" data-filter="media">Audio &amp; Video <small>11</small></a>
-<a href="#group-text" class="chip" data-filter="text">Text <small>8</small></a>
-<a href="#group-calc" class="chip" data-filter="calc">Calculators <small>12</small></a>
-<a href="#group-qr" class="chip" data-filter="qr">QR &amp; Barcodes <small>3</small></a>
-<a href="#group-office" class="chip" data-filter="office">Office &amp; Data <small>7</small></a>
-<a href="#group-dev" class="chip" data-filter="dev">Developer <small>19</small></a>
-<a href="#group-security" class="chip" data-filter="security">Security <small>6</small></a>
-<a href="#group-productivity" class="chip" data-filter="productivity">Productivity &amp; Random <small>17</small></a>
-<a href="#group-download" class="chip" data-filter="download">Downloads <small>7</small></a>
+<a href="#group-pdf" class="chip" data-filter="pdf" style="--c:#E5484D">PDF <small>24</small></a>
+<a href="#group-image" class="chip" data-filter="image" style="--c:#8E4EC6">Image <small>21</small></a>
+<a href="#group-media" class="chip" data-filter="media" style="--c:#D6409F">Audio &amp; Video <small>11</small></a>
+<a href="#group-text" class="chip" data-filter="text" style="--c:#0D74CE">Text <small>8</small></a>
+<a href="#group-calc" class="chip" data-filter="calc" style="--c:#E5701A">Calculators <small>12</small></a>
+<a href="#group-qr" class="chip" data-filter="qr" style="--c:#475569">QR &amp; Barcodes <small>3</small></a>
+<a href="#group-office" class="chip" data-filter="office" style="--c:#18794E">Office &amp; Data <small>7</small></a>
+<a href="#group-dev" class="chip" data-filter="dev" style="--c:#3E63DD">Developer <small>19</small></a>
+<a href="#group-security" class="chip" data-filter="security" style="--c:#0E7C86">Security <small>6</small></a>
+<a href="#group-productivity" class="chip" data-filter="productivity" style="--c:#5C8A1C">Productivity &amp; Random <small>17</small></a>
+<a href="#group-download" class="chip" data-filter="download" style="--c:#0090FF">Downloads <small>7</small></a>
 </div>
 </nav>
 <div id="tat-ca">
 <section class="block group-block" id="group-pdf" data-group="pdf">
-<h2><a href="../en/category/pdf/"><span class="tile sm" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#file-text"></use></svg></span>PDF</a> <small>24 tools</small></h2>
-<ul class="cards"><li class="card" data-id="merge-pdf" data-group="pdf">
+<h2 class="tab"><a href="../en/category/pdf/" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#file-text"></use></svg>PDF</a> <small>24 tools</small></h2>
+<ul class="cards"><li class="card" data-id="merge-pdf" data-group="pdf" style="--c:#E5484D">
 <a class="card-link" href="../en/merge-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#combine"></use></svg></span><span class="card-txt"><h3 class="card-name">Merge PDF</h3><span class="card-desc">Combine multiple PDF files into one, drag and drop to set the order, rotate files as needed.</span></span></a>
 <button class="star" type="button" data-fav="merge-pdf" aria-pressed="false" aria-label="Pin Merge PDF to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="split-pdf" data-group="pdf">
+<li class="card" data-id="split-pdf" data-group="pdf" style="--c:#E5484D">
 <a class="card-link" href="../en/split-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#scissors"></use></svg></span><span class="card-txt"><h3 class="card-name">Split PDF</h3><span class="card-desc">Split a PDF by page ranges, one file per page, or extract the pages you pick.</span></span></a>
 <button class="star" type="button" data-fav="split-pdf" aria-pressed="false" aria-label="Pin Split PDF to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="remove-pages-pdf" data-group="pdf">
+<li class="card" data-id="remove-pages-pdf" data-group="pdf" style="--c:#E5484D">
 <a class="card-link" href="../en/remove-pages-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#file-minus"></use></svg></span><span class="card-txt"><h3 class="card-name">Delete PDF Pages</h3><span class="card-desc">Click the pages you don&#39;t need and remove them from the PDF.</span></span></a>
 <button class="star" type="button" data-fav="remove-pages-pdf" aria-pressed="false" aria-label="Pin Delete PDF Pages to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="organize-pdf" data-group="pdf">
+<li class="card" data-id="organize-pdf" data-group="pdf" style="--c:#E5484D">
 <a class="card-link" href="../en/organize-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#layout-grid"></use></svg></span><span class="card-txt"><h3 class="card-name">Organize PDF Pages</h3><span class="card-desc">Drag and drop to reorder pages, rotate, delete, insert blank pages or other PDFs.</span></span></a>
 <button class="star" type="button" data-fav="organize-pdf" aria-pressed="false" aria-label="Pin Organize PDF Pages to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="rotate-pdf" data-group="pdf">
+<li class="card" data-id="rotate-pdf" data-group="pdf" style="--c:#E5484D">
 <a class="card-link" href="../en/rotate-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#rotate-cw"></use></svg></span><span class="card-txt"><h3 class="card-name">Rotate PDF</h3><span class="card-desc">Rotate individual pages or the whole PDF to the right reading orientation.</span></span></a>
 <button class="star" type="button" data-fav="rotate-pdf" aria-pressed="false" aria-label="Pin Rotate PDF to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="compress-pdf" data-group="pdf">
+<li class="card" data-id="compress-pdf" data-group="pdf" style="--c:#E5484D">
 <a class="card-link" href="../en/compress-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shrink"></use></svg></span><span class="card-txt"><h3 class="card-name">Compress PDF</h3><span class="card-desc">Reduce PDF size for email and messaging while text stays sharp and selectable.</span></span></a>
 <button class="star" type="button" data-fav="compress-pdf" aria-pressed="false" aria-label="Pin Compress PDF to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="pdf-to-image" data-group="pdf">
+<li class="card" data-id="pdf-to-image" data-group="pdf" style="--c:#E5484D">
 <a class="card-link" href="../en/pdf-to-image/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#file-image"></use></svg></span><span class="card-txt"><h3 class="card-name">PDF to Image</h3><span class="card-desc">Convert each PDF page into a high-quality JPG or PNG image.</span></span></a>
 <button class="star" type="button" data-fav="pdf-to-image" aria-pressed="false" aria-label="Pin PDF to Image to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="image-to-pdf" data-group="pdf">
+<li class="card" data-id="image-to-pdf" data-group="pdf" style="--c:#E5484D">
 <a class="card-link" href="../en/image-to-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#images"></use></svg></span><span class="card-txt"><h3 class="card-name">Image to PDF</h3><span class="card-desc">Combine JPG, PNG images and screenshots into a single PDF file.</span></span></a>
 <button class="star" type="button" data-fav="image-to-pdf" aria-pressed="false" aria-label="Pin Image to PDF to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="pdf-to-text" data-group="pdf">
+<li class="card" data-id="pdf-to-text" data-group="pdf" style="--c:#E5484D">
 <a class="card-link" href="../en/pdf-to-text/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#file-text"></use></svg></span><span class="card-txt"><h3 class="card-name">PDF to Text</h3><span class="card-desc">Extract all the text from a PDF to copy or save as a .txt file.</span></span></a>
 <button class="star" type="button" data-fav="pdf-to-text" aria-pressed="false" aria-label="Pin PDF to Text to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="sign-pdf" data-group="pdf">
+<li class="card" data-id="sign-pdf" data-group="pdf" style="--c:#E5484D">
 <a class="card-link" href="../en/sign-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#signature"></use></svg></span><span class="card-txt"><h3 class="card-name">Sign PDF</h3><span class="card-desc">Draw, type or upload your signature; add text and dates to PDF pages.</span></span></a>
 <button class="star" type="button" data-fav="sign-pdf" aria-pressed="false" aria-label="Pin Sign PDF to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="page-numbers-pdf" data-group="pdf">
+<li class="card" data-id="page-numbers-pdf" data-group="pdf" style="--c:#E5484D">
 <a class="card-link" href="../en/page-numbers-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#list-ordered"></use></svg></span><span class="card-txt"><h3 class="card-name">Add Page Numbers to PDF</h3><span class="card-desc">Add page numbers at the top or bottom of pages, choosing the position and style.</span></span></a>
 <button class="star" type="button" data-fav="page-numbers-pdf" aria-pressed="false" aria-label="Pin Add Page Numbers to PDF to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="watermark-pdf" data-group="pdf">
+<li class="card" data-id="watermark-pdf" data-group="pdf" style="--c:#E5484D">
 <a class="card-link" href="../en/watermark-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#stamp"></use></svg></span><span class="card-txt"><h3 class="card-name">Watermark PDF</h3><span class="card-desc">Stamp semi-transparent text or a logo onto PDF pages.</span></span></a>
 <button class="star" type="button" data-fav="watermark-pdf" aria-pressed="false" aria-label="Pin Watermark PDF to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="protect-pdf" data-group="pdf">
+<li class="card" data-id="protect-pdf" data-group="pdf" style="--c:#E5484D">
 <a class="card-link" href="../en/protect-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#lock"></use></svg></span><span class="card-txt"><h3 class="card-name">Protect PDF with Password</h3><span class="card-desc">Lock a PDF with a password using AES-256 encryption.</span></span></a>
 <button class="star" type="button" data-fav="protect-pdf" aria-pressed="false" aria-label="Pin Protect PDF with Password to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="unlock-pdf" data-group="pdf">
+<li class="card" data-id="unlock-pdf" data-group="pdf" style="--c:#E5484D">
 <a class="card-link" href="../en/unlock-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#lock-open"></use></svg></span><span class="card-txt"><h3 class="card-name">Unlock PDF</h3><span class="card-desc">Remove the password (when you know it) and print/copy restrictions from a PDF.</span></span></a>
 <button class="star" type="button" data-fav="unlock-pdf" aria-pressed="false" aria-label="Pin Unlock PDF to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="extract-pages-pdf" data-group="pdf">
+<li class="card" data-id="extract-pages-pdf" data-group="pdf" style="--c:#E5484D">
 <a class="card-link" href="../en/extract-pages-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#file-output"></use></svg></span><span class="card-txt"><h3 class="card-name">Extract PDF Pages</h3><span class="card-desc">Pick the pages you want and save them as a new PDF file.</span></span></a>
 <button class="star" type="button" data-fav="extract-pages-pdf" aria-pressed="false" aria-label="Pin Extract PDF Pages to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="extract-images-pdf" data-group="pdf">
+<li class="card" data-id="extract-images-pdf" data-group="pdf" style="--c:#E5484D">
 <a class="card-link" href="../en/extract-images-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#image-down"></use></svg></span><span class="card-txt"><h3 class="card-name">Extract Images from PDF</h3><span class="card-desc">Get the original images embedded in a PDF file.</span></span></a>
 <button class="star" type="button" data-fav="extract-images-pdf" aria-pressed="false" aria-label="Pin Extract Images from PDF to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="crop-pdf" data-group="pdf">
+<li class="card" data-id="crop-pdf" data-group="pdf" style="--c:#E5484D">
 <a class="card-link" href="../en/crop-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#crop"></use></svg></span><span class="card-txt"><h3 class="card-name">Crop PDF</h3><span class="card-desc">Trim white margins or unwanted areas from PDF pages.</span></span></a>
 <button class="star" type="button" data-fav="crop-pdf" aria-pressed="false" aria-label="Pin Crop PDF to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="insert-blank-pdf" data-group="pdf">
+<li class="card" data-id="insert-blank-pdf" data-group="pdf" style="--c:#E5484D">
 <a class="card-link" href="../en/insert-blank-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#file-plus"></use></svg></span><span class="card-txt"><h3 class="card-name">Insert Blank Pages</h3><span class="card-desc">Add blank pages anywhere in a PDF, e.g. for double-sided printing.</span></span></a>
 <button class="star" type="button" data-fav="insert-blank-pdf" aria-pressed="false" aria-label="Pin Insert Blank Pages to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="grayscale-pdf" data-group="pdf">
+<li class="card" data-id="grayscale-pdf" data-group="pdf" style="--c:#E5484D">
 <a class="card-link" href="../en/grayscale-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#contrast"></use></svg></span><span class="card-txt"><h3 class="card-name">Grayscale PDF</h3><span class="card-desc">Convert a color PDF to grayscale to save ink, with text still selectable.</span></span></a>
 <button class="star" type="button" data-fav="grayscale-pdf" aria-pressed="false" aria-label="Pin Grayscale PDF to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="metadata-pdf" data-group="pdf">
+<li class="card" data-id="metadata-pdf" data-group="pdf" style="--c:#E5484D">
 <a class="card-link" href="../en/metadata-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#info"></use></svg></span><span class="card-txt"><h3 class="card-name">Edit PDF Metadata</h3><span class="card-desc">View and edit a PDF&#39;s title, author, subject and keywords (metadata).</span></span></a>
 <button class="star" type="button" data-fav="metadata-pdf" aria-pressed="false" aria-label="Pin Edit PDF Metadata to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="fill-form-pdf" data-group="pdf">
+<li class="card" data-id="fill-form-pdf" data-group="pdf" style="--c:#E5484D">
 <a class="card-link" href="../en/fill-form-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#text-cursor-input"></use></svg></span><span class="card-txt"><h3 class="card-name">Fill PDF Form</h3><span class="card-desc">Fill in the form fields of a PDF (applications, declarations) and save it.</span></span></a>
 <button class="star" type="button" data-fav="fill-form-pdf" aria-pressed="false" aria-label="Pin Fill PDF Form to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="flatten-pdf" data-group="pdf">
+<li class="card" data-id="flatten-pdf" data-group="pdf" style="--c:#E5484D">
 <a class="card-link" href="../en/flatten-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#layers"></use></svg></span><span class="card-txt"><h3 class="card-name">Flatten PDF Form</h3><span class="card-desc">Turn filled form fields into fixed content that can no longer be edited.</span></span></a>
 <button class="star" type="button" data-fav="flatten-pdf" aria-pressed="false" aria-label="Pin Flatten PDF Form to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="view-pdf" data-group="pdf">
+<li class="card" data-id="view-pdf" data-group="pdf" style="--c:#E5484D">
 <a class="card-link" href="../en/view-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#book-open"></use></svg></span><span class="card-txt"><h3 class="card-name">PDF Viewer</h3><span class="card-desc">Open and read PDFs right in your browser, search text, zoom and go full screen.</span></span></a>
 <button class="star" type="button" data-fav="view-pdf" aria-pressed="false" aria-label="Pin PDF Viewer to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="scan-document" data-group="pdf">
+<li class="card" data-id="scan-document" data-group="pdf" style="--c:#E5484D">
 <a class="card-link" href="../en/scan-document/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#scan"></use></svg></span><span class="card-txt"><h3 class="card-name">Document Scanner</h3><span class="card-desc">Photograph documents with your camera, auto-straighten, whiten the background and export to PDF.</span></span></a>
 <button class="star" type="button" data-fav="scan-document" aria-pressed="false" aria-label="Pin Document Scanner to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul>
 </section>
 <section class="block group-block" id="group-image" data-group="image">
-<h2><a href="../en/category/image/"><span class="tile sm" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#image"></use></svg></span>Image</a> <small>21 tools</small></h2>
-<ul class="cards"><li class="card" data-id="compress-image" data-group="image">
+<h2 class="tab"><a href="../en/category/image/" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#image"></use></svg>Image</a> <small>21 tools</small></h2>
+<ul class="cards"><li class="card" data-id="compress-image" data-group="image" style="--c:#8E4EC6">
 <a class="card-link" href="../en/compress-image/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#image-down"></use></svg></span><span class="card-txt"><h3 class="card-name">Compress Images</h3><span class="card-desc">Reduce the size of JPG, PNG and WebP images in bulk, with a mode to get below the KB you need.</span></span></a>
 <button class="star" type="button" data-fav="compress-image" aria-pressed="false" aria-label="Pin Compress Images to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="resize-image" data-group="image">
+<li class="card" data-id="resize-image" data-group="image" style="--c:#8E4EC6">
 <a class="card-link" href="../en/resize-image/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#scaling"></use></svg></span><span class="card-txt"><h3 class="card-name">Resize Image</h3><span class="card-desc">Shrink or enlarge images by pixels, percentage or longest side.</span></span></a>
 <button class="star" type="button" data-fav="resize-image" aria-pressed="false" aria-label="Pin Resize Image to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="crop-image" data-group="image">
+<li class="card" data-id="crop-image" data-group="image" style="--c:#8E4EC6">
 <a class="card-link" href="../en/crop-image/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#crop"></use></svg></span><span class="card-txt"><h3 class="card-name">Crop Image</h3><span class="card-desc">Crop images freely or to 1:1, 4:3, 16:9, 3:4 ratios.</span></span></a>
 <button class="star" type="button" data-fav="crop-image" aria-pressed="false" aria-label="Pin Crop Image to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="rotate-image" data-group="image">
+<li class="card" data-id="rotate-image" data-group="image" style="--c:#8E4EC6">
 <a class="card-link" href="../en/rotate-image/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#flip-vertical-2"></use></svg></span><span class="card-txt"><h3 class="card-name">Rotate &amp; Flip Image</h3><span class="card-desc">Rotate images 90°, 180° or mirror-flip them in bulk.</span></span></a>
 <button class="star" type="button" data-fav="rotate-image" aria-pressed="false" aria-label="Pin Rotate &amp; Flip Image to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="convert-image" data-group="image">
+<li class="card" data-id="convert-image" data-group="image" style="--c:#8E4EC6">
 <a class="card-link" href="../en/convert-image/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#refresh-cw"></use></svg></span><span class="card-txt"><h3 class="card-name">Image Converter</h3><span class="card-desc">Convert between JPG, PNG, WebP and AVIF.</span></span></a>
 <button class="star" type="button" data-fav="convert-image" aria-pressed="false" aria-label="Pin Image Converter to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="heic-to-jpg" data-group="image">
+<li class="card" data-id="heic-to-jpg" data-group="image" style="--c:#8E4EC6">
 <a class="card-link" href="../en/heic-to-jpg/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#smartphone"></use></svg></span><span class="card-txt"><h3 class="card-name">HEIC to JPG</h3><span class="card-desc">Convert iPhone HEIC/HEIF photos to JPG or PNG in bulk, right on your device.</span></span></a>
 <button class="star" type="button" data-fav="heic-to-jpg" aria-pressed="false" aria-label="Pin HEIC to JPG to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="id-photo" data-group="image">
+<li class="card" data-id="id-photo" data-group="image" style="--c:#8E4EC6">
 <a class="card-link" href="../en/id-photo/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#square-user"></use></svg></span><span class="card-txt"><h3 class="card-name">ID Photo Maker</h3><span class="card-desc">Make passport and ID photos from a portrait: AI background replacement, framing and a print sheet with multiple photos.</span></span></a>
 <button class="star" type="button" data-fav="id-photo" aria-pressed="false" aria-label="Pin ID Photo Maker to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="remove-bg" data-group="image">
+<li class="card" data-id="remove-bg" data-group="image" style="--c:#8E4EC6">
 <a class="card-link" href="../en/remove-bg/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#eraser"></use></svg></span><span class="card-txt"><h3 class="card-name">Remove Background</h3><span class="card-desc">Remove the background from portraits with AI running on your device; export transparent PNG or a colored background.</span></span></a>
 <button class="star" type="button" data-fav="remove-bg" aria-pressed="false" aria-label="Pin Remove Background to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="blur-image" data-group="image">
+<li class="card" data-id="blur-image" data-group="image" style="--c:#8E4EC6">
 <a class="card-link" href="../en/blur-image/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#eye-off"></use></svg></span><span class="card-txt"><h3 class="card-name">Blur &amp; Redact Image</h3><span class="card-desc">Blur or black out ID numbers, license plates and faces before sending a photo.</span></span></a>
 <button class="star" type="button" data-fav="blur-image" aria-pressed="false" aria-label="Pin Blur &amp; Redact Image to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="strip-exif" data-group="image">
+<li class="card" data-id="strip-exif" data-group="image" style="--c:#8E4EC6">
 <a class="card-link" href="../en/strip-exif/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#map-pin-off"></use></svg></span><span class="card-txt"><h3 class="card-name">Remove EXIF &amp; GPS Data</h3><span class="card-desc">View and remove camera info, date/time and GPS location from photos.</span></span></a>
 <button class="star" type="button" data-fav="strip-exif" aria-pressed="false" aria-label="Pin Remove EXIF &amp; GPS Data to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="watermark-image" data-group="image">
+<li class="card" data-id="watermark-image" data-group="image" style="--c:#8E4EC6">
 <a class="card-link" href="../en/watermark-image/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#stamp"></use></svg></span><span class="card-txt"><h3 class="card-name">Watermark Images</h3><span class="card-desc">Stamp text or a logo onto images in bulk to protect product photos.</span></span></a>
 <button class="star" type="button" data-fav="watermark-image" aria-pressed="false" aria-label="Pin Watermark Images to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="text-on-image" data-group="image">
+<li class="card" data-id="text-on-image" data-group="image" style="--c:#8E4EC6">
 <a class="card-link" href="../en/text-on-image/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#type"></use></svg></span><span class="card-txt"><h3 class="card-name">Add Text to Image</h3><span class="card-desc">Write text on images with your choice of font, color, outline and shadow.</span></span></a>
 <button class="star" type="button" data-fav="text-on-image" aria-pressed="false" aria-label="Pin Add Text to Image to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="merge-images" data-group="image">
+<li class="card" data-id="merge-images" data-group="image" style="--c:#8E4EC6">
 <a class="card-link" href="../en/merge-images/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#layout-panel-left"></use></svg></span><span class="card-txt"><h3 class="card-name">Merge Images</h3><span class="card-desc">Join multiple images horizontally, vertically or in a grid.</span></span></a>
 <button class="star" type="button" data-fav="merge-images" aria-pressed="false" aria-label="Pin Merge Images to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="split-image" data-group="image">
+<li class="card" data-id="split-image" data-group="image" style="--c:#8E4EC6">
 <a class="card-link" href="../en/split-image/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#grid-3x3"></use></svg></span><span class="card-txt"><h3 class="card-name">Split Image into Grid</h3><span class="card-desc">Cut one image into 2, 3, 6 or 9 tiles (for Instagram, Facebook).</span></span></a>
 <button class="star" type="button" data-fav="split-image" aria-pressed="false" aria-label="Pin Split Image into Grid to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="favicon" data-group="image">
+<li class="card" data-id="favicon" data-group="image" style="--c:#8E4EC6">
 <a class="card-link" href="../en/favicon/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#app-window"></use></svg></span><span class="card-txt"><h3 class="card-name">Favicon Generator</h3><span class="card-desc">Create a .ico favicon and a full icon set for web, Apple and Android from one image.</span></span></a>
 <button class="star" type="button" data-fav="favicon" aria-pressed="false" aria-label="Pin Favicon Generator to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="svg-to-png" data-group="image">
+<li class="card" data-id="svg-to-png" data-group="image" style="--c:#8E4EC6">
 <a class="card-link" href="../en/svg-to-png/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#pen-tool"></use></svg></span><span class="card-txt"><h3 class="card-name">SVG to PNG</h3><span class="card-desc">Convert SVG vector images to PNG/JPG at any resolution.</span></span></a>
 <button class="star" type="button" data-fav="svg-to-png" aria-pressed="false" aria-label="Pin SVG to PNG to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="image-to-base64" data-group="image">
+<li class="card" data-id="image-to-base64" data-group="image" style="--c:#8E4EC6">
 <a class="card-link" href="../en/image-to-base64/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#binary"></use></svg></span><span class="card-txt"><h3 class="card-name">Image to Base64</h3><span class="card-desc">Convert images to Base64 strings / data URIs to embed in HTML and CSS.</span></span></a>
 <button class="star" type="button" data-fav="image-to-base64" aria-pressed="false" aria-label="Pin Image to Base64 to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="color-picker" data-group="image">
+<li class="card" data-id="color-picker" data-group="image" style="--c:#8E4EC6">
 <a class="card-link" href="../en/color-picker/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#pipette"></use></svg></span><span class="card-txt"><h3 class="card-name">Image Color Picker</h3><span class="card-desc">Tap an image to get color codes and extract its dominant palette automatically.</span></span></a>
 <button class="star" type="button" data-fav="color-picker" aria-pressed="false" aria-label="Pin Image Color Picker to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="gif-maker" data-group="image">
+<li class="card" data-id="gif-maker" data-group="image" style="--c:#8E4EC6">
 <a class="card-link" href="../en/gif-maker/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#film"></use></svg></span><span class="card-txt"><h3 class="card-name">GIF Maker</h3><span class="card-desc">Turn several images into an animated GIF, adjusting speed and size.</span></span></a>
 <button class="star" type="button" data-fav="gif-maker" aria-pressed="false" aria-label="Pin GIF Maker to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="ocr" data-group="image">
+<li class="card" data-id="ocr" data-group="image" style="--c:#8E4EC6">
 <a class="card-link" href="../en/ocr/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#scan-text"></use></svg></span><span class="card-txt"><h3 class="card-name">Image to Text (OCR)</h3><span class="card-desc">Recognize text in photos and scans, including accented Vietnamese.</span></span></a>
 <button class="star" type="button" data-fav="ocr" aria-pressed="false" aria-label="Pin Image to Text (OCR) to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="signature-extract" data-group="image">
+<li class="card" data-id="signature-extract" data-group="image" style="--c:#8E4EC6">
 <a class="card-link" href="../en/signature-extract/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#pen-line"></use></svg></span><span class="card-txt"><h3 class="card-name">Signature &amp; Stamp Extractor</h3><span class="card-desc">Extract a signature or stamp photographed on paper into a transparent PNG.</span></span></a>
 <button class="star" type="button" data-fav="signature-extract" aria-pressed="false" aria-label="Pin Signature &amp; Stamp Extractor to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul>
 </section>
 <section class="block group-block" id="group-media" data-group="media">
-<h2><a href="../en/category/media/"><span class="tile sm" style="--c:#D6409F"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#film"></use></svg></span>Audio &amp; Video</a> <small>11 tools</small></h2>
-<ul class="cards"><li class="card" data-id="voice-recorder" data-group="media">
+<h2 class="tab"><a href="../en/category/media/" style="--c:#D6409F"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#film"></use></svg>Audio &amp; Video</a> <small>11 tools</small></h2>
+<ul class="cards"><li class="card" data-id="voice-recorder" data-group="media" style="--c:#D6409F">
 <a class="card-link" href="../en/voice-recorder/"><span class="tile" style="--c:#D6409F"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#mic"></use></svg></span><span class="card-txt"><h3 class="card-name">Voice Recorder</h3><span class="card-desc">Record with your microphone, pause, play back, name and download as M4A, MP3 or WAV.</span></span></a>
 <button class="star" type="button" data-fav="voice-recorder" aria-pressed="false" aria-label="Pin Voice Recorder to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="screen-recorder" data-group="media">
+<li class="card" data-id="screen-recorder" data-group="media" style="--c:#D6409F">
 <a class="card-link" href="../en/screen-recorder/"><span class="tile" style="--c:#D6409F"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#screen-share"></use></svg></span><span class="card-txt"><h3 class="card-name">Screen Recorder</h3><span class="card-desc">Record your screen, a window or a tab with system audio and microphone (on computers), download as MP4/WebM.</span></span></a>
 <button class="star" type="button" data-fav="screen-recorder" aria-pressed="false" aria-label="Pin Screen Recorder to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="trim-audio" data-group="media">
+<li class="card" data-id="trim-audio" data-group="media" style="--c:#D6409F">
 <a class="card-link" href="../en/trim-audio/"><span class="tile" style="--c:#D6409F"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#audio-waveform"></use></svg></span><span class="card-txt"><h3 class="card-name">Trim Audio</h3><span class="card-desc">Cut audio clips and make ringtones (including iPhone M4R), with fade in/out effects.</span></span></a>
 <button class="star" type="button" data-fav="trim-audio" aria-pressed="false" aria-label="Pin Trim Audio to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="merge-audio" data-group="media">
+<li class="card" data-id="merge-audio" data-group="media" style="--c:#D6409F">
 <a class="card-link" href="../en/merge-audio/"><span class="tile" style="--c:#D6409F"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#audio-lines"></use></svg></span><span class="card-txt"><h3 class="card-name">Merge Audio</h3><span class="card-desc">Join several audio files into one: back to back, with silence gaps or crossfades, with volume normalization.</span></span></a>
 <button class="star" type="button" data-fav="merge-audio" aria-pressed="false" aria-label="Pin Merge Audio to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="convert-audio" data-group="media">
+<li class="card" data-id="convert-audio" data-group="media" style="--c:#D6409F">
 <a class="card-link" href="../en/convert-audio/"><span class="tile" style="--c:#D6409F"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#file-music"></use></svg></span><span class="card-txt"><h3 class="card-name">Audio Converter</h3><span class="card-desc">Convert between MP3, WAV, M4A and OGG; choose quality and mono/stereo, many files at once.</span></span></a>
 <button class="star" type="button" data-fav="convert-audio" aria-pressed="false" aria-label="Pin Audio Converter to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="video-to-mp3" data-group="media">
+<li class="card" data-id="video-to-mp3" data-group="media" style="--c:#D6409F">
 <a class="card-link" href="../en/video-to-mp3/"><span class="tile" style="--c:#D6409F"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#music"></use></svg></span><span class="card-txt"><h3 class="card-name">Video to MP3</h3><span class="card-desc">Extract the audio from a video into an MP3 (or M4A, WAV), the whole video or a segment.</span></span></a>
 <button class="star" type="button" data-fav="video-to-mp3" aria-pressed="false" aria-label="Pin Video to MP3 to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="video-to-gif" data-group="media">
+<li class="card" data-id="video-to-gif" data-group="media" style="--c:#D6409F">
 <a class="card-link" href="../en/video-to-gif/"><span class="tile" style="--c:#D6409F"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#clapperboard"></use></svg></span><span class="card-txt"><h3 class="card-name">Video to GIF</h3><span class="card-desc">Cut a video segment and turn it into an animated GIF, choosing size, frame rate and speed.</span></span></a>
 <button class="star" type="button" data-fav="video-to-gif" aria-pressed="false" aria-label="Pin Video to GIF to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="trim-video" data-group="media">
+<li class="card" data-id="trim-video" data-group="media" style="--c:#D6409F">
 <a class="card-link" href="../en/trim-video/"><span class="tile" style="--c:#D6409F"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#scissors"></use></svg></span><span class="card-txt"><h3 class="card-name">Trim Video</h3><span class="card-desc">Cut out the part of a video you need, keeping the original quality (no re-encoding) or frame-accurate.</span></span></a>
 <button class="star" type="button" data-fav="trim-video" aria-pressed="false" aria-label="Pin Trim Video to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="compress-video" data-group="media">
+<li class="card" data-id="compress-video" data-group="media" style="--c:#D6409F">
 <a class="card-link" href="../en/compress-video/"><span class="tile" style="--c:#D6409F"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#video"></use></svg></span><span class="card-txt"><h3 class="card-name">Compress Video</h3><span class="card-desc">Reduce video size for messaging and email, by quality or target size, using your device&#39;s hardware encoder.</span></span></a>
 <button class="star" type="button" data-fav="compress-video" aria-pressed="false" aria-label="Pin Compress Video to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="video-frame" data-group="media">
+<li class="card" data-id="video-frame" data-group="media" style="--c:#D6409F">
 <a class="card-link" href="../en/video-frame/"><span class="tile" style="--c:#D6409F"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#camera"></use></svg></span><span class="card-txt"><h3 class="card-name">Video Frame Capture</h3><span class="card-desc">Grab full-resolution images from any frame of a video, or capture automatically every N seconds.</span></span></a>
 <button class="star" type="button" data-fav="video-frame" aria-pressed="false" aria-label="Pin Video Frame Capture to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="text-to-speech" data-group="media">
+<li class="card" data-id="text-to-speech" data-group="media" style="--c:#D6409F">
 <a class="card-link" href="../en/text-to-speech/"><span class="tile" style="--c:#D6409F"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#volume-2"></use></svg></span><span class="card-txt"><h3 class="card-name">Text to Speech</h3><span class="card-desc">Read text aloud with the voices built into your device, highlighting the current sentence, with adjustable speed.</span></span></a>
 <button class="star" type="button" data-fav="text-to-speech" aria-pressed="false" aria-label="Pin Text to Speech to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul>
 </section>
 <section class="block group-block" id="group-text" data-group="text">
-<h2><a href="../en/category/text/"><span class="tile sm" style="--c:#0D74CE"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#type"></use></svg></span>Text</a> <small>8 tools</small></h2>
-<ul class="cards"><li class="card" data-id="word-counter" data-group="text">
+<h2 class="tab"><a href="../en/category/text/" style="--c:#0D74CE"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#type"></use></svg>Text</a> <small>8 tools</small></h2>
+<ul class="cards"><li class="card" data-id="word-counter" data-group="text" style="--c:#0D74CE">
 <a class="card-link" href="../en/word-counter/"><span class="tile" style="--c:#0D74CE"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#whole-word"></use></svg></span><span class="card-txt"><h3 class="card-name">Word &amp; Character Counter</h3><span class="card-desc">Count words, characters, sentences, paragraphs and reading time as you type.</span></span></a>
 <button class="star" type="button" data-fav="word-counter" aria-pressed="false" aria-label="Pin Word &amp; Character Counter to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="case-converter" data-group="text">
+<li class="card" data-id="case-converter" data-group="text" style="--c:#0D74CE">
 <a class="card-link" href="../en/case-converter/"><span class="tile" style="--c:#0D74CE"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#case-sensitive"></use></svg></span><span class="card-txt"><h3 class="card-name">Case Converter</h3><span class="card-desc">Convert to UPPERCASE, lowercase, Title Case or Sentence case, with full Unicode support.</span></span></a>
 <button class="star" type="button" data-fav="case-converter" aria-pressed="false" aria-label="Pin Case Converter to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="slugify" data-group="text">
+<li class="card" data-id="slugify" data-group="text" style="--c:#0D74CE">
 <a class="card-link" href="../en/slugify/"><span class="tile" style="--c:#0D74CE"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#link"></use></svg></span><span class="card-txt"><h3 class="card-name">Slug Generator</h3><span class="card-desc">Create URL-friendly slugs from titles, removing accents.</span></span></a>
 <button class="star" type="button" data-fav="slugify" aria-pressed="false" aria-label="Pin Slug Generator to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="text-diff" data-group="text">
+<li class="card" data-id="text-diff" data-group="text" style="--c:#0D74CE">
 <a class="card-link" href="../en/text-diff/"><span class="tile" style="--c:#0D74CE"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#git-compare"></use></svg></span><span class="card-txt"><h3 class="card-name">Text Compare (Diff)</h3><span class="card-desc">Compare two texts or two files (TXT, PDF, Word, Excel): highlight additions and deletions, see the similarity percentage.</span></span></a>
 <button class="star" type="button" data-fav="text-diff" aria-pressed="false" aria-label="Pin Text Compare (Diff) to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="dedupe-lines" data-group="text">
+<li class="card" data-id="dedupe-lines" data-group="text" style="--c:#0D74CE">
 <a class="card-link" href="../en/dedupe-lines/"><span class="tile" style="--c:#0D74CE"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#list-filter"></use></svg></span><span class="card-txt"><h3 class="card-name">Remove Duplicate Lines &amp; Sort</h3><span class="card-desc">Remove duplicate and empty lines, sort A→Z, reverse or shuffle lines.</span></span></a>
 <button class="star" type="button" data-fav="dedupe-lines" aria-pressed="false" aria-label="Pin Remove Duplicate Lines &amp; Sort to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="find-replace" data-group="text">
+<li class="card" data-id="find-replace" data-group="text" style="--c:#0D74CE">
 <a class="card-link" href="../en/find-replace/"><span class="tile" style="--c:#0D74CE"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#replace"></use></svg></span><span class="card-txt"><h3 class="card-name">Find and Replace</h3><span class="card-desc">Find and replace in bulk, with regular expression (regex) support.</span></span></a>
 <button class="star" type="button" data-fav="find-replace" aria-pressed="false" aria-label="Pin Find and Replace to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="fancy-text" data-group="text">
+<li class="card" data-id="fancy-text" data-group="text" style="--c:#0D74CE">
 <a class="card-link" href="../en/fancy-text/"><span class="tile" style="--c:#0D74CE"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#sparkles"></use></svg></span><span class="card-txt"><h3 class="card-name">Fancy Text Generator</h3><span class="card-desc">Create fancy text (𝓫𝓮𝓪𝓾𝓽𝓲𝓯𝓾𝓵) for Facebook, TikTok and Instagram bios.</span></span></a>
 <button class="star" type="button" data-fav="fancy-text" aria-pressed="false" aria-label="Pin Fancy Text Generator to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="markdown-to-html" data-group="text">
+<li class="card" data-id="markdown-to-html" data-group="text" style="--c:#0D74CE">
 <a class="card-link" href="../en/markdown-to-html/"><span class="tile" style="--c:#0D74CE"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#file-code"></use></svg></span><span class="card-txt"><h3 class="card-name">Markdown to HTML</h3><span class="card-desc">Open a .md file or type Markdown, preview it live or full screen, export to HTML.</span></span></a>
 <button class="star" type="button" data-fav="markdown-to-html" aria-pressed="false" aria-label="Pin Markdown to HTML to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul>
 </section>
 <section class="block group-block" id="group-calc" data-group="calc">
-<h2><a href="../en/category/calc/"><span class="tile sm" style="--c:#E5701A"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#calculator"></use></svg></span>Calculators</a> <small>12 tools</small></h2>
-<ul class="cards"><li class="card" data-id="percentage" data-group="calc">
+<h2 class="tab"><a href="../en/category/calc/" style="--c:#E5701A"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#calculator"></use></svg>Calculators</a> <small>12 tools</small></h2>
+<ul class="cards"><li class="card" data-id="percentage" data-group="calc" style="--c:#E5701A">
 <a class="card-link" href="../en/percentage/"><span class="tile" style="--c:#E5701A"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#percent"></use></svg></span><span class="card-txt"><h3 class="card-name">Percentage Calculator</h3><span class="card-desc">X% of Y, X is what percent of Y, percentage increase/decrease.</span></span></a>
 <button class="star" type="button" data-fav="percentage" aria-pressed="false" aria-label="Pin Percentage Calculator to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="discount" data-group="calc">
+<li class="card" data-id="discount" data-group="calc" style="--c:#E5701A">
 <a class="card-link" href="../en/discount/"><span class="tile" style="--c:#E5701A"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#tag"></use></svg></span><span class="card-txt"><h3 class="card-name">Discount Calculator</h3><span class="card-desc">Price after discount, stacked discounts and how much you save.</span></span></a>
 <button class="star" type="button" data-fav="discount" aria-pressed="false" aria-label="Pin Discount Calculator to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="compound-interest" data-group="calc">
+<li class="card" data-id="compound-interest" data-group="calc" style="--c:#E5701A">
 <a class="card-link" href="../en/compound-interest/"><span class="tile" style="--c:#E5701A"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#trending-up"></use></svg></span><span class="card-txt"><h3 class="card-name">Compound Interest Calculator</h3><span class="card-desc">Calculate compound interest with regular contributions, with a growth chart.</span></span></a>
 <button class="star" type="button" data-fav="compound-interest" aria-pressed="false" aria-label="Pin Compound Interest Calculator to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="split-bill" data-group="calc">
+<li class="card" data-id="split-bill" data-group="calc" style="--c:#E5701A">
 <a class="card-link" href="../en/split-bill/"><span class="tile" style="--c:#E5701A"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#users"></use></svg></span><span class="card-txt"><h3 class="card-name">Split the Bill</h3><span class="card-desc">Who paid what and who owes whom — with the fewest possible transfers.</span></span></a>
 <button class="star" type="button" data-fav="split-bill" aria-pressed="false" aria-label="Pin Split the Bill to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="unit-converter" data-group="calc">
+<li class="card" data-id="unit-converter" data-group="calc" style="--c:#E5701A">
 <a class="card-link" href="../en/unit-converter/"><span class="tile" style="--c:#E5701A"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#arrow-left-right"></use></svg></span><span class="card-txt"><h3 class="card-name">Unit Converter</h3><span class="card-desc">Length, mass, temperature, area, volume, speed, data and more.</span></span></a>
 <button class="star" type="button" data-fav="unit-converter" aria-pressed="false" aria-label="Pin Unit Converter to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="age-calculator" data-group="calc">
+<li class="card" data-id="age-calculator" data-group="calc" style="--c:#E5701A">
 <a class="card-link" href="../en/age-calculator/"><span class="tile" style="--c:#E5701A"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#cake"></use></svg></span><span class="card-txt"><h3 class="card-name">Age Calculator</h3><span class="card-desc">Your exact age in years, months and days, and the countdown to your next birthday.</span></span></a>
 <button class="star" type="button" data-fav="age-calculator" aria-pressed="false" aria-label="Pin Age Calculator to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="date-calculator" data-group="calc">
+<li class="card" data-id="date-calculator" data-group="calc" style="--c:#E5701A">
 <a class="card-link" href="../en/date-calculator/"><span class="tile" style="--c:#E5701A"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#calendar-range"></use></svg></span><span class="card-txt"><h3 class="card-name">Date Calculator &amp; Business Days</h3><span class="card-desc">Days between two dates, add or subtract days, and count business days.</span></span></a>
 <button class="star" type="button" data-fav="date-calculator" aria-pressed="false" aria-label="Pin Date Calculator &amp; Business Days to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="bmi" data-group="calc">
+<li class="card" data-id="bmi" data-group="calc" style="--c:#E5701A">
 <a class="card-link" href="../en/bmi/"><span class="tile" style="--c:#E5701A"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#scale"></use></svg></span><span class="card-txt"><h3 class="card-name">BMI Calculator</h3><span class="card-desc">Body Mass Index with Asian and WHO international classifications.</span></span></a>
 <button class="star" type="button" data-fav="bmi" aria-pressed="false" aria-label="Pin BMI Calculator to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="tdee" data-group="calc">
+<li class="card" data-id="tdee" data-group="calc" style="--c:#E5701A">
 <a class="card-link" href="../en/tdee/"><span class="tile" style="--c:#E5701A"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#flame"></use></svg></span><span class="card-txt"><h3 class="card-name">TDEE Calorie Calculator</h3><span class="card-desc">Calculate BMR, TDEE and the calories to maintain, lose or gain weight.</span></span></a>
 <button class="star" type="button" data-fav="tdee" aria-pressed="false" aria-label="Pin TDEE Calorie Calculator to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="due-date" data-group="calc">
+<li class="card" data-id="due-date" data-group="calc" style="--c:#E5701A">
 <a class="card-link" href="../en/due-date/"><span class="tile" style="--c:#E5701A"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#baby"></use></svg></span><span class="card-txt"><h3 class="card-name">Due Date Calculator</h3><span class="card-desc">Your due date and weeks of pregnancy from the first day of your last period.</span></span></a>
 <button class="star" type="button" data-fav="due-date" aria-pressed="false" aria-label="Pin Due Date Calculator to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="scientific-calculator" data-group="calc">
+<li class="card" data-id="scientific-calculator" data-group="calc" style="--c:#E5701A">
 <a class="card-link" href="../en/scientific-calculator/"><span class="tile" style="--c:#E5701A"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#calculator"></use></svg></span><span class="card-txt"><h3 class="card-name">Scientific Calculator</h3><span class="card-desc">Calculator with sin, cos, log, powers and history, usable from the keyboard.</span></span></a>
 <button class="star" type="button" data-fav="scientific-calculator" aria-pressed="false" aria-label="Pin Scientific Calculator to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="roman-numerals" data-group="calc">
+<li class="card" data-id="roman-numerals" data-group="calc" style="--c:#E5701A">
 <a class="card-link" href="../en/roman-numerals/"><span class="tile" style="--c:#E5701A"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#hash"></use></svg></span><span class="card-txt"><h3 class="card-name">Roman Numeral Converter</h3><span class="card-desc">Convert numbers to Roman numerals and back.</span></span></a>
 <button class="star" type="button" data-fav="roman-numerals" aria-pressed="false" aria-label="Pin Roman Numeral Converter to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul>
 </section>
 <section class="block group-block" id="group-qr" data-group="qr">
-<h2><a href="../en/category/qr/"><span class="tile sm" style="--c:#475569"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#qr-code"></use></svg></span>QR &amp; Barcodes</a> <small>3 tools</small></h2>
-<ul class="cards"><li class="card" data-id="qr-generator" data-group="qr">
+<h2 class="tab"><a href="../en/category/qr/" style="--c:#475569"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#qr-code"></use></svg>QR &amp; Barcodes</a> <small>3 tools</small></h2>
+<ul class="cards"><li class="card" data-id="qr-generator" data-group="qr" style="--c:#475569">
 <a class="card-link" href="../en/qr-generator/"><span class="tile" style="--c:#475569"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#qr-code"></use></svg></span><span class="card-txt"><h3 class="card-name">QR Code Generator</h3><span class="card-desc">Create QR codes for links, text, WiFi, contact cards (vCard), SMS and email; change colors, add a logo, download PNG/SVG.</span></span></a>
 <button class="star" type="button" data-fav="qr-generator" aria-pressed="false" aria-label="Pin QR Code Generator to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="qr-scanner" data-group="qr">
+<li class="card" data-id="qr-scanner" data-group="qr" style="--c:#475569">
 <a class="card-link" href="../en/qr-scanner/"><span class="tile" style="--c:#475569"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#scan-qr-code"></use></svg></span><span class="card-txt"><h3 class="card-name">QR Code Scanner</h3><span class="card-desc">Scan QR codes and barcodes with your camera, from screenshots or PDF files.</span></span></a>
 <button class="star" type="button" data-fav="qr-scanner" aria-pressed="false" aria-label="Pin QR Code Scanner to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="barcode-generator" data-group="qr">
+<li class="card" data-id="barcode-generator" data-group="qr" style="--c:#475569">
 <a class="card-link" href="../en/barcode-generator/"><span class="tile" style="--c:#475569"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#barcode"></use></svg></span><span class="card-txt"><h3 class="card-name">Barcode Generator</h3><span class="card-desc">Create EAN-13, EAN-8, UPC-A, ITF-14, Code 128 and Code 39 barcodes; auto check digits, batch creation and printable label PDFs.</span></span></a>
 <button class="star" type="button" data-fav="barcode-generator" aria-pressed="false" aria-label="Pin Barcode Generator to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul>
 </section>
 <section class="block group-block" id="group-office" data-group="office">
-<h2><a href="../en/category/office/"><span class="tile sm" style="--c:#18794E"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#sheet"></use></svg></span>Office &amp; Data</a> <small>7 tools</small></h2>
-<ul class="cards"><li class="card" data-id="excel-viewer" data-group="office">
+<h2 class="tab"><a href="../en/category/office/" style="--c:#18794E"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#sheet"></use></svg>Office &amp; Data</a> <small>7 tools</small></h2>
+<ul class="cards"><li class="card" data-id="excel-viewer" data-group="office" style="--c:#18794E">
 <a class="card-link" href="../en/excel-viewer/"><span class="tile" style="--c:#18794E"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#sheet"></use></svg></span><span class="card-txt"><h3 class="card-name">Excel &amp; CSV Viewer</h3><span class="card-desc">Open .xlsx, .xls, .ods and .csv files without Excel; switch sheets, search, filter and sort.</span></span></a>
 <button class="star" type="button" data-fav="excel-viewer" aria-pressed="false" aria-label="Pin Excel &amp; CSV Viewer to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="excel-csv" data-group="office">
+<li class="card" data-id="excel-csv" data-group="office" style="--c:#18794E">
 <a class="card-link" href="../en/excel-csv/"><span class="tile" style="--c:#18794E"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#file-spreadsheet"></use></svg></span><span class="card-txt"><h3 class="card-name">Excel ↔ CSV Converter</h3><span class="card-desc">Convert Excel to UTF-8 CSV without garbled characters (one file per sheet) and CSV to Excel, keeping leading zeros.</span></span></a>
 <button class="star" type="button" data-fav="excel-csv" aria-pressed="false" aria-label="Pin Excel ↔ CSV Converter to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="merge-excel" data-group="office">
+<li class="card" data-id="merge-excel" data-group="office" style="--c:#18794E">
 <a class="card-link" href="../en/merge-excel/"><span class="tile" style="--c:#18794E"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#combine"></use></svg></span><span class="card-txt"><h3 class="card-name">Merge Excel Files</h3><span class="card-desc">Combine multiple Excel/CSV files or sheets into one table, lining up same-named columns and adding a source column.</span></span></a>
 <button class="star" type="button" data-fav="merge-excel" aria-pressed="false" aria-label="Pin Merge Excel Files to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="split-excel" data-group="office">
+<li class="card" data-id="split-excel" data-group="office" style="--c:#18794E">
 <a class="card-link" href="../en/split-excel/"><span class="tile" style="--c:#18794E"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#split"></use></svg></span><span class="card-txt"><h3 class="card-name">Split Excel by Column</h3><span class="card-desc">Split one table into several sheets or Excel/CSV files by the values of a column (branch, department…).</span></span></a>
 <button class="star" type="button" data-fav="split-excel" aria-pressed="false" aria-label="Pin Split Excel by Column to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="json-excel" data-group="office">
+<li class="card" data-id="json-excel" data-group="office" style="--c:#18794E">
 <a class="card-link" href="../en/json-excel/"><span class="tile" style="--c:#18794E"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#braces"></use></svg></span><span class="card-txt"><h3 class="card-name">JSON ↔ Excel Converter</h3><span class="card-desc">Convert JSON arrays into Excel tables (flattening nested objects) and Excel/CSV into JSON.</span></span></a>
 <button class="star" type="button" data-fav="json-excel" aria-pressed="false" aria-label="Pin JSON ↔ Excel Converter to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="mail-merge" data-group="office">
+<li class="card" data-id="mail-merge" data-group="office" style="--c:#18794E">
 <a class="card-link" href="../en/mail-merge/"><span class="tile" style="--c:#18794E"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#mails"></use></svg></span><span class="card-txt"><h3 class="card-name">Mail Merge</h3><span class="card-desc">Create letters and invitations in bulk from an Excel/CSV list and a Word (.docx) or text template: one DOCX per person, a combined DOCX for printing, or PDF.</span></span></a>
 <button class="star" type="button" data-fav="mail-merge" aria-pressed="false" aria-label="Pin Mail Merge to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="email-signature" data-group="office">
+<li class="card" data-id="email-signature" data-group="office" style="--c:#18794E">
 <a class="card-link" href="../en/email-signature/"><span class="tile" style="--c:#18794E"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#mail"></use></svg></span><span class="card-txt"><h3 class="card-name">Email Signature Generator</h3><span class="card-desc">Create a professional HTML email signature for Gmail and Outlook with photo, logo and social links, ready to paste.</span></span></a>
 <button class="star" type="button" data-fav="email-signature" aria-pressed="false" aria-label="Pin Email Signature Generator to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul>
 </section>
 <section class="block group-block" id="group-dev" data-group="dev">
-<h2><a href="../en/category/dev/"><span class="tile sm" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#code"></use></svg></span>Developer</a> <small>19 tools</small></h2>
-<ul class="cards"><li class="card" data-id="json-formatter" data-group="dev">
+<h2 class="tab"><a href="../en/category/dev/" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#code"></use></svg>Developer</a> <small>19 tools</small></h2>
+<ul class="cards"><li class="card" data-id="json-formatter" data-group="dev" style="--c:#3E63DD">
 <a class="card-link" href="../en/json-formatter/"><span class="tile" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#braces"></use></svg></span><span class="card-txt"><h3 class="card-name">JSON Formatter &amp; Validator</h3><span class="card-desc">Beautify, minify, sort keys and validate JSON, pointing to the exact line/column of errors.</span></span></a>
 <button class="star" type="button" data-fav="json-formatter" aria-pressed="false" aria-label="Pin JSON Formatter &amp; Validator to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="json-convert" data-group="dev">
+<li class="card" data-id="json-convert" data-group="dev" style="--c:#3E63DD">
 <a class="card-link" href="../en/json-convert/"><span class="tile" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#file-json"></use></svg></span><span class="card-txt"><h3 class="card-name">JSON ↔ CSV/YAML Converter</h3><span class="card-desc">Convert back and forth between JSON, CSV and YAML.</span></span></a>
 <button class="star" type="button" data-fav="json-convert" aria-pressed="false" aria-label="Pin JSON ↔ CSV/YAML Converter to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="base64" data-group="dev">
+<li class="card" data-id="base64" data-group="dev" style="--c:#3E63DD">
 <a class="card-link" href="../en/base64/"><span class="tile" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#binary"></use></svg></span><span class="card-txt"><h3 class="card-name">Base64 Encode/Decode</h3><span class="card-desc">Encode and decode Base64 for UTF-8 text and files.</span></span></a>
 <button class="star" type="button" data-fav="base64" aria-pressed="false" aria-label="Pin Base64 Encode/Decode to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="url-encode" data-group="dev">
+<li class="card" data-id="url-encode" data-group="dev" style="--c:#3E63DD">
 <a class="card-link" href="../en/url-encode/"><span class="tile" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#link-2"></use></svg></span><span class="card-txt"><h3 class="card-name">URL Encode/Decode</h3><span class="card-desc">Encode/decode URLs (percent-encoding) and break down query parameters.</span></span></a>
 <button class="star" type="button" data-fav="url-encode" aria-pressed="false" aria-label="Pin URL Encode/Decode to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="html-entity" data-group="dev">
+<li class="card" data-id="html-entity" data-group="dev" style="--c:#3E63DD">
 <a class="card-link" href="../en/html-entity/"><span class="tile" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#code-xml"></use></svg></span><span class="card-txt"><h3 class="card-name">HTML Entity Encoder</h3><span class="card-desc">Convert special characters to HTML entities and back.</span></span></a>
 <button class="star" type="button" data-fav="html-entity" aria-pressed="false" aria-label="Pin HTML Entity Encoder to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="jwt-decoder" data-group="dev">
+<li class="card" data-id="jwt-decoder" data-group="dev" style="--c:#3E63DD">
 <a class="card-link" href="../en/jwt-decoder/"><span class="tile" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#key-round"></use></svg></span><span class="card-txt"><h3 class="card-name">JWT Decoder</h3><span class="card-desc">View a JWT&#39;s header, payload and expiry; verify HMAC and public-key signatures.</span></span></a>
 <button class="star" type="button" data-fav="jwt-decoder" aria-pressed="false" aria-label="Pin JWT Decoder to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="uuid" data-group="dev">
+<li class="card" data-id="uuid" data-group="dev" style="--c:#3E63DD">
 <a class="card-link" href="../en/uuid/"><span class="tile" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#fingerprint"></use></svg></span><span class="card-txt"><h3 class="card-name">UUID Generator</h3><span class="card-desc">Generate UUID v4 and v7 in bulk.</span></span></a>
 <button class="star" type="button" data-fav="uuid" aria-pressed="false" aria-label="Pin UUID Generator to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="hash" data-group="dev">
+<li class="card" data-id="hash" data-group="dev" style="--c:#3E63DD">
 <a class="card-link" href="../en/hash/"><span class="tile" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#hash"></use></svg></span><span class="card-txt"><h3 class="card-name">Hash Generator (MD5/SHA)</h3><span class="card-desc">Calculate MD5, SHA-1, SHA-256 and SHA-512 hashes of text.</span></span></a>
 <button class="star" type="button" data-fav="hash" aria-pressed="false" aria-label="Pin Hash Generator (MD5/SHA) to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="regex-tester" data-group="dev">
+<li class="card" data-id="regex-tester" data-group="dev" style="--c:#3E63DD">
 <a class="card-link" href="../en/regex-tester/"><span class="tile" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#regex"></use></svg></span><span class="card-txt"><h3 class="card-name">Regex Tester</h3><span class="card-desc">Test regular expressions with highlighted matches and capture groups.</span></span></a>
 <button class="star" type="button" data-fav="regex-tester" aria-pressed="false" aria-label="Pin Regex Tester to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="timestamp" data-group="dev">
+<li class="card" data-id="timestamp" data-group="dev" style="--c:#3E63DD">
 <a class="card-link" href="../en/timestamp/"><span class="tile" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#clock"></use></svg></span><span class="card-txt"><h3 class="card-name">Unix Timestamp Converter</h3><span class="card-desc">Convert Unix timestamps ↔ dates in your local time zone and UTC.</span></span></a>
 <button class="star" type="button" data-fav="timestamp" aria-pressed="false" aria-label="Pin Unix Timestamp Converter to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="cron" data-group="dev">
+<li class="card" data-id="cron" data-group="dev" style="--c:#3E63DD">
 <a class="card-link" href="../en/cron/"><span class="tile" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#calendar-clock"></use></svg></span><span class="card-txt"><h3 class="card-name">Cron Expression Explainer</h3><span class="card-desc">Explain cron expressions in plain English and list the next run times.</span></span></a>
 <button class="star" type="button" data-fav="cron" aria-pressed="false" aria-label="Pin Cron Expression Explainer to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="color-converter" data-group="dev">
+<li class="card" data-id="color-converter" data-group="dev" style="--c:#3E63DD">
 <a class="card-link" href="../en/color-converter/"><span class="tile" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#palette"></use></svg></span><span class="card-txt"><h3 class="card-name">Color Converter</h3><span class="card-desc">Convert HEX, RGB, HSL and OKLCH; check text/background contrast.</span></span></a>
 <button class="star" type="button" data-fav="color-converter" aria-pressed="false" aria-label="Pin Color Converter to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="css-generator" data-group="dev">
+<li class="card" data-id="css-generator" data-group="dev" style="--c:#3E63DD">
 <a class="card-link" href="../en/css-generator/"><span class="tile" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#paintbrush"></use></svg></span><span class="card-txt"><h3 class="card-name">CSS Gradient &amp; Box-Shadow Generator</h3><span class="card-desc">Visually adjust gradients, box-shadows and border-radius, then copy the CSS.</span></span></a>
 <button class="star" type="button" data-fav="css-generator" aria-pressed="false" aria-label="Pin CSS Gradient &amp; Box-Shadow Generator to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="sql-formatter" data-group="dev">
+<li class="card" data-id="sql-formatter" data-group="dev" style="--c:#3E63DD">
 <a class="card-link" href="../en/sql-formatter/"><span class="tile" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#database"></use></svg></span><span class="card-txt"><h3 class="card-name">SQL Formatter</h3><span class="card-desc">Beautify SQL statements (MySQL, PostgreSQL, SQL Server…).</span></span></a>
 <button class="star" type="button" data-fav="sql-formatter" aria-pressed="false" aria-label="Pin SQL Formatter to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="minifier" data-group="dev">
+<li class="card" data-id="minifier" data-group="dev" style="--c:#3E63DD">
 <a class="card-link" href="../en/minifier/"><span class="tile" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#package"></use></svg></span><span class="card-txt"><h3 class="card-name">JS/CSS/HTML Minifier</h3><span class="card-desc">Minify JavaScript, CSS and HTML code to reduce size.</span></span></a>
 <button class="star" type="button" data-fav="minifier" aria-pressed="false" aria-label="Pin JS/CSS/HTML Minifier to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="base-converter" data-group="dev">
+<li class="card" data-id="base-converter" data-group="dev" style="--c:#3E63DD">
 <a class="card-link" href="../en/base-converter/"><span class="tile" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#binary"></use></svg></span><span class="card-txt"><h3 class="card-name">Number Base Converter</h3><span class="card-desc">Convert numbers between binary, octal, decimal, hexadecimal and any base.</span></span></a>
 <button class="star" type="button" data-fav="base-converter" aria-pressed="false" aria-label="Pin Number Base Converter to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="chmod" data-group="dev">
+<li class="card" data-id="chmod" data-group="dev" style="--c:#3E63DD">
 <a class="card-link" href="../en/chmod/"><span class="tile" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#terminal"></use></svg></span><span class="card-txt"><h3 class="card-name">Chmod Calculator</h3><span class="card-desc">Convert Linux file permissions between numeric (755) and rwx forms.</span></span></a>
 <button class="star" type="button" data-fav="chmod" aria-pressed="false" aria-label="Pin Chmod Calculator to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="user-agent" data-group="dev">
+<li class="card" data-id="user-agent" data-group="dev" style="--c:#3E63DD">
 <a class="card-link" href="../en/user-agent/"><span class="tile" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#globe"></use></svg></span><span class="card-txt"><h3 class="card-name">User-Agent Parser</h3><span class="card-desc">See the browser, operating system and device from a User-Agent string.</span></span></a>
 <button class="star" type="button" data-fav="user-agent" aria-pressed="false" aria-label="Pin User-Agent Parser to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="http-status" data-group="dev">
+<li class="card" data-id="http-status" data-group="dev" style="--c:#3E63DD">
 <a class="card-link" href="../en/http-status/"><span class="tile" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#server"></use></svg></span><span class="card-txt"><h3 class="card-name">HTTP Status Codes</h3><span class="card-desc">What 1xx–5xx codes (404, 500, 301…) mean, explained in plain English.</span></span></a>
 <button class="star" type="button" data-fav="http-status" aria-pressed="false" aria-label="Pin HTTP Status Codes to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul>
 </section>
 <section class="block group-block" id="group-security" data-group="security">
-<h2><a href="../en/category/security/"><span class="tile sm" style="--c:#0E7C86"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield"></use></svg></span>Security</a> <small>6 tools</small></h2>
-<ul class="cards"><li class="card" data-id="password-generator" data-group="security">
+<h2 class="tab"><a href="../en/category/security/" style="--c:#0E7C86"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield"></use></svg>Security</a> <small>6 tools</small></h2>
+<ul class="cards"><li class="card" data-id="password-generator" data-group="security" style="--c:#0E7C86">
 <a class="card-link" href="../en/password-generator/"><span class="tile" style="--c:#0E7C86"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#key"></use></svg></span><span class="card-txt"><h3 class="card-name">Strong Password Generator</h3><span class="card-desc">Generate secure random passwords, memorable passphrases or PINs with the browser&#39;s secure random generator.</span></span></a>
 <button class="star" type="button" data-fav="password-generator" aria-pressed="false" aria-label="Pin Strong Password Generator to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="password-strength" data-group="security">
+<li class="card" data-id="password-strength" data-group="security" style="--c:#0E7C86">
 <a class="card-link" href="../en/password-strength/"><span class="tile" style="--c:#0E7C86"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shield-check"></use></svg></span><span class="card-txt"><h3 class="card-name">Password Strength Checker</h3><span class="card-desc">Estimate how long a password takes to crack, find predictable patterns (common passwords, names, dates, keyboard walks) and get tips to improve.</span></span></a>
 <button class="star" type="button" data-fav="password-strength" aria-pressed="false" aria-label="Pin Password Strength Checker to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="file-encrypt" data-group="security">
+<li class="card" data-id="file-encrypt" data-group="security" style="--c:#0E7C86">
 <a class="card-link" href="../en/file-encrypt/"><span class="tile" style="--c:#0E7C86"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#file-lock"></use></svg></span><span class="card-txt"><h3 class="card-name">Encrypt / Decrypt Files</h3><span class="card-desc">Lock any file with a password (AES-GCM 256, WebCrypto) and unlock it when needed.</span></span></a>
 <button class="star" type="button" data-fav="file-encrypt" aria-pressed="false" aria-label="Pin Encrypt / Decrypt Files to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="text-encrypt" data-group="security">
+<li class="card" data-id="text-encrypt" data-group="security" style="--c:#0E7C86">
 <a class="card-link" href="../en/text-encrypt/"><span class="tile" style="--c:#0E7C86"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#lock-keyhole"></use></svg></span><span class="card-txt"><h3 class="card-name">Encrypt Text</h3><span class="card-desc">Encrypt messages with a password (AES-GCM) to send over insecure channels.</span></span></a>
 <button class="star" type="button" data-fav="text-encrypt" aria-pressed="false" aria-label="Pin Encrypt Text to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="checksum" data-group="security">
+<li class="card" data-id="checksum" data-group="security" style="--c:#0E7C86">
 <a class="card-link" href="../en/checksum/"><span class="tile" style="--c:#0E7C86"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#file-check"></use></svg></span><span class="card-txt"><h3 class="card-name">File Checksum Calculator</h3><span class="card-desc">Calculate SHA-256, SHA-1, MD5, SHA-512 and CRC32 of files (even several GB) and compare with the hash on the download page.</span></span></a>
 <button class="star" type="button" data-fav="checksum" aria-pressed="false" aria-label="Pin File Checksum Calculator to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="totp" data-group="security">
+<li class="card" data-id="totp" data-group="security" style="--c:#0E7C86">
 <a class="card-link" href="../en/totp/"><span class="tile" style="--c:#0E7C86"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#key-square"></use></svg></span><span class="card-txt"><h3 class="card-name">2FA Code Generator (TOTP)</h3><span class="card-desc">Generate 6-digit authentication codes from a 2FA secret key, like Google Authenticator.</span></span></a>
 <button class="star" type="button" data-fav="totp" aria-pressed="false" aria-label="Pin 2FA Code Generator (TOTP) to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul>
 </section>
 <section class="block group-block" id="group-productivity" data-group="productivity">
-<h2><a href="../en/category/productivity/"><span class="tile sm" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#timer"></use></svg></span>Productivity &amp; Random</a> <small>17 tools</small></h2>
-<ul class="cards"><li class="card" data-id="pomodoro" data-group="productivity">
+<h2 class="tab"><a href="../en/category/productivity/" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#timer"></use></svg>Productivity &amp; Random</a> <small>17 tools</small></h2>
+<ul class="cards"><li class="card" data-id="pomodoro" data-group="productivity" style="--c:#5C8A1C">
 <a class="card-link" href="../en/pomodoro/"><span class="tile" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#timer"></use></svg></span><span class="card-txt"><h3 class="card-name">Pomodoro Timer</h3><span class="card-desc">A 25-minute focus, 5-minute break timer using the Pomodoro technique, with sounds, notifications and daily stats.</span></span></a>
 <button class="star" type="button" data-fav="pomodoro" aria-pressed="false" aria-label="Pin Pomodoro Timer to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="stopwatch" data-group="productivity">
+<li class="card" data-id="stopwatch" data-group="productivity" style="--c:#5C8A1C">
 <a class="card-link" href="../en/stopwatch/"><span class="tile" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#watch"></use></svg></span><span class="card-txt"><h3 class="card-name">Online Stopwatch</h3><span class="card-desc">A stopwatch accurate to 1/100 second, with laps.</span></span></a>
 <button class="star" type="button" data-fav="stopwatch" aria-pressed="false" aria-label="Pin Online Stopwatch to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="countdown-timer" data-group="productivity">
+<li class="card" data-id="countdown-timer" data-group="productivity" style="--c:#5C8A1C">
 <a class="card-link" href="../en/countdown-timer/"><span class="tile" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#hourglass"></use></svg></span><span class="card-txt"><h3 class="card-name">Countdown Timer</h3><span class="card-desc">A countdown timer with an alarm and full-screen mode.</span></span></a>
 <button class="star" type="button" data-fav="countdown-timer" aria-pressed="false" aria-label="Pin Countdown Timer to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="spin-wheel" data-group="productivity">
+<li class="card" data-id="spin-wheel" data-group="productivity" style="--c:#5C8A1C">
 <a class="card-link" href="../en/spin-wheel/"><span class="tile" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#ferris-wheel"></use></svg></span><span class="card-txt"><h3 class="card-name">Spin the Wheel</h3><span class="card-desc">Enter a list and spin a random wheel to pick a person, a meal or a prize winner.</span></span></a>
 <button class="star" type="button" data-fav="spin-wheel" aria-pressed="false" aria-label="Pin Spin the Wheel to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="team-picker" data-group="productivity">
+<li class="card" data-id="team-picker" data-group="productivity" style="--c:#5C8A1C">
 <a class="card-link" href="../en/team-picker/"><span class="tile" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#shuffle"></use></svg></span><span class="card-txt"><h3 class="card-name">Random Team Generator</h3><span class="card-desc">Split a list into random teams or draw a random order.</span></span></a>
 <button class="star" type="button" data-fav="team-picker" aria-pressed="false" aria-label="Pin Random Team Generator to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="coin-dice" data-group="productivity">
+<li class="card" data-id="coin-dice" data-group="productivity" style="--c:#5C8A1C">
 <a class="card-link" href="../en/coin-dice/"><span class="tile" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#dices"></use></svg></span><span class="card-txt"><h3 class="card-name">Coin Flip &amp; Dice Roller</h3><span class="card-desc">Flip a coin or roll one or more random dice.</span></span></a>
 <button class="star" type="button" data-fav="coin-dice" aria-pressed="false" aria-label="Pin Coin Flip &amp; Dice Roller to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="random-number" data-group="productivity">
+<li class="card" data-id="random-number" data-group="productivity" style="--c:#5C8A1C">
 <a class="card-link" href="../en/random-number/"><span class="tile" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#dice-5"></use></svg></span><span class="card-txt"><h3 class="card-name">Random Number Generator</h3><span class="card-desc">Generate random numbers in a range, without duplicates, or run a raffle draw.</span></span></a>
 <button class="star" type="button" data-fav="random-number" aria-pressed="false" aria-label="Pin Random Number Generator to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="quick-notes" data-group="productivity">
+<li class="card" data-id="quick-notes" data-group="productivity" style="--c:#5C8A1C">
 <a class="card-link" href="../en/quick-notes/"><span class="tile" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#notebook-pen"></use></svg></span><span class="card-txt"><h3 class="card-name">Quick Notes</h3><span class="card-desc">Notes saved right in your browser, auto-saved, downloadable as .txt.</span></span></a>
 <button class="star" type="button" data-fav="quick-notes" aria-pressed="false" aria-label="Pin Quick Notes to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="checklist" data-group="productivity">
+<li class="card" data-id="checklist" data-group="productivity" style="--c:#5C8A1C">
 <a class="card-link" href="../en/checklist/"><span class="tile" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#list-checks"></use></svg></span><span class="card-txt"><h3 class="card-name">Checklist</h3><span class="card-desc">A simple to-do list with drag-and-drop ordering, saved on your device.</span></span></a>
 <button class="star" type="button" data-fav="checklist" aria-pressed="false" aria-label="Pin Checklist to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="world-clock" data-group="productivity">
+<li class="card" data-id="world-clock" data-group="productivity" style="--c:#5C8A1C">
 <a class="card-link" href="../en/world-clock/"><span class="tile" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#earth"></use></svg></span><span class="card-txt"><h3 class="card-name">World Clock &amp; Time Zone Converter</h3><span class="card-desc">Current time in cities around the world, and time conversion between time zones.</span></span></a>
 <button class="star" type="button" data-fav="world-clock" aria-pressed="false" aria-label="Pin World Clock &amp; Time Zone Converter to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="device-test" data-group="productivity">
+<li class="card" data-id="device-test" data-group="productivity" style="--c:#5C8A1C">
 <a class="card-link" href="../en/device-test/"><span class="tile" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#monitor-check"></use></svg></span><span class="card-txt"><h3 class="card-name">Camera, Mic, Keyboard &amp; Screen Test</h3><span class="card-desc">Test your camera, microphone, left/right speakers, keyboard, mouse and dead pixels on one page before an online meeting.</span></span></a>
 <button class="star" type="button" data-fav="device-test" aria-pressed="false" aria-label="Pin Camera, Mic, Keyboard &amp; Screen Test to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="webcam-test" data-group="productivity">
+<li class="card" data-id="webcam-test" data-group="productivity" style="--c:#5C8A1C">
 <a class="card-link" href="../en/webcam-test/"><span class="tile" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#webcam"></use></svg></span><span class="card-txt"><h3 class="card-name">Webcam Test</h3><span class="card-desc">Test your webcam or laptop camera online: see the image, resolution, frame rate and take a test photo.</span></span></a>
 <button class="star" type="button" data-fav="webcam-test" aria-pressed="false" aria-label="Pin Webcam Test to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="mic-test" data-group="productivity">
+<li class="card" data-id="mic-test" data-group="productivity" style="--c:#5C8A1C">
 <a class="card-link" href="../en/mic-test/"><span class="tile" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#mic-vocal"></use></svg></span><span class="card-txt"><h3 class="card-name">Microphone Test</h3><span class="card-desc">Test your microphone online: see the level and waveform as you speak, record 5 seconds and play it back.</span></span></a>
 <button class="star" type="button" data-fav="mic-test" aria-pressed="false" aria-label="Pin Microphone Test to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="speaker-test" data-group="productivity">
+<li class="card" data-id="speaker-test" data-group="productivity" style="--c:#5C8A1C">
 <a class="card-link" href="../en/speaker-test/"><span class="tile" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#speaker"></use></svg></span><span class="card-txt"><h3 class="card-name">Speaker &amp; Headphone Test</h3><span class="card-desc">Test left and right speakers and headphones; play test tones at many frequencies and a low-to-high sweep.</span></span></a>
 <button class="star" type="button" data-fav="speaker-test" aria-pressed="false" aria-label="Pin Speaker &amp; Headphone Test to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="keyboard-test" data-group="productivity">
+<li class="card" data-id="keyboard-test" data-group="productivity" style="--c:#5C8A1C">
 <a class="card-link" href="../en/keyboard-test/"><span class="tile" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#keyboard"></use></svg></span><span class="card-txt"><h3 class="card-name">Keyboard Test</h3><span class="card-desc">Test your keyboard online: Windows and Mac layouts, laptop or external, with or without a numpad; multi-key rollover and key chatter detection.</span></span></a>
 <button class="star" type="button" data-fav="keyboard-test" aria-pressed="false" aria-label="Pin Keyboard Test to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="mouse-test" data-group="productivity">
+<li class="card" data-id="mouse-test" data-group="productivity" style="--c:#5C8A1C">
 <a class="card-link" href="../en/mouse-test/"><span class="tile" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#mouse"></use></svg></span><span class="card-txt"><h3 class="card-name">Mouse Test</h3><span class="card-desc">Test your mouse online: buttons (including Back/Forward), double-clicks, phantom double-click detection, wheel and polling rate.</span></span></a>
 <button class="star" type="button" data-fav="mouse-test" aria-pressed="false" aria-label="Pin Mouse Test to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="screen-test" data-group="productivity">
+<li class="card" data-id="screen-test" data-group="productivity" style="--c:#5C8A1C">
 <a class="card-link" href="../en/screen-test/"><span class="tile" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#monitor-dot"></use></svg></span><span class="card-txt"><h3 class="card-name">Dead Pixel Test</h3><span class="card-desc">Find dead pixels, stuck pixels, backlight bleed and uneven colors with full-screen colors; see resolution and refresh rate.</span></span></a>
 <button class="star" type="button" data-fav="screen-test" aria-pressed="false" aria-label="Pin Dead Pixel Test to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul>
 </section>
 <section class="block group-block" id="group-download" data-group="download">
-<h2><a href="../en/category/download/"><span class="tile sm" style="--c:#0090FF"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#download"></use></svg></span>Downloads</a> <small>7 tools</small></h2>
-<ul class="cards"><li class="card" data-id="telegram-stickers" data-group="download">
+<h2 class="tab"><a href="../en/category/download/" style="--c:#0090FF"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#download"></use></svg>Downloads</a> <small>7 tools</small></h2>
+<ul class="cards"><li class="card" data-id="telegram-stickers" data-group="download" style="--c:#0090FF">
 <a class="card-link" href="../en/telegram-stickers/"><span class="tile" style="--c:#0090FF"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#sticker"></use></svg></span><span class="card-txt"><h3 class="card-name">Telegram Sticker Downloader</h3><span class="card-desc">Download whole Telegram sticker sets: original files (WEBP, TGS, WEBM) or converted to PNG and GIF; also converts .tgs and .webm files you already have.</span></span></a>
 <button class="star" type="button" data-fav="telegram-stickers" aria-pressed="false" aria-label="Pin Telegram Sticker Downloader to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="line-stickers" data-group="download">
+<li class="card" data-id="line-stickers" data-group="download" style="--c:#0090FF">
 <a class="card-link" href="../en/line-stickers/"><span class="tile" style="--c:#0090FF"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#sticker"></use></svg></span><span class="card-txt"><h3 class="card-name">LINE Sticker Downloader</h3><span class="card-desc">Paste a LINE Store link to download a whole LINE sticker or emoji set: original PNG, animated APNG with sound, or converted to GIF. No login needed.</span></span></a>
 <button class="star" type="button" data-fav="line-stickers" aria-pressed="false" aria-label="Pin LINE Sticker Downloader to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="noto-emoji" data-group="download">
+<li class="card" data-id="noto-emoji" data-group="download" style="--c:#0090FF">
 <a class="card-link" href="../en/noto-emoji/"><span class="tile" style="--c:#0090FF"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#smile"></use></svg></span><span class="card-txt"><h3 class="card-name">Animated Emoji Downloader</h3><span class="card-desc">Search emoji and download Google&#39;s animated versions (Noto Animated Emoji) as GIF, WEBP or Lottie, plus large still PNGs.</span></span></a>
 <button class="star" type="button" data-fav="noto-emoji" aria-pressed="false" aria-label="Pin Animated Emoji Downloader to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="signal-stickers" data-group="download">
+<li class="card" data-id="signal-stickers" data-group="download" style="--c:#0090FF">
 <a class="card-link" href="../en/signal-stickers/"><span class="tile" style="--c:#0090FF"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#sticker"></use></svg></span><span class="card-txt"><h3 class="card-name">Signal Sticker Downloader</h3><span class="card-desc">Paste a signal.art/addstickers link to download and decrypt a whole Signal sticker pack right in your browser, as WEBP, PNG or GIF.</span></span></a>
 <button class="star" type="button" data-fav="signal-stickers" aria-pressed="false" aria-label="Pin Signal Sticker Downloader to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="twitch-emotes" data-group="download">
+<li class="card" data-id="twitch-emotes" data-group="download" style="--c:#0090FF">
 <a class="card-link" href="../en/twitch-emotes/"><span class="tile" style="--c:#0090FF"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#tv"></use></svg></span><span class="card-txt"><h3 class="card-name">Twitch Emote Downloader (7TV, FFZ)</h3><span class="card-desc">Enter a Twitch channel name to view and download its whole 7TV and FrankerFaceZ emote set as a zip: PNG, animated GIF or WEBP, in all 4 sizes.</span></span></a>
 <button class="star" type="button" data-fav="twitch-emotes" aria-pressed="false" aria-label="Pin Twitch Emote Downloader (7TV, FFZ) to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="discord-emoji" data-group="download">
+<li class="card" data-id="discord-emoji" data-group="download" style="--c:#0090FF">
 <a class="card-link" href="../en/discord-emoji/"><span class="tile" style="--c:#0090FF"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#smile-plus"></use></svg></span><span class="card-txt"><h3 class="card-name">Discord Emoji &amp; Sticker Downloader</h3><span class="card-desc">Paste Discord emoji or sticker links or codes to download the original, largest version (PNG, GIF, WEBP), convert Lottie stickers to GIF, and get whole official sticker packs.</span></span></a>
 <button class="star" type="button" data-fav="discord-emoji" aria-pressed="false" aria-label="Pin Discord Emoji &amp; Sticker Downloader to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li>
-<li class="card" data-id="youtube-thumbnail" data-group="download">
+<li class="card" data-id="youtube-thumbnail" data-group="download" style="--c:#0090FF">
 <a class="card-link" href="../en/youtube-thumbnail/"><span class="tile" style="--c:#0090FF"><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#image-down"></use></svg></span><span class="card-txt"><h3 class="card-name">YouTube Thumbnail Downloader</h3><span class="card-desc">Paste a YouTube video or Shorts link to view and download its thumbnail in every size, up to HD 1280×720; black bars removed automatically, as JPG, PNG or WEBP.</span></span></a>
 <button class="star" type="button" data-fav="youtube-thumbnail" aria-pressed="false" aria-label="Pin YouTube Thumbnail Downloader to Favorites" hidden><svg class="i" aria-hidden="true"><use href="../assets/icons.svg#star"></use></svg></button>
 </li></ul>
@@ -810,7 +825,7 @@
 <footer class="foot">
 <div class="foot-in">
 <div class="foot-brand">
-<a class="brand" href="../en/"><svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="var(--brand)"/><path d="M10 7.5h7.2c3.3 0 5.4 1.8 5.4 4.5 0 1.9-1 3.2-2.6 3.8 2.1.5 3.5 2.1 3.5 4.3 0 3.1-2.4 5.1-6 5.1H10z" fill="#fff"/><path d="M14.2 11v3.6h2.6c1.3 0 2-.7 2-1.8s-.7-1.8-2-1.8zm0 6.9v4h3c1.5 0 2.3-.8 2.3-2s-.8-2-2.3-2z" fill="var(--brand)"/><circle cx="25.5" cy="7" r="2.6" fill="#FFC53D"/></svg><span>Bbe<b>Tools</b></span></a>
+<a class="brand" href="../en/"><svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="var(--logo)"/><path d="M10 7.5h7.2c3.3 0 5.4 1.8 5.4 4.5 0 1.9-1 3.2-2.6 3.8 2.1.5 3.5 2.1 3.5 4.3 0 3.1-2.4 5.1-6 5.1H10z" fill="#fff"/><path d="M14.2 11v3.6h2.6c1.3 0 2-.7 2-1.8s-.7-1.8-2-1.8zm0 6.9v4h3c1.5 0 2.3-.8 2.3-2s-.8-2-2.3-2z" fill="var(--logo)"/><circle cx="25.5" cy="7" r="2.6" fill="#FFC53D"/></svg><span>Bbe<b>Tools</b></span></a>
 <p>Free online tools. Everything runs right in your browser: <b>your files never leave your device</b>.</p>
 </div>
 <nav aria-label="Tool categories"><h2>Tool categories</h2><ul><li><a href="../en/category/pdf/">PDF</a></li><li><a href="../en/category/image/">Image</a></li><li><a href="../en/category/media/">Audio &amp; Video</a></li><li><a href="../en/category/text/">Text</a></li><li><a href="../en/category/calc/">Calculators</a></li><li><a href="../en/category/qr/">QR &amp; Barcodes</a></li><li><a href="../en/category/office/">Office &amp; Data</a></li><li><a href="../en/category/dev/">Developer</a></li><li><a href="../en/category/security/">Security</a></li><li><a href="../en/category/productivity/">Productivity &amp; Random</a></li><li><a href="../en/category/download/">Downloads</a></li></ul></nav>

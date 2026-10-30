@@ -49,5 +49,5 @@ Cấu trúc mã, cách thêm công cụ và các lệnh kiểm tra: xem [docs/ph
 
 - Thư viện mã nguồn mở tải từ jsDelivr (ghim phiên bản): pdf-lib (@cantoo), pdf.js, JSZip, heic-to (libheif), jSquash (MozJPEG, WebP), UPNG.js, qrcode-generator, zxing-wasm, onnxruntime-web.
 - Mô hình AI trong `models/`: MODNet (Apache-2.0), UltraFace (MIT).
-- Icon [Lucide](https://lucide.dev) (ISC), font Be Vietnam Pro (OFL).
+- Icon [Lucide](https://lucide.dev) (ISC), font Be Vietnam Pro và Bricolage Grotesque (OFL).
 - Nguồn của file mẫu: [samples/README.md](samples/README.md).

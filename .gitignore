@@ -9,3 +9,7 @@ node_modules/
 .claude/settings.local.json
 # Engine của Impeccable (~17 MB, riêng từng hệ điều hành); launcher tự tải khi thiếu
 .claude/skills/impeccable/scripts/bin/
+
+# Bộ nhớ đệm, phiếu chọn hướng của Impeccable (chỉ dùng ở máy)
+.impeccable/hook.cache.json
+.impeccable/questions/

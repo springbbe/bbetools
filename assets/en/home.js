@@ -54,6 +54,12 @@ chips.forEach((c) => c.addEventListener("click", (e) => {
   filter(c.dataset.filter, true);
   replaceUrl(c.dataset.filter === "all" ? location.pathname + location.search : c.getAttribute("href"));
 }));
+/* nhãn chuyên mục trong khối đầu trang (máy tính) lọc giống chip */
+$$(".hero-cats a").forEach((a) => a.addEventListener("click", (e) => {
+  e.preventDefault();
+  filter(a.dataset.filter, true);
+  replaceUrl(a.getAttribute("href"));
+}));
 const fromHash = chips.find((c) => c.getAttribute("href") === location.hash && c.dataset.filter !== "all");
 if (fromHash) filter(fromHash.dataset.filter, false);
 const bar = $(".chips");
