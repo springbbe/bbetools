@@ -617,6 +617,14 @@ mark.hit.h1 { background: var(--hit-2); }
 .md-preview blockquote { margin: 12px 0; padding: 2px 14px; border-left: 4px solid var(--line-2); color: var(--muted); }
 .md-preview img { max-width: 100%; }
 .md-preview li:has(> input[type=checkbox]) { list-style: none; margin-left: -1.3em; }
+.md-in { position: relative; }
+.md-in.drop::after { content: ""; position: absolute; inset: 6px; border: 2px dashed var(--brand); border-radius: 12px; background: color-mix(in srgb, var(--brand) 8%, transparent); pointer-events: none; }
+.md-file { max-width: 34%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; color: var(--brand); background: var(--brand-soft); padding: 2px 8px; border-radius: 999px; }
+.md-out:fullscreen, .md-out.md-full { background: var(--surface); border-radius: 0; border: 0; overflow: hidden; }
+.md-out.md-full { position: fixed; inset: 0; z-index: 1000; padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); }
+.md-out:fullscreen .out, .md-out.md-full .out { max-height: none; resize: none; padding: 8px max(16px, calc((100% - 860px) / 2)) 48px; font-size: 17px; }
+.md-out:fullscreen .out.mono, .md-out.md-full .out.mono { font-size: 14px; }
+html.md-lock, html.md-lock body { overflow: hidden; }
 .lorem-out { line-height: 1.7; }
 .lorem-out p { margin: 0 0 12px; }
 pre.lorem-out { white-space: pre-wrap; background: var(--surface-2); padding: 12px; border-radius: 10px; font-size: 13.5px; margin: 0; }

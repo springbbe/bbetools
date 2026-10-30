@@ -978,14 +978,17 @@
     },
     {
       "id": "markdown-to-html", "slug": "markdown-sang-html", "name": "Markdown sang HTML", "group": "text", "icon": "file-code", "kind": "text",
-      "desc": "Chuyển Markdown thành HTML, xem trước trực tiếp.",
-      "keywords": ["md", "markdown preview", "markdown to html"],
+      "desc": "Mở file .md hoặc gõ Markdown, xem trước trực tiếp hoặc toàn màn hình, xuất ra HTML.",
+      "keywords": ["md", "markdown preview", "markdown to html", "xem file md", "mở file markdown", "đọc file .md", "markdown viewer"],
+      "accept": ["text"],
       "status": "done",
-      "aliases": ["markdown", "md-sang-html", "markdown-to-html"],
+      "aliases": ["markdown", "md-sang-html", "markdown-to-html", "xem-file-md"],
       "related": ["html-entity", "minifier"],
-      "howto": ["Gõ hoặc dán Markdown vào ô bên trái.", "Xem trước ngay bên phải, hoặc chuyển sang “Mã HTML”.", "Sao chép mã HTML hoặc tải về thành file .html hoàn chỉnh."],
+      "privacy": "Markdown bạn gõ và file .md bạn mở chỉ được đọc và chuyển ngay trên trình duyệt, không tải lên máy chủ nào.",
+      "howto": ["Gõ hoặc dán Markdown vào ô bên trái; hoặc bấm “Mở file”, kéo thả file .md vào trang.", "Xem trước ngay bên phải, hoặc chuyển sang “Mã HTML”.", "Bấm nút toàn màn hình ở ô kết quả để đọc thoải mái (Esc để thoát).", "Sao chép mã HTML hoặc tải về thành file .html hoàn chỉnh."],
       "faq": [
         { "q": "Hỗ trợ những cú pháp nào?", "a": "Markdown chuẩn và GitHub Flavored Markdown: bảng, gạch ngang chữ, danh sách việc cần làm, khối mã." },
+        { "q": "Mở được file nào?", "a": "File Markdown (.md, .markdown, .mdx…) và file văn bản .txt, tự nhận mã UTF-8, UTF-16, Windows-1258. Ảnh dùng đường dẫn tương đối trong file sẽ không hiện vì trình duyệt chỉ đọc được đúng file bạn chọn." },
         { "q": "Xem trước có an toàn với mã độc không?", "a": "Có, phần xem trước được lọc bằng DOMPurify (bỏ script, thuộc tính sự kiện). Mã HTML xuất ra giữ nguyên những gì Markdown sinh ra." }
       ]
     },

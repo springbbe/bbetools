@@ -1986,23 +1986,32 @@
   },
   "markdown-to-html": {
    "name": "Markdown to HTML",
-   "desc": "Convert Markdown to HTML with a live preview.",
+   "desc": "Open a .md file or type Markdown, preview it live or full screen, export to HTML.",
    "keywords": [
     "markdown to html",
     "markdown converter",
     "md to html",
     "markdown preview",
-    "markdown editor"
+    "markdown editor",
+    "markdown viewer",
+    "open md file",
+    "md file viewer"
    ],
+   "privacy": "The Markdown you type and the .md files you open are read and converted right in your browser, never uploaded to any server.",
    "howto": [
-    "Type or paste Markdown into the left box.",
+    "Type or paste Markdown into the left box, or click “Open file” or drag and drop a .md file onto the page.",
     "See the preview on the right, or switch to “HTML code”.",
+    "Click the full-screen button in the result box for comfortable reading (Esc to exit).",
     "Copy the HTML or download it as a complete .html file."
    ],
    "faq": [
     {
      "q": "What syntax is supported?",
      "a": "Standard Markdown and GitHub Flavored Markdown: tables, strikethrough, task lists, code blocks."
+    },
+    {
+     "q": "Which files can I open?",
+     "a": "Markdown files (.md, .markdown, .mdx…) and plain .txt files, with UTF-8, UTF-16 and Windows-1258 detected automatically. Images linked with relative paths in the file won't show, because the browser can only read the one file you picked."
     },
     {
      "q": "Is the preview safe from malicious code?",
