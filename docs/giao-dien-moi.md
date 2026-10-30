@@ -23,7 +23,7 @@ Bản đầy đủ cho AI (hợp đồng thiết kế): `.impeccable/surfaces/in
 |---|---|---|
 | 1 | Nền móng: bảng màu sáng/tối, font tiêu đề, nút, ô nhập, chip, focus, bôi chọn chữ, thanh cuộn; header, footer, logo; **trang chủ** | ✅ Xong |
 | 2 | **Trang công cụ**: dải đầu trang theo màu nhóm, đường dẫn, dòng quyền riêng tư, ô thả file, khung ứng dụng, cách dùng/FAQ/công cụ liên quan; 4 khung (file, văn bản, form, tương tác), kết quả, thông báo, toast, hộp thoại | ✅ Xong |
-| 3 | **Điều hướng và trang phụ**: menu "Tất cả công cụ" (máy tính) và ngăn kéo (điện thoại), bảng lệnh tìm kiếm, trang nhóm, Giới thiệu, 404; kiểm tra bản tiếng Anh | ⏳ Chưa làm |
+| 3 | **Điều hướng và trang phụ**: menu "Tất cả công cụ" (máy tính) và ngăn kéo (điện thoại), bảng lệnh tìm kiếm, trang nhóm, Giới thiệu, 404; kiểm tra bản tiếng Anh | ✅ Xong |
 | 4 | **Rà từng nhóm công cụ**: bảng trang PDF, so sánh ảnh, thanh cắt âm thanh/video, bảng và thẻ số của nhóm Tính toán, bảng Excel, QR, khung tải sticker, trang kiểm tra thiết bị. Chạy thử với file mẫu | ⏳ Chưa làm |
 | 5 | **Hoàn thiện**: chuyển động có chủ đích, ảnh OG và icon ứng dụng theo màu mới (`scripts/make-brand.js`), rà soát tương phản/bàn phím/375 px, review cuối, viết `DESIGN.md` | ⏳ Chưa làm |
 
@@ -58,3 +58,10 @@ Mở phiên Claude Code mới trong thư mục dự án và gõ prompt của gia
 - Toast nền nâu đất, nút hành động viền vàng; toast lỗi nền đỏ đậm cố định (trước đây chế độ tối chữ trắng trên đỏ nhạt khó đọc). Nền mờ sau hộp thoại và bảng lệnh ám nâu. `.result-big` dùng font tiêu đề.
 - Đã thử bằng Chrome headless ở 1280 px và 375 px, sáng và tối, bản tiếng Anh: Ghép PDF (file mẫu → ghép → kết quả), Đếm từ, Tính lương gross/net, Thuế TNCN, VietQR, Test webcam, hộp thoại và toast lỗi; console không lỗi; build, check, test đều qua.
 - Để lại cho GĐ 4 (từ `impeccable detect`): bảng `.tbl-wrap` trong khung form vẫn bị tính là thẻ lồng thẻ (Thuế TNCN); màn bắt đầu của Scan tài liệu; số tiền dài trong thẻ số ở khổ 375 px vẫn xuống dòng ("1.082.500 đ/tháng"); khung camera của Test webcam chưa căn giữa trong khung.
+
+### GĐ 3
+- Trang nhóm và Giới thiệu dùng chung dải đầu trang với trang công cụ (`.tool-page.band-page`, không có khung đè lên): trang nhóm nhuộm màu nhóm, Giới thiệu nhuộm vàng đất (`--c: #C8922A`, tiêu đề không có icon: `.tool-head.plain`).
+- Menu "Tất cả công cụ" (máy tính): mỗi cột nhóm có gạch trên 2 px màu chuyên mục. Ngăn kéo (điện thoại): tiêu đề font Bricolage, nền mờ ám nâu.
+- Bảng lệnh: ẩn nút xoá màu xanh mặc định của ô tìm (đã có nút đóng riêng); nền mờ ám nâu.
+- Giới thiệu: đoạn văn giới hạn 58ch, chữ 16,5 px, dấu đầu dòng màu thương hiệu. 404: số "404" dùng font tiêu đề.
+- Đã thử bằng Chrome headless ở 1280 px và 375 px, sáng và tối, bản tiếng Anh (trang chủ, trang nhóm, bảng lệnh); `impeccable detect` sạch trên trang nhóm, Giới thiệu, 404; build, check, test đều qua.

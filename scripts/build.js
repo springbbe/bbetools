@@ -125,7 +125,7 @@ function mega(L, root) {
 ${L.liveGroups.map((g) => {
   const list = L.liveIn(g.id);
   const shown = list.slice(0, 8);
-  return `<section class="mega-col"><h2><a href="${root}${L.groupUrl(g)}">${tile(L, g, root, "sm")}${esc(g.name)}</a></h2>
+  return `<section class="mega-col" style="--c:${g.color}"><h2><a href="${root}${L.groupUrl(g)}">${tile(L, g, root, "sm")}${esc(g.name)}</a></h2>
 <ul>${shown.map((t) => `<li><a href="${root}${L.toolUrl(t)}">${esc(t.name)}</a></li>`).join("")}</ul>${list.length > shown.length ? `<a class="more" href="${root}${L.groupUrl(g)}">${tr("Xem cả {0} công cụ", list.length)} ${icon("arrow-right", root)}</a>` : ""}</section>`;
 }).join("\n")}
 </div>
@@ -296,11 +296,17 @@ function groupPage(L, g) {
   const { tr } = L;
   const path = L.groupUrl(g), root = rootOf(path);
   const list = L.liveIn(g.id);
-  const main = `<div class="wrap">
+  const main = `<div class="tool-page band-page" style="--c:${g.color}">
+<div class="tool-band">
+<div class="wrap">
 <nav class="crumbs" aria-label="${tr("Đường dẫn")}"><ol><li><a href="${root}${L.homeUrl}">${tr("Trang chủ")}</a></li><li><span aria-current="page">${esc(g.name)}</span></li></ol></nav>
-<header class="page-head">${tile(L, g, root, "lg")}<div><h1>${esc(tr("Công cụ {0}", g.name))}</h1><p class="lead">${esc(g.desc)} ${tr("{0} công cụ miễn phí, chạy ngay trên trình duyệt.", list.length)}</p></div></header>
+<header class="tool-head">${tile(L, g, root, "lg")}<div class="tool-title"><h1>${esc(tr("Công cụ {0}", g.name))}</h1><p class="lead">${esc(g.desc)} ${tr("{0} công cụ miễn phí, chạy ngay trên trình duyệt.", list.length)}</p></div></header>
+</div>
+</div>
+<div class="wrap">
 ${cards(L, list, root, { h: "h2" })}
 <section class="block"><h2>${tr("Nhóm khác")}</h2><ul class="chip-list">${L.liveGroups.filter((x) => x !== g).map((x) => `<li><a class="chip" href="${root}${L.groupUrl(x)}">${tile(L, x, root, "xs")}${esc(x.name)}</a></li>`).join("")}</ul></section>
+</div>
 </div>`;
   const ld = {
     "@context": "https://schema.org",
@@ -388,10 +394,15 @@ ${related.length ? `<section class="block"><h2>${tr("Công cụ liên quan")} <a
 function aboutPage(L) {
   const { tr } = L;
   const path = L.aboutUrl, root = rootOf(path);
-  const main = `<div class="wrap narrow prose">
+  const main = `<div class="tool-page band-page" style="--c:#C8922A">
+<div class="tool-band">
+<div class="wrap narrow">
 <nav class="crumbs" aria-label="${tr("Đường dẫn")}"><ol><li><a href="${root}${L.homeUrl}">${tr("Trang chủ")}</a></li><li><span aria-current="page">${tr("Giới thiệu")}</span></li></ol></nav>
-<h1>${tr("Giới thiệu &amp; quyền riêng tư")}</h1>
-<p class="lead">${tr("BbeTools là bộ công cụ tiện ích miễn phí, giao diện tiếng Việt, chạy hoàn toàn trên trình duyệt của bạn.")}</p>
+<header class="tool-head plain"><div class="tool-title"><h1>${tr("Giới thiệu &amp; quyền riêng tư")}</h1>
+<p class="lead">${tr("BbeTools là bộ công cụ tiện ích miễn phí, giao diện tiếng Việt, chạy hoàn toàn trên trình duyệt của bạn.")}</p></div></header>
+</div>
+</div>
+<div class="wrap narrow prose">
 <h2>${tr("File của bạn không rời khỏi máy")}</h2>
 <p>${tr("BbeTools không có máy chủ xử lý. Khi bạn ghép PDF, nén ảnh hay làm ảnh thẻ, mọi phép tính diễn ra bằng JavaScript và WebAssembly ngay trong tab trình duyệt. File, văn bản, hình ảnh camera và âm thanh micro không được gửi đi đâu. Bạn có thể ngắt mạng sau khi trang và thư viện đã tải xong, công cụ vẫn chạy.")}</p>
 <h2>${tr("Trang tải những gì từ Internet?")}</h2>
@@ -408,6 +419,7 @@ function aboutPage(L) {
 <p>${tr("Toàn bộ mã nguồn ở {0}. Bạn có thể tự kiểm tra, góp ý hoặc báo lỗi tại mục Issues.", `<a href="${site.repo}" rel="noopener">${esc(site.repo.replace("https://", ""))}</a>`)}</p>
 <h2>${tr("Giới hạn")}</h2>
 <p>${tr("Vì chạy trên máy bạn nên tốc độ phụ thuộc vào máy: file rất lớn (vài trăm MB) có thể chậm hoặc thiếu bộ nhớ trên điện thoại cũ. Kết quả tính toán (thuế, lương, lãi…) chỉ để tham khảo; dữ liệu pháp lý có ghi rõ ngày cập nhật trên từng trang.")}</p>
+</div>
 </div>`;
   return page(L, { path, key: "about", title: `${tr("Giới thiệu & quyền riêng tư")} – ${site.name}`, desc: tr("BbeTools xử lý mọi file ngay trên trình duyệt, không tải lên máy chủ, không quảng cáo. Mã nguồn mở."), entry: L.js("core.js"), main });
 }
