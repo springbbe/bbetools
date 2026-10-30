@@ -101,7 +101,7 @@ formTool({
 
 const st = document.createElement("style");
 st.textContent = `.sb-people{display:flex;flex-wrap:wrap;gap:6px}.sb-people .chip{padding-right:4px}.sb-add{display:flex;gap:8px}.sb-add input{flex:1}
-.sb-list{display:flex;flex-direction:column;gap:10px}.sb-exp{border:1px solid var(--line);border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:8px;background:var(--surface)}
+.sb-list{display:flex;flex-direction:column;gap:10px}.sb-exp{border-top:1px solid var(--line);padding:12px 0 2px;display:flex;flex-direction:column;gap:8px}
 .sb-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.sb-row>input,.sb-row>select{flex:1;min-width:120px}.sb-row>.muted{width:58px}
 .sb-among{display:flex;flex-wrap:wrap;gap:6px;flex:1}.sb-tick{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line);border-radius:99px;padding:3px 10px;font-size:14px;cursor:pointer}
 .sb-tick:has(input:checked){background:var(--brand-soft);border-color:var(--brand)}

@@ -92,7 +92,7 @@ function paper(v, m, qrUrl) {
   const sumRow = (label, val, cls) => h("tr", { class: cls || null }, h("td", { text: label }), h("td", { text: val }));
   return h("div", { class: "iv-paper" },
     h("div", { class: "iv-seller" }, v.sname ? h("p", { class: "iv-sname", text: v.sname }) : null, line("Địa chỉ", v.saddr), line("Điện thoại", [v.sphone, v.semail].filter(Boolean).join(" · ")), line("MST", v.stax)),
-    h("h3", { class: "iv-title", text: titleOf(v) }),
+    h("h2", { class: "iv-title", text: titleOf(v) }),
     h("p", { class: "iv-meta", text: [v.no ? "Số: " + v.no : "", v.date ? "Ngày " + vnDate(v.date) : "", isQuote(v) && v.valid > 0 && v.date ? "Hiệu lực đến " + vnDate(addDays(v.date, +v.valid)) : ""].filter(Boolean).join(" · ") }),
     h("div", { class: "iv-buyer" }, line(isQuote(v) ? "Kính gửi" : "Khách hàng", v.bname, true), line("Địa chỉ", v.baddr), line("Điện thoại", v.bphone), line("MST", v.btax)),
     h("div", { class: "iv-twrap" }, h("table", { class: "iv-t" },
@@ -318,7 +318,7 @@ css.textContent = `
 .iv-paper p{margin:0}
 .iv-sname{font-weight:700;font-size:15px}
 .iv-l{color:#5b6271}
-.iv-title{text-align:center;font-size:20px;margin:18px 0 2px;letter-spacing:.5px;color:#1f1f1f}
+.iv-title{text-align:center;font-family:inherit;font-weight:700;font-size:20px;margin:18px 0 2px;letter-spacing:.5px;color:#1f1f1f}
 .iv-meta{text-align:center;color:#5b6271;margin-bottom:12px!important}
 .iv-buyer{margin-bottom:10px}
 .iv-twrap{overflow-x:auto}
@@ -326,7 +326,7 @@ css.textContent = `
 .iv-t th,.iv-t td{border:1px solid #c5c9d0;padding:5px 6px;text-align:center;vertical-align:top}
 .iv-t th{background:#eff1f5;font-weight:600}
 .iv-t td.l{text-align:left}.iv-t td.r{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
-.iv-empty{color:#888;font-style:italic}
+.iv-empty{color:#6b6b6b;font-style:italic}
 .iv-sum{margin:10px 0 6px auto;border-collapse:collapse;font-size:13px}
 .iv-sum td{padding:2px 0 2px 18px;text-align:right;font-variant-numeric:tabular-nums}
 .iv-sum td:first-child{color:#5b6271}

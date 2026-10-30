@@ -106,7 +106,7 @@ css.textContent = `.pomo{--pc:#E5484D;display:flex;flex-direction:column;align-i
 .pomo-ring .track{fill:none;stroke:var(--surface-2);stroke-width:14}.pomo-ring .bar{fill:none;stroke:var(--pc);stroke-width:14;stroke-linecap:round;transition:stroke-dashoffset .25s linear,stroke .3s}
 .pomo-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .pomo-time{font-size:clamp(48px,14vw,68px);font-weight:800;letter-spacing:-0.03em;font-variant-numeric:tabular-nums;line-height:1}
-.pomo-phase{font-weight:700;color:var(--pc);margin-bottom:4px}
+.pomo-phase{font-weight:700;color:color-mix(in oklab,var(--pc) 72%,var(--ink));margin-bottom:4px}
 .pomo-dots{display:flex;gap:8px}.pomo-dots span{width:12px;height:12px;border-radius:50%;background:var(--line-2)}.pomo-dots span.on{background:var(--pc)}
 .pomo .input{max-width:420px;text-align:center}.pomo .btn.big{min-width:190px}.pomo .btn.big .i{width:22px;height:22px}`;
 document.head.append(css);

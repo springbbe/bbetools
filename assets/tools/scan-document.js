@@ -13,7 +13,7 @@ const FILTERS = [["color", "Màu"], ["gray", "Xám"], ["bw", "Đen trắng"], ["
 const css = document.createElement("style");
 css.textContent = `
 .sc{display:flex;flex-direction:column;gap:16px}
-.sc-start{display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;padding:30px 12px;border:2px dashed var(--line-2);border-radius:14px;background:var(--bg)}
+.sc-start{display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;padding:30px 12px}
 .sc-start .row{justify-content:center}
 .sc-cam{position:relative;background:#000;border-radius:14px;overflow:hidden;max-height:72vh;display:grid;place-items:center}
 .sc-cam video{width:100%;max-height:72vh;object-fit:contain;display:block}

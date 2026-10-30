@@ -24,7 +24,7 @@ Bản đầy đủ cho AI (hợp đồng thiết kế): `.impeccable/surfaces/in
 | 1 | Nền móng: bảng màu sáng/tối, font tiêu đề, nút, ô nhập, chip, focus, bôi chọn chữ, thanh cuộn; header, footer, logo; **trang chủ** | ✅ Xong |
 | 2 | **Trang công cụ**: dải đầu trang theo màu nhóm, đường dẫn, dòng quyền riêng tư, ô thả file, khung ứng dụng, cách dùng/FAQ/công cụ liên quan; 4 khung (file, văn bản, form, tương tác), kết quả, thông báo, toast, hộp thoại | ✅ Xong |
 | 3 | **Điều hướng và trang phụ**: menu "Tất cả công cụ" (máy tính) và ngăn kéo (điện thoại), bảng lệnh tìm kiếm, trang nhóm, Giới thiệu, 404; kiểm tra bản tiếng Anh | ✅ Xong |
-| 4 | **Rà từng nhóm công cụ**: bảng trang PDF, so sánh ảnh, thanh cắt âm thanh/video, bảng và thẻ số của nhóm Tính toán, bảng Excel, QR, khung tải sticker, trang kiểm tra thiết bị. Chạy thử với file mẫu | ⏳ Chưa làm |
+| 4 | **Rà từng nhóm công cụ**: bảng trang PDF, so sánh ảnh, thanh cắt âm thanh/video, bảng và thẻ số của nhóm Tính toán, bảng Excel, QR, khung tải sticker, trang kiểm tra thiết bị. Chạy thử với file mẫu | ✅ Xong |
 | 5 | **Hoàn thiện**: chuyển động có chủ đích, ảnh OG và icon ứng dụng theo màu mới (`scripts/make-brand.js`), rà soát tương phản/bàn phím/375 px, review cuối, viết `DESIGN.md` | ⏳ Chưa làm |
 
 ## Cách tiếp tục
@@ -65,3 +65,13 @@ Mở phiên Claude Code mới trong thư mục dự án và gõ prompt của gia
 - Bảng lệnh: ẩn nút xoá màu xanh mặc định của ô tìm (đã có nút đóng riêng); nền mờ ám nâu.
 - Giới thiệu: đoạn văn giới hạn 58ch, chữ 16,5 px, dấu đầu dòng màu thương hiệu. 404: số "404" dùng font tiêu đề.
 - Đã thử bằng Chrome headless ở 1280 px và 375 px, sáng và tối, bản tiếng Anh (trang chủ, trang nhóm, bảng lệnh); `impeccable detect` sạch trên trang nhóm, Giới thiệu, 404; build, check, test đều qua.
+
+### GĐ 4
+- Quét `impeccable detect` cả 155 trang công cụ (máy chủ thử, 1280 px). Lỗi chính "thẻ lồng thẻ" ở 33 công cụ: bên trong khung ứng dụng, bảng `.tbl-wrap`, mục mở rộng `details`, danh sách `.ts-list`, thẻ mã HTTP, hộp mật khẩu, khoản chi (Chia tiền nhóm), thẻ đội (Bốc thăm) chuyển sang kẻ dòng/gạch trên thay vì đóng hộp; màn bắt đầu của Scan tài liệu bỏ viền đứt (khung đã là một thẻ).
+- Nhóm Tính toán: thẻ số ít nhất 180 px một cột (hết cắt "1.002.083.414 đ"), điện thoại 2 cột; Thuế TNCN đưa "/tháng" vào nhãn. Cột kết quả dính lại khi cuộn nếu ngắn hơn màn hình mà form dài hơn (`.fm-out-in.stick`, `assets/frames/form.js`).
+- Nút chọn kiểu (`.seg`): ô rộng theo chữ, chữ không xuống dòng giữa nhãn; cột tuỳ chọn khung file rộng 360 px (vừa "Giữ định dạng · JPG · WebP · PNG").
+- Ô chọn màu bỏ khung trắng mặc định quanh mẫu màu. Trích dẫn Markdown: bỏ viền trái 4 px, thay bằng nền nhạt bo góc.
+- Tương phản: số đếm ngược Tết (nền đỏ đậm hơn, chữ không trong suốt), nhãn pha Pomodoro ở chế độ tối, chữ mờ trong hoá đơn. Cấp tiêu đề: tên đội (Bốc thăm) và tiêu đề hoá đơn từ h3 lên h2.
+- Chữ lẻ ở dòng cuối: `text-wrap: pretty` cho cả `li`, `small`, `summary`, `.hint`.
+- Đã chụp thử với file mẫu: Sắp xếp trang PDF, Nén ảnh, Cắt âm thanh, Cắt video, Xem Excel, Tải sticker LINE, Markdown, Làm ảnh thẻ, Lãi vay, QR, Kiểm tra bàn phím, Thuế TNCN, Chia tiền, Bốc thăm, HTTP, Pomodoro, Đếm ngược Tết; 1280 px và 375 px, sáng và tối.
+- Để lại có chủ ý: nền ô vuông ở Đổi mã màu và vùng so sánh ảnh (để thấy độ trong suốt); tờ hoá đơn xem trước (là trang giấy thật); thẻ thành phố của Đồng hồ thế giới; vùng thử chuột viền đứt; khung ghi âm.

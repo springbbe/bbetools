@@ -68,6 +68,6 @@ formTool({
 });
 
 const st = document.createElement("style");
-st.textContent = `.bh-rows{display:flex;flex-direction:column;gap:10px}.bh-row{display:grid;grid-template-columns:1fr 1fr;gap:8px 10px;align-items:end;padding:10px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+st.textContent = `.bh-rows{display:flex;flex-direction:column}.bh-row{display:grid;grid-template-columns:1fr 1fr;gap:8px 10px;align-items:end;padding:12px 0;border-top:1px solid var(--line)}
 .bh-row .ib{justify-self:end;margin-bottom:4px}.bh-row input[type=month]{font-size:14.5px;padding-left:8px;padding-right:6px;min-width:0}`;
 document.head.append(st);

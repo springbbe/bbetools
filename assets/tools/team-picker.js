@@ -47,7 +47,7 @@ formTool({
       const label = (i) => tn[i] || "Đội " + (i + 1);
       text = teams.map((t, i) => `${label(i)} (${t.length}): ${t.join(", ")}`).join("\n");
       body = h("div", { class: "tp-teams" }, teams.map((t, i) => h("section", { class: "tp-team", style: { "--c": COLORS[i % COLORS.length] } },
-        h("h3", null, label(i), h("small", { text: ` · ${t.length} người` })),
+        h("h2", null, label(i), h("small", { text: ` · ${t.length} người` })),
         h("ol", null, t.map((x) => h("li", { class: lset.has(x) ? "lead" : null, text: x }))))));
       csv = [["Đội", "Tên"], teams.flatMap((t, i) => t.map((x) => [label(i), x]))];
       if (v.mode === "teams" && n > names.length + leaders.length) out.append(alert("warn", "Số đội nhiều hơn số người, mỗi đội chỉ có 1 người."));
@@ -62,8 +62,8 @@ formTool({
 
 const css = document.createElement("style");
 css.textContent = `.tp-teams{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(min(100%,200px),1fr));margin-top:12px}
-.tp-team{border:1px solid var(--line);border-top:5px solid var(--c);border-radius:12px;padding:10px 14px}
-.tp-team h3{margin:0 0 6px;font-size:17px;color:var(--c)}.tp-team small{color:var(--muted);font-weight:500;font-size:13px}
+.tp-team{border-top:4px solid var(--c);padding:10px 0 0}
+.tp-team h2{margin:0 0 6px;font-size:19px;letter-spacing:-0.01em;color:var(--c)}.tp-team small{color:var(--muted);font-weight:500;font-size:13px}
 .tp-team ol{margin:0;padding-left:22px;display:grid;gap:2px}.tp-team li.lead{font-weight:700}.tp-team li.lead::after{content:" ★";color:var(--c)}
 .tp-order{margin:12px 0 0;padding-left:30px;columns:2 180px;column-gap:24px}.tp-order li{padding:3px 0;font-size:16px;break-inside:avoid}`;
 document.head.append(css);

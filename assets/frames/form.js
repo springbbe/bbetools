@@ -16,8 +16,15 @@ export function formTool(cfg) {
   const app = $("#app");
   app.textContent = "";
   const form = h("form", { class: "fm-form", novalidate: true, onsubmit: (e) => e.preventDefault() });
-  const out = h("div", { class: "fm-out", "aria-live": "polite" });
-  app.append(h("div", { class: "fm" }, form, out));
+  const out = h("div", { class: "fm-out-in", "aria-live": "polite" });
+  const outCol = h("div", { class: "fm-out" }, out);
+  app.append(h("div", { class: "fm" }, form, outCol));
+  // máy tính: kết quả ngắn hơn màn hình thì dính lại khi cuộn form dài, để luôn thấy kết quả
+  if (window.ResizeObserver) {
+    const fit = () => out.classList.toggle("stick", out.offsetHeight < window.innerHeight - 110 && form.offsetHeight > out.offsetHeight + 40);
+    const ro = new ResizeObserver(fit); ro.observe(out); ro.observe(form);
+    window.addEventListener("resize", fit);
+  }
   const ctrls = {};
   const defaults = {};
   const params = new URLSearchParams(location.search);

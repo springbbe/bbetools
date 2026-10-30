@@ -45,7 +45,7 @@ formTool({
     }
     const r = calc(v, TAX);
     out.append(stats(
-      stat("Thuế TNCN phải nộp", money(r.tax) + unit, { hl: true }),
+      stat(v.period === "year" ? "Thuế TNCN phải nộp mỗi năm" : "Thuế TNCN phải nộp mỗi tháng", money(r.tax), { hl: true }),
       stat("Thu nhập tính thuế", money(r.taxable)),
       stat("Thuế suất bình quân", r.income ? pct(r.tax / r.income, 2) : "0%", { note: "trên tổng thu nhập" }),
       stat("Thuế suất cao nhất phải chịu", r.parts.length ? pct(r.parts[r.parts.length - 1].rate, 0) : "0%")));

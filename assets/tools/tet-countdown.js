@@ -76,7 +76,7 @@ st.textContent = `.tet{text-align:center;padding:12px 0 18px;display:flex;flex-d
 .tet:fullscreen{background:var(--bg);justify-content:center}
 .tet-emoji{font-size:64px;line-height:1}.tet-title{margin:0;font-size:clamp(24px,5vw,34px);letter-spacing:-.02em}.tet-sub{margin:0;color:var(--muted)}
 .tet-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;width:min(560px,100%);margin-top:6px}
-.tet-unit{background:linear-gradient(180deg,#D9363E,#B4232A);color:#FFE7A3;border-radius:16px;padding:14px 4px;box-shadow:var(--shadow)}
-.tet-unit b{display:block;font-size:clamp(30px,8vw,56px);font-weight:800;font-variant-numeric:tabular-nums;line-height:1.05}.tet-unit span{font-size:14px;font-weight:600;color:#FFE7A3cc}
+.tet-unit{background:linear-gradient(180deg,#BF2A32,#9C1D24);color:#FFE7A3;border-radius:16px;padding:14px 4px;box-shadow:var(--shadow)}
+.tet-unit b{display:block;font-size:clamp(30px,8vw,56px);font-weight:800;font-variant-numeric:tabular-nums;line-height:1.05}.tet-unit span{font-size:14px;font-weight:600;color:#FFE7A3}
 .tet-festive{font-size:22px;font-weight:700;color:var(--err);margin:8px 0}`;
 document.head.append(st);
