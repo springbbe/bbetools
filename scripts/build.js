@@ -199,7 +199,7 @@ ${analytics()}${head}<meta name="viewport" content="width=device-width,initial-s
 ${noindex ? `<meta name="robots" content="noindex">` : `<link rel="canonical" href="${abs}">`}
 ${hreflang}<meta name="generator" content="bbetools-build">
 <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#1C1830" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#1F1B13" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="${site.name}">
 <meta property="og:locale" content="${L.og}">
@@ -532,7 +532,7 @@ ${urls.map((u) => `  <url><loc>${BASE}${u}</loc></url>`).join("\n")}
 changed += await write("robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${BASE}sitemap.xml\n`);
 changed += await write("manifest.webmanifest", JSON.stringify({
   name: site.name, short_name: site.name, description: site.tagline, lang: "vi", start_url: "./", scope: "./", display: "standalone",
-  background_color: "#F5F3FC", theme_color: "#5B2EE0",
+  background_color: "#F6F4EF", theme_color: "#8A5A06",
   icons: [{ src: "assets/favicon.svg", sizes: "any", type: "image/svg+xml" }, { src: "assets/icon-512.png", sizes: "512x512", type: "image/png" }, { src: "assets/apple-touch-icon.png", sizes: "180x180", type: "image/png" }]
 }, null, 2) + "\n");
 
