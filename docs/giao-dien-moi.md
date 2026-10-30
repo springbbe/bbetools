@@ -15,7 +15,7 @@ Màu chủ đạo **vàng đất** (người dùng chọn, thay cho tím ở b�
 - **Hình khối:** nút dạng viên thuốc, thẻ bo 16 px, bóng có độ lệch, ám nâu.
 - **Trang công cụ:** dải đầu trang nhuộm nhạt màu nhóm, gạch màu nhóm 4 px ở mép trên; nhóm trong đường dẫn là nhãn đặc màu nhóm; câu quyền riêng tư tô dạ quang như trang chủ; khung ứng dụng đè lên mép dưới của dải. Bước "Cách dùng" đánh số trong ô vuông màu nhóm.
 
-Bản đầy đủ cho AI (hợp đồng thiết kế): `.impeccable/surfaces/index-html.md`. Bối cảnh sản phẩm: `PRODUCT.md`.
+Hệ thống thiết kế (token, thành phần, nên/không nên): `DESIGN.md` ở gốc dự án (kèm `.impeccable/design.json`). Hợp đồng thiết kế: `.impeccable/surfaces/index-html.md`. Bối cảnh sản phẩm: `PRODUCT.md`.
 
 ## Các giai đoạn
 
@@ -25,7 +25,7 @@ Bản đầy đủ cho AI (hợp đồng thiết kế): `.impeccable/surfaces/in
 | 2 | **Trang công cụ**: dải đầu trang theo màu nhóm, đường dẫn, dòng quyền riêng tư, ô thả file, khung ứng dụng, cách dùng/FAQ/công cụ liên quan; 4 khung (file, văn bản, form, tương tác), kết quả, thông báo, toast, hộp thoại | ✅ Xong |
 | 3 | **Điều hướng và trang phụ**: menu "Tất cả công cụ" (máy tính) và ngăn kéo (điện thoại), bảng lệnh tìm kiếm, trang nhóm, Giới thiệu, 404; kiểm tra bản tiếng Anh | ✅ Xong |
 | 4 | **Rà từng nhóm công cụ**: bảng trang PDF, so sánh ảnh, thanh cắt âm thanh/video, bảng và thẻ số của nhóm Tính toán, bảng Excel, QR, khung tải sticker, trang kiểm tra thiết bị. Chạy thử với file mẫu | ✅ Xong |
-| 5 | **Hoàn thiện**: chuyển động có chủ đích, ảnh OG và icon ứng dụng theo màu mới (`scripts/make-brand.js`), rà soát tương phản/bàn phím/375 px, review cuối, viết `DESIGN.md` | ⏳ Chưa làm |
+| 5 | **Hoàn thiện**: chuyển động có chủ đích, ảnh OG và icon ứng dụng theo màu mới (`scripts/make-brand.js`), rà soát tương phản/bàn phím/375 px, review cuối, viết `DESIGN.md` | ✅ Xong |
 
 ## Cách tiếp tục
 
@@ -75,3 +75,12 @@ Mở phiên Claude Code mới trong thư mục dự án và gõ prompt của gia
 - Chữ lẻ ở dòng cuối: `text-wrap: pretty` cho cả `li`, `small`, `summary`, `.hint`.
 - Đã chụp thử với file mẫu: Sắp xếp trang PDF, Nén ảnh, Cắt âm thanh, Cắt video, Xem Excel, Tải sticker LINE, Markdown, Làm ảnh thẻ, Lãi vay, QR, Kiểm tra bàn phím, Thuế TNCN, Chia tiền, Bốc thăm, HTTP, Pomodoro, Đếm ngược Tết; 1280 px và 375 px, sáng và tối.
 - Để lại có chủ ý: nền ô vuông ở Đổi mã màu và vùng so sánh ảnh (để thấy độ trong suốt); tờ hoá đơn xem trước (là trang giấy thật); thẻ thành phố của Đồng hồ thế giới; vùng thử chuột viền đứt; khung ghi âm.
+
+### GĐ 5
+- Chuyển động: một khoảnh khắc duy nhất, nét dạ quang quét qua cam kết quyền riêng tư (trang chủ, trang công cụ, Giới thiệu) khi mở trang, 1 giây, ease-out; chỉ ở giao diện sáng (ở nền tối chữ nâu sẽ khó đọc trước khi nét tô chạy tới); tắt khi người dùng chọn giảm chuyển động.
+- Ảnh OG (`scripts/brand/og.html` → `assets/og.png`): nền vàng đất, logo, tiêu đề Bricolage, cụm quyền riêng tư tô dạ quang kèm khiên (bỏ emoji 🔒), 6 nhãn nhóm màu chuyên mục. Icon ứng dụng 512/180 px nền vàng đất đậm `#8A5A06`. Tạo lại: `node scripts/make-brand.js`.
+- Review cuối (tác tử `impeccable-finish-reviewer`) trên ảnh chụp 1280/375, sáng/tối. Đã sửa: tiêu đề trang chủ không tách "tiện / ích"; trang 404 có dải đầu trang; Giới thiệu có câu quyền riêng tư tô dạ quang; gợi ý ô tìm ngắn lại cho vừa điện thoại; dải chip lọc mờ dần ở mép phải để thấy cuộn được; tên công cụ trong thẻ xuống dòng đẹp hơn (`text-wrap: pretty`); bỏ dòng "Nhận: PDF" lặp dưới vùng thả; thanh công cụ khung văn bản vừa một hàng ở 375 px; cụm tô dạ quang ở chân trang không bị tách chữ; tiêu đề trang chủ tiếng Anh không còn tràn sang lưới nhãn nhóm.
+- Rà soát: bàn phím (Tab đi đúng thứ tự, mọi phần tử có viền focus 3 px), `impeccable detect` ở 1280 px và 390 px trên trang chủ, Giới thiệu, 404, trang công cụ, bản tiếng Anh: sạch.
+- `DESIGN.md` (tác tử `impeccable-documenter`) ghi token màu, chữ, bo góc, thành phần và quy tắc nên/không nên từ mã đã chạy.
+- Chưa làm, để người dùng quyết: đưa dải chip lọc nhóm lên ngay dưới khối đầu trang (trên "Phổ biến") và rút gọn "Phổ biến" (review đề xuất, nhưng đổi bố cục trang chủ đã chốt ở GĐ 1).
+- Còn sót từ trước (ghi trong `DESIGN.md`): màu tô cú pháp code còn tím/xanh (`--code-key`, `--code-lit`), xám lạnh ở số trang PDF, vài hàng còn đóng hộp trong khung (`.fancy-row`, `.hash-row`, `.cron-fields`, `.pw-list`), nhãn viết hoa giãn chữ trong bảng lệnh (`.pal-sec`).

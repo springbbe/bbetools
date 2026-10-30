@@ -1,0 +1,1131 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-30T16:46:00.425Z",
+  "title": "Design System: BbeTools",
+  "extensions": {
+    "colorMeta": {
+      "brand": {
+        "role": "primary",
+        "displayName": "Vàng đất đậm",
+        "canonical": "#8A5A06",
+        "tonalRamp": [
+          "oklch(15% 0.027 72.6)",
+          "oklch(26.4% 0.039 72.6)",
+          "oklch(37.9% 0.066 72.6)",
+          "oklch(49.3% 0.093 72.6)",
+          "oklch(60.7% 0.093 72.6)",
+          "oklch(72.1% 0.066 72.6)",
+          "oklch(83.6% 0.039 72.6)",
+          "oklch(95% 0.027 72.6)"
+        ]
+      },
+      "brand-hover": {
+        "role": "primary",
+        "displayName": "Vàng đất hover",
+        "canonical": "#744A00",
+        "tonalRamp": [
+          "oklch(15% 0.024 72.3)",
+          "oklch(26.4% 0.035 72.3)",
+          "oklch(37.9% 0.059 72.3)",
+          "oklch(49.3% 0.083 72.3)",
+          "oklch(60.7% 0.083 72.3)",
+          "oklch(72.1% 0.059 72.3)",
+          "oklch(83.6% 0.035 72.3)",
+          "oklch(95% 0.024 72.3)"
+        ]
+      },
+      "brand-ink": {
+        "role": "primary",
+        "displayName": "Chữ trên nút",
+        "canonical": "#FFFFFF",
+        "tonalRamp": [
+          "oklch(15% 0 89.9)",
+          "oklch(26.4% 0 89.9)",
+          "oklch(37.9% 0 89.9)",
+          "oklch(49.3% 0 89.9)",
+          "oklch(60.7% 0 89.9)",
+          "oklch(72.1% 0 89.9)",
+          "oklch(83.6% 0 89.9)",
+          "oklch(95% 0 89.9)"
+        ]
+      },
+      "brand-soft": {
+        "role": "primary",
+        "displayName": "Kem vàng",
+        "canonical": "#FBF0D6",
+        "tonalRamp": [
+          "oklch(15% 0.009 87.8)",
+          "oklch(26.4% 0.013 87.8)",
+          "oklch(37.9% 0.022 87.8)",
+          "oklch(49.3% 0.032 87.8)",
+          "oklch(60.7% 0.032 87.8)",
+          "oklch(72.1% 0.022 87.8)",
+          "oklch(83.6% 0.013 87.8)",
+          "oklch(95% 0.009 87.8)"
+        ]
+      },
+      "hero": {
+        "role": "primary",
+        "displayName": "Khối vàng đất",
+        "canonical": "#D6A23A",
+        "tonalRamp": [
+          "oklch(15% 0.033 81.1)",
+          "oklch(26.4% 0.048 81.1)",
+          "oklch(37.9% 0.082 81.1)",
+          "oklch(49.3% 0.115 81.1)",
+          "oklch(60.7% 0.115 81.1)",
+          "oklch(72.1% 0.082 81.1)",
+          "oklch(83.6% 0.048 81.1)",
+          "oklch(95% 0.033 81.1)"
+        ]
+      },
+      "hero-ink": {
+        "role": "primary",
+        "displayName": "Nâu đất",
+        "canonical": "#2B1E08",
+        "tonalRamp": [
+          "oklch(15% 0.01 78.2)",
+          "oklch(26.4% 0.015 78.2)",
+          "oklch(37.9% 0.025 78.2)",
+          "oklch(49.3% 0.035 78.2)",
+          "oklch(60.7% 0.035 78.2)",
+          "oklch(72.1% 0.025 78.2)",
+          "oklch(83.6% 0.015 78.2)",
+          "oklch(95% 0.01 78.2)"
+        ]
+      },
+      "hero-muted": {
+        "role": "primary",
+        "displayName": "Nâu hổ phách",
+        "canonical": "#4A3511",
+        "tonalRamp": [
+          "oklch(15% 0.015 77.9)",
+          "oklch(26.4% 0.021 77.9)",
+          "oklch(37.9% 0.036 77.9)",
+          "oklch(49.3% 0.051 77.9)",
+          "oklch(60.7% 0.051 77.9)",
+          "oklch(72.1% 0.036 77.9)",
+          "oklch(83.6% 0.021 77.9)",
+          "oklch(95% 0.015 77.9)"
+        ]
+      },
+      "highlight": {
+        "role": "tertiary",
+        "displayName": "Dạ quang vàng",
+        "canonical": "#FFF4CC",
+        "tonalRamp": [
+          "oklch(15% 0.013 94.4)",
+          "oklch(26.4% 0.019 94.4)",
+          "oklch(37.9% 0.033 94.4)",
+          "oklch(49.3% 0.046 94.4)",
+          "oklch(60.7% 0.046 94.4)",
+          "oklch(72.1% 0.033 94.4)",
+          "oklch(83.6% 0.019 94.4)",
+          "oklch(95% 0.013 94.4)"
+        ]
+      },
+      "highlight-ink": {
+        "role": "tertiary",
+        "displayName": "Chữ trên dạ quang",
+        "canonical": "#2B1E08",
+        "tonalRamp": [
+          "oklch(15% 0.01 78.2)",
+          "oklch(26.4% 0.015 78.2)",
+          "oklch(37.9% 0.025 78.2)",
+          "oklch(49.3% 0.035 78.2)",
+          "oklch(60.7% 0.035 78.2)",
+          "oklch(72.1% 0.025 78.2)",
+          "oklch(83.6% 0.015 78.2)",
+          "oklch(95% 0.01 78.2)"
+        ]
+      },
+      "selection": {
+        "role": "tertiary",
+        "displayName": "Vàng bôi chọn",
+        "canonical": "#FFDF85",
+        "tonalRamp": [
+          "oklch(15% 0.029 90.4)",
+          "oklch(26.4% 0.042 90.4)",
+          "oklch(37.9% 0.071 90.4)",
+          "oklch(49.3% 0.101 90.4)",
+          "oklch(60.7% 0.101 90.4)",
+          "oklch(72.1% 0.071 90.4)",
+          "oklch(83.6% 0.042 90.4)",
+          "oklch(95% 0.029 90.4)"
+        ]
+      },
+      "footer": {
+        "role": "tertiary",
+        "displayName": "Nâu bìa sau",
+        "canonical": "#2A1E0A",
+        "tonalRamp": [
+          "oklch(15% 0.009 78.3)",
+          "oklch(26.4% 0.014 78.3)",
+          "oklch(37.9% 0.023 78.3)",
+          "oklch(49.3% 0.033 78.3)",
+          "oklch(60.7% 0.033 78.3)",
+          "oklch(72.1% 0.023 78.3)",
+          "oklch(83.6% 0.014 78.3)",
+          "oklch(95% 0.009 78.3)"
+        ]
+      },
+      "footer-ink": {
+        "role": "tertiary",
+        "displayName": "Kem chân trang",
+        "canonical": "#F3E6C8",
+        "tonalRamp": [
+          "oklch(15% 0.01 87.4)",
+          "oklch(26.4% 0.015 87.4)",
+          "oklch(37.9% 0.026 87.4)",
+          "oklch(49.3% 0.037 87.4)",
+          "oklch(60.7% 0.037 87.4)",
+          "oklch(72.1% 0.026 87.4)",
+          "oklch(83.6% 0.015 87.4)",
+          "oklch(95% 0.01 87.4)"
+        ]
+      },
+      "footer-muted": {
+        "role": "tertiary",
+        "displayName": "Be chân trang",
+        "canonical": "#D9C49A",
+        "tonalRamp": [
+          "oklch(15% 0.015 84.4)",
+          "oklch(26.4% 0.022 84.4)",
+          "oklch(37.9% 0.038 84.4)",
+          "oklch(49.3% 0.053 84.4)",
+          "oklch(60.7% 0.053 84.4)",
+          "oklch(72.1% 0.038 84.4)",
+          "oklch(83.6% 0.022 84.4)",
+          "oklch(95% 0.015 84.4)"
+        ]
+      },
+      "footer-accent": {
+        "role": "tertiary",
+        "displayName": "Vàng mật",
+        "canonical": "#E6B655",
+        "tonalRamp": [
+          "oklch(15% 0.032 82.7)",
+          "oklch(26.4% 0.046 82.7)",
+          "oklch(37.9% 0.079 82.7)",
+          "oklch(49.3% 0.111 82.7)",
+          "oklch(60.7% 0.111 82.7)",
+          "oklch(72.1% 0.079 82.7)",
+          "oklch(83.6% 0.046 82.7)",
+          "oklch(95% 0.032 82.7)"
+        ]
+      },
+      "bg": {
+        "role": "neutral",
+        "displayName": "Giấy kem",
+        "canonical": "#F6F4EF",
+        "tonalRamp": [
+          "oklch(15% 0.002 88.6)",
+          "oklch(26.4% 0.003 88.6)",
+          "oklch(37.9% 0.004 88.6)",
+          "oklch(49.3% 0.006 88.6)",
+          "oklch(60.7% 0.006 88.6)",
+          "oklch(72.1% 0.004 88.6)",
+          "oklch(83.6% 0.003 88.6)",
+          "oklch(95% 0.002 88.6)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Trắng giấy",
+        "canonical": "#FFFFFF",
+        "tonalRamp": [
+          "oklch(15% 0 89.9)",
+          "oklch(26.4% 0 89.9)",
+          "oklch(37.9% 0 89.9)",
+          "oklch(49.3% 0 89.9)",
+          "oklch(60.7% 0 89.9)",
+          "oklch(72.1% 0 89.9)",
+          "oklch(83.6% 0 89.9)",
+          "oklch(95% 0 89.9)"
+        ]
+      },
+      "surface-2": {
+        "role": "neutral",
+        "displayName": "Kem xám",
+        "canonical": "#F0ECE3",
+        "tonalRamp": [
+          "oklch(15% 0.003 86.8)",
+          "oklch(26.4% 0.005 86.8)",
+          "oklch(37.9% 0.008 86.8)",
+          "oklch(49.3% 0.011 86.8)",
+          "oklch(60.7% 0.011 86.8)",
+          "oklch(72.1% 0.008 86.8)",
+          "oklch(83.6% 0.005 86.8)",
+          "oklch(95% 0.003 86.8)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Nâu mực",
+        "canonical": "#241C0E",
+        "tonalRamp": [
+          "oklch(15% 0.007 80.7)",
+          "oklch(26.4% 0.01 80.7)",
+          "oklch(37.9% 0.017 80.7)",
+          "oklch(49.3% 0.024 80.7)",
+          "oklch(60.7% 0.024 80.7)",
+          "oklch(72.1% 0.017 80.7)",
+          "oklch(83.6% 0.01 80.7)",
+          "oklch(95% 0.007 80.7)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Nâu xám",
+        "canonical": "#5F5A50",
+        "tonalRamp": [
+          "oklch(15% 0.004 84.6)",
+          "oklch(26.4% 0.006 84.6)",
+          "oklch(37.9% 0.011 84.6)",
+          "oklch(49.3% 0.015 84.6)",
+          "oklch(60.7% 0.015 84.6)",
+          "oklch(72.1% 0.011 84.6)",
+          "oklch(83.6% 0.006 84.6)",
+          "oklch(95% 0.004 84.6)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Viền cát",
+        "canonical": "#E6E0D3",
+        "tonalRamp": [
+          "oklch(15% 0.005 86.2)",
+          "oklch(26.4% 0.007 86.2)",
+          "oklch(37.9% 0.012 86.2)",
+          "oklch(49.3% 0.016 86.2)",
+          "oklch(60.7% 0.016 86.2)",
+          "oklch(72.1% 0.012 86.2)",
+          "oklch(83.6% 0.007 86.2)",
+          "oklch(95% 0.005 86.2)"
+        ]
+      },
+      "line-2": {
+        "role": "neutral",
+        "displayName": "Viền cát đậm",
+        "canonical": "#D3CAB7",
+        "tonalRamp": [
+          "oklch(15% 0.007 85.7)",
+          "oklch(26.4% 0.01 85.7)",
+          "oklch(37.9% 0.017 85.7)",
+          "oklch(49.3% 0.024 85.7)",
+          "oklch(60.7% 0.024 85.7)",
+          "oklch(72.1% 0.017 85.7)",
+          "oklch(83.6% 0.01 85.7)",
+          "oklch(95% 0.007 85.7)"
+        ]
+      },
+      "ok": {
+        "role": "neutral",
+        "displayName": "Xanh thành công",
+        "canonical": "#17784C",
+        "tonalRamp": [
+          "oklch(15% 0.028 157.8)",
+          "oklch(26.4% 0.041 157.8)",
+          "oklch(37.9% 0.069 157.8)",
+          "oklch(49.3% 0.097 157.8)",
+          "oklch(60.7% 0.097 157.8)",
+          "oklch(72.1% 0.069 157.8)",
+          "oklch(83.6% 0.041 157.8)",
+          "oklch(95% 0.028 157.8)"
+        ]
+      },
+      "ok-soft": {
+        "role": "neutral",
+        "displayName": "Nền thành công",
+        "canonical": "#E2F5EA",
+        "tonalRamp": [
+          "oklch(15% 0.006 160.6)",
+          "oklch(26.4% 0.009 160.6)",
+          "oklch(37.9% 0.015 160.6)",
+          "oklch(49.3% 0.022 160.6)",
+          "oklch(60.7% 0.022 160.6)",
+          "oklch(72.1% 0.015 160.6)",
+          "oklch(83.6% 0.009 160.6)",
+          "oklch(95% 0.006 160.6)"
+        ]
+      },
+      "warn": {
+        "role": "neutral",
+        "displayName": "Nâu cam cảnh báo",
+        "canonical": "#8F5400",
+        "tonalRamp": [
+          "oklch(15% 0.028 65)",
+          "oklch(26.4% 0.041 65)",
+          "oklch(37.9% 0.07 65)",
+          "oklch(49.3% 0.098 65)",
+          "oklch(60.7% 0.098 65)",
+          "oklch(72.1% 0.07 65)",
+          "oklch(83.6% 0.041 65)",
+          "oklch(95% 0.028 65)"
+        ]
+      },
+      "warn-soft": {
+        "role": "neutral",
+        "displayName": "Nền cảnh báo",
+        "canonical": "#FFF3D1",
+        "tonalRamp": [
+          "oklch(15% 0.012 90.9)",
+          "oklch(26.4% 0.017 90.9)",
+          "oklch(37.9% 0.029 90.9)",
+          "oklch(49.3% 0.04 90.9)",
+          "oklch(60.7% 0.04 90.9)",
+          "oklch(72.1% 0.029 90.9)",
+          "oklch(83.6% 0.017 90.9)",
+          "oklch(95% 0.012 90.9)"
+        ]
+      },
+      "err": {
+        "role": "neutral",
+        "displayName": "Đỏ lỗi",
+        "canonical": "#C8232C",
+        "tonalRamp": [
+          "oklch(15% 0.05 24.9)",
+          "oklch(26.4% 0.072 24.9)",
+          "oklch(37.9% 0.123 24.9)",
+          "oklch(49.3% 0.173 24.9)",
+          "oklch(60.7% 0.173 24.9)",
+          "oklch(72.1% 0.123 24.9)",
+          "oklch(83.6% 0.072 24.9)",
+          "oklch(95% 0.05 24.9)"
+        ]
+      },
+      "err-soft": {
+        "role": "neutral",
+        "displayName": "Nền lỗi",
+        "canonical": "#FDEBEC",
+        "tonalRamp": [
+          "oklch(15% 0.005 13.6)",
+          "oklch(26.4% 0.007 13.6)",
+          "oklch(37.9% 0.012 13.6)",
+          "oklch(49.3% 0.017 13.6)",
+          "oklch(60.7% 0.017 13.6)",
+          "oklch(72.1% 0.012 13.6)",
+          "oklch(83.6% 0.007 13.6)",
+          "oklch(95% 0.005 13.6)"
+        ]
+      },
+      "toast-err": {
+        "role": "neutral",
+        "displayName": "Đỏ đậm toast lỗi",
+        "canonical": "#9E1C24",
+        "tonalRamp": [
+          "oklch(15% 0.041 24.2)",
+          "oklch(26.4% 0.06 24.2)",
+          "oklch(37.9% 0.102 24.2)",
+          "oklch(49.3% 0.144 24.2)",
+          "oklch(60.7% 0.144 24.2)",
+          "oklch(72.1% 0.102 24.2)",
+          "oklch(83.6% 0.06 24.2)",
+          "oklch(95% 0.041 24.2)"
+        ]
+      },
+      "star": {
+        "role": "neutral",
+        "displayName": "Vàng sao",
+        "canonical": "#E09B00",
+        "tonalRamp": [
+          "oklch(15% 0.039 76.9)",
+          "oklch(26.4% 0.056 76.9)",
+          "oklch(37.9% 0.096 76.9)",
+          "oklch(49.3% 0.135 76.9)",
+          "oklch(60.7% 0.135 76.9)",
+          "oklch(72.1% 0.096 76.9)",
+          "oklch(83.6% 0.056 76.9)",
+          "oklch(95% 0.039 76.9)"
+        ]
+      },
+      "dark-bg": {
+        "role": "neutral",
+        "displayName": "Nâu đen",
+        "canonical": "#16130D",
+        "tonalRamp": [
+          "oklch(15% 0.003 84.5)",
+          "oklch(26.4% 0.005 84.5)",
+          "oklch(37.9% 0.008 84.5)",
+          "oklch(49.3% 0.011 84.5)",
+          "oklch(60.7% 0.011 84.5)",
+          "oklch(72.1% 0.008 84.5)",
+          "oklch(83.6% 0.005 84.5)",
+          "oklch(95% 0.003 84.5)"
+        ]
+      },
+      "dark-surface": {
+        "role": "neutral",
+        "displayName": "Nâu than",
+        "canonical": "#1F1B13",
+        "tonalRamp": [
+          "oklch(15% 0.004 84.5)",
+          "oklch(26.4% 0.006 84.5)",
+          "oklch(37.9% 0.01 84.5)",
+          "oklch(49.3% 0.014 84.5)",
+          "oklch(60.7% 0.014 84.5)",
+          "oklch(72.1% 0.01 84.5)",
+          "oklch(83.6% 0.006 84.5)",
+          "oklch(95% 0.004 84.5)"
+        ]
+      },
+      "dark-surface-2": {
+        "role": "neutral",
+        "displayName": "Nâu than nhạt",
+        "canonical": "#2A251B",
+        "tonalRamp": [
+          "oklch(15% 0.005 84.5)",
+          "oklch(26.4% 0.007 84.5)",
+          "oklch(37.9% 0.012 84.5)",
+          "oklch(49.3% 0.017 84.5)",
+          "oklch(60.7% 0.017 84.5)",
+          "oklch(72.1% 0.012 84.5)",
+          "oklch(83.6% 0.007 84.5)",
+          "oklch(95% 0.005 84.5)"
+        ]
+      },
+      "dark-ink": {
+        "role": "neutral",
+        "displayName": "Kem chữ tối",
+        "canonical": "#F2ECDF",
+        "tonalRamp": [
+          "oklch(15% 0.005 86.1)",
+          "oklch(26.4% 0.007 86.1)",
+          "oklch(37.9% 0.011 86.1)",
+          "oklch(49.3% 0.016 86.1)",
+          "oklch(60.7% 0.016 86.1)",
+          "oklch(72.1% 0.011 86.1)",
+          "oklch(83.6% 0.007 86.1)",
+          "oklch(95% 0.005 86.1)"
+        ]
+      },
+      "dark-muted": {
+        "role": "neutral",
+        "displayName": "Be xám tối",
+        "canonical": "#AFA796",
+        "tonalRamp": [
+          "oklch(15% 0.006 85.8)",
+          "oklch(26.4% 0.009 85.8)",
+          "oklch(37.9% 0.016 85.8)",
+          "oklch(49.3% 0.022 85.8)",
+          "oklch(60.7% 0.022 85.8)",
+          "oklch(72.1% 0.016 85.8)",
+          "oklch(83.6% 0.009 85.8)",
+          "oklch(95% 0.006 85.8)"
+        ]
+      },
+      "dark-line": {
+        "role": "neutral",
+        "displayName": "Viền tối",
+        "canonical": "#332D21",
+        "tonalRamp": [
+          "oklch(15% 0.006 84.4)",
+          "oklch(26.4% 0.008 84.4)",
+          "oklch(37.9% 0.014 84.4)",
+          "oklch(49.3% 0.019 84.4)",
+          "oklch(60.7% 0.019 84.4)",
+          "oklch(72.1% 0.014 84.4)",
+          "oklch(83.6% 0.008 84.4)",
+          "oklch(95% 0.006 84.4)"
+        ]
+      },
+      "dark-brand": {
+        "role": "primary",
+        "displayName": "Vàng mật",
+        "canonical": "#E6B655",
+        "tonalRamp": [
+          "oklch(15% 0.032 82.7)",
+          "oklch(26.4% 0.046 82.7)",
+          "oklch(37.9% 0.079 82.7)",
+          "oklch(49.3% 0.111 82.7)",
+          "oklch(60.7% 0.111 82.7)",
+          "oklch(72.1% 0.079 82.7)",
+          "oklch(83.6% 0.046 82.7)",
+          "oklch(95% 0.032 82.7)"
+        ]
+      },
+      "dark-brand-hover": {
+        "role": "primary",
+        "displayName": "Vàng mật sáng",
+        "canonical": "#F0C670",
+        "tonalRamp": [
+          "oklch(15% 0.029 83.9)",
+          "oklch(26.4% 0.042 83.9)",
+          "oklch(37.9% 0.071 83.9)",
+          "oklch(49.3% 0.101 83.9)",
+          "oklch(60.7% 0.101 83.9)",
+          "oklch(72.1% 0.071 83.9)",
+          "oklch(83.6% 0.042 83.9)",
+          "oklch(95% 0.029 83.9)"
+        ]
+      },
+      "dark-brand-ink": {
+        "role": "primary",
+        "displayName": "Nâu chữ nút tối",
+        "canonical": "#1F1606",
+        "tonalRamp": [
+          "oklch(15% 0.008 80.8)",
+          "oklch(26.4% 0.011 80.8)",
+          "oklch(37.9% 0.019 80.8)",
+          "oklch(49.3% 0.027 80.8)",
+          "oklch(60.7% 0.027 80.8)",
+          "oklch(72.1% 0.019 80.8)",
+          "oklch(83.6% 0.011 80.8)",
+          "oklch(95% 0.008 80.8)"
+        ]
+      },
+      "dark-brand-soft": {
+        "role": "primary",
+        "displayName": "Nâu vàng tối",
+        "canonical": "#3A2E14",
+        "tonalRamp": [
+          "oklch(15% 0.011 84.9)",
+          "oklch(26.4% 0.016 84.9)",
+          "oklch(37.9% 0.027 84.9)",
+          "oklch(49.3% 0.038 84.9)",
+          "oklch(60.7% 0.038 84.9)",
+          "oklch(72.1% 0.027 84.9)",
+          "oklch(83.6% 0.016 84.9)",
+          "oklch(95% 0.011 84.9)"
+        ]
+      },
+      "dark-hero": {
+        "role": "primary",
+        "displayName": "Nâu cà phê",
+        "canonical": "#3A2A0E",
+        "tonalRamp": [
+          "oklch(15% 0.012 79)",
+          "oklch(26.4% 0.018 79)",
+          "oklch(37.9% 0.03 79)",
+          "oklch(49.3% 0.042 79)",
+          "oklch(60.7% 0.042 79)",
+          "oklch(72.1% 0.03 79)",
+          "oklch(83.6% 0.018 79)",
+          "oklch(95% 0.012 79)"
+        ]
+      },
+      "dark-hero-ink": {
+        "role": "primary",
+        "displayName": "Kem khối tối",
+        "canonical": "#FFF3D6",
+        "tonalRamp": [
+          "oklch(15% 0.01 88.2)",
+          "oklch(26.4% 0.015 88.2)",
+          "oklch(37.9% 0.025 88.2)",
+          "oklch(49.3% 0.035 88.2)",
+          "oklch(60.7% 0.035 88.2)",
+          "oklch(72.1% 0.025 88.2)",
+          "oklch(83.6% 0.015 88.2)",
+          "oklch(95% 0.01 88.2)"
+        ]
+      },
+      "dark-hero-muted": {
+        "role": "primary",
+        "displayName": "Be khối tối",
+        "canonical": "#E8D3A8",
+        "tonalRamp": [
+          "oklch(15% 0.015 85)",
+          "oklch(26.4% 0.022 85)",
+          "oklch(37.9% 0.038 85)",
+          "oklch(49.3% 0.053 85)",
+          "oklch(60.7% 0.053 85)",
+          "oklch(72.1% 0.038 85)",
+          "oklch(83.6% 0.022 85)",
+          "oklch(95% 0.015 85)"
+        ]
+      },
+      "category-pdf": {
+        "role": "secondary",
+        "displayName": "Đỏ PDF",
+        "canonical": "#E5484D",
+        "tonalRamp": [
+          "oklch(15% 0.048 23)",
+          "oklch(26.4% 0.071 23)",
+          "oklch(37.9% 0.12 23)",
+          "oklch(49.3% 0.169 23)",
+          "oklch(60.7% 0.169 23)",
+          "oklch(72.1% 0.12 23)",
+          "oklch(83.6% 0.071 23)",
+          "oklch(95% 0.048 23)"
+        ]
+      },
+      "category-anh": {
+        "role": "secondary",
+        "displayName": "Tím Ảnh",
+        "canonical": "#8E4EC6",
+        "tonalRamp": [
+          "oklch(15% 0.046 305.9)",
+          "oklch(26.4% 0.067 305.9)",
+          "oklch(37.9% 0.113 305.9)",
+          "oklch(49.3% 0.16 305.9)",
+          "oklch(60.7% 0.16 305.9)",
+          "oklch(72.1% 0.113 305.9)",
+          "oklch(83.6% 0.067 305.9)",
+          "oklch(95% 0.046 305.9)"
+        ]
+      },
+      "category-am-thanh-video": {
+        "role": "secondary",
+        "displayName": "Hồng Âm thanh & video",
+        "canonical": "#D6409F",
+        "tonalRamp": [
+          "oklch(15% 0.05 346)",
+          "oklch(26.4% 0.073 346)",
+          "oklch(37.9% 0.124 346)",
+          "oklch(49.3% 0.175 346)",
+          "oklch(60.7% 0.175 346)",
+          "oklch(72.1% 0.124 346)",
+          "oklch(83.6% 0.073 346)",
+          "oklch(95% 0.05 346)"
+        ]
+      },
+      "category-van-ban": {
+        "role": "secondary",
+        "displayName": "Xanh Văn bản",
+        "canonical": "#0D74CE",
+        "tonalRamp": [
+          "oklch(15% 0.041 252.2)",
+          "oklch(26.4% 0.059 252.2)",
+          "oklch(37.9% 0.1 252.2)",
+          "oklch(49.3% 0.142 252.2)",
+          "oklch(60.7% 0.142 252.2)",
+          "oklch(72.1% 0.1 252.2)",
+          "oklch(83.6% 0.059 252.2)",
+          "oklch(95% 0.041 252.2)"
+        ]
+      },
+      "category-viet-nam": {
+        "role": "secondary",
+        "displayName": "Vàng nghệ Tiện ích Việt Nam",
+        "canonical": "#C27C0E",
+        "tonalRamp": [
+          "oklch(15% 0.034 69.5)",
+          "oklch(26.4% 0.05 69.5)",
+          "oklch(37.9% 0.085 69.5)",
+          "oklch(49.3% 0.119 69.5)",
+          "oklch(60.7% 0.119 69.5)",
+          "oklch(72.1% 0.085 69.5)",
+          "oklch(83.6% 0.05 69.5)",
+          "oklch(95% 0.034 69.5)"
+        ]
+      },
+      "category-tinh-toan": {
+        "role": "secondary",
+        "displayName": "Cam Tính toán",
+        "canonical": "#E5701A",
+        "tonalRamp": [
+          "oklch(15% 0.042 49.9)",
+          "oklch(26.4% 0.062 49.9)",
+          "oklch(37.9% 0.105 49.9)",
+          "oklch(49.3% 0.148 49.9)",
+          "oklch(60.7% 0.148 49.9)",
+          "oklch(72.1% 0.105 49.9)",
+          "oklch(83.6% 0.062 49.9)",
+          "oklch(95% 0.042 49.9)"
+        ]
+      },
+      "category-qr-ma-vach": {
+        "role": "secondary",
+        "displayName": "Xám đá QR & mã vạch",
+        "canonical": "#475569",
+        "tonalRamp": [
+          "oklch(15% 0.009 257.3)",
+          "oklch(26.4% 0.014 257.3)",
+          "oklch(37.9% 0.023 257.3)",
+          "oklch(49.3% 0.033 257.3)",
+          "oklch(60.7% 0.033 257.3)",
+          "oklch(72.1% 0.023 257.3)",
+          "oklch(83.6% 0.014 257.3)",
+          "oklch(95% 0.009 257.3)"
+        ]
+      },
+      "category-van-phong": {
+        "role": "secondary",
+        "displayName": "Xanh lá Văn phòng",
+        "canonical": "#18794E",
+        "tonalRamp": [
+          "oklch(15% 0.028 158.4)",
+          "oklch(26.4% 0.04 158.4)",
+          "oklch(37.9% 0.068 158.4)",
+          "oklch(49.3% 0.096 158.4)",
+          "oklch(60.7% 0.096 158.4)",
+          "oklch(72.1% 0.068 158.4)",
+          "oklch(83.6% 0.04 158.4)",
+          "oklch(95% 0.028 158.4)"
+        ]
+      },
+      "category-lap-trinh": {
+        "role": "secondary",
+        "displayName": "Xanh chàm Lập trình",
+        "canonical": "#3E63DD",
+        "tonalRamp": [
+          "oklch(15% 0.048 267)",
+          "oklch(26.4% 0.07 267)",
+          "oklch(37.9% 0.118 267)",
+          "oklch(49.3% 0.167 267)",
+          "oklch(60.7% 0.167 267)",
+          "oklch(72.1% 0.118 267)",
+          "oklch(83.6% 0.07 267)",
+          "oklch(95% 0.048 267)"
+        ]
+      },
+      "category-bao-mat": {
+        "role": "secondary",
+        "displayName": "Xanh két Bảo mật",
+        "canonical": "#0E7C86",
+        "tonalRamp": [
+          "oklch(15% 0.022 205)",
+          "oklch(26.4% 0.032 205)",
+          "oklch(37.9% 0.055 205)",
+          "oklch(49.3% 0.077 205)",
+          "oklch(60.7% 0.077 205)",
+          "oklch(72.1% 0.055 205)",
+          "oklch(83.6% 0.032 205)",
+          "oklch(95% 0.022 205)"
+        ]
+      },
+      "category-nang-suat": {
+        "role": "secondary",
+        "displayName": "Xanh cốm Năng suất",
+        "canonical": "#5C8A1C",
+        "tonalRamp": [
+          "oklch(15% 0.036 130.3)",
+          "oklch(26.4% 0.053 130.3)",
+          "oklch(37.9% 0.089 130.3)",
+          "oklch(49.3% 0.126 130.3)",
+          "oklch(60.7% 0.126 130.3)",
+          "oklch(72.1% 0.089 130.3)",
+          "oklch(83.6% 0.053 130.3)",
+          "oklch(95% 0.036 130.3)"
+        ]
+      },
+      "category-tai-ve": {
+        "role": "secondary",
+        "displayName": "Xanh trời Tải về",
+        "canonical": "#0090FF",
+        "tonalRamp": [
+          "oklch(15% 0.048 251.8)",
+          "oklch(26.4% 0.07 251.8)",
+          "oklch(37.9% 0.12 251.8)",
+          "oklch(49.3% 0.169 251.8)",
+          "oklch(60.7% 0.169 251.8)",
+          "oklch(72.1% 0.12 251.8)",
+          "oklch(83.6% 0.07 251.8)",
+          "oklch(95% 0.048 251.8)"
+        ]
+      },
+      "category-gioi-thieu": {
+        "role": "secondary",
+        "displayName": "Vàng đất Giới thiệu",
+        "canonical": "#C8922A",
+        "tonalRamp": [
+          "oklch(15% 0.033 79)",
+          "oklch(26.4% 0.048 79)",
+          "oklch(37.9% 0.081 79)",
+          "oklch(49.3% 0.114 79)",
+          "oklch(60.7% 0.114 79)",
+          "oklch(72.1% 0.081 79)",
+          "oklch(83.6% 0.048 79)",
+          "oklch(95% 0.033 79)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Tiêu đề khối vàng đất trang chủ và ảnh OG."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Tên công cụ / nhóm trong dải đầu trang."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Tiêu đề khối nội dung (Phổ biến, Yêu thích…)."
+      },
+      "title-sm": {
+        "displayName": "Title nhỏ",
+        "purpose": "Tab chuyên mục, h2 trong bài, tiêu đề kết quả."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Chữ chung, ô nhập 16 px."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Câu dẫn dưới tiêu đề trang."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Nhãn ô nhập, chip, nút chọn kiểu."
+      },
+      "card-name": {
+        "displayName": "Tên thẻ",
+        "purpose": "Tên công cụ trên thẻ."
+      },
+      "stat": {
+        "displayName": "Stat",
+        "purpose": "Số trong cột số liệu, chữ số đều."
+      },
+      "mono": {
+        "displayName": "Mono",
+        "purpose": "Mã, JSON, hash, kbd."
+      }
+    },
+    "shadows": [
+      {
+        "name": "shadow",
+        "value": "0 1px 2px rgba(60,40,8,.06), 0 6px 18px -6px rgba(60,40,8,.16)",
+        "purpose": "Khung ứng dụng lúc nghỉ, thẻ khi rê chuột, ô đang chọn của nút chọn kiểu."
+      },
+      {
+        "name": "shadow-dark",
+        "value": "0 1px 2px rgba(0,0,0,.4), 0 8px 22px -8px rgba(0,0,0,.6)",
+        "purpose": "Bản tối của --shadow."
+      },
+      {
+        "name": "app-over-band",
+        "value": "0 2px 3px -1px rgba(60,40,8,.32), 0 18px 40px -22px rgba(60,40,8,.32)",
+        "purpose": "Khung ứng dụng đè lên dải màu trang công cụ."
+      },
+      {
+        "name": "shadow-lg",
+        "value": "0 20px 48px -12px rgba(45,30,6,.34)",
+        "purpose": "Mega menu, bảng lệnh, hộp thoại, lớp thả file."
+      },
+      {
+        "name": "shadow-lg-dark",
+        "value": "0 20px 52px -12px rgba(0,0,0,.7)",
+        "purpose": "Bản tối của --shadow-lg."
+      },
+      {
+        "name": "on-hero",
+        "value": "0 12px 30px -14px rgba(45,30,6,.55)",
+        "purpose": "Ô tìm trên khối vàng đất."
+      },
+      {
+        "name": "solid-label",
+        "value": "0 4px 12px -6px rgba(60,40,8,.32)",
+        "purpose": "Tab chuyên mục, ô số bước."
+      },
+      {
+        "name": "tile-ring",
+        "value": "0 0 0 2px var(--surface), 0 3px 8px -3px rgba(60,40,8,.32)",
+        "purpose": "Viền màu nền quanh ô icon nhóm."
+      },
+      {
+        "name": "scrim",
+        "value": "rgba(30,20,4,.5)",
+        "purpose": "Nền mờ sau hộp thoại, bảng lệnh, ngăn kéo."
+      }
+    ],
+    "motion": [
+      {
+        "name": "hl-swipe",
+        "value": "background-size 0% → 100%, 1s cubic-bezier(.16,1,.3,1) .3s",
+        "purpose": "Khoảnh khắc chuyển động duy nhất khi mở trang: nét dạ quang quét qua cam kết quyền riêng tư, chỉ giao diện sáng, tắt khi prefers-reduced-motion."
+      },
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(.16,1,.3,1)",
+        "purpose": "Phóng ô icon, mũi tên Xem tất cả, dấu +/− FAQ, toast hiện lên."
+      },
+      {
+        "name": "state",
+        "value": ".15s",
+        "purpose": "Đổi màu nền/viền/bóng khi hover, focus."
+      },
+      {
+        "name": "card-lift",
+        "value": "transform .2s cubic-bezier(.2,.8,.2,1)",
+        "purpose": "Thẻ nhấc 2 px khi rê/focus."
+      },
+      {
+        "name": "toast-in",
+        "value": "translateY(14px) scale(.98) → 0, .32s cubic-bezier(.16,1,.3,1)",
+        "purpose": "Toast xuất hiện."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "560px"
+      },
+      {
+        "name": "phone-max",
+        "value": "599px"
+      },
+      {
+        "name": "md",
+        "value": "720px"
+      },
+      {
+        "name": "work",
+        "value": "900px"
+      },
+      {
+        "name": "hero-split",
+        "value": "960px"
+      },
+      {
+        "name": "info-split",
+        "value": "1000px"
+      },
+      {
+        "name": "container",
+        "value": "1200px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Nút chính",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Nút viên thuốc vàng đất cho hành động chính.",
+      "html": "<button class=\"ds-btn\">Ghép PDF</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 20px;border-radius:999px;border:1px solid transparent;background:var(--brand,#8A5A06);color:var(--brand-ink,#fff);font:700 15.5px/1.2 'Be Vietnam Pro',system-ui,sans-serif;cursor:pointer;transition:background .15s,box-shadow .15s,transform .05s}.ds-btn:hover{background:var(--brand-hover,#744A00);box-shadow:0 6px 16px -8px rgba(60,40,8,.32)}.ds-btn:active{transform:translateY(1px);box-shadow:none}.ds-btn:focus-visible{outline:3px solid var(--brand,#8A5A06);outline-offset:2px}"
+    },
+    {
+      "name": "Nút ghost",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Hành động phụ: nền trắng, viền cát.",
+      "html": "<button class=\"ds-btn-ghost\">Thử với file mẫu</button>",
+      "css": ".ds-btn-ghost{display:inline-flex;align-items:center;min-height:44px;padding:10px 20px;border-radius:999px;border:1px solid var(--line-2,#D3CAB7);background:var(--surface,#fff);color:var(--ink,#241C0E);font:700 15.5px/1.2 'Be Vietnam Pro',system-ui,sans-serif;cursor:pointer;transition:border-color .15s,color .15s}.ds-btn-ghost:hover{border-color:var(--brand,#8A5A06);color:var(--brand,#8A5A06)}.ds-btn-ghost:focus-visible{outline:3px solid var(--brand,#8A5A06);outline-offset:2px}"
+    },
+    {
+      "name": "Ô nhập",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Ô nhập 46 px, nhãn 600 phía trên.",
+      "html": "<label class=\"ds-field\"><span>Lương gross</span><input class=\"ds-input\" value=\"25.000.000\"></label>",
+      "css": ".ds-field{display:flex;flex-direction:column;gap:6px;font:600 14.5px 'Be Vietnam Pro',system-ui,sans-serif;color:var(--ink,#241C0E)}.ds-input{min-height:46px;padding:10px 14px;border-radius:12px;border:1px solid var(--line-2,#D3CAB7);background:var(--surface,#fff);color:var(--ink,#241C0E);font:400 16px 'Be Vietnam Pro',system-ui,sans-serif;font-variant-numeric:tabular-nums;transition:border-color .15s,box-shadow .15s}.ds-input:hover{border-color:color-mix(in srgb,#8A5A06 45%,#D3CAB7)}.ds-input:focus{outline:none;border-color:var(--brand,#8A5A06);box-shadow:0 0 0 3px color-mix(in srgb,#8A5A06 25%,transparent)}"
+    },
+    {
+      "name": "Header",
+      "kind": "nav",
+      "refersTo": "",
+      "description": "Header dính: logo chữ Bricolage, Tất cả công cụ, ô tìm viên thuốc.",
+      "html": "<header class=\"ds-top\"><a class=\"ds-brand\" href=\"#\">Bbe<b>Tools</b></a><button class=\"ds-nav\">Tất cả công cụ</button><button class=\"ds-search\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"m21 21-4.34-4.34\"/><circle cx=\"11\" cy=\"11\" r=\"8\"/></svg><span>Tìm công cụ…</span><kbd>/</kbd></button></header>",
+      "css": ".ds-top{display:flex;align-items:center;gap:14px;height:60px;padding:0 24px;background:color-mix(in srgb,#fff 92%,transparent);border-bottom:1px solid #E6E0D3;font-family:'Be Vietnam Pro',system-ui,sans-serif}.ds-brand{font:800 21px 'Bricolage Grotesque',sans-serif;letter-spacing:-.03em;color:#241C0E;text-decoration:none}.ds-brand b{color:#8A5A06}.ds-nav{height:40px;padding:0 10px;border:0;background:transparent;border-radius:10px;font:600 15px inherit;color:#241C0E;cursor:pointer}.ds-nav:hover{background:#F0ECE3}.ds-search{margin-left:auto;display:inline-flex;align-items:center;gap:8px;width:280px;height:40px;padding:0 10px 0 14px;border-radius:999px;border:1px solid #E6E0D3;background:#F0ECE3;color:#5F5A50;font:15px inherit;cursor:pointer;transition:border-color .15s,background .15s}.ds-search:hover{border-color:#8A5A06;background:#fff}.ds-search kbd{margin-left:auto;font:600 12px/1 ui-monospace,monospace;background:#F0ECE3;border:1px solid #D3CAB7;border-bottom-width:2px;border-radius:6px;padding:3px 6px}.ds-top :focus-visible{outline:3px solid #8A5A06;outline-offset:2px}"
+    },
+    {
+      "name": "Chip nhóm",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Chip lọc có chấm màu chuyên mục; đang chọn thì đặc màu nhóm.",
+      "html": "<a class=\"ds-chip\" href=\"#\" style=\"--c:#E5484D\">PDF <small>24</small></a> <a class=\"ds-chip on\" href=\"#\" style=\"--c:#0D74CE\">Văn bản <small>18</small></a>",
+      "css": ".ds-chip{display:inline-flex;align-items:center;gap:7px;min-height:38px;padding:6px 14px;border-radius:99px;border:1px solid #E6E0D3;background:#fff;color:#241C0E;font:600 14.5px 'Be Vietnam Pro',system-ui,sans-serif;text-decoration:none;transition:border-color .15s,background .15s}.ds-chip::before{content:'';width:9px;height:9px;border-radius:3px;background:var(--c)}.ds-chip small{color:#5F5A50;font-weight:500}.ds-chip:hover{border-color:color-mix(in srgb,var(--c) 60%,#E6E0D3)}.ds-chip.on{background:color-mix(in oklab,var(--c) 80%,#000);color:#fff;border-color:transparent}.ds-chip.on::before{background:#fff}.ds-chip.on small{color:inherit;opacity:.7}.ds-chip:focus-visible{outline:3px solid #8A5A06;outline-offset:2px}"
+    },
+    {
+      "name": "Thẻ công cụ",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Ô icon màu nhóm + tên + mô tả; nhấc 2 px khi rê.",
+      "html": "<a class=\"ds-card\" href=\"#\" style=\"--c:#E5484D\"><span class=\"ds-tile\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z\"/><path d=\"M14 2v5a1 1 0 0 0 1 1h5\"/><path d=\"M16 13H8\"/><path d=\"M16 17H8\"/></svg></span><span><b>Ghép PDF</b><small>Gộp nhiều file PDF thành một, sắp xếp thứ tự trang.</small></span></a>",
+      "css": ".ds-card{display:flex;gap:14px;align-items:flex-start;max-width:340px;padding:14px;background:#fff;border:1px solid #E6E0D3;border-radius:16px;color:#241C0E;text-decoration:none;font-family:'Be Vietnam Pro',system-ui,sans-serif;transition:border-color .15s,box-shadow .2s,transform .2s cubic-bezier(.2,.8,.2,1)}.ds-card:hover,.ds-card:focus-visible{border-color:color-mix(in srgb,var(--c) 55%,#E6E0D3);box-shadow:0 1px 2px rgba(60,40,8,.06),0 6px 18px -6px rgba(60,40,8,.16);transform:translateY(-2px)}.ds-card:focus-visible{outline:3px solid var(--c);outline-offset:3px}.ds-tile{display:inline-grid;place-items:center;width:42px;height:42px;flex:0 0 42px;border-radius:13px;background:var(--c);color:#fff;box-shadow:0 0 0 2px #fff,0 3px 8px -3px rgba(60,40,8,.32)}.ds-card b{display:block;font-size:16px;font-weight:700;letter-spacing:-.01em}.ds-card small{display:block;margin-top:3px;color:#5F5A50;font-size:14px;line-height:1.45}"
+    },
+    {
+      "name": "Dải đầu trang + câu quyền riêng tư",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Dải nhuộm màu nhóm, gạch trên 4 px, nhãn nhóm đặc, câu cam kết tô dạ quang (có hiệu ứng quét).",
+      "html": "<div class=\"ds-band\" style=\"--c:#E5484D\"><a class=\"ds-crumb\" href=\"#\">PDF</a><h1>Ghép PDF</h1><p class=\"ds-privacy\"><svg width=\"21\" height=\"21\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#17784C\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z\"/><path d=\"m9 12 2 2 4-4\"/></svg><span>File được xử lý ngay trên máy bạn, không bao giờ tải lên máy chủ.</span></p></div>",
+      "css": ".ds-band{padding:14px 24px 30px;background:color-mix(in oklab,var(--c) 13%,#FBF8F1);color:color-mix(in oklab,var(--c) 14%,#1E170A);border-top:4px solid var(--c);border-bottom:1px solid color-mix(in oklab,var(--c) 24%,#E6E0D3);font-family:'Be Vietnam Pro',system-ui,sans-serif}.ds-crumb{display:inline-block;background:color-mix(in oklab,var(--c) 76%,#000);color:#fff;font-weight:700;font-size:14px;padding:2px 9px 3px;border-radius:7px;text-decoration:none}.ds-crumb:hover{text-decoration:underline}.ds-band h1{margin:14px 0 12px;font:800 clamp(28px,4.6vw,42px)/1.2 'Bricolage Grotesque',sans-serif;letter-spacing:-.03em}.ds-privacy{position:relative;margin:0;padding-left:30px;font-size:15px;font-weight:600;line-height:1.6}.ds-privacy svg{position:absolute;left:0;top:2px}.ds-privacy span{background:linear-gradient(#FFF4CC,#FFF4CC) 0 0/100% 100% no-repeat;color:#2B1E08;padding:.12em .4em;border-radius:5px;-webkit-box-decoration-break:clone;box-decoration-break:clone;animation:ds-hl 1s cubic-bezier(.16,1,.3,1) .3s backwards}@keyframes ds-hl{from{background-size:0% 100%}}@media (prefers-reduced-motion:reduce){.ds-privacy span{animation:none}}"
+    },
+    {
+      "name": "Vùng thả file",
+      "kind": "custom",
+      "refersTo": "app-frame",
+      "description": "Chính khung ứng dụng là vùng thả: viền đứt nhuộm màu nhóm, không hộp lồng.",
+      "html": "<div class=\"ds-dz\" style=\"--c:#E5484D\"><svg width=\"44\" height=\"44\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 3v12\"/><path d=\"m17 8-5-5-5 5\"/><path d=\"M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4\"/></svg><h2>Thả file PDF vào đây</h2><p>hoặc</p><button class=\"ds-dz-btn\">Chọn file</button></div>",
+      "css": ".ds-dz{display:flex;flex-direction:column;align-items:center;gap:12px;padding:60px 24px 52px;text-align:center;border:2px dashed color-mix(in oklab,var(--c) 38%,#D3CAB7);border-radius:18px;background:color-mix(in oklab,var(--c) 3%,#fff);color:#241C0E;font-family:'Be Vietnam Pro',system-ui,sans-serif;transition:border-color .15s}.ds-dz:hover{border-color:color-mix(in oklab,var(--c) 62%,#D3CAB7)}.ds-dz svg{color:color-mix(in oklab,var(--c) 82%,#241C0E)}.ds-dz h2{margin:4px 0 0;font:800 22px 'Bricolage Grotesque',sans-serif;letter-spacing:-.02em}.ds-dz p{margin:0;color:#5F5A50;font-size:14.5px}.ds-dz-btn{min-height:54px;padding:14px 30px;border-radius:999px;border:0;background:#8A5A06;color:#fff;font:700 18px inherit;cursor:pointer}.ds-dz-btn:hover{background:#744A00}.ds-dz-btn:focus-visible{outline:3px solid #8A5A06;outline-offset:2px}"
+    },
+    {
+      "name": "Cột số liệu",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Số liệu là cột có gạch trên, không đóng hộp.",
+      "html": "<div class=\"ds-stats\"><div class=\"ds-stat\"><b>1.248</b><span>Từ</span></div><div class=\"ds-stat hl\"><b>7.302</b><span>Ký tự</span></div><div class=\"ds-stat\"><b>5 phút</b><span>Thời gian đọc</span></div></div>",
+      "css": ".ds-stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:18px 20px;font-family:'Be Vietnam Pro',system-ui,sans-serif}.ds-stat{border-top:2px solid #D3CAB7;padding-top:10px}.ds-stat b{display:block;font-size:26px;font-weight:800;letter-spacing:-.02em;line-height:1.15;font-variant-numeric:tabular-nums;color:#241C0E}.ds-stat span{color:#5F5A50;font-size:13.5px}.ds-stat.hl{border-top-color:#8A5A06}.ds-stat.hl b{color:#8A5A06}"
+    },
+    {
+      "name": "Toast",
+      "kind": "custom",
+      "refersTo": "toast",
+      "description": "Thông báo nền nâu bìa sau, nút hành động viền vàng mật.",
+      "html": "<div class=\"ds-toast\">Đã chép vào bộ nhớ tạm<button>Hoàn tác</button></div>",
+      "css": ".ds-toast{display:flex;align-items:center;gap:12px;max-width:520px;padding:12px 12px 12px 18px;background:#2A1E0A;color:#F3E6C8;border:1px solid rgba(255,255,255,.1);border-radius:14px;box-shadow:0 2px 4px -1px rgba(30,20,4,.25),0 20px 44px -18px rgba(30,20,4,.6);font:500 15px 'Be Vietnam Pro',system-ui,sans-serif}.ds-toast button{margin-left:auto;background:transparent;border:1px solid currentColor;color:#E6B655;border-radius:999px;padding:5px 13px;font:700 14px inherit;cursor:pointer;transition:background .15s}.ds-toast button:hover{background:rgba(255,255,255,.1)}.ds-toast button:focus-visible{outline:3px solid #E6B655;outline-offset:2px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Tờ báo học trò màu vàng đất",
+    "overview": "BbeTools là bộ đồ nghề hằng ngày của người Việt, mặc sự tự tin màu sắc của tạp chí học trò (Hoa Học Trò, Mực Tím) nhưng khoác tông vàng đất ấm thay cho tím. Mỗi nhóm công cụ là một \"chuyên mục\" có màu in riêng: màu đó xuất hiện ở tab tiêu đề nhóm, chấm của chip lọc, ô icon, gạch trên cột menu, và nhuộm cả dải đầu trang công cụ. Phần còn lại là giấy kem sáng, chữ nâu đất, nền chân trang nâu đậm như bìa sau của tờ báo.\n\nBố cục gọn, thẳng hàng, mật độ vừa phải cho người đến từ Google trên điện thoại: một trang, một việc. Không có gì nghiêng, xoay hay xê dịch; lưới cố định, các ô cùng chiều cao. Chiều sâu đến từ khung ứng dụng nổi trên dải màu (đè lên mép dưới dải), không từ những lớp hộp lồng nhau. Câu cam kết quyền riêng tư được tô dạ quang như người đọc lấy bút đánh dấu: đó là điểm nhấn duy nhất có chuyển động khi mở trang.\n\nHệ thống từ chối mặc định \"SaaS xám + một màu chàm\" và lưới thẻ vô danh; từ chối bản nghiêng/xoay (người dùng thấy \"xộc xệch\"); từ chối tím làm màu chủ đạo.",
+    "keyCharacteristics": [
+      "Vàng đất đậm làm màu thương hiệu (nút, link, focus); khối vàng đất tràn ngang ở đầu trang chủ; chân trang nâu đất.",
+      "12 màu chuyên mục, mỗi nhóm một màu, dùng làm nhãn in đặc chứ không làm trang trí rải rác.",
+      "Tiêu đề Bricolage Grotesque 800 nén chặt; thân bài Be Vietnam Pro đủ dấu tiếng Việt.",
+      "Nút viên thuốc, thẻ bo 16 px, ô icon vuông bo tròn có viền trắng.",
+      "Bóng ám nâu, có độ lệch xuống dưới; trong khung ứng dụng mọi thứ kẻ dòng chứ không đóng hộp.",
+      "Sáng và tối đều là giao diện hạng nhất; ưu tiên khổ 375 px."
+    ],
+    "rules": [
+      {
+        "name": "The Một Chuyên Mục Một Màu Rule",
+        "body": "Màu chuyên mục là nhãn in, không phải trang trí: mỗi trang chỉ mang `--c` của đúng một nhóm, và mọi sắc độ của nó được sinh bằng `color-mix` từ `--c`, không viết cứng mã màu mới.",
+        "section": "colors"
+      },
+      {
+        "name": "The Vàng Đất Không Phải Tím Rule",
+        "body": "Màu thương hiệu là vàng đất đậm; tím chỉ còn là màu chuyên mục của nhóm Ảnh (category-anh), không bao giờ làm màu nút, link hay nền khối.",
+        "section": "colors"
+      },
+      {
+        "name": "The Dạ Quang Một Câu Rule",
+        "body": "Nền dạ quang chỉ dành cho cam kết \"file không rời khỏi máy\". Không dùng nó để nhấn từ khoá khác.",
+        "section": "colors"
+      },
+      {
+        "name": "The Chỉ h1 h2 Rule",
+        "body": "Font tiêu đề chỉ cho h1, h2, logo chữ, số bước, số 404 và số kết quả lớn. h3 trở xuống, nút, nhãn, chữ phụ trong tiêu đề (`small`) luôn là Be Vietnam Pro.",
+        "section": "typography"
+      },
+      {
+        "name": "The Dấu Đủ Rule",
+        "body": "Mọi font phải có dải ký tự tiếng Việt; không thay bằng font hiển thị thiếu dấu, không dùng font hệ thống làm tít.",
+        "section": "typography"
+      },
+      {
+        "name": "The Thẳng Hàng Rule",
+        "body": "Không nghiêng, không xoay, không xê dịch lệch trục. Lưới cố định cột, ô cùng hàng cùng chiều cao.",
+        "section": "layout"
+      },
+      {
+        "name": "The Một Lớp Nổi Rule",
+        "body": "Khung ứng dụng đã là một thẻ nổi. Bên trong nó không có thêm lớp hộp có bóng hay viền bốn phía; phân tầng bằng vạch kẻ.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do dùng vàng đất đậm (brand) cho mọi nút chính, link và focus; dùng khối vàng đất (hero) chỉ cho khối đầu trang chủ và ảnh OG.",
+      "Do truyền màu nhóm qua `--c` và sinh mọi sắc độ bằng `color-mix` (nền dải, chữ dải, nhãn `--tab`), kiểm tra lại tương phản ≥ 4,5:1 ở cả sáng và tối khi thêm nhóm mới.",
+      "Do giữ bố cục gọn, thẳng hàng: lưới cố định, ô cùng hàng cùng chiều cao, mọi icon cùng cỡ và cùng đường chân.",
+      "Do để khung ứng dụng là thẻ duy nhất trên trang công cụ; bên trong nó dùng vạch kẻ (bảng, mục mở rộng, danh sách) và cột số có gạch trên.",
+      "Do dùng icon Lucide từ `assets/icons.svg`, nét 2 px, 20 px mặc định, màu theo chữ (`currentColor`).",
+      "Do giữ câu \"file không rời khỏi máy bạn\" trên nền dạ quang ở mọi nơi người dùng đưa file vào.",
+      "Do dùng bóng ám nâu lệch xuống theo đúng bộ trong Elevation & Depth; tối dùng bản bóng đen.",
+      "Do dùng chữ số đều (`tabular-nums`) cho tiền, số đếm, thời gian."
+    ],
+    "donts": [
+      "Don't đưa tím (hay chàm SaaS) trở lại làm màu chủ đạo; tím chỉ còn là màu chuyên mục của nhóm Ảnh.",
+      "Don't nghiêng, xoay hay xê dịch lệch trục bất kỳ khối, thẻ, nhãn nào (người dùng đã bỏ bản nghiêng vì \"xộc xệch\").",
+      "Don't lồng thẻ có viền bốn phía hoặc có bóng bên trong khung ứng dụng; không bọc vùng thả file bằng hộp thứ hai.",
+      "Don't dùng viền màu một bên (side-stripe) làm điểm nhấn cho thẻ, alert hay trích dẫn; dùng nền nhạt hoặc gạch trên.",
+      "Don't dùng emoji hay ký tự làm icon; chỉ icon Lucide dạng SVG.",
+      "Don't thêm chuyển động khi mở trang ngoài nét dạ quang quét qua câu quyền riêng tư (và chỉ ở giao diện sáng). Chuyển trạng thái (hover, nhấn, toast hiện lên, thanh tiến trình) vẫn được, ngắn dưới 0,35 s.",
+      "Don't dùng nền dạ quang để nhấn chữ khác ngoài cam kết quyền riêng tư.",
+      "Don't đặt nhãn nhỏ viết hoa giãn chữ (eyebrow/kicker) phía trên tiêu đề, và không dùng font hệ thống hay font thiếu dấu tiếng Việt cho tít."
+    ]
+  }
+}

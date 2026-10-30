@@ -244,11 +244,11 @@ function homePage(L) {
   const main = `<section class="hero">
 <div class="wrap hero-in">
 <div class="hero-main">
-<h1>${tr("Công cụ tiện ích <span class=\"nowrap\">cho người Việt</span>")}</h1>
+<h1>${tr("<span class=\"nowrap\">Công cụ tiện ích</span> <span class=\"nowrap\">cho người Việt</span>")}</h1>
 <p class="lead">${tr("{0} công cụ miễn phí cho PDF, ảnh, văn bản, VietQR, lịch âm… Chạy ngay trên trình duyệt, <b>file không bao giờ rời khỏi máy bạn</b>.", live.length)}</p>
 <form class="search-box" role="search" action="./" onsubmit="return false">
 ${icon("search", root)}
-<input id="q" name="q" type="search" placeholder="${tr("Tìm: ghép pdf, nén ảnh, vietqr…")}" autocomplete="off" spellcheck="false" aria-label="${tr("Tìm công cụ")}" aria-controls="results" enterkeyhint="go">
+<input id="q" name="q" type="search" placeholder="${tr("Tìm: ghép pdf, vietqr…")}" autocomplete="off" spellcheck="false" aria-label="${tr("Tìm công cụ")}" aria-controls="results" enterkeyhint="go">
 <kbd class="only-d">/</kbd>
 </form>
 <p class="drop-hint">${icon("upload", root)}<span>${tr("Thả hoặc dán (Ctrl/⌘ + V) một file vào trang để được gợi ý công cụ phù hợp, hoặc <button type=\"button\" class=\"linkish\" data-pick-any>chọn file</button>.")}</span></p>
@@ -400,6 +400,7 @@ function aboutPage(L) {
 <nav class="crumbs" aria-label="${tr("Đường dẫn")}"><ol><li><a href="${root}${L.homeUrl}">${tr("Trang chủ")}</a></li><li><span aria-current="page">${tr("Giới thiệu")}</span></li></ol></nav>
 <header class="tool-head plain"><div class="tool-title"><h1>${tr("Giới thiệu &amp; quyền riêng tư")}</h1>
 <p class="lead">${tr("BbeTools là bộ công cụ tiện ích miễn phí, giao diện tiếng Việt, chạy hoàn toàn trên trình duyệt của bạn.")}</p></div></header>
+<p class="privacy">${icon("shield-check", root)}<span>${tr("File của bạn không bao giờ rời khỏi máy bạn.")}</span></p>
 </div>
 </div>
 <div class="wrap narrow prose">
@@ -432,12 +433,16 @@ function notFoundPage(L) {
   const langs = Object.keys(LANGS);
   const baseScript = `<script>(function(){var b=${JSON.stringify(BASE_PATH)},p=location.pathname,i=p.toLowerCase().indexOf(b.toLowerCase()),r=i>=0?p.slice(0,i+b.length):"/",l=(i>=0?p.slice(i+b.length):"").split("/")[0];document.write('<base href="'+r+'">');if(${JSON.stringify(langs)}.indexOf(l)>=0){document.documentElement.lang=l;window.btLang=l}})()</script>\n`;
   const root = "";
-  const main = `<div class="wrap narrow nf">
+  const main = `<div class="tool-page band-page" style="--c:#C8922A">
+<div class="tool-band"><div class="wrap narrow nf-head">
 <p class="nf-code">404</p>
 <h1 id="nf-title">Không tìm thấy trang này</h1>
 <p class="lead" id="nf-msg">Đường dẫn có thể đã đổi hoặc gõ nhầm.</p>
+</div></div>
+<div class="wrap narrow nf">
 <section id="nf-suggest" class="block" hidden><h2>Có phải bạn tìm:</h2><ul class="cards"></ul></section>
 <p class="row"><a class="btn" id="nf-home" href="./">${icon("house", root)}<span>Về trang chủ</span></a><button class="btn ghost" type="button" data-palette>${icon("search", root)}<span>Tìm công cụ</span></button></p>
+</div>
 </div>`;
   // nạp module theo ngôn ngữ (window.btLang do đoạn script đầu trang đặt)
   const loader = `<script>(function(){var s=document.createElement("script");s.type="module";s.src="assets/"+(window.btLang?window.btLang+"/":"")+"notfound.js";document.head.appendChild(s)})()</script>\n`;

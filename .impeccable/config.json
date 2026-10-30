@@ -1,0 +1,26 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "scripts/brand/og.html"
+        ],
+        "createdAt": "2026-10-30T16:41:27.529Z",
+        "reason": "Nền #D6A23A/#F6F4EF là bảng màu Vàng đất người dùng đã chốt (docs/giao-dien-moi.md, .impeccable/surfaces/index-html.md)"
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "scripts/brand/og.html"
+        ],
+        "createdAt": "2026-10-30T16:41:27.557Z",
+        "reason": "og.html là ảnh tĩnh, không có nội dung tự cuộn; phát hiện đến từ app.css được nạp kèm (thanh tiến trình chạy vô hạn)"
+      }
+    ]
+  }
+}

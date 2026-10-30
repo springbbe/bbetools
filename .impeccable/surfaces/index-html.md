@@ -27,5 +27,7 @@ FORM: Tạp chí học trò Việt (Hoa Học Trò / Mực Tím), vị trí 6 tr
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
 
-## Chưa quyết
-- Có làm lại ảnh OG/icon ứng dụng theo màu mới không (giai đoạn 5).
+## Đã quyết thêm
+- Ảnh OG và icon ứng dụng làm lại theo vàng đất (giai đoạn 5, `scripts/brand/`).
+- Trang công cụ, trang nhóm, Giới thiệu: dải đầu trang nhuộm màu chuyên mục (giai đoạn 2–3).
+- Chuyển động: một khoảnh khắc duy nhất, nét dạ quang quét qua cam kết quyền riêng tư, chỉ ở giao diện sáng (giai đoạn 5).

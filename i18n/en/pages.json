@@ -16,9 +16,7 @@
  "Mã nguồn trên GitHub": "Source code on GitHub",
  "Góp ý, báo lỗi": "Feedback, bug reports",
  "Không quảng cáo, không tải file lên máy chủ.": "No ads, no file uploads to any server.",
- "Công cụ tiện ích <span class=\"nowrap\">cho người Việt</span>": "Free online tools <span class=\"nowrap\">that run in your browser</span>",
  "{0} công cụ miễn phí cho PDF, ảnh, văn bản, VietQR, lịch âm… Chạy ngay trên trình duyệt, <b>file không bao giờ rời khỏi máy bạn</b>.": "{0} free tools for PDF, images, video, text, QR codes, developers… They run right in your browser, <b>your files never leave your device</b>.",
- "Tìm: ghép pdf, nén ảnh, vietqr…": "Search: merge pdf, compress image, qr…",
  "Tìm công cụ": "Search tools",
  "Thả hoặc dán (Ctrl/⌘ + V) một file vào trang để được gợi ý công cụ phù hợp, hoặc <button type=\"button\" class=\"linkish\" data-pick-any>chọn file</button>.": "Drop or paste (Ctrl/⌘ + V) a file onto the page to get matching tool suggestions, or <button type=\"button\" class=\"linkish\" data-pick-any>choose a file</button>.",
  "Kết quả tìm kiếm": "Search results",
@@ -72,5 +70,8 @@
  "File của bạn được xử lý ngay trên máy này, không bao giờ tải lên máy chủ.": "Your files are processed right on this device and never uploaded to any server.",
  "Văn bản bạn nhập chỉ được xử lý trên trình duyệt, không gửi đi đâu.": "The text you enter is only processed in your browser and never sent anywhere.",
  "Số liệu bạn nhập chỉ được tính trên trình duyệt, không gửi đi đâu.": "The numbers you enter are only calculated in your browser and never sent anywhere.",
- "Mọi thứ chạy ngay trên máy bạn; hình ảnh, âm thanh không gửi đi đâu.": "Everything runs on your device; images and audio aren't sent anywhere."
+ "Mọi thứ chạy ngay trên máy bạn; hình ảnh, âm thanh không gửi đi đâu.": "Everything runs on your device; images and audio aren't sent anywhere.",
+ "<span class=\"nowrap\">Công cụ tiện ích</span> <span class=\"nowrap\">cho người Việt</span>": "Free online tools <span class=\"nowrap\">that run in your browser</span>",
+ "Tìm: ghép pdf, vietqr…": "Search: merge pdf, qr…",
+ "File của bạn không bao giờ rời khỏi máy bạn.": "Your files never leave your device."
 }
