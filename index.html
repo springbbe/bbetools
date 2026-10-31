@@ -108,161 +108,6 @@
 <div class="wrap">
 <section id="results" class="block" hidden aria-live="polite"><h2 id="results-title">Kết quả tìm kiếm</h2><ul class="cards" id="results-list"></ul><p class="empty" id="results-empty" hidden>Chưa có công cụ khớp. Thử gõ ngắn hơn hoặc không dấu, ví dụ “pdf”, “anh”, “qr”.</p></section>
 <div id="home-main">
-<section id="suggest" class="block" hidden></section>
-<section id="favs" class="block" hidden><h2><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg> Yêu thích</h2><ul class="cards"></ul></section>
-<section id="recent" class="block" hidden><h2><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#history"></use></svg> Dùng gần đây</h2><ul class="cards"></ul></section>
-<section class="block" id="popular"><h2><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#sparkles"></use></svg> Phổ biến</h2><ul class="cards"><li class="card" data-id="merge-pdf" data-group="pdf" style="--c:#E5484D">
-<a class="card-link" href="./ghep-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#combine"></use></svg></span><span class="card-txt"><h3 class="card-name">Ghép PDF</h3><span class="card-desc">Nối nhiều file PDF thành một file, kéo thả để sắp thứ tự, xoay từng file nếu cần.</span></span></a>
-<button class="star" type="button" data-fav="merge-pdf" aria-pressed="false" aria-label="Ghim Ghép PDF vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
-</li>
-<li class="card" data-id="split-pdf" data-group="pdf" style="--c:#E5484D">
-<a class="card-link" href="./tach-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#scissors"></use></svg></span><span class="card-txt"><h3 class="card-name">Tách PDF</h3><span class="card-desc">Tách PDF theo khoảng trang, mỗi trang một file hoặc trích các trang bạn chọn.</span></span></a>
-<button class="star" type="button" data-fav="split-pdf" aria-pressed="false" aria-label="Ghim Tách PDF vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
-</li>
-<li class="card" data-id="compress-pdf" data-group="pdf" style="--c:#E5484D">
-<a class="card-link" href="./nen-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#shrink"></use></svg></span><span class="card-txt"><h3 class="card-name">Nén PDF</h3><span class="card-desc">Giảm dung lượng PDF để gửi email, Zalo mà chữ vẫn sắc nét, chọn được chữ.</span></span></a>
-<button class="star" type="button" data-fav="compress-pdf" aria-pressed="false" aria-label="Ghim Nén PDF vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
-</li>
-<li class="card" data-id="pdf-to-image" data-group="pdf" style="--c:#E5484D">
-<a class="card-link" href="./pdf-sang-anh/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#file-image"></use></svg></span><span class="card-txt"><h3 class="card-name">PDF sang ảnh</h3><span class="card-desc">Chuyển từng trang PDF thành ảnh JPG hoặc PNG chất lượng cao.</span></span></a>
-<button class="star" type="button" data-fav="pdf-to-image" aria-pressed="false" aria-label="Ghim PDF sang ảnh vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
-</li>
-<li class="card" data-id="image-to-pdf" data-group="pdf" style="--c:#E5484D">
-<a class="card-link" href="./anh-sang-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#images"></use></svg></span><span class="card-txt"><h3 class="card-name">Ảnh sang PDF</h3><span class="card-desc">Ghép ảnh JPG, PNG, ảnh chụp màn hình thành một file PDF.</span></span></a>
-<button class="star" type="button" data-fav="image-to-pdf" aria-pressed="false" aria-label="Ghim Ảnh sang PDF vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
-</li>
-<li class="card" data-id="sign-pdf" data-group="pdf" style="--c:#E5484D">
-<a class="card-link" href="./ky-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#signature"></use></svg></span><span class="card-txt"><h3 class="card-name">Ký PDF</h3><span class="card-desc">Vẽ, gõ hoặc dán chữ ký; thêm chữ và ngày tháng vào trang PDF.</span></span></a>
-<button class="star" type="button" data-fav="sign-pdf" aria-pressed="false" aria-label="Ghim Ký PDF vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
-</li>
-<li class="card" data-id="compress-image" data-group="image" style="--c:#8E4EC6">
-<a class="card-link" href="./nen-anh/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#image-down"></use></svg></span><span class="card-txt"><h3 class="card-name">Nén ảnh</h3><span class="card-desc">Giảm dung lượng ảnh JPG, PNG, WebP hàng loạt; có chế độ nén xuống dưới số KB bạn cần.</span></span></a>
-<button class="star" type="button" data-fav="compress-image" aria-pressed="false" aria-label="Ghim Nén ảnh vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
-</li>
-<li class="card" data-id="resize-image" data-group="image" style="--c:#8E4EC6">
-<a class="card-link" href="./doi-kich-thuoc-anh/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#scaling"></use></svg></span><span class="card-txt"><h3 class="card-name">Đổi kích thước ảnh</h3><span class="card-desc">Thu nhỏ hoặc phóng to ảnh theo pixel, phần trăm hoặc cạnh dài nhất.</span></span></a>
-<button class="star" type="button" data-fav="resize-image" aria-pressed="false" aria-label="Ghim Đổi kích thước ảnh vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
-</li>
-<li class="card" data-id="convert-image" data-group="image" style="--c:#8E4EC6">
-<a class="card-link" href="./doi-dinh-dang-anh/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#refresh-cw"></use></svg></span><span class="card-txt"><h3 class="card-name">Đổi định dạng ảnh</h3><span class="card-desc">Chuyển qua lại giữa JPG, PNG, WebP và AVIF.</span></span></a>
-<button class="star" type="button" data-fav="convert-image" aria-pressed="false" aria-label="Ghim Đổi định dạng ảnh vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
-</li>
-<li class="card" data-id="heic-to-jpg" data-group="image" style="--c:#8E4EC6">
-<a class="card-link" href="./heic-sang-jpg/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#smartphone"></use></svg></span><span class="card-txt"><h3 class="card-name">HEIC sang JPG</h3><span class="card-desc">Chuyển ảnh iPhone định dạng HEIC/HEIF sang JPG hoặc PNG, hàng loạt, ngay trên máy.</span></span></a>
-<button class="star" type="button" data-fav="heic-to-jpg" aria-pressed="false" aria-label="Ghim HEIC sang JPG vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
-</li>
-<li class="card" data-id="id-photo" data-group="image" style="--c:#8E4EC6">
-<a class="card-link" href="./anh-the/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#square-user"></use></svg></span><span class="card-txt"><h3 class="card-name">Làm ảnh thẻ</h3><span class="card-desc">Làm ảnh thẻ 3x4, 4x6 từ ảnh chân dung: đổi nền xanh/trắng bằng AI, căn khung, xếp nhiều ảnh lên giấy để in.</span></span></a>
-<button class="star" type="button" data-fav="id-photo" aria-pressed="false" aria-label="Ghim Làm ảnh thẻ vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
-</li>
-<li class="card" data-id="remove-bg" data-group="image" style="--c:#8E4EC6">
-<a class="card-link" href="./xoa-phong-anh/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#eraser"></use></svg></span><span class="card-txt"><h3 class="card-name">Xoá phông ảnh</h3><span class="card-desc">Tách nền ảnh chân dung bằng AI chạy ngay trên máy, xuất PNG trong suốt hoặc nền màu.</span></span></a>
-<button class="star" type="button" data-fav="remove-bg" aria-pressed="false" aria-label="Ghim Xoá phông ảnh vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
-</li>
-<li class="card" data-id="ocr" data-group="image" style="--c:#8E4EC6">
-<a class="card-link" href="./anh-sang-chu/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#scan-text"></use></svg></span><span class="card-txt"><h3 class="card-name">Ảnh sang chữ (OCR)</h3><span class="card-desc">Nhận dạng chữ trong ảnh chụp, ảnh scan, hỗ trợ tiếng Việt có dấu.</span></span></a>
-<button class="star" type="button" data-fav="ocr" aria-pressed="false" aria-label="Ghim Ảnh sang chữ (OCR) vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
-</li>
-<li class="card" data-id="trim-audio" data-group="media" style="--c:#D6409F">
-<a class="card-link" href="./cat-am-thanh/"><span class="tile" style="--c:#D6409F"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#audio-waveform"></use></svg></span><span class="card-txt"><h3 class="card-name">Cắt âm thanh</h3><span class="card-desc">Cắt đoạn nhạc, làm nhạc chuông (cả M4R cho iPhone), có hiệu ứng tăng/giảm dần.</span></span></a>
-<button class="star" type="button" data-fav="trim-audio" aria-pressed="false" aria-label="Ghim Cắt âm thanh vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
-</li>
-<li class="card" data-id="video-to-mp3" data-group="media" style="--c:#D6409F">
-<a class="card-link" href="./video-sang-mp3/"><span class="tile" style="--c:#D6409F"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#music"></use></svg></span><span class="card-txt"><h3 class="card-name">Video sang MP3</h3><span class="card-desc">Tách lấy phần âm thanh của video thành file MP3 (hoặc M4A, WAV), lấy cả video hoặc một đoạn.</span></span></a>
-<button class="star" type="button" data-fav="video-to-mp3" aria-pressed="false" aria-label="Ghim Video sang MP3 vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
-</li>
-<li class="card" data-id="trim-video" data-group="media" style="--c:#D6409F">
-<a class="card-link" href="./cat-video/"><span class="tile" style="--c:#D6409F"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#scissors"></use></svg></span><span class="card-txt"><h3 class="card-name">Cắt video</h3><span class="card-desc">Cắt lấy đoạn video cần dùng, giữ nguyên chất lượng (không mã hoá lại) hoặc cắt chính xác từng khung.</span></span></a>
-<button class="star" type="button" data-fav="trim-video" aria-pressed="false" aria-label="Ghim Cắt video vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
-</li>
-<li class="card" data-id="compress-video" data-group="media" style="--c:#D6409F">
-<a class="card-link" href="./nen-video/"><span class="tile" style="--c:#D6409F"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#video"></use></svg></span><span class="card-txt"><h3 class="card-name">Nén video</h3><span class="card-desc">Giảm dung lượng video để gửi Zalo, email: theo chất lượng hoặc dung lượng mong muốn, dùng mã hoá phần cứng của máy.</span></span></a>
-<button class="star" type="button" data-fav="compress-video" aria-pressed="false" aria-label="Ghim Nén video vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
-</li>
-<li class="card" data-id="word-counter" data-group="text" style="--c:#0D74CE">
-<a class="card-link" href="./dem-tu/"><span class="tile" style="--c:#0D74CE"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#whole-word"></use></svg></span><span class="card-txt"><h3 class="card-name">Đếm từ &amp; ký tự</h3><span class="card-desc">Đếm số từ (tiếng), ký tự, câu, đoạn, thời gian đọc; hiện ngay khi gõ.</span></span></a>
-<button class="star" type="button" data-fav="word-counter" aria-pressed="false" aria-label="Ghim Đếm từ &amp; ký tự vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
-</li>
-<li class="card" data-id="remove-accents" data-group="text" style="--c:#0D74CE">
-<a class="card-link" href="./bo-dau-tieng-viet/"><span class="tile" style="--c:#0D74CE"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#remove-formatting"></use></svg></span><span class="card-txt"><h3 class="card-name">Bỏ dấu tiếng Việt</h3><span class="card-desc">Chuyển văn bản tiếng Việt có dấu thành không dấu (đ → d).</span></span></a>
-<button class="star" type="button" data-fav="remove-accents" aria-pressed="false" aria-label="Ghim Bỏ dấu tiếng Việt vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
-</li>
-<li class="card" data-id="vn-encoding" data-group="text" style="--c:#0D74CE">
-<a class="card-link" href="./chuyen-ma-tcvn3-vni/"><span class="tile" style="--c:#0D74CE"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#languages"></use></svg></span><span class="card-txt"><h3 class="card-name">Chuyển mã Unicode ↔ TCVN3 ↔ VNI</h3><span class="card-desc">Sửa chữ lỗi font .VnTime, VNI-Times: chuyển qua lại Unicode, TCVN3 (ABC), VNI.</span></span></a>
-<button class="star" type="button" data-fav="vn-encoding" aria-pressed="false" aria-label="Ghim Chuyển mã Unicode ↔ TCVN3 ↔ VNI vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
-</li>
-<li class="card" data-id="number-to-words" data-group="vn" style="--c:#C27C0E">
-<a class="card-link" href="./doc-so-thanh-chu/"><span class="tile" style="--c:#C27C0E"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#banknote"></use></svg></span><span class="card-txt"><h3 class="card-name">Đọc số thành chữ</h3><span class="card-desc">Viết số tiền bằng chữ cho hoá đơn, chứng từ, hợp đồng: 1.250.000 → Một triệu hai trăm năm mươi nghìn đồng.</span></span></a>
-<button class="star" type="button" data-fav="number-to-words" aria-pressed="false" aria-label="Ghim Đọc số thành chữ vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
-</li>
-<li class="card" data-id="vietqr" data-group="vn" style="--c:#C27C0E">
-<a class="card-link" href="./tao-ma-qr-chuyen-khoan/"><span class="tile" style="--c:#C27C0E"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#landmark"></use></svg></span><span class="card-txt"><h3 class="card-name">Tạo mã QR chuyển khoản (VietQR)</h3><span class="card-desc">Tạo mã QR nhận tiền cho mọi ngân hàng theo chuẩn VietQR (EMVCo/NAPAS), có sẵn số tiền và nội dung, tạo ngay trên máy.</span></span></a>
-<button class="star" type="button" data-fav="vietqr" aria-pressed="false" aria-label="Ghim Tạo mã QR chuyển khoản (VietQR) vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
-</li>
-<li class="card" data-id="lunar-calendar" data-group="vn" style="--c:#C27C0E">
-<a class="card-link" href="./doi-lich-am-duong/"><span class="tile" style="--c:#C27C0E"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#calendar-days"></use></svg></span><span class="card-txt"><h3 class="card-name">Đổi lịch âm ↔ dương</h3><span class="card-desc">Đổi ngày dương sang âm và ngược lại, xem can chi, tháng nhuận, tiết khí, giờ hoàng đạo và lịch tháng.</span></span></a>
-<button class="star" type="button" data-fav="lunar-calendar" aria-pressed="false" aria-label="Ghim Đổi lịch âm ↔ dương vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
-</li>
-<li class="card" data-id="salary-gross-net" data-group="vn" style="--c:#C27C0E">
-<a class="card-link" href="./tinh-luong-gross-net/"><span class="tile" style="--c:#C27C0E"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#wallet"></use></svg></span><span class="card-txt"><h3 class="card-name">Tính lương gross ↔ net</h3><span class="card-desc">Đổi lương gross sang net và ngược lại theo BHXH, BHYT, BHTN và thuế TNCN hiện hành.</span></span></a>
-<button class="star" type="button" data-fav="salary-gross-net" aria-pressed="false" aria-label="Ghim Tính lương gross ↔ net vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
-</li>
-<li class="card" data-id="loan-calculator" data-group="vn" style="--c:#C27C0E">
-<a class="card-link" href="./tinh-lai-vay-tra-gop/"><span class="tile" style="--c:#C27C0E"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#hand-coins"></use></svg></span><span class="card-txt"><h3 class="card-name">Tính lãi vay trả góp</h3><span class="card-desc">Lịch trả nợ theo dư nợ giảm dần hoặc trả đều, tổng lãi phải trả.</span></span></a>
-<button class="star" type="button" data-fav="loan-calculator" aria-pressed="false" aria-label="Ghim Tính lãi vay trả góp vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
-</li>
-<li class="card" data-id="electricity-bill" data-group="vn" style="--c:#C27C0E">
-<a class="card-link" href="./tinh-tien-dien/"><span class="tile" style="--c:#C27C0E"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#zap"></use></svg></span><span class="card-txt"><h3 class="card-name">Tính tiền điện bậc thang</h3><span class="card-desc">Tính tiền điện sinh hoạt theo biểu giá bậc thang EVN hiện hành, có VAT.</span></span></a>
-<button class="star" type="button" data-fav="electricity-bill" aria-pressed="false" aria-label="Ghim Tính tiền điện bậc thang vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
-</li>
-<li class="card" data-id="percentage" data-group="calc" style="--c:#E5701A">
-<a class="card-link" href="./tinh-phan-tram/"><span class="tile" style="--c:#E5701A"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#percent"></use></svg></span><span class="card-txt"><h3 class="card-name">Máy tính phần trăm</h3><span class="card-desc">X% của Y, X là bao nhiêu % của Y, tăng/giảm bao nhiêu phần trăm.</span></span></a>
-<button class="star" type="button" data-fav="percentage" aria-pressed="false" aria-label="Ghim Máy tính phần trăm vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
-</li>
-<li class="card" data-id="split-bill" data-group="calc" style="--c:#E5701A">
-<a class="card-link" href="./chia-tien-nhom/"><span class="tile" style="--c:#E5701A"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#users"></use></svg></span><span class="card-txt"><h3 class="card-name">Chia tiền nhóm</h3><span class="card-desc">Ai trả bao nhiêu, ai nợ ai — tính số lần chuyển khoản ít nhất.</span></span></a>
-<button class="star" type="button" data-fav="split-bill" aria-pressed="false" aria-label="Ghim Chia tiền nhóm vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
-</li>
-<li class="card" data-id="qr-generator" data-group="qr" style="--c:#475569">
-<a class="card-link" href="./tao-ma-qr/"><span class="tile" style="--c:#475569"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#qr-code"></use></svg></span><span class="card-txt"><h3 class="card-name">Tạo mã QR</h3><span class="card-desc">Tạo mã QR cho link, văn bản, WiFi, danh thiếp (vCard), SMS, email; đổi màu, chèn logo, tải PNG/SVG.</span></span></a>
-<button class="star" type="button" data-fav="qr-generator" aria-pressed="false" aria-label="Ghim Tạo mã QR vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
-</li>
-<li class="card" data-id="qr-scanner" data-group="qr" style="--c:#475569">
-<a class="card-link" href="./quet-ma-qr/"><span class="tile" style="--c:#475569"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#scan-qr-code"></use></svg></span><span class="card-txt"><h3 class="card-name">Quét mã QR</h3><span class="card-desc">Quét QR và mã vạch bằng camera, từ ảnh chụp màn hình hoặc file PDF; đọc được cả QR chuyển khoản VietQR.</span></span></a>
-<button class="star" type="button" data-fav="qr-scanner" aria-pressed="false" aria-label="Ghim Quét mã QR vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
-</li>
-<li class="card" data-id="excel-viewer" data-group="office" style="--c:#18794E">
-<a class="card-link" href="./xem-file-excel/"><span class="tile" style="--c:#18794E"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#sheet"></use></svg></span><span class="card-txt"><h3 class="card-name">Xem file Excel/CSV</h3><span class="card-desc">Mở xem file .xlsx, .xls, .ods, .csv không cần cài Excel; chuyển sheet, tìm không cần dấu, lọc, sắp xếp.</span></span></a>
-<button class="star" type="button" data-fav="excel-viewer" aria-pressed="false" aria-label="Ghim Xem file Excel/CSV vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
-</li>
-<li class="card" data-id="json-formatter" data-group="dev" style="--c:#3E63DD">
-<a class="card-link" href="./dinh-dang-json/"><span class="tile" style="--c:#3E63DD"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#braces"></use></svg></span><span class="card-txt"><h3 class="card-name">Định dạng &amp; kiểm tra JSON</h3><span class="card-desc">Làm đẹp, rút gọn, sắp xếp khoá và kiểm tra lỗi JSON, chỉ đúng dòng/cột bị sai.</span></span></a>
-<button class="star" type="button" data-fav="json-formatter" aria-pressed="false" aria-label="Ghim Định dạng &amp; kiểm tra JSON vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
-</li>
-<li class="card" data-id="password-generator" data-group="security" style="--c:#0E7C86">
-<a class="card-link" href="./tao-mat-khau/"><span class="tile" style="--c:#0E7C86"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#key"></use></svg></span><span class="card-txt"><h3 class="card-name">Tạo mật khẩu mạnh</h3><span class="card-desc">Sinh mật khẩu ngẫu nhiên an toàn, cụm từ tiếng Việt dễ nhớ hoặc mã PIN, dùng bộ sinh số ngẫu nhiên của trình duyệt.</span></span></a>
-<button class="star" type="button" data-fav="password-generator" aria-pressed="false" aria-label="Ghim Tạo mật khẩu mạnh vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
-</li>
-<li class="card" data-id="pomodoro" data-group="productivity" style="--c:#5C8A1C">
-<a class="card-link" href="./pomodoro/"><span class="tile" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#timer"></use></svg></span><span class="card-txt"><h3 class="card-name">Pomodoro</h3><span class="card-desc">Hẹn giờ tập trung 25 phút, nghỉ 5 phút theo phương pháp Pomodoro; có âm báo, thông báo và thống kê trong ngày.</span></span></a>
-<button class="star" type="button" data-fav="pomodoro" aria-pressed="false" aria-label="Ghim Pomodoro vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
-</li>
-<li class="card" data-id="spin-wheel" data-group="productivity" style="--c:#5C8A1C">
-<a class="card-link" href="./vong-quay-may-man/"><span class="tile" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#ferris-wheel"></use></svg></span><span class="card-txt"><h3 class="card-name">Vòng quay may mắn</h3><span class="card-desc">Nhập danh sách, quay vòng ngẫu nhiên để chọn người, chọn món, trúng thưởng.</span></span></a>
-<button class="star" type="button" data-fav="spin-wheel" aria-pressed="false" aria-label="Ghim Vòng quay may mắn vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
-</li>
-<li class="card" data-id="keyboard-test" data-group="productivity" style="--c:#5C8A1C">
-<a class="card-link" href="./kiem-tra-ban-phim/"><span class="tile" style="--c:#5C8A1C"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#keyboard"></use></svg></span><span class="card-txt"><h3 class="card-name">Test bàn phím</h3><span class="card-desc">Kiểm tra bàn phím online: bố cục Windows và Mac, laptop hoặc bàn phím rời, có hoặc không có bàn phím số; giữ nhiều phím cùng lúc, phát hiện phím bị dội.</span></span></a>
-<button class="star" type="button" data-fav="keyboard-test" aria-pressed="false" aria-label="Ghim Test bàn phím vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
-</li>
-<li class="card" data-id="line-stickers" data-group="download" style="--c:#0090FF">
-<a class="card-link" href="./tai-sticker-line/"><span class="tile" style="--c:#0090FF"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#sticker"></use></svg></span><span class="card-txt"><h3 class="card-name">Tải sticker LINE</h3><span class="card-desc">Dán link cửa hàng LINE để tải cả bộ sticker hoặc emoji LINE: nguyên bản PNG, APNG động kèm âm thanh, hoặc đổi sang GIF. Không cần đăng nhập.</span></span></a>
-<button class="star" type="button" data-fav="line-stickers" aria-pressed="false" aria-label="Ghim Tải sticker LINE vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
-</li>
-<li class="card" data-id="youtube-thumbnail" data-group="download" style="--c:#0090FF">
-<a class="card-link" href="./tai-thumbnail-youtube/"><span class="tile" style="--c:#0090FF"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#image-down"></use></svg></span><span class="card-txt"><h3 class="card-name">Tải ảnh thumbnail YouTube</h3><span class="card-desc">Dán link video, Shorts YouTube để xem và tải ảnh thumbnail ở mọi cỡ, tới HD 1280×720; tự bỏ viền đen, xuất JPG, PNG, WEBP.</span></span></a>
-<button class="star" type="button" data-fav="youtube-thumbnail" aria-pressed="false" aria-label="Ghim Tải ảnh thumbnail YouTube vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
-</li></ul></section>
 <nav class="chips" aria-label="Lọc theo nhóm">
 <div class="chips-in">
 <a href="#tat-ca" class="chip" data-filter="all" aria-current="true">Tất cả</a>
@@ -280,6 +125,41 @@
 <a href="#nhom-tai-ve" class="chip" data-filter="download" style="--c:#0090FF">Tải về <small>7</small></a>
 </div>
 </nav>
+<section id="suggest" class="block" hidden></section>
+<section id="favs" class="block" hidden><h2><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg> Yêu thích</h2><ul class="cards"></ul></section>
+<section id="recent" class="block" hidden><h2><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#history"></use></svg> Dùng gần đây</h2><ul class="cards"></ul></section>
+<section class="block" id="popular"><h2><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#sparkles"></use></svg> Phổ biến</h2><ul class="cards"><li class="card" data-id="merge-pdf" data-group="pdf" style="--c:#E5484D">
+<a class="card-link" href="./ghep-pdf/"><span class="tile" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#combine"></use></svg></span><span class="card-txt"><h3 class="card-name">Ghép PDF</h3><span class="card-desc">Nối nhiều file PDF thành một file, kéo thả để sắp thứ tự, xoay từng file nếu cần.</span></span></a>
+<button class="star" type="button" data-fav="merge-pdf" aria-pressed="false" aria-label="Ghim Ghép PDF vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
+</li>
+<li class="card" data-id="compress-image" data-group="image" style="--c:#8E4EC6">
+<a class="card-link" href="./nen-anh/"><span class="tile" style="--c:#8E4EC6"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#image-down"></use></svg></span><span class="card-txt"><h3 class="card-name">Nén ảnh</h3><span class="card-desc">Giảm dung lượng ảnh JPG, PNG, WebP hàng loạt; có chế độ nén xuống dưới số KB bạn cần.</span></span></a>
+<button class="star" type="button" data-fav="compress-image" aria-pressed="false" aria-label="Ghim Nén ảnh vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
+</li>
+<li class="card" data-id="trim-audio" data-group="media" style="--c:#D6409F">
+<a class="card-link" href="./cat-am-thanh/"><span class="tile" style="--c:#D6409F"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#audio-waveform"></use></svg></span><span class="card-txt"><h3 class="card-name">Cắt âm thanh</h3><span class="card-desc">Cắt đoạn nhạc, làm nhạc chuông (cả M4R cho iPhone), có hiệu ứng tăng/giảm dần.</span></span></a>
+<button class="star" type="button" data-fav="trim-audio" aria-pressed="false" aria-label="Ghim Cắt âm thanh vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
+</li>
+<li class="card" data-id="word-counter" data-group="text" style="--c:#0D74CE">
+<a class="card-link" href="./dem-tu/"><span class="tile" style="--c:#0D74CE"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#whole-word"></use></svg></span><span class="card-txt"><h3 class="card-name">Đếm từ &amp; ký tự</h3><span class="card-desc">Đếm số từ (tiếng), ký tự, câu, đoạn, thời gian đọc; hiện ngay khi gõ.</span></span></a>
+<button class="star" type="button" data-fav="word-counter" aria-pressed="false" aria-label="Ghim Đếm từ &amp; ký tự vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
+</li>
+<li class="card" data-id="number-to-words" data-group="vn" style="--c:#C27C0E">
+<a class="card-link" href="./doc-so-thanh-chu/"><span class="tile" style="--c:#C27C0E"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#banknote"></use></svg></span><span class="card-txt"><h3 class="card-name">Đọc số thành chữ</h3><span class="card-desc">Viết số tiền bằng chữ cho hoá đơn, chứng từ, hợp đồng: 1.250.000 → Một triệu hai trăm năm mươi nghìn đồng.</span></span></a>
+<button class="star" type="button" data-fav="number-to-words" aria-pressed="false" aria-label="Ghim Đọc số thành chữ vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
+</li>
+<li class="card" data-id="percentage" data-group="calc" style="--c:#E5701A">
+<a class="card-link" href="./tinh-phan-tram/"><span class="tile" style="--c:#E5701A"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#percent"></use></svg></span><span class="card-txt"><h3 class="card-name">Máy tính phần trăm</h3><span class="card-desc">X% của Y, X là bao nhiêu % của Y, tăng/giảm bao nhiêu phần trăm.</span></span></a>
+<button class="star" type="button" data-fav="percentage" aria-pressed="false" aria-label="Ghim Máy tính phần trăm vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
+</li>
+<li class="card" data-id="qr-generator" data-group="qr" style="--c:#475569">
+<a class="card-link" href="./tao-ma-qr/"><span class="tile" style="--c:#475569"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#qr-code"></use></svg></span><span class="card-txt"><h3 class="card-name">Tạo mã QR</h3><span class="card-desc">Tạo mã QR cho link, văn bản, WiFi, danh thiếp (vCard), SMS, email; đổi màu, chèn logo, tải PNG/SVG.</span></span></a>
+<button class="star" type="button" data-fav="qr-generator" aria-pressed="false" aria-label="Ghim Tạo mã QR vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
+</li>
+<li class="card" data-id="excel-viewer" data-group="office" style="--c:#18794E">
+<a class="card-link" href="./xem-file-excel/"><span class="tile" style="--c:#18794E"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#sheet"></use></svg></span><span class="card-txt"><h3 class="card-name">Xem file Excel/CSV</h3><span class="card-desc">Mở xem file .xlsx, .xls, .ods, .csv không cần cài Excel; chuyển sheet, tìm không cần dấu, lọc, sắp xếp.</span></span></a>
+<button class="star" type="button" data-fav="excel-viewer" aria-pressed="false" aria-label="Ghim Xem file Excel/CSV vào Yêu thích" hidden><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#star"></use></svg></button>
+</li></ul></section>
 <div id="tat-ca">
 <section class="block group-block" id="nhom-pdf" data-group="pdf">
 <h2 class="tab"><a href="./nhom/pdf/" style="--c:#E5484D"><svg class="i" aria-hidden="true"><use href="./assets/icons.svg#file-text"></use></svg>PDF</a> <small>24 công cụ</small></h2>

@@ -409,6 +409,7 @@ details p { margin: 0; padding: 0 16px 14px; color: var(--muted); }
 .home .block:first-child { margin-top: 28px; }
 .chips { position: sticky; top: var(--top-h); z-index: 20; margin: 8px -16px 0; padding: 10px 16px; background: color-mix(in srgb, var(--bg) 94%, transparent); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid transparent; }
 .chips.stuck { border-bottom-color: var(--line); }
+@media (max-width: 599px) { #popular .cards > li:nth-child(n+7) { display: none; } }
 .chips-in { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; scroll-snap-type: x proximity; -webkit-mask-image: linear-gradient(90deg, #000 92%, transparent); mask-image: linear-gradient(90deg, #000 92%, transparent); }
 .chips-in::-webkit-scrollbar { display: none; }
 .chips .chip { scroll-snap-align: start; }

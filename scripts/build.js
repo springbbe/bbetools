@@ -241,6 +241,10 @@ function homePage(L) {
   const { tr, live, liveGroups, liveIn } = L;
   const path = L.homeUrl, root = rootOf(path);
   const popular = live.filter((t) => t.popular);
+  // "Phổ biến" chỉ hiện 8 công cụ, lấy lần lượt từ mỗi nhóm cho đa dạng; đủ 155 công cụ vẫn có ở các nhóm bên dưới
+  const popularShown = [];
+  const popByGroup = liveGroups.map((g) => popular.filter((t) => t.group === g.id));
+  for (let i = 0; popularShown.length < 8 && popByGroup.some((l) => l[i]); i++) for (const l of popByGroup) if (l[i] && popularShown.length < 8) popularShown.push(l[i]);
   const main = `<section class="hero">
 <div class="wrap hero-in">
 <div class="hero-main">
@@ -261,16 +265,16 @@ ${liveGroups.map((g) => `<li><a href="#${tr("nhom-")}${g.slug}" data-filter="${g
 <div class="wrap">
 <section id="results" class="block" hidden aria-live="polite"><h2 id="results-title">${tr("Kết quả tìm kiếm")}</h2><ul class="cards" id="results-list"></ul><p class="empty" id="results-empty" hidden>${tr("Chưa có công cụ khớp. Thử gõ ngắn hơn hoặc không dấu, ví dụ “pdf”, “anh”, “qr”.")}</p></section>
 <div id="home-main">
-<section id="suggest" class="block" hidden></section>
-<section id="favs" class="block" hidden><h2>${icon("star", root)} ${tr("Yêu thích")}</h2><ul class="cards"></ul></section>
-<section id="recent" class="block" hidden><h2>${icon("history", root)} ${tr("Dùng gần đây")}</h2><ul class="cards"></ul></section>
-<section class="block" id="popular"><h2>${icon("sparkles", root)} ${tr("Phổ biến")}</h2>${cards(L, popular, root)}</section>
 <nav class="chips" aria-label="${tr("Lọc theo nhóm")}">
 <div class="chips-in">
 <a href="#tat-ca" class="chip" data-filter="all" aria-current="true">${tr("Tất cả")}</a>
 ${liveGroups.map((g) => `<a href="#${tr("nhom-")}${g.slug}" class="chip" data-filter="${g.id}" style="--c:${g.color}">${esc(g.name)} <small>${liveIn(g.id).length}</small></a>`).join("\n")}
 </div>
 </nav>
+<section id="suggest" class="block" hidden></section>
+<section id="favs" class="block" hidden><h2>${icon("star", root)} ${tr("Yêu thích")}</h2><ul class="cards"></ul></section>
+<section id="recent" class="block" hidden><h2>${icon("history", root)} ${tr("Dùng gần đây")}</h2><ul class="cards"></ul></section>
+<section class="block" id="popular"><h2>${icon("sparkles", root)} ${tr("Phổ biến")}</h2>${cards(L, popularShown, root)}</section>
 <div id="tat-ca">
 ${liveGroups.map((g) => `<section class="block group-block" id="${tr("nhom-")}${g.slug}" data-group="${g.id}">
 <h2 class="tab"><a href="${root}${L.groupUrl(g)}" style="--c:${g.color}">${icon(g.icon, root)}${esc(g.name)}</a> <small>${tr("{0} công cụ", liveIn(g.id).length)}</small></h2>
