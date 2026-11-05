@@ -13,7 +13,7 @@ Bộ công cụ tiện ích miễn phí, giao diện tiếng Việt, chạy **10
 - **Dễ tìm công cụ:** tìm kiếm không cần gõ dấu, phím tắt `/` hoặc Ctrl/⌘ + K, thả một file vào trang chủ để được gợi ý công cụ phù hợp.
 - **Dùng tốt trên điện thoại,** có chế độ tối, dùng được bằng bàn phím.
 
-Nhóm công cụ: PDF · Ảnh · Âm thanh & video · Văn bản · Tiện ích Việt Nam · Tính toán & đời sống · QR & mã vạch · Văn phòng & dữ liệu · Lập trình · Bảo mật · Năng suất.
+Nhóm công cụ: PDF · Ảnh · Âm thanh & video · Văn bản · Tiện ích Việt Nam · Tính toán & đời sống · QR & mã vạch · Văn phòng & dữ liệu · Lập trình · Bảo mật · Năng suất · Tải về.
 
 ## Chạy ở máy
 
