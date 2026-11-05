@@ -4323,6 +4323,41 @@
      "a": "No, scanned files have no text layer. Drag boxes by hand over what you need to hide."
     }
    ]
+  },
+  "ocr-pdf": {
+   "name": "Searchable PDF (OCR)",
+   "desc": "Recognize text (OCR) in scanned PDFs and photographed pages, then add an invisible text layer so you can search, select and copy; pages look exactly the same.",
+   "keywords": [
+    "ocr pdf",
+    "searchable pdf",
+    "make pdf searchable",
+    "pdf text recognition",
+    "copy text from scanned pdf"
+   ],
+   "howto": [
+    "Choose, drag and drop or paste (Ctrl/⌘ + V) a scanned PDF or a PDF made from photos.",
+    "Choose the document language (Vietnamese or English).",
+    "Click “Recognize and create PDF” and wait while each page is read (you can cancel at any time).",
+    "Download the new PDF: pages look the same, but you can now search (Ctrl/⌘ + F), select and copy text. A .txt file with the recognized text is included."
+   ],
+   "faq": [
+    {
+     "q": "Are my files uploaded anywhere?",
+     "a": "No. Rendering pages, recognizing text (Tesseract in WebAssembly) and writing the PDF all run in your browser; the file never leaves your device. Only the recognizer (about 5 MB) is downloaded once from a CDN."
+    },
+    {
+     "q": "Does the result differ from the original?",
+     "a": "Page images stay pixel-for-pixel the same. The tool only adds an invisible text layer placed exactly over each word, so PDF viewers can search and highlight it. The hidden text uses an embedded font with full Vietnamese accents, so copied text keeps its accents."
+    },
+    {
+     "q": "How accurate is the recognition?",
+     "a": "Clean scans of printed text are recognized very accurately; blurry or skewed images, handwriting or small accents may be misread. Recognition errors only affect searching and copying, never the page images."
+    },
+    {
+     "q": "How long does it take?",
+     "a": "A few seconds per page depending on your device. Keep the tab open for long files; progress and time remaining are shown below the button. Pages that already have text (PDFs exported from Word…) are skipped to avoid duplicate text."
+    }
+   ]
   }
  }
 }

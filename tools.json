@@ -409,9 +409,16 @@
       "desc": "Nhận dạng chữ (OCR) trong PDF scan, ảnh chụp rồi chèn lớp chữ ẩn để tìm kiếm, bôi đen, sao chép được; giữ nguyên hình trang.",
       "keywords": ["ocr pdf", "pdf tìm kiếm được", "searchable pdf", "nhận dạng chữ pdf", "copy chữ trong pdf scan"],
       "accept": ["pdf"], "output": "pdf",
-      "status": "todo",
+      "status": "done",
       "aliases": ["ocr-pdf", "searchable-pdf"],
-      "related": ["ocr", "scan-document", "pdf-to-text"]
+      "related": ["ocr", "scan-document", "pdf-to-text"],
+      "howto": ["Chọn, kéo thả hoặc dán (Ctrl/⌘ + V) file PDF scan hoặc PDF tạo từ ảnh chụp.", "Chọn ngôn ngữ trong tài liệu (tiếng Việt hoặc tiếng Anh).", "Bấm “Nhận dạng và tạo PDF”, chờ từng trang được đọc (có thể bấm Huỷ bất cứ lúc nào).", "Tải PDF mới về: hình trang giữ nguyên nhưng giờ tìm (Ctrl/⌘ + F), bôi đen, sao chép chữ được. Kèm file .txt chứa chữ nhận dạng."],
+      "faq": [
+        { "q": "File có bị tải lên mạng không?", "a": "Không. Việc vẽ trang, nhận dạng chữ (Tesseract chạy bằng WebAssembly) và ghi PDF đều chạy trong trình duyệt của bạn; file không rời khỏi máy. Chỉ bộ nhận dạng (khoảng 5 MB) được tải về một lần từ CDN." },
+        { "q": "File kết quả có khác bản gốc không?", "a": "Hình trang giữ nguyên từng điểm ảnh. Công cụ chỉ thêm một lớp chữ ẩn nằm đúng vị trí từng từ, nên trình xem PDF tìm và bôi đen được. Chữ ẩn dùng font có dấu tiếng Việt nhúng trong file, sao chép ra vẫn đúng dấu." },
+        { "q": "Nhận dạng có chính xác không?", "a": "Bản scan rõ, chữ in thường đạt độ chính xác cao; ảnh mờ, nghiêng, chữ viết tay hay dấu tiếng Việt nhỏ có thể bị đọc sai. Lỗi nhận dạng chỉ ảnh hưởng việc tìm kiếm và sao chép, không làm thay đổi hình trang." },
+        { "q": "Mất bao lâu?", "a": "Khoảng vài giây mỗi trang tuỳ máy. File nhiều trang hãy để tab mở cho tới khi xong; tiến độ và thời gian còn lại hiện ngay dưới nút. Trang đã có chữ (PDF xuất từ Word…) được bỏ qua để không bị chữ chồng chữ." }
+      ]
     },
 
     {

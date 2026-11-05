@@ -5,24 +5,9 @@ import { fileTool, seg, radioVal } from "../frames/file.js";
 import { decodeImage, drawScaled, canvas, thumbUrl } from "../image.js";
 import { openPdf, renderPage, thumbnail } from "../pdf.js";
 import { tidy, joinLines } from "../lib/ocr-text.js";
+import { getWorker } from "../tesseract.js";
 
-const JSD = "https://cdn.jsdelivr.net/npm/";
-const TESS = {
-  workerPath: JSD + "tesseract.js@7.0.0/dist/worker.min.js",
-  corePath: JSD + "tesseract.js-core@7.0.0",
-  lang: { vie: JSD + "@tesseract.js-data/vie@1.0.0/4.0.0_best_int", eng: JSD + "@tesseract.js-data/eng@1.0.0/4.0.0_best_int" }
-};
 const MAX_PAGES = 30;
-const workers = {};
-
-async function getWorker(lang, onLog) {
-  if (!workers[lang]) workers[lang] = (async () => {
-    const T = await lib("tesseract");
-    return T.createWorker(lang, 1, { workerPath: TESS.workerPath, corePath: TESS.corePath, langPath: TESS.lang[lang], logger: (m) => workers.log && workers.log(m) });
-  })().catch((e) => { delete workers[lang]; console.error(e); throw Object.assign(new Error("ocr"), { userMsg: "Không tải được bộ nhận dạng chữ. Hãy kiểm tra kết nối mạng rồi thử lại." }); });
-  workers.log = onLog;
-  return workers[lang];
-}
 
 // ảnh nhỏ: phóng to cho chữ đủ lớn (Tesseract đọc tốt nhất khi chữ cao ~30 px)
 function prepare(src) {

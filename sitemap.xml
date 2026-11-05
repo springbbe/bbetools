@@ -39,6 +39,7 @@
   <url><loc>https://springbbe.github.io/bbetools/scan-tai-lieu/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/in-cccd-2-mat/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/che-thong-tin-pdf/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/pdf-scan-tim-kiem-duoc/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/nen-anh/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/doi-kich-thuoc-anh/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/cat-anh/</loc></url>
@@ -213,6 +214,7 @@
   <url><loc>https://springbbe.github.io/bbetools/en/view-pdf/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/en/scan-document/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/en/redact-pdf/</loc></url>
+  <url><loc>https://springbbe.github.io/bbetools/en/ocr-pdf/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/en/compress-image/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/en/resize-image/</loc></url>
   <url><loc>https://springbbe.github.io/bbetools/en/crop-image/</loc></url>

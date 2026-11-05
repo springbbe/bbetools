@@ -28,12 +28,14 @@ assets/
                            giải mã/mã hoá âm thanh, thanh chọn đoạn (dạng sóng hoặc dải ảnh), trình phát, xem trước kết quả
   pdf-pages.js             "bảng trang" PDF: pageTool() dựng trên khung file, mỗi trang một thẻ (chọn, xoay, xoá, đổi chỗ, xem trước)
   pdf-objects.js           đi qua đối tượng bên trong PDF (nội dung trang, form, pattern, ảnh), giải nén luồng, đọc hệ màu
+  tesseract.js             bộ nhận dạng chữ Tesseract dùng chung (Ảnh sang chữ, PDF scan tìm kiếm được): tạo worker theo ngôn ngữ, dừng ngay khi huỷ
   ai/matting.js            AI tách nền (MODNet) + nhận diện khuôn mặt (UltraFace) chạy bằng onnxruntime-web
   en/                      (sinh tự động) bản dịch tiếng Anh của các module JS và registry, xem mục Đa ngôn ngữ
   lib/*.js                 hàm thuần, có test: telegram, search, filetype, doc-so, am-lich, vietqr, json-tools, text-stats, page-ranges, pdf-geom, pdf-text, pdf-content, pdf-image, scan, image-geom, exif, image-data, ocr-text, tien-luong, tai-chinh, tien-dien, bhxh, con-giap, don-vi, chia-tien, ngay, suc-khoe, bieu-thuc, so-la-ma, phan-tram, dvhc, ma-tinh, van-ban, vn-encoding, telex, diff, encode, hash, uuid, color, co-so, cron, timestamp, csv,
                            fancy-text, lorem, http-status, minify, regex, css-gen, ma-vach, bang, tron-thu, hoa-don, chu-ky-email,
                            ngau-nhien, mat-khau (+ tu-mat-khau), ma-hoa, totp, checksum, bam-gio, mui-gio, checklist, media, tts,
-                           anim, line, signal, noto-emoji, twitch, discord, youtube, gfonts, github, appstore, bluesky, mastodon
+                           anim, line, signal, noto-emoji, twitch, discord, youtube, gfonts, github, appstore, bluesky, mastodon,
+                           the-cccd, pdf-redact, ocr-pdf
   regex-run.js, regex-worker.js   chạy biểu thức chính quy trong Web Worker có giới hạn thời gian (không treo trang)
   tools/<id>.js            logic riêng của từng công cụ
   registry.js              (sinh tự động) bản rút gọn của tools.json cho trình duyệt
@@ -180,6 +182,7 @@ Mọi công cụ dùng `assets/media.js` (Mediabunny + WebCodecs, không dùng f
 - Web Audio: `await audioContext.resume()` treo khi không có thao tác thật của người dùng → không `await`.
 - Mediabunny: xem mục Âm thanh & video ở trên (Quality, fit, copy MP3).
 - Chạy thử bằng Claude Code: khung Browser bị ẩn thì `setTimeout` giãn ra ~1 giây, `img.decode()`/pdf.js treo, camera/micro/quay màn hình bị chặn. Khi đó dùng Chrome headless qua DevTools Protocol (xem `scripts/samples/media.js`): camera giả chạy được; micro giả treo trên macOS → thay `getUserMedia` bằng luồng từ `OscillatorNode`; quay màn hình → thay `getDisplayMedia` bằng `canvas.captureStream()`. Kiểm tra file kết quả bằng cách đọc `blob:` rồi xem bằng `afinfo`, `qlmanage`, `pdfinfo`, `textutil`. Cổng 8080 có thể bị ứng dụng khác chiếm: dùng preview "bbetools-8791".
+- Chạy thử trên cloud bằng Playwright: bấm vào phần tử ngay sau khi gõ chữ có thể trượt vì bố cục đổi sau debounce (ô tuỳ chọn hiện ra) → chờ một nhịp rồi mới bấm.
 - Công cụ Write của Claude Code biến chuỗi thoát `\uXXXX` thành ký tự thật (BOM, dấu kết hợp vô hình): kiểm tra lại bằng grep.
 
 ## Chạy trên cloud
@@ -251,15 +254,20 @@ Quy trình riêng cho giai đoạn này:
 
 Đã xét và bỏ (không có CORS, cần khoá bí mật hoặc trái điều khoản): emote BetterTTV (CDN ảnh không có CORS), danh sách emoji server Discord (cần đăng nhập), video YouTube, TikTok, Facebook, Instagram; Reddit (403), X/Twitter (CORS chỉ cho platform.twitter.com); sticker Zalo (không có API công khai); Giphy, Tenor, Imgur (cần khoá API); emoji Slack (cần token, CDN không CORS); tải cả repo GitHub qua codeload.
 
-## Giai đoạn 10 – Công cụ gợi ý (todo)
+## Giai đoạn 10 – Công cụ gợi ý
 
-Thêm vào `tools.json` ngày 05/11/2026 với `"status": "todo"`, nên làm theo thứ tự dưới đây. Câu lệnh gợi ý: `Làm công cụ In CCCD 2 mặt của BbeTools theo CLAUDE.md`.
+Thêm vào `tools.json` ngày 05/11/2026 với `"status": "todo"`, làm theo thứ tự dưới đây. Ngày 05/11/2026 xong 3 công cụ đầu; còn lại 2 (vẫn `todo`). Câu lệnh gợi ý: `Làm công cụ Soạn văn bản hành chính của BbeTools theo CLAUDE.md`.
+
+Đã làm (cách làm thực tế):
+
+- In CCCD 2 mặt (`id-card-print`, `lib/the-cccd.js`): tìm sơ bộ bằng `detectCorners` (ảnh 360 px) rồi `refineQuad` dò lại từng cạnh ở ảnh 1600 px (bước tối → sáng **ngoài cùng** đủ mạnh dọc pháp tuyến, không lấy bước mạnh nhất vì dòng mã máy đọc sát mép còn tương phản hơn mép thẻ), khớp đường thẳng bỏ điểm lạc, giao điểm 4 cạnh = góc thật (tự xử lý góc bo tròn, sai số ≤ 1 px trên ảnh mẫu). Không chắc thì dùng `cornerFix` (bù r(1 − 1/√2) của góc bo). `landscapeTurns` xoay thứ tự góc cho thẻ nằm ngang; nút “Xoay” đổi thứ tự góc. Cân sáng bằng `toneCard` (lưới thô 4×3 + điểm trắng theo kênh), **không** dùng `enhance` của Scan tài liệu vì lưới nhỏ làm bạc ảnh chân dung. Thẻ 15 px/mm, đặt lên A4 đúng 85,6 × 54 mm (`layoutCards`: trên–dưới / cạnh nhau, 1/2/4 bộ), chữ chéo vẽ thẳng vào ảnh, thước kiểm tra 5 cm (tuỳ chọn). Ảnh mẫu: thẻ giả `scripts/samples/cccd.html`.
+- Che thông tin trong PDF (`redact-pdf`, `lib/pdf-redact.js`, `findPattern` trong `lib/pdf-text.js`): khung lưu theo phần trang (0..1). Vị trí ký tự trong mảnh chữ pdf.js đo bằng canvas với họ font pdf.js báo (serif/sans/mono), chia đều thì lệch cả ký tự với font Times. Xuất: chép các trang không che bằng **một** lần `copyPages`, trang có vùng che vẽ lại thành ảnh JPEG rồi tô kín. **Bẫy:** `copyPages` chép kéo theo nguyên trang khác (kể cả trang bị che, còn đủ chữ) khi có liên kết `/Dest [trang …]` hay ô form trỏ tới → trước khi chép gắn nhãn `/BbeIdx` cho mọi trang, sau đó `scrub()` chuyển tham chiếu tới bản chép thừa sang trang mới tương ứng, xoá bản thừa và mọi đối tượng không đi tới được từ gốc. Xong tự mở lại bằng pdf.js, trang bị che còn chữ thì không xuất. Mẫu: giấy uỷ quyền giả `scripts/samples/uy-quyen.html`.
+- PDF scan thành PDF tìm kiếm được (`ocr-pdf`, `lib/ocr-pdf.js`): trang vẽ ở cạnh dài ~2800 px, `worker.recognize(c, {}, { blocks: true })` cho dòng (`baseline`, `rowAttributes.rowHeight`) và từ (`bbox`). Chữ ẩn ghi thẳng bằng toán tử pdf-lib: `Tr 3` (Invisible), `Tz` nén ngang cho khớp bề ngang từ, `Tm` theo góc nghiêng dòng + `/Rotate` (toạ độ đổi bằng `toUser` của `lib/pdf-geom.js`), font Be Vietnam Pro nhúng (`embedVnFont`). Trang gốc giữ nguyên; trang đã có chữ (≥ 20 ký tự) bỏ qua. Huỷ: `stopWorker` + `Promise.race` để không chờ trang đang đọc. Kiểm tra vị trí: `pdftotext -bbox` rồi vẽ khung lên ảnh trang (khớp cả trang `/Rotate 90`).
+
+Còn lại:
 
 | Công cụ | Hướng làm | Lưu ý |
 |---|---|---|
-| In CCCD 2 mặt trên 1 trang A4 (`id-card-print`, vnOnly) | 2 ô ảnh (mặt trước, mặt sau) → `detectCorners`, `warp`, `enhance` của `lib/scan.js` (như "Làm đẹp ảnh chụp giấy tờ" trong Ảnh sang PDF) → nắn về đúng tỉ lệ thẻ ID-1 85,6 × 54 mm → vẽ lên A4 bằng pdf-lib đúng cỡ thật (in 100%, không "vừa trang") | Có ô kéo chỉnh 4 góc như Scan tài liệu khi tự tìm sai; tuỳ chọn thêm dòng chữ "Bản sao dùng để…" chéo trên ảnh; nhắc người dùng chọn tỉ lệ 100% khi in |
-| Che thông tin trong PDF (`redact-pdf`) | pdf.js vẽ trang → người dùng kéo khung đen (có tìm theo chữ: số 9–12 chữ số, từ khoá) → trang có vùng che được chuyển thành ảnh rồi thay vào PDF, trang khác giữ nguyên | Phải xoá thật: không chỉ vẽ hình chữ nhật đè lên. Kiểm tra bằng PDF sang văn bản rằng chữ dưới vùng che đã mất |
-| PDF scan thành PDF tìm kiếm được (`ocr-pdf`) | pdf.js vẽ trang → Tesseract (`lib("tesseract")`, đã có, tiếng Việt) lấy chữ + toạ độ từng từ → pdf-lib chèn chữ với `opacity: 0` (hoặc chế độ vẽ chữ ẩn) đúng vị trí, nhúng font có dấu | Chậm với file nhiều trang: có tiến độ, huỷ được; hàm đổi toạ độ ảnh → PDF ở `assets/lib/` có test |
 | Soạn văn bản hành chính (NĐ 30) (`admin-document`, vnOnly) | Khung form: loại văn bản (công văn, quyết định, tờ trình, thông báo, báo cáo…), cơ quan chủ quản, cơ quan ban hành, số/ký hiệu, địa danh, ngày, trích yếu, nội dung, chức vụ, người ký, nơi nhận → xuất .docx (tự viết XML trong zip bằng jszip, không cần thư viện mới) | Thể thức theo Phụ lục I Nghị định 30/2020/NĐ-CP: Times New Roman 13–14, lề trên 20–25 mm, dưới 20–25 mm, trái 30–35 mm, phải 15–20 mm. Thông số để ở `data/the-thuc-van-ban.json` (có `source`, `updated`), tra văn bản hiện hành trước khi làm |
 | Giọng nói thành văn bản, tạo phụ đề (`speech-to-text`) | Whisper chạy trong trình duyệt (transformers.js + ONNX/WebGPU) → văn bản, .srt, .vtt; giải mã âm thanh bằng Mediabunny/WebCodecs về 16 kHz mono | Mô hình nặng (tiny ≈ 40 MB, base ≈ 80 MB, small ≈ 250 MB): hỏi trước khi tải, báo dung lượng, nhớ trong cache. Tiếng Việt cần tối thiểu bản base/small mới dùng được; nếu chất lượng kém thì bỏ, không làm nửa vời |
 
