@@ -42,6 +42,8 @@ try {
   pdfLib("", "giay-to-chup.jpg", "giay-chup.html");
   pdfLib("", "chu-ky-chup.jpg", "anh-mau.html?mau=chu-ky");
   pdfLib("", "van-ban-chup.jpg", "anh-mau.html?mau=van-ban");
+  pdfLib("", "cccd-mat-truoc.jpg", "cccd.html?mat=truoc");
+  pdfLib("", "cccd-mat-sau.jpg", "cccd.html?mat=sau");
   shot("scripts/samples/phong-canh.html", TMP + "phong-canh.png", 2400, 1600);
   execFileSync("sips", ["-s", "format", "jpeg", "-s", "formatOptions", "92", TMP + "phong-canh.png", "--out", OUT + "anh-phong-canh.jpg"], { stdio: "ignore" });
   execFileSync("sips", ["-Z", "2016", "-s", "format", "heic", "-s", "formatOptions", "80", TMP + "phong-canh.png", "--out", OUT + "anh-iphone.heic"], { stdio: "ignore" });
@@ -58,6 +60,6 @@ try {
   server.kill();
   execFileSync("rm", ["-rf", TMP]);
 }
-for (const f of ["bao-cao-quy-1.pdf", "bao-cao-quy-2.pdf", "tai-lieu-scan.pdf", "so-tay-nhan-vien.pdf", "tai-lieu-co-anh.pdf", "to-khai-mau.pdf", "to-khai-da-dien.pdf", "mau-co-mat-khau-1234.pdf", "giay-to-chup.jpg", "chu-ky-chup.jpg", "van-ban-chup.jpg", "anh-phong-canh.jpg", "anh-iphone.heic", "anh-co-gps.jpg", "anh-iphone-co-gps.heic", "anh-chup-man-hinh.png", "ma-qr-mau.png", "chan-dung-mau.jpg", "nhan-vien.xlsx", "ban-hang-thang-9.xlsx", "ban-hang-thang-10.xlsx", "ban-hang-thang-11.csv", "san-pham.json", "khach-moi.xlsx", "giay-moi-mau.docx", "bao-cao-mat-khau-1234.pdf.bbe", "bao-cao-quy-1.pdf.sha256", ...MEDIA_SAMPLES]) {
+for (const f of ["bao-cao-quy-1.pdf", "bao-cao-quy-2.pdf", "tai-lieu-scan.pdf", "so-tay-nhan-vien.pdf", "tai-lieu-co-anh.pdf", "to-khai-mau.pdf", "to-khai-da-dien.pdf", "mau-co-mat-khau-1234.pdf", "giay-to-chup.jpg", "chu-ky-chup.jpg", "van-ban-chup.jpg", "cccd-mat-truoc.jpg", "cccd-mat-sau.jpg", "anh-phong-canh.jpg", "anh-iphone.heic", "anh-co-gps.jpg", "anh-iphone-co-gps.heic", "anh-chup-man-hinh.png", "ma-qr-mau.png", "chan-dung-mau.jpg", "nhan-vien.xlsx", "ban-hang-thang-9.xlsx", "ban-hang-thang-10.xlsx", "ban-hang-thang-11.csv", "san-pham.json", "khach-moi.xlsx", "giay-moi-mau.docx", "bao-cao-mat-khau-1234.pdf.bbe", "bao-cao-quy-1.pdf.sha256", ...MEDIA_SAMPLES]) {
   console.log(existsSync(OUT + f) ? `✓ ${f}  ${(statSync(OUT + f).size / 1024).toFixed(0)} KB` : `✗ thiếu ${f}`);
 }

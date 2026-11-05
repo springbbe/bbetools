@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><title>Ảnh chụp thẻ căn cước mẫu</title></head>
+<body>
+<!-- Sinh samples/cccd-mat-truoc.jpg và samples/cccd-mat-sau.jpg (?mat=truoc | sau): thẻ căn cước GIẢ (chữ "MẪU", người không có thật,
+     số định danh toàn số 0, bố cục giản lược) chụp nghiêng trên mặt bàn, ánh sáng không đều. Mặt sau chụp xoay dọc.
+     Dùng cho nút "Thử với ảnh mẫu" của In CCCD 2 mặt. Kết quả (base64 JPEG) nằm trong <pre id="out">. -->
+<pre id="out"></pre>
+<script type="module">
+import { homography } from "../../assets/lib/scan.js";
+const back = new URLSearchParams(location.search).get("mat") === "sau";
+const K = 16, CW = Math.round(85.6 * K), CH = 54 * K, R = 3.18 * K;
+function rnd(s) { return () => (s = (s * 16807) % 2147483647) / 2147483647; }
+const r = rnd(back ? 77 : 42);
+
+// 1. mặt thẻ
+const cv = document.createElement("canvas"); cv.width = CW; cv.height = CH;
+const g = cv.getContext("2d");
+const bgGrad = g.createLinearGradient(0, 0, CW, CH);
+bgGrad.addColorStop(0, "#eef3f7"); bgGrad.addColorStop(0.5, "#f7eef0"); bgGrad.addColorStop(1, "#eaf2ec");
+g.fillStyle = bgGrad; g.fillRect(0, 0, CW, CH);
+// hoa văn nền
+g.strokeStyle = "rgba(120,140,190,.16)"; g.lineWidth = 1.2;
+for (let k = 0; k < 40; k++) { g.beginPath(); for (let x = 0; x <= CW; x += 8) g.lineTo(x, CH * (k / 40) + Math.sin(x / 47 + k) * 14); g.stroke(); }
+g.fillStyle = "#16233f"; g.textBaseline = "alphabetic";
+const T = (t, x, y, f, al = "left", c = "#16233f") => { g.font = f; g.textAlign = al; g.fillStyle = c; g.fillText(t, x, y); };
+if (!back) {
+  T("CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM", CW / 2 + 70, 78, "700 46px sans-serif", "center");
+  T("Độc lập – Tự do – Hạnh phúc", CW / 2 + 70, 128, "400 40px sans-serif", "center");
+  T("CĂN CƯỚC (MẪU)", CW / 2 + 70, 200, "800 62px sans-serif", "center", "#b3261e");
+  // ảnh chân dung giản lược (không phải người thật)
+  g.fillStyle = "#cfd9e6"; g.fillRect(70, 250, 300, 400);
+  g.fillStyle = "#6b7a90"; g.beginPath(); g.arc(220, 400, 85, 0, Math.PI * 2); g.fill();
+  g.beginPath(); g.ellipse(220, 640, 140, 120, 0, Math.PI, 0); g.fill();
+  const rows = [["Số định danh cá nhân / Personal ID No.:", "000000000000"], ["Họ, chữ đệm và tên / Full name:", "NGUYỄN VĂN MẪU"], ["Ngày sinh / Date of birth:", "01/01/1990"], ["Giới tính / Sex: Nam", "Quốc tịch / Nationality: Việt Nam"]];
+  let y = 290;
+  for (const [a, b] of rows) { T(a, 420, y, "400 30px sans-serif"); T(b, 420, y + 50, "700 44px sans-serif"); y += 110; }
+  // mã QR giả
+  g.fillStyle = "#16233f";
+  for (let i = 0; i < 21; i++) for (let j = 0; j < 21; j++) if (r() > 0.5 || ((i < 7 || i > 13) && (j < 7) && (i % 6 === 0 || j % 6 === 0))) g.fillRect(CW - 250 + i * 9, 240 + j * 9, 9, 9);
+} else {
+  T("Đặc điểm nhân dạng: Không", 70, 110, "400 36px sans-serif");
+  T("Ngày cấp / Date of issue: 01/01/2026", 70, 175, "400 36px sans-serif");
+  T("BỘ CÔNG AN (MẪU)", 70, 250, "700 40px sans-serif");
+  // ô vân tay giả
+  for (const [x, lbl] of [[CW - 600, "Ngón trỏ trái"], [CW - 310, "Ngón trỏ phải"]]) {
+    g.strokeStyle = "#5a6478"; g.lineWidth = 3; g.strokeRect(x, 60, 250, 300);
+    g.strokeStyle = "rgba(60,70,90,.55)"; g.lineWidth = 3;
+    for (let k = 1; k < 9; k++) { g.beginPath(); g.ellipse(x + 125, 210, k * 11, k * 15, 0, 0, Math.PI * 2); g.stroke(); }
+    T(lbl, x + 125, 400, "400 26px sans-serif", "center");
+  }
+  // chip giả
+  g.fillStyle = "#d8b45a"; g.fillRect(90, 300, 150, 115); g.strokeStyle = "#8a6d24"; g.lineWidth = 3; g.strokeRect(90, 300, 150, 115);
+  // dòng mã máy đọc (giả, toàn số 0)
+  g.fillStyle = "#fff"; g.fillRect(0, CH - 250, CW, 250);
+  const mrz = ["IDVNM0000000000000000000000000", "9001011M3001011VNM<<<<<<<<<<<0", "NGUYEN<<VAN<MAU<<<<<<<<<<<<<<<"];
+  mrz.forEach((l, i) => T(l, 60, CH - 170 + i * 66, "500 50px monospace"));
+}
+// chữ "MẪU" chéo
+g.save(); g.translate(CW / 2, CH / 2); g.rotate(-0.38); T("MẪU – KHÔNG CÓ GIÁ TRỊ", 0, 30, "800 96px sans-serif", "center", "rgba(200,30,30,.22)"); g.restore();
+const cd = g.getImageData(0, 0, CW, CH).data;
+const insideRound = (u, v) => { const dx = Math.max(R - u, 0, u - (CW - R)), dy = Math.max(R - v, 0, v - (CH - R)); return dx * dx + dy * dy <= R * R; };
+
+// 2. mặt bàn + thẻ chụp nghiêng
+const W = 1600, H = 1200;
+const c = document.createElement("canvas"); c.width = W; c.height = H;
+const x = c.getContext("2d"), im = x.createImageData(W, H), d = im.data;
+const quad = back ? [[480, 1010], [430, 150], [1050, 180], [1120, 1060]] : [[300, 300], [1330, 360], [1290, 980], [250, 900]];
+const M = homography(quad, [[0, 0], [CW, 0], [CW, CH], [0, CH]]);
+for (let y = 0; y < H; y++) for (let x0 = 0; x0 < W; x0++) {
+  const o = (y * W + x0) * 4, light = 0.62 + 0.38 * (1 - x0 / W) * (back ? 0.8 : 1) - 0.1 * (y / H);
+  const den = M[6] * x0 + M[7] * y + M[8], u = (M[0] * x0 + M[1] * y + M[2]) / den, v = (M[3] * x0 + M[4] * y + M[5]) / den;
+  let rr, gg, bb;
+  if (u >= 0 && v >= 0 && u < CW - 1 && v < CH - 1 && insideRound(u, v)) { const i = ((v | 0) * CW + (u | 0)) * 4; rr = cd[i]; gg = cd[i + 1]; bb = cd[i + 2]; }
+  else if (back) { const n = ((x0 * 13 + y * 29) % 17) + Math.sin(x0 / 9) * 4; rr = 52 + n; gg = 62 + n; bb = 80 + n; }
+  else { const n = ((x0 * 31 + y * 17) % 23) + Math.sin(x0 / 37 + y / 210) * 9; rr = 92 + n; gg = 62 + n * 0.7; bb = 40 + n * 0.4; }
+  d[o] = Math.min(255, rr * light * 1.02); d[o + 1] = Math.min(255, gg * light); d[o + 2] = Math.min(255, bb * light * 0.9); d[o + 3] = 255;
+}
+x.putImageData(im, 0, 0);
+const blob = await new Promise((res) => c.toBlob(res, "image/jpeg", 0.86));
+const u8 = new Uint8Array(await blob.arrayBuffer());
+let s = ""; for (let i = 0; i < u8.length; i += 0x8000) s += String.fromCharCode(...u8.subarray(i, i + 0x8000));
+document.getElementById("out").textContent = btoa(s);
+</script>
+</body></html>

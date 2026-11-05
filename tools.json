@@ -375,9 +375,17 @@
       "desc": "Ghép ảnh mặt trước và mặt sau căn cước (CCCD) lên một trang A4 đúng kích thước thật, tự cắt mép thẻ và làm trắng nền.",
       "keywords": ["in cccd 2 mặt", "ghép 2 mặt cccd", "photo căn cước", "cccd a4", "in căn cước công dân", "ghép cmnd"],
       "accept": ["image", "heic"], "output": "pdf",
-      "status": "todo", "vnOnly": true,
+      "status": "done", "vnOnly": true,
       "aliases": ["ghep-cccd-2-mat", "in-can-cuoc"],
-      "related": ["scan-document", "image-to-pdf", "blur-image"]
+      "related": ["scan-document", "image-to-pdf", "blur-image"],
+      "howto": ["Chụp hoặc chọn ảnh mặt trước và mặt sau thẻ căn cước (đặt thẻ trên nền tối hơn, đủ sáng, chụp thẳng).", "Kiểm tra ảnh đã được cắt theo mép thẻ; bấm “Chỉnh góc” để kéo 4 góc nếu lệch, “Xoay” nếu thẻ bị ngược.", "Chọn cách xếp, số bộ trên trang, thêm dòng chữ “Bản sao dùng để…” nếu muốn, rồi bấm “Tạo PDF A4”.", "Khi in, chọn tỉ lệ 100% (Kích thước thật), không chọn “Vừa trang”."],
+      "faq": [
+        { "q": "Ảnh căn cước có bị tải lên mạng không?", "a": "Không. Việc cắt, nắn thẳng, cân sáng và tạo PDF đều chạy bằng JavaScript ngay trong trình duyệt; ảnh không rời khỏi máy và không được lưu lại sau khi đóng trang." },
+        { "q": "In ra thẻ có đúng kích thước thật không?", "a": "Có, nếu in đúng tỉ lệ 100%. Mỗi mặt được đặt trên trang A4 đúng 85,6 × 54 mm (khổ thẻ ID-1 theo ISO/IEC 7810). Chọn “Vừa trang” (Fit to page) sẽ làm thẻ to hoặc nhỏ đi; bật “Thước kiểm tra 5 cm” để đo lại bản in." },
+        { "q": "Không tự cắt đúng mép thẻ thì sao?", "a": "Bấm “Chỉnh góc” rồi kéo 4 chấm tới 4 góc thẻ (trên máy tính có thể dùng phím mũi tên). Chấm tô đặc là góc trên trái của thẻ; bấm “Xoay” nếu ảnh ra bị ngược. Thẻ đặt trên nền tối, chụp thẳng sẽ được tìm chính xác hơn." },
+        { "q": "Có nên ghi chữ “Bản sao dùng để…” không?", "a": "Nên, khi gửi bản sao cho nơi khác: ghi rõ mục đích (vd. “Bản sao dùng để làm hồ sơ vay vốn”) giúp hạn chế người khác dùng bản sao vào việc khác. Chữ được in thẳng vào ảnh, không xoá được trên file." },
+        { "q": "Dùng cho CMND, bằng lái, thẻ ngân hàng được không?", "a": "Được, với mọi loại thẻ cùng khổ ID-1 (85,6 × 54 mm): căn cước, CMND 12 số, giấy phép lái xe dạng thẻ, thẻ BHYT dạng thẻ, thẻ ngân hàng." }
+      ]
     },
     {
       "id": "redact-pdf", "slug": "che-thong-tin-pdf", "name": "Che thông tin trong PDF", "group": "pdf", "icon": "eraser", "kind": "interactive",
