@@ -19,7 +19,7 @@
     { "id": "dev", "phase": 5, "slug": "lap-trinh", "name": "Lập trình", "icon": "code", "color": "#3E63DD", "desc": "JSON, Base64, JWT, UUID, hash, regex, timestamp, cron, mã màu, SQL." },
     { "id": "security", "phase": 7, "slug": "bao-mat", "name": "Bảo mật", "icon": "shield", "color": "#0E7C86", "desc": "Tạo mật khẩu mạnh, mã hoá file và văn bản, checksum, mã 2FA." },
     { "id": "productivity", "phase": 7, "slug": "nang-suat", "name": "Năng suất & ngẫu nhiên", "icon": "timer", "color": "#5C8A1C", "desc": "Pomodoro, bấm giờ, hẹn giờ, vòng quay may mắn, chia đội, ghi chú nhanh." },
-    { "id": "download", "phase": 9, "slug": "tai-ve", "name": "Tải về", "icon": "download", "color": "#0090FF", "desc": "Tải sticker Telegram, LINE, Signal, emoji Discord, emote Twitch, thumbnail YouTube, emoji động, font Google Fonts, thư mục GitHub, icon App Store, ảnh và video Bluesky thẳng từ nguồn về máy, không qua máy chủ trung gian." }
+    { "id": "download", "phase": 9, "slug": "tai-ve", "name": "Tải về", "icon": "download", "color": "#0090FF", "desc": "Tải sticker Telegram, LINE, Signal, emoji Discord, emote Twitch, thumbnail YouTube, emoji động, font Google Fonts, thư mục GitHub, icon App Store, ảnh và video Bluesky, Mastodon thẳng từ nguồn về máy, không qua máy chủ trung gian." }
   ],
   "tools": [
     {
@@ -2323,11 +2323,20 @@
     },
     {
       "id": "mastodon-media", "slug": "tai-anh-video-mastodon", "name": "Tải ảnh, video Mastodon", "group": "download", "icon": "at-sign", "kind": "interactive",
-      "desc": "Dán link bài đăng Mastodon để tải ảnh, video, GIF gốc đính kèm.",
-      "keywords": ["tải video mastodon", "tải ảnh mastodon", "mastodon downloader", "fediverse"],
-      "status": "todo",
-      "aliases": ["mastodon-downloader"],
-      "related": ["video-to-mp3", "video-to-gif"]
+      "desc": "Dán link bài đăng Mastodon (hoặc Pleroma, Akkoma, GoToSocial) để xem và tải ảnh, video, GIF, âm thanh gốc đính kèm; không cần đăng nhập.",
+      "keywords": ["tải video mastodon", "tải ảnh mastodon", "mastodon downloader", "fediverse", "tải gif mastodon", "pleroma", "akkoma"],
+      "status": "done",
+      "privacy": "BbeTools không có máy chủ: trình duyệt của bạn đọc bài đăng qua API công khai của chính máy chủ Mastodon trong link rồi tải file thẳng từ nơi máy chủ đó lưu file. Không cần đăng nhập.",
+      "aliases": ["mastodon-downloader", "tai-video-mastodon"],
+      "related": ["video-to-mp3", "video-to-gif", "trim-video", "compress-video"],
+      "howto": ["Trên Mastodon, bấm vào thời gian đăng của bài (hoặc menu ··· → Sao chép liên kết) để lấy link bài đăng.", "Dán vào ô rồi bấm “Lấy ảnh, video”; xem trước ảnh, video, GIF và mô tả ảnh ngay trên trang.", "Bấm “Tải file gốc” cho từng file hoặc tải tất cả trong một file .zip."],
+      "faq": [
+        { "q": "Dùng được với máy chủ Mastodon nào?", "a": "Hầu hết máy chủ Mastodon (mastodon.social, mas.to, fosstodon.org…) và máy chủ dùng chung API như Pleroma, Akkoma, GoToSocial. Một số máy chủ bắt đăng nhập mới cho đọc bài qua API; khi đó công cụ sẽ báo rõ." },
+        { "q": "Vì sao có file báo “không cho trang web tải thẳng”?", "a": "Mỗi máy chủ Mastodon tự chọn nơi lưu file (S3, CDN…). Nơi lưu nào không cho trang web khác tải thì bấm “Mở file gốc” rồi lưu file từ trình duyệt (chuột phải hoặc chạm giữ → Lưu)." },
+        { "q": "GIF trên Mastodon tải về là MP4?", "a": "Đúng, Mastodon đổi mọi ảnh GIF thành video MP4 lặp lại cho nhẹ. Muốn có file .gif thì dùng tiếp công cụ Video sang GIF." },
+        { "q": "Tải được bài chỉ dành cho người theo dõi không?", "a": "Không. Công cụ không đăng nhập thay bạn nên chỉ lấy được bài đăng công khai." },
+        { "q": "Có được đăng lại ảnh, video của người khác không?", "a": "Chúng thuộc bản quyền của người đăng. Tải để xem lại, lưu trữ cá nhân thì được; đăng lại hoặc dùng thương mại thì cần người đăng cho phép." }
+      ]
     }
   ]
 }

@@ -11,6 +11,7 @@ import { filterFonts, previewVariant, defaultSubsets, sortSubsets, fileUrl as gf
 import { parseGitHub, refCandidates, contentsUrl, treeUrl, rawUrl, lfsUrl, treeFiles, isLfsPointer, zipName, rateLimitMinutes } from "../assets/lib/github.js";
 import { parseAppStore, lookupUrl, searchUrl, sizedUrl, appInfo, appSlug, iconName, shotName, iosRadius } from "../assets/lib/appstore.js";
 import { parsePostLink, postUri, getPostsUrl, didDocUrl, pdsFromDoc, blobUrl as bskyBlob, mediaFromRecord, extOfMime, mediaName } from "../assets/lib/bluesky.js";
+import { parseStatusLink, statusUrl, mediaOf, extOfUrl, mediaFile, plainText } from "../assets/lib/mastodon.js";
 import { parseChannel, from7tv, fromFfz, pickScale, emoteFile, previewUrl, mergeEmotes, emoteFileName, API } from "../assets/lib/twitch.js";
 
 /* ---------- ảnh động ---------- */
@@ -454,4 +455,32 @@ test("ảnh, video trong bài đăng Bluesky và tên file", () => {
   assert.equal(extOfMime("image/x-icon"), "xicon");
   assert.equal(mediaName("ten.bsky.social", "3k", 0, 2, "image/png"), "bsky-ten-3k-1.png");
   assert.equal(mediaName("bsky.app", "3k", 0, 1, "video/mp4"), "bsky-bsky.app-3k.mp4");
+});
+
+/* ---------- Mastodon ---------- */
+test("đọc link bài đăng Mastodon", () => {
+  assert.deepEqual(parseStatusLink("https://mastodon.social/@Mastodon/116929144390213579"), { host: "mastodon.social", id: "116929144390213579" });
+  assert.deepEqual(parseStatusLink("https://Mas.To/@a@fosstodon.org/1175/embed"), { host: "mas.to", id: "1175" });
+  assert.deepEqual(parseStatusLink("fosstodon.org/users/rohit/statuses/117561455332188930"), { host: "fosstodon.org", id: "117561455332188930" });
+  assert.deepEqual(parseStatusLink("https://akko.example.com/notice/AbC123xyz"), { host: "akko.example.com", id: "AbC123xyz" });
+  assert.deepEqual(parseStatusLink("https://m.s/web/statuses/42"), { host: "m.s", id: "42" });
+  assert.deepEqual(parseStatusLink("https://m.s/web/@a/42"), { host: "m.s", id: "42" });
+  for (const bad of ["", "https://mastodon.social/@Mastodon", "http://mastodon.social/@a/1", "https://mastodon.social/about", "https://localhost/@a/1"]) assert.equal(parseStatusLink(bad), null, bad);
+  assert.equal(statusUrl("mas.to", "1"), "https://mas.to/api/v1/statuses/1");
+});
+test("file đính kèm Mastodon và tên file", () => {
+  const st = { reblog: { media_attachments: [
+    { type: "image", url: "https://files.x/original/a.png", preview_url: "https://files.x/small/a.png", description: "mô tả", meta: { original: { width: 10, height: 5 } } },
+    { type: "gifv", url: "https://files.x/original/b.mp4", meta: { original: { duration: 3.5 } } },
+    { type: "unknown", url: null, remote_url: "https://remote.y/c.jpg" },
+    { type: "image", url: "http://khong-an-toan/d.jpg" }] } };
+  const m = mediaOf(st);
+  assert.deepEqual(m.map((x) => [x.type, x.url]), [["image", "https://files.x/original/a.png"], ["gifv", "https://files.x/original/b.mp4"], ["unknown", "https://remote.y/c.jpg"]]);
+  assert.deepEqual([m[0].alt, m[0].w, m[1].duration], ["mô tả", 10, 3.5]);
+  assert.deepEqual(mediaOf({ media_attachments: [] }), []);
+  assert.equal(extOfUrl("https://f/x/abc.MP4?v=1"), "mp4");
+  assert.equal(extOfUrl("https://f/x/abc", "image"), "jpg");
+  assert.equal(mediaFile("Mastodon", "42", 1, 3, m[1]), "mastodon-Mastodon-42-2.mp4");
+  assert.equal(mediaFile("a@b.c", "42", 0, 1, m[0]), "mastodon-a-42.png");
+  assert.equal(plainText("<p>Xin &amp; chào<br>bạn</p><p>Hai</p>"), "Xin & chào\nbạn\n\nHai");
 });

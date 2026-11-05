@@ -46,7 +46,7 @@
   },
   "download": {
    "name": "Downloads",
-   "desc": "Download Telegram, LINE and Signal stickers, Discord emoji, Twitch emotes, YouTube thumbnails, animated emoji, Google Fonts, GitHub folders, App Store icons and Bluesky photos and videos straight from the source, with no middleman server."
+   "desc": "Download Telegram, LINE and Signal stickers, Discord emoji, Twitch emotes, YouTube thumbnails, animated emoji, Google Fonts, GitHub folders, App Store icons and Bluesky and Mastodon photos and videos straight from the source, with no middleman server."
   }
  },
  "data": {
@@ -4239,6 +4239,45 @@
     {
      "q": "Why is a Bluesky GIF downloaded as MP4?",
      "a": "Bluesky stores GIFs as looping MP4 videos. Use Video to GIF if you need a .gif file."
+    },
+    {
+     "q": "Can I repost other people's photos and videos?",
+     "a": "They belong to the author. Saving them for yourself is fine; reposting or commercial use needs the author's permission."
+    }
+   ]
+  },
+  "mastodon-media": {
+   "name": "Mastodon Photo & Video Downloader",
+   "desc": "Paste a Mastodon (or Pleroma, Akkoma, GoToSocial) post link to preview and download the original attached photos, videos, GIFs and audio; no sign-in needed.",
+   "privacy": "BbeTools has no server: your browser reads the post through the public API of the Mastodon server in the link and downloads files straight from where that server stores them. No sign-in needed.",
+   "keywords": [
+    "mastodon video downloader",
+    "download mastodon video",
+    "mastodon image downloader",
+    "fediverse downloader",
+    "save mastodon gif"
+   ],
+   "howto": [
+    "On Mastodon, click the post's timestamp (or ··· → Copy link to post) to get its link.",
+    "Paste it and click “Get photos & videos”; preview the photos, videos, GIFs and alt text right on the page.",
+    "Click “Download original” for each file or get everything as a .zip."
+   ],
+   "faq": [
+    {
+     "q": "Which Mastodon servers work?",
+     "a": "Most Mastodon servers (mastodon.social, mas.to, fosstodon.org…) and servers with the same API such as Pleroma, Akkoma and GoToSocial. Some servers require sign-in to read posts through the API; the tool tells you when that happens."
+    },
+    {
+     "q": "Why does a file say it can't be downloaded directly?",
+     "a": "Each Mastodon server chooses where it stores files (S3, a CDN…). If that storage doesn't allow other websites to download, click “Open original file” and save it from your browser (right-click or long-press → Save)."
+    },
+    {
+     "q": "Why is a Mastodon GIF downloaded as MP4?",
+     "a": "Mastodon converts every GIF into a looping MP4 video to save space. Use Video to GIF if you need a .gif file."
+    },
+    {
+     "q": "Can I download followers-only posts?",
+     "a": "No. The tool doesn't sign in for you, so it only gets public posts."
     },
     {
      "q": "Can I repost other people's photos and videos?",
