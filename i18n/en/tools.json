@@ -46,7 +46,7 @@
   },
   "download": {
    "name": "Downloads",
-   "desc": "Download Telegram, LINE and Signal stickers, Discord emoji, Twitch emotes, YouTube thumbnails, animated emoji and Google Fonts straight from the source, with no middleman server."
+   "desc": "Download Telegram, LINE and Signal stickers, Discord emoji, Twitch emotes, YouTube thumbnails, animated emoji, Google Fonts and GitHub folders straight from the source, with no middleman server."
   }
  },
  "data": {
@@ -4126,6 +4126,45 @@
     {
      "q": "Can't find the font you need?",
      "a": "This tool only covers fonts on Google Fonts, almost 2,000 families. Turn off “Vietnamese only” to see all of them."
+    }
+   ]
+  },
+  "github-folder": {
+   "name": "GitHub Folder Downloader",
+   "desc": "Paste a link to a folder or file on GitHub to download just that part as a .zip, without cloning the whole repo or installing git.",
+   "privacy": "BbeTools has no server: your browser lists files through GitHub's API (api.github.com), downloads them from raw.githubusercontent.com and builds the .zip on your device. Your GitHub token (if any) is only sent to api.github.com and never stored.",
+   "keywords": [
+    "download github folder",
+    "github folder downloader",
+    "downgit",
+    "download single folder from github",
+    "github subdirectory zip"
+   ],
+   "howto": [
+    "Open the folder on github.com and copy the link from the address bar (like …/tree/main/folder). A file link or a whole repo works too.",
+    "Paste it and click “List files” to see the files and their size.",
+    "Click “Download … files as .zip”. For a private repo, open the token section, paste a GitHub token with read access and try again."
+   ],
+   "faq": [
+    {
+     "q": "Do I need to sign in to GitHub?",
+     "a": "Not for public repos. GitHub allows 60 API calls per hour without signing in; each listing uses only 1–3 calls and file downloads don't count. If you run out, wait a few minutes or use a token."
+    },
+    {
+     "q": "Can I download from a private repo?",
+     "a": "Yes, if you have access to it: create a token under GitHub → Settings → Developer settings → Fine-grained tokens with read-only Contents access to that repo. The token goes straight to GitHub and is never stored."
+    },
+    {
+     "q": "Do branch names with a slash (e.g. feature/abc) work?",
+     "a": "Yes. The tool tries each way of splitting the branch and the path in the link until one matches."
+    },
+    {
+     "q": "What about large files stored with Git LFS?",
+     "a": "For public repos, the tool detects LFS pointer files and downloads the real file from GitHub's media server."
+    },
+    {
+     "q": "Is there a size limit?",
+     "a": "The .zip is built in your browser's memory, so folders of a few hundred MB are fine on a computer but may be slow on a phone. For very large folders (over 100,000 entries) GitHub only returns part of the list; download subfolders one at a time."
     }
    ]
   }

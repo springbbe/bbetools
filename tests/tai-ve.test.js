@@ -8,6 +8,7 @@ import { cpToChar, charToCp, readList, filterList, fileName, fileUrl } from "../
 import { parseYouTube, parseMany, SIZES, FRAMES, thumbUrl, letterbox, thumbName, oembedUrl } from "../assets/lib/youtube.js";
 import { parseDiscord, emojiUrl, stickerUrl as dcStickerUrl, stickerGuesses, readPacks, safeName } from "../assets/lib/discord.js";
 import { filterFonts, previewVariant, defaultSubsets, sortSubsets, fileUrl as gfUrl, buildCss, fontDir, licenseDirs, metadataUrl, ghFileUrl, parseMetadata, pickTtf } from "../assets/lib/gfonts.js";
+import { parseGitHub, refCandidates, contentsUrl, treeUrl, rawUrl, lfsUrl, treeFiles, isLfsPointer, zipName, rateLimitMinutes } from "../assets/lib/github.js";
 import { parseChannel, from7tv, fromFfz, pickScale, emoteFile, previewUrl, mergeEmotes, emoteFileName, API } from "../assets/lib/twitch.js";
 
 /* ---------- ảnh động ---------- */
@@ -358,4 +359,38 @@ axes {
 `);
   assert.equal(vf.variable, true);
   assert.deepEqual(pickTtf(vf, [700], ["normal"]), ["Roboto[wdth,wght].ttf"]);
+});
+
+/* ---------- Thư mục GitHub ---------- */
+test("đọc link GitHub", () => {
+  assert.deepEqual(parseGitHub("https://github.com/google/fonts/tree/main/ofl/roboto"), { owner: "google", repo: "fonts", kind: "tree", segs: ["main", "ofl", "roboto"] });
+  assert.deepEqual(parseGitHub("github.com/o/r/blob/feature/x/src/a b.js?plain=1#L3"), { owner: "o", repo: "r", kind: "blob", segs: ["feature", "x", "src", "a b.js"] });
+  assert.deepEqual(parseGitHub("https://github.com/o/r.git"), { owner: "o", repo: "r", kind: "root", segs: [] });
+  assert.deepEqual(parseGitHub("o/r"), { owner: "o", repo: "r", kind: "root", segs: [] });
+  assert.deepEqual(parseGitHub("https://raw.githubusercontent.com/o/r/refs/heads/main/a/b.txt"), { owner: "o", repo: "r", kind: "blob", segs: ["main", "a", "b.txt"] });
+  assert.deepEqual(parseGitHub("https://github.com/o/r/tree/v1.0"), { owner: "o", repo: "r", kind: "tree", segs: ["v1.0"] });
+  for (const bad of ["", "github.com/o", "https://gitlab.com/o/r", "https://github.com/o/r/issues/1", "https://github.com/o/r/tree/", "xin chào"]) assert.equal(parseGitHub(bad), null, bad);
+});
+test("cách tách nhánh và đường dẫn, URL API", () => {
+  assert.deepEqual(refCandidates({ kind: "root", segs: [] }), [{ ref: "HEAD", path: "" }]);
+  assert.deepEqual(refCandidates({ kind: "tree", segs: ["feat", "x", "src"] }), [{ ref: "feat", path: "x/src" }, { ref: "feat/x", path: "src" }, { ref: "feat/x/src", path: "" }]);
+  assert.deepEqual(refCandidates({ kind: "blob", segs: ["feat", "x", "a.js"] }), [{ ref: "feat", path: "x/a.js" }, { ref: "feat/x", path: "a.js" }]);
+  assert.equal(contentsUrl("o", "r", "a b/c", "feat/x"), "https://api.github.com/repos/o/r/contents/a%20b/c?ref=feat%2Fx");
+  assert.equal(contentsUrl("o", "r", "", "main"), "https://api.github.com/repos/o/r/contents/?ref=main");
+  assert.equal(treeUrl("o", "r", "HEAD"), "https://api.github.com/repos/o/r/git/trees/HEAD?recursive=1");
+  assert.equal(rawUrl("o", "r", "feat/x", "a#b.js"), "https://raw.githubusercontent.com/o/r/feat/x/a%23b.js");
+  assert.equal(lfsUrl("o", "r", "main", "big.psd"), "https://media.githubusercontent.com/media/o/r/main/big.psd");
+});
+test("lọc cây file, LFS, tên zip", () => {
+  const t = treeFiles({ truncated: false, tree: [
+    { path: "src", type: "tree", mode: "040000" }, { path: "src/b.js", type: "blob", mode: "100644", size: 20, sha: "2" },
+    { path: "a.md", type: "blob", mode: "100644", size: 10, sha: "1" }, { path: "lib", type: "commit", mode: "160000" }, { path: "ln", type: "blob", mode: "120000", size: 3 }] });
+  assert.deepEqual(t.files.map((f) => f.path), ["a.md", "src/b.js"]);
+  assert.equal(t.skipped, 2);
+  assert.equal(t.truncated, false);
+  assert.ok(isLfsPointer(new TextEncoder().encode("version https://git-lfs.github.com/spec/v1\noid sha256:abc\nsize 123\n")));
+  assert.ok(!isLfsPointer(new TextEncoder().encode("hello")));
+  assert.equal(zipName("google", "fonts", "ofl/roboto"), "fonts-roboto.zip");
+  assert.equal(zipName("o", "r", ""), "r.zip");
+  assert.equal(rateLimitMinutes(1000, 1000 * 1000 - 61000), 2);
 });

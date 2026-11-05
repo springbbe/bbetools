@@ -19,7 +19,7 @@
     { "id": "dev", "phase": 5, "slug": "lap-trinh", "name": "Lập trình", "icon": "code", "color": "#3E63DD", "desc": "JSON, Base64, JWT, UUID, hash, regex, timestamp, cron, mã màu, SQL." },
     { "id": "security", "phase": 7, "slug": "bao-mat", "name": "Bảo mật", "icon": "shield", "color": "#0E7C86", "desc": "Tạo mật khẩu mạnh, mã hoá file và văn bản, checksum, mã 2FA." },
     { "id": "productivity", "phase": 7, "slug": "nang-suat", "name": "Năng suất & ngẫu nhiên", "icon": "timer", "color": "#5C8A1C", "desc": "Pomodoro, bấm giờ, hẹn giờ, vòng quay may mắn, chia đội, ghi chú nhanh." },
-    { "id": "download", "phase": 9, "slug": "tai-ve", "name": "Tải về", "icon": "download", "color": "#0090FF", "desc": "Tải sticker Telegram, LINE, Signal, emoji Discord, emote Twitch, thumbnail YouTube, emoji động và font Google Fonts thẳng từ nguồn về máy, không qua máy chủ trung gian." }
+    { "id": "download", "phase": 9, "slug": "tai-ve", "name": "Tải về", "icon": "download", "color": "#0090FF", "desc": "Tải sticker Telegram, LINE, Signal, emoji Discord, emote Twitch, thumbnail YouTube, emoji động, font Google Fonts, thư mục GitHub thẳng từ nguồn về máy, không qua máy chủ trung gian." }
   ],
   "tools": [
     {
@@ -2272,11 +2272,20 @@
     },
     {
       "id": "github-folder", "slug": "tai-thu-muc-github", "name": "Tải thư mục GitHub", "group": "download", "icon": "folder-down", "kind": "interactive",
-      "desc": "Dán link một thư mục hoặc file trên GitHub để tải riêng phần đó về dạng zip, không phải tải cả repo.",
-      "keywords": ["tải thư mục github", "download github folder", "downgit", "tải một thư mục github", "github zip"],
-      "status": "todo",
-      "aliases": ["github-folder", "downgit"],
-      "related": ["checksum"]
+      "desc": "Dán link một thư mục hoặc file trên GitHub để tải riêng phần đó về dạng .zip, không phải tải cả repo hay cài git.",
+      "keywords": ["tải thư mục github", "download github folder", "downgit", "tải một thư mục github", "github zip", "tải file github", "tải code github"],
+      "status": "done",
+      "privacy": "BbeTools không có máy chủ: trình duyệt của bạn lấy danh sách file qua API của GitHub (api.github.com) và tải file từ raw.githubusercontent.com, rồi nén .zip ngay trên máy bạn. Token GitHub (nếu dùng) chỉ gửi tới api.github.com và không được lưu lại.",
+      "aliases": ["github-folder", "downgit", "tai-file-github"],
+      "related": ["checksum", "json-formatter", "minifier"],
+      "howto": ["Mở thư mục cần tải trên github.com, sao chép link trên thanh địa chỉ (dạng …/tree/main/thư-mục). Link một file hay cả repo cũng được.", "Dán vào ô rồi bấm “Lấy danh sách file” để xem các file và dung lượng.", "Bấm “Tải … file dạng .zip”. Repo riêng tư thì mở mục token, dán token GitHub có quyền đọc rồi làm lại."],
+      "faq": [
+        { "q": "Có cần đăng nhập GitHub không?", "a": "Không, với repo công khai. GitHub cho 60 lượt gọi API mỗi giờ khi không đăng nhập; mỗi lần lấy danh sách chỉ tốn 1–3 lượt, còn tải file không tính lượt. Hết lượt thì chờ ít phút hoặc dùng token." },
+        { "q": "Tải thư mục trong repo riêng tư được không?", "a": "Được nếu bạn có quyền xem repo đó: tạo token ở GitHub → Settings → Developer settings → Fine-grained tokens, chỉ cấp quyền đọc Contents cho repo cần tải. Token chỉ gửi thẳng tới GitHub, không lưu lại." },
+        { "q": "Tên nhánh có dấu “/” (vd. feature/abc) có được không?", "a": "Được. Công cụ tự thử các cách tách nhánh và đường dẫn trong link cho tới khi khớp." },
+        { "q": "File lớn lưu bằng Git LFS thì sao?", "a": "Với repo công khai, công cụ tự nhận ra file con trỏ LFS và tải file thật từ máy chủ media của GitHub." },
+        { "q": "Có giới hạn dung lượng không?", "a": "File .zip được tạo trong bộ nhớ trình duyệt nên thư mục vài trăm MB vẫn ổn trên máy tính; điện thoại có thể chậm. Thư mục quá lớn (hơn 100.000 mục) thì GitHub chỉ trả một phần danh sách, hãy tải từng thư mục con." }
+      ]
     },
     {
       "id": "app-store-assets", "slug": "tai-icon-app-store", "name": "Tải icon, ảnh chụp app App Store", "group": "download", "icon": "app-window", "kind": "interactive",
