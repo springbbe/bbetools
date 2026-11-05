@@ -292,7 +292,7 @@
    ],
    "howto": [
     "Choose, drag and drop or paste (Ctrl/⌘ + V) images: JPG, PNG, HEIC, screenshots…",
-    "Order the pages by dragging or with ↑↓, rotate upside-down images; choose paper size, orientation, margins and quality.",
+    "Order the pages by dragging or with ↑↓, rotate upside-down images. For documents photographed with a phone, pick “Enhance document photos” to crop to the paper edges and whiten the background; choose paper size, orientation, margins and quality.",
     "Click “Convert to PDF” and download the file."
    ],
    "faq": [
@@ -303,6 +303,10 @@
     {
      "q": "Do iPhone photos (HEIC) work?",
      "a": "Yes. The tool reads HEIC images and rotates them correctly based on the image's orientation info."
+    },
+    {
+     "q": "My phone photos of documents have a grey background and white strips on both sides in the PDF?",
+     "a": "Choose “Enhance document photos” (Color, Grey or Black & white). The tool crops to the paper edges, straightens photos taken at an angle and turns the grey background white, so each PDF page looks like a clean scan. It all runs on your device, no server needed."
     },
     {
      "q": "How do I make the PDF smaller?",

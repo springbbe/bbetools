@@ -126,14 +126,15 @@
     {
       "id": "image-to-pdf", "slug": "anh-sang-pdf", "name": "Ảnh sang PDF", "group": "pdf", "icon": "images", "kind": "file",
       "desc": "Ghép ảnh JPG, PNG, ảnh chụp màn hình thành một file PDF.",
-      "keywords": ["jpg to pdf", "png to pdf", "chuyển ảnh sang pdf", "ảnh thành pdf", "scan ảnh"],
+      "keywords": ["jpg to pdf", "png to pdf", "chuyển ảnh sang pdf", "ảnh thành pdf", "scan ảnh", "làm trắng nền ảnh chụp"],
       "accept": ["image", "heic"], "multiple": true, "output": "pdf", "status": "done", "popular": true,
       "aliases": ["jpg-sang-pdf", "png-sang-pdf", "image-to-pdf"],
       "related": ["pdf-to-image", "merge-pdf", "compress-image"],
-      "howto": ["Chọn, kéo thả hoặc dán (Ctrl/⌘ + V) các ảnh: JPG, PNG, HEIC, ảnh chụp màn hình…", "Sắp thứ tự trang bằng kéo thả hoặc nút ↑↓, xoay ảnh bị ngược; chọn khổ giấy, hướng trang, lề và chất lượng.", "Bấm “Chuyển sang PDF” rồi tải file về."],
+      "howto": ["Chọn, kéo thả hoặc dán (Ctrl/⌘ + V) các ảnh: JPG, PNG, HEIC, ảnh chụp màn hình…", "Sắp thứ tự trang bằng kéo thả hoặc nút ↑↓, xoay ảnh bị ngược. Ảnh giấy tờ chụp bằng điện thoại thì chọn “Làm đẹp ảnh chụp giấy tờ” để cắt theo mép giấy và làm trắng nền; chọn khổ giấy, hướng trang, lề và chất lượng.", "Bấm “Chuyển sang PDF” rồi tải file về."],
       "faq": [
         { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
         { "q": "Ảnh chụp từ iPhone (HEIC) có dùng được không?", "a": "Được. Công cụ tự đọc ảnh HEIC và xoay đúng chiều theo thông tin trong ảnh." },
+        { "q": "Ảnh chụp giấy tờ bị nền xám, ghép vào PDF lòi hai dải trắng hai bên?", "a": "Chọn “Làm đẹp ảnh chụp giấy tờ” (Màu, Xám hoặc Đen trắng). Công cụ tự cắt theo mép tờ giấy, nắn thẳng ảnh chụp xiên và làm trắng nền xám, nên trang PDF trắng đều như bản scan. Việc này chạy ngay trên máy, không cần máy chủ." },
         { "q": "Làm sao để file PDF nhẹ hơn?", "a": "Chọn chất lượng “Nhẹ”. Nếu vẫn lớn, dùng tiếp công cụ Nén PDF." },
         { "q": "Mỗi ảnh thành một file PDF riêng được không?", "a": "Được, tắt “Gộp tất cả ảnh vào một PDF”; các file sẽ tải về từng file hoặc gộp trong một file .zip." }
       ]
