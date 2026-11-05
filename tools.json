@@ -19,7 +19,7 @@
     { "id": "dev", "phase": 5, "slug": "lap-trinh", "name": "Lập trình", "icon": "code", "color": "#3E63DD", "desc": "JSON, Base64, JWT, UUID, hash, regex, timestamp, cron, mã màu, SQL." },
     { "id": "security", "phase": 7, "slug": "bao-mat", "name": "Bảo mật", "icon": "shield", "color": "#0E7C86", "desc": "Tạo mật khẩu mạnh, mã hoá file và văn bản, checksum, mã 2FA." },
     { "id": "productivity", "phase": 7, "slug": "nang-suat", "name": "Năng suất & ngẫu nhiên", "icon": "timer", "color": "#5C8A1C", "desc": "Pomodoro, bấm giờ, hẹn giờ, vòng quay may mắn, chia đội, ghi chú nhanh." },
-    { "id": "download", "phase": 9, "slug": "tai-ve", "name": "Tải về", "icon": "download", "color": "#0090FF", "desc": "Tải sticker Telegram, LINE, Signal, emoji Discord, emote Twitch, thumbnail YouTube, emoji động, font Google Fonts, thư mục GitHub thẳng từ nguồn về máy, không qua máy chủ trung gian." }
+    { "id": "download", "phase": 9, "slug": "tai-ve", "name": "Tải về", "icon": "download", "color": "#0090FF", "desc": "Tải sticker Telegram, LINE, Signal, emoji Discord, emote Twitch, thumbnail YouTube, emoji động, font Google Fonts, thư mục GitHub, icon App Store thẳng từ nguồn về máy, không qua máy chủ trung gian." }
   ],
   "tools": [
     {
@@ -2289,11 +2289,20 @@
     },
     {
       "id": "app-store-assets", "slug": "tai-icon-app-store", "name": "Tải icon, ảnh chụp app App Store", "group": "download", "icon": "app-window", "kind": "interactive",
-      "desc": "Dán link app trên App Store để tải icon cỡ lớn và ảnh chụp màn hình iPhone, iPad của app.",
-      "keywords": ["tải icon app", "app store icon", "ảnh chụp màn hình app store", "icon ios", "app icon downloader"],
-      "status": "todo",
-      "aliases": ["icon-app-store"],
-      "related": ["favicon", "resize-image"]
+      "desc": "Dán link app App Store (hoặc gõ tên app) để tải icon tới 1024×1024, có bo góc như iPhone, và ảnh chụp màn hình iPhone, iPad cỡ gốc.",
+      "keywords": ["tải icon app", "app store icon", "ảnh chụp màn hình app store", "icon ios", "app icon downloader", "lấy icon app iphone", "screenshot app store"],
+      "status": "done",
+      "privacy": "BbeTools không có máy chủ: trình duyệt của bạn tra thông tin app qua API công khai của Apple (itunes.apple.com) và tải ảnh thẳng từ máy chủ ảnh của Apple (mzstatic.com). Bo góc icon, nén .zip làm ngay trên máy bạn.",
+      "aliases": ["icon-app-store", "tai-icon-app", "anh-chup-app-store"],
+      "related": ["favicon", "resize-image", "compress-image", "convert-image"],
+      "howto": ["Trên iPhone: mở app trong App Store → nút Chia sẻ → Sao chép liên kết. Hoặc gõ thẳng tên app.", "Dán vào ô, chọn quốc gia của App Store nếu cần, rồi bấm “Lấy icon và ảnh chụp”.", "Bấm một cỡ icon (tới 1024×1024) hoặc một ảnh chụp để tải cỡ gốc; bật “Bo góc icon” nếu cần icon bo tròn, hoặc tải tất cả trong một file .zip."],
+      "faq": [
+        { "q": "Icon lớn nhất là bao nhiêu?", "a": "1024×1024 pixel, đúng cỡ nhà phát triển nộp cho Apple. Các cỡ nhỏ hơn (512, 180…) do máy chủ của Apple thu nhỏ sẵn." },
+        { "q": "Vì sao icon tải về là hình vuông?", "a": "Apple lưu icon hình vuông, iPhone tự bo góc khi hiển thị. Bật “Bo góc icon như trên iPhone” để tải bản PNG đã bo góc, nền trong suốt." },
+        { "q": "Không tìm thấy app?", "a": "Một số app chỉ bán ở vài quốc gia: đổi “App Store quốc gia” hoặc dán link app (link có sẵn mã quốc gia). App đã bị gỡ khỏi App Store thì không lấy được nữa." },
+        { "q": "Có tải được video giới thiệu của app không?", "a": "Không. API công khai của Apple chỉ trả icon và ảnh chụp màn hình." },
+        { "q": "Có được dùng icon, ảnh chụp của app khác không?", "a": "Chúng thuộc bản quyền của nhà phát triển. Dùng để tham khảo, viết bài giới thiệu, đánh giá app thường được chấp nhận; dùng cho sản phẩm của bạn hay mục đích thương mại thì cần xin phép." }
+      ]
     },
     {
       "id": "bluesky-media", "slug": "tai-anh-video-bluesky", "name": "Tải ảnh, video Bluesky", "group": "download", "icon": "cloud-download", "kind": "interactive",

@@ -9,6 +9,7 @@ import { parseYouTube, parseMany, SIZES, FRAMES, thumbUrl, letterbox, thumbName,
 import { parseDiscord, emojiUrl, stickerUrl as dcStickerUrl, stickerGuesses, readPacks, safeName } from "../assets/lib/discord.js";
 import { filterFonts, previewVariant, defaultSubsets, sortSubsets, fileUrl as gfUrl, buildCss, fontDir, licenseDirs, metadataUrl, ghFileUrl, parseMetadata, pickTtf } from "../assets/lib/gfonts.js";
 import { parseGitHub, refCandidates, contentsUrl, treeUrl, rawUrl, lfsUrl, treeFiles, isLfsPointer, zipName, rateLimitMinutes } from "../assets/lib/github.js";
+import { parseAppStore, lookupUrl, searchUrl, sizedUrl, appInfo, appSlug, iconName, shotName, iosRadius } from "../assets/lib/appstore.js";
 import { parseChannel, from7tv, fromFfz, pickScale, emoteFile, previewUrl, mergeEmotes, emoteFileName, API } from "../assets/lib/twitch.js";
 
 /* ---------- ảnh động ---------- */
@@ -393,4 +394,32 @@ test("lọc cây file, LFS, tên zip", () => {
   assert.equal(zipName("google", "fonts", "ofl/roboto"), "fonts-roboto.zip");
   assert.equal(zipName("o", "r", ""), "r.zip");
   assert.equal(rateLimitMinutes(1000, 1000 * 1000 - 61000), 2);
+});
+
+/* ---------- App Store ---------- */
+test("đọc link App Store, mã app, tên app", () => {
+  assert.deepEqual(parseAppStore("https://apps.apple.com/vn/app/zalo/id579523206"), { id: "579523206", country: "vn" });
+  assert.deepEqual(parseAppStore("https://apps.apple.com/us/app/facebook/id284882215?l=vi"), { id: "284882215", country: "us" });
+  assert.deepEqual(parseAppStore("itunes.apple.com/app/id284882215?mt=8"), { id: "284882215", country: null });
+  assert.deepEqual(parseAppStore("apps.apple.com/vn/app/id579523206"), { id: "579523206", country: "vn" });
+  assert.deepEqual(parseAppStore("id579523206"), { id: "579523206", country: null });
+  assert.deepEqual(parseAppStore("Zalo"), { term: "Zalo" });
+  assert.equal(parseAppStore("https://play.google.com/store/apps/details?id=com.zing.zalo"), null);
+  assert.equal(parseAppStore(" "), null);
+  assert.equal(lookupUrl("1", "vn"), "https://itunes.apple.com/lookup?id=1&country=vn&entity=software");
+  assert.equal(searchUrl("tiền điện", null), "https://itunes.apple.com/search?term=ti%E1%BB%81n%20%C4%91i%E1%BB%87n&entity=software&country=us&limit=12");
+});
+test("cỡ ảnh mzstatic và tên file", () => {
+  const icon = "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4e/fe/ae/x/Icon-0-1-85-220.png/512x512bb.jpg";
+  assert.equal(sizedUrl(icon, 1024), "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4e/fe/ae/x/Icon-0-1-85-220.png/1024x1024bb.png");
+  assert.equal(sizedUrl(icon, 180, "jpg"), "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4e/fe/ae/x/Icon-0-1-85-220.png/180x180bb.jpg");
+  assert.equal(sizedUrl("https://a.mzstatic.com/x/1.png/392x696bb.jpg", "max"), "https://a.mzstatic.com/x/1.png/9999x9999bb.png");
+  assert.equal(sizedUrl("https://khac.vn/a.png", "max"), "https://khac.vn/a.png");
+  const a = appInfo({ trackId: 579523206, trackName: "Zalo", artistName: "VNG", artworkUrl512: icon, screenshotUrls: ["s1"], kind: "software" });
+  assert.equal(a.id, "579523206"); assert.deepEqual(a.iphone, ["s1"]); assert.deepEqual(a.ipad, []); assert.equal(a.mac, false);
+  assert.equal(appSlug("Zalo – Nhắn gửi yêu thương!"), "zalo-nhan-gui-yeu-thuong");
+  assert.equal(appSlug("日本語"), "app");
+  assert.equal(iconName("Zalo", 1024, "png"), "zalo-icon-1024.png");
+  assert.equal(shotName("Zalo", "iphone", 0, "png"), "zalo-iphone-01.png");
+  assert.equal(iosRadius(1024), 229);
 });

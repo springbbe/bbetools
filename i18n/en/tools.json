@@ -46,7 +46,7 @@
   },
   "download": {
    "name": "Downloads",
-   "desc": "Download Telegram, LINE and Signal stickers, Discord emoji, Twitch emotes, YouTube thumbnails, animated emoji, Google Fonts and GitHub folders straight from the source, with no middleman server."
+   "desc": "Download Telegram, LINE and Signal stickers, Discord emoji, Twitch emotes, YouTube thumbnails, animated emoji, Google Fonts, GitHub folders and App Store icons straight from the source, with no middleman server."
   }
  },
  "data": {
@@ -4165,6 +4165,45 @@
     {
      "q": "Is there a size limit?",
      "a": "The .zip is built in your browser's memory, so folders of a few hundred MB are fine on a computer but may be slow on a phone. For very large folders (over 100,000 entries) GitHub only returns part of the list; download subfolders one at a time."
+    }
+   ]
+  },
+  "app-store-assets": {
+   "name": "App Store Icon & Screenshot Downloader",
+   "desc": "Paste an App Store link (or type the app name) to download the icon up to 1024×1024, with optional iOS rounded corners, and full-size iPhone and iPad screenshots.",
+   "privacy": "BbeTools has no server: your browser looks up the app through Apple's public API (itunes.apple.com) and downloads images straight from Apple's image server (mzstatic.com). Rounding the icon and building the .zip happen on your device.",
+   "keywords": [
+    "app store icon downloader",
+    "download ios app icon",
+    "app store screenshots download",
+    "1024 app icon",
+    "itunes artwork"
+   ],
+   "howto": [
+    "On iPhone: open the app in the App Store → Share → Copy Link. Or just type the app's name.",
+    "Paste it, pick the App Store country if needed, then click “Get icon and screenshots”.",
+    "Click an icon size (up to 1024×1024) or a screenshot to download it at full size; turn on “Round icon corners” for a rounded icon, or download everything as a .zip."
+   ],
+   "faq": [
+    {
+     "q": "What's the largest icon size?",
+     "a": "1024×1024 pixels, the exact size developers submit to Apple. Smaller sizes (512, 180…) are scaled by Apple's image server."
+    },
+    {
+     "q": "Why is the icon square?",
+     "a": "Apple stores icons as squares and iOS rounds the corners on screen. Turn on “Round icon corners like on iPhone” to get a rounded PNG with a transparent background."
+    },
+    {
+     "q": "Can't find the app?",
+     "a": "Some apps are only sold in certain countries: change “App Store country” or paste the app link (it includes the country code). Apps removed from the App Store can't be fetched."
+    },
+    {
+     "q": "Can I download the app preview videos?",
+     "a": "No. Apple's public API only returns the icon and screenshots."
+    },
+    {
+     "q": "Can I use another app's icon or screenshots?",
+     "a": "They belong to the developer. Reference, reviews and articles about the app are usually fine; using them in your own product or commercially needs permission."
     }
    ]
   }
