@@ -7,6 +7,7 @@ import { parseSignalLink, readManifest, packKeys, decrypt, encrypt, hexBytes, ma
 import { cpToChar, charToCp, readList, filterList, fileName, fileUrl } from "../assets/lib/noto-emoji.js";
 import { parseYouTube, parseMany, SIZES, FRAMES, thumbUrl, letterbox, thumbName, oembedUrl } from "../assets/lib/youtube.js";
 import { parseDiscord, emojiUrl, stickerUrl as dcStickerUrl, stickerGuesses, readPacks, safeName } from "../assets/lib/discord.js";
+import { filterFonts, previewVariant, defaultSubsets, sortSubsets, fileUrl as gfUrl, buildCss, fontDir, licenseDirs, metadataUrl, ghFileUrl, parseMetadata, pickTtf } from "../assets/lib/gfonts.js";
 import { parseChannel, from7tv, fromFfz, pickScale, emoteFile, previewUrl, mergeEmotes, emoteFileName, API } from "../assets/lib/twitch.js";
 
 /* ---------- ảnh động ---------- */
@@ -262,4 +263,99 @@ test("emote 7TV, FFZ: chọn file theo cỡ và định dạng", () => {
   assert.equal(mergeEmotes([gamba, think], [gamba, fall]).length, 3);
   assert.equal(emoteFileName(":) <3", "gif"), "_) _3.gif");
   assert.equal(emoteFileName("", "png", "x1"), "x1.png");
+});
+
+/* ---------- Google Fonts ---------- */
+const FONTS = [
+  { id: "roboto", family: "Roboto", subsets: ["cyrillic", "latin", "latin-ext", "vietnamese"], weights: [100, 400, 700], styles: ["italic", "normal"], defSubset: "latin", category: "sans-serif", type: "google" },
+  { id: "be-vietnam-pro", family: "Be Vietnam Pro", subsets: ["latin", "latin-ext", "vietnamese"], weights: [100, 300, 500], styles: ["normal"], defSubset: "latin", category: "sans-serif", type: "google" },
+  { id: "lato", family: "Lato", subsets: ["latin", "latin-ext"], weights: [300, 700], styles: ["normal"], defSubset: "latin", category: "sans-serif", type: "google" },
+  { id: "abel", family: "Abel", subsets: ["vietnamese", "latin"], weights: [400], styles: ["normal"], defSubset: "latin", category: "serif", type: "google" },
+  { id: "khac", family: "Khác", subsets: ["vietnamese"], weights: [400], styles: ["normal"], defSubset: "latin", category: "serif", type: "other" }
+];
+test("lọc và xếp danh sách Google Fonts", () => {
+  assert.deepEqual(filterFonts(FONTS).map((f) => f.id), ["be-vietnam-pro", "roboto", "abel"]);
+  assert.deepEqual(filterFonts(FONTS, { vn: false }).map((f) => f.id), ["be-vietnam-pro", "roboto", "abel", "lato"]);
+  assert.deepEqual(filterFonts(FONTS, { q: "viet nam" }).map((f) => f.id), ["be-vietnam-pro"]);
+  assert.deepEqual(filterFonts(FONTS, { q: "RO" }).map((f) => f.id), ["roboto", "be-vietnam-pro"]);
+  assert.deepEqual(filterFonts(FONTS, { category: "serif" }).map((f) => f.id), ["abel"]);
+  assert.deepEqual(previewVariant(FONTS[1]), { weight: 300, style: "normal" });
+  assert.deepEqual(previewVariant(FONTS[0]), { weight: 400, style: "normal" });
+  assert.deepEqual(defaultSubsets(FONTS[0]), ["vietnamese", "latin"]);
+  assert.deepEqual(defaultSubsets(FONTS[2]), ["latin"]);
+  assert.deepEqual(sortSubsets(["latin", "vietnamese", "cyrillic", "latin-ext"]), ["cyrillic", "vietnamese", "latin-ext", "latin"]);
+});
+test("đường dẫn file và CSS @font-face", () => {
+  assert.equal(gfUrl("roboto", "5.2.8", "vietnamese", 400, "normal", "woff2"), "https://cdn.jsdelivr.net/fontsource/fonts/roboto@5.2.8/vietnamese-400-normal.woff2");
+  const css = buildCss({ family: "Be Vietnam Pro", id: "be-vietnam-pro", license: "OFL-1.1", category: "sans-serif", variants: [{ weight: 700, style: "italic" }, { weight: 400, style: "normal" }],
+    subsets: ["latin", "vietnamese"], unicodeRange: { vietnamese: "U+0102-0103", latin: "U+0000-00FF" }, formats: ["woff2", "woff"], dir: "assets/fonts" });
+  const faces = css.match(/@font-face/g);
+  assert.equal(faces.length, 4);
+  assert.ok(css.indexOf("font-weight: 400") < css.indexOf("font-weight: 700"));
+  assert.ok(css.indexOf("/* vietnamese */") < css.indexOf("/* latin */"));
+  assert.match(css, /src: url\("assets\/fonts\/be-vietnam-pro-vietnamese-400-normal\.woff2"\) format\("woff2"\),\n\s+url\("assets\/fonts\/be-vietnam-pro-vietnamese-400-normal\.woff"\) format\("woff"\);/);
+  assert.match(css, /unicode-range: U\+0102-0103;/);
+  assert.match(css, /font-family: "Be Vietnam Pro", sans-serif;/);
+  assert.match(buildCss({ family: "A", id: "a", variants: [{ weight: 400, style: "normal" }], subsets: ["latin"], formats: ["woff2"], dir: "" }), /url\("a-latin-400-normal\.woff2"\)/);
+});
+test("TTF gốc trong kho google/fonts", () => {
+  assert.equal(fontDir("Be Vietnam Pro"), "bevietnampro");
+  assert.equal(fontDir("M PLUS 1p"), "mplus1p");
+  assert.deepEqual(licenseDirs("Apache-2.0"), ["apache", "ofl", "ufl"]);
+  assert.deepEqual(licenseDirs("OFL-1.1"), ["ofl", "apache", "ufl"]);
+  assert.equal(metadataUrl("ofl", "Be Vietnam Pro"), "https://raw.githubusercontent.com/google/fonts/main/ofl/bevietnampro/METADATA.pb");
+  assert.equal(ghFileUrl("ofl", "Roboto", "Roboto[wdth,wght].ttf"), "https://raw.githubusercontent.com/google/fonts/main/ofl/roboto/Roboto%5Bwdth%2Cwght%5D.ttf");
+  const stat = parseMetadata(`name: "Be Vietnam Pro"
+designer: "Lâm Bảo"
+license: "OFL"
+fonts {
+  name: "Be Vietnam Pro"
+  style: "normal"
+  weight: 100
+  filename: "BeVietnamPro-Thin.ttf"
+}
+fonts {
+  name: "Be Vietnam Pro"
+  style: "italic"
+  weight: 100
+  filename: "BeVietnamPro-ThinItalic.ttf"
+}
+fonts {
+  name: "Be Vietnam Pro"
+  style: "normal"
+  weight: 400
+  filename: "BeVietnamPro-Regular.ttf"
+}
+subsets: "vietnamese"
+source {
+  repository_url: "https://github.com/bettergui/BeVietnamPro"
+}
+`);
+  assert.equal(stat.name, "Be Vietnam Pro");
+  assert.equal(stat.license, "OFL");
+  assert.equal(stat.variable, false);
+  assert.deepEqual(stat.fonts.map((f) => f.weight + f.style), ["100normal", "100italic", "400normal"]);
+  assert.deepEqual(pickTtf(stat, [400], ["normal"]), ["BeVietnamPro-Regular.ttf"]);
+  assert.deepEqual(pickTtf(stat, [100, 400], ["normal", "italic"]), ["BeVietnamPro-Thin.ttf", "BeVietnamPro-ThinItalic.ttf", "BeVietnamPro-Regular.ttf"]);
+  const vf = parseMetadata(`name: "Roboto"
+license: "OFL"
+fonts {
+  name: "Roboto"
+  style: "normal"
+  weight: 400
+  filename: "Roboto[wdth,wght].ttf"
+}
+fonts {
+  name: "Roboto"
+  style: "italic"
+  weight: 400
+  filename: "Roboto-Italic[wdth,wght].ttf"
+}
+axes {
+  tag: "wght"
+  min_value: 100.0
+}
+`);
+  assert.equal(vf.variable, true);
+  assert.deepEqual(pickTtf(vf, [700], ["normal"]), ["Roboto[wdth,wght].ttf"]);
 });

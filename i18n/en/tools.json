@@ -46,7 +46,7 @@
   },
   "download": {
    "name": "Downloads",
-   "desc": "Download Telegram, LINE and Signal stickers, Discord emoji, Twitch emotes, YouTube thumbnails and animated emoji straight from the source, with no middleman server."
+   "desc": "Download Telegram, LINE and Signal stickers, Discord emoji, Twitch emotes, YouTube thumbnails, animated emoji and Google Fonts straight from the source, with no middleman server."
   }
  },
  "data": {
@@ -4085,6 +4085,47 @@
     {
      "q": "Can I use someone else's thumbnail?",
      "a": "Thumbnails are copyrighted by the channel owner. Using them for reference or personal material is fine; to republish or use them commercially you need the owner's permission."
+    }
+   ]
+  },
+  "google-fonts": {
+   "name": "Google Fonts Downloader",
+   "desc": "Find a Google Font, preview it with your own text, then download WOFF2 files with ready-made CSS to self-host on your website, or the original TTF files to install on your computer.",
+   "privacy": "BbeTools has no server: your browser gets the font list from Fontsource (api.fontsource.org), downloads web fonts via jsDelivr (cdn.jsdelivr.net) and the original TTF files from the google/fonts repository on GitHub (raw.githubusercontent.com). The CSS and the .zip file are created on your device.",
+   "keywords": [
+    "google fonts downloader",
+    "download google fonts",
+    "self host google fonts",
+    "google webfonts helper",
+    "woff2",
+    "ttf",
+    "install google font"
+   ],
+   "howto": [
+    "Type a font name in the search box or filter by style (sans serif, serif, handwriting…); turn on “Vietnamese only” to see fonts with full Vietnamese support.",
+    "Click a font, tick the weights and italic styles you need; edit “Preview text” to try your own words.",
+    "Choose “For a website” to get WOFF2 files + a CSS file (you can copy the CSS), or “Install on computer” to get the original TTF files, then open each file and click Install."
+   ],
+   "faq": [
+    {
+     "q": "Can I use Google Fonts commercially?",
+     "a": "Yes. Google Fonts are released under open licenses (mostly the SIL Open Font License, some Apache): free for websites, print, logos and products you sell. You just can't sell the font files themselves. The license file is included in the .zip."
+    },
+    {
+     "q": "Why self-host instead of linking to Google Fonts?",
+     "a": "The font files live on your own site: no dependency on Google's servers, visitors' IP addresses aren't sent to Google (helpful for privacy rules such as GDPR), and pages load faster without an extra domain connection."
+    },
+    {
+     "q": "Why does the web version have many small files?",
+     "a": "Like Google Fonts, each weight is split by character set (Latin, Latin Extended, Vietnamese…). The CSS uses unicode-range, so browsers only download the sets a page actually uses."
+    },
+    {
+     "q": "The TTF download only has one or two files?",
+     "a": "Many Google Fonts are variable fonts: a single file holds every weight from thin to black. After installing, pick the weight in Word, Photoshop and so on as usual."
+    },
+    {
+     "q": "Can't find the font you need?",
+     "a": "This tool only covers fonts on Google Fonts, almost 2,000 families. Turn off “Vietnamese only” to see all of them."
     }
    ]
   }

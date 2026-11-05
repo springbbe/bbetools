@@ -1,0 +1,4 @@
+{
+ "/* {0} – Google Fonts, tải bằng BbeTools. Giấy phép: {1} */": "/* {0} – Google Fonts, downloaded with BbeTools. License: {1} */",
+ "/* Cách dùng: body { font-family: \"{0}\", {1}; } */": "/* Usage: body { font-family: \"{0}\", {1}; } */"
+}

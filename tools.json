@@ -19,7 +19,7 @@
     { "id": "dev", "phase": 5, "slug": "lap-trinh", "name": "Lập trình", "icon": "code", "color": "#3E63DD", "desc": "JSON, Base64, JWT, UUID, hash, regex, timestamp, cron, mã màu, SQL." },
     { "id": "security", "phase": 7, "slug": "bao-mat", "name": "Bảo mật", "icon": "shield", "color": "#0E7C86", "desc": "Tạo mật khẩu mạnh, mã hoá file và văn bản, checksum, mã 2FA." },
     { "id": "productivity", "phase": 7, "slug": "nang-suat", "name": "Năng suất & ngẫu nhiên", "icon": "timer", "color": "#5C8A1C", "desc": "Pomodoro, bấm giờ, hẹn giờ, vòng quay may mắn, chia đội, ghi chú nhanh." },
-    { "id": "download", "phase": 9, "slug": "tai-ve", "name": "Tải về", "icon": "download", "color": "#0090FF", "desc": "Tải sticker Telegram, LINE, Signal, emoji Discord, emote Twitch, thumbnail YouTube và emoji động thẳng từ nguồn về máy, không qua máy chủ trung gian." }
+    { "id": "download", "phase": 9, "slug": "tai-ve", "name": "Tải về", "icon": "download", "color": "#0090FF", "desc": "Tải sticker Telegram, LINE, Signal, emoji Discord, emote Twitch, thumbnail YouTube, emoji động và font Google Fonts thẳng từ nguồn về máy, không qua máy chủ trung gian." }
   ],
   "tools": [
     {
@@ -2255,11 +2255,20 @@
     },
     {
       "id": "google-fonts", "slug": "tai-google-fonts", "name": "Tải font Google Fonts", "group": "download", "icon": "baseline", "kind": "interactive",
-      "desc": "Chọn font Google Fonts và tải file WOFF2, TTF kèm đoạn CSS để tự host, chọn được bộ ký tự tiếng Việt.",
-      "keywords": ["tải google fonts", "download google font", "font tiếng việt", "tự host font", "woff2", "ttf", "google webfonts helper"],
-      "status": "todo",
-      "aliases": ["google-fonts"],
-      "related": ["css-generator", "minifier"]
+      "desc": "Tìm font Google Fonts có tiếng Việt, xem trước bằng chữ của bạn rồi tải WOFF2 kèm CSS để tự host cho website, hoặc file TTF gốc để cài vào máy.",
+      "keywords": ["tải google fonts", "download google font", "font tiếng việt", "tải font tiếng việt", "font việt hoá", "tự host font", "woff2", "ttf", "google webfonts helper", "cài font"],
+      "status": "done",
+      "privacy": "BbeTools không có máy chủ: trình duyệt của bạn lấy danh sách font từ Fontsource (api.fontsource.org), tải file web qua jsDelivr (cdn.jsdelivr.net) và file TTF gốc từ kho google/fonts trên GitHub (raw.githubusercontent.com). Đoạn CSS và file .zip được tạo ngay trên máy bạn.",
+      "aliases": ["google-fonts", "tai-font-tieng-viet", "google-webfonts-helper"],
+      "related": ["css-generator", "minifier", "text-on-image"],
+      "howto": ["Gõ tên font vào ô tìm kiếm, hoặc lọc theo kiểu (không chân, có chân, viết tay…); mặc định chỉ hiện font có đủ dấu tiếng Việt.", "Bấm một font, đánh dấu các độ đậm, kiểu nghiêng cần dùng; sửa ô “Chữ xem trước” để thử với chữ của bạn.", "Chọn “Cho website” để tải WOFF2 + file CSS (sao chép được đoạn CSS), hoặc “Cài vào máy tính” để tải file TTF gốc rồi mở file và bấm Cài đặt."],
+      "faq": [
+        { "q": "Font Google có được dùng cho mục đích thương mại không?", "a": "Được. Font trên Google Fonts dùng giấy phép mở (thường là SIL Open Font License, một số là Apache): dùng miễn phí cho website, in ấn, logo, sản phẩm bán ra. Chỉ không được bán lại chính file font. File giấy phép được tải kèm trong .zip." },
+        { "q": "Tự host font khác gì nhúng link Google Fonts?", "a": "File font nằm trên website của bạn: không phụ thuộc máy chủ Google, không gửi địa chỉ IP người xem tới Google (hợp với quy định về dữ liệu cá nhân), trang nhanh hơn vì không phải kết nối thêm tên miền khác." },
+        { "q": "Vì sao bản web có nhiều file nhỏ?", "a": "Giống Google Fonts, mỗi độ đậm được chia theo bộ ký tự (tiếng Việt, Latin…). Đoạn CSS có unicode-range nên trình duyệt chỉ tải bộ nào trang thật sự dùng tới. Viết tiếng Việt cần cả hai bộ “Tiếng Việt” và “Latin”." },
+        { "q": "Bản TTF tải về chỉ có một hai file?", "a": "Nhiều font Google là font biến thiên (variable): một file chứa mọi độ đậm từ mảnh tới đậm. Sau khi cài, chọn độ đậm trong Word, Photoshop… như bình thường." },
+        { "q": "Không tìm thấy font mình cần?", "a": "Công cụ chỉ có font trên Google Fonts. Font có tiếng Việt chiếm khoảng 500 font; tắt “Chỉ font có tiếng Việt” để thấy toàn bộ gần 2.000 font." }
+      ]
     },
     {
       "id": "github-folder", "slug": "tai-thu-muc-github", "name": "Tải thư mục GitHub", "group": "download", "icon": "folder-down", "kind": "interactive",
