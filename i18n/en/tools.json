@@ -4284,6 +4284,45 @@
      "a": "They belong to the author. Saving them for yourself is fine; reposting or commercial use needs the author's permission."
     }
    ]
+  },
+  "redact-pdf": {
+   "name": "Redact PDF",
+   "desc": "Black out ID numbers, account numbers, signatures… in a PDF; covered content is truly removed, not just hidden under a box you can copy text from.",
+   "keywords": [
+    "redact pdf",
+    "black out pdf",
+    "hide text in pdf",
+    "remove sensitive info pdf",
+    "pdf redaction"
+   ],
+   "howto": [
+    "Choose, drag and drop or paste (Ctrl/⌘ + V) the PDF to redact.",
+    "Drag boxes over what to hide (on phones, turn on “Draw boxes” first), or type text to cover, or use “9–12 digit numbers”, “Email” to cover every match automatically.",
+    "Check each box: drag to move, drag the corner dot to resize, click × to remove.",
+    "Click “Redact and download”. Pages with boxes become images; other pages stay unchanged."
+   ],
+   "faq": [
+    {
+     "q": "Are my files uploaded anywhere?",
+     "a": "No. Searching, covering and building the new file all run in your browser; the file never leaves your device."
+    },
+    {
+     "q": "Can someone remove the box or copy the text underneath?",
+     "a": "No. Many “black out” methods just draw a rectangle on top, leaving the text in the file to be copied out. Here each page with boxes is re-drawn as an image and the boxes are filled in, so text and images underneath are gone for good. After building the file, the tool reopens it to check the covered pages contain no text at all."
+    },
+    {
+     "q": "Why can't I select or search text on redacted pages?",
+     "a": "Because the whole page is now an image: that is the reliable way to remove information. Pages without boxes keep their text. To make them searchable again, use the Searchable PDF (OCR) tool — the covered areas will read as blank."
+    },
+    {
+     "q": "What does “9–12 digit numbers” cover?",
+     "a": "Every standalone run of 9 to 12 digits, including ones split by spaces or dots: national ID numbers, phone numbers and most bank account numbers. It may catch large amounts of money, so review the list and remove boxes you don't need. Use “13–19 digit numbers” for card numbers and long accounts."
+    },
+    {
+     "q": "Can I search text in a scanned PDF?",
+     "a": "No, scanned files have no text layer. Drag boxes by hand over what you need to hide."
+    }
+   ]
   }
  }
 }

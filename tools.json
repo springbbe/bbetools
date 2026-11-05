@@ -392,9 +392,17 @@
       "desc": "Tô đen số CCCD, số tài khoản, chữ ký… trong PDF; phần bị che bị xoá hẳn, không bôi đen rồi sao chép ra được.",
       "keywords": ["che thông tin pdf", "xoá thông tin pdf", "redact pdf", "bôi đen pdf", "ẩn số cccd trong pdf"],
       "accept": ["pdf"], "output": "pdf",
-      "status": "todo",
+      "status": "done",
       "aliases": ["redact-pdf", "xoa-thong-tin-pdf"],
-      "related": ["blur-image", "flatten-pdf", "protect-pdf"]
+      "related": ["blur-image", "flatten-pdf", "protect-pdf"],
+      "howto": ["Chọn, kéo thả hoặc dán (Ctrl/⌘ + V) file PDF cần che.", "Kéo khung lên chỗ cần che (trên điện thoại bật “Vẽ khung” trước), hoặc gõ chữ cần che, bấm “Dãy 9–12 chữ số”, “Email” để che tự động mọi chỗ khớp.", "Kiểm tra từng vùng che: kéo để dịch, kéo chấm góc để đổi cỡ, bấm × để bỏ.", "Bấm “Che và tải về”. Trang có vùng che được chuyển thành ảnh, các trang khác giữ nguyên."],
+      "faq": [
+        { "q": "File có bị tải lên mạng không?", "a": "Không. Việc tìm chữ, che và tạo file mới chạy hoàn toàn trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Che xong người khác có gỡ ra hoặc sao chép chữ bên dưới được không?", "a": "Không. Nhiều cách “bôi đen” chỉ vẽ hình chữ nhật đè lên, chữ vẫn nằm trong file và sao chép ra được. Ở đây trang có vùng che được vẽ lại thành ảnh rồi tô kín vùng che, nên chữ, ảnh bên dưới bị xoá hẳn. Sau khi tạo file, công cụ tự mở lại để kiểm tra trang bị che không còn chữ nào." },
+        { "q": "Vì sao trang bị che không chọn, tìm chữ được nữa?", "a": "Vì cả trang đã thành ảnh: đó là cách chắc chắn để xoá thông tin. Các trang không có vùng che vẫn giữ nguyên chữ. Muốn tìm kiếm được trở lại, dùng công cụ PDF scan thành PDF tìm kiếm được (nhận dạng chữ sẽ đọc cả ô che là ô trống)." },
+        { "q": "Tìm “Dãy 9–12 chữ số” che những gì?", "a": "Mọi dãy 9 đến 12 chữ số đứng riêng, kể cả có dấu cách hoặc dấu chấm xen giữa: số CCCD (12 số), CMND (9 số), số điện thoại, phần lớn số tài khoản. Có thể che nhầm số tiền lớn (như 150.000.000), hãy xem lại danh sách vùng che và bỏ chỗ không cần. Số thẻ ngân hàng, tài khoản dài dùng “Dãy 13–19 chữ số”." },
+        { "q": "File PDF scan (ảnh) có tìm theo chữ được không?", "a": "Không, vì file scan không có lớp chữ. Hãy kéo khung bằng tay lên chỗ cần che." }
+      ]
     },
     {
       "id": "ocr-pdf", "slug": "pdf-scan-tim-kiem-duoc", "name": "PDF scan thành PDF tìm kiếm được", "group": "pdf", "icon": "scan-text", "kind": "file",

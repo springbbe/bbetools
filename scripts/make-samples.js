@@ -35,6 +35,7 @@ try {
   pdf("scripts/samples/bao-cao.html?t=" + encodeURIComponent("Báo cáo quý 2") + "&c=%233E63DD&p=3", "bao-cao-quy-2.pdf");
   pdf("scripts/samples/scan.html", "tai-lieu-scan.pdf");
   pdf("scripts/samples/so-tay.html", "so-tay-nhan-vien.pdf");
+  pdf("scripts/samples/uy-quyen.html", "giay-uy-quyen-mau.pdf");
   pdfLib("co-anh", "tai-lieu-co-anh.pdf");
   pdfLib("to-khai", "to-khai-mau.pdf");
   pdfLib("to-khai-da-dien", "to-khai-da-dien.pdf");
@@ -60,6 +61,6 @@ try {
   server.kill();
   execFileSync("rm", ["-rf", TMP]);
 }
-for (const f of ["bao-cao-quy-1.pdf", "bao-cao-quy-2.pdf", "tai-lieu-scan.pdf", "so-tay-nhan-vien.pdf", "tai-lieu-co-anh.pdf", "to-khai-mau.pdf", "to-khai-da-dien.pdf", "mau-co-mat-khau-1234.pdf", "giay-to-chup.jpg", "chu-ky-chup.jpg", "van-ban-chup.jpg", "cccd-mat-truoc.jpg", "cccd-mat-sau.jpg", "anh-phong-canh.jpg", "anh-iphone.heic", "anh-co-gps.jpg", "anh-iphone-co-gps.heic", "anh-chup-man-hinh.png", "ma-qr-mau.png", "chan-dung-mau.jpg", "nhan-vien.xlsx", "ban-hang-thang-9.xlsx", "ban-hang-thang-10.xlsx", "ban-hang-thang-11.csv", "san-pham.json", "khach-moi.xlsx", "giay-moi-mau.docx", "bao-cao-mat-khau-1234.pdf.bbe", "bao-cao-quy-1.pdf.sha256", ...MEDIA_SAMPLES]) {
+for (const f of ["bao-cao-quy-1.pdf", "bao-cao-quy-2.pdf", "tai-lieu-scan.pdf", "so-tay-nhan-vien.pdf", "giay-uy-quyen-mau.pdf", "tai-lieu-co-anh.pdf", "to-khai-mau.pdf", "to-khai-da-dien.pdf", "mau-co-mat-khau-1234.pdf", "giay-to-chup.jpg", "chu-ky-chup.jpg", "van-ban-chup.jpg", "cccd-mat-truoc.jpg", "cccd-mat-sau.jpg", "anh-phong-canh.jpg", "anh-iphone.heic", "anh-co-gps.jpg", "anh-iphone-co-gps.heic", "anh-chup-man-hinh.png", "ma-qr-mau.png", "chan-dung-mau.jpg", "nhan-vien.xlsx", "ban-hang-thang-9.xlsx", "ban-hang-thang-10.xlsx", "ban-hang-thang-11.csv", "san-pham.json", "khach-moi.xlsx", "giay-moi-mau.docx", "bao-cao-mat-khau-1234.pdf.bbe", "bao-cao-quy-1.pdf.sha256", ...MEDIA_SAMPLES]) {
   console.log(existsSync(OUT + f) ? `✓ ${f}  ${(statSync(OUT + f).size / 1024).toFixed(0)} KB` : `✗ thiếu ${f}`);
 }
