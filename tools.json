@@ -370,6 +370,33 @@
         { "q": "Không tự tìm được góc giấy thì sao?", "a": "Kéo 4 chấm tròn tới 4 góc tờ giấy, hoặc bấm “Lấy cả ảnh”. Trên máy tính có thể dùng phím mũi tên để dịch từng góc." }
       ]
     },
+    {
+      "id": "id-card-print", "slug": "in-cccd-2-mat", "name": "In CCCD 2 mặt trên 1 trang A4", "group": "pdf", "icon": "id-card", "kind": "interactive",
+      "desc": "Ghép ảnh mặt trước và mặt sau căn cước (CCCD) lên một trang A4 đúng kích thước thật, tự cắt mép thẻ và làm trắng nền.",
+      "keywords": ["in cccd 2 mặt", "ghép 2 mặt cccd", "photo căn cước", "cccd a4", "in căn cước công dân", "ghép cmnd"],
+      "accept": ["image", "heic"], "output": "pdf",
+      "status": "todo", "vnOnly": true,
+      "aliases": ["ghep-cccd-2-mat", "in-can-cuoc"],
+      "related": ["scan-document", "image-to-pdf", "blur-image"]
+    },
+    {
+      "id": "redact-pdf", "slug": "che-thong-tin-pdf", "name": "Che thông tin trong PDF", "group": "pdf", "icon": "eraser", "kind": "interactive",
+      "desc": "Tô đen số CCCD, số tài khoản, chữ ký… trong PDF; phần bị che bị xoá hẳn, không bôi đen rồi sao chép ra được.",
+      "keywords": ["che thông tin pdf", "xoá thông tin pdf", "redact pdf", "bôi đen pdf", "ẩn số cccd trong pdf"],
+      "accept": ["pdf"], "output": "pdf",
+      "status": "todo",
+      "aliases": ["redact-pdf", "xoa-thong-tin-pdf"],
+      "related": ["blur-image", "flatten-pdf", "protect-pdf"]
+    },
+    {
+      "id": "ocr-pdf", "slug": "pdf-scan-tim-kiem-duoc", "name": "PDF scan thành PDF tìm kiếm được", "group": "pdf", "icon": "scan-text", "kind": "file",
+      "desc": "Nhận dạng chữ (OCR) trong PDF scan, ảnh chụp rồi chèn lớp chữ ẩn để tìm kiếm, bôi đen, sao chép được; giữ nguyên hình trang.",
+      "keywords": ["ocr pdf", "pdf tìm kiếm được", "searchable pdf", "nhận dạng chữ pdf", "copy chữ trong pdf scan"],
+      "accept": ["pdf"], "output": "pdf",
+      "status": "todo",
+      "aliases": ["ocr-pdf", "searchable-pdf"],
+      "related": ["ocr", "scan-document", "pdf-to-text"]
+    },
 
     {
       "id": "compress-image", "slug": "nen-anh", "name": "Nén ảnh", "group": "image", "icon": "image-down", "kind": "file",
@@ -840,6 +867,15 @@
         { "q": "Có tải về file MP3 được không?", "a": "Không. Trình duyệt không cho trang web ghi lại giọng đọc của hệ điều hành, nên công cụ chỉ đọc trực tiếp." },
         { "q": "Văn bản có bị gửi đi không?", "a": "Với giọng có sẵn trên máy thì không. Giọng ghi “trực tuyến” (như Google, Microsoft Online) gửi văn bản tới máy chủ của hãng để đọc; muốn giữ kín hãy chọn giọng khác." }
       ]
+    },
+    {
+      "id": "speech-to-text", "slug": "giong-noi-thanh-van-ban", "name": "Giọng nói thành văn bản, tạo phụ đề", "group": "media", "icon": "mic-vocal", "kind": "file",
+      "desc": "Chuyển file ghi âm, video thành văn bản hoặc phụ đề .srt bằng mô hình nhận dạng giọng nói chạy ngay trên máy.",
+      "keywords": ["giọng nói thành văn bản", "speech to text", "tạo phụ đề tự động", "gỡ băng ghi âm", "whisper", "srt"],
+      "accept": ["audio", "video"], "output": "text",
+      "status": "todo",
+      "aliases": ["speech-to-text", "tao-phu-de"],
+      "related": ["voice-recorder", "text-to-speech", "trim-audio"]
     },
 
     {
@@ -1521,6 +1557,15 @@
         { "q": "Thuế GTGT tính thế nào?", "a": "Thuế tính trên tiền hàng sau chiết khấu, làm tròn đến đồng; phí vận chuyển cộng sau thuế. Có sẵn các mức 0%, 5%, 8%, 10%." },
         { "q": "Dữ liệu có bị lưu lên mạng không?", "a": "Không. Phiếu được dựng và xuất PDF ngay trên trình duyệt; thông tin chỉ được nhớ trong trình duyệt trên máy bạn." }
       ]
+    },
+    {
+      "id": "admin-document", "slug": "soan-van-ban-hanh-chinh", "name": "Soạn văn bản hành chính (NĐ 30)", "group": "office", "icon": "landmark", "kind": "form",
+      "desc": "Nhập cơ quan, số hiệu, trích yếu, nội dung để tạo file Word đúng thể thức Nghị định 30/2020: quốc hiệu, tiêu ngữ, font, lề, nơi nhận.",
+      "keywords": ["văn bản hành chính", "thể thức nghị định 30", "mẫu công văn", "soạn tờ trình", "quyết định mẫu", "nđ 30/2020"],
+      "output": "docx",
+      "status": "todo", "vnOnly": true,
+      "aliases": ["van-ban-nd30", "mau-cong-van"],
+      "related": ["invoice", "mail-merge", "number-to-words"]
     },
 
     {

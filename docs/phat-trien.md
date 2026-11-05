@@ -246,6 +246,18 @@ Quy trình riêng cho giai đoạn này:
 
 Đã xét và bỏ (không có CORS, cần khoá bí mật hoặc trái điều khoản): emote BetterTTV (CDN ảnh không có CORS), danh sách emoji server Discord (cần đăng nhập), video YouTube, TikTok, Facebook, Instagram; Reddit (403), X/Twitter (CORS chỉ cho platform.twitter.com); sticker Zalo (không có API công khai); Giphy, Tenor, Imgur (cần khoá API); emoji Slack (cần token, CDN không CORS); tải cả repo GitHub qua codeload.
 
+## Giai đoạn 10 – Công cụ gợi ý (todo)
+
+Thêm vào `tools.json` ngày 05/11/2026 với `"status": "todo"`, nên làm theo thứ tự dưới đây. Câu lệnh gợi ý: `Làm công cụ In CCCD 2 mặt của BbeTools theo CLAUDE.md`.
+
+| Công cụ | Hướng làm | Lưu ý |
+|---|---|---|
+| In CCCD 2 mặt trên 1 trang A4 (`id-card-print`, vnOnly) | 2 ô ảnh (mặt trước, mặt sau) → `detectCorners`, `warp`, `enhance` của `lib/scan.js` (như "Làm đẹp ảnh chụp giấy tờ" trong Ảnh sang PDF) → nắn về đúng tỉ lệ thẻ ID-1 85,6 × 54 mm → vẽ lên A4 bằng pdf-lib đúng cỡ thật (in 100%, không "vừa trang") | Có ô kéo chỉnh 4 góc như Scan tài liệu khi tự tìm sai; tuỳ chọn thêm dòng chữ "Bản sao dùng để…" chéo trên ảnh; nhắc người dùng chọn tỉ lệ 100% khi in |
+| Che thông tin trong PDF (`redact-pdf`) | pdf.js vẽ trang → người dùng kéo khung đen (có tìm theo chữ: số 9–12 chữ số, từ khoá) → trang có vùng che được chuyển thành ảnh rồi thay vào PDF, trang khác giữ nguyên | Phải xoá thật: không chỉ vẽ hình chữ nhật đè lên. Kiểm tra bằng PDF sang văn bản rằng chữ dưới vùng che đã mất |
+| PDF scan thành PDF tìm kiếm được (`ocr-pdf`) | pdf.js vẽ trang → Tesseract (`lib("tesseract")`, đã có, tiếng Việt) lấy chữ + toạ độ từng từ → pdf-lib chèn chữ với `opacity: 0` (hoặc chế độ vẽ chữ ẩn) đúng vị trí, nhúng font có dấu | Chậm với file nhiều trang: có tiến độ, huỷ được; hàm đổi toạ độ ảnh → PDF ở `assets/lib/` có test |
+| Soạn văn bản hành chính (NĐ 30) (`admin-document`, vnOnly) | Khung form: loại văn bản (công văn, quyết định, tờ trình, thông báo, báo cáo…), cơ quan chủ quản, cơ quan ban hành, số/ký hiệu, địa danh, ngày, trích yếu, nội dung, chức vụ, người ký, nơi nhận → xuất .docx (tự viết XML trong zip bằng jszip, không cần thư viện mới) | Thể thức theo Phụ lục I Nghị định 30/2020/NĐ-CP: Times New Roman 13–14, lề trên 20–25 mm, dưới 20–25 mm, trái 30–35 mm, phải 15–20 mm. Thông số để ở `data/the-thuc-van-ban.json` (có `source`, `updated`), tra văn bản hiện hành trước khi làm |
+| Giọng nói thành văn bản, tạo phụ đề (`speech-to-text`) | Whisper chạy trong trình duyệt (transformers.js + ONNX/WebGPU) → văn bản, .srt, .vtt; giải mã âm thanh bằng Mediabunny/WebCodecs về 16 kHz mono | Mô hình nặng (tiny ≈ 40 MB, base ≈ 80 MB, small ≈ 250 MB): hỏi trước khi tải, báo dung lượng, nhớ trong cache. Tiếng Việt cần tối thiểu bản base/small mới dùng được; nếu chất lượng kém thì bỏ, không làm nửa vời |
+
 ## Định dạng file mã hoá của BbeTools (.bbe)
 
 "Mã hoá/giải mã file" và "Mã hoá văn bản" dùng chung `assets/lib/ma-hoa.js` (Web Crypto, chạy cả trong Node để test): AES-GCM 256, khoá dẫn xuất bằng PBKDF2-HMAC-SHA256 600.000 vòng, salt 16 byte. Phần đầu 38 byte: `BBENC` + phiên bản `0x01`, mã thuật toán dẫn xuất khoá, số vòng, salt, tiền tố nonce 7 byte, cỡ khối (1 MiB). Sau đó là các khối mã, mỗi khối có thẻ xác thực 16 byte; nonce = tiền tố ‖ số thứ tự khối ‖ cờ khối cuối (kiểu STREAM) và phần đầu là dữ liệu xác thực bổ sung, nên đổi thứ tự, cắt bớt hay sửa một byte đều bị phát hiện. Bản rõ bắt đầu bằng độ dài + JSON `{ name, type }` của file gốc. Văn bản mã hoá là cả gói trên viết bằng Base64 (bắt đầu bằng `QkJFTkMB`). Muốn đổi định dạng thì tăng số phiên bản và giữ khả năng giải mã bản cũ.
