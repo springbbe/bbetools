@@ -19,7 +19,7 @@
     { "id": "dev", "phase": 5, "slug": "lap-trinh", "name": "Lập trình", "icon": "code", "color": "#3E63DD", "desc": "JSON, Base64, JWT, UUID, hash, regex, timestamp, cron, mã màu, SQL." },
     { "id": "security", "phase": 7, "slug": "bao-mat", "name": "Bảo mật", "icon": "shield", "color": "#0E7C86", "desc": "Tạo mật khẩu mạnh, mã hoá file và văn bản, checksum, mã 2FA." },
     { "id": "productivity", "phase": 7, "slug": "nang-suat", "name": "Năng suất & ngẫu nhiên", "icon": "timer", "color": "#5C8A1C", "desc": "Pomodoro, bấm giờ, hẹn giờ, vòng quay may mắn, chia đội, ghi chú nhanh." },
-    { "id": "download", "phase": 9, "slug": "tai-ve", "name": "Tải về", "icon": "download", "color": "#0090FF", "desc": "Tải sticker Telegram, LINE, Signal, emoji Discord, emote Twitch, thumbnail YouTube, emoji động, font Google Fonts, thư mục GitHub, icon App Store thẳng từ nguồn về máy, không qua máy chủ trung gian." }
+    { "id": "download", "phase": 9, "slug": "tai-ve", "name": "Tải về", "icon": "download", "color": "#0090FF", "desc": "Tải sticker Telegram, LINE, Signal, emoji Discord, emote Twitch, thumbnail YouTube, emoji động, font Google Fonts, thư mục GitHub, icon App Store, ảnh và video Bluesky thẳng từ nguồn về máy, không qua máy chủ trung gian." }
   ],
   "tools": [
     {
@@ -2306,11 +2306,20 @@
     },
     {
       "id": "bluesky-media", "slug": "tai-anh-video-bluesky", "name": "Tải ảnh, video Bluesky", "group": "download", "icon": "cloud-download", "kind": "interactive",
-      "desc": "Dán link bài đăng Bluesky để tải ảnh gốc và video (ghép thành MP4) ngay trên trình duyệt.",
-      "keywords": ["tải video bluesky", "tải ảnh bluesky", "bluesky downloader", "bsky video"],
-      "status": "todo",
-      "aliases": ["bluesky-downloader"],
-      "related": ["video-to-mp3", "video-to-gif"]
+      "desc": "Dán link bài đăng Bluesky để tải ảnh và video MP4 gốc người đăng tải lên, kể cả trong bài được trích dẫn; không cần đăng nhập.",
+      "keywords": ["tải video bluesky", "tải ảnh bluesky", "bluesky downloader", "bsky video", "tải gif bluesky", "lưu video bluesky"],
+      "status": "done",
+      "privacy": "BbeTools không có máy chủ: trình duyệt của bạn đọc bài đăng qua API công khai của Bluesky (public.api.bsky.app), tìm máy chủ lưu file của người đăng qua plc.directory rồi tải file gốc thẳng từ máy chủ đó. Không cần đăng nhập Bluesky.",
+      "aliases": ["bluesky-downloader", "tai-video-bluesky"],
+      "related": ["video-to-mp3", "video-to-gif", "trim-video", "compress-video"],
+      "howto": ["Trong app Bluesky, bấm nút Chia sẻ dưới bài đăng → Sao chép liên kết (hoặc sao chép link bsky.app/profile/…/post/… trên trình duyệt).", "Dán vào ô rồi bấm “Lấy ảnh, video”; xem trước ảnh, video và mô tả ảnh (alt) ngay trên trang.", "Bấm “Tải ảnh gốc”, “Tải video gốc”, hoặc tải tất cả trong một file .zip."],
+      "faq": [
+        { "q": "Ảnh, video tải về có bị giảm chất lượng không?", "a": "Không. Công cụ tải đúng file gốc người đăng tải lên Bluesky (ảnh JPG, PNG, WEBP; video MP4), không phải bản Bluesky nén lại để hiển thị." },
+        { "q": "Có tải được ảnh, video trong bài được trích dẫn (quote) không?", "a": "Được. File trong bài được trích dẫn hiện cùng danh sách, có ghi chú “trong bài được trích dẫn”." },
+        { "q": "Vì sao báo không xem được bài đăng?", "a": "Bài đã bị xoá, hoặc người đăng bật chế độ chỉ cho người đã đăng nhập xem. Công cụ không đăng nhập thay bạn nên không lấy được những bài này." },
+        { "q": "GIF trên Bluesky tải về là MP4?", "a": "Đúng, Bluesky lưu GIF dưới dạng video MP4 lặp lại. Muốn có file .gif thì dùng tiếp công cụ Video sang GIF." },
+        { "q": "Có được đăng lại ảnh, video của người khác không?", "a": "Chúng thuộc bản quyền của người đăng. Tải để xem lại, lưu trữ cá nhân thì được; đăng lại hoặc dùng thương mại thì cần người đăng cho phép." }
+      ]
     },
     {
       "id": "mastodon-media", "slug": "tai-anh-video-mastodon", "name": "Tải ảnh, video Mastodon", "group": "download", "icon": "at-sign", "kind": "interactive",

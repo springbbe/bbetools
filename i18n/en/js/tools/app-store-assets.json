@@ -5,6 +5,7 @@
  "Hàn Quốc": "South Korea",
  "Trung Quốc": "China",
  "Đài Loan": "Taiwan",
+ "Anh": "United Kingdom",
  "Úc": "Australia",
  "Ảnh chụp iPhone": "iPhone screenshots",
  "Ảnh chụp iPad": "iPad screenshots",
@@ -38,6 +39,5 @@
  "Đang tải 1/{0} ảnh…": "Downloading 1/{0} images…",
  "Đang tải {0}/{1} ảnh…": "Downloading {0}/{1} images…",
  "Đã tạo {0}: {1} ảnh ({2}).": "Created {0}: {1} {1|image|images} ({2}).",
- "Không tạo được file .zip.": "Couldn't create the .zip file.",
- "Anh": "United Kingdom"
+ "Không tạo được file .zip.": "Couldn't create the .zip file."
 }

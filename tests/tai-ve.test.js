@@ -10,6 +10,7 @@ import { parseDiscord, emojiUrl, stickerUrl as dcStickerUrl, stickerGuesses, rea
 import { filterFonts, previewVariant, defaultSubsets, sortSubsets, fileUrl as gfUrl, buildCss, fontDir, licenseDirs, metadataUrl, ghFileUrl, parseMetadata, pickTtf } from "../assets/lib/gfonts.js";
 import { parseGitHub, refCandidates, contentsUrl, treeUrl, rawUrl, lfsUrl, treeFiles, isLfsPointer, zipName, rateLimitMinutes } from "../assets/lib/github.js";
 import { parseAppStore, lookupUrl, searchUrl, sizedUrl, appInfo, appSlug, iconName, shotName, iosRadius } from "../assets/lib/appstore.js";
+import { parsePostLink, postUri, getPostsUrl, didDocUrl, pdsFromDoc, blobUrl as bskyBlob, mediaFromRecord, extOfMime, mediaName } from "../assets/lib/bluesky.js";
 import { parseChannel, from7tv, fromFfz, pickScale, emoteFile, previewUrl, mergeEmotes, emoteFileName, API } from "../assets/lib/twitch.js";
 
 /* ---------- ảnh động ---------- */
@@ -422,4 +423,35 @@ test("cỡ ảnh mzstatic và tên file", () => {
   assert.equal(iconName("Zalo", 1024, "png"), "zalo-icon-1024.png");
   assert.equal(shotName("Zalo", "iphone", 0, "png"), "zalo-iphone-01.png");
   assert.equal(iosRadius(1024), 229);
+});
+
+/* ---------- Bluesky ---------- */
+test("đọc link bài đăng Bluesky", () => {
+  assert.deepEqual(parsePostLink("https://bsky.app/profile/bsky.app/post/3myi3k45jh22z"), { actor: "bsky.app", rkey: "3myi3k45jh22z" });
+  assert.deepEqual(parsePostLink("Xem nè https://bsky.app/profile/Ten.Bsky.Social/post/3abc?ref=x"), { actor: "ten.bsky.social", rkey: "3abc" });
+  assert.deepEqual(parsePostLink("https://bsky.app/profile/did:plc:z72i7hdynmk6r22z27h6tvur/post/3abc"), { actor: "did:plc:z72i7hdynmk6r22z27h6tvur", rkey: "3abc" });
+  assert.deepEqual(parsePostLink("at://did:plc:abc/app.bsky.feed.post/3xyz"), { actor: "did:plc:abc", rkey: "3xyz" });
+  assert.deepEqual(parsePostLink("https://deer.social/profile/a.com/post/3k"), { actor: "a.com", rkey: "3k" });
+  for (const bad of ["", "https://bsky.app/profile/bsky.app", "https://x.com/a/status/1", "profile/khong co/post/1"]) assert.equal(parsePostLink(bad), null, bad);
+  assert.equal(getPostsUrl(postUri("did:plc:a", "3k")), "https://public.api.bsky.app/xrpc/app.bsky.feed.getPosts?uris=at%3A%2F%2Fdid%3Aplc%3Aa%2Fapp.bsky.feed.post%2F3k");
+  assert.equal(didDocUrl("did:plc:abc"), "https://plc.directory/did:plc:abc");
+  assert.equal(didDocUrl("did:web:example.com"), "https://example.com/.well-known/did.json");
+  assert.equal(pdsFromDoc({ id: "did:plc:a", service: [{ id: "#atproto_pds", type: "AtprotoPersonalDataServer", serviceEndpoint: "https://puffball.us-east.host.bsky.network/" }] }), "https://puffball.us-east.host.bsky.network");
+  assert.equal(pdsFromDoc({ service: [{ id: "#x", serviceEndpoint: "http://insecure" }] }), null);
+  assert.equal(bskyBlob("https://p.net", "did:plc:a", "baf"), "https://p.net/xrpc/com.atproto.sync.getBlob?did=did%3Aplc%3Aa&cid=baf");
+});
+test("ảnh, video trong bài đăng Bluesky và tên file", () => {
+  const img = (cid, mime) => ({ alt: "chú thích", aspectRatio: { width: 4, height: 3 }, image: { $type: "blob", ref: { $link: cid }, mimeType: mime, size: 10 } });
+  assert.deepEqual(mediaFromRecord({ embed: { $type: "app.bsky.embed.images", images: [img("a", "image/jpeg"), img("b", "image/png")] } }).map((m) => [m.kind, m.cid, m.mime, m.alt, m.w]),
+    [["image", "a", "image/jpeg", "chú thích", 4], ["image", "b", "image/png", "chú thích", 4]]);
+  const v = mediaFromRecord({ embed: { $type: "app.bsky.embed.video", presentation: "gif", aspectRatio: { width: 16, height: 9 }, video: { ref: { $link: "v" }, mimeType: "video/mp4", size: 99 } } });
+  assert.deepEqual([v[0].kind, v[0].cid, v[0].size, v[0].gif], ["video", "v", 99, true]);
+  const rwm = mediaFromRecord({ embed: { $type: "app.bsky.embed.recordWithMedia", record: {}, media: { $type: "app.bsky.embed.images", images: [{ image: { cid: "cu", mimeType: "image/webp" } }] } } }, true);
+  assert.deepEqual([rwm[0].cid, rwm[0].mime, rwm[0].quoted], ["cu", "image/webp", true]);
+  assert.deepEqual(mediaFromRecord({ text: "chỉ có chữ" }), []);
+  assert.deepEqual(mediaFromRecord({ embed: { $type: "app.bsky.embed.external", external: { uri: "https://a" } } }), []);
+  assert.equal(extOfMime("video/quicktime"), "mov");
+  assert.equal(extOfMime("image/x-icon"), "xicon");
+  assert.equal(mediaName("ten.bsky.social", "3k", 0, 2, "image/png"), "bsky-ten-3k-1.png");
+  assert.equal(mediaName("bsky.app", "3k", 0, 1, "video/mp4"), "bsky-bsky.app-3k.mp4");
 });

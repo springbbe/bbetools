@@ -46,7 +46,7 @@
   },
   "download": {
    "name": "Downloads",
-   "desc": "Download Telegram, LINE and Signal stickers, Discord emoji, Twitch emotes, YouTube thumbnails, animated emoji, Google Fonts, GitHub folders and App Store icons straight from the source, with no middleman server."
+   "desc": "Download Telegram, LINE and Signal stickers, Discord emoji, Twitch emotes, YouTube thumbnails, animated emoji, Google Fonts, GitHub folders, App Store icons and Bluesky photos and videos straight from the source, with no middleman server."
   }
  },
  "data": {
@@ -4204,6 +4204,45 @@
     {
      "q": "Can I use another app's icon or screenshots?",
      "a": "They belong to the developer. Reference, reviews and articles about the app are usually fine; using them in your own product or commercially needs permission."
+    }
+   ]
+  },
+  "bluesky-media": {
+   "name": "Bluesky Photo & Video Downloader",
+   "desc": "Paste a Bluesky post link to download the original photos and MP4 videos the author uploaded, including from quoted posts; no sign-in needed.",
+   "privacy": "BbeTools has no server: your browser reads the post through Bluesky's public API (public.api.bsky.app), finds the author's data server via plc.directory, and downloads the original files straight from it. No Bluesky sign-in needed.",
+   "keywords": [
+    "bluesky video downloader",
+    "download bluesky video",
+    "bluesky image downloader",
+    "bsky downloader",
+    "save bluesky gif"
+   ],
+   "howto": [
+    "In the Bluesky app, tap Share under the post → Copy link (or copy the bsky.app/profile/…/post/… link in a browser).",
+    "Paste it and click “Get photos & videos”; preview the photos, videos and alt text right on the page.",
+    "Click “Download original photo”, “Download original video”, or get everything as a .zip."
+   ],
+   "faq": [
+    {
+     "q": "Are the downloads lower quality?",
+     "a": "No. The tool downloads the exact files the author uploaded to Bluesky (JPG, PNG, WEBP photos; MP4 videos), not the copies Bluesky compresses for display."
+    },
+    {
+     "q": "Can I get media from a quoted post?",
+     "a": "Yes. Files from the quoted post are listed too, marked “in the quoted post”."
+    },
+    {
+     "q": "Why can't the post be viewed?",
+     "a": "It was deleted, or the author only lets signed-in users see their posts. The tool doesn't sign in for you, so it can't fetch those."
+    },
+    {
+     "q": "Why is a Bluesky GIF downloaded as MP4?",
+     "a": "Bluesky stores GIFs as looping MP4 videos. Use Video to GIF if you need a .gif file."
+    },
+    {
+     "q": "Can I repost other people's photos and videos?",
+     "a": "They belong to the author. Saving them for yourself is fine; reposting or commercial use needs the author's permission."
     }
    ]
   }
