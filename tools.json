@@ -15,7 +15,7 @@
     { "id": "vn", "phase": 4, "slug": "viet-nam", "name": "Tiện ích Việt Nam", "icon": "flag", "color": "#C27C0E", "desc": "Đọc số thành chữ, VietQR, lịch âm, lương gross ↔ net, thuế TNCN, tiền điện." },
     { "id": "calc", "phase": 4, "slug": "tinh-toan", "name": "Tính toán & đời sống", "icon": "calculator", "color": "#E5701A", "desc": "Phần trăm, giảm giá, VAT, chia tiền nhóm, đổi đơn vị, BMI, ngày dự sinh." },
     { "id": "qr", "phase": 6, "slug": "qr-ma-vach", "name": "QR & mã vạch", "icon": "qr-code", "color": "#475569", "desc": "Tạo mã QR (link, WiFi, danh thiếp), quét QR từ camera, ảnh, PDF; tạo mã vạch." },
-    { "id": "office", "phase": 6, "slug": "van-phong", "name": "Văn phòng & dữ liệu", "icon": "sheet", "color": "#18794E", "desc": "Xem Excel/CSV, chuyển đổi, gộp, tách file Excel, trộn thư, chữ ký email." },
+    { "id": "office", "phase": 6, "slug": "van-phong", "name": "Văn phòng & dữ liệu", "icon": "sheet", "color": "#18794E", "desc": "Xem Excel/CSV, chuyển đổi, gộp, tách file Excel, trộn thư, chữ ký email, soạn văn bản hành chính." },
     { "id": "dev", "phase": 5, "slug": "lap-trinh", "name": "Lập trình", "icon": "code", "color": "#3E63DD", "desc": "JSON, Base64, JWT, UUID, hash, regex, timestamp, cron, mã màu, SQL." },
     { "id": "security", "phase": 7, "slug": "bao-mat", "name": "Bảo mật", "icon": "shield", "color": "#0E7C86", "desc": "Tạo mật khẩu mạnh, mã hoá file và văn bản, checksum, mã 2FA." },
     { "id": "productivity", "phase": 7, "slug": "nang-suat", "name": "Năng suất & ngẫu nhiên", "icon": "timer", "color": "#5C8A1C", "desc": "Pomodoro, bấm giờ, hẹn giờ, vòng quay may mắn, chia đội, ghi chú nhanh." },
@@ -1584,11 +1584,25 @@
     {
       "id": "admin-document", "slug": "soan-van-ban-hanh-chinh", "name": "Soạn văn bản hành chính (NĐ 30)", "group": "office", "icon": "landmark", "kind": "form",
       "desc": "Nhập cơ quan, số hiệu, trích yếu, nội dung để tạo file Word đúng thể thức Nghị định 30/2020: quốc hiệu, tiêu ngữ, font, lề, nơi nhận.",
-      "keywords": ["văn bản hành chính", "thể thức nghị định 30", "mẫu công văn", "soạn tờ trình", "quyết định mẫu", "nđ 30/2020"],
+      "keywords": ["văn bản hành chính", "thể thức nghị định 30", "mẫu công văn", "soạn tờ trình", "quyết định mẫu", "nđ 30/2020", "thể thức văn bản", "mẫu tờ trình", "mẫu thông báo", "mẫu giấy mời", "công văn word"],
       "output": "docx",
-      "status": "todo", "vnOnly": true,
-      "aliases": ["van-ban-nd30", "mau-cong-van"],
-      "related": ["invoice", "mail-merge", "number-to-words"]
+      "data": ["the-thuc-van-ban"],
+      "status": "done", "vnOnly": true,
+      "privacy": "Văn bản được soạn và đóng gói thành file Word ngay trên trình duyệt, không gửi đi đâu.",
+      "aliases": ["van-ban-nd30", "mau-cong-van", "the-thuc-van-ban", "van-ban-hanh-chinh"],
+      "related": ["invoice", "mail-merge", "number-to-words"],
+      "howto": [
+        "Chọn loại văn bản (công văn, quyết định, tờ trình, báo cáo, thông báo, kế hoạch, giấy mời…), nhập tên cơ quan, chữ viết tắt dùng trong ký hiệu và địa danh. Bấm “Điền mẫu” để xem một văn bản hoàn chỉnh.",
+        "Nhập trích yếu, căn cứ, “Kính gửi” và nội dung (mỗi đoạn một dòng); chọn quyền hạn ký (TM., KT., TL., TUQ., Q.), chức vụ, họ tên người ký và nơi nhận. Bản xem trước bên cạnh cập nhật ngay, kèm danh sách chỗ cần xem lại.",
+        "Bấm “Tải file Word (.docx)”: phông Times New Roman, khổ A4, lề và cỡ chữ từng thành phần theo Phụ lục I Nghị định 30/2020/NĐ-CP. Mở bằng Word để sửa tiếp, in hoặc chuyển PDF để ký số."
+      ],
+      "faq": [
+        { "q": "File tạo ra theo những quy định nào?", "a": "Theo Phụ lục I Nghị định 30/2020/NĐ-CP: khổ A4, lề trên và dưới 20–25 mm, trái 30–35 mm, phải 15–20 mm; Times New Roman; Quốc hiệu in hoa đậm cỡ 12–13, Tiêu ngữ đậm cỡ 13–14 có đường kẻ bên dưới dài bằng dòng chữ; tên cơ quan in hoa đậm, kẻ dài 1/3–1/2 dòng chữ; số, ký hiệu cỡ 13 (số nhỏ hơn 10 thêm số 0); địa danh, ngày tháng in nghiêng; nội dung cỡ 13–14 canh đều, lùi đầu dòng 1 cm hoặc 1,27 cm, cách đoạn 6 pt, giãn dòng từ đơn đến 1,5; “Nơi nhận” cỡ 12 nghiêng đậm, danh sách cỡ 11; số trang giữa lề trên, không hiện ở trang đầu. Chữ viết tắt tên loại văn bản theo Phụ lục III." },
+        { "q": "Vì sao số văn bản và ngày để trống?", "a": "Số văn bản do Văn thư cơ quan cấp khi đăng ký văn bản, còn ngày thường điền lúc ký. Để trống thì file chừa sẵn chỗ (“Số:      /QĐ-UBND”, “ngày     tháng     năm 2026”); nhập số, chọn ngày nếu đã có." },
+        { "q": "Chữ viết tắt tên cơ quan, đơn vị lấy ở đâu?", "a": "Chữ viết tắt tên cơ quan, tổ chức và các đơn vị bên trong do người đứng đầu cơ quan quy định (thường trong quy chế công tác văn thư). Chữ viết tắt tên loại văn bản (QĐ, TTr, BC, TB, KH, GM…) công cụ tự điền theo Phụ lục III." },
+        { "q": "Có dùng cho văn bản quy phạm pháp luật được không?", "a": "Không. Công cụ chỉ dành cho văn bản hành chính theo Nghị định 30/2020/NĐ-CP. Thể thức văn bản quy phạm pháp luật theo Luật Ban hành văn bản quy phạm pháp luật và Nghị định 78/2025/NĐ-CP." },
+        { "q": "Nội dung tôi nhập có bị gửi đi không?", "a": "Không. Văn bản được dựng và đóng gói thành file Word ngay trên trình duyệt; thông tin chỉ được nhớ trong trình duyệt trên máy bạn để lần sau không phải gõ lại. Bấm “Đặt lại” để xoá." }
+      ]
     },
 
     {

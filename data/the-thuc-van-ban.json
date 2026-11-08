@@ -1,0 +1,49 @@
+{
+  "title": "thể thức văn bản hành chính",
+  "updated": "2026-11-08",
+  "source": "Nghị định 30/2020/NĐ-CP ngày 05/3/2020 của Chính phủ về công tác văn thư (còn hiệu lực, chưa có văn bản sửa đổi phần thể thức): Phụ lục I (thể thức, kỹ thuật trình bày văn bản hành chính) và Phụ lục III (chữ viết tắt tên loại, mẫu trình bày)",
+  "page": { "w": 210, "h": 297 },
+  "margins": {
+    "top": [20, 25],
+    "bottom": [20, 25],
+    "left": [30, 35],
+    "right": [15, 20]
+  },
+  "font": "Times New Roman",
+  "indent": [10, 12.7],
+  "paraSpacing": 6,
+  "lineSpacing": [1, 1.5],
+  "quocHieu": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+  "tieuNgu": "Độc lập - Tự do - Hạnh phúc",
+  "sizesNote": "Cỡ chữ trong cùng văn bản tăng, giảm thống nhất: Quốc hiệu 13, Tiêu ngữ 14, địa danh 14 hoặc Quốc hiệu 12, Tiêu ngữ 13, địa danh 13 (chú thích Mục V Phần I Phụ lục I).",
+  "sizes": {
+    "14": { "quocHieu": 13, "tieuNgu": 14, "coQuan": 13, "so": 13, "diaDanh": 14, "tenLoai": 14, "trichYeu": 14, "vv": 13, "body": 14, "kinhGui": 14, "chucVu": 14, "ten": 14, "noiNhanTieuDe": 12, "noiNhan": 11, "trang": 14, "diaChi": 11 },
+    "13": { "quocHieu": 12, "tieuNgu": 13, "coQuan": 12, "so": 13, "diaDanh": 13, "tenLoai": 13, "trichYeu": 13, "vv": 12, "body": 13, "kinhGui": 13, "chucVu": 13, "ten": 13, "noiNhanTieuDe": 12, "noiNhan": 11, "trang": 13, "diaChi": 11 }
+  },
+  "quyenHan": [
+    ["", "Ký trực tiếp"],
+    ["TM.", "TM. (thay mặt tập thể)"],
+    ["KT.", "KT. (ký thay người đứng đầu)"],
+    ["TL.", "TL. (thừa lệnh)"],
+    ["TUQ.", "TUQ. (thừa ủy quyền)"],
+    ["Q.", "Q. (quyền cấp trưởng)"]
+  ],
+  "types": [
+    { "id": "cong-van", "name": "Công văn", "abbr": "", "mau": "cv" },
+    { "id": "quyet-dinh", "name": "Quyết định", "abbr": "QĐ", "mau": "qd" },
+    { "id": "nghi-quyet", "name": "Nghị quyết", "abbr": "NQ", "mau": "nq" },
+    { "id": "to-trinh", "name": "Tờ trình", "abbr": "TTr", "mau": "ten-loai", "kinhGui": true },
+    { "id": "bao-cao", "name": "Báo cáo", "abbr": "BC", "mau": "ten-loai", "kinhGui": true },
+    { "id": "thong-bao", "name": "Thông báo", "abbr": "TB", "mau": "ten-loai" },
+    { "id": "ke-hoach", "name": "Kế hoạch", "abbr": "KH", "mau": "ten-loai" },
+    { "id": "giay-moi", "name": "Giấy mời", "abbr": "GM", "mau": "ten-loai" },
+    { "id": "chi-thi", "name": "Chỉ thị", "abbr": "CT", "mau": "ten-loai" },
+    { "id": "huong-dan", "name": "Hướng dẫn", "abbr": "HD", "mau": "ten-loai" },
+    { "id": "chuong-trinh", "name": "Chương trình", "abbr": "CTr", "mau": "ten-loai" },
+    { "id": "phuong-an", "name": "Phương án", "abbr": "PA", "mau": "ten-loai" },
+    { "id": "de-an", "name": "Đề án", "abbr": "ĐA", "mau": "ten-loai" },
+    { "id": "thong-cao", "name": "Thông cáo", "abbr": "TC", "mau": "ten-loai" },
+    { "id": "giay-uy-quyen", "name": "Giấy ủy quyền", "abbr": "GUQ", "mau": "ten-loai" },
+    { "id": "giay-gioi-thieu", "name": "Giấy giới thiệu", "abbr": "GGT", "mau": "ten-loai", "trichYeu": false }
+  ]
+}
