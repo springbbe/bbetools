@@ -52,7 +52,7 @@ formTool({
       stat("Số ngày tính cả hai đầu", fmtNum(Math.abs(days) + 1))));
     if (c.list.length) out.append(holTable(c.list));
     // ghi chú trong data/ngay-le.json viết tiếng Việt; trang ngôn ngữ khác dùng câu đã dịch
-    out.append(note(LANG === "vi" ? LE.note : "Ngày nghỉ Quốc khánh thứ hai là 1/9 hoặc 3/9 tuỳ năm; 5 ngày Tết Âm lịch do Nhà nước chọn mỗi năm (thường là ngày cuối năm và mùng 1–4). Ngày làm bù do hoán đổi không được tính."));
+    out.append(note(LANG === "vi" ? LE.note : "Ngày nghỉ Quốc khánh thứ hai là 1/9 hoặc 3/9 tuỳ năm; 5 ngày Tết Âm lịch do Nhà nước chọn mỗi năm (thường là ngày cuối năm và mùng 1–4; năm 2027 là 28, 29 tháng Chạp và mùng 1–3). Doanh nghiệp có thể chọn lịch nghỉ Tết khác. Ngày làm bù do hoán đổi không được tính."));
   }
 });
 

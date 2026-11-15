@@ -45,6 +45,6 @@ formTool({
       { foot: ["Cộng", "", num(kwh, 2), "", money(b.subtotal, "")] }));
     out.append(h("p", { class: "opt-title", text: "Biểu giá điện sinh hoạt (chưa VAT)" }),
       table(["Bậc", "Mức sử dụng/tháng", "Giá (đ/kWh)"], D.tiers.map((t, i, a) => ["Bậc " + (i + 1), t.upTo == null ? "Từ " + (a[i - 1].upTo + 1) + " kWh trở lên" : (i ? a[i - 1].upTo + 1 : 0) + " – " + t.upTo + " kWh", money(t.price, "")])),
-      note(`Công tơ thẻ trả trước: ${money(D.prepaid, "")} đ/kWh (một giá). ${o.households > 1 ? `Đang nhân định mức mỗi bậc với ${o.households} hộ. ` : ""}Kỳ ghi chỉ số không tròn tháng hoặc có đổi giá giữa kỳ, EVN chia định mức theo số ngày nên hoá đơn thực tế có thể lệch đôi chút. Thuế GTGT ${pct(o.vat, 0)}.`));
+      note(`${o.households > 1 ? `Đang nhân định mức mỗi bậc với ${o.households} hộ. ` : ""}Kỳ ghi chỉ số không tròn tháng hoặc có đổi giá giữa kỳ, EVN chia định mức theo số ngày nên hoá đơn thực tế có thể lệch đôi chút. Thuế GTGT ${pct(o.vat, 0)}.`));
   }
 });

@@ -39,3 +39,12 @@ test("đếm và cộng ngày làm việc", () => {
   assert.equal(iso(addWorkdays(P("2026-02-23"), -1, { holidays: LE })), "2026-02-13");
   assert.equal(iso(addWorkdays(P("2026-10-23"), 1)), "2026-10-26");
 });
+
+test("lịch nghỉ Tết, Quốc khánh 2027 theo thông báo của Bộ Nội vụ", () => {
+  const h = holidaysOfYear(2027, LE, { compensate: true, weekend: [0, 6] });
+  const has = (d) => h.has(toDays(P(d)));
+  for (const d of ["2027-02-04", "2027-02-05", "2027-02-06", "2027-02-07", "2027-02-08", "2027-02-09", "2027-02-10", "2027-09-02", "2027-09-03"]) assert.ok(has(d), d);
+  for (const d of ["2027-02-03", "2027-02-11", "2027-09-01"]) assert.ok(!has(d), d);
+  // nghỉ 7 ngày liên tục 4–10/2/2027 → làm việc lại thứ Năm 11/2
+  assert.equal(iso(addWorkdays(P("2027-02-03"), 1, { holidays: LE, compensate: true })), "2027-02-11");
+});

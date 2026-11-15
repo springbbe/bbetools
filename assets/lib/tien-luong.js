@@ -1,6 +1,16 @@
 /* Lương gross ↔ net, bảo hiểm bắt buộc và thuế TNCN từ tiền lương (cá nhân cư trú).
    Số liệu (mức đóng, trần, giảm trừ, biểu thuế) truyền vào từ data/bhxh.json, data/thue-tncn.json, data/luong-toi-thieu-vung.json. */
 
+/** Số liệu đang áp dụng vào ngày `today`: file data có thể kèm `next: { from: "yyyy-mm-dd", … }` (mức mới đã ban hành, chưa tới ngày hiệu lực) */
+export function currentRates(data, today = new Date()) {
+  const n = data.next;
+  if (!n || !n.from) return data;
+  const [y, m, d] = n.from.split("-").map(Number);
+  if (today < new Date(y, m - 1, d)) return data;
+  const { next, ...rest } = data;
+  return { ...rest, ...n };
+}
+
 /** Thuế luỹ tiến từng phần. brackets: [[cận trên | null, thuế suất]] theo tháng → { tax, parts: [{ from, to, rate, amount, tax }] } */
 export function progressiveTax(income, brackets) {
   const parts = [];

@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { progressiveTax, grossToNet, netToGross, insurance, yearlyBrackets } from "../assets/lib/tien-luong.js";
+import { progressiveTax, grossToNet, netToGross, insurance, yearlyBrackets, currentRates } from "../assets/lib/tien-luong.js";
 
 const TAX = JSON.parse(readFileSync(new URL("../data/thue-tncn.json", import.meta.url)));
 const BH = JSON.parse(readFileSync(new URL("../data/bhxh.json", import.meta.url)));
@@ -53,4 +53,13 @@ test("net → gross là phép ngược", () => {
     const back = netToGross(n, opts({ dependents: 1 }));
     assert.ok(back.net >= n && back.gross <= g, `${g}`);
   }
+});
+
+test("mức lương tối thiểu vùng mới tự áp dụng từ ngày hiệu lực", () => {
+  const d = { from: "2026-01-01", regions: { 1: 1 }, next: { from: "2027-01-01", source: "NĐ mới", regions: { 1: 2 } } };
+  assert.equal(currentRates(d, new Date(2026, 11, 31, 23, 59)).regions[1], 1);
+  const n = currentRates(d, new Date(2027, 0, 1));
+  assert.deepEqual([n.regions[1], n.from, n.source, n.next], [2, "2027-01-01", "NĐ mới", undefined]);
+  assert.equal(currentRates({ regions: { 1: 1 } }).regions[1], 1);
+  assert.equal(currentRates(VUNG, new Date(2027, 0, 2)).regions["4"], 4040000);
 });

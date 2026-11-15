@@ -62,6 +62,12 @@ export function holidaysOfYear(year, data, o = {}) {
       }
     }
   }
+  // lịch nghỉ Nhà nước công bố riêng cho từng năm (data.years["2027"]): bỏ các ngày theo quy tắc chung có tên bắt đầu bằng `replace`, thêm `days`
+  const y = data.years && data.years[year];
+  if (y) {
+    for (const [k, name] of [...map]) if ((y.replace || []).some((r) => name.startsWith(r))) map.delete(k);
+    for (const x of y.days || []) { const p = parseDate(x.date); if (p) add(p, x.name); }
+  }
   if (o.compensate && o.weekend) {
     const extra = [];
     const sorted = [...map.keys()].sort((a, b) => a - b);

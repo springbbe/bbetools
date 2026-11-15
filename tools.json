@@ -1294,7 +1294,7 @@
       "related": ["vat", "percentage"],
       "howto": ["Nhập số kWh đã dùng trong tháng (hoặc chỉ số công tơ cũ và mới).", "Nhập số hộ dùng chung công tơ nếu có và chọn mức thuế GTGT.", "Xem tiền điện từng bậc, tổng tiền phải trả; hoặc chọn “Từ tiền ra số điện” để ước tính số kWh từ hoá đơn."],
       "faq": [
-        { "q": "Giá điện sinh hoạt hiện nay bao nhiêu?", "a": "Theo Quyết định 1279/QĐ-BCT (từ 10/5/2025), giá điện sinh hoạt chia 6 bậc từ 1.984 đến 3.460 đồng/kWh, chưa gồm thuế GTGT. Bảng giá đầy đủ hiện ngay trên trang." },
+        { "q": "Giá điện sinh hoạt hiện nay bao nhiêu?", "a": "Theo Quyết định 2892/QĐ-BCT (từ 01/11/2026), giá điện sinh hoạt chia 5 bậc từ 1.901 đồng/kWh (100 kWh đầu) đến 3.844 đồng/kWh (từ kWh thứ 701), chưa gồm thuế GTGT. Bảng giá đầy đủ hiện ngay trên trang." },
         { "q": "Nhiều hộ dùng chung công tơ thì tính sao?", "a": "Mỗi hộ (có đăng ký cư trú riêng) được tính một định mức, nên số kWh của mỗi bậc được nhân với số hộ. Nhập số hộ để công cụ tính đúng." },
         { "q": "Vì sao hoá đơn thực tế lệch một chút?", "a": "Khi kỳ ghi chỉ số không tròn một tháng hoặc có điều chỉnh giá giữa kỳ, EVN chia định mức theo số ngày, nên tiền điện có thể lệch nhẹ so với cách tính tròn tháng." }
       ]

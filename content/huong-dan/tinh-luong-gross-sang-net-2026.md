@@ -3,7 +3,7 @@ title: Cách tính lương gross sang net năm 2026
 desc: Công thức đổi lương gross sang net năm 2026 theo biểu thuế 5 bậc, giảm trừ gia cảnh 15,5 triệu đồng và mức đóng bảo hiểm 10,5%, kèm ví dụ tính từng bước.
 tools: [salary-gross-net, pit-calculator]
 data: [thue-tncn, bhxh, luong-toi-thieu-vung]
-updated: 2026-11-13
+updated: 2026-11-15
 ---
 
 Lương net bằng lương gross trừ bảo hiểm bắt buộc (10,5%) và thuế thu nhập cá nhân. Với lương gross 30 triệu đồng, không có người phụ thuộc, bạn thực nhận **26.215.000 đồng** mỗi tháng. Muốn có ngay con số của mình, mở [Tính lương gross ↔ net](tool:salary-gross-net); phần dưới giải thích từng bước để bạn tự kiểm tra bảng lương.
@@ -22,16 +22,18 @@ Người lao động đóng tổng cộng 10,5% trên mức lương đóng bảo
 Mức lương đóng bảo hiểm có trần:
 
 - BHXH và BHYT: tối đa 20 lần lương cơ sở. Lương cơ sở từ 01/7/2026 là 2.530.000 đồng, nên trần là 50.600.000 đồng/tháng.
-- BHTN: tối đa 20 lần lương tối thiểu vùng. Ở vùng I trần là 106.200.000 đồng/tháng.
+- BHTN: tối đa 20 lần lương tối thiểu vùng. Ở vùng I trần là 106.200.000 đồng/tháng, từ 01/01/2027 là 114.000.000 đồng/tháng.
 
-Lương tối thiểu vùng từ 01/01/2026:
+Lương tối thiểu vùng năm 2026 (Nghị định 293/2025/NĐ-CP) và từ 01/01/2027 (Nghị định 399/2026/NĐ-CP):
 
-| Vùng | Mức lương tối thiểu tháng |
-|---|---|
-| Vùng I | 5.310.000 đồng |
-| Vùng II | 4.730.000 đồng |
-| Vùng III | 4.140.000 đồng |
-| Vùng IV | 3.700.000 đồng |
+| Vùng | Năm 2026 | Từ 01/01/2027 |
+|---|---|---|
+| Vùng I | 5.310.000 đồng | 5.700.000 đồng |
+| Vùng II | 4.730.000 đồng | 5.080.000 đồng |
+| Vùng III | 4.140.000 đồng | 4.450.000 đồng |
+| Vùng IV | 3.700.000 đồng | 4.040.000 đồng |
+
+Công cụ tự dùng mức mới từ ngày 01/01/2027.
 
 Vùng xác định theo nơi doanh nghiệp hoạt động, không theo nơi bạn ở.
 

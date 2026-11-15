@@ -2,9 +2,9 @@
 import { h } from "../core.js";
 import { formTool } from "../frames/form.js";
 import { loadData, money, pct, kv, stat, stats, table, alert, note } from "../calc.js";
-import { progressiveTax, yearlyBrackets, insurance } from "../lib/tien-luong.js";
+import { progressiveTax, yearlyBrackets, insurance, currentRates } from "../lib/tien-luong.js";
 
-const [TAX, BH, VUNG] = await Promise.all([loadData("thue-tncn"), loadData("bhxh"), loadData("luong-toi-thieu-vung")]);
+const [TAX, BH, VUNG] = await Promise.all([loadData("thue-tncn"), loadData("bhxh"), loadData("luong-toi-thieu-vung").then((d) => currentRates(d))]);
 
 function calc(v, rules) {
   const k = v.period === "year" ? 12 : 1;

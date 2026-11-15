@@ -53,7 +53,7 @@ formTool({
       stat("Days counting both ends", fmtNum(Math.abs(days) + 1))));
     if (c.list.length) out.append(holTable(c.list));
     // ghi chú trong data/ngay-le.json viết tiếng Việt; trang ngôn ngữ khác dùng câu đã dịch
-    out.append(note(LANG === "vi" ? LE.note : "The second National Day holiday is September 1 or 3 depending on the year; the 5 Lunar New Year days are set by the government each year (usually the last day of the year and days 1–4). Swapped working days aren't counted."));
+    out.append(note(LANG === "vi" ? LE.note : "The second National Day holiday is September 1 or 3 depending on the year; the 5 Lunar New Year days are set by the government each year (usually the last day of the year and days 1–4; in 2027 the 28th and 29th of the 12th lunar month and days 1–3). Businesses may choose a different Tết schedule. Swapped working days aren't counted."));
   }
 });
 
