@@ -23,8 +23,8 @@
         { "q": "Xử lý nhiều ảnh một lúc được không?", "a": "Được. Phần lớn công cụ nhận nhiều ảnh cùng lúc và cho tải từng ảnh hoặc cả bộ dạng .zip." },
         { "q": "AI xoá phông, ảnh thẻ có cần mạng không?", "a": "Chỉ cần mạng ở lần đầu để tải mô hình AI (vài MB) về trình duyệt; sau đó việc tách nền chạy hoàn toàn trên máy bạn." }
       ] },
-    { "id": "media", "phase": 8, "slug": "am-thanh-video", "name": "Âm thanh & video", "icon": "film", "color": "#D6409F", "desc": "Ghi âm, quay màn hình, cắt và ghép âm thanh, video sang MP3, nén video.",
-      "intro": "Ghi âm, quay màn hình, cắt và ghép âm thanh, làm nhạc chuông iPhone, tách tiếng từ video sang MP3, cắt và nén video để gửi qua Zalo, email. Video được đọc dần từng phần và mã hoá bằng phần cứng của máy, nên file vài GB vẫn xử lý được.",
+    { "id": "media", "phase": 8, "slug": "am-thanh-video", "name": "Âm thanh & video", "icon": "film", "color": "#D6409F", "desc": "Ghi âm, quay màn hình, cắt và ghép âm thanh, video sang MP3, nén video, giọng nói thành văn bản.",
+      "intro": "Ghi âm, quay màn hình, cắt và ghép âm thanh, làm nhạc chuông iPhone, tách tiếng từ video sang MP3, cắt và nén video để gửi qua Zalo, email, chuyển giọng nói thành văn bản và phụ đề. Video được đọc dần từng phần và mã hoá bằng phần cứng của máy, nên file vài GB vẫn xử lý được.",
       "faq": [
         { "q": "Đọc được những định dạng nào?", "a": "Video MP4, MOV, WebM, MKV; âm thanh MP3, M4A, WAV, OGG, FLAC, AAC. File AVI, WMV hay ghi âm AMR thường không đọc được trên trình duyệt." },
         { "q": "Có giới hạn dung lượng video không?", "a": "Không có giới hạn cố định: file được đọc dần nên video vài GB vẫn cắt, nén được. Tốc độ phụ thuộc vào máy và trình duyệt." },
@@ -967,13 +967,22 @@
       ]
     },
     {
-      "id": "speech-to-text", "slug": "giong-noi-thanh-van-ban", "name": "Giọng nói thành văn bản, tạo phụ đề", "group": "media", "icon": "mic-vocal", "kind": "file",
-      "desc": "Chuyển file ghi âm, video thành văn bản hoặc phụ đề .srt bằng mô hình nhận dạng giọng nói chạy ngay trên máy.",
-      "keywords": ["giọng nói thành văn bản", "speech to text", "tạo phụ đề tự động", "gỡ băng ghi âm", "whisper", "srt"],
+      "id": "speech-to-text", "slug": "giong-noi-thanh-van-ban", "name": "Giọng nói thành văn bản, tạo phụ đề", "seoTitle": "Giọng nói thành văn bản, tạo phụ đề tự động", "group": "media", "icon": "mic-vocal", "kind": "file",
+      "desc": "Chuyển file ghi âm, video thành văn bản hoặc phụ đề .srt bằng mô hình nhận dạng giọng nói Whisper chạy ngay trên máy.",
+      "keywords": ["giọng nói thành văn bản", "speech to text", "tạo phụ đề tự động", "gỡ băng ghi âm", "whisper", "srt", "chuyển ghi âm thành văn bản", "phụ đề tiếng việt", "transcribe", "chép lời", "video thành văn bản", "vtt"],
       "accept": ["audio", "video"], "output": "text",
-      "status": "todo",
-      "aliases": ["speech-to-text", "tao-phu-de"],
-      "related": ["voice-recorder", "text-to-speech", "trim-audio"]
+      "status": "done",
+      "aliases": ["speech-to-text", "tao-phu-de", "go-bang-ghi-am", "chuyen-giong-noi-thanh-van-ban"],
+      "related": ["voice-recorder", "trim-audio", "video-to-mp3", "text-to-speech"],
+      "hosts": ["huggingface.co (tải mô hình, chỉ lần đầu)"], "privacy": "Mô hình nhận dạng được trình duyệt tải một lần từ Hugging Face (huggingface.co) rồi lưu lại trên máy. File ghi âm, video và chữ nhận dạng được chỉ xử lý trên máy bạn, không gửi tới máy chủ nào.",
+      "howto": ["Chọn hoặc kéo thả file ghi âm (MP3, M4A, WAV…) hoặc video.", "Chọn mô hình (“Nhanh”, “Chính xác” hoặc “Tốt nhất”) và ngôn ngữ nói trong file.", "Bấm “Chuyển thành văn bản” (lần đầu cần tải mô hình), rồi tải file .txt, .srt, .vtt hoặc sao chép văn bản."],
+      "faq": [
+        { "q": "Nên chọn mô hình nào?", "a": "“Tốt nhất” (Whisper large-v3-turbo, khoảng 570 MB) nghe tiếng Việt đúng nhất, cần Chrome hoặc Edge có WebGPU. “Chính xác” (khoảng 250 MB) chạy trên mọi trình duyệt máy tính. “Nhanh” (khoảng 80 MB) hợp với điện thoại hoặc thử nhanh, nhưng sai chính tả nhiều hơn." },
+        { "q": "Mất bao lâu?", "a": "Trên máy tính đời mới, mỗi phút ghi âm mất khoảng 15 giây với “Tốt nhất” hoặc “Nhanh”, gần 1 phút với “Chính xác”; điện thoại chậm hơn vài lần. Lần đầu cộng thêm thời gian tải mô hình. Hãy để tab mở cho tới khi xong." },
+        { "q": "Dùng file phụ đề .srt thế nào?", "a": "YouTube: Phụ đề → Thêm ngôn ngữ → Tải tệp lên. VLC, MPC: đặt file .srt cùng thư mục và cùng tên với video. CapCut, Premiere: nhập phụ đề từ file .srt. File .vtt dùng cho thẻ <video> trên trang web." },
+        { "q": "Vì sao có chỗ sai hoặc bị bỏ sót?", "a": "Tiếng ồn, nhạc nền to, nhiều người nói chồng lên nhau, tên riêng và từ chuyên môn dễ bị nghe sai; đoạn chỉ có nhạc hoặc im lặng được bỏ qua. Hãy đọc lại trước khi dùng, thử mức “Tốt nhất” và chọn đúng ngôn ngữ." },
+        { "q": "Mô hình lưu ở đâu, xoá thế nào?", "a": "Mô hình lưu trong bộ nhớ của trình duyệt để lần sau không phải tải lại. Bấm “Xoá mô hình” dưới phần chọn mô hình để giải phóng dung lượng." }
+      ]
     },
 
     {

@@ -192,6 +192,43 @@ export async function decodeAudio(file, sampleRate = 44100) {
     return sr === sampleRate ? all : resample(all, sampleRate, ch);
   }
 }
+/**
+ * Tiếng của file (đã probe) → Float32Array đơn kênh ở tần số sampleRate (mặc định 16 kHz cho nhận dạng giọng nói).
+ * Giải mã theo luồng bằng WebCodecs (video dài không cần đọc hết vào bộ nhớ), cứ ~20 giây đổi tần số một lần.
+ * opts: { onProgress(f), signal }. Trình duyệt không giải mã được bằng WebCodecs thì dùng decodeAudio.
+ */
+export async function decodeMono(file, p, sampleRate = 16000, { onProgress, signal } = {}) {
+  const mixDown = (b) => {
+    const n = b.length, out = new Float32Array(n), ch = b.numberOfChannels;
+    for (let c = 0; c < ch; c++) { const d = b.getChannelData(c); for (let i = 0; i < n; i++) out[i] += d[i] / ch; }
+    return out;
+  };
+  if (!p || !p.audio || !p.audio.canDecode) return mixDown(await decodeAudio(file, sampleRate));
+  const M = await mb();
+  const parts = [];
+  let pend = [], pendLen = 0, srcRate = p.audio.sampleRate, total = 0;
+  const flush = async () => {
+    if (!pendLen) return;
+    const src = new AudioBuffer({ length: pendLen, numberOfChannels: 1, sampleRate: srcRate });
+    let off = 0;
+    for (const x of pend) { src.copyToChannel(x, 0, off); off += x.length; }
+    pend = []; pendLen = 0;
+    const out = srcRate === sampleRate ? src.getChannelData(0) : (await resample(src, sampleRate, 1)).getChannelData(0);
+    parts.push(out); total += out.length;
+  };
+  const D = p.duration || 0;
+  for await (const w of new M.AudioBufferSink(p.audio.track).buffers()) {
+    if (signal && signal.aborted) throw Object.assign(new Error("Đã huỷ"), { cancelled: true });
+    if (w.buffer.sampleRate !== srcRate) { await flush(); srcRate = w.buffer.sampleRate; }
+    pend.push(mixDown(w.buffer)); pendLen += w.buffer.length;
+    if (pendLen >= srcRate * 20) { await flush(); if (onProgress && D) onProgress(Math.min(1, (w.timestamp + w.duration) / D)); }
+  }
+  await flush();
+  const all = new Float32Array(total);
+  let off = 0;
+  for (const x of parts) { all.set(x, off); off += x.length; }
+  return all;
+}
 /** Đổi tần số lấy mẫu / số kênh của AudioBuffer */
 export async function resample(buffer, sampleRate, channels = buffer.numberOfChannels) {
   if (buffer.sampleRate === sampleRate && buffer.numberOfChannels === channels) return buffer;

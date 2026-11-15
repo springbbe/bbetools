@@ -124,8 +124,13 @@ const LIBS = {
   // bộ mã hoá MP3 (LAME) và AAC (khi trình duyệt không tự mã hoá được) của Mediabunny; gói nhập "mediabunny" theo tên trần
   // nên lib() thay bằng đúng URL ở trên để dùng chung một bản (đăng ký encoder vào đúng bản đang chạy)
   mp3enc: { esm: JSD + "@mediabunny/mp3-encoder@1.61.3/dist/bundles/mediabunny-mp3-encoder.min.mjs", rewrite: { mediabunny: "mediabunny" } },
-  aacenc: { esm: JSD + "@mediabunny/aac-encoder@1.61.3/dist/bundles/mediabunny-aac-encoder.min.mjs", rewrite: { mediabunny: "mediabunny" } }
+  aacenc: { esm: JSD + "@mediabunny/aac-encoder@1.61.3/dist/bundles/mediabunny-aac-encoder.min.mjs", rewrite: { mediabunny: "mediabunny" } },
+  // nhận dạng giọng nói Whisper (Giọng nói thành văn bản): chạy trong Web Worker, worker nhập URL này qua libUrl("transformers");
+  // ONNX Runtime đi kèm tự tải file .wasm từ jsDelivr (onnxruntime-web đúng bản transformers.js ghim)
+  transformers: { esm: JSD + "@huggingface/transformers@4.3.2/dist/transformers.min.js" }
 };
+/** URL đã ghim của thư viện (cho Web Worker tự nhập, vì worker không dùng được lib()) */
+export const libUrl = (name) => LIBS[name].esm || LIBS[name].script;
 // Tải module ESM có lệnh nhập theo tên trần (vd. "mediabunny"): đổi tên thành URL đã ghim rồi nhập từ blob:
 async function importRewritten(L) {
   await Promise.all(Object.values(L.rewrite).map(lib));

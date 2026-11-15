@@ -30,6 +30,7 @@
  "Kết quả không có tiếng vì ": "The result has no audio because ",
  "Kết quả không có hình vì ": "The result has no video because ",
  "Trình duyệt này không đọc được tiếng trong {0}.": "This browser can't read the audio in {0}.",
+ "Đã huỷ": "Cancelled",
  "Trình duyệt này không tạo được file {0}. Hãy chọn định dạng khác.": "This browser can't create {0} files. Please choose another format.",
  "Điểm bắt đầu": "Start point",
  "Điểm kết thúc": "End point",

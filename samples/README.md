@@ -1,6 +1,6 @@
 # File mẫu
 
-Dùng cho nút "Thử với file mẫu" trên các trang công cụ. Trừ ảnh chân dung, `logo-mau.svg` và `ghi-chu-mau.md` (viết tay), mọi file được tạo bởi `node scripts/make-samples.js` từ mã trong `scripts/samples/` (nội dung tự vẽ, không vướng bản quyền). Các file PDF có form, ảnh, mật khẩu được sinh bằng pdf-lib trong `scripts/samples/pdf-lib.html`; file Excel, CSV, JSON, Word sinh bằng `node scripts/samples/van-phong.js` (dữ liệu giả, hạt giống cố định); nhạc và video sinh bằng `node scripts/samples/media.js` (Chrome headless + Mediabunny, nhạc tự tổng hợp, hình tự vẽ).
+Dùng cho nút "Thử với file mẫu" trên các trang công cụ. Trừ ảnh chân dung, `giong-noi-mau.m4a` (giọng đọc từ FLEURS), `logo-mau.svg` và `ghi-chu-mau.md` (viết tay), mọi file được tạo bởi `node scripts/make-samples.js` từ mã trong `scripts/samples/` (nội dung tự vẽ, không vướng bản quyền). Các file PDF có form, ảnh, mật khẩu được sinh bằng pdf-lib trong `scripts/samples/pdf-lib.html`; file Excel, CSV, JSON, Word sinh bằng `node scripts/samples/van-phong.js` (dữ liệu giả, hạt giống cố định); nhạc và video sinh bằng `node scripts/samples/media.js` (Chrome headless + Mediabunny, nhạc tự tổng hợp, hình tự vẽ).
 
 | File | Nội dung | Dùng cho |
 |---|---|---|
@@ -31,5 +31,8 @@ Dùng cho nút "Thử với file mẫu" trên các trang công cụ. Trừ ảnh
 | `video-mau.mp4` | 12 giây 1280×720, 30 khung/giây, H.264 + AAC; đồng hồ lớn và số khung trên hình, tiếng bíp ở mỗi giây tròn, khung hình khoá mỗi 2 giây | Video sang MP3/GIF, Cắt, Nén video, Chụp khung hình |
 | `ghi-chu-mau.md` | kế hoạch giả viết tay bằng Markdown: tiêu đề, danh sách, việc cần làm, bảng căn phải, trích dẫn, khối mã | Markdown sang HTML |
 | `chan-dung-mau.jpg` | chân dung **người không có thật** do StyleGAN tạo | Làm ảnh thẻ, Xoá phông, Che/làm mờ |
+| `giong-noi-mau.m4a` | 40 giây giọng đọc tiếng Việt (4 câu về vệ tinh, côn trùng, vùng cực), AAC đơn kênh 16 kHz | Giọng nói thành văn bản |
 
 `chan-dung-mau.jpg`: [File:Woman 1.jpg](https://commons.wikimedia.org/wiki/File:Woman_1.jpg) trên Wikimedia Commons, **public domain** (ảnh do mạng nơ-ron tạo, người trong ảnh không tồn tại).
+
+`giong-noi-mau.m4a`: ghép 4 câu (khoảng lặng 1 giây giữa các câu) từ tập dev tiếng Việt (`vi_vn`) của bộ dữ liệu [FLEURS](https://huggingface.co/datasets/google/fleurs) của Google, giấy phép **CC BY 4.0**; file gốc `3894355110745863221.wav`, `11988143203465826825.wav`, `13121441893039387178.wav`, `10398673072244472767.wav`. Không sinh bằng `make-samples.js`.

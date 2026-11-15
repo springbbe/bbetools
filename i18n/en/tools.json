@@ -45,8 +45,8 @@
   },
   "media": {
    "name": "Audio & Video",
-   "desc": "Voice and screen recording, trim and merge audio, video to MP3, compress video.",
-   "intro": "Record your voice or screen, trim and merge audio, make iPhone ringtones, extract audio from video to MP3, and trim or compress videos for messaging and email. Videos are read piece by piece and encoded with your device's hardware, so multi-gigabyte files still work.",
+   "desc": "Voice and screen recording, trim and merge audio, video to MP3, compress video, speech to text.",
+   "intro": "Record your voice or screen, trim and merge audio, make iPhone ringtones, extract audio from video to MP3, trim or compress videos for messaging and email, and turn speech into text and subtitles. Videos are read piece by piece and encoded with your device's hardware, so multi-gigabyte files still work.",
    "faq": [
     {
      "q": "Which formats can be opened?",
@@ -1967,6 +1967,52 @@
    ],
    "hosts": [
     "the voice provider's server, only when you pick an “online” voice"
+   ]
+  },
+  "speech-to-text": {
+   "name": "Speech to Text & Subtitle Generator",
+   "seoTitle": "Speech to text and automatic subtitle generator",
+   "desc": "Turn audio recordings and videos into text or .srt subtitles with the Whisper speech recognition model running right on your device.",
+   "privacy": "The recognition model is downloaded once from Hugging Face (huggingface.co) and stored in your browser. Your audio, video and the recognized text are processed only on your device and never sent to any server.",
+   "keywords": [
+    "speech to text",
+    "audio to text",
+    "automatic subtitles",
+    "transcribe audio",
+    "whisper",
+    "srt generator",
+    "video to text",
+    "vtt"
+   ],
+   "howto": [
+    "Choose or drag in an audio recording (MP3, M4A, WAV…) or a video.",
+    "Pick a model (“Fast”, “Accurate” or “Best”) and the spoken language.",
+    "Click “Convert to text” (the model downloads the first time), then download the .txt, .srt, .vtt files or copy the text."
+   ],
+   "faq": [
+    {
+     "q": "Which model should I choose?",
+     "a": "“Best” (Whisper large-v3-turbo, about 570 MB) is the most accurate and needs Chrome or Edge with WebGPU. “Accurate” (about 250 MB) runs in any desktop browser. “Fast” (about 80 MB) suits phones or quick tests but makes more mistakes."
+    },
+    {
+     "q": "How long does it take?",
+     "a": "On a recent computer each minute of audio takes about 15 seconds with “Best” or “Fast” and close to a minute with “Accurate”; phones are several times slower. The first run also downloads the model. Keep the tab open until it finishes."
+    },
+    {
+     "q": "How do I use the .srt subtitle file?",
+     "a": "YouTube: Subtitles → Add language → Upload file. VLC, MPC: put the .srt next to the video with the same file name. CapCut, Premiere: import captions from the .srt file. The .vtt file is for the <video> tag on web pages."
+    },
+    {
+     "q": "Why are some words wrong or missing?",
+     "a": "Background noise, loud music, people talking over each other, names and jargon are easily misheard; parts with only music or silence are skipped. Proofread before use, try the “Best” model and pick the right language."
+    },
+    {
+     "q": "Where is the model stored and how do I remove it?",
+     "a": "The model is kept in your browser's storage so it doesn't download again. Click “Delete model” under the model choice to free the space."
+    }
+   ],
+   "hosts": [
+    "huggingface.co (model download, first time only)"
    ]
   },
   "word-counter": {
