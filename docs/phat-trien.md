@@ -60,6 +60,7 @@ scripts/wording.js         danh sách từ ngữ thống nhất (check.js báo l
 scripts/icons.js           tạo assets/icons.svg từ Lucide
 scripts/make-samples.js    tạo lại file mẫu (Chrome headless + sips trên macOS)
 scripts/make-brand.js      tạo ảnh OG (chung + theo nhóm: assets/og/<nhóm>.png, assets/og/en/<nhóm>.png) và icon ứng dụng
+                           (512, 192, 180 và icon-maskable-512.png cho Android); --groups / --icons để chỉ tạo một phần
 scripts/samples/           trang và script tạo từng nhóm file mẫu (media.js: nhạc, video qua Chrome headless + DevTools Protocol)
 scripts/data-dvhc.js       tạo lại data/don-vi-hanh-chinh.json và data/ma-tinh.json từ bộ dữ liệu mở (cần mạng)
 scripts/data-noto-emoji.js tạo lại data/noto-emoji.json (danh sách Noto Animated Emoji + tên tiếng Việt theo CLDR, cần mạng)
@@ -133,7 +134,7 @@ Khai báo trong bảng `LIBS` của `assets/core.js`, gọi bằng `lib("tên")`
 | `@zxcvbn-ts/core@4.2.0` + `@zxcvbn-ts/language-common@4.1.3` + `@zxcvbn-ts/language-en@4.1.1` (qua `/+esm` của jsDelivr, đã đóng gói phụ thuộc) | ước lượng độ mạnh mật khẩu; thêm từ điển tiếng Việt và lời khuyên tiếng Việt trong `tools/password-strength.js` |
 | `mediabunny@1.61.3` (MPL-2.0) | đọc/ghi MP4, MOV, WebM, MKV, MP3, WAV, OGG, AAC, FLAC bằng WebCodecs, theo luồng: chuyển đổi, cắt (chép nguyên hoặc mã hoá lại), nén, lấy khung hình (nhóm Âm thanh & video) |
 | `@mediabunny/mp3-encoder@1.61.3`, `@mediabunny/aac-encoder@1.61.3` | mã hoá MP3 (LAME, trình duyệt không tự làm được) và AAC (khi trình duyệt thiếu, vd. Firefox) bằng WebAssembly. Hai gói nhập `"mediabunny"` theo tên trần: `LIBS` khai báo `rewrite: { mediabunny: "mediabunny" }` để `lib()` tải mã nguồn, thay tên đó bằng đúng URL đã ghim rồi nhập từ `blob:`, nhờ vậy encoder đăng ký vào đúng bản Mediabunny đang chạy |
-| `@fontsource/be-vietnam-pro@5.3.0` | font chữ |
+| `@fontsource/be-vietnam-pro@5.3.0`, `@fontsource/bricolage-grotesque@5.3.0` | font chữ (khai báo trong `app.css`). `build.js` thêm `<link rel="preload" as="font" crossorigin>` cho Be Vietnam Pro 400 và Bricolage 800 tập latin (trang tiếng Việt thêm tập vietnamese), đúng URL trong `app.css`. Font dự phòng "Be Vietnam Pro Fallback", "Bricolage Fallback" (Arial/Roboto chỉnh `size-adjust`) đứng ngay sau font web để chữ không nhảy khi tải xong; đổi font hay phiên bản thì đo lại tỉ lệ (canvas `measureText`) và sửa cả hai chỗ |
 | `@fontsource/dancing-script`, `great-vibes`, `pacifico`, `roboto-slab` `@5.3.0` | font chữ ký "gõ tên" trong Ký PDF và font chữ của Chèn chữ lên ảnh (`assets/fonts.js`), tải bằng `FontFace` khi cần |
 
 ## Thêm một công cụ mới

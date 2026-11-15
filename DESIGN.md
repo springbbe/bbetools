@@ -285,6 +285,7 @@ Bảng màu đất ấm: giấy kem, chữ nâu, vàng đất làm giọng chín
 **Display Font:** Bricolage Grotesque 800 (fallback Be Vietnam Pro, system-ui), chỉ tải đúng một độ đậm, có đủ dấu tiếng Việt.
 **Body Font:** Be Vietnam Pro 400/600/700/800 (fallback system-ui, -apple-system, Segoe UI, Roboto), chỉ tải các dải ký tự cần dùng.
 **Label/Mono Font:** ui-monospace, SF Mono, Cascadia Code, Roboto Mono (hệ thống, không tải về) cho mã, JSON, hash.
+**Font dự phòng:** "Bricolage Fallback" và "Be Vietnam Pro Fallback" là Arial (Roboto trên Android) chỉnh `size-adjust`, `ascent-override`, `descent-override` cho khớp số đo của font web, đứng ngay sau font web trong `--display` và `--font`, để chữ không nhảy khi font tải xong. Font màn hình đầu (Be Vietnam Pro 400, Bricolage 800; tập latin, thêm vietnamese ở trang tiếng Việt) được `preload`.
 
 **Character:** Bricolage đậm, chặt chữ, có chút nghịch ngợm của tít báo học trò; Be Vietnam Pro tròn, rõ, sinh ra cho dấu tiếng Việt. Tít ồn ào, thân bài điềm đạm.
 

@@ -18,6 +18,13 @@
 @font-face{font-family:'Bricolage Grotesque';font-style:normal;font-display:swap;font-weight:800;src:url(https://cdn.jsdelivr.net/npm/@fontsource/bricolage-grotesque@5.3.0/files/bricolage-grotesque-latin-ext-800-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:'Bricolage Grotesque';font-style:normal;font-display:swap;font-weight:800;src:url(https://cdn.jsdelivr.net/npm/@fontsource/bricolage-grotesque@5.3.0/files/bricolage-grotesque-latin-800-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 
+/* Font dự phòng có size-adjust: Arial (Roboto trên Android) được chỉnh cỡ và độ cao dòng cho khớp số đo của font web
+   (đo bằng canvas: Bricolage 800 ≈ 101,3% Arial Bold; Be Vietnam Pro 400 ≈ 106,9% Arial, 700 ≈ 103,5% Arial Bold),
+   để tiêu đề và chữ không nhảy khi font web tải xong (font-display: swap) */
+@font-face{font-family:'Bricolage Fallback';src:local('Arial Bold'),local('Arial-BoldMT'),local('Roboto Bold'),local('Roboto-Bold');font-weight:800;size-adjust:101.3%;ascent-override:91.8%;descent-override:26.6%;line-gap-override:0%}
+@font-face{font-family:'Be Vietnam Pro Fallback';src:local('Arial'),local('ArialMT'),local('Roboto'),local('Roboto-Regular');font-weight:400;size-adjust:106.9%;ascent-override:93.6%;descent-override:24.3%;line-gap-override:0%}
+@font-face{font-family:'Be Vietnam Pro Fallback';src:local('Arial Bold'),local('Arial-BoldMT'),local('Roboto Bold'),local('Roboto-Bold');font-weight:600 800;size-adjust:103.5%;ascent-override:96.6%;descent-override:25.1%;line-gap-override:0%}
+
 /* Giao diện "Vàng đất": vàng đất làm màu chủ đạo, nâu đất cho chữ và chân trang, mỗi nhóm một màu chuyên mục (docs/giao-dien-moi.md) */
 :root {
   --bg: #F6F4EF;
@@ -54,8 +61,8 @@
   --shadow-lg: 0 20px 48px -12px rgba(45,30,6,.34);
   --drop: rgba(60,40,8,.32);
   --radius: 16px;
-  --font: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --display: "Bricolage Grotesque", "Be Vietnam Pro", system-ui, sans-serif;
+  --font: "Be Vietnam Pro", "Be Vietnam Pro Fallback", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --display: "Bricolage Grotesque", "Bricolage Fallback", "Be Vietnam Pro", system-ui, sans-serif;
   --mono: ui-monospace, "SF Mono", "Cascadia Code", "Roboto Mono", Menlo, Consolas, monospace;
   --top-h: 60px;
   color-scheme: light;
@@ -345,7 +352,8 @@ details p { margin: 0; padding: 0 16px 14px; color: var(--muted); }
 .article > ol.steps { margin: 14px 0 18px; }
 .article > .tbl-wrap { margin: 16px 0 18px; }
 .article .tbl { font-size: 15px; }
-.article .tbl th, .article .tbl td { text-align: left; white-space: normal; vertical-align: top; min-width: 6.5em; padding: 9px 12px; }
+.article .tbl th, .article .tbl td { text-align: left; white-space: normal; vertical-align: top; min-width: 4.5em; padding: 9px 12px; }
+@media (max-width: 599px) { .article .tbl { font-size: 14.5px; } .article .tbl th, .article .tbl td { padding: 8px 9px; } }
 .article .tbl thead th { position: static; }
 .article-cta { margin: 20px 0 24px; max-width: 68ch; }
 .article-cta .cards { grid-template-columns: minmax(0, 1fr); }

@@ -214,6 +214,15 @@ const analytics = () => (site.gaId ? `<script async src="https://www.googletagma
 <script>window.btReplaceState=history.replaceState.bind(history);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","${site.gaId}",{page_location:location.origin+location.pathname});</script>
 ` : "");
 
+/* Font dùng ở màn hình đầu: Be Vietnam Pro 400 và Bricolage Grotesque 800 (đúng URL trong app.css để trình duyệt dùng lại).
+   Trang tiếng Việt tải thêm tập vietnamese; trang ngôn ngữ khác chỉ cần tập latin (tránh cảnh báo "preload không dùng tới") */
+const FONT_FILES = {
+  latin: ["be-vietnam-pro@5.3.0/files/be-vietnam-pro-latin-400-normal.woff2", "bricolage-grotesque@5.3.0/files/bricolage-grotesque-latin-800-normal.woff2"],
+  vietnamese: ["be-vietnam-pro@5.3.0/files/be-vietnam-pro-vietnamese-400-normal.woff2", "bricolage-grotesque@5.3.0/files/bricolage-grotesque-vietnamese-800-normal.woff2"]
+};
+const fontPreload = (L) => [...FONT_FILES.latin, ...(L.vi ? FONT_FILES.vietnamese : [])]
+  .map((f) => `<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource/${f}" as="font" type="font/woff2" crossorigin>\n`).join("");
+
 function page(L, { path, key, title, desc, entry, ld, bodyAttrs = "", main, head = "", noindex = false, root = rootOf(path), ogType = "website", og = null }) {
   const abs = BASE + path;
   const alts = key ? alt(key) : {};
@@ -246,7 +255,7 @@ ${hreflang}<meta name="generator" content="bbetools-build">
 <link rel="apple-touch-icon" href="${root}assets/apple-touch-icon.png">
 <link rel="manifest" href="${root}manifest.webmanifest">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-<link rel="stylesheet" href="${root}assets/app.css">
+${fontPreload(L)}<link rel="stylesheet" href="${root}assets/app.css">
 <script>document.documentElement.classList.add("js");try{var t=localStorage.getItem("bt:theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <link rel="modulepreload" href="${root}${L.js("core.js")}">
 <script type="module" src="${root}${entry}"></script>
@@ -748,7 +757,13 @@ changed += await write("robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${BASE
 changed += await write("manifest.webmanifest", JSON.stringify({
   name: site.name, short_name: site.name, description: site.tagline, lang: "vi", start_url: "./", scope: "./", display: "standalone",
   background_color: "#F6F4EF", theme_color: "#8A5A06",
-  icons: [{ src: "assets/favicon.svg", sizes: "any", type: "image/svg+xml" }, { src: "assets/icon-512.png", sizes: "512x512", type: "image/png" }, { src: "assets/apple-touch-icon.png", sizes: "180x180", type: "image/png" }]
+  icons: [
+    { src: "assets/favicon.svg", sizes: "any", type: "image/svg+xml" },
+    { src: "assets/icon-192.png", sizes: "192x192", type: "image/png" },
+    { src: "assets/icon-512.png", sizes: "512x512", type: "image/png" },
+    { src: "assets/icon-maskable-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
+    { src: "assets/apple-touch-icon.png", sizes: "180x180", type: "image/png" }
+  ]
 }, null, 2) + "\n");
 
 /* ---------- báo phần chưa dịch ---------- */
