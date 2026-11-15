@@ -157,12 +157,12 @@ function code128(text) {
 }
 
 export const TYPES = {
-  ean13: { name: "EAN-13", enc: ean13, hint: "12 hoặc 13 chữ số. Mã sản phẩm bán lẻ ở Việt Nam bắt đầu bằng 893." },
-  ean8: { name: "EAN-8", enc: ean8, hint: "7 hoặc 8 chữ số, cho sản phẩm nhỏ." },
-  upca: { name: "UPC-A", enc: upca, hint: "11 hoặc 12 chữ số (Mỹ, Canada)." },
-  code128: { name: "Code 128", enc: code128, hint: "Chữ không dấu, số, ký hiệu. Dùng cho mã nội bộ, vận đơn, kho hàng." },
-  code39: { name: "Code 39", enc: code39, hint: "Chữ in hoa không dấu, số và - . $ / + % khoảng trắng." },
-  itf14: { name: "ITF-14", enc: itf14, hint: "13 hoặc 14 chữ số, in trên thùng carton." }
+  ean13: { name: "EAN-13", short: "hàng bán lẻ", enc: ean13, hint: "12 hoặc 13 chữ số. Mã sản phẩm bán lẻ ở Việt Nam bắt đầu bằng 893." },
+  ean8: { name: "EAN-8", short: "sản phẩm nhỏ", enc: ean8, hint: "7 hoặc 8 chữ số, cho sản phẩm nhỏ." },
+  upca: { name: "UPC-A", short: "Mỹ, Canada", enc: upca, hint: "11 hoặc 12 chữ số (Mỹ, Canada)." },
+  code128: { name: "Code 128", short: "chữ, số, vận đơn", enc: code128, hint: "Chữ không dấu, số, ký hiệu. Dùng cho mã nội bộ, vận đơn, kho hàng." },
+  code39: { name: "Code 39", short: "chữ in hoa, số", enc: code39, hint: "Chữ in hoa không dấu, số và - . $ / + % khoảng trắng." },
+  itf14: { name: "ITF-14", short: "thùng carton", enc: itf14, hint: "13 hoặc 14 chữ số, in trên thùng carton." }
 };
 
 export function encode(type, text, opts) {

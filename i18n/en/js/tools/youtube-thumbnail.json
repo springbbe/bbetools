@@ -2,6 +2,7 @@
  "Lấy thumbnail": "Get thumbnails",
  "JPG (gốc)": "JPG (original)",
  "Tải ảnh lớn nhất của mọi video (.zip)": "Download the largest image of every video (.zip)",
+ "Link video YouTube": "YouTube video link",
  "Link video, Shorts, live hoặc youtu.be đều được. Dán nhiều link (mỗi dòng một link) để lấy nhiều video cùng lúc.": "Video, Shorts, live or youtu.be links all work. Paste several links (one per line) to get many videos at once.",
  "Thử với video mẫu": "Try a sample video",
  "Tải về dạng": "Download as",
@@ -32,6 +33,5 @@
  "Đang lấy thumbnail {0}/{1} video…": "Getting thumbnails {0}/{1} videos…",
  "Không tìm thấy thumbnail nào.": "No thumbnails found.",
  "Đã lấy thumbnail của {0}/{1} video.": "Got thumbnails for {0}/{1} videos.",
- "Bấm một ảnh để tải về.": "Click an image to download it.",
- "Link video YouTube": "YouTube video link"
+ "Bấm một ảnh để tải về.": "Click an image to download it."
 }

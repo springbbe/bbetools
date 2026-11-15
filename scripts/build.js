@@ -149,14 +149,17 @@ function mega(L, root) {
   return `<div id="mega" class="mega" hidden>
 <div class="mega-in">
 <div class="mega-head"><b>${tr("Tất cả công cụ")}</b><button class="ib" type="button" data-close-mega aria-label="${tr("Đóng menu")}">${icon("x", root)}</button></div>
+<button class="mega-search" type="button" data-palette>${icon("search", root)}<span>${tr("Tìm công cụ…")}</span></button>
 <div class="mega-grid">
 ${L.liveGroups.map((g) => {
   const list = L.liveIn(g.id);
   const shown = list.slice(0, 8);
-  return `<section class="mega-col" style="--c:${g.color}"><h2><a href="${root}${L.groupUrl(g)}">${tile(L, g, root, "sm")}${esc(g.name)}</a></h2>
-<ul>${shown.map((t) => `<li><a href="${root}${L.toolUrl(t)}">${esc(t.name)}</a></li>`).join("")}</ul>${list.length > shown.length ? `<a class="more" href="${root}${L.groupUrl(g)}">${tr("Xem cả {0} công cụ", list.length)} ${icon("arrow-right", root)}</a>` : ""}</section>`;
+  // máy tính: tên nhóm là liên kết; điện thoại (ngăn kéo): nút gập/mở danh sách, liên kết trang nhóm nằm cuối danh sách
+  return `<section class="mega-col" style="--c:${g.color}" data-group="${g.id}"><h2><a href="${root}${L.groupUrl(g)}">${tile(L, g, root, "sm")}${esc(g.name)}</a><button class="mega-tg" type="button" aria-expanded="false" aria-controls="mg-${g.id}">${tile(L, g, root, "sm")}<span>${esc(g.name)}</span>${icon("chevron-down", root)}</button></h2>
+<div class="mega-list" id="mg-${g.id}"><ul>${shown.map((t) => `<li><a href="${root}${L.toolUrl(t)}">${esc(t.name)}</a></li>`).join("")}</ul><a class="more${list.length > shown.length ? "" : " only-m"}" href="${root}${L.groupUrl(g)}">${tr("Xem cả {0} công cụ", list.length)} ${icon("arrow-right", root)}</a></div></section>`;
 }).join("\n")}
 </div>
+${L.vi ? `<a class="mega-foot" href="${root}${ARTICLE_URL}">${icon("book-open", root)}<span>Hướng dẫn</span></a>` : ""}
 </div>
 </div>`;
 }
@@ -244,7 +247,7 @@ ${hreflang}<meta name="generator" content="bbetools-build">
 <link rel="manifest" href="${root}manifest.webmanifest">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="${root}assets/app.css">
-<script>try{var t=localStorage.getItem("bt:theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script>document.documentElement.classList.add("js");try{var t=localStorage.getItem("bt:theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <link rel="modulepreload" href="${root}${L.js("core.js")}">
 <script type="module" src="${root}${entry}"></script>
 ${ld ? jsonld(ld) : ""}
@@ -329,7 +332,7 @@ ${more.length ? `<section class="block"><h2>Bài hướng dẫn khác <a class="
     ]
   };
   const title = `${a.meta.title} – ${site.name}`.length <= 60 ? `${a.meta.title} – ${site.name}` : a.meta.title;
-  return page(L, { path, title, desc: a.meta.desc, entry: L.js("core.js"), ld, main, ogType: "article", og: ogFor(L, g, a.meta.title),
+  return page(L, { path, title, desc: a.meta.desc, entry: L.js("core.js"), ld, main, ogType: "article", og: ogFor(L, g, a.meta.title), bodyAttrs: `data-group="${g.id}"`,
     head: `<meta property="article:modified_time" content="${a.meta.updated}">\n` });
 }
 
@@ -380,7 +383,7 @@ ${icon("search", root)}
 <input id="q" name="q" type="search" placeholder="${tr("Tìm: ghép pdf, vietqr…")}" autocomplete="off" spellcheck="false" aria-label="${tr("Tìm công cụ")}" aria-controls="results" enterkeyhint="go">
 <kbd class="only-d">/</kbd>
 </form>
-<p class="drop-hint">${icon("upload", root)}<span>${tr("Thả hoặc dán (Ctrl/⌘ + V) một file vào trang để được gợi ý công cụ phù hợp, hoặc <button type=\"button\" class=\"linkish\" data-pick-any>chọn file</button>.")}</span></p>
+<p class="drop-hint">${icon("upload", root)}<span>${tr("Thả hoặc dán<span class=\"no-touch\"> (Ctrl/⌘ + V)</span><span class=\"touch-only\"> (chạm giữ → Dán)</span> một file vào trang để được gợi ý công cụ phù hợp, hoặc <button type=\"button\" class=\"linkish\" data-pick-any>chọn file</button>.")}</span></p>
 </div>
 <nav aria-label="${tr("Nhóm công cụ")}"><ul class="hero-cats">
 ${liveGroups.map((g) => `<li><a href="#${tr("nhom-")}${g.slug}" data-filter="${g.id}" style="--c:${g.color}">${tile(L, g, root)}<b>${esc(g.name)}</b><small>${tr("{0} công cụ", liveIn(g.id).length)}</small></a></li>`).join("\n")}
@@ -403,7 +406,7 @@ ${liveGroups.map((g) => `<a href="#${tr("nhom-")}${g.slug}" class="chip" data-fi
 <div id="tat-ca">
 ${liveGroups.map((g) => `<section class="block group-block" id="${tr("nhom-")}${g.slug}" data-group="${g.id}">
 <h2 class="tab"><a href="${root}${L.groupUrl(g)}" style="--c:${g.color}">${icon(g.icon, root)}${esc(g.name)}</a> <small>${tr("{0} công cụ", liveIn(g.id).length)}</small></h2>
-${cards(L, liveIn(g.id), root)}
+${cards(L, liveIn(g.id), root).replace('<ul class="cards">', `<ul class="cards" id="ds-${g.id}">`)}${liveIn(g.id).length > 6 ? `\n<button class="btn ghost block more-tools" type="button" aria-expanded="false" aria-controls="ds-${g.id}" data-more="${esc(tr("Xem cả {0} công cụ", liveIn(g.id).length))}"><span>${tr("Xem cả {0} công cụ", liveIn(g.id).length)}</span>${icon("chevron-down", root)}</button>` : ""}
 </section>`).join("\n")}
 </div>
 ${L.vi && ARTICLES.length ? `<section class="block" id="huong-dan"><h2>${icon("book-open", root)} Hướng dẫn <a class="see-all" href="${root}${ARTICLE_URL}">Xem tất cả ${ARTICLES.length} bài${icon("arrow-right", root)}</a></h2>${articleCards(L, ARTICLES.slice(0, 3), root)}</section>\n` : ""}</div>
@@ -461,7 +464,7 @@ ${L.vi && groupArticles(L, g).length ? `<section class="block"><h2>Bài hướng
   if (g.faq && g.faq.length) ld["@graph"].push(faqLd(g.faq));
   return page(L, { path, key: "group:" + g.id, title: `${tr("Công cụ {0} online miễn phí", g.name)} – ${site.name}`,
     desc: descWith(g.desc, tr("{0} công cụ miễn phí, xử lý ngay trên trình duyệt, không tải file lên máy chủ.", list.length), tr("{0} công cụ miễn phí, không tải file lên máy chủ.", list.length)),
-    entry: L.js("core.js"), ld, main, og: ogFor(L, g, tr("Công cụ {0}", g.name)) });
+    entry: L.js("core.js"), ld, main, og: ogFor(L, g, tr("Công cụ {0}", g.name)), bodyAttrs: `data-group="${g.id}"` });
 }
 
 /* ---------- trang công cụ ---------- */
@@ -490,7 +493,6 @@ async function toolPage(L, t) {
   const related = (t.related || []).map((id) => L.byId[id]).filter((x) => x && isLive(x));
   // bù thêm công cụ cùng nhóm cho đủ 4
   for (const x of L.liveIn(t.group)) { if (related.length >= 4) break; if (x !== t && !related.includes(x)) related.push(x); }
-  const accept = t.accept && t.kind === "file" ? `<p class="formats">${tr("Nhận: {0}", esc(L.describeAccept(t.accept)))}</p>` : "";
   const howto = t.howto && t.howto.length ? `<section class="block info"><h2>${tr("Cách dùng")}</h2><ol class="steps">${t.howto.map((s) => `<li>${esc(s)}</li>`).join("")}</ol></section>` : "";
   const faq = t.faq && t.faq.length ? faqBlock(L, t.faq) : "";
   // dải đầu trang mang màu chuyên mục (nhóm); khung ứng dụng đè lên mép dưới của dải
@@ -511,7 +513,6 @@ ${tile(L, t, root, "lg")}
 <noscript><p class="note">${tr("Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.")}</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
-${accept}
 ${await dataNote(L, t, root)}
 ${howto && faq ? `<div class="tool-info">\n${howto}\n${faq}\n</div>` : howto + faq}
 ${L.vi && articlesFor(t.id).length ? `<section class="block"><h2>Bài hướng dẫn</h2>${articleCards(L, articlesFor(t.id), root, { meta: false })}</section>\n` : ""}${related.length ? `<section class="block"><h2>${tr("Công cụ liên quan")} <a class="see-all" href="${root}${L.groupUrl(g)}">${tr("Xem cả {0} công cụ", L.liveIn(g.id).length)}${icon("arrow-right", root)}</a></h2>${cards(L, related.slice(0, 6), root)}</section>` : ""}
@@ -533,7 +534,7 @@ ${L.vi && articlesFor(t.id).length ? `<section class="block"><h2>Bài hướng d
   const title = len(long) <= 60 ? long : `${name} – ${site.name}`;
   return page(L, {
     path, key: "tool:" + t.id, title, desc, entry: L.js(`tools/${t.id}.js`), og: ogFor(L, g, t.name),
-    ld: { "@context": "https://schema.org", "@graph": graph }, bodyAttrs: `data-tool="${t.id}"`, main
+    ld: { "@context": "https://schema.org", "@graph": graph }, bodyAttrs: `data-tool="${t.id}" data-group="${t.group}"`, main
   });
 }
 

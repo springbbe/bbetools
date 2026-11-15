@@ -60,7 +60,7 @@ async function labelsPdf(codes, o) {
 let seq = 0;
 const api = formTool({
   fields: [
-    { id: "type", type: "select", label: "Loại mã", value: "ean13", choices: Object.entries(TYPES).map(([k, t]) => [k, t.name + " – " + t.hint.split(".")[0]]) },
+    { id: "type", type: "select", label: "Loại mã", value: "ean13", choices: Object.entries(TYPES).map(([k, t]) => [k, t.name + " – " + t.short]) },
     { id: "mode", type: "seg", label: "Số lượng", value: "one", choices: [["one", "Một mã"], ["bulk", "Nhiều mã (in tem)"]] },
     { id: "text", label: "Nội dung mã", value: "", placeholder: "Ví dụ: 893460400100", attrs: { autocomplete: "off", spellcheck: "false", autocapitalize: "characters" }, show: (v) => v.mode === "one" },
     { id: "list", type: "textarea", label: "Danh sách mã (mỗi dòng một mã)", value: "", url: false, placeholder: "893460400100\n893460400101\n893460400102", attrs: { rows: 6, spellcheck: "false" }, hint: `Tối đa ${MAX_BULK} mã. Dán thẳng một cột từ Excel được.`, show: (v) => v.mode === "bulk" },

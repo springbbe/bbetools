@@ -5,11 +5,17 @@
  "Hãy nhập nội dung.": "Please enter the content.",
  "Code 39 chỉ nhận chữ in hoa không dấu A–Z, số 0–9 và các ký tự - . khoảng trắng $ / + %. Không nhận: {0}": "Code 39 only accepts uppercase A–Z without accents, digits 0–9 and - . space $ / + %. Not accepted: {0}",
  "Code 128 chỉ nhận ký tự ASCII (chữ không dấu, số, ký hiệu). Không nhận: {0}": "Code 128 only accepts ASCII characters (unaccented letters, digits, symbols). Not accepted: {0}",
+ "hàng bán lẻ": "retail products",
  "12 hoặc 13 chữ số. Mã sản phẩm bán lẻ ở Việt Nam bắt đầu bằng 893.": "12 or 13 digits. Used on retail products worldwide.",
+ "sản phẩm nhỏ": "small products",
  "7 hoặc 8 chữ số, cho sản phẩm nhỏ.": "7 or 8 digits, for small products.",
+ "Mỹ, Canada": "US, Canada",
  "11 hoặc 12 chữ số (Mỹ, Canada).": "11 or 12 digits (US, Canada).",
+ "chữ, số, vận đơn": "letters, digits, shipping",
  "Chữ không dấu, số, ký hiệu. Dùng cho mã nội bộ, vận đơn, kho hàng.": "Unaccented letters, digits, symbols. For internal codes, shipping labels, warehouses.",
+ "chữ in hoa, số": "capitals, digits",
  "Chữ in hoa không dấu, số và - . $ / + % khoảng trắng.": "Uppercase unaccented letters, digits and - . $ / + % space.",
+ "thùng carton": "cartons",
  "13 hoặc 14 chữ số, in trên thùng carton.": "13 or 14 digits, printed on shipping cartons.",
  "Không có loại mã ": "Unknown barcode type "
 }

@@ -1,6 +1,7 @@
 {
  "{0} công cụ khớp “{1}”": "{0} {0|tool matches|tools match} “{1}”",
  "Không tìm thấy": "Nothing found",
+ "Thu gọn": "Show less",
  "Thả file để xem công cụ phù hợp": "Drop files to see matching tools",
  "Chưa có công cụ cho loại file này": "No tool for this file type yet",
  "Công cụ dùng được cho {0} file {1}": "Tools for these {0} {1} files",

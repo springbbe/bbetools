@@ -23,7 +23,7 @@ formTool({
     { id: "gross", type: "money", label: "Lương gross (trước bảo hiểm và thuế)", value: "30000000", suffix: "đ", show: (v) => v.mode === "g2n" },
     { id: "net", type: "money", label: "Lương net mong muốn (thực nhận)", value: "25000000", suffix: "đ", show: (v) => v.mode === "n2g" },
     { id: "dep", type: "number", label: "Số người phụ thuộc", value: "0", attrs: { min: 0, max: 20, step: 1, inputmode: "numeric" }, hint: `Mỗi người được giảm trừ ${money(TAX.dependent)}/tháng (bản thân ${money(TAX.personal)}).` },
-    { id: "region", type: "select", label: "Vùng (nơi doanh nghiệp hoạt động)", value: "1", choices: Object.entries(VUNG.regions).map(([k, m]) => [k, `Vùng ${ROMAN[k]} – lương tối thiểu ${money(m)}`]), hint: "Dùng để tính trần BHTN và kiểm tra mức lương tối thiểu." },
+    { id: "region", type: "select", label: "Vùng (nơi doanh nghiệp hoạt động)", value: "1", choices: Object.entries(VUNG.regions).map(([k, m]) => [k, `Vùng ${ROMAN[k]} – ${money(m)}`]), hint: "Lương tối thiểu vùng, dùng để tính trần BHTN và kiểm tra mức lương tối thiểu." },
     { id: "insMode", type: "seg", label: "Mức lương đóng bảo hiểm", value: "full", choices: [["full", "Trên lương chính thức"], ["custom", "Mức khác"], ["none", "Không đóng"]] },
     { id: "insBase", type: "money", label: "Mức lương đóng bảo hiểm", value: "", suffix: "đ", placeholder: "Ví dụ: 6.000.000", show: (v) => v.insMode === "custom" },
     { id: "exempt", type: "money", label: "Khoản không tính thuế (tuỳ chọn)", value: "", suffix: "đ", placeholder: "Ăn trưa, phụ cấp điện thoại…", hint: "Các khoản được miễn thuế TNCN theo quy định (đã nằm trong lương gross)." }

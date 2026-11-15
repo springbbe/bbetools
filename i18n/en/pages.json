@@ -18,7 +18,6 @@
  "Không quảng cáo, không tải file lên máy chủ.": "No ads, no file uploads to any server.",
  "{0} công cụ miễn phí cho PDF, ảnh, văn bản, VietQR, lịch âm… Chạy ngay trên trình duyệt, <b>file không bao giờ rời khỏi máy bạn</b>.": "{0} free tools for PDF, images, video, text, QR codes, developers… They run right in your browser, <b>your files never leave your device</b>.",
  "Tìm công cụ": "Search tools",
- "Thả hoặc dán (Ctrl/⌘ + V) một file vào trang để được gợi ý công cụ phù hợp, hoặc <button type=\"button\" class=\"linkish\" data-pick-any>chọn file</button>.": "Drop or paste (Ctrl/⌘ + V) a file onto the page to get matching tool suggestions, or <button type=\"button\" class=\"linkish\" data-pick-any>choose a file</button>.",
  "Kết quả tìm kiếm": "Search results",
  "Chưa có công cụ khớp. Thử gõ ngắn hơn hoặc không dấu, ví dụ “pdf”, “anh”, “qr”.": "No matching tools. Try a shorter query, e.g. “pdf”, “image”, “qr”.",
  "Yêu thích": "Favorites",
@@ -37,7 +36,6 @@
  "{0} online miễn phí": "{0} Online Free",
  "{0} công cụ miễn phí, xử lý ngay trên trình duyệt, không tải file lên máy chủ.": "{0} free tools that run right in your browser, with no file uploads to any server.",
  "Dữ liệu {0} cập nhật ngày {1}. Nguồn: {2}.": "{0} data updated on {1}. Source: {2}.",
- "Nhận: {0}": "Accepts: {0}",
  "Thử nghiệm": "Beta",
  "Ghim": "Pin",
  "Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.": "This tool needs JavaScript enabled to run on your device.",
@@ -76,5 +74,6 @@
  "Về nhóm {0}": "About {0} tools",
  "Công cụ {0} online miễn phí": "Free Online {0} Tools",
  "{0} công cụ miễn phí, không tải file lên máy chủ.": "{0} free tools, no file uploads.",
- "Miễn phí, không tải file lên máy chủ.": "Free, no file uploads."
+ "Miễn phí, không tải file lên máy chủ.": "Free, no file uploads.",
+ "Thả hoặc dán<span class=\"no-touch\"> (Ctrl/⌘ + V)</span><span class=\"touch-only\"> (chạm giữ → Dán)</span> một file vào trang để được gợi ý công cụ phù hợp, hoặc <button type=\"button\" class=\"linkish\" data-pick-any>chọn file</button>.": "Drop or paste<span class=\"no-touch\"> (Ctrl/⌘ + V)</span><span class=\"touch-only\"> (long-press → Paste)</span> a file onto the page to get matching tool suggestions, or <button type=\"button\" class=\"linkish\" data-pick-any>choose a file</button>."
 }

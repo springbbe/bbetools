@@ -5,7 +5,9 @@
        type: text | number | money | select | seg | date | textarea | check | color | custom
        custom: render(ctx) → { el, get(), set(v) }
      compute: (vals, out, ctx) => {},     // vẽ kết quả vào out
-     share: true                          // nút "Sao chép link"
+     share: true,                         // nút "Sao chép link"
+     summary: (out, vals) => ({ value, label }) | null   // tuỳ chọn: số chính cho thanh kết quả dính đáy (điện thoại);
+                                          // mặc định lấy thẻ số nổi bật (.stat.hl), rồi thẻ số đầu tiên, rồi .result-big
    }) */
 import { $, h, icon, copyText, debounce, replaceUrl, LANG } from "../core.js";
 
@@ -25,6 +27,38 @@ export function formTool(cfg) {
     const ro = new ResizeObserver(fit); ro.observe(out); ro.observe(form);
     window.addEventListener("resize", fit);
   }
+  /* điện thoại (dưới 900 px): kết quả nằm dưới form dài, nên thêm thanh gọn dính đáy màn hình với số chính + nhãn,
+     bấm để cuộn tới phần chi tiết. Chỉ hiện khi đang xem form mà phần kết quả còn nằm ngoài khung nhìn. */
+  const barVal = h("b"), barLbl = h("small");
+  const bar = h("div", { class: "fm-bar", hidden: true, "aria-live": "polite" },
+    h("button", { type: "button", onclick: () => outCol.scrollIntoView({ behavior: "smooth", block: "start" }) },
+      h("span", { class: "fm-bar-t" }, barLbl, barVal), h("span", { html: icon("chevron-down"), style: { display: "contents" } })));
+  document.body.append(bar);
+  const narrow = matchMedia("(max-width: 899px)");
+  let summary = null, outSeen = true, formSeen = false;
+  const syncBar = () => {
+    const show = !!summary && narrow.matches && formSeen && !outSeen;
+    if (bar.hidden === show) bar.hidden = !show;
+    out.setAttribute("aria-live", show ? "off" : "polite"); // không đọc hai lần khi thanh đang hiện
+  };
+  if (window.IntersectionObserver) {
+    const io = new IntersectionObserver((ens) => {
+      for (const en of ens) if (en.target === outCol) outSeen = en.isIntersecting; else formSeen = en.isIntersecting;
+      syncBar();
+    }, { rootMargin: "0px 0px -72px 0px" });
+    io.observe(outCol); io.observe(form);
+    narrow.addEventListener("change", syncBar);
+  }
+  const txt = (el) => (el ? el.textContent.replace(/\s+/g, " ").trim() : "");
+  function summarize(v) {
+    if (cfg.summary) return cfg.summary(out, v);
+    const st = out.querySelector(".stat.hl") || out.querySelector(".stat");
+    if (st && txt(st.querySelector("b"))) return { value: txt(st.querySelector("b")), label: txt(st.querySelector("span")) };
+    const big = out.querySelector(".result-big");
+    if (big && txt(big)) return { value: txt(big), label: big.previousElementSibling ? txt(big.previousElementSibling) : "" };
+    return null;
+  }
+
   const ctrls = {};
   const defaults = {};
   const params = new URLSearchParams(location.search);
@@ -97,6 +131,9 @@ export function formTool(cfg) {
     for (const c of Object.values(ctrls)) if (c.f.show) c.el.hidden = !c.f.show(v);
     try { cfg.compute(v, out, api); }
     catch (e) { console.error(e); out.textContent = ""; out.append(h("p", { class: "alert err", text: e.userMsg || e.message })); }
+    try { summary = summarize(v); } catch (_) { summary = null; }
+    if (summary) { barVal.textContent = summary.value; barLbl.textContent = summary.label; }
+    syncBar();
     syncUrl();
   }
   function reset() { for (const [k, c] of Object.entries(ctrls)) c.set(defaults[k]); update(); }

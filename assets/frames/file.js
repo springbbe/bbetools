@@ -36,7 +36,7 @@ export function fileTool(cfg) {
       h("button", { class: "btn big", type: "button", onclick: () => pick() }, h("span", { html: icon("file"), style: { display: "contents" } }), cfg.pickLabel || "Chọn " + noun),
       cfg.sample ? h("button", { class: "btn ghost", type: "button", onclick: trySample }, h("span", { html: icon("sparkles"), style: { display: "contents" } }), "Thử với file mẫu") : null),
     h("p", { html: IS_TOUCH ? "hoặc dán file đã sao chép bằng cách chạm giữ → Dán" : `hoặc kéo thả vào bất cứ đâu, hoặc dán bằng <kbd>${MOD}</kbd> + <kbd>V</kbd> (ảnh chụp màn hình, file, link)` }),
-    h("p", { class: "fmt", text: describeAccept(cfg.accept) }));
+    h("p", { class: "fmt", text: `Nhận: ${describeAccept(cfg.accept)}` }));
 
   /* ---- màn làm việc ---- */
   const list = h("ul", { class: "flist", "aria-label": "Danh sách file" });

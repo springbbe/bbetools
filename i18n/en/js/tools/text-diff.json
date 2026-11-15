@@ -45,6 +45,7 @@
  "So sánh song song": "Side-by-side comparison",
  "Chưa có gì để tải": "Nothing to download yet",
  "So sánh văn bản": "Text comparison",
+ "so-sanh-van-ban.html": "text-compare.html",
  "{0} dòng · {1} ký tự": "{0} {0|line|lines} · {1} {1|character|characters}",
  "Dán hai bản văn bản vào hai ô (hoặc mở, kéo thả file TXT, PDF, Word, Excel) để so sánh.": "Paste two versions of the text into the two boxes (or open / drop TXT, PDF, Word, Excel files) to compare.",
  "Hai văn bản giống hệt nhau": "The two texts are identical",
@@ -60,6 +61,5 @@
  "Dán văn bản cũ…": "Paste the old text…",
  "Dán văn bản mới…": "Paste the new text…",
  "Dán hai bản văn bản vào hai ô để so sánh.": "Paste two versions of the text into the two boxes to compare.",
- "dòng": "lines",
- "so-sanh-van-ban.html": "text-compare.html"
+ "dòng": "lines"
 }

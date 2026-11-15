@@ -391,7 +391,15 @@ function initMenu() {
     if (open) { const a = mega.querySelector("a"); if (a && !IS_TOUCH) a.focus({ preventScroll: true }); }
   };
   btn.addEventListener("click", (e) => { e.stopPropagation(); set(mega.hidden); });
-  mega.addEventListener("click", (e) => { if (e.target.closest("[data-close-mega]")) set(false); });
+  // ngăn kéo (điện thoại): mỗi nhóm gập/mở; nhóm của trang hiện tại mở sẵn
+  const toggle = (col, open) => { col.classList.toggle("open", open); const b = col.querySelector(".mega-tg"); if (b) b.setAttribute("aria-expanded", String(open)); };
+  const cur = document.body.dataset.group;
+  if (cur) $$(".mega-col", mega).forEach((col) => { if (col.dataset.group === cur) toggle(col, true); });
+  mega.addEventListener("click", (e) => {
+    if (e.target.closest("[data-close-mega]") || e.target.closest("[data-palette]")) { set(false); return; }
+    const tg = e.target.closest(".mega-tg");
+    if (tg) { const col = tg.closest(".mega-col"); toggle(col, !col.classList.contains("open")); }
+  });
   document.addEventListener("click", (e) => { if (!mega.hidden && !mega.contains(e.target) && e.target !== btn) set(false); });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !mega.hidden) { set(false); btn.focus(); } });
   if (TOOL_ID) $$("a", mega).forEach((a) => { if (new URL(a.href).pathname === location.pathname) a.setAttribute("aria-current", "page"); });

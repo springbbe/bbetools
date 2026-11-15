@@ -28,11 +28,11 @@ export function healthyRange(cm, table = BMI_ASIA) {
 }
 
 export const ACTIVITY = [
-  [1.2, "Ít vận động (ngồi nhiều, không tập)"],
-  [1.375, "Vận động nhẹ (tập 1–3 buổi/tuần)"],
-  [1.55, "Vận động vừa (tập 3–5 buổi/tuần)"],
-  [1.725, "Vận động nhiều (tập 6–7 buổi/tuần)"],
-  [1.9, "Rất nhiều (lao động nặng, tập 2 lần/ngày)"]
+  [1.2, "Ít vận động (không tập)"],
+  [1.375, "Nhẹ (tập 1–3 buổi/tuần)"],
+  [1.55, "Vừa (tập 3–5 buổi/tuần)"],
+  [1.725, "Nhiều (tập 6–7 buổi/tuần)"],
+  [1.9, "Rất nhiều (lao động nặng)"]
 ];
 /** BMR theo Mifflin–St Jeor (kcal/ngày) */
 export function bmr(sex, kg, cm, age) {

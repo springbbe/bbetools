@@ -158,12 +158,12 @@ function code128(text) {
 }
 
 export const TYPES = {
-  ean13: { name: "EAN-13", enc: ean13, hint: "12 or 13 digits. Used on retail products worldwide." },
-  ean8: { name: "EAN-8", enc: ean8, hint: "7 or 8 digits, for small products." },
-  upca: { name: "UPC-A", enc: upca, hint: "11 or 12 digits (US, Canada)." },
-  code128: { name: "Code 128", enc: code128, hint: "Unaccented letters, digits, symbols. For internal codes, shipping labels, warehouses." },
-  code39: { name: "Code 39", enc: code39, hint: "Uppercase unaccented letters, digits and - . $ / + % space." },
-  itf14: { name: "ITF-14", enc: itf14, hint: "13 or 14 digits, printed on shipping cartons." }
+  ean13: { name: "EAN-13", short: "retail products", enc: ean13, hint: "12 or 13 digits. Used on retail products worldwide." },
+  ean8: { name: "EAN-8", short: "small products", enc: ean8, hint: "7 or 8 digits, for small products." },
+  upca: { name: "UPC-A", short: "US, Canada", enc: upca, hint: "11 or 12 digits (US, Canada)." },
+  code128: { name: "Code 128", short: "letters, digits, shipping", enc: code128, hint: "Unaccented letters, digits, symbols. For internal codes, shipping labels, warehouses." },
+  code39: { name: "Code 39", short: "capitals, digits", enc: code39, hint: "Uppercase unaccented letters, digits and - . $ / + % space." },
+  itf14: { name: "ITF-14", short: "cartons", enc: itf14, hint: "13 or 14 digits, printed on shipping cartons." }
 };
 
 export function encode(type, text, opts) {

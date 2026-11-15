@@ -61,7 +61,7 @@ async function labelsPdf(codes, o) {
 let seq = 0;
 const api = formTool({
   fields: [
-    { id: "type", type: "select", label: "Barcode type", value: "ean13", choices: Object.entries(TYPES).map(([k, t]) => [k, t.name + " – " + t.hint.split(".")[0]]) },
+    { id: "type", type: "select", label: "Barcode type", value: "ean13", choices: Object.entries(TYPES).map(([k, t]) => [k, t.name + " – " + t.short]) },
     { id: "mode", type: "seg", label: "Quantity", value: "one", choices: [["one", "One code"], ["bulk", "Many codes (labels)"]] },
     { id: "text", label: "Code content", value: "", placeholder: "Example: 400638133393", attrs: { autocomplete: "off", spellcheck: "false", autocapitalize: "characters" }, show: (v) => v.mode === "one" },
     { id: "list", type: "textarea", label: "Code list (one per line)", value: "", url: false, placeholder: "893460400100\n893460400101\n893460400102", attrs: { rows: 6, spellcheck: "false" }, hint: `Up to ${MAX_BULK} codes. You can paste a column straight from Excel.`, show: (v) => v.mode === "bulk" },

@@ -37,7 +37,7 @@ export function fileTool(cfg) {
       h("button", { class: "btn big", type: "button", onclick: () => pick() }, h("span", { html: icon("file"), style: { display: "contents" } }), cfg.pickLabel || "Choose " + noun),
       cfg.sample ? h("button", { class: "btn ghost", type: "button", onclick: trySample }, h("span", { html: icon("sparkles"), style: { display: "contents" } }), "Try a sample file") : null),
     h("p", { html: IS_TOUCH ? "or paste a copied file: tap and hold → Paste" : `or drag and drop anywhere, or paste with <kbd>${MOD}</kbd> + <kbd>V</kbd> (screenshots, files, links)` }),
-    h("p", { class: "fmt", text: describeAccept(cfg.accept) }));
+    h("p", { class: "fmt", text: `Accepts: ${describeAccept(cfg.accept)}` }));
 
   /* ---- màn làm việc ---- */
   const list = h("ul", { class: "flist", "aria-label": "File list" });

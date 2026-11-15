@@ -46,6 +46,7 @@ const chips = $$(".chips .chip");
 function filter(gid, scroll) {
   chips.forEach((c) => c.setAttribute("aria-current", String(c.dataset.filter === gid)));
   $$(".group-block").forEach((s) => { s.hidden = gid !== "all" && s.dataset.group !== gid; });
+  $("#tat-ca").classList.toggle("filtered", gid !== "all"); // lọc theo một nhóm thì hiện đủ công cụ của nhóm (điện thoại)
   if (scroll) $("#tat-ca").scrollIntoView({ behavior: "smooth", block: "start" });
 }
 chips.forEach((c) => c.addEventListener("click", (e) => {
@@ -58,6 +59,15 @@ $$(".hero-cats a").forEach((a) => a.addEventListener("click", (e) => {
   e.preventDefault();
   filter(a.dataset.filter, true);
   replaceUrl(a.getAttribute("href"));
+}));
+/* điện thoại: mỗi nhóm hiện 6 công cụ đầu, nút mở/thu gọn tại chỗ (mọi liên kết vẫn có sẵn trong HTML) */
+$$(".more-tools").forEach((b) => b.addEventListener("click", () => {
+  const sec = b.closest(".group-block"), open = !sec.classList.contains("open");
+  sec.classList.toggle("open", open);
+  b.setAttribute("aria-expanded", String(open));
+  b.querySelector("span").textContent = open ? "Thu gọn" : b.dataset.more;
+  if (open) { const first = sec.querySelectorAll(".cards > li")[6]; const a = first && first.querySelector("a"); if (a) a.focus({ preventScroll: true }); }
+  else sec.scrollIntoView({ block: "nearest" });
 }));
 const fromHash = chips.find((c) => c.getAttribute("href") === location.hash && c.dataset.filter !== "all");
 if (fromHash) filter(fromHash.dataset.filter, false);

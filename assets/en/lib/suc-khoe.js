@@ -29,11 +29,11 @@ export function healthyRange(cm, table = BMI_ASIA) {
 }
 
 export const ACTIVITY = [
-  [1.2, "Sedentary (mostly sitting, no exercise)"],
-  [1.375, "Lightly active (exercise 1–3 times/week)"],
-  [1.55, "Moderately active (exercise 3–5 times/week)"],
-  [1.725, "Very active (exercise 6–7 times/week)"],
-  [1.9, "Extra active (physical job, training twice a day)"]
+  [1.2, "Sedentary (no exercise)"],
+  [1.375, "Light (1–3 workouts/week)"],
+  [1.55, "Moderate (3–5 workouts/week)"],
+  [1.725, "Active (6–7 workouts/week)"],
+  [1.9, "Very active (heavy labour)"]
 ];
 /** BMR theo Mifflin–St Jeor (kcal/ngày) */
 export function bmr(sex, kg, cm, age) {

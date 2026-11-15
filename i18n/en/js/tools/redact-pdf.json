@@ -21,6 +21,7 @@
  "Đang dọn dữ liệu thừa…": "Removing leftover data…",
  "Đang kiểm tra lại file kết quả…": "Checking the result file…",
  "Kiểm tra lại thấy trang bị che vẫn còn chữ, nên chưa xuất file. Hãy báo lỗi kèm file mẫu (không chứa thông tin thật).": "The check found text left on a redacted page, so the file was not exported. Please report this with a sample file (without real information).",
+ "-da-che.pdf": "-redacted.pdf",
  "{0} vùng che · {1}/{2} trang chuyển thành ảnh": "{0} {0|box|boxes} · {1}/{2} pages turned into images",
  "Che và tải về": "Redact and download",
  "Đây là file mẫu (thông tin giả). Chọn, kéo thả hoặc dán file PDF của bạn để che thật.": "This is a sample file (fake details). Choose, drop or paste your own PDF to redact it.",
@@ -50,6 +51,5 @@
  "Đang đọc file…": "Reading file…",
  "Kéo khung lên chỗ cần che, hoặc tìm theo chữ ở bên cạnh.": "Drag boxes over what to hide, or find text in the panel.",
  "Đã kiểm tra lại: các trang bị che không còn chữ nào trong file ({0} KB).": "Checked: redacted pages contain no text in the file ({0} KB).",
- "Đã che thông tin!": "Redacted!",
- "-da-che.pdf": "-redacted.pdf"
+ "Đã che thông tin!": "Redacted!"
 }

@@ -18,13 +18,13 @@
  "Đang đọc trang {0}/{1}{2}…": "Reading page {0}/{1}{2}…",
  "Đang lưu file…": "Saving file…",
  "BbeTools – PDF scan thành PDF tìm kiếm được": "BbeTools – Searchable PDF (OCR)",
+ "--- Trang {0} ---\n": "--- Page {0} ---\n",
+ "-tim-kiem-duoc.pdf": "-searchable.pdf",
  "{0} từ nhận dạng": "{0} {0|word|words} recognized",
  "chữ nhận dạng được": "recognized text",
  "Đã nhận dạng {0} trang": "Recognized {0} {0|page|pages}",
  ", bỏ qua {0} trang đã có chữ": ", skipped {0} {0|page|pages} with text",
  " · độ tin cậy trung bình {0}%": " · average confidence {0}%",
  " · {0} giây. Mở file và thử Ctrl/⌘ + F để tìm chữ.": " · {0} s. Open the file and try Ctrl/⌘ + F to search.",
- "PDF đã tìm kiếm được!": "Your PDF is searchable!",
- "--- Trang {0} ---\n": "--- Page {0} ---\n",
- "-tim-kiem-duoc.pdf": "-searchable.pdf"
+ "PDF đã tìm kiếm được!": "Your PDF is searchable!"
 }

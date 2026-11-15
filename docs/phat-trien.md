@@ -176,6 +176,15 @@ updated: 2026-11-13
 - Liên kết ngược: trang công cụ có khối "Bài hướng dẫn" (giữa FAQ và "Công cụ liên quan") khi có bài khai báo công cụ đó trong `tools`; trang chủ hiện 3 bài mới nhất; chân trang có mục "Hướng dẫn".
 - Thêm bài: viết file `.md`, chạy build + check. `build.js` dừng nếu `tool:id`/`tools` trỏ tới công cụ không có hoặc chưa `done`. `check.js` báo lỗi khi thiếu trường, title > 60, desc > 155 ký tự, id không tồn tại, tên liên kết sai, file `data` không có; **cảnh báo** khi file dữ liệu trong `data` có `updated` mới hơn bài (rà lại số liệu rồi sửa `updated` của bài).
 
+## Giao diện trên điện thoại (quy ước chung)
+
+- Khung form (`frames/form.js`): dưới 900 px có thanh kết quả gọn dính đáy màn hình (`.fm-bar`, `aria-live="polite"`, tôn trọng safe-area), chỉ hiện khi đang xem form mà phần kết quả còn ngoài khung nhìn; bấm để cuộn tới chi tiết. Số chính mặc định lấy từ thẻ số nổi bật `.stat.hl` (rồi thẻ số đầu tiên, rồi `.result-big`); công cụ cần khác thì khai báo `summary: (out, vals) => ({ value, label })` (trả `null` để ẩn).
+- Trang chủ dưới 600 px: mỗi nhóm hiện 6 công cụ đầu, nút "Xem cả N công cụ" (`.more-tools`, `aria-expanded`) mở tại chỗ; mọi liên kết vẫn có trong HTML, chỉ ẩn bằng CSS khi `<html>` có lớp `js` (đoạn script đầu trang thêm vào). Lọc theo chip thì hiện đủ.
+- Ngăn kéo "Tất cả công cụ": mỗi nhóm là mục gập (`.mega-tg`), nhóm của trang hiện tại (`body[data-group]`) mở sẵn; đầu ngăn kéo có ô mở bảng lệnh tìm kiếm, cuối có liên kết "Hướng dẫn" (chỉ tiếng Việt). Máy tính vẫn là mega menu như cũ.
+- Gợi ý theo kiểu nhập trong HTML tĩnh: `.no-touch` (ẩn trên thiết bị cảm ứng) và `.touch-only`, cùng điều kiện `(hover: none)` với `IS_TOUCH` của core.
+- Vùng chạm tối thiểu 44×44 px cho nút sao trên thẻ, chip, nút đổi ngôn ngữ: nới bằng `::after` trong suốt, không đổi kích thước nhìn thấy. Đường dẫn (breadcrumb) dưới 600 px ẩn mục cuối (trùng h1); JSON-LD vẫn đủ.
+- Nhãn lựa chọn của `<select>` phải vừa ô ở 375 px (khoảng 30 ký tự): ghi số chính, đưa phần giải thích vào `hint`.
+
 ## Công cụ PDF làm việc theo từng trang
 
 Tách, xoá, sắp xếp, xoay trang, PDF sang ảnh… dùng chung `pageTool()` trong `assets/pdf-pages.js` (khung file ở chế độ `custom`). Công cụ chỉ khai báo phần riêng:
