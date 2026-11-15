@@ -129,7 +129,7 @@ export function textTool(cfg) {
   }
   async function pasteIn() {
     try { ta.value = await navigator.clipboard.readText(); changed(); ta.focus(); }
-    catch (_) { toast("Trình duyệt chưa cho đọc clipboard. Hãy bấm vào ô rồi nhấn Ctrl/⌘ + V."); ta.focus(); }
+    catch (_) { toast("Trình duyệt chưa cho đọc clipboard. Hãy bấm vào ô rồi bấm Ctrl/⌘ + V."); ta.focus(); }
   }
   ta.addEventListener("input", changed);
   remember.addEventListener("change", persist);

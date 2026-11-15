@@ -51,7 +51,7 @@ interactiveTool({
       h("details", { class: "dc-help" }, h("summary", { text: "Cách lấy link emoji, sticker" }),
         h("ul", null,
           h("li", { text: "Discord trên máy tính hoặc trình duyệt: chuột phải vào emoji, sticker trong tin nhắn → Sao chép liên kết (Copy Link)." }),
-          h("li", { html: "Hoặc gõ dấu gạch chéo ngược trước emoji rồi gửi, vd. <code>\\:ten_emoji:</code>: Discord hiện mã dạng <code>&lt;:ten_emoji:123…&gt;</code>, sao chép mã đó." }),
+          h("li", { html: "Hoặc gõ dấu gạch chéo ngược trước emoji rồi gửi, ví dụ <code>\\:ten_emoji:</code>: Discord hiện mã dạng <code>&lt;:ten_emoji:123…&gt;</code>, sao chép mã đó." }),
           h("li", { text: "Trên điện thoại: giữ vào emoji → mở trang thông tin emoji; nếu không có nút sao chép, hãy dùng Discord trên trình duyệt." }))),
       h("div", { class: "row" }, getBtn,
         h("button", { class: "btn ghost", type: "button", onclick: () => { textIn.value = SAMPLE; fetchLinks(); } }, "Thử với mẫu")));

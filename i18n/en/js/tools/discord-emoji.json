@@ -8,7 +8,7 @@
  "Dán được nhiều cái cùng lúc, mỗi cái một dòng.": "You can paste several at once, one per line.",
  "Cách lấy link emoji, sticker": "How to get emoji, sticker links",
  "Discord trên máy tính hoặc trình duyệt: chuột phải vào emoji, sticker trong tin nhắn → Sao chép liên kết (Copy Link).": "Discord on desktop or in a browser: right-click an emoji or sticker in a message → Copy Link.",
- "Hoặc gõ dấu gạch chéo ngược trước emoji rồi gửi, vd. <code>\\:ten_emoji:</code>: Discord hiện mã dạng <code>&lt;:ten_emoji:123…&gt;</code>, sao chép mã đó.": "Or type a backslash before the emoji and send it, e.g. <code>\\:emoji_name:</code>: Discord shows a code like <code>&lt;:emoji_name:123…&gt;</code>; copy that code.",
+ "Hoặc gõ dấu gạch chéo ngược trước emoji rồi gửi, ví dụ <code>\\:ten_emoji:</code>: Discord hiện mã dạng <code>&lt;:ten_emoji:123…&gt;</code>, sao chép mã đó.": "Or type a backslash before the emoji and send it, e.g. <code>\\:emoji_name:</code>: Discord shows a code like <code>&lt;:emoji_name:123…&gt;</code>; copy that code.",
  "Trên điện thoại: giữ vào emoji → mở trang thông tin emoji; nếu không có nút sao chép, hãy dùng Discord trên trình duyệt.": "On a phone: press and hold the emoji → open its info; if there is no copy button, use Discord in a browser.",
  "Thử với mẫu": "Try a sample",
  "Các bộ sticker": "Sticker packs",

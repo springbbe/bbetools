@@ -1,7 +1,7 @@
 {
   "name": "BbeTools",
   "short_name": "BbeTools",
-  "description": "Công cụ tiện ích miễn phí cho người Việt, chạy ngay trên trình duyệt",
+  "description": "Công cụ miễn phí cho người Việt, chạy ngay trên trình duyệt",
   "lang": "vi",
   "start_url": "./",
   "scope": "./",

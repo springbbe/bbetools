@@ -1,5 +1,5 @@
 /* Tự sinh bởi scripts/build.js từ assets/tools/percentage.js và i18n/en/js/ — đừng sửa tay. */
-/* Máy tính phần trăm: X% của Y, X là bao nhiêu % của Y, tăng/giảm bao nhiêu %, cộng/trừ phần trăm, tìm số gốc */
+/* Tính phần trăm: X% của Y, X là bao nhiêu % của Y, tăng/giảm bao nhiêu %, cộng/trừ phần trăm, tìm số gốc */
 import { h } from "../core.js";
 import { formTool } from "../frames/form.js";
 import { alert, note } from "../calc.js";

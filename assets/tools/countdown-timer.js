@@ -26,7 +26,7 @@ interactiveTool({
       h("div", { class: "cd-presets", role: "group", "aria-label": "Chọn nhanh" }, PRESETS.map(([ms, l]) => h("button", { class: "chip", type: "button", text: l, onclick: () => setTotal(ms) }))));
     const startBtn = h("button", { class: "btn big", type: "button", onclick: toggle });
     const stopRing = h("button", { class: "btn big danger cd-stop", type: "button", hidden: true, onclick: silence }, h("span", { html: icon("bell"), style: { display: "contents" } }), "Tắt chuông");
-    const label = h("input", { class: "input", type: "text", maxlength: 60, placeholder: "Hẹn giờ để làm gì? (vd. Luộc trứng)", "aria-label": "Tên hẹn giờ", value: st.label, oninput: (e) => { st.label = e.target.value; save(); draw(); } });
+    const label = h("input", { class: "input", type: "text", maxlength: 60, placeholder: "Hẹn giờ để làm gì? (VD: Luộc trứng)", "aria-label": "Tên hẹn giờ", value: st.label, oninput: (e) => { st.label = e.target.value; save(); draw(); } });
     const box = h("div", { class: "cd" }, ring,
       h("div", { class: "row", style: { justifyContent: "center" } },
         h("button", { class: "ib", type: "button", title: "Đặt lại", "aria-label": "Đặt lại", html: icon("rotate-ccw"), onclick: reset }),

@@ -22,7 +22,7 @@ fileTool({
   options(el) {
     el.append(h("div", { class: "opt-group" }, h("p", { class: "opt-title", text: "Thuật toán" }),
       ALGOS.map((a) => { checks[a.id] = h("input", { type: "checkbox", checked: a.id === "sha256" || a.id === "md5" }); return h("label", { class: "switch" }, checks[a.id], h("span", { text: a.name })); })));
-    expect = h("textarea", { id: "ck-exp", class: "mono", rows: 3, placeholder: "Dán mã từ trang tải về (vd. SHA-256) hoặc nội dung file SHA256SUMS", spellcheck: "false" });
+    expect = h("textarea", { id: "ck-exp", class: "mono", rows: 3, placeholder: "Dán mã từ trang tải về (ví dụ SHA-256) hoặc nội dung file SHA256SUMS", spellcheck: "false" });
     el.append(h("div", { class: "field" }, h("label", { for: "ck-exp", text: "Mã cần đối chiếu (tuỳ chọn)" }), expect,
       h("small", { text: "Hoặc thả file .sha256, .md5, SHA256SUMS… cùng với file cần kiểm tra." })));
     return () => ({ algos: ALGOS.filter((a) => checks[a.id].checked).map((a) => a.id), expect: expect.value });

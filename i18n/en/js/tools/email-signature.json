@@ -1,7 +1,7 @@
 {
  "Đã sao chép chữ ký. Dán vào ô chữ ký của Gmail/Outlook.": "Signature copied. Paste it into your Gmail/Outlook signature box.",
  "Đã sao chép chữ ký.": "Signature copied.",
- "Không sao chép được: hãy bôi đen phần xem trước rồi nhấn Ctrl/⌘ + C.": "Couldn't copy: select the preview and press Ctrl/⌘ + C.",
+ "Không sao chép được: hãy bôi đen phần xem trước rồi bấm Ctrl/⌘ + C.": "Couldn't copy: select the preview and press Ctrl/⌘ + C.",
  "Đường link ảnh công khai (https://…). Gmail, Outlook không hiện ảnh tải lên trực tiếp.": "A public image link (https://…). Gmail and Outlook don't show directly uploaded images.",
  "Kiểu": "Layout",
  "Ảnh bên trái": "Photo on the left",
@@ -45,7 +45,7 @@
  "Cách dán vào Gmail": "How to paste into Gmail",
  "Bấm “Sao chép chữ ký” ở trên.": "Click “Copy signature” above.",
  "Mở Gmail → biểu tượng bánh răng → Xem tất cả chế độ cài đặt → thẻ Chung → mục Chữ ký → Tạo mới.": "Open Gmail → gear icon → See all settings → General tab → Signature → Create new.",
- "Nhấn Ctrl/⌘ + V vào ô chữ ký, chọn chữ ký mặc định cho thư mới và thư trả lời, rồi bấm Lưu thay đổi ở cuối trang.": "Press Ctrl/⌘ + V in the signature box, choose it as the default for new emails and replies, then click Save Changes at the bottom.",
+ "Bấm Ctrl/⌘ + V vào ô chữ ký, chọn chữ ký mặc định cho thư mới và thư trả lời, rồi bấm Lưu thay đổi ở cuối trang.": "Press Ctrl/⌘ + V in the signature box, choose it as the default for new emails and replies, then click Save Changes at the bottom.",
  "Cách dán vào Outlook": "How to paste into Outlook",
  "Outlook trên web / Outlook mới: Cài đặt → Tài khoản → Chữ ký → Chữ ký mới, dán vào rồi Lưu.": "Outlook on the web / new Outlook: Settings → Accounts → Signatures → New signature, paste, then Save.",
  "Outlook trên Windows (bản cổ điển): File → Options → Mail → Signatures → New, dán vào ô Edit signature.": "Outlook for Windows (classic): File → Options → Mail → Signatures → New, paste into Edit signature.",

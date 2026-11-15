@@ -138,7 +138,7 @@ interactiveTool({
         ul.append(li);
       });
       empty.hidden = !!ul.children.length;
-      empty.textContent = total ? "Mọi việc đã xong và đang bị ẩn." : "Chưa có việc nào. Gõ ở ô trên rồi nhấn Enter, hoặc chọn một mẫu bên dưới.";
+      empty.textContent = total ? "Mọi việc đã xong và đang bị ẩn." : "Chưa có việc nào. Gõ ở ô trên rồi bấm Enter, hoặc chọn một mẫu bên dưới.";
     }
     window.addEventListener("storage", (e) => { if (e.key === "bt:" + KEY && e.newValue) { try { const keep = db.cur; db = JSON.parse(e.newValue); if (db.lists.some((l) => l.id === keep)) db.cur = keep; draw(); } catch (_) {} } });
     draw();

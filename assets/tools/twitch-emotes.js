@@ -17,7 +17,7 @@ interactiveTool({
     const S = ctx.store;
     let abort = null, current = null, all = [];
 
-    const chanIn = h("input", { id: "tw-chan", class: "input", type: "text", inputmode: "url", autocomplete: "off", spellcheck: "false", placeholder: "Tên kênh, vd. pokimane hoặc https://www.twitch.tv/…", value: S.get("chan", "") });
+    const chanIn = h("input", { id: "tw-chan", class: "input", type: "text", inputmode: "url", autocomplete: "off", spellcheck: "false", placeholder: "Tên kênh, VD: pokimane hoặc https://www.twitch.tv/…", value: S.get("chan", "") });
     chanIn.addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); fetchChannel(); } });
     chanIn.addEventListener("paste", () => setTimeout(() => { if (/twitch\.tv|7tv\.app/i.test(chanIn.value) && parseChannel(chanIn.value)) fetchChannel(); }, 0));
     const getBtn = h("button", { class: "btn big", type: "button", onclick: () => fetchChannel() }, btnIcon("download"), "Lấy emote");

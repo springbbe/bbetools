@@ -17,7 +17,7 @@ interactiveTool({
     const st = Object.assign({ text: SAMPLES["Ăn gì hôm nay?"], remove: false, sound: true, history: [] }, S.get("state", {}));
     let items = [], angle = 0, spinning = false;
 
-    const canvas = h("canvas", { class: "wh-canvas", role: "button", tabindex: "0", "aria-label": "Vòng quay. Nhấn Enter hoặc phím cách để quay" });
+    const canvas = h("canvas", { class: "wh-canvas", role: "button", tabindex: "0", "aria-label": "Vòng quay. Bấm Enter hoặc phím cách để quay" });
     const wheelBox = h("div", { class: "wh-wheel" }, canvas, h("span", { class: "wh-pin", "aria-hidden": "true" }), h("button", { class: "wh-hub", type: "button", text: "QUAY", onclick: spin }));
     const result = h("div", { class: "wh-result", "aria-live": "assertive" });
     const ta = h("textarea", { id: "wh-list", class: "textarea", rows: 10, spellcheck: "false", value: st.text, oninput: () => { st.text = ta.value; save(); parse(); } });

@@ -50,6 +50,8 @@ export function validate(reg) {
     if (!KINDS.includes(t.kind)) err(`${where}: kind phải là ${KINDS.join("/")}`);
     if (!STATUSES.includes(t.status)) err(`${where}: status phải là ${STATUSES.join("/")}`);
     if (t.vnOnly != null && typeof t.vnOnly !== "boolean") err(`${where}: vnOnly phải là true/false`);
+    if (t.hosts != null && (!Array.isArray(t.hosts) || !t.hosts.length || t.hosts.some((x) => typeof x !== "string" || !x.trim()))) err(`${where}: hosts phải là mảng tên máy chủ bên thứ ba mà trình duyệt gọi tới`);
+    if (t.hosts && !t.privacy) err(`${where}: có "hosts" thì cần "privacy" nói rõ trình duyệt gọi tới đâu (trang Giới thiệu liệt kê từ hai trường này)`);
     if (t.seoTitle != null && (typeof t.seoTitle !== "string" || !t.seoTitle.trim() || /[↔/&]/.test(t.seoTitle))) err(`${where}: seoTitle phải là chuỗi viết theo cách gõ tìm, không có ký hiệu ↔ / &`);
     if (!Array.isArray(t.keywords) || !t.keywords.length) err(`${where}: cần ít nhất một từ khoá`);
     if (t.kind === "file" && !(t.accept && t.accept.length)) err(`${where}: công cụ kiểu file cần "accept"`);

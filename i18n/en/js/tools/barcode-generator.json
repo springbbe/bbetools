@@ -37,6 +37,7 @@
  "Mã bị bỏ qua": "Skipped codes",
  "tem-ma-vach.pdf": "barcode-labels.pdf",
  "Không tạo được PDF": "Couldn't create the PDF",
+ "In tem (PDF A4)": "Print labels (A4 PDF)",
  "ma-vach-png.zip": "barcodes-png.zip",
  "Không tạo được file .zip": "Couldn't create the .zip file",
  "Tải PNG (.zip)": "Download PNG (.zip)",

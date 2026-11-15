@@ -30,7 +30,7 @@ export function parseInput(input, offsetMin = 420) {
   }
   const t = Date.parse(s);
   if (Number.isFinite(t)) return { ms: t, unit: "date" };
-  return { error: "Không đọc được. Nhập số (vd. 1767225600) hoặc ngày giờ (vd. 21/10/2026 14:30, 2026-10-21T07:30:00Z)." };
+  return { error: "Không đọc được. Nhập số (ví dụ 1767225600) hoặc ngày giờ (ví dụ 21/10/2026 14:30, 2026-10-21T07:30:00Z)." };
 }
 
 /** Các phần ngày giờ ở múi offsetMin */

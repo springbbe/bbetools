@@ -63,4 +63,4 @@ Trả trước giúp giảm lãi, nhưng hợp đồng thường có phí trả 
 
 Ngân hàng thường tính lãi theo số ngày thực tế của từng tháng và có quy tắc làm tròn riêng, nên mỗi kỳ có thể lệch đôi chút so với cách tính tròn tháng. Lịch trả nợ chính thức là bản ngân hàng cung cấp kèm hợp đồng; bạn có thể tải bảng từ công cụ về dạng CSV để đối chiếu.
 
-Muốn xem tiền nhàn rỗi sinh lời thế nào nếu gửi thay vì trả nợ trước, thử [Lãi kép](tool:compound-interest).
+Muốn xem tiền nhàn rỗi sinh lời thế nào nếu gửi thay vì trả nợ trước, thử [Tính lãi kép](tool:compound-interest).

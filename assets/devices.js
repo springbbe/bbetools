@@ -356,16 +356,16 @@ export function kbdPane(p, ctx, opts = {}) {
 }
 
 /* ---------- Chuột ---------- */
-/** Thử chuột: các nút (cả Lùi/Tiến), nhấp đúp, phát hiện chuột tự nhấp đúp, con lăn, tần số báo (polling rate) */
+/** Thử chuột: các nút (cả Lùi/Tiến), bấm đúp, phát hiện chuột tự bấm đúp, con lăn, tần số báo (polling rate) */
 export function mousePane(p) {
   p.textContent = "";
   const NAMES = ["Trái", "Giữa", "Phải", "Lùi", "Tiến"];
   const cnt = [0, 0, 0, 0, 0], lastDown = {};
   let dbl = 0, wheelUp = 0, wheelDown = 0, wheelSide = 0, minGap = Infinity, hz = 0, hzMax = 0, win = [], bad = new Set();
   const btns = NAMES.map((t, i) => h("span", { class: "dt-mbtn", "data-b": i }, h("b", { text: t }), h("small", { text: "0 lần" })));
-  const area = h("div", { class: "dt-mouse", tabindex: "0", role: "application", "aria-label": "Vùng thử chuột: bấm các nút, nhấp đúp, cuộn, di chuột" },
+  const area = h("div", { class: "dt-mouse", tabindex: "0", role: "application", "aria-label": "Vùng thử chuột: bấm các nút, bấm đúp, cuộn, di chuột" },
     h("div", { class: "dt-mb" }, btns.slice(0, 3)), h("div", { class: "dt-mb side" }, btns.slice(3)),
-    h("p", { class: "dt-mlog", text: "Bấm các nút chuột, nhấp đúp, cuộn hoặc di chuột trong khung này" }));
+    h("p", { class: "dt-mlog", text: "Bấm các nút chuột, bấm đúp, cuộn hoặc di chuột trong khung này" }));
   const stats = h("dl", { class: "kv dt-mstats" });
   const warn = h("div");
   p.append(area, warn, stats, h("p", { class: "hint", text: "Nút Lùi/Tiến là hai nút bên hông của nhiều chuột. Bàn di chuột (touchpad) thường không có nút giữa. Trong khung này, các nút không làm trang chuyển đi." }));
@@ -374,7 +374,7 @@ export function mousePane(p) {
     btns.forEach((b, i) => { b.lastChild.textContent = `${cnt[i]} lần`; });
     stats.textContent = "";
     const row = (k, v) => [h("dt", { text: k }), h("dd", { text: v })];
-    stats.append(...row("Nhấp đúp", `${dbl} lần`),
+    stats.append(...row("Bấm đúp", `${dbl} lần`),
       ...row("Hai lần bấm sát nhau nhất", Number.isFinite(minGap) ? Math.round(minGap) + " ms" : "–"),
       ...row("Con lăn", `lên ${wheelUp} · xuống ${wheelDown}` + (wheelSide ? ` · ngang ${wheelSide}` : "")),
       ...row("Tần số báo (polling rate)", hzMax ? `khoảng ${hzMax} Hz` + (hz ? ` (hiện tại ${hz} Hz)` : "") : "di chuột nhanh trong khung để đo"));
@@ -386,8 +386,8 @@ export function mousePane(p) {
     if (lastDown[i] != null) {
       const gap = now - lastDown[i];
       minGap = Math.min(minGap, gap);
-      // người bấm hai lần liên tiếp mất ít nhất ~80 ms; nhanh hơn là công tắc chuột bị dội (tự nhấp đúp)
-      if (gap < 60 && !bad.has(i)) { bad.add(i); warn.textContent = ""; warn.append(alertEl("warn", `Nút ${[...bad].map((b) => NAMES[b] || b).join(", ")} vừa nhận hai lần bấm chỉ cách nhau ${Math.round(gap)} ms: có thể chuột bị lỗi tự nhấp đúp (công tắc bị mòn). Hãy bấm từng cái chậm rãi vài lần để chắc chắn.`)); }
+      // người bấm hai lần liên tiếp mất ít nhất ~80 ms; nhanh hơn là công tắc chuột bị dội (tự bấm đúp)
+      if (gap < 60 && !bad.has(i)) { bad.add(i); warn.textContent = ""; warn.append(alertEl("warn", `Nút ${[...bad].map((b) => NAMES[b] || b).join(", ")} vừa nhận hai lần bấm chỉ cách nhau ${Math.round(gap)} ms: có thể chuột bị lỗi tự bấm đúp (công tắc bị mòn). Hãy bấm từng cái chậm rãi vài lần để chắc chắn.`)); }
     }
     lastDown[i] = now;
     mlog.textContent = "Bấm nút " + (NAMES[i] || i).toLowerCase();
@@ -418,7 +418,7 @@ export function mousePane(p) {
   area.addEventListener("mouseup", mu);
   area.addEventListener("auxclick", (e) => e.preventDefault());
   area.addEventListener("contextmenu", (e) => e.preventDefault());
-  area.addEventListener("dblclick", () => { dbl++; mlog.textContent = "Nhấp đúp ✓"; draw(); });
+  area.addEventListener("dblclick", () => { dbl++; mlog.textContent = "Bấm đúp ✓"; draw(); });
   area.addEventListener("wheel", wh, { passive: false });
   area.addEventListener("pointermove", pm);
   area.addEventListener("pointerleave", leave);

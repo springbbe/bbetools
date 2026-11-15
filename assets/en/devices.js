@@ -357,7 +357,7 @@ export function kbdPane(p, ctx, opts = {}) {
 }
 
 /* ---------- Chuột ---------- */
-/** Thử chuột: các nút (cả Lùi/Tiến), nhấp đúp, phát hiện chuột tự nhấp đúp, con lăn, tần số báo (polling rate) */
+/** Thử chuột: các nút (cả Lùi/Tiến), bấm đúp, phát hiện chuột tự bấm đúp, con lăn, tần số báo (polling rate) */
 export function mousePane(p) {
   p.textContent = "";
   const NAMES = ["Left", "Middle", "Right", "Back", "Forward"];
@@ -387,7 +387,7 @@ export function mousePane(p) {
     if (lastDown[i] != null) {
       const gap = now - lastDown[i];
       minGap = Math.min(minGap, gap);
-      // người bấm hai lần liên tiếp mất ít nhất ~80 ms; nhanh hơn là công tắc chuột bị dội (tự nhấp đúp)
+      // người bấm hai lần liên tiếp mất ít nhất ~80 ms; nhanh hơn là công tắc chuột bị dội (tự bấm đúp)
       if (gap < 60 && !bad.has(i)) { bad.add(i); warn.textContent = ""; warn.append(alertEl("warn", `Button ${[...bad].map((b) => NAMES[b] || b).join(", ")} just registered two clicks only ${Math.round(gap)} ms apart: the mouse may be double-clicking by itself (worn switch). Click slowly a few times to be sure.`)); }
     }
     lastDown[i] = now;

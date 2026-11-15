@@ -111,7 +111,7 @@ const api = formTool({
         const b = e.currentTarget; b.disabled = true;
         try { save(await labelsPdf(codes, o), "barcode-labels.pdf"); } catch (err) { toast(err.userMsg || "Couldn't create the PDF", { type: "err" }); }
         b.disabled = false;
-      } }, h("span", { html: icon("printer"), style: { display: "contents" } }), "In tem (PDF A4)"),
+      } }, h("span", { html: icon("printer"), style: { display: "contents" } }), "Print labels (A4 PDF)"),
       h("button", { class: "btn ghost", type: "button", onclick: async (e) => {
         const b = e.currentTarget; b.disabled = true;
         try { save(await zip(await Promise.all(codes.map(async (c) => ({ name: fileBase(c) + ".png", blob: await toBlob(drawCanvas(c, o)) })))), "barcodes-png.zip"); }

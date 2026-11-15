@@ -1,5 +1,5 @@
 /* Tự sinh bởi scripts/build.js từ assets/tools/compound-interest.js và i18n/en/js/ — đừng sửa tay. */
-/* Lãi kép: vốn ban đầu + góp thêm hằng tháng, nhập lãi theo năm/quý/tháng/ngày; biểu đồ tăng trưởng theo năm */
+/* Tính lãi kép: vốn ban đầu + góp thêm hằng tháng, nhập lãi theo năm/quý/tháng/ngày; biểu đồ tăng trưởng theo năm */
 import { h } from "../core.js";
 import { formTool } from "../frames/form.js";
 import { money, num, stat, stats, table, csvButton, alert, note } from "../calc.js";

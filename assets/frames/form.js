@@ -9,7 +9,7 @@
      summary: (out, vals) => ({ value, label }) | null   // tuỳ chọn: số chính cho thanh kết quả dính đáy (điện thoại);
                                           // mặc định lấy thẻ số nổi bật (.stat.hl), rồi thẻ số đầu tiên, rồi .result-big
    }) */
-import { $, h, icon, copyText, debounce, replaceUrl, LANG } from "../core.js";
+import { $, h, icon, copyText, debounce, replaceUrl, sourceNote, LANG } from "../core.js";
 
 const GROUP = LANG === "vi" ? "." : ","; // dấu nhóm nghìn của ô tiền
 
@@ -58,6 +58,8 @@ export function formTool(cfg) {
     if (big && txt(big)) return { value: txt(big), label: big.previousElementSibling ? txt(big.previousElementSibling) : "" };
     return null;
   }
+
+  const srcEl = sourceNote(); // "Số liệu cập nhật … · Nguồn: …" luôn nằm ngay dưới kết quả
 
   const ctrls = {};
   const defaults = {};
@@ -129,11 +131,16 @@ export function formTool(cfg) {
   function update() {
     const v = values();
     for (const c of Object.values(ctrls)) if (c.f.show) c.el.hidden = !c.f.show(v);
-    try { cfg.compute(v, out, api); }
-    catch (e) { console.error(e); out.textContent = ""; out.append(h("p", { class: "alert err", text: e.userMsg || e.message })); }
-    try { summary = summarize(v); } catch (_) { summary = null; }
-    if (summary) { barVal.textContent = summary.value; barLbl.textContent = summary.label; }
-    syncBar();
+    const after = () => {
+      if (srcEl) out.append(srcEl);
+      try { summary = summarize(v); } catch (_) { summary = null; }
+      if (summary) { barVal.textContent = summary.value; barLbl.textContent = summary.label; }
+      syncBar();
+    };
+    const fail = (e) => { console.error(e); out.textContent = ""; out.append(h("p", { class: "alert err", text: e.userMsg || e.message })); };
+    let r;
+    try { r = cfg.compute(v, out, api); } catch (e) { fail(e); }
+    if (r && typeof r.then === "function") r.then(after, (e) => { fail(e); after(); }); else after();
     syncUrl();
   }
   function reset() { for (const [k, c] of Object.entries(ctrls)) c.set(defaults[k]); update(); }

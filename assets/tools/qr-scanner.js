@@ -1,6 +1,6 @@
 /* Quét mã QR / mã vạch: từ camera (BarcodeDetector có sẵn hoặc zxing-wasm), từ ảnh, ảnh chụp màn hình, PDF.
    Nhận diện sẵn: link, WiFi, VietQR (chuyển khoản), danh thiếp, email, SMS, điện thoại. */
-import { h, icon, ROOT, lib, intake, copyText, toast, fmtNum, esc, takeHandoff, fileKinds, LANG } from "../core.js";
+import { h, icon, ROOT, lib, intake, copyText, toast, fmtNum, esc, takeHandoff, fileKinds, sourceNote, LANG } from "../core.js";
 import { interactiveTool } from "../frames/interactive.js";
 import { parseVietQR } from "../lib/vietqr.js";
 import { readNumber } from "../lib/doc-so.js";
@@ -210,6 +210,7 @@ interactiveTool({
         h("div", { class: "row" },
           h("button", { class: "btn sm", type: "button", onclick: () => copyText(r.text) }, h("span", { html: icon("copy"), style: { display: "contents" } }), "Sao chép"),
           d.actions.map(([l, fn]) => h("button", { class: "btn ghost sm", type: "button", onclick: fn, text: l }))));
+      if (parseVietQR(r.text)) { const src = sourceNote(); if (src) card.append(src); } // tên ngân hàng lấy từ data/ngan-hang-vietqr.json
       results.prepend(card);
     }
     takeHandoff().then((fs) => fs.length && scanFiles(fs));

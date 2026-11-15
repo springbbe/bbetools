@@ -40,7 +40,7 @@ const SAMPLES = {
     noiNhan: "Như trên" }
 };
 const GENERIC = { trichYeu: "Thực hiện nhiệm vụ chuyển đổi số năm 2027",
-  noiDung: "I. MỤC ĐÍCH, YÊU CẦU\n1. Mục đích: nâng cao hiệu quả quản lý, điều hành.\n2. Yêu cầu: bảo đảm đúng tiến độ, tiết kiệm.\nII. NỘI DUNG THỰC HIỆN\n1. Số hóa hồ sơ, tài liệu lưu trữ của xã.\n2. Tổ chức tập huấn cho cán bộ, công chức.\nIII. TỔ CHỨC THỰC HIỆN\nCác đơn vị căn cứ nội dung trên để triển khai thực hiện.",
+  noiDung: "I. MỤC ĐÍCH, YÊU CẦU\n1. Mục đích: nâng cao hiệu quả quản lý, điều hành.\n2. Yêu cầu: bảo đảm đúng tiến độ, tiết kiệm.\nII. NỘI DUNG THỰC HIỆN\n1. Số hoá hồ sơ, tài liệu lưu trữ của xã.\n2. Tổ chức tập huấn cho cán bộ, công chức.\nIII. TỔ CHỨC THỰC HIỆN\nCác đơn vị căn cứ nội dung trên để triển khai thực hiện.",
   noiNhan: "Các phòng chuyên môn thuộc UBND xã\nCác thôn trên địa bàn xã" };
 const BLANK = { chuQuan: "", coQuan: "", cqVT: "", dvVT: "", so: "", diaDanh: "", trichYeu: "", thamQuyen: "", canCu: "", deNghi: "", kinhGui: "", noiDung: "", quyen: "", dau: "", chucVu: "", ten: "", noiNhan: "", nguoiSoan: "", diaChi: "" };
 

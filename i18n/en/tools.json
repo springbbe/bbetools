@@ -2,7 +2,7 @@
  "site": {
   "tagline": "Free online tools that run right in your browser",
   "title": "Free online tools that run in your browser",
-  "description": "{0} free online tools: merge and compress PDFs, compress images, HEIC to JPG, QR codes… All in your browser; your files never leave your device."
+  "description": "{0} free online tools: compress PDFs and images, HEIC to JPG, QR codes… All in your browser; your files never leave your device."
  },
  "groups": {
   "pdf": {
@@ -223,6 +223,10 @@
   "noto-emoji": {
    "title": "Noto Animated Emoji list",
    "source": "Google's Noto Animated Emoji page (googlefonts.github.io/noto-emoji-animation), Vietnamese names from Unicode CLDR 47.0.0 annotations"
+  },
+  "ngan-hang-vietqr": {
+   "title": "VietQR bank list",
+   "source": "VietQR public bank list (api.vietqr.io/v2/banks), captured on the update date"
   }
  },
  "tools": {
@@ -394,7 +398,7 @@
    ],
    "howto": [
     "Choose or drag and drop one or more PDF files.",
-    "Choose a compression level: light, recommended or strong.",
+    "Choose a compression level: “Light”, “Medium” (recommended) or “Strong”.",
     "Click “Compress PDF”, see how much smaller it got, then download."
    ],
    "faq": [
@@ -1960,6 +1964,9 @@
      "q": "Is my text sent anywhere?",
      "a": "Not with voices installed on your device. Voices marked “online” (like Google or Microsoft Online) send the text to the provider's server; choose another voice to keep it private."
     }
+   ],
+   "hosts": [
+    "the voice provider's server, only when you pick an “online” voice"
    ]
   },
   "word-counter": {
@@ -4516,7 +4523,7 @@
    "howto": [
     "Open the folder on github.com and copy the link from the address bar (like …/tree/main/folder). A file link or a whole repo works too.",
     "Paste it and click “List files” to see the files and their size.",
-    "Click “Download … files as .zip”. For a private repo, open the token section, paste a GitHub token with read access and try again."
+    "Click “Download … as .zip”. For a private repo, open the token section, paste a GitHub token with read access and try again."
    ],
    "faq": [
     {
@@ -4617,6 +4624,13 @@
      "q": "Can I repost other people's photos and videos?",
      "a": "They belong to the author. Saving them for yourself is fine; reposting or commercial use needs the author's permission."
     }
+   ],
+   "hosts": [
+    "public.api.bsky.app",
+    "plc.directory",
+    "cdn.bsky.app",
+    "video.bsky.app",
+    "the poster's storage server (PDS)"
    ]
   },
   "mastodon-media": {
@@ -4656,6 +4670,9 @@
      "q": "Can I repost other people's photos and videos?",
      "a": "They belong to the author. Saving them for yourself is fine; reposting or commercial use needs the author's permission."
     }
+   ],
+   "hosts": [
+    "the Mastodon server in the link and wherever it stores files"
    ]
   },
   "redact-pdf": {

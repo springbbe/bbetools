@@ -2,7 +2,7 @@
  "Tính checksum": "Calculate checksum",
  "danh sách {0} mã — dùng để đối chiếu": "list of {0} hashes — used for comparison",
  "Thuật toán": "Algorithms",
- "Dán mã từ trang tải về (vd. SHA-256) hoặc nội dung file SHA256SUMS": "Paste the hash from the download page (e.g. SHA-256) or the contents of a SHA256SUMS file",
+ "Dán mã từ trang tải về (ví dụ SHA-256) hoặc nội dung file SHA256SUMS": "Paste the hash from the download page (e.g. SHA-256) or the contents of a SHA256SUMS file",
  "Mã cần đối chiếu (tuỳ chọn)": "Expected hash (optional)",
  "Hoặc thả file .sha256, .md5, SHA256SUMS… cùng với file cần kiểm tra.": "Or drop a .sha256, .md5, SHA256SUMS… file along with the file to check.",
  "Thêm file cần tính checksum (file danh sách mã chỉ dùng để đối chiếu).": "Add the files to checksum (hash list files are only used for comparison).",

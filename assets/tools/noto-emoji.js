@@ -1,7 +1,7 @@
 /* Tải emoji động: tìm trong danh sách Noto Animated Emoji (data/noto-emoji.json, tên tiếng Việt theo Unicode CLDR),
    tải file Google đã làm sẵn từ fonts.gstatic.com (GIF, WEBP động, PNG, SVG, Lottie; máy chủ cho trang web tải thẳng),
    hoặc tự vẽ Lottie thành GIF cỡ nhỏ hơn, nền tuỳ chọn ngay trên trình duyệt. */
-import { h, ROOT, LANG, save, copyText, toast, debounce, replaceUrl, fmtSize } from "../core.js";
+import { h, ROOT, LANG, save, copyText, toast, debounce, replaceUrl, fmtSize, sourceNote } from "../core.js";
 import { interactiveTool } from "../frames/interactive.js";
 import { readList, filterList, fileUrl, fileName, FILES } from "../lib/noto-emoji.js";
 import { say, btnIcon, fetchBlob, lottieData, lottieToGif } from "../sticker.js";
@@ -52,7 +52,7 @@ interactiveTool({
       h("div", { class: "ne-bar" },
         h("div", { class: "field" }, h("label", { for: "ne-q", text: "Tìm emoji" }), q),
         h("div", { class: "field" }, h("label", { for: "ne-g", text: "Nhóm" }), groupSel)),
-      status, det, count, grid,
+      status, det, count, grid, sourceNote(),
       h("p", { class: "hint" }, "Emoji động Noto của Google, phát hành theo giấy phép ",
         h("a", { href: "https://creativecommons.org/licenses/by/4.0/deed.vi", target: "_blank", rel: "noopener", text: "CC BY 4.0" }),
         ": dùng được cả cho mục đích thương mại, nhớ ghi nguồn “Noto Emoji, Google”."));

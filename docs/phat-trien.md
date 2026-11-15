@@ -55,6 +55,8 @@ scripts/serve.js           server chạy thử ở máy (tắt cache, phục v�
 scripts/check.js           kiểm tra registry, đường dẫn tương đối, thẻ SEO, bài hướng dẫn
 scripts/articles.js        đọc, kiểm tra, dựng HTML cho bài hướng dẫn (dùng chung cho build, check, test)
 scripts/markdown.js        bộ chuyển Markdown tối thiểu (không phụ thuộc npm)
+scripts/sources.js         mã nguồn một công cụ + module nó nhập (check.js đối chiếu tên nút trong howto)
+scripts/wording.js         danh sách từ ngữ thống nhất (check.js báo lỗi khi dùng từ cấm)
 scripts/icons.js           tạo assets/icons.svg từ Lucide
 scripts/make-samples.js    tạo lại file mẫu (Chrome headless + sips trên macOS)
 scripts/make-brand.js      tạo ảnh OG (chung + theo nhóm: assets/og/<nhóm>.png, assets/og/en/<nhóm>.png) và icon ứng dụng
@@ -142,15 +144,17 @@ Khai báo trong bảng `LIBS` của `assets/core.js`, gọi bằng `lib("tên")`
    - `keywords`: từ đồng nghĩa, có dấu hay không dấu đều được (tìm kiếm tự bỏ dấu)
    - `accept` (với công cụ nhận file): `pdf`, `image`, `heic`, `svg`, `audio`, `video`, `excel`, `csv`, `json`, `docx`, `text`, `any`
    - `output` (loại file kết quả), `multiple`, `related`, `aliases`, `data`, `howto`, `faq` (ít nhất 3 câu), `popular`
+   - `hosts` (tuỳ chọn): máy chủ bên thứ ba mà trình duyệt gọi thẳng tới (tên máy chủ, hoặc mô tả ngắn khi không cố định); bắt buộc đi kèm `privacy`. Trang Giới thiệu liệt kê mọi công cụ có `privacy` kèm `hosts` (công cụ không có `hosts` ghi là không gọi máy chủ nào). Mô tả có chữ tiếng Việt thì bản dịch cũng phải có `hosts`
    - `seoTitle` (tuỳ chọn): tên viết theo cách người dùng gõ tìm, dùng cho `<title>` khi tên hiển thị có ký hiệu (↔, /, &), ví dụ "Tính lương gross ↔ net" → "Tính lương gross sang net". h1 và thẻ vẫn dùng `name`. Có `seoTitle` thì bản dịch cũng phải có (`build.js` báo thiếu)
 2. Viết `assets/tools/<id>.js` dùng một trong 4 khung, ví dụ:
    ```js
    import { textTool } from "../frames/text.js";
    textTool({ transform: (text) => text.toUpperCase() });
    ```
-3. Hàm tính toán thuần đặt ở `assets/lib/` và viết test trong `tests/`. Dữ liệu dễ lỗi thời đặt ở `data/<tên>.json` với `title`, `updated`, `source`, rồi khai báo trong trường `data` của công cụ.
-4. Nếu dùng icon mới: chạy `node scripts/icons.js`. Thêm file mẫu vào `samples/` nếu công cụ nhận file.
-5. Đổi `status` thành `done`, chạy build và kiểm tra (bên dưới), thử trong trình duyệt (cả khổ điện thoại và chế độ tối), commit.
+3. Hàm tính toán thuần đặt ở `assets/lib/` và viết test trong `tests/`. Dữ liệu dễ lỗi thời đặt ở `data/<tên>.json` với `title`, `updated`, `source`, rồi khai báo trong trường `data` của công cụ. Dòng "Số liệu cập nhật dd/mm/yyyy · Nguồn: …" do hàm dùng chung `sourceNote()` (core.js) vẽ từ khối `<script id="data-sources">` mà build nhúng vào trang (nguồn đã dịch lấy ở `i18n/en/tools.json` → `data.<tên>`): khung form tự gắn ngay dưới kết quả, khung khác phải gọi `sourceNote()` và đặt dưới phần kết quả. `check.js` báo lỗi khi công cụ đọc file `data/` mà chưa khai báo, hoặc có `data` mà không hiện dòng này.
+4. `howto`: tên nút đặt trong “…” phải đúng chuỗi trên giao diện (cả bản tiếng Anh với giao diện tiếng Anh); `check.js` đối chiếu với mã nguồn công cụ và module nó nhập. "…" trong tên nút là phần thay đổi (số đếm), cụm sau "ví dụ" là nội dung mẫu nên được bỏ qua.
+5. Nếu dùng icon mới: chạy `node scripts/icons.js`. Thêm file mẫu vào `samples/` nếu công cụ nhận file.
+6. Đổi `status` thành `done`, chạy build và kiểm tra (bên dưới), thử trong trình duyệt (cả khổ điện thoại và chế độ tối), commit.
 
 ## Bài hướng dẫn
 
@@ -175,6 +179,16 @@ updated: 2026-11-13
 - Trang bài: đường dẫn Trang chủ › Hướng dẫn › bài, dải đầu trang nhuộm màu nhóm của công cụ chính, dòng "Cập nhật", thẻ công cụ chính ngay sau đoạn mở đầu, cuối bài là "Công cụ dùng trong bài" và "Bài hướng dẫn khác" (ưu tiên bài chung công cụ, rồi chung nhóm). JSON-LD `Article` + `BreadcrumbList`, `og:type` = article, sitemap có `<lastmod>` = `updated`.
 - Liên kết ngược: trang công cụ có khối "Bài hướng dẫn" (giữa FAQ và "Công cụ liên quan") khi có bài khai báo công cụ đó trong `tools`; trang chủ hiện 3 bài mới nhất; chân trang có mục "Hướng dẫn".
 - Thêm bài: viết file `.md`, chạy build + check. `build.js` dừng nếu `tool:id`/`tools` trỏ tới công cụ không có hoặc chưa `done`. `check.js` báo lỗi khi thiếu trường, title > 60, desc > 155 ký tự, id không tồn tại, tên liên kết sai, file `data` không có; **cảnh báo** khi file dữ liệu trong `data` có `updated` mới hơn bài (rà lại số liệu rồi sửa `updated` của bài).
+
+## Từ ngữ (check.js, scripts/wording.js)
+
+Áp dụng cho chuỗi hiển thị tiếng Việt: `tools.json` (trừ `keywords` vì đó là biến thể tìm kiếm), `data/*.json`, `content/`, chuỗi trong JS.
+
+- "bấm", không "nhấn/nhấp/click" (giữ "nhấn mạnh", "nhấp nháy", "màu nhấn"); "bấm đúp" cho double-click.
+- "máy chủ", không "server" (trừ tên riêng như "SQL Server").
+- "ví dụ" trong câu văn; "VD:" chỉ dùng trong placeholder; không viết "vd.".
+- "xoá", "hoá" (kiểu đang dùng), không "xóa", "hóa"; "tỉ lệ", không "tỷ lệ".
+- Tên công cụ nhóm Tính toán dạng động từ: "Tính phần trăm", "Tính lãi kép", "Tính calo mỗi ngày (TDEE)"… (slug giữ nguyên, tên cũ nằm trong `keywords`). Đổi tên công cụ thì sửa cả tên hiển thị của liên kết `tool:` trong bài hướng dẫn.
 
 ## Giao diện trên điện thoại (quy ước chung)
 

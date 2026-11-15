@@ -549,6 +549,22 @@ function initLangHint() {
   setTimeout(() => toast("This page is also available in English.", { action: { label: "English", run: () => { location.href = a.href; } }, ms: 9000 }), 800);
 }
 
+/* ---------- Nguồn số liệu (data/*.json) ---------- */
+/** Dòng "Số liệu cập nhật dd/mm/yyyy · Nguồn: …" cho công cụ dùng dữ liệu dễ lỗi thời (thuế, bảo hiểm, giá điện…).
+    build.js nhúng ngày cập nhật và nguồn (đã dịch) của các file trong trường `data` của công cụ vào <script id="data-sources">.
+    Khung form tự gắn dòng này ngay dưới kết quả; công cụ dùng khung khác thì gọi sourceNote() rồi đặt dưới phần kết quả.
+    Trả về null nếu trang không có dữ liệu nguồn. */
+let srcData;
+export function sourceNote() {
+  if (srcData === undefined) { try { const el = $("#data-sources"); srcData = el ? JSON.parse(el.textContent) : null; } catch (_) { srcData = null; } }
+  if (!srcData || !srcData.length) return null;
+  const day = (iso) => {
+    const [y, m, d] = iso.split("-").map(Number);
+    return LANG === "vi" ? `${String(d).padStart(2, "0")}/${String(m).padStart(2, "0")}/${y}` : new Date(Date.UTC(y, m - 1, d)).toLocaleDateString(LANG, { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
+  };
+  return h("div", { class: "data-src" }, srcData.map((s) => h("p", null, h("span", { html: icon("info"), style: { display: "contents" } }), h("span", { text: `Số liệu cập nhật ${day(s.updated)} · Nguồn: ${s.source}` }))));
+}
+
 /* ---------- Khởi động ---------- */
 initMenu();
 initTheme();

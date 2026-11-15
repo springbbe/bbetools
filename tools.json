@@ -4,9 +4,9 @@
     "baseUrl": "https://springbbe.github.io/bbetools/",
     "gaId": "G-6GW96LCW9V",
     "repo": "https://github.com/springbbe/bbetools",
-    "tagline": "Công cụ tiện ích miễn phí cho người Việt, chạy ngay trên trình duyệt",
+    "tagline": "Công cụ miễn phí cho người Việt, chạy ngay trên trình duyệt",
     "title": "Công cụ online miễn phí cho người Việt",
-    "description": "{0} công cụ miễn phí: ghép, nén PDF, nén ảnh, HEIC sang JPG, VietQR, lịch âm… Chạy ngay trên trình duyệt, file không rời khỏi máy bạn."
+    "description": "{0} công cụ miễn phí: nén PDF, nén ảnh, VietQR, lịch âm… Chạy ngay trên trình duyệt, file không bao giờ rời khỏi máy bạn."
   },
   "groups": [
     { "id": "pdf", "phase": 2, "slug": "pdf", "name": "PDF", "icon": "file-text", "color": "#E5484D", "desc": "Ghép, tách, nén, xoay, ký, đặt mật khẩu và chuyển đổi file PDF.",
@@ -116,7 +116,7 @@
       "accept": ["pdf"], "output": "pdf", "status": "done", "popular": true,
       "aliases": ["chia-pdf", "cat-pdf", "split-pdf"],
       "related": ["merge-pdf", "extract-pages-pdf", "remove-pages-pdf"],
-      "howto": ["Chọn, kéo thả hoặc dán (Ctrl/⌘ + V) file PDF cần tách.", "Chọn cách tách: theo khoảng trang (vd. 1-3, 4-8), cứ mỗi N trang một file, hoặc bấm chọn từng trang cần lấy.", "Bấm “Tách PDF” rồi tải từng file hoặc tải tất cả dạng .zip."],
+      "howto": ["Chọn, kéo thả hoặc dán (Ctrl/⌘ + V) file PDF cần tách.", "Chọn cách tách: theo khoảng trang (ví dụ 1-3, 4-8), cứ mỗi N trang một file, hoặc bấm chọn từng trang cần lấy.", "Bấm “Tách PDF” rồi tải từng file hoặc tải tất cả dạng .zip."],
       "faq": [
         { "q": "Gõ khoảng trang thế nào?", "a": "Ngăn cách các khoảng bằng dấu phẩy, ví dụ 1-3, 4-8; mỗi khoảng thành một file. “8-” nghĩa là từ trang 8 đến hết. Bật “Gộp các khoảng vào một file” nếu chỉ cần một file." },
         { "q": "Tách mỗi trang thành một file thế nào?", "a": "Chọn “Mỗi N trang” và để N = 1, hoặc chọn “Chọn trang”, bấm chọn các trang rồi bật “Mỗi trang đã chọn thành một file riêng”." },
@@ -174,7 +174,7 @@
       "accept": ["pdf"], "multiple": true, "output": "pdf", "status": "done", "popular": true,
       "aliases": ["giam-dung-luong-pdf", "compress-pdf"],
       "related": ["merge-pdf", "compress-image", "pdf-to-image", "grayscale-pdf"],
-      "howto": ["Chọn hoặc kéo thả một hay nhiều file PDF.", "Chọn mức nén: nhẹ, khuyên dùng hoặc mạnh.", "Bấm “Nén PDF”, xem dung lượng giảm bao nhiêu rồi tải về."],
+      "howto": ["Chọn hoặc kéo thả một hay nhiều file PDF.", "Chọn mức nén “Nhẹ”, “Vừa” (khuyên dùng) hoặc “Mạnh”.", "Bấm “Nén PDF”, xem dung lượng giảm bao nhiêu rồi tải về."],
       "faq": [
         { "q": "Nén PDF có làm mờ chữ không?", "a": "Không. Công cụ chỉ nén lại các ảnh bên trong file; chữ và hình vẽ vector giữ nguyên nên vẫn sắc nét và chọn được chữ." },
         { "q": "Vì sao file của tôi giảm rất ít?", "a": "File PDF chủ yếu là chữ thường đã gọn sẵn. Công cụ giảm mạnh nhất với PDF scan hoặc có nhiều ảnh chụp." },
@@ -420,7 +420,7 @@
       "accept": ["pdf"], "status": "done",
       "aliases": ["doc-pdf","mo-pdf","pdf-viewer"],
       "related": ["pdf-to-text","pdf-to-image"],
-      "howto": ["Chọn, kéo thả hoặc dán file PDF.","Cuộn để đọc; dùng thanh công cụ để nhảy trang, phóng to, thu nhỏ hoặc xem toàn màn hình.","Gõ vào ô tìm chữ (không cần dấu) rồi nhấn Enter để sang chỗ tiếp theo; bôi đen để sao chép chữ."],
+      "howto": ["Chọn, kéo thả hoặc dán file PDF.","Cuộn để đọc; dùng thanh công cụ để nhảy trang, phóng to, thu nhỏ hoặc xem toàn màn hình.","Gõ vào ô tìm chữ (không cần dấu) rồi bấm Enter để sang chỗ tiếp theo; bôi đen để sao chép chữ."],
       "faq": [
         { "q": "Trên điện thoại phóng to có bị mờ không?", "a": "Không. Dùng nút phóng to, thu nhỏ trên thanh công cụ hoặc xem toàn màn hình; trang được vẽ lại theo độ phóng nên chữ vẫn nét." },
         { "q": "Tìm “ha noi” có ra “Hà Nội” không?", "a": "Có. Ô tìm kiếm không phân biệt chữ hoa, chữ thường và dấu tiếng Việt." },
@@ -456,7 +456,7 @@
         { "q": "Ảnh bị loá, bị tối thì sao?", "a": "Công cụ tự cân sáng và làm trắng nền, nhưng vệt loá đèn che mất chữ thì không khôi phục được. Hãy chụp lại ở chỗ sáng đều, tránh đèn chiếu thẳng xuống thẻ." },
         { "q": "In ra thẻ có đúng kích thước thật không?", "a": "Có, nếu in đúng tỉ lệ 100%. Mỗi mặt được đặt trên trang A4 đúng 85,6 × 54 mm (khổ thẻ ID-1 theo ISO/IEC 7810). Chọn “Vừa trang” (Fit to page) sẽ làm thẻ to hoặc nhỏ đi; bật “Thước kiểm tra 5 cm” để đo lại bản in." },
         { "q": "Không tự cắt đúng mép thẻ thì sao?", "a": "Bấm “Chỉnh góc” rồi kéo 4 chấm tới 4 góc thẻ (trên máy tính có thể dùng phím mũi tên). Chấm tô đặc là góc trên trái của thẻ; bấm “Xoay” nếu ảnh ra bị ngược. Thẻ đặt trên nền tối, chụp thẳng sẽ được tìm chính xác hơn." },
-        { "q": "Có nên ghi chữ “Bản sao dùng để…” không?", "a": "Nên, khi gửi bản sao cho nơi khác: ghi rõ mục đích (vd. “Bản sao dùng để làm hồ sơ vay vốn”) giúp hạn chế người khác dùng bản sao vào việc khác. Chữ được in thẳng vào ảnh, không xoá được trên file." },
+        { "q": "Có nên ghi chữ “Bản sao dùng để…” không?", "a": "Nên, khi gửi bản sao cho nơi khác: ghi rõ mục đích (ví dụ “Bản sao dùng để làm hồ sơ vay vốn”) giúp hạn chế người khác dùng bản sao vào việc khác. Chữ được in thẳng vào ảnh, không xoá được trên file." },
         { "q": "Dùng cho CMND, bằng lái, thẻ ngân hàng được không?", "a": "Được, với mọi loại thẻ cùng khổ ID-1 (85,6 × 54 mm): căn cước, CMND 12 số, giấy phép lái xe dạng thẻ, thẻ BHYT dạng thẻ, thẻ ngân hàng." }
       ]
     },
@@ -794,7 +794,7 @@
     {
       "id": "telegram-stickers", "slug": "tai-sticker-telegram", "name": "Tải sticker Telegram", "group": "download", "icon": "sticker", "kind": "interactive",
       "desc": "Tải cả bộ sticker Telegram về máy: nguyên bản (WEBP, TGS, WEBM) hoặc đổi sang PNG, GIF; đổi được cả file .tgs, .webm có sẵn.",
-      "privacy": "BbeTools không có máy chủ: trình duyệt của bạn gọi thẳng api.telegram.org bằng token bot của chính bạn. File .tgs, .webm bạn tự chọn chỉ được xử lý trên máy này.",
+      "hosts": ["api.telegram.org"], "privacy": "BbeTools không có máy chủ: trình duyệt của bạn gọi thẳng api.telegram.org bằng token bot của chính bạn. File .tgs, .webm bạn tự chọn chỉ được xử lý trên máy này.",
       "keywords": ["tải sticker telegram", "download sticker telegram", "telegram sticker downloader", "sticker telegram sang gif", "tgs sang gif", "tgs to gif", "webm sang gif", "lưu sticker telegram", "bộ sticker telegram", "telegram emoji"],
       "status": "done",
       "aliases": ["sticker-telegram", "telegram-sticker", "tgs-sang-gif"],
@@ -956,7 +956,7 @@
       "desc": "Đọc to văn bản tiếng Việt bằng giọng đọc có sẵn trên thiết bị, tô sáng câu đang đọc, chỉnh tốc độ.",
       "keywords": ["tts", "text to speech", "giọng đọc", "chị google đọc", "đọc chữ", "chuyển văn bản thành giọng nói"],
       "status": "done",
-      "privacy": "Văn bản được đọc bằng giọng có sẵn trên máy bạn; chỉ khi chọn giọng ghi “trực tuyến”, văn bản mới do máy chủ của nhà cung cấp giọng đó xử lý.",
+      "hosts": ["máy chủ của nhà cung cấp giọng “trực tuyến”, chỉ khi bạn chọn giọng đó"], "privacy": "Văn bản được đọc bằng giọng có sẵn trên máy bạn; chỉ khi chọn giọng ghi “trực tuyến”, văn bản mới do máy chủ của nhà cung cấp giọng đó xử lý.",
       "aliases": ["doc-chu", "chuyen-van-ban-thanh-giong-noi", "text-to-speech"],
       "related": ["word-counter", "ocr", "voice-recorder"],
       "howto": ["Gõ hoặc dán văn bản cần đọc.", "Chọn giọng tiếng Việt, tốc độ, cao độ.", "Bấm Đọc; câu đang đọc được tô sáng. Đặt con trỏ giữa văn bản để đọc từ câu đó."],
@@ -1228,7 +1228,7 @@
       "related": ["pit-calculator", "number-to-words"],
       "howto": ["Chọn chiều tính Gross → Net hoặc Net → Gross rồi nhập mức lương tháng.", "Nhập số người phụ thuộc, chọn vùng và mức lương đóng bảo hiểm (nếu công ty đóng thấp hơn lương thật).", "Xem lương thực nhận, từng khoản bảo hiểm, thuế theo từng bậc và tổng chi phí doanh nghiệp phải trả; bấm “Sao chép link” để gửi kết quả."],
       "faq": [
-        { "q": "Công cụ dùng quy định nào?", "a": "Thuế TNCN theo biểu 5 bậc và mức giảm trừ gia cảnh 15,5 triệu đồng/tháng (người phụ thuộc 6,2 triệu) áp dụng từ kỳ tính thuế 2026; bảo hiểm 8% BHXH, 1,5% BHYT, 1% BHTN với trần 20 lần lương cơ sở và 20 lần lương tối thiểu vùng. Ngày cập nhật và nguồn ghi ở cuối trang." },
+        { "q": "Công cụ dùng quy định nào?", "a": "Thuế TNCN theo biểu 5 bậc và mức giảm trừ gia cảnh 15,5 triệu đồng/tháng (người phụ thuộc 6,2 triệu) áp dụng từ kỳ tính thuế 2026; bảo hiểm 8% BHXH, 1,5% BHYT, 1% BHTN với trần 20 lần lương cơ sở và 20 lần lương tối thiểu vùng. Ngày cập nhật và nguồn số liệu ghi ngay dưới kết quả." },
         { "q": "Lương gross và net khác nhau thế nào?", "a": "Gross là tổng lương trước khi trừ bảo hiểm và thuế; net là số tiền thực nhận về tài khoản sau khi trừ 10,5% bảo hiểm bắt buộc và thuế TNCN." },
         { "q": "Vì sao cần chọn vùng?", "a": "Mức trần đóng bảo hiểm thất nghiệp bằng 20 lần lương tối thiểu vùng, và lương đóng bảo hiểm không được thấp hơn lương tối thiểu vùng nơi doanh nghiệp hoạt động." },
         { "q": "Số liệu lương có bị gửi đi đâu không?", "a": "Không. Mọi phép tính chạy trên trình duyệt của bạn; số liệu chỉ nằm trên đường link nếu bạn tự sao chép gửi đi." }
@@ -1329,7 +1329,7 @@
       "faq": [
         { "q": "Địa chỉ mới ghi thế nào?", "a": "Từ 01/7/2025 bỏ cấp quận, huyện: ghi số nhà, đường (thôn, ấp), xã/phường/đặc khu, tỉnh/thành phố. Ví dụ: 12 Nguyễn Huệ, phường Sài Gòn, Thành phố Hồ Chí Minh." },
         { "q": "Phường cũ bị chia cho nhiều phường mới thì sao?", "a": "Công cụ hiện tất cả phường mới nhận một phần của đơn vị cũ, đơn vị đầu tiên là nơi có trụ sở cũ. Địa chỉ cụ thể của bạn phụ thuộc vị trí nhà — hãy hỏi UBND phường hoặc xem bản đồ sáp nhập." },
-        { "q": "Dữ liệu lấy từ đâu?", "a": "Danh mục hành chính của Cục Thống kê (cập nhật cả các thay đổi năm 2026) và bảng chuyển đổi xã cũ → mới tổng hợp từ các Nghị quyết của Uỷ ban Thường vụ Quốc hội. Ngày cập nhật ghi ở cuối trang." }
+        { "q": "Dữ liệu lấy từ đâu?", "a": "Danh mục hành chính của Cục Thống kê (cập nhật cả các thay đổi năm 2026) và bảng chuyển đổi xã cũ → mới tổng hợp từ các Nghị quyết của Uỷ ban Thường vụ Quốc hội. Ngày cập nhật và nguồn ghi ngay dưới kết quả." }
       ]
     },
     {
@@ -1348,9 +1348,9 @@
     },
 
     {
-      "id": "percentage", "slug": "tinh-phan-tram", "name": "Máy tính phần trăm", "group": "calc", "icon": "percent", "kind": "form",
+      "id": "percentage", "slug": "tinh-phan-tram", "name": "Tính phần trăm", "group": "calc", "icon": "percent", "kind": "form",
       "desc": "X% của Y, X là bao nhiêu % của Y, tăng/giảm bao nhiêu phần trăm.",
-      "keywords": ["%", "phần trăm", "tăng giảm bao nhiêu phần trăm", "percent"],
+      "keywords": ["máy tính phần trăm", "%", "phần trăm", "tăng giảm bao nhiêu phần trăm", "percent"],
       "status": "done", "popular": true,
       "aliases": ["phan-tram", "may-tinh-phan-tram"],
       "related": ["discount", "vat"],
@@ -1390,9 +1390,9 @@
       ]
     },
     {
-      "id": "compound-interest", "slug": "tinh-lai-kep", "name": "Lãi kép", "group": "calc", "icon": "trending-up", "kind": "form",
+      "id": "compound-interest", "slug": "tinh-lai-kep", "name": "Tính lãi kép", "group": "calc", "icon": "trending-up", "kind": "form",
       "desc": "Tính lãi kép khi đầu tư định kỳ, có biểu đồ tăng trưởng.",
-      "keywords": ["compound interest", "đầu tư", "lãi suất kép"],
+      "keywords": ["lãi kép", "compound interest", "đầu tư", "lãi suất kép"],
       "status": "done",
       "aliases": ["lai-kep", "lai-suat-kep", "compound-interest"],
       "related": ["savings-calculator", "loan-calculator"],
@@ -1474,9 +1474,9 @@
       ]
     },
     {
-      "id": "tdee", "slug": "tinh-calo-tdee", "name": "Calo cần mỗi ngày (TDEE)", "group": "calc", "icon": "flame", "kind": "form",
+      "id": "tdee", "slug": "tinh-calo-tdee", "name": "Tính calo mỗi ngày (TDEE)", "group": "calc", "icon": "flame", "kind": "form",
       "desc": "Tính BMR, TDEE và lượng calo để giữ, giảm hoặc tăng cân.",
-      "keywords": ["bmr", "giảm cân", "calo", "tdee", "calories"],
+      "keywords": ["calo cần mỗi ngày", "bmr", "giảm cân", "calo", "tdee", "calories"],
       "status": "done",
       "aliases": ["tinh-calo", "tdee", "bmr", "calo-giam-can"],
       "related": ["bmi"],
@@ -1548,7 +1548,7 @@
       "id": "qr-scanner", "slug": "quet-ma-qr", "name": "Quét mã QR", "group": "qr", "icon": "scan-qr-code", "kind": "interactive",
       "desc": "Quét QR và mã vạch bằng camera, từ ảnh chụp màn hình hoặc file PDF; đọc được cả QR chuyển khoản VietQR.",
       "keywords": ["đọc qr", "scan qr", "quét mã vạch", "qr reader", "đọc mã qr từ ảnh", "barcode scanner"],
-      "accept": ["image", "pdf"], "status": "done", "popular": true,
+      "accept": ["image", "pdf"], "data": ["ngan-hang-vietqr"], "status": "done", "popular": true,
       "aliases": ["doc-ma-qr", "scan-qr", "qr-scanner"],
       "related": ["qr-generator", "vietqr", "barcode-generator"],
       "howto": ["Bấm “Bật camera” và đưa mã QR vào khung, hoặc chọn/dán ảnh, file PDF có mã.", "Kết quả hiện ngay; với link, WiFi, VietQR, danh thiếp sẽ có thông tin đã tách sẵn.", "Sao chép nội dung hoặc mở link (luôn kiểm tra kỹ địa chỉ trước khi mở)."],
@@ -1988,7 +1988,7 @@
       "faq": [
         { "q": "Mật khẩu có bị lưu lại hay gửi đi không?", "a": "Không. Mật khẩu được tạo bằng crypto.getRandomValues (bộ sinh số dùng cho mật mã) ngay trên máy bạn; BbeTools không lưu và không gửi mật khẩu đi đâu." },
         { "q": "Nên dùng mật khẩu dài bao nhiêu?", "a": "Tối thiểu 12 ký tự ngẫu nhiên, nên dùng từ 16 trở lên; cụm từ dễ nhớ nên có 5–6 từ. Mỗi tài khoản dùng một mật khẩu riêng." },
-        { "q": "Cụm từ dễ nhớ là gì?", "a": "Là vài từ tiếng Việt quen thuộc được chọn ngẫu nhiên rồi ghép lại (vd. ConMeo-BauTroi-…), dễ nhớ, dễ gõ trên điện thoại nhưng vẫn khó đoán vì có hàng trăm nghìn tỷ cách ghép." }
+        { "q": "Cụm từ dễ nhớ là gì?", "a": "Là vài từ tiếng Việt quen thuộc được chọn ngẫu nhiên rồi ghép lại (ví dụ ConMeo-BauTroi-…), dễ nhớ, dễ gõ trên điện thoại nhưng vẫn khó đoán vì có hàng trăm nghìn tỷ cách ghép." }
       ]
     },
     {
@@ -2075,7 +2075,7 @@
       "status": "done", "popular": true,
       "aliases": ["pomodoro-timer", "hen-gio-pomodoro"],
       "related": ["countdown-timer", "stopwatch", "checklist", "quick-notes"],
-      "howto": ["Ghi việc cần làm (tuỳ chọn) rồi bấm Bắt đầu hoặc nhấn phím cách.", "Làm việc đến khi chuông báo, nghỉ ngắn 5 phút; sau 4 phiên được nghỉ dài.", "Chỉnh thời lượng, âm báo, tự chuyển phiên trong phần Cài đặt."],
+      "howto": ["Ghi việc cần làm (tuỳ chọn) rồi bấm Bắt đầu hoặc bấm phím cách.", "Làm việc đến khi chuông báo, nghỉ ngắn 5 phút; sau 4 phiên được nghỉ dài.", "Chỉnh thời lượng, âm báo, tự chuyển phiên trong phần Cài đặt."],
       "faq": [
         { "q": "Đóng tab thì đồng hồ có chạy tiếp không?", "a": "Đồng hồ tính theo giờ thực nên khi mở lại tab vẫn đúng thời gian còn lại. Để nhận chuông khi đang ở tab khác, hãy cho phép thông báo." },
         { "q": "Thống kê được lưu ở đâu?", "a": "Trong bộ nhớ trình duyệt (localStorage) của chính bạn, không gửi đi đâu." },
@@ -2090,7 +2090,7 @@
       "privacy": "Đồng hồ chạy ngay trên trình duyệt; trạng thái chỉ lưu trên máy này, không gửi đi đâu.",
       "aliases": ["dong-ho-bam-gio", "bam-giay"],
       "related": ["countdown-timer", "pomodoro"],
-      "howto": ["Bấm Bắt đầu hoặc nhấn phím cách.", "Bấm Vòng (phím L) để ghi thời gian từng vòng; vòng nhanh nhất màu xanh, chậm nhất màu đỏ.", "Dừng rồi bấm Đặt lại (phím R); tải bảng vòng ra CSV nếu cần."],
+      "howto": ["Bấm Bắt đầu hoặc bấm phím cách.", "Bấm Vòng (phím L) để ghi thời gian từng vòng; vòng nhanh nhất màu xanh, chậm nhất màu đỏ.", "Dừng rồi bấm Đặt lại (phím R); tải bảng vòng ra CSV nếu cần."],
       "faq": [
         { "q": "Đóng tab hay tắt màn hình thì đồng hồ có chạy tiếp không?", "a": "Có. Thời gian tính theo đồng hồ hệ thống nên mở lại trang vẫn đúng; trạng thái được lưu trong trình duyệt của bạn." },
         { "q": "Chính xác đến đâu?", "a": "Hiển thị đến 1/100 giây. Sai số chủ yếu do thời điểm bấm nút (phản xạ của người thường khoảng 0,1–0,2 giây)." },
@@ -2120,7 +2120,7 @@
       "privacy": "Danh sách và kết quả quay chỉ lưu trong trình duyệt của máy này, không gửi đi đâu.",
       "aliases": ["vong-quay", "quay-so-may-man"],
       "related": ["team-picker", "random-number", "coin-dice"],
-      "howto": ["Nhập danh sách, mỗi dòng một mục (hoặc chọn danh sách mẫu).", "Bấm Quay, bấm vào vòng hoặc nhấn phím cách.", "Bật “Bỏ mục trúng” khi bốc thăm nhiều giải, mỗi người chỉ trúng một lần."],
+      "howto": ["Nhập danh sách, mỗi dòng một mục (hoặc chọn danh sách mẫu).", "Bấm Quay, bấm vào vòng hoặc bấm phím cách.", "Bật “Bỏ mục trúng” khi bốc thăm nhiều giải, mỗi người chỉ trúng một lần."],
       "faq": [
         { "q": "Vòng quay có công bằng không?", "a": "Có. Kết quả được chọn bằng bộ sinh số ngẫu nhiên an toàn (crypto.getRandomValues) trước khi vòng quay chạy; hiệu ứng chỉ để xem. Các mục có cơ hội như nhau, trừ khi bạn đặt trọng số." },
         { "q": "Làm sao cho một mục dễ trúng hơn?", "a": "Thêm “* số” sau tên, ví dụ “Giải khuyến khích * 5” có cơ hội gấp 5 mục thường; ô trên vòng cũng to hơn tương ứng." },
@@ -2194,7 +2194,7 @@
       "privacy": "Danh sách lưu trong trình duyệt của chính máy này (localStorage), không gửi đi đâu.",
       "aliases": ["todo-list", "danh-sach-viec-can-lam"],
       "related": ["quick-notes", "pomodoro"],
-      "howto": ["Gõ việc cần làm rồi nhấn Enter (dán nhiều dòng để thêm nhiều việc một lúc).", "Đánh dấu việc đã xong; bấm đúp để sửa, kéo thả hoặc ↑↓ để đổi thứ tự.", "Tạo nhiều danh sách, dùng mẫu có sẵn, sao chép hoặc tải về dạng Markdown."],
+      "howto": ["Gõ việc cần làm rồi bấm Enter (dán nhiều dòng để thêm nhiều việc một lúc).", "Đánh dấu việc đã xong; bấm đúp để sửa, kéo thả hoặc ↑↓ để đổi thứ tự.", "Tạo nhiều danh sách, dùng mẫu có sẵn, sao chép hoặc tải về dạng Markdown."],
       "faq": [
         { "q": "Danh sách lưu ở đâu?", "a": "Trong trình duyệt của máy bạn (localStorage), không gửi đi đâu. Đổi máy hoặc xoá dữ liệu duyệt web sẽ mất, nên tải về nếu cần giữ." },
         { "q": "Dùng lại một danh sách (đồ đi du lịch…) thế nào?", "a": "Bấm “Bỏ đánh dấu hết” để làm lại từ đầu mà không phải nhập lại." },
@@ -2290,15 +2290,15 @@
     },
     {
       "id": "mouse-test", "slug": "kiem-tra-chuot", "name": "Test chuột", "group": "productivity", "icon": "mouse", "kind": "interactive",
-      "desc": "Kiểm tra chuột online: các nút (cả Lùi/Tiến), nhấp đúp, phát hiện chuột tự nhấp đúp, con lăn, tần số báo (polling rate).",
+      "desc": "Kiểm tra chuột online: các nút (cả Lùi/Tiến), bấm đúp, phát hiện chuột tự bấm đúp, con lăn, tần số báo (polling rate).",
       "keywords": ["test chuột", "kiểm tra chuột", "test double click", "chuột bị double click", "mouse test", "polling rate", "test con lăn chuột"],
       "privacy": "Thao tác chuột chỉ được xử lý ngay trên trình duyệt, không ghi lại hay gửi đi đâu.",
       "status": "done",
       "aliases": ["test-chuot", "test-double-click", "kiem-tra-double-click"],
       "related": ["keyboard-test", "screen-test", "device-test"],
-      "howto": ["Bấm lần lượt các nút chuột trong khung thử: nút nào nhận sẽ chuyển màu xanh và đếm số lần.", "Bấm từng cái chậm rãi: nếu một lần bấm bị nhận thành hai, công cụ sẽ báo chuột tự nhấp đúp.", "Lăn con lăn và di chuột nhanh trong khung để xem con lăn và tần số báo."],
+      "howto": ["Bấm lần lượt các nút chuột trong khung thử: nút nào nhận sẽ chuyển màu xanh và đếm số lần.", "Bấm từng cái chậm rãi: nếu một lần bấm bị nhận thành hai, công cụ sẽ báo chuột tự bấm đúp.", "Lăn con lăn và di chuột nhanh trong khung để xem con lăn và tần số báo."],
       "faq": [
-        { "q": "Chuột bị tự nhấp đúp (double click) là sao?", "a": "Bấm một lần mà máy nhận hai lần, thường do công tắc trong chuột bị mòn. Người bấm hai lần liên tiếp mất ít nhất khoảng 80 ms; công cụ báo khi hai lần bấm của cùng một nút cách nhau dưới 60 ms." },
+        { "q": "Chuột bị tự bấm đúp là sao?", "a": "Bấm một lần mà máy nhận hai lần, thường do công tắc trong chuột bị mòn. Người bấm hai lần liên tiếp mất ít nhất khoảng 80 ms; công cụ báo khi hai lần bấm của cùng một nút cách nhau dưới 60 ms." },
         { "q": "Tần số báo (polling rate) là gì?", "a": "Số lần chuột báo vị trí cho máy mỗi giây: chuột văn phòng thường 125 Hz, chuột chơi game 500–1000 Hz trở lên. Kết quả đo trên trình duyệt chỉ gần đúng và có thể bị giới hạn bởi trình duyệt, màn hình." },
         { "q": "Bấm nút Lùi/Tiến có làm trang chuyển đi không?", "a": "Không, trong khung thử các nút này bị chặn để bạn thử thoải mái." }
       ]
@@ -2324,7 +2324,7 @@
       "desc": "Dán link cửa hàng LINE để tải cả bộ sticker hoặc emoji LINE: nguyên bản PNG, APNG động kèm âm thanh, hoặc đổi sang GIF. Không cần đăng nhập.",
       "keywords": ["tải sticker line", "download sticker line", "line sticker downloader", "sticker line sang gif", "emoji line", "apng sang gif", "lưu sticker line", "sticker line động", "sticker line có âm thanh"],
       "status": "done", "popular": true,
-      "privacy": "BbeTools không có máy chủ: trình duyệt của bạn tải thẳng từ máy chủ của LINE (stickershop.line-scdn.net). Không cần đăng nhập, không gửi thông tin tài khoản LINE.",
+      "hosts": ["stickershop.line-scdn.net"], "privacy": "BbeTools không có máy chủ: trình duyệt của bạn tải thẳng từ máy chủ của LINE (stickershop.line-scdn.net). Không cần đăng nhập, không gửi thông tin tài khoản LINE.",
       "aliases": ["sticker-line", "line-sticker", "tai-emoji-line"],
       "related": ["telegram-stickers", "signal-stickers", "noto-emoji", "gif-maker"],
       "howto": ["Mở bộ sticker hoặc emoji trên store.line.me và sao chép địa chỉ trang (hoặc trong app LINE: trang bộ sticker → Chia sẻ → Sao chép link).", "Dán vào ô Link rồi bấm “Lấy bộ sticker”; trang tự tải cả bộ, kể cả sticker động và âm thanh.", "Chọn PNG + GIF hoặc định dạng gốc, bấm “Tải tất cả (.zip)” hoặc bấm từng sticker để tải riêng."],
@@ -2342,12 +2342,12 @@
       "keywords": ["emoji động", "tải emoji gif", "animated emoji", "noto emoji", "emoji png", "emoji lottie", "emoji trong suốt", "icon cảm xúc động", "emoji gif trong suốt"],
       "status": "done",
       "data": ["noto-emoji"],
-      "privacy": "Danh sách emoji nằm sẵn trong BbeTools; ảnh emoji được trình duyệt tải thẳng từ máy chủ Google Fonts (fonts.gstatic.com). GIF cỡ nhỏ được tạo ngay trên máy bạn.",
+      "hosts": ["fonts.gstatic.com"], "privacy": "Danh sách emoji nằm sẵn trong BbeTools; ảnh emoji được trình duyệt tải thẳng từ máy chủ Google Fonts (fonts.gstatic.com). GIF cỡ nhỏ được tạo ngay trên máy bạn.",
       "aliases": ["emoji-dong", "animated-emoji"],
       "related": ["line-stickers", "telegram-stickers", "gif-maker"],
-      "howto": ["Gõ tên emoji (có dấu hay không đều được, vd. “cuoi”, “tim”, “mèo”) hoặc dán thẳng emoji vào ô Tìm; có thể lọc theo nhóm.", "Bấm vào emoji để xem bản động.", "Bấm GIF, WEBP, PNG, SVG hoặc Lottie để tải file Google làm sẵn, hoặc chọn cỡ và nền rồi bấm “Tạo GIF” để có GIF nhẹ hơn."],
+      "howto": ["Gõ tên emoji (có dấu hay không đều được, ví dụ “cuoi”, “tim”, “mèo”) hoặc dán thẳng emoji vào ô Tìm; có thể lọc theo nhóm.", "Bấm vào emoji để xem bản động.", "Bấm GIF, WEBP, PNG, SVG hoặc Lottie để tải file Google làm sẵn, hoặc chọn cỡ và nền rồi bấm “Tạo GIF” để có GIF nhẹ hơn."],
       "faq": [
-        { "q": "Emoji động này lấy từ đâu, có được dùng thương mại không?", "a": "Đây là bộ Noto Animated Emoji của Google, phát hành theo giấy phép CC BY 4.0: được dùng cả cho video, ứng dụng, mục đích thương mại, chỉ cần ghi nguồn (vd. “Noto Emoji, Google”)." },
+        { "q": "Emoji động này lấy từ đâu, có được dùng thương mại không?", "a": "Đây là bộ Noto Animated Emoji của Google, phát hành theo giấy phép CC BY 4.0: được dùng cả cho video, ứng dụng, mục đích thương mại, chỉ cần ghi nguồn (ví dụ “Noto Emoji, Google”)." },
         { "q": "Nên tải định dạng nào?", "a": "GIF mở được ở mọi nơi nhưng nặng và viền hơi răng cưa; WEBP động nhẹ, viền mịn, hợp với web và ứng dụng chat; PNG là ảnh tĩnh 512 px; SVG là vector phóng to không vỡ; Lottie (JSON) dành cho lập trình viên, dùng với thư viện lottie-web, lottie-ios, lottie-android." },
         { "q": "GIF 512 px quá nặng?", "a": "Chọn cỡ 128 px hoặc 64 px rồi bấm “Tạo GIF”: trang vẽ lại emoji từ file Lottie thành GIF nhẹ hơn nhiều, chọn được nền trắng hoặc đen để viền mịn." },
         { "q": "Vì sao không thấy một số emoji?", "a": "Google chỉ làm bản động cho khoảng 900 emoji phổ biến (mặt cười, cử chỉ, động vật, đồ ăn…). Emoji không có trong danh sách thì chưa có bản động." }
@@ -2358,7 +2358,7 @@
       "desc": "Dán link signal.art/addstickers để tải và giải mã cả bộ sticker Signal ngay trên trình duyệt, xuất WEBP, PNG hoặc GIF.",
       "keywords": ["tải sticker signal", "download sticker signal", "signal sticker downloader", "signal.art", "sticker signal sang gif", "giải mã sticker signal", "addstickers"],
       "status": "done",
-      "privacy": "BbeTools không có máy chủ: trình duyệt tải bộ sticker đã mã hoá từ máy chủ của Signal (cdn-ca.signal.org) rồi tự giải mã. Khoá pack_key chỉ dùng trên máy bạn, không gửi đi đâu.",
+      "hosts": ["cdn-ca.signal.org"], "privacy": "BbeTools không có máy chủ: trình duyệt tải bộ sticker đã mã hoá từ máy chủ của Signal (cdn-ca.signal.org) rồi tự giải mã. Khoá pack_key chỉ dùng trên máy bạn, không gửi đi đâu.",
       "aliases": ["sticker-signal"],
       "related": ["telegram-stickers", "line-stickers", "gif-maker"],
       "howto": ["Trong Signal, mở bộ sticker → Chia sẻ → Sao chép link (dạng signal.art/addstickers/#pack_id=…&pack_key=…).", "Dán vào ô Link rồi bấm “Lấy bộ sticker”; trang tự tải và giải mã cả bộ.", "Chọn PNG + GIF hoặc định dạng gốc (WEBP, APNG), bấm “Tải tất cả (.zip)” hoặc bấm từng sticker."],
@@ -2374,7 +2374,7 @@
       "desc": "Nhập tên kênh Twitch để xem và tải cả bộ emote 7TV, FrankerFaceZ của kênh về file zip: PNG, GIF động hoặc WEBP, đủ 4 cỡ.",
       "keywords": ["tải emote twitch", "emote 7tv", "tải emote 7tv", "frankerfacez", "ffz", "download twitch emotes", "7tv emote downloader", "emote streamer", "emote twitch gif", "emote discord"],
       "status": "done",
-      "privacy": "BbeTools không có máy chủ: trình duyệt của bạn gọi thẳng API công khai của 7TV (7tv.io), FrankerFaceZ (api.frankerfacez.com) và tải ảnh từ máy chủ của họ. Khi kênh không có trên FrankerFaceZ, tên kênh được gửi tới api.ivr.fi để tra mã số kênh. Không cần đăng nhập Twitch.",
+      "hosts": ["7tv.io", "cdn.7tv.app", "api.frankerfacez.com", "cdn.frankerfacez.com", "api.ivr.fi"], "privacy": "BbeTools không có máy chủ: trình duyệt của bạn gọi thẳng API công khai của 7TV (7tv.io), FrankerFaceZ (api.frankerfacez.com) và tải ảnh từ máy chủ của họ. Khi kênh không có trên FrankerFaceZ, tên kênh được gửi tới api.ivr.fi để tra mã số kênh. Không cần đăng nhập Twitch.",
       "aliases": ["emote-twitch", "tai-emote-7tv", "tai-emote-ffz"],
       "related": ["discord-emoji", "telegram-stickers", "noto-emoji", "gif-maker"],
       "howto": ["Nhập tên kênh Twitch (phần sau twitch.tv/) hoặc dán link kênh, link 7tv.app rồi bấm “Lấy emote”.", "Chọn cỡ (4x là lớn nhất) và dạng file: PNG + GIF hoặc định dạng gốc (WEBP); gõ tên để lọc emote cần lấy.", "Bấm “Tải tất cả (.zip)” để tải cả bộ (hoặc phần đang lọc), hoặc bấm từng emote để tải riêng."],
@@ -2382,7 +2382,7 @@
         { "q": "Tải được những emote nào?", "a": "Emote 7TV và FrankerFaceZ (FFZ) mà kênh đã thêm, cả emote động. Emote gốc của Twitch (emote đăng ký kênh, emote Bits) không lấy được vì Twitch chỉ cho xem danh sách qua API có khoá bí mật; emote BetterTTV không tải được vì máy chủ ảnh của BetterTTV không cho trang web khác tải file." },
         { "q": "Nên tải PNG + GIF hay WEBP?", "a": "GIF mở được ở mọi nơi nhưng nặng hơn và viền hơi răng cưa. WEBP (định dạng gốc của 7TV) nhẹ, viền mịn, emote động vẫn chạy: dùng tốt cho Discord, Telegram, trang web. Emote tĩnh thì PNG và WEBP như nhau." },
         { "q": "Cỡ 1x, 2x, 3x, 4x là bao nhiêu?", "a": "1x là cỡ trong khung chat Twitch (khoảng 28–32 px), 2x gấp đôi, 4x khoảng 112–128 px. Muốn làm emoji Discord (tối đa 128 px) thì chọn 4x. FrankerFaceZ chỉ có 1x, 2x, 4x." },
-        { "q": "Kênh của tôi không có emote?", "a": "Trang chỉ thấy emote mà kênh đã thêm trên 7TV hoặc FrankerFaceZ. Kiểm tra lại tên kênh (không dấu, không khoảng trắng). Bộ 7TV đang dùng có thể đổi theo mùa (vd. bộ Halloween); muốn lấy một bộ khác thì dán link 7tv.app/emote-sets/…" },
+        { "q": "Kênh của tôi không có emote?", "a": "Trang chỉ thấy emote mà kênh đã thêm trên 7TV hoặc FrankerFaceZ. Kiểm tra lại tên kênh (không dấu, không khoảng trắng). Bộ 7TV đang dùng có thể đổi theo mùa (ví dụ bộ Halloween); muốn lấy một bộ khác thì dán link 7tv.app/emote-sets/…" },
         { "q": "Có được dùng emote tải về cho mục đích thương mại không?", "a": "Emote thuộc bản quyền của người vẽ hoặc streamer. Chỉ nên tải để dùng cá nhân, hoặc khi được cho phép." }
       ]
     },
@@ -2391,12 +2391,12 @@
       "desc": "Dán link hoặc mã emoji, sticker Discord để tải bản gốc cỡ lớn nhất (PNG, GIF, WEBP), đổi sticker Lottie sang GIF, tải cả bộ sticker chính thức.",
       "keywords": ["tải emoji discord", "download emoji discord", "sticker discord", "tải sticker discord", "emoji discord gif", "lưu emoji discord", "discord emoji downloader", "sticker lottie sang gif", "wumpus sticker"],
       "status": "done",
-      "privacy": "BbeTools không có máy chủ: trình duyệt của bạn tải thẳng từ máy chủ của Discord (cdn.discordapp.com, media.discordapp.net, discord.com). Không cần đăng nhập, không cần token Discord.",
+      "hosts": ["cdn.discordapp.com", "media.discordapp.net", "discord.com"], "privacy": "BbeTools không có máy chủ: trình duyệt của bạn tải thẳng từ máy chủ của Discord (cdn.discordapp.com, media.discordapp.net, discord.com). Không cần đăng nhập, không cần token Discord.",
       "aliases": ["emoji-discord", "sticker-discord"],
       "related": ["twitch-emotes", "telegram-stickers", "line-stickers", "gif-maker"],
       "howto": ["Trên Discord (máy tính hoặc trình duyệt), chuột phải vào emoji, sticker trong tin nhắn → Sao chép liên kết; hoặc gõ \\:tên_emoji: để lấy mã <:tên:123…>.", "Dán vào ô (nhiều cái, mỗi cái một dòng) rồi bấm “Lấy emoji, sticker”; hoặc chọn “Bộ sticker chính thức” để lấy cả bộ của Discord.", "Chọn PNG + GIF hoặc định dạng gốc và cỡ, bấm “Tải tất cả (.zip)” hoặc bấm từng cái."],
       "faq": [
-        { "q": "Có tải được hết emoji của một server không?", "a": "Không. Discord chỉ cho xem danh sách emoji của server khi đã đăng nhập bằng tài khoản ở trong server đó, nên trang chỉ nhận từng emoji theo link hoặc mã. Dán được nhiều link cùng lúc. Riêng 14 bộ sticker chính thức của Discord thì tải được cả bộ." },
+        { "q": "Có tải được hết emoji của một máy chủ Discord không?", "a": "Không. Discord chỉ cho xem danh sách emoji của máy chủ khi đã đăng nhập bằng tài khoản ở trong máy chủ đó, nên trang chỉ nhận từng emoji theo link hoặc mã. Dán được nhiều link cùng lúc. Riêng 14 bộ sticker chính thức của Discord thì tải được cả bộ." },
         { "q": "Lấy link emoji Discord thế nào?", "a": "Trên Discord máy tính hoặc trình duyệt: chuột phải vào emoji trong tin nhắn → Sao chép liên kết. Hoặc gõ dấu gạch chéo ngược trước emoji (\\:tên:) rồi gửi, Discord hiện mã dạng <:tên:123456…> hoặc <a:tên:…> với emoji động: dán mã đó vào." },
         { "q": "Emoji tải về cỡ bao nhiêu?", "a": "Cỡ gốc mà người tạo đã tải lên Discord (thường 128 px, có khi lớn hơn), không phải cỡ nhỏ hiện trong khung chat. Chọn cỡ nhỏ hơn nếu cần file nhẹ." },
         { "q": "Sticker Lottie là gì?", "a": "Sticker chính thức của Discord (Wumpus, Clyde…) phần lớn là hoạt ảnh vector Lottie (.json). Chọn “PNG + GIF” để trang vẽ lại thành GIF ngay trên máy; “Định dạng gốc” giữ file .json cho lập trình viên dùng với lottie-web." },
@@ -2408,7 +2408,7 @@
       "desc": "Dán link video, Shorts YouTube để xem và tải ảnh thumbnail ở mọi cỡ, tới HD 1280×720; tự bỏ viền đen, xuất JPG, PNG, WEBP.",
       "keywords": ["tải thumbnail youtube", "lấy thumbnail youtube", "lấy ảnh bìa youtube", "tải ảnh bìa video youtube", "youtube thumbnail downloader", "ảnh đại diện video youtube", "thumbnail shorts", "thumbnail hd", "maxresdefault"],
       "status": "done", "popular": true,
-      "privacy": "BbeTools không có máy chủ: trình duyệt của bạn tải ảnh thẳng từ máy chủ ảnh của YouTube (i.ytimg.com) và lấy tên video qua youtube.com/oembed. Đổi định dạng, bỏ viền đen làm ngay trên máy bạn.",
+      "hosts": ["i.ytimg.com", "www.youtube.com"], "privacy": "BbeTools không có máy chủ: trình duyệt của bạn tải ảnh thẳng từ máy chủ ảnh của YouTube (i.ytimg.com) và lấy tên video qua youtube.com/oembed. Đổi định dạng, bỏ viền đen làm ngay trên máy bạn.",
       "aliases": ["thumbnail-youtube", "anh-bia-youtube", "lay-thumbnail-youtube"],
       "related": ["crop-image", "compress-image", "convert-image", "video-to-gif"],
       "howto": ["Sao chép link video YouTube (nút Chia sẻ → Sao chép đường liên kết), link Shorts hay youtu.be đều được.", "Dán vào ô rồi bấm “Lấy thumbnail”; dán nhiều link, mỗi dòng một link, để lấy nhiều video.", "Bấm “Tải ảnh lớn nhất” hoặc bấm một cỡ bất kỳ; chọn JPG, PNG hay WEBP và bật “Bỏ viền đen” nếu cần."],
@@ -2424,7 +2424,7 @@
       "desc": "Tìm font Google Fonts có tiếng Việt, xem trước bằng chữ của bạn rồi tải WOFF2 kèm CSS để tự host cho website, hoặc file TTF gốc để cài vào máy.",
       "keywords": ["tải google fonts", "download google font", "font tiếng việt", "tải font tiếng việt", "font việt hoá", "tự host font", "woff2", "ttf", "google webfonts helper", "cài font"],
       "status": "done",
-      "privacy": "BbeTools không có máy chủ: trình duyệt của bạn lấy danh sách font từ Fontsource (api.fontsource.org), tải file web qua jsDelivr (cdn.jsdelivr.net) và file TTF gốc từ kho google/fonts trên GitHub (raw.githubusercontent.com). Đoạn CSS và file .zip được tạo ngay trên máy bạn.",
+      "hosts": ["api.fontsource.org", "cdn.jsdelivr.net", "raw.githubusercontent.com"], "privacy": "BbeTools không có máy chủ: trình duyệt của bạn lấy danh sách font từ Fontsource (api.fontsource.org), tải file web qua jsDelivr (cdn.jsdelivr.net) và file TTF gốc từ kho google/fonts trên GitHub (raw.githubusercontent.com). Đoạn CSS và file .zip được tạo ngay trên máy bạn.",
       "aliases": ["google-fonts", "tai-font-tieng-viet", "google-webfonts-helper"],
       "related": ["css-generator", "minifier", "text-on-image"],
       "howto": ["Gõ tên font vào ô tìm kiếm, hoặc lọc theo kiểu (không chân, có chân, viết tay…); mặc định chỉ hiện font có đủ dấu tiếng Việt.", "Bấm một font, đánh dấu các độ đậm, kiểu nghiêng cần dùng; sửa ô “Chữ xem trước” để thử với chữ của bạn.", "Chọn “Cho website” để tải WOFF2 + file CSS (sao chép được đoạn CSS), hoặc “Cài vào máy tính” để tải file TTF gốc rồi mở file và bấm Cài đặt."],
@@ -2441,14 +2441,14 @@
       "desc": "Dán link một thư mục hoặc file trên GitHub để tải riêng phần đó về dạng .zip, không phải tải cả repo hay cài git.",
       "keywords": ["tải thư mục github", "download github folder", "downgit", "tải một thư mục github", "github zip", "tải file github", "tải code github"],
       "status": "done",
-      "privacy": "BbeTools không có máy chủ: trình duyệt của bạn lấy danh sách file qua API của GitHub (api.github.com) và tải file từ raw.githubusercontent.com, rồi nén .zip ngay trên máy bạn. Token GitHub (nếu dùng) chỉ gửi tới api.github.com và không được lưu lại.",
+      "hosts": ["api.github.com", "raw.githubusercontent.com", "media.githubusercontent.com"], "privacy": "BbeTools không có máy chủ: trình duyệt của bạn lấy danh sách file qua API của GitHub (api.github.com) và tải file từ raw.githubusercontent.com, rồi nén .zip ngay trên máy bạn. Token GitHub (nếu dùng) chỉ gửi tới api.github.com và không được lưu lại.",
       "aliases": ["github-folder", "downgit", "tai-file-github"],
       "related": ["checksum", "json-formatter", "minifier"],
       "howto": ["Mở thư mục cần tải trên github.com, sao chép link trên thanh địa chỉ (dạng …/tree/main/thư-mục). Link một file hay cả repo cũng được.", "Dán vào ô rồi bấm “Lấy danh sách file” để xem các file và dung lượng.", "Bấm “Tải … file dạng .zip”. Repo riêng tư thì mở mục token, dán token GitHub có quyền đọc rồi làm lại."],
       "faq": [
         { "q": "Có cần đăng nhập GitHub không?", "a": "Không, với repo công khai. GitHub cho 60 lượt gọi API mỗi giờ khi không đăng nhập; mỗi lần lấy danh sách chỉ tốn 1–3 lượt, còn tải file không tính lượt. Hết lượt thì chờ ít phút hoặc dùng token." },
         { "q": "Tải thư mục trong repo riêng tư được không?", "a": "Được nếu bạn có quyền xem repo đó: tạo token ở GitHub → Settings → Developer settings → Fine-grained tokens, chỉ cấp quyền đọc Contents cho repo cần tải. Token chỉ gửi thẳng tới GitHub, không lưu lại." },
-        { "q": "Tên nhánh có dấu “/” (vd. feature/abc) có được không?", "a": "Được. Công cụ tự thử các cách tách nhánh và đường dẫn trong link cho tới khi khớp." },
+        { "q": "Tên nhánh có dấu “/” (ví dụ feature/abc) có được không?", "a": "Được. Công cụ tự thử các cách tách nhánh và đường dẫn trong link cho tới khi khớp." },
         { "q": "File lớn lưu bằng Git LFS thì sao?", "a": "Với repo công khai, công cụ tự nhận ra file con trỏ LFS và tải file thật từ máy chủ media của GitHub." },
         { "q": "Có giới hạn dung lượng không?", "a": "File .zip được tạo trong bộ nhớ trình duyệt nên thư mục vài trăm MB vẫn ổn trên máy tính; điện thoại có thể chậm. Thư mục quá lớn (hơn 100.000 mục) thì GitHub chỉ trả một phần danh sách, hãy tải từng thư mục con." }
       ]
@@ -2458,7 +2458,7 @@
       "desc": "Dán link app App Store (hoặc gõ tên app) để tải icon tới 1024×1024, có bo góc như iPhone, và ảnh chụp màn hình iPhone, iPad cỡ gốc.",
       "keywords": ["tải icon app", "app store icon", "ảnh chụp màn hình app store", "icon ios", "app icon downloader", "lấy icon app iphone", "screenshot app store"],
       "status": "done",
-      "privacy": "BbeTools không có máy chủ: trình duyệt của bạn tra thông tin app qua API công khai của Apple (itunes.apple.com) và tải ảnh thẳng từ máy chủ ảnh của Apple (mzstatic.com). Bo góc icon, nén .zip làm ngay trên máy bạn.",
+      "hosts": ["itunes.apple.com", "mzstatic.com"], "privacy": "BbeTools không có máy chủ: trình duyệt của bạn tra thông tin app qua API công khai của Apple (itunes.apple.com) và tải ảnh thẳng từ máy chủ ảnh của Apple (mzstatic.com). Bo góc icon, nén .zip làm ngay trên máy bạn.",
       "aliases": ["icon-app-store", "tai-icon-app", "anh-chup-app-store"],
       "related": ["favicon", "resize-image", "compress-image", "convert-image"],
       "howto": ["Trên iPhone: mở app trong App Store → nút Chia sẻ → Sao chép liên kết. Hoặc gõ thẳng tên app.", "Dán vào ô, chọn quốc gia của App Store nếu cần, rồi bấm “Lấy icon và ảnh chụp”.", "Bấm một cỡ icon (tới 1024×1024) hoặc một ảnh chụp để tải cỡ gốc; bật “Bo góc icon” nếu cần icon bo tròn, hoặc tải tất cả trong một file .zip."],
@@ -2475,7 +2475,7 @@
       "desc": "Dán link bài đăng Bluesky để tải ảnh và video MP4 gốc người đăng tải lên, kể cả trong bài được trích dẫn; không cần đăng nhập.",
       "keywords": ["tải video bluesky", "tải ảnh bluesky", "bluesky downloader", "bsky video", "tải gif bluesky", "lưu video bluesky"],
       "status": "done",
-      "privacy": "BbeTools không có máy chủ: trình duyệt của bạn đọc bài đăng qua API công khai của Bluesky (public.api.bsky.app), tìm máy chủ lưu file của người đăng qua plc.directory rồi tải file gốc thẳng từ máy chủ đó. Không cần đăng nhập Bluesky.",
+      "hosts": ["public.api.bsky.app", "plc.directory", "cdn.bsky.app", "video.bsky.app", "máy chủ lưu file (PDS) của người đăng"], "privacy": "BbeTools không có máy chủ: trình duyệt của bạn đọc bài đăng qua API công khai của Bluesky (public.api.bsky.app), tìm máy chủ lưu file của người đăng qua plc.directory rồi tải file gốc thẳng từ máy chủ đó. Không cần đăng nhập Bluesky.",
       "aliases": ["bluesky-downloader", "tai-video-bluesky"],
       "related": ["video-to-mp3", "video-to-gif", "trim-video", "compress-video"],
       "howto": ["Trong app Bluesky, bấm nút Chia sẻ dưới bài đăng → Sao chép liên kết (hoặc sao chép link bsky.app/profile/…/post/… trên trình duyệt).", "Dán vào ô rồi bấm “Lấy ảnh, video”; xem trước ảnh, video và mô tả ảnh (alt) ngay trên trang.", "Bấm “Tải ảnh gốc”, “Tải video gốc”, hoặc tải tất cả trong một file .zip."],
@@ -2492,7 +2492,7 @@
       "desc": "Dán link bài đăng Mastodon (hoặc Pleroma, Akkoma, GoToSocial) để xem và tải ảnh, video, GIF, âm thanh gốc đính kèm; không cần đăng nhập.",
       "keywords": ["tải video mastodon", "tải ảnh mastodon", "mastodon downloader", "fediverse", "tải gif mastodon", "pleroma", "akkoma"],
       "status": "done",
-      "privacy": "BbeTools không có máy chủ: trình duyệt của bạn đọc bài đăng qua API công khai của chính máy chủ Mastodon trong link rồi tải file thẳng từ nơi máy chủ đó lưu file. Không cần đăng nhập.",
+      "hosts": ["máy chủ Mastodon trong link và nơi máy chủ đó lưu file"], "privacy": "BbeTools không có máy chủ: trình duyệt của bạn đọc bài đăng qua API công khai của chính máy chủ Mastodon trong link rồi tải file thẳng từ nơi máy chủ đó lưu file. Không cần đăng nhập.",
       "aliases": ["mastodon-downloader", "tai-video-mastodon"],
       "related": ["video-to-mp3", "video-to-gif", "trim-video", "compress-video"],
       "howto": ["Trên Mastodon, bấm vào thời gian đăng của bài (hoặc menu ··· → Sao chép liên kết) để lấy link bài đăng.", "Dán vào ô rồi bấm “Lấy ảnh, video”; xem trước ảnh, video, GIF và mô tả ảnh ngay trên trang.", "Bấm “Tải file gốc” cho từng file hoặc tải tất cả trong một file .zip."],

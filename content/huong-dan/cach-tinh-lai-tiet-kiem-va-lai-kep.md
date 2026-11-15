@@ -38,7 +38,7 @@ Tổng lãi 38.203.200 đồng, nhiều hơn 2.203.200 đồng so với mỗi n�
 
 Lãi kép là lãi được cộng vào gốc để kỳ sau tiếp tục sinh lãi. Thời gian càng dài, phần lãi càng lớn so với số vốn bỏ ra.
 
-Ví dụ với [Lãi kép](tool:compound-interest): vốn ban đầu 100 triệu đồng, mỗi tháng góp thêm 3 triệu đồng, lãi suất 8%/năm, nhập lãi hằng tháng, trong 10 năm:
+Ví dụ với [Tính lãi kép](tool:compound-interest): vốn ban đầu 100 triệu đồng, mỗi tháng góp thêm 3 triệu đồng, lãi suất 8%/năm, nhập lãi hằng tháng, trong 10 năm:
 
 - Tổng tiền đã góp: 460 triệu đồng.
 - Giá trị cuối kỳ: khoảng 770,8 triệu đồng.

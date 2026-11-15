@@ -1,5 +1,5 @@
 /* Tự sinh bởi scripts/build.js từ assets/tools/tdee.js và i18n/en/js/ — đừng sửa tay. */
-/* Calo cần mỗi ngày: BMR (Mifflin–St Jeor), TDEE theo mức vận động, lượng calo để giữ, giảm hoặc tăng cân */
+/* Tính calo mỗi ngày: BMR (Mifflin–St Jeor), TDEE theo mức vận động, lượng calo để giữ, giảm hoặc tăng cân */
 import { h, fmtNum } from "../core.js";
 import { formTool } from "../frames/form.js";
 import { num, stat, stats, table, alert, note } from "../calc.js";

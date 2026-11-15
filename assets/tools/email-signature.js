@@ -20,7 +20,7 @@ async function copyRich(node) {
     r.selectNodeContents(node); sel.removeAllRanges(); sel.addRange(r);
     const ok = document.execCommand("copy");
     sel.removeAllRanges();
-    toast(ok ? "Đã sao chép chữ ký." : "Không sao chép được: hãy bôi đen phần xem trước rồi nhấn Ctrl/⌘ + C.", ok ? {} : { type: "err" });
+    toast(ok ? "Đã sao chép chữ ký." : "Không sao chép được: hãy bôi đen phần xem trước rồi bấm Ctrl/⌘ + C.", ok ? {} : { type: "err" });
   }
 }
 
@@ -72,7 +72,7 @@ const api = formTool({
       h("details", null, h("summary", { text: "Cách dán vào Gmail" }), h("ol", null,
         h("li", { text: "Bấm “Sao chép chữ ký” ở trên." }),
         h("li", { text: "Mở Gmail → biểu tượng bánh răng → Xem tất cả chế độ cài đặt → thẻ Chung → mục Chữ ký → Tạo mới." }),
-        h("li", { text: "Nhấn Ctrl/⌘ + V vào ô chữ ký, chọn chữ ký mặc định cho thư mới và thư trả lời, rồi bấm Lưu thay đổi ở cuối trang." }))),
+        h("li", { text: "Bấm Ctrl/⌘ + V vào ô chữ ký, chọn chữ ký mặc định cho thư mới và thư trả lời, rồi bấm Lưu thay đổi ở cuối trang." }))),
       h("details", null, h("summary", { text: "Cách dán vào Outlook" }), h("ol", null,
         h("li", { text: "Outlook trên web / Outlook mới: Cài đặt → Tài khoản → Chữ ký → Chữ ký mới, dán vào rồi Lưu." }),
         h("li", { text: "Outlook trên Windows (bản cổ điển): File → Options → Mail → Signatures → New, dán vào ô Edit signature." }),

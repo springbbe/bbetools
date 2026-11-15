@@ -377,7 +377,7 @@ function homePage(L) {
 <div class="wrap hero-in">
 <div class="hero-main">
 <h1>${tr("<span class=\"nowrap\">Công cụ tiện ích</span> <span class=\"nowrap\">cho người Việt</span>")}</h1>
-<p class="lead">${tr("{0} công cụ miễn phí cho PDF, ảnh, văn bản, VietQR, lịch âm… Chạy ngay trên trình duyệt, <b>file không bao giờ rời khỏi máy bạn</b>.", live.length)}</p>
+<p class="lead">${tr("{0} công cụ miễn phí cho PDF, ảnh, VietQR, thuế và lương… Chạy ngay trên trình duyệt, <b>file không bao giờ rời khỏi máy bạn</b>.", live.length)}</p>
 <form class="search-box" role="search" action="./" onsubmit="return false">
 ${icon("search", root)}
 <input id="q" name="q" type="search" placeholder="${tr("Tìm: ghép pdf, vietqr…")}" autocomplete="off" spellcheck="false" aria-label="${tr("Tìm công cụ")}" aria-controls="results" enterkeyhint="go">
@@ -475,15 +475,17 @@ const PRIVACY = {
   interactive: "Mọi thứ chạy ngay trên máy bạn; hình ảnh, âm thanh không gửi đi đâu."
 };
 
-async function dataNote(L, t, root) {
-  const notes = [];
+/** Ngày cập nhật + nguồn của các file data/*.json mà công cụ dùng (bản dịch lấy từ i18n/<lang>/tools.json → data.<tên>).
+    sourceNote() trong core.js đọc khối này để hiện "Số liệu cập nhật … · Nguồn: …" ngay dưới kết quả. */
+async function dataSources(L, t) {
+  const list = [];
   for (const d of t.data || []) {
     const p = ROOT + `data/${d}.json`;
     if (!existsSync(p)) continue;
     const j = { ...JSON.parse(await readFile(p, "utf8")), ...((L.D && L.D.data[d]) || {}) };
-    notes.push(`<p class="data-note">${icon("info", root)}<span>${L.tr("Dữ liệu {0} cập nhật ngày {1}. Nguồn: {2}.", esc(j.title || ""), `<b>${fmtDate(j.updated, L.lang)}</b>`, esc(j.source))}</span></p>`);
+    list.push({ name: d, title: j.title, updated: j.updated, source: j.source });
   }
-  return notes.join("\n");
+  return list.length ? `<script type="application/json" id="data-sources">${JSON.stringify(list).replace(/</g, "\\u003c")}</script>\n` : "";
 }
 
 async function toolPage(L, t) {
@@ -513,8 +515,7 @@ ${tile(L, t, root, "lg")}
 <noscript><p class="note">${tr("Công cụ này cần bật JavaScript để chạy ngay trên máy bạn.")}</p></noscript>
 <div class="app-loading" aria-hidden="true"><span class="spinner"></span></div>
 </div>
-${await dataNote(L, t, root)}
-${howto && faq ? `<div class="tool-info">\n${howto}\n${faq}\n</div>` : howto + faq}
+${await dataSources(L, t)}${howto && faq ? `<div class="tool-info">\n${howto}\n${faq}\n</div>` : howto + faq}
 ${L.vi && articlesFor(t.id).length ? `<section class="block"><h2>Bài hướng dẫn</h2>${articleCards(L, articlesFor(t.id), root, { meta: false })}</section>\n` : ""}${related.length ? `<section class="block"><h2>${tr("Công cụ liên quan")} <a class="see-all" href="${root}${L.groupUrl(g)}">${tr("Xem cả {0} công cụ", L.liveIn(g.id).length)}${icon("arrow-right", root)}</a></h2>${cards(L, related.slice(0, 6), root)}</section>` : ""}
 </div>
 </div>`;
@@ -542,6 +543,12 @@ ${L.vi && articlesFor(t.id).length ? `<section class="block"><h2>Bài hướng d
 function aboutPage(L) {
   const { tr } = L;
   const path = L.aboutUrl, root = rootOf(path);
+  // danh sách sinh từ tools.json: công cụ có "privacy"; "hosts" là máy chủ bên thứ ba mà trình duyệt gọi thẳng tới
+  const link = (id) => { const t = L.byId[id]; return t && isLive(t) ? `<a href="${root}${L.toolUrl(t)}">${esc(t.name)}</a>` : ""; };
+  const names = (ids) => ids.map(link).filter(Boolean).join(", ");
+  const hostHtml = (x) => (/^[a-z0-9.-]+\.[a-z]{2,}$/i.test(x) ? `<code>${esc(x)}</code>` : esc(x));
+  const priv = L.live.filter((t) => t.privacy);
+  const remote = priv.filter((t) => (t.hosts || []).length), local = priv.filter((t) => !(t.hosts || []).length);
   const main = `<div class="tool-page band-page" style="--c:#C8922A">
 <div class="tool-band">
 <div class="wrap narrow">
@@ -558,9 +565,12 @@ function aboutPage(L) {
 <ul>
 <li>${tr("Chính trang web, từ GitHub Pages.")}</li>
 <li>${tr("Font chữ và thư viện mã nguồn mở (pdf-lib, pdf.js, JSZip, bộ mã hoá ảnh, giải mã HEIC, đọc mã QR…) từ CDN jsDelivr, ghim đúng phiên bản. Thư viện nặng chỉ tải khi bạn mở công cụ cần đến nó. CDN chỉ thấy yêu cầu tải thư viện, không thấy file của bạn.")}</li>
-<li>${tr("Mô hình AI tách nền (cho Làm ảnh thẻ) đặt ngay trong trang web này.")}</li>
-<li>${tr("Riêng công cụ Tải sticker Telegram: trình duyệt của bạn gọi thẳng máy chủ Telegram (api.telegram.org) bằng token bot của chính bạn để lấy bộ sticker. BbeTools không có máy chủ trung gian và không nhận token.")}</li>
+<li>${tr("Mô hình AI tách nền MODNet ({0}) và nhận diện khuôn mặt UltraFace ({1}) đặt ngay trong trang web này; thư viện chạy mô hình (ONNX Runtime) tải từ jsDelivr.", names(["id-photo", "remove-bg"]), names(["id-photo", "blur-image"]))}</li>
+<li>${tr("Bộ nhận dạng chữ Tesseract cùng dữ liệu tiếng Việt, tiếng Anh ({0}) tải từ jsDelivr khi bạn mở công cụ, rồi lưu lại trong trình duyệt.", names(["ocr", "ocr-pdf"]))} ${tr("Mọi mô hình đều chạy trên máy bạn: ảnh, file không gửi đi đâu.")}</li>
+<li>${tr("Một số công cụ cần dữ liệu của dịch vụ khác. Trình duyệt của bạn gọi thẳng tới máy chủ của dịch vụ đó; BbeTools không có máy chủ trung gian và không nhận dữ liệu bạn nhập:")}
+<ul>${remote.map((t) => `<li>${link(t.id)}: ${t.hosts.map(hostHtml).join(", ")}</li>`).join("")}</ul></li>
 </ul>
+${local.length ? `<p>${tr("Các công cụ sau có ghi chú quyền riêng tư riêng nhưng không gọi máy chủ nào: {0}.", names(local.map((t) => t.id)))}</p>` : ""}
 <h2>${tr("Thống kê lượt truy cập, không quảng cáo")}</h2>
 <p>${tr("BbeTools dùng Google Analytics để đếm lượt xem từng trang (trang nào được dùng nhiều, người dùng đến từ đâu, dùng điện thoại hay máy tính), nhờ đó biết nên cải thiện công cụ nào. Google Analytics chỉ nhận đường dẫn trang; tên file, nội dung file, văn bản và số liệu bạn nhập vào công cụ không bao giờ được gửi đi. Bạn có thể chặn bằng trình chặn quảng cáo hoặc <a href=\"https://tools.google.com/dlpage/gaoptout?hl=vi\" rel=\"noopener\">tiện ích chặn Google Analytics</a>; mọi công cụ vẫn chạy bình thường.")}</p>
 <p>${tr("Không có quảng cáo, không có cookie quảng cáo. “Dùng gần đây”, “Yêu thích” và cài đặt chỉ lưu trong bộ nhớ trình duyệt (localStorage) của chính bạn; xoá dữ liệu trang web là mất.")}</p>
@@ -745,6 +755,12 @@ changed += await write("manifest.webmanifest", JSON.stringify({
 const report = [];
 for (const code of Object.keys(LANGS)) {
   const L = LS[code], mp = [...missingPages.get(code)], mj = missingJs[code];
+  // nguồn số liệu của công cụ có trang tiếng Anh phải được dịch (data.<tên>.source)
+  const noSrc = [...new Set(L.live.flatMap((t) => (t.data || []).filter((d) => !((L.D.data || {})[d] || {}).source)))];
+  if (noSrc.length) report.push(`${code}: ${noSrc.length} file dữ liệu chưa dịch "source" trong i18n/${code}/tools.json → data: ${noSrc.join(", ")}`);
+  // "hosts" có chữ tiếng Việt (mô tả, không phải tên máy chủ) thì bản dịch phải có hosts riêng
+  const noHosts = L.live.filter((t) => t.vi && (t.vi.hosts || []).some(hasVi) && !(L.D.tools[t.id] || {}).hosts).map((t) => t.id);
+  if (noHosts.length) report.push(`${code}: ${noHosts.length} công cụ thiếu "hosts" (đã dịch) trong i18n/${code}/tools.json: ${noHosts.join(", ")}`);
   // trường dịch bắt buộc khi bản tiếng Việt có: seoTitle của công cụ, intro/faq của nhóm
   const noSeo = L.live.filter((t) => t.vi && t.vi.seoTitle && !(L.D.tools[t.id] || {}).seoTitle).map((t) => t.id);
   if (noSeo.length) report.push(`${code}: ${noSeo.length} công cụ thiếu "seoTitle" trong i18n/${code}/tools.json: ${noSeo.join(", ")}`);
@@ -752,7 +768,7 @@ for (const code of Object.keys(LANGS)) {
   if (noGroup.length) report.push(`${code}: ${noGroup.length} nhóm thiếu "intro" hoặc "faq" trong i18n/${code}/tools.json: ${noGroup.join(", ")}`);
   if (L.skipped.length) report.push(`${code}: ${L.skipped.length} công cụ chưa có bản dịch trong i18n/${code}/tools.json (chưa có trang): ${L.skipped.join(", ")}`);
   if (mp.length) report.push(`${code}: ${mp.length} câu của khung trang chưa dịch trong i18n/${code}/pages.json (chạy build --missing để xem)`);
-  if (mj.length) report.push(`${code}: ${mj.length} chuỗi JS chưa dịch (chạy node scripts/i18n.js extract rồi điền giá trị null trong i18n/${code}/js/), vd. ${mj.slice(0, 3).map(([f, k]) => `${f}: ${JSON.stringify(k).slice(0, 60)}`).join(" · ")}`);
+  if (mj.length) report.push(`${code}: ${mj.length} chuỗi JS chưa dịch (chạy node scripts/i18n.js extract rồi điền giá trị null trong i18n/${code}/js/), ví dụ ${mj.slice(0, 3).map(([f, k]) => `${f}: ${JSON.stringify(k).slice(0, 60)}`).join(" · ")}`);
   if (process.argv.includes("--missing")) console.log(JSON.stringify(Object.fromEntries(mp.map((k) => [k, null])), null, 1));
 }
 if (CHECK) {
