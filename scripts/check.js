@@ -4,19 +4,26 @@
    2. các trang sinh ra khớp tools.json (build --check)
    3. mọi đường dẫn trong HTML/JS/CSS là tương đối và trỏ tới file có thật; không có đường dẫn tuyệt đối "/..."
    4. mỗi trang có <title> dạng "… – BbeTools", meta description, canonical, JSON-LD hợp lệ, đúng lang
-   5. bản dịch đầy đủ (build --check báo câu, chuỗi JS, công cụ chưa dịch; xem scripts/i18n.js) */
+   5. bản dịch đầy đủ (build --check báo câu, chuỗi JS, công cụ chưa dịch; xem scripts/i18n.js)
+   6. bài hướng dẫn (content/huong-dan/): đủ frontmatter, title ≤ 60, desc ≤ 155 ký tự, công cụ và file dữ liệu có thật,
+      tên hiển thị của liên kết [Tên](tool:id) đúng tên công cụ; cảnh báo khi file dữ liệu mới hơn bài */
 import { readFile, readdir } from "node:fs/promises";
 import { existsSync, statSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 import { dirname, join, relative } from "node:path";
 import { ROOT, loadRegistry, validate } from "./registry.js";
 import { LANGS } from "./i18n.js";
+import { loadArticles, validateArticles, ARTICLE_URL } from "./articles.js";
 
 const problems = [];
 const bad = (file, msg) => problems.push(`${relative(ROOT, file)}: ${msg}`);
 
 const reg = await loadRegistry();
 validate(reg).forEach((e) => problems.push("tools.json: " + e));
+const articles = await loadArticles();
+const art = validateArticles(articles, reg);
+problems.push(...art.errors);
+const warnings = [...art.warnings];
 try { execFileSync(process.execPath, [ROOT + "scripts/build.js", "--check"], { stdio: "pipe" }); }
 catch (e) { problems.push(String(e.stdout || "") + String(e.stderr || "")); }
 
@@ -45,7 +52,9 @@ for (const f of files.filter((x) => /\.html$/.test(x))) {
   }
   if (isScriptPage) continue;
   const title = (/<title>([^<]*)<\/title>/.exec(html) || [])[1] || "";
-  if (!/ – BbeTools$/.test(title) && !title.startsWith("BbeTools – ")) bad(f, `title "${title}" chưa theo dạng "… – BbeTools"`);
+  // trang bài hướng dẫn: title dài hơn 60 ký tự khi thêm đuôi thì chỉ dùng tiêu đề bài
+  const isArticle = new RegExp("^" + ARTICLE_URL + "[^/]+/index\\.html$").test(relative(ROOT, f));
+  if (!isArticle && !/ – BbeTools$/.test(title) && !title.startsWith("BbeTools – ")) bad(f, `title "${title}" chưa theo dạng "… – BbeTools"`);
   if (!/<meta name="description" content="[^"]{30,}"/.test(html)) bad(f, "thiếu meta description");
   if (!is404 && !/<link rel="canonical" href="https:\/\/[^"]+"/.test(html)) bad(f, "thiếu canonical");
   for (const m of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) { try { JSON.parse(m[1]); } catch (e) { bad(f, "JSON-LD lỗi: " + e.message); } }
@@ -59,5 +68,6 @@ for (const f of files.filter((x) => /\/assets\/.*\.(js|css)$/.test(x))) {
   for (const m of src.matchAll(/["'`](\/(?:assets|bbetools|samples|models|data)\/[^"'`]*)["'`]/g)) bad(f, `đường dẫn tuyệt đối "${m[1]}"`);
   for (const m of src.matchAll(/https:\/\/cdn\.jsdelivr\.net\/npm\/(@?[^@"'`\s]+)(@[^/"'`\s]*)?/g)) if (!m[2] || /@(latest|\^|~)/.test(m[2])) bad(f, `thư viện CDN chưa ghim phiên bản: ${m[0]}`);
 }
+if (warnings.length) console.warn("⚠ " + warnings.join("\n⚠ "));
 if (problems.length) { console.error("✗ " + problems.length + " vấn đề:\n- " + problems.join("\n- ")); process.exit(1); }
 console.log(`✓ Kiểm tra xong: ${files.filter((x) => x.endsWith(".html")).length} trang HTML, registry hợp lệ, đường dẫn tương đối đều đúng.`);

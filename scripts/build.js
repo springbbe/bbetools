@@ -13,11 +13,20 @@ import { existsSync } from "node:fs";
 import { loadRegistry, validate, isLive, ROOT } from "./registry.js";
 import { LANGS, inLang, langData, langFiles, compile, lookupFor, loadJson, hasVi } from "./i18n.js";
 import { describeAccept as describeAcceptVi } from "../assets/lib/filetype.js";
+import { loadArticles, linkErrors, renderArticle, ARTICLE_URL } from "./articles.js";
 
 const reg = await loadRegistry();
 const errors = validate(reg);
 if (errors.length) {
   console.error("tools.json có lỗi:\n- " + errors.join("\n- "));
+  process.exit(1);
+}
+
+// bài hướng dẫn (chỉ tiếng Việt): liên kết tool:id phải trỏ tới công cụ có thật và đã "done"
+const ARTICLES = await loadArticles();
+const articleErrors = linkErrors(ARTICLES, reg);
+if (articleErrors.length) {
+  console.error("Bài hướng dẫn có lỗi:\n- " + articleErrors.join("\n- "));
   process.exit(1);
 }
 
@@ -109,7 +118,7 @@ const tile = (L, t, root, cls = "") => {
 function card(L, t, root, opts = {}) {
   const H = opts.h || "h3";
   const gc = (L.groupOf[t.group] || {}).color;
-  return `<li class="card" data-id="${t.id}" data-group="${t.group}"${gc ? ` style="--c:${gc}"` : ""}>
+  return `<li class="card${opts.cls ? " " + opts.cls : ""}" data-id="${t.id}" data-group="${t.group}"${gc ? ` style="--c:${gc}"` : ""}>
 <a class="card-link" href="${root}${L.toolUrl(t)}">${tile(L, t, root)}<span class="card-txt"><${H} class="card-name">${esc(t.name)}</${H}><span class="card-desc">${esc(t.desc)}</span></span></a>
 <button class="star" type="button" data-fav="${t.id}" aria-pressed="false" aria-label="${esc(L.tr("Ghim {0} vào Yêu thích", t.name))}" hidden>${icon("star", root)}</button>
 </li>`;
@@ -167,7 +176,7 @@ function footer(L, root) {
 </div>
 <nav aria-label="${tr("Nhóm công cụ")}"><h2>${tr("Nhóm công cụ")}</h2><ul>${L.liveGroups.map((g) => `<li><a href="${root}${L.groupUrl(g)}">${esc(g.name)}</a></li>`).join("")}</ul></nav>
 <nav aria-label="${tr("Về BbeTools")}"><h2>BbeTools</h2><ul>
-<li><a href="${root}${L.aboutUrl}">${tr("Giới thiệu &amp; quyền riêng tư")}</a></li>
+${L.vi ? `<li><a href="${root}${ARTICLE_URL}">Hướng dẫn</a></li>\n` : ""}<li><a href="${root}${L.aboutUrl}">${tr("Giới thiệu &amp; quyền riêng tư")}</a></li>
 <li><a href="${site.repo}" rel="noopener">${tr("Mã nguồn trên GitHub")}</a></li>
 <li><a href="${site.repo}/issues" rel="noopener">${tr("Góp ý, báo lỗi")}</a></li>
 </ul></nav>
@@ -183,7 +192,7 @@ const analytics = () => (site.gaId ? `<script async src="https://www.googletagma
 <script>window.btReplaceState=history.replaceState.bind(history);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","${site.gaId}",{page_location:location.origin+location.pathname});</script>
 ` : "");
 
-function page(L, { path, key, title, desc, entry, ld, bodyAttrs = "", main, head = "", noindex = false, root = rootOf(path) }) {
+function page(L, { path, key, title, desc, entry, ld, bodyAttrs = "", main, head = "", noindex = false, root = rootOf(path), ogType = "website" }) {
   const abs = BASE + path;
   const alts = key ? alt(key) : {};
   const hreflang = !noindex && Object.keys(alts).length > 1
@@ -200,7 +209,7 @@ ${noindex ? `<meta name="robots" content="noindex">` : `<link rel="canonical" hr
 ${hreflang}<meta name="generator" content="bbetools-build">
 <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#1F1B13" media="(prefers-color-scheme: dark)">
-<meta property="og:type" content="website">
+<meta property="og:type" content="${ogType}">
 <meta property="og:site_name" content="${site.name}">
 <meta property="og:locale" content="${L.og}">
 <meta property="og:title" content="${esc(title)}">
@@ -235,6 +244,93 @@ const breadcrumbLd = (items) => ({
   "@type": "BreadcrumbList",
   itemListElement: items.map(([name, url], i) => ({ "@type": "ListItem", position: i + 1, name, item: BASE + url }))
 });
+
+/* ---------- bài hướng dẫn (chỉ tiếng Việt, xem scripts/articles.js) ---------- */
+const articleUrl = (a) => ARTICLE_URL + a.slug + "/";
+const mainTool = (L, a) => L.byId[a.tools[0]];
+/** Thẻ bài viết: cùng kiểu thẻ công cụ (ô icon của công cụ chính, tên, mô tả), thêm dòng nhóm + ngày cập nhật */
+function articleCard(L, a, root, opts = {}) {
+  const t = mainTool(L, a), g = L.groupOf[t.group];
+  const H = opts.h || "h3";
+  return `<li class="card no-star" style="--c:${g.color}">
+<a class="card-link" href="${root}${articleUrl(a)}">${tile(L, t, root)}<div class="card-txt"><${H} class="card-name">${esc(a.meta.title)}</${H}><span class="card-desc">${esc(a.meta.desc)}</span>${opts.meta === false ? "" : `<span class="card-meta"><span class="card-group">${esc(g.name)}</span><span>Cập nhật <time datetime="${a.meta.updated}">${fmtDate(a.meta.updated, "vi")}</time></span></span>`}</div></a>
+</li>`;
+}
+const articleCards = (L, list, root, opts) => `<ul class="cards">${list.map((a) => articleCard(L, a, root, opts)).join("\n")}</ul>`;
+const articlesFor = (id) => ARTICLES.filter((a) => a.tools.includes(id));
+
+/** Bài liên quan: ưu tiên bài có chung công cụ, rồi chung nhóm, rồi bài mới */
+function relatedArticles(L, a, n = 4) {
+  const groupsOf = (x) => new Set(x.tools.map((id) => (L.byId[id] || {}).group));
+  const mine = new Set(a.tools), myGroups = groupsOf(a);
+  return ARTICLES.filter((x) => x !== a)
+    .map((x, i) => ({ x, i, score: x.tools.filter((id) => mine.has(id)).length * 10 + ([...groupsOf(x)].some((gid) => myGroups.has(gid)) ? 3 : 0) }))
+    .sort((p, q) => q.score - p.score || p.i - q.i).slice(0, n).map((o) => o.x);
+}
+
+function articlePage(L, a) {
+  const path = articleUrl(a), root = rootOf(path);
+  const t = mainTool(L, a), g = L.groupOf[t.group];
+  const { blocks } = renderArticle(a, (id) => root + L.toolUrl(L.byId[id]));
+  const first = blocks[0] && blocks[0].startsWith("<p>") ? 1 : 0;
+  const cta = `<aside class="article-cta" aria-label="Công cụ chính của bài">${`<ul class="cards">${card(L, t, root, { h: "p", cls: "tinted" })}</ul>`}</aside>`;
+  const used = a.tools.map((id) => L.byId[id]).filter(Boolean);
+  const more = relatedArticles(L, a);
+  const main = `<div class="tool-page band-page" style="--c:${g.color}">
+<div class="tool-band">
+<div class="wrap narrow">
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="${root}${L.homeUrl}">Trang chủ</a></li><li><a href="${root}${ARTICLE_URL}">Hướng dẫn</a></li><li><span aria-current="page">${esc(a.meta.title)}</span></li></ol></nav>
+<header class="tool-head plain"><div class="tool-title"><h1>${esc(a.meta.title)}</h1><p class="lead">Cập nhật <time datetime="${a.meta.updated}">${fmtDate(a.meta.updated, "vi")}</time></p></div></header>
+</div>
+</div>
+<div class="wrap narrow">
+<article class="prose article">
+${[...blocks.slice(0, first), cta, ...blocks.slice(first)].join("\n")}
+</article>
+<section class="block"><h2>Công cụ dùng trong bài</h2>${cards(L, used, root)}</section>
+${more.length ? `<section class="block"><h2>Bài hướng dẫn khác <a class="see-all" href="${root}${ARTICLE_URL}">Xem tất cả${icon("arrow-right", root)}</a></h2>${articleCards(L, more, root)}</section>` : ""}
+</div>
+</div>`;
+  const url = BASE + path;
+  const ld = {
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "Article", headline: a.meta.title, description: a.meta.desc, dateModified: a.meta.updated, inLanguage: "vi", url, mainEntityOfPage: url,
+        image: BASE + "assets/og.png", author: { "@type": "Organization", name: site.name, url: BASE },
+        publisher: { "@type": "Organization", name: site.name, url: BASE, logo: { "@type": "ImageObject", url: BASE + "assets/icon-512.png" } } },
+      breadcrumbLd([["Trang chủ", L.homeUrl], ["Hướng dẫn", ARTICLE_URL], [a.meta.title, path]])
+    ]
+  };
+  const title = `${a.meta.title} – ${site.name}`.length <= 60 ? `${a.meta.title} – ${site.name}` : a.meta.title;
+  return page(L, { path, title, desc: a.meta.desc, entry: L.js("core.js"), ld, main, ogType: "article",
+    head: `<meta property="article:modified_time" content="${a.meta.updated}">\n` });
+}
+
+function articlesIndexPage(L) {
+  const path = ARTICLE_URL, root = rootOf(path);
+  const main = `<div class="tool-page band-page" style="--c:#C8922A">
+<div class="tool-band">
+<div class="wrap">
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="${root}${L.homeUrl}">Trang chủ</a></li><li><span aria-current="page">Hướng dẫn</span></li></ol></nav>
+<header class="tool-head plain"><div class="tool-title"><h1>Hướng dẫn</h1><p class="lead">${ARTICLES.length} bài hướng dẫn từng bước: nén PDF nộp hồ sơ, ảnh thẻ, tính thuế, lương, tiền điện, VietQR… kèm bảng số liệu và ví dụ cụ thể.</p></div></header>
+</div>
+</div>
+<div class="wrap">
+${articleCards(L, ARTICLES, root, { h: "h2" })}
+</div>
+</div>`;
+  const ld = {
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "CollectionPage", name: "Hướng dẫn", url: BASE + path, inLanguage: "vi",
+        mainEntity: { "@type": "ItemList", itemListElement: ARTICLES.map((a, i) => ({ "@type": "ListItem", position: i + 1, name: a.meta.title, url: BASE + articleUrl(a) })) } },
+      breadcrumbLd([["Trang chủ", L.homeUrl], ["Hướng dẫn", path]])
+    ]
+  };
+  return page(L, { path, title: "Hướng dẫn dùng công cụ PDF, ảnh, thuế, lương – BbeTools",
+    desc: "Hướng dẫn từng bước nén PDF, làm ảnh thẻ, tính thuế TNCN, lương gross net, tiền điện, tạo VietQR… kèm bảng số liệu, ví dụ. File không rời khỏi máy bạn.",
+    entry: L.js("core.js"), ld, main });
+}
 
 /* ---------- trang chủ ---------- */
 function homePage(L) {
@@ -281,7 +377,7 @@ ${liveGroups.map((g) => `<section class="block group-block" id="${tr("nhom-")}${
 ${cards(L, liveIn(g.id), root)}
 </section>`).join("\n")}
 </div>
-</div>
+${L.vi && ARTICLES.length ? `<section class="block" id="huong-dan"><h2>${icon("book-open", root)} Hướng dẫn <a class="see-all" href="${root}${ARTICLE_URL}">Xem tất cả ${ARTICLES.length} bài${icon("arrow-right", root)}</a></h2>${articleCards(L, ARTICLES.slice(0, 3), root)}</section>\n` : ""}</div>
 </div>`;
   const url = BASE + path;
   const ld = {
@@ -373,7 +469,7 @@ ${tile(L, t, root, "lg")}
 ${accept}
 ${await dataNote(L, t, root)}
 ${howto && faq ? `<div class="tool-info">\n${howto}\n${faq}\n</div>` : howto + faq}
-${related.length ? `<section class="block"><h2>${tr("Công cụ liên quan")} <a class="see-all" href="${root}${L.groupUrl(g)}">${tr("Xem cả {0} công cụ", L.liveIn(g.id).length)}${icon("arrow-right", root)}</a></h2>${cards(L, related.slice(0, 6), root)}</section>` : ""}
+${L.vi && articlesFor(t.id).length ? `<section class="block"><h2>Bài hướng dẫn</h2>${articleCards(L, articlesFor(t.id), root, { meta: false })}</section>\n` : ""}${related.length ? `<section class="block"><h2>${tr("Công cụ liên quan")} <a class="see-all" href="${root}${L.groupUrl(g)}">${tr("Xem cả {0} công cụ", L.liveIn(g.id).length)}${icon("arrow-right", root)}</a></h2>${cards(L, related.slice(0, 6), root)}</section>` : ""}
 </div>
 </div>`;
   const graph = [
@@ -503,6 +599,7 @@ async function cleanStale(keep) {
   };
   await scan("");
   await scan("nhom/");
+  await scan(ARTICLE_URL);
   for (const code of Object.keys(LANGS)) { await scan(code + "/"); await scan(code + "/" + LANGS[code].groups); }
   // module JS đã dịch nhưng nay không còn dùng
   for (const code of Object.keys(LANGS)) {
@@ -529,11 +626,16 @@ for (const code of LANG_CODES) {
     [L.homeUrl, () => homePage(L)],
     ...L.liveGroups.map((g) => [L.groupUrl(g), () => groupPage(L, g)]),
     ...L.live.map((t) => [L.toolUrl(t), () => toolPage(L, t)]),
-    [L.aboutUrl, () => aboutPage(L)]
+    [L.aboutUrl, () => aboutPage(L)],
+    // bài hướng dẫn chỉ có tiếng Việt, không có bản dịch / hreflang
+    ...(L.vi && ARTICLES.length ? [
+      [ARTICLE_URL, () => articlesIndexPage(L), ARTICLES.map((a) => a.meta.updated).sort().pop()],
+      ...ARTICLES.map((a) => [articleUrl(a), () => articlePage(L, a), a.meta.updated])
+    ] : [])
   ];
-  for (const [path, make] of pages) {
+  for (const [path, make, lastmod] of pages) {
     keep.add(path);
-    urls.push(path);
+    urls.push({ path, lastmod });
     changed += await write(path + "index.html", await make());
   }
   if (L.vi) {
@@ -555,7 +657,7 @@ for (const code of LANG_CODES) {
 }
 changed += await write("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.map((u) => `  <url><loc>${BASE}${u}</loc></url>`).join("\n")}
+${urls.map((u) => `  <url><loc>${BASE}${u.path}</loc>${u.lastmod ? `<lastmod>${u.lastmod}</lastmod>` : ""}</url>`).join("\n")}
 </urlset>
 `);
 changed += await write("robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${BASE}sitemap.xml\n`);

@@ -6,6 +6,7 @@
 tools.json                 REGISTRY – nguồn dữ liệu duy nhất: nhóm và công cụ (id, slug, tên, nhóm, mô tả,
                            từ khoá, icon, kiểu khung, loại file nhận, trạng thái, công cụ liên quan, cách dùng, FAQ)
 data/                      dữ liệu dễ lỗi thời, mỗi file có "title", "updated", "source" (ngày cập nhật hiện trên trang)
+content/huong-dan/*.md     bài hướng dẫn (Markdown + frontmatter, chỉ tiếng Việt), tên file là slug, xem mục "Bài hướng dẫn"
 assets/
   app.css                  giao diện chung (sáng/tối)
   core.js                  lõi: header, mega-menu/ngăn kéo, bảng lệnh (/ hoặc Ctrl/⌘+K), yêu thích ★, gần đây,
@@ -46,11 +47,14 @@ samples/                   file mẫu cho nút "Thử với file mẫu"
 en/                        (sinh tự động) trang tiếng Anh: en/index.html, en/<id>/, en/category/<nhóm>/, en/about/
 i18n/en/                   từ điển tiếng Anh: tools.json (nội dung registry), pages.json (khung trang), js/** (chuỗi trong JS)
 nhom/<nhóm>/index.html     (sinh tự động) trang nhóm: nhom/pdf/, nhom/anh/…
+huong-dan/                 (sinh tự động) mục lục bài hướng dẫn và huong-dan/<slug>/ từ content/huong-dan/
 index.html, 404.html, gioi-thieu/, sitemap.xml, robots.txt, manifest.webmanifest   (sinh tự động)
 scripts/build.js           sinh mọi trang từ tools.json (mọi ngôn ngữ)
 scripts/i18n.js            dịch module JS lúc build, đồ thị import, `extract` thêm khoá còn thiếu vào từ điển
 scripts/serve.js           server chạy thử ở máy (tắt cache, phục vụ dưới /bbetools/ giống GitHub Pages)
-scripts/check.js           kiểm tra registry, đường dẫn tương đối, thẻ SEO
+scripts/check.js           kiểm tra registry, đường dẫn tương đối, thẻ SEO, bài hướng dẫn
+scripts/articles.js        đọc, kiểm tra, dựng HTML cho bài hướng dẫn (dùng chung cho build, check, test)
+scripts/markdown.js        bộ chuyển Markdown tối thiểu (không phụ thuộc npm)
 scripts/icons.js           tạo assets/icons.svg từ Lucide
 scripts/make-samples.js    tạo lại file mẫu (Chrome headless + sips trên macOS)
 scripts/make-brand.js      tạo ảnh OG và icon ứng dụng
@@ -137,6 +141,30 @@ Khai báo trong bảng `LIBS` của `assets/core.js`, gọi bằng `lib("tên")`
 3. Hàm tính toán thuần đặt ở `assets/lib/` và viết test trong `tests/`. Dữ liệu dễ lỗi thời đặt ở `data/<tên>.json` với `title`, `updated`, `source`, rồi khai báo trong trường `data` của công cụ.
 4. Nếu dùng icon mới: chạy `node scripts/icons.js`. Thêm file mẫu vào `samples/` nếu công cụ nhận file.
 5. Đổi `status` thành `done`, chạy build và kiểm tra (bên dưới), thử trong trình duyệt (cả khổ điện thoại và chế độ tối), commit.
+
+## Bài hướng dẫn
+
+Bài viết ở `content/huong-dan/<slug>.md` (tên file là slug, không dấu). `build.js` sinh `huong-dan/<slug>/index.html` và mục lục `huong-dan/`; bài **chỉ có tiếng Việt**: không có `/en/huong-dan/`, không có hreflang, và trang tiếng Anh không hiện khối bài viết.
+
+```markdown
+---
+title: Cách nén PDF để nộp hồ sơ trực tuyến          (≤ 60 ký tự; title trang = title + " – BbeTools" nếu tổng ≤ 60)
+desc: Cách giảm dung lượng PDF cho vừa giới hạn…    (≤ 155 ký tự, dùng làm meta description)
+tools: [compress-pdf, merge-pdf]                     (id công cụ; phần tử đầu là công cụ chính)
+data: [thue-tncn, bhxh]                              (tuỳ chọn: file trong data/ mà bài trích số liệu)
+updated: 2026-11-13
+---
+
+Đoạn mở đầu… dùng [Nén PDF](tool:compress-pdf) để…
+
+## Tiêu đề mục
+```
+
+- Cú pháp hỗ trợ (`scripts/markdown.js`): `##`, `###`, đoạn văn, danh sách `-` và `1.` (danh sách đánh số hiện kiểu `.steps`), bảng (`| a | b |` + dòng `|---|---|`, tự bọc khung cuộn ngang), `**đậm**`, `[chữ](https://…)`. Mọi ký tự HTML được thoát.
+- Liên kết tới công cụ viết `[Tên công cụ](tool:id)`: build đổi thành đường dẫn tương đối bằng cùng hàm `toolUrl` của các trang khác. Tên hiển thị phải **đúng** tên trong `tools.json` (đổi tên công cụ thì sửa cả bài).
+- Trang bài: đường dẫn Trang chủ › Hướng dẫn › bài, dải đầu trang nhuộm màu nhóm của công cụ chính, dòng "Cập nhật", thẻ công cụ chính ngay sau đoạn mở đầu, cuối bài là "Công cụ dùng trong bài" và "Bài hướng dẫn khác" (ưu tiên bài chung công cụ, rồi chung nhóm). JSON-LD `Article` + `BreadcrumbList`, `og:type` = article, sitemap có `<lastmod>` = `updated`.
+- Liên kết ngược: trang công cụ có khối "Bài hướng dẫn" (giữa FAQ và "Công cụ liên quan") khi có bài khai báo công cụ đó trong `tools`; trang chủ hiện 3 bài mới nhất; chân trang có mục "Hướng dẫn".
+- Thêm bài: viết file `.md`, chạy build + check. `build.js` dừng nếu `tool:id`/`tools` trỏ tới công cụ không có hoặc chưa `done`. `check.js` báo lỗi khi thiếu trường, title > 60, desc > 155 ký tự, id không tồn tại, tên liên kết sai, file `data` không có; **cảnh báo** khi file dữ liệu trong `data` có `updated` mới hơn bài (rà lại số liệu rồi sửa `updated` của bài).
 
 ## Công cụ PDF làm việc theo từng trang
 

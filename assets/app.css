@@ -306,6 +306,25 @@ details p { margin: 0; padding: 0 16px 14px; color: var(--muted); }
 .prose > p, .prose > ul { max-width: 58ch; font-size: 16.5px; line-height: 1.65; }
 .prose h2 { letter-spacing: -0.02em; }
 .note { padding: 14px 16px; border-radius: 12px; background: var(--warn-soft); color: var(--warn); }
+/* bài hướng dẫn (huong-dan/): cột chữ ~70 ký tự, bảng cuộn ngang trong khung, bước đánh số dùng .steps */
+.article { margin-top: 28px; }
+.article > :first-child { margin-top: 0; }
+.article > p, .article > ul, .article > ol, .article > h2, .article > h3 { max-width: 68ch; }
+.article > p, .article > ul, .article > ol { font-size: 16.5px; line-height: 1.65; }
+.article > ul { padding-left: 22px; }
+.article h3 { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; margin: 22px 0 6px; }
+.article > ol.steps { margin: 14px 0 18px; }
+.article > .tbl-wrap { margin: 16px 0 18px; }
+.article .tbl { font-size: 15px; }
+.article .tbl th, .article .tbl td { text-align: left; white-space: normal; vertical-align: top; min-width: 6.5em; padding: 9px 12px; }
+.article .tbl thead th { position: static; }
+.article-cta { margin: 20px 0 24px; max-width: 68ch; }
+.article-cta .cards { grid-template-columns: minmax(0, 1fr); }
+.card.tinted { background: color-mix(in oklab, var(--c) 7%, var(--surface)); border-color: color-mix(in oklab, var(--c) 34%, var(--line)); }
+.card.no-star .card-link { padding-right: 14px; }
+.card-meta { display: flex; flex-wrap: wrap; gap: 2px 12px; margin-top: 3px; color: var(--muted); font-size: 12.5px; font-variant-numeric: tabular-nums; }
+.card-group { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; }
+.card-group::before { content: ""; width: 8px; height: 8px; border-radius: 2px; background: var(--c); }
 
 /* ---------- Trang công cụ ---------- */
 /* dải đầu trang nhuộm màu chuyên mục (--c đặt ở .tool-page theo nhóm); khung ứng dụng đè lên mép dưới của dải */

@@ -8,7 +8,7 @@ export const ROOT = fileURLToPath(new URL("..", import.meta.url));
 export const KINDS = ["file", "text", "form", "interactive"];
 export const STATUSES = ["done", "beta", "todo"];
 export const ACCEPT_KINDS = [...Object.keys(KIND_EXT), "any"];
-export const RESERVED = ["assets", "data", "nhom", "samples", "scripts", "tests", "models", "gioi-thieu", "node_modules", "404", "i18n", "en"];
+export const RESERVED = ["assets", "data", "nhom", "samples", "scripts", "tests", "models", "gioi-thieu", "node_modules", "404", "i18n", "en", "content", "huong-dan"];
 
 export async function loadRegistry() {
   return JSON.parse(await readFile(ROOT + "tools.json", "utf8"));
