@@ -29,6 +29,24 @@
         ],
         "createdAt": "2026-11-05T03:52:20.705Z",
         "reason": "Claude: file mẫu giả lập giấy tờ hành chính Việt Nam, vốn dùng Times New Roman; không phải giao diện site"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "scripts/brand/og-group.html"
+        ],
+        "createdAt": "2026-11-15T08:02:30.835Z",
+        "reason": "Claude: nền dải nhuộm màu nhóm pha giấy kem là màu nền dải đầu trang theo DESIGN.md (--band), ảnh OG mô phỏng đúng dải đó"
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "scripts/brand/og-group.html"
+        ],
+        "createdAt": "2026-11-15T08:02:30.864Z",
+        "reason": "Claude: trang chỉ nạp app.css chung; hiệu ứng .progress.indet không có trên trang ảnh OG tĩnh"
       }
     ]
   }
