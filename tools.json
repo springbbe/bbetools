@@ -5,21 +5,94 @@
     "gaId": "G-6GW96LCW9V",
     "repo": "https://github.com/springbbe/bbetools",
     "tagline": "Công cụ tiện ích miễn phí cho người Việt, chạy ngay trên trình duyệt",
-    "description": "Hơn 100 công cụ miễn phí: ghép, nén PDF, nén ảnh, HEIC sang JPG, ảnh thẻ, VietQR, đọc số thành chữ, lịch âm… Xử lý 100% trên máy bạn, file không bao giờ tải lên máy chủ."
+    "title": "Công cụ online miễn phí cho người Việt",
+    "description": "{0} công cụ miễn phí: ghép, nén PDF, nén ảnh, HEIC sang JPG, VietQR, lịch âm… Chạy ngay trên trình duyệt, file không rời khỏi máy bạn."
   },
   "groups": [
-    { "id": "pdf", "phase": 2, "slug": "pdf", "name": "PDF", "icon": "file-text", "color": "#E5484D", "desc": "Ghép, tách, nén, xoay, ký, đặt mật khẩu và chuyển đổi file PDF." },
-    { "id": "image", "phase": 3, "slug": "anh", "name": "Ảnh", "icon": "image", "color": "#8E4EC6", "desc": "Nén, đổi cỡ, cắt, đổi định dạng, HEIC sang JPG, làm ảnh thẻ, xoá phông." },
-    { "id": "media", "phase": 8, "slug": "am-thanh-video", "name": "Âm thanh & video", "icon": "film", "color": "#D6409F", "desc": "Ghi âm, quay màn hình, cắt và ghép âm thanh, video sang MP3, nén video." },
-    { "id": "text", "phase": 5, "slug": "van-ban", "name": "Văn bản", "icon": "type", "color": "#0D74CE", "desc": "Đếm từ, đổi chữ hoa thường, bỏ dấu, so sánh văn bản, chuyển mã TCVN3/VNI." },
-    { "id": "vn", "phase": 4, "slug": "viet-nam", "name": "Tiện ích Việt Nam", "icon": "flag", "color": "#C27C0E", "desc": "Đọc số thành chữ, VietQR, lịch âm, lương gross ↔ net, thuế TNCN, tiền điện." },
-    { "id": "calc", "phase": 4, "slug": "tinh-toan", "name": "Tính toán & đời sống", "icon": "calculator", "color": "#E5701A", "desc": "Phần trăm, giảm giá, VAT, chia tiền nhóm, đổi đơn vị, BMI, ngày dự sinh." },
-    { "id": "qr", "phase": 6, "slug": "qr-ma-vach", "name": "QR & mã vạch", "icon": "qr-code", "color": "#475569", "desc": "Tạo mã QR (link, WiFi, danh thiếp), quét QR từ camera, ảnh, PDF; tạo mã vạch." },
-    { "id": "office", "phase": 6, "slug": "van-phong", "name": "Văn phòng & dữ liệu", "icon": "sheet", "color": "#18794E", "desc": "Xem Excel/CSV, chuyển đổi, gộp, tách file Excel, trộn thư, chữ ký email, soạn văn bản hành chính." },
-    { "id": "dev", "phase": 5, "slug": "lap-trinh", "name": "Lập trình", "icon": "code", "color": "#3E63DD", "desc": "JSON, Base64, JWT, UUID, hash, regex, timestamp, cron, mã màu, SQL." },
-    { "id": "security", "phase": 7, "slug": "bao-mat", "name": "Bảo mật", "icon": "shield", "color": "#0E7C86", "desc": "Tạo mật khẩu mạnh, mã hoá file và văn bản, checksum, mã 2FA." },
-    { "id": "productivity", "phase": 7, "slug": "nang-suat", "name": "Năng suất & ngẫu nhiên", "icon": "timer", "color": "#5C8A1C", "desc": "Pomodoro, bấm giờ, hẹn giờ, vòng quay may mắn, chia đội, ghi chú nhanh." },
-    { "id": "download", "phase": 9, "slug": "tai-ve", "name": "Tải về", "icon": "download", "color": "#0090FF", "desc": "Tải sticker Telegram, LINE, Signal, emoji Discord, emote Twitch, thumbnail YouTube, emoji động, font Google Fonts, thư mục GitHub, icon App Store, ảnh và video Bluesky, Mastodon thẳng từ nguồn về máy, không qua máy chủ trung gian." }
+    { "id": "pdf", "phase": 2, "slug": "pdf", "name": "PDF", "icon": "file-text", "color": "#E5484D", "desc": "Ghép, tách, nén, xoay, ký, đặt mật khẩu và chuyển đổi file PDF.",
+      "intro": "Ghép, tách, nén, xoay, sắp xếp trang, ký tên, đặt hoặc gỡ mật khẩu và chuyển PDF sang ảnh, văn bản ngay trên trình duyệt. Hay dùng nhất là Ghép PDF, Nén PDF để nộp hồ sơ trực tuyến, Ký PDF và Ảnh sang PDF; có cả công cụ che thông tin và nhận dạng chữ cho PDF scan.",
+      "faq": [
+        { "q": "Có cần cài phần mềm hay tạo tài khoản không?", "a": "Không. Mở trang là dùng được trên máy tính và điện thoại, không cần đăng ký, không giới hạn số lần." },
+        { "q": "File PDF có mật khẩu dùng được không?", "a": "Được, nếu bạn biết mật khẩu: trang sẽ hỏi khi mở file. Công cụ Mở khoá PDF gỡ mật khẩu và giới hạn in, sao chép; không có công cụ phá mật khẩu khi quên." },
+        { "q": "Xử lý file lớn trên điện thoại có được không?", "a": "Được, nhưng tốc độ và giới hạn phụ thuộc bộ nhớ máy. Với file vài trăm MB nên dùng máy tính; trên điện thoại nên chia nhỏ mỗi lần xử lý." }
+      ] },
+    { "id": "image", "phase": 3, "slug": "anh", "name": "Ảnh", "icon": "image", "color": "#8E4EC6", "desc": "Nén, đổi cỡ, cắt, đổi định dạng, HEIC sang JPG, làm ảnh thẻ, xoá phông.",
+      "intro": "Nén ảnh xuống đúng số KB, đổi kích thước, cắt, xoay, đổi định dạng, chuyển ảnh HEIC của iPhone sang JPG, làm ảnh thẻ và xoá phông bằng AI chạy ngay trên máy. Ngoài ra có che vùng nhạy cảm, xoá vị trí GPS, chèn watermark, ghép ảnh và nhận dạng chữ trong ảnh.",
+      "faq": [
+        { "q": "Nhận những định dạng ảnh nào?", "a": "JPG, PNG, WebP, GIF, BMP, AVIF và HEIC/HEIF của iPhone; một số công cụ nhận cả SVG. Xuất ra JPG, PNG, WebP hoặc AVIF tuỳ công cụ." },
+        { "q": "Xử lý nhiều ảnh một lúc được không?", "a": "Được. Phần lớn công cụ nhận nhiều ảnh cùng lúc và cho tải từng ảnh hoặc cả bộ dạng .zip." },
+        { "q": "AI xoá phông, ảnh thẻ có cần mạng không?", "a": "Chỉ cần mạng ở lần đầu để tải mô hình AI (vài MB) về trình duyệt; sau đó việc tách nền chạy hoàn toàn trên máy bạn." }
+      ] },
+    { "id": "media", "phase": 8, "slug": "am-thanh-video", "name": "Âm thanh & video", "icon": "film", "color": "#D6409F", "desc": "Ghi âm, quay màn hình, cắt và ghép âm thanh, video sang MP3, nén video.",
+      "intro": "Ghi âm, quay màn hình, cắt và ghép âm thanh, làm nhạc chuông iPhone, tách tiếng từ video sang MP3, cắt và nén video để gửi qua Zalo, email. Video được đọc dần từng phần và mã hoá bằng phần cứng của máy, nên file vài GB vẫn xử lý được.",
+      "faq": [
+        { "q": "Đọc được những định dạng nào?", "a": "Video MP4, MOV, WebM, MKV; âm thanh MP3, M4A, WAV, OGG, FLAC, AAC. File AVI, WMV hay ghi âm AMR thường không đọc được trên trình duyệt." },
+        { "q": "Có giới hạn dung lượng video không?", "a": "Không có giới hạn cố định: file được đọc dần nên video vài GB vẫn cắt, nén được. Tốc độ phụ thuộc vào máy và trình duyệt." },
+        { "q": "Dùng trình duyệt nào là tốt nhất?", "a": "Chrome, Edge hoặc Safari bản mới, vì các công cụ dùng WebCodecs để giải mã và mã hoá video bằng phần cứng. Firefox chạy được phần lớn công cụ nhưng có thể chậm hơn." }
+      ] },
+    { "id": "text", "phase": 5, "slug": "van-ban", "name": "Văn bản", "icon": "type", "color": "#0D74CE", "desc": "Đếm từ, đổi chữ hoa thường, bỏ dấu, so sánh văn bản, chuyển mã TCVN3/VNI.",
+      "intro": "Đếm từ, đổi chữ hoa thường, bỏ dấu, tạo slug, so sánh hai văn bản, lọc dòng trùng, tìm và thay thế, chuyển văn bản cũ từ TCVN3, VNI sang Unicode và sửa chữ lỡ gõ khi chưa bật bộ gõ. Mọi công cụ hiểu đúng chữ tiếng Việt có dấu.",
+      "faq": [
+        { "q": "Văn bản dài có xử lý được không?", "a": "Được. Các công cụ chạy ngay trong trình duyệt nên văn bản dài vài trăm nghìn ký tự vẫn xử lý được, chỉ chậm hơn trên máy yếu." },
+        { "q": "Đếm từ tiếng Việt có đúng không?", "a": "Có. Mỗi tiếng cách nhau bởi khoảng trắng được tính là một từ, giống cách Word và Google Docs đếm." },
+        { "q": "Văn bản cũ hiện chữ lạ như “ViÖt Nam” thì dùng công cụ nào?", "a": "Dùng Chuyển mã Unicode ↔ TCVN3 ↔ VNI: công cụ tự nhận bảng mã cũ và chuyển sang Unicode để máy nào cũng đọc được." }
+      ] },
+    { "id": "vn", "phase": 4, "slug": "viet-nam", "name": "Tiện ích Việt Nam", "icon": "flag", "color": "#C27C0E", "desc": "Đọc số thành chữ, VietQR, lịch âm, lương gross ↔ net, thuế TNCN, tiền điện.",
+      "intro": "Những công cụ dành riêng cho người Việt: đọc số tiền thành chữ, tạo mã QR chuyển khoản VietQR, đổi lịch âm dương, tính lương gross sang net, thuế thu nhập cá nhân, tiền điện bậc thang, lãi vay và BHXH một lần. Số liệu thuế, bảo hiểm, giá điện lấy theo văn bản hiện hành và ghi rõ ngày cập nhật.",
+      "faq": [
+        { "q": "Số liệu thuế, bảo hiểm, giá điện cập nhật thế nào?", "a": "Mỗi công cụ đọc số liệu từ file dữ liệu ghi rõ văn bản gốc và ngày cập nhật (hiện ngay dưới kết quả); khi Nhà nước đổi mức, file được sửa theo văn bản mới." },
+        { "q": "Kết quả có dùng làm căn cứ chính thức được không?", "a": "Không. Kết quả chỉ để tham khảo; số chính thức là số do cơ quan thuế, bảo hiểm, ngân hàng hay điện lực tính." },
+        { "q": "Mã VietQR dùng được với ngân hàng nào?", "a": "Mọi ngân hàng và ví hỗ trợ chuẩn VietQR (Napas); người chuyển chỉ cần quét bằng ứng dụng ngân hàng là có sẵn số tài khoản, số tiền và nội dung." }
+      ] },
+    { "id": "calc", "phase": 4, "slug": "tinh-toan", "name": "Tính toán & đời sống", "icon": "calculator", "color": "#E5701A", "desc": "Phần trăm, giảm giá, VAT, chia tiền nhóm, đổi đơn vị, BMI, ngày dự sinh.",
+      "intro": "Tính phần trăm, giảm giá, VAT, lãi kép, chia tiền nhóm, đổi đơn vị, tính tuổi, cộng trừ ngày và đếm ngày làm việc, BMI, calo mỗi ngày, ngày dự sinh và máy tính khoa học. Kết quả cập nhật ngay khi gõ và nằm trên đường link để gửi cho người khác.",
+      "faq": [
+        { "q": "Gửi kết quả cho người khác thế nào?", "a": "Bấm “Sao chép link”: số liệu bạn nhập nằm trên đường link, người nhận mở ra sẽ thấy đúng kết quả đó." },
+        { "q": "Nhập số thập phân dùng dấu chấm hay dấu phẩy?", "a": "Dùng dấu phẩy theo kiểu Việt Nam, ví dụ 12,5; ô tiền tự thêm dấu chấm ngăn cách hàng nghìn." },
+        { "q": "Kết quả sức khoẻ (BMI, calo, ngày dự sinh) có thay được bác sĩ không?", "a": "Không. Đây là ước tính theo công thức phổ biến để tham khảo; hãy hỏi bác sĩ khi cần quyết định về sức khoẻ." }
+      ] },
+    { "id": "qr", "phase": 6, "slug": "qr-ma-vach", "name": "QR & mã vạch", "icon": "qr-code", "color": "#475569", "desc": "Tạo mã QR (link, WiFi, danh thiếp), quét QR từ camera, ảnh, PDF; tạo mã vạch.",
+      "intro": "Tạo mã QR cho đường link, WiFi, danh thiếp, tin nhắn; quét QR và mã vạch bằng camera, từ ảnh chụp màn hình hay file PDF; tạo mã vạch EAN, Code 128 để in nhãn hàng. Mã QR chuyển khoản ngân hàng nằm ở công cụ Tạo mã QR chuyển khoản (VietQR).",
+      "faq": [
+        { "q": "Mã QR tạo ra có hết hạn không?", "a": "Không. Mã chứa trực tiếp nội dung (link, mật khẩu WiFi…), không đi qua máy chủ trung gian nên dùng mãi được, miễn là đường link bên trong còn hoạt động." },
+        { "q": "Có chèn logo vào giữa mã QR được không?", "a": "Được. Công cụ Tạo mã QR cho chèn logo và dùng mức sửa lỗi cao để mã vẫn quét được." },
+        { "q": "Quét mã QR từ ảnh chụp màn hình thế nào?", "a": "Mở Quét mã QR rồi chọn, kéo thả hoặc dán ảnh (cả file PDF); không cần dùng camera." }
+      ] },
+    { "id": "office", "phase": 6, "slug": "van-phong", "name": "Văn phòng & dữ liệu", "icon": "sheet", "color": "#18794E", "desc": "Xem Excel/CSV, chuyển đổi, gộp, tách file Excel, trộn thư, chữ ký email, soạn văn bản hành chính.",
+      "intro": "Xem file Excel, CSV không cần cài Office, chuyển Excel sang CSV và JSON, gộp nhiều file Excel thành một, tách bảng theo cột, trộn thư từ danh sách Excel và mẫu Word, tạo chữ ký email, hoá đơn, báo giá và soạn văn bản hành chính đúng Nghị định 30.",
+      "faq": [
+        { "q": "Mở file CSV bị lỗi font tiếng Việt thì sao?", "a": "Các công cụ tự nhận bảng mã (UTF-8, Windows-1258…) và dấu phân cách khi đọc CSV; file CSV xuất ra có BOM UTF-8 để Excel mở đúng tiếng Việt." },
+        { "q": "Công thức và định dạng trong Excel có được giữ không?", "a": "Công cụ đọc giá trị đã tính của từng ô; khi gộp, tách hay chuyển đổi, file mới chứa giá trị chứ không giữ công thức, màu ô hay ô gộp." },
+        { "q": "Đọc được những loại file nào?", "a": "Excel .xlsx, .xls, .ods và CSV; Trộn thư dùng thêm mẫu Word .docx." }
+      ] },
+    { "id": "dev", "phase": 5, "slug": "lap-trinh", "name": "Lập trình", "icon": "code", "color": "#3E63DD", "desc": "JSON, Base64, JWT, UUID, hash, regex, timestamp, cron, mã màu, SQL.",
+      "intro": "Bộ đồ nghề cho lập trình viên: định dạng và kiểm tra JSON, chuyển JSON sang CSV, YAML, mã hoá Base64, URL, giải mã JWT, tạo UUID, tính hash, thử regex, đổi timestamp, giải thích cron, đổi mã màu, định dạng SQL, nén JS/CSS/HTML và tra mã trạng thái HTTP.",
+      "faq": [
+        { "q": "Dán JWT, khoá API vào có an toàn không?", "a": "Các công cụ chạy hoàn toàn trên trình duyệt, không gửi dữ liệu đi đâu. Dù vậy, với khoá thật đang dùng, nên tạo khoá mới nếu từng dán vào nơi bạn không tin tưởng." },
+        { "q": "Regex viết sai có làm treo trang không?", "a": "Không. Biểu thức chính quy chạy trong một luồng riêng có giới hạn thời gian; biểu thức chạy quá lâu sẽ bị dừng và báo lỗi." },
+        { "q": "Dùng ngoại tuyến được không?", "a": "Sau khi trang và thư viện đã tải xong, bạn có thể ngắt mạng và công cụ vẫn chạy cho tới khi tải lại trang." }
+      ] },
+    { "id": "security", "phase": 7, "slug": "bao-mat", "name": "Bảo mật", "icon": "shield", "color": "#0E7C86", "desc": "Tạo mật khẩu mạnh, mã hoá file và văn bản, checksum, mã 2FA.",
+      "intro": "Tạo mật khẩu mạnh hoặc cụm từ dễ nhớ, kiểm tra độ mạnh mật khẩu, mã hoá file và văn bản bằng AES-256, tính checksum để kiểm tra file tải về và tạo mã xác thực 2 bước (TOTP). Mọi phép mã hoá dùng Web Crypto có sẵn trong trình duyệt.",
+      "faq": [
+        { "q": "Mật khẩu tạo ra có ngẫu nhiên thật không?", "a": "Có. Công cụ dùng crypto.getRandomValues, bộ sinh số ngẫu nhiên dành cho mật mã của trình duyệt; mật khẩu không được lưu hay gửi đi." },
+        { "q": "Quên mật khẩu file đã mã hoá thì sao?", "a": "Không lấy lại được: khoá được tạo từ mật khẩu của bạn và BbeTools không lưu bản nào. Hãy cất mật khẩu trong trình quản lý mật khẩu." },
+        { "q": "Checksum dùng để làm gì?", "a": "Để chắc file tải về không bị hỏng hay bị tráo: so mã SHA-256 của file với mã ghi trên trang tải chính thức." }
+      ] },
+    { "id": "productivity", "phase": 7, "slug": "nang-suat", "name": "Năng suất & ngẫu nhiên", "icon": "timer", "color": "#5C8A1C", "desc": "Pomodoro, bấm giờ, hẹn giờ, vòng quay may mắn, chia đội, ghi chú nhanh.",
+      "intro": "Pomodoro, bấm giờ, hẹn giờ đếm ngược, vòng quay may mắn, bốc thăm chia đội, tung xu, số ngẫu nhiên, ghi chú nhanh, checklist, đồng hồ thế giới và bộ kiểm tra camera, micro, loa, bàn phím, chuột, màn hình trước buổi họp online hay khi mua máy cũ.",
+      "faq": [
+        { "q": "Ghi chú, checklist được lưu ở đâu?", "a": "Trong bộ nhớ trình duyệt (localStorage) của chính máy bạn; xoá dữ liệu trang web hoặc dùng chế độ ẩn danh là mất." },
+        { "q": "Kết quả vòng quay, bốc thăm có ngẫu nhiên thật không?", "a": "Có. Các công cụ dùng bộ sinh số ngẫu nhiên dành cho mật mã của trình duyệt (crypto.getRandomValues), mỗi lựa chọn có cơ hội như nhau." },
+        { "q": "Chuyển sang tab khác thì hẹn giờ có chạy tiếp không?", "a": "Có. Thời gian tính theo đồng hồ hệ thống nên không bị lệch khi tab chạy nền; bật thông báo để được báo khi hết giờ." }
+      ] },
+    { "id": "download", "phase": 9, "slug": "tai-ve", "name": "Tải về", "icon": "download", "color": "#0090FF", "desc": "Tải sticker Telegram, LINE, Signal, emoji Discord, emote Twitch, thumbnail YouTube, emoji động, font Google Fonts, thư mục GitHub, icon App Store, ảnh và video Bluesky, Mastodon thẳng từ nguồn về máy, không qua máy chủ trung gian.",
+      "intro": "Tải sticker Telegram, LINE, Signal, emoji và sticker Discord, emote Twitch, thumbnail YouTube, emoji động, font Google Fonts, thư mục GitHub, icon App Store và ảnh, video Bluesky, Mastodon. Trình duyệt tải thẳng từ nguồn về máy bạn, không qua máy chủ trung gian.",
+      "faq": [
+        { "q": "Vì sao tải được mà không cần máy chủ trung gian?", "a": "Các nguồn này cho phép trang web gọi thẳng (có header CORS), nên trình duyệt của bạn tự lấy file. Nguồn nào chặn thì BbeTools không làm công cụ cho nguồn đó." },
+        { "q": "Tải video YouTube, TikTok, Facebook được không?", "a": "Không. Các nền tảng này không cho trang web tải thẳng và việc tải lại video thường trái điều khoản, nên BbeTools chỉ có công cụ tải thumbnail YouTube." },
+        { "q": "Sticker, ảnh tải về có được dùng thoải mái không?", "a": "Không. Sticker, emoji, ảnh và video thuộc bản quyền của tác giả hoặc người đăng; chỉ nên dùng cá nhân hoặc khi được cho phép." }
+      ] }
   ],
   "tools": [
     {
@@ -31,7 +104,7 @@
       "related": ["split-pdf", "organize-pdf", "compress-pdf", "image-to-pdf"],
       "howto": ["Chọn, kéo thả hoặc dán (Ctrl/⌘ + V) các file PDF cần ghép.", "Kéo thả hoặc dùng nút ↑ ↓ để sắp đúng thứ tự; bấm nút xoay ↻ nếu file bị ngược.", "Bấm “Ghép PDF” rồi tải file kết quả, hoặc chuyển tiếp sang công cụ khác."],
       "faq": [
-        { "q": "File của tôi có bị tải lên mạng không?", "a": "Không. Việc ghép chạy hoàn toàn bằng JavaScript trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Ghép xong file có nặng hơn không?", "a": "Dung lượng file ghép xấp xỉ tổng các file gốc vì các trang được chép nguyên vẹn, không nén lại. Cần nhẹ hơn thì chuyển file kết quả sang công cụ Nén PDF." },
         { "q": "Ghép được file PDF có mật khẩu không?", "a": "Được, nếu bạn biết mật khẩu. Trang sẽ hỏi mật khẩu khi mở file và file kết quả không còn mật khẩu." },
         { "q": "Có giới hạn số file hay dung lượng không?", "a": "Không có giới hạn cố định; giới hạn thực tế là bộ nhớ của máy. Trên điện thoại nên ghép dưới khoảng 200 MB mỗi lần." }
       ]
@@ -45,7 +118,7 @@
       "related": ["merge-pdf", "extract-pages-pdf", "remove-pages-pdf"],
       "howto": ["Chọn, kéo thả hoặc dán (Ctrl/⌘ + V) file PDF cần tách.", "Chọn cách tách: theo khoảng trang (vd. 1-3, 4-8), cứ mỗi N trang một file, hoặc bấm chọn từng trang cần lấy.", "Bấm “Tách PDF” rồi tải từng file hoặc tải tất cả dạng .zip."],
       "faq": [
-        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Gõ khoảng trang thế nào?", "a": "Ngăn cách các khoảng bằng dấu phẩy, ví dụ 1-3, 4-8; mỗi khoảng thành một file. “8-” nghĩa là từ trang 8 đến hết. Bật “Gộp các khoảng vào một file” nếu chỉ cần một file." },
         { "q": "Tách mỗi trang thành một file thế nào?", "a": "Chọn “Mỗi N trang” và để N = 1, hoặc chọn “Chọn trang”, bấm chọn các trang rồi bật “Mỗi trang đã chọn thành một file riêng”." },
         { "q": "Tách có làm giảm chất lượng không?", "a": "Không. Các trang được chép nguyên vẹn sang file mới: chữ vẫn chọn được, ảnh giữ nguyên độ nét." },
         { "q": "File có mật khẩu thì sao?", "a": "Nhập mật khẩu khi được hỏi; các file tách ra sẽ không còn mật khẩu." }
@@ -60,7 +133,7 @@
       "related": ["split-pdf", "organize-pdf", "extract-pages-pdf"],
       "howto": ["Chọn hoặc kéo thả file PDF.", "Bấm vào những trang muốn bỏ (giữ Shift để chọn cả dãy) hoặc gõ số trang, ví dụ 2, 5-7.", "Bấm “Xoá trang” rồi tải file mới về."],
       "faq": [
-        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Chọn nhiều trang liền nhau nhanh thế nào?", "a": "Bấm trang đầu, giữ Shift rồi bấm trang cuối để chọn cả dãy, hoặc gõ số trang vào ô, ví dụ 2, 5-7." },
         { "q": "File gốc có bị sửa không?", "a": "Không. Công cụ tạo một file PDF mới không còn các trang đã chọn; file gốc trên máy bạn giữ nguyên." },
         { "q": "Tôi muốn giữ lại vài trang thay vì xoá nhiều trang?", "a": "Dùng công cụ Tách PDF, chế độ “Chọn trang” để lấy đúng các trang cần giữ." }
       ]
@@ -74,7 +147,7 @@
       "related": ["merge-pdf", "rotate-pdf", "remove-pages-pdf"],
       "howto": ["Chọn một hoặc nhiều file PDF; trang của mọi file hiện thành lưới.", "Kéo thả trang (hoặc dùng nút ← →) để đổi thứ tự; xoay ↺ ↻, xoá 🗑 hoặc thêm trang trắng khi cần.", "Bấm “Lưu PDF” để tải file với thứ tự trang mới."],
       "faq": [
-        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Lỡ sắp sai thì làm lại thế nào?", "a": "Bấm “Đặt lại” để về thứ tự và chiều ban đầu (trang đã xoá không khôi phục được). Nút “Đảo ngược” đảo toàn bộ thứ tự trang, tiện cho bản scan bị ngược từ cuối lên đầu." },
         { "q": "Dùng trên điện thoại kéo thả được không?", "a": "Trên điện thoại hãy dùng nút ← → dưới mỗi trang để đổi chỗ; các nút xoay và xoá luôn hiện sẵn." },
         { "q": "Chèn trang của file khác vào giữa được không?", "a": "Được. Bấm “Thêm PDF” để đưa thêm file, các trang mới xuất hiện ở cuối, sau đó kéo chúng tới đúng chỗ." },
         { "q": "Trang trắng dùng để làm gì?", "a": "Thường dùng khi in hai mặt, để chương mới bắt đầu ở trang lẻ, hoặc chừa chỗ ghi chú." }
@@ -89,7 +162,7 @@
       "related": ["organize-pdf", "merge-pdf"],
       "howto": ["Chọn hoặc kéo thả file PDF.", "Bấm vào trang bị ngược để xoay 90° (nút ↺ ↻ để xoay trái/phải), hoặc xoay tất cả trang cùng lúc.", "Bấm “Xoay PDF” rồi tải file đã xoay về."],
       "faq": [
-        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "File có cả trang ngang và trang dọc thì xoay thế nào?", "a": "Dùng nút “Xoay các trang ngang” hoặc “Xoay các trang dọc” để chỉ xoay một loại trang cùng lúc; các trang còn lại giữ nguyên." },
         { "q": "Xoay có làm mờ chữ hay ảnh không?", "a": "Không. Công cụ chỉ đổi hướng hiển thị của trang trong file, nội dung giữ nguyên chất lượng." },
         { "q": "Xoay chỉ một vài trang được không?", "a": "Được. Bấm vào đúng trang cần xoay; các trang khác giữ nguyên." }
       ]
@@ -105,7 +178,7 @@
       "faq": [
         { "q": "Nén PDF có làm mờ chữ không?", "a": "Không. Công cụ chỉ nén lại các ảnh bên trong file; chữ và hình vẽ vector giữ nguyên nên vẫn sắc nét và chọn được chữ." },
         { "q": "Vì sao file của tôi giảm rất ít?", "a": "File PDF chủ yếu là chữ thường đã gọn sẵn. Công cụ giảm mạnh nhất với PDF scan hoặc có nhiều ảnh chụp." },
-        { "q": "File có bị gửi lên máy chủ để nén không?", "a": "Không. Mọi bước xử lý chạy trên trình duyệt của bạn." }
+        { "q": "Nên chọn mức nén nào?", "a": "“Vừa” là mức khuyên dùng: nhỏ gọn mà ảnh vẫn rõ khi xem trên máy. “Nhẹ” gần như giữ nguyên chất lượng ảnh; “Mạnh” cho file nhỏ nhất, ảnh mờ hơn, hợp gửi Zalo, email." }
       ]
     },
     {
@@ -117,7 +190,7 @@
       "related": ["image-to-pdf", "extract-images-pdf", "compress-image"],
       "howto": ["Chọn hoặc kéo thả file PDF.", "Chọn định dạng JPG hoặc PNG và độ nét (DPI); bỏ chọn những trang không cần.", "Bấm “Chuyển sang ảnh” rồi tải từng ảnh hoặc tất cả dạng .zip."],
       "faq": [
-        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Dán ảnh một trang vào Zalo, Word được không?", "a": "Được. Mỗi ảnh có nút “Sao chép ảnh” để dán thẳng vào ứng dụng khác; nếu trình duyệt chưa cho sao chép ảnh thì tải ảnh về." },
         { "q": "Nên chọn JPG hay PNG?", "a": "JPG nhẹ, hợp để gửi Zalo, email. PNG nét nhất cho trang nhiều chữ nhỏ hoặc bảng biểu, nhưng file nặng hơn." },
         { "q": "DPI là gì, chọn bao nhiêu?", "a": "DPI là số điểm ảnh trên mỗi inch giấy. 150 DPI đủ xem trên máy; 300 DPI để in. DPI càng cao ảnh càng nét và càng nặng." },
         { "q": "Chuyển cả trăm trang được không?", "a": "Được, các trang được chuyển lần lượt. Trên điện thoại nên chọn DPI thấp hơn để chạy nhanh và đỡ tốn bộ nhớ." }
@@ -132,7 +205,7 @@
       "related": ["pdf-to-image", "merge-pdf", "compress-image"],
       "howto": ["Chọn, kéo thả hoặc dán (Ctrl/⌘ + V) các ảnh: JPG, PNG, HEIC, ảnh chụp màn hình…", "Sắp thứ tự trang bằng kéo thả hoặc nút ↑↓, xoay ảnh bị ngược. Ảnh giấy tờ chụp bằng điện thoại thì chọn “Làm đẹp ảnh chụp giấy tờ” để cắt theo mép giấy và làm trắng nền; chọn khổ giấy, hướng trang, lề và chất lượng.", "Bấm “Chuyển sang PDF” rồi tải file về."],
       "faq": [
-        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Nên chọn hướng trang nào?", "a": "“Theo ảnh” tự đặt trang dọc cho ảnh dọc và trang ngang cho ảnh ngang; chọn “Dọc” hoặc “Ngang” nếu muốn mọi trang cùng một chiều." },
         { "q": "Ảnh chụp từ iPhone (HEIC) có dùng được không?", "a": "Được. Công cụ tự đọc ảnh HEIC và xoay đúng chiều theo thông tin trong ảnh." },
         { "q": "Ảnh chụp giấy tờ bị nền xám, ghép vào PDF lòi hai dải trắng hai bên?", "a": "Chọn “Làm đẹp ảnh chụp giấy tờ” (Màu, Xám hoặc Đen trắng). Công cụ tự cắt theo mép tờ giấy, nắn thẳng ảnh chụp xiên và làm trắng nền xám, nên trang PDF trắng đều như bản scan. Việc này chạy ngay trên máy, không cần máy chủ." },
         { "q": "Làm sao để file PDF nhẹ hơn?", "a": "Chọn chất lượng “Nhẹ”. Nếu vẫn lớn, dùng tiếp công cụ Nén PDF." },
@@ -148,7 +221,7 @@
       "related": ["ocr", "pdf-to-image"],
       "howto": ["Chọn hoặc kéo thả một hay nhiều file PDF.", "Chọn có ghi số trang hay không, có nối các dòng bị ngắt giữa câu hay không.", "Bấm “Lấy văn bản”, xem ngay, sao chép toàn bộ hoặc tải file .txt."],
       "faq": [
-        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Khi nào nên tắt “Nối dòng bị ngắt giữa câu”?", "a": "Khi cần giữ đúng xuống dòng như trong PDF, ví dụ thơ, danh sách, địa chỉ. Để bật thì các dòng bị ngắt giữa câu được nối lại, hợp khi dán vào Word hay tin nhắn." },
         { "q": "Vì sao không lấy được chữ từ file của tôi?", "a": "File PDF scan (chụp hoặc quét từ giấy) chỉ chứa ảnh, không có lớp chữ. Hãy dùng công cụ Ảnh sang chữ (OCR)." },
         { "q": "Mở file .txt bằng Notepad bị lỗi font tiếng Việt?", "a": "File được lưu dạng UTF-8 có đánh dấu BOM nên Notepad, Word đều nhận đúng tiếng Việt." },
         { "q": "Có giữ được bảng biểu, định dạng không?", "a": "Không. Công cụ chỉ lấy chữ thuần; bảng biểu được chuyển thành các dòng chữ." }
@@ -163,7 +236,7 @@
       "related": ["fill-form-pdf", "signature-extract", "watermark-pdf"],
       "howto": ["Chọn hoặc kéo thả file PDF cần ký.", "Bấm “Tạo chữ ký mới”: vẽ, gõ tên hoặc chọn ảnh chụp chữ ký; có thể thêm chữ, ngày, dấu tích, ảnh con dấu.", "Kéo chữ ký tới đúng chỗ, kéo góc để đổi cỡ, rồi bấm “Ký và tải về”."],
       "faq": [
-        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Chỉnh chữ ký bằng bàn phím được không?", "a": "Được. Chọn chữ ký rồi dùng phím mũi tên để di chuyển, phím + − để đổi cỡ, Delete để xoá." },
         { "q": "Đây có phải chữ ký số không?", "a": "Không. Đây là chữ ký hình ảnh (như ký tay rồi scan), dùng cho hợp đồng, đơn từ thông thường. Chữ ký số dùng chứng thư số do nhà cung cấp cấp và cần phần mềm riêng." },
         { "q": "Chữ ký của tôi được lưu ở đâu?", "a": "Chữ ký đã tạo chỉ lưu trong trình duyệt của máy này để lần sau dùng lại. Bấm × trên chữ ký để xoá." },
         { "q": "Ký vào nhiều trang cùng lúc được không?", "a": "Được. Chọn chữ ký trên trang rồi bấm “Chép ra mọi trang”." }
@@ -178,7 +251,7 @@
       "related": ["watermark-pdf", "merge-pdf"],
       "howto": ["Chọn hoặc kéo thả file PDF.", "Chọn vị trí, kiểu số (1, Trang 1, 1 / 10…), có bỏ qua trang bìa không; xem trước ngay trên các trang.", "Bấm “Đánh số trang” rồi tải file về."],
       "faq": [
-        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Bắt đầu đánh từ số khác 1 được không?", "a": "Được. Mở “Tuỳ chỉnh thêm” rồi nhập “Số bắt đầu”; ở đó cũng chỉnh được cỡ chữ, màu chữ và khoảng cách tới mép trang." },
         { "q": "Bỏ qua trang bìa thì số bắt đầu từ trang nào?", "a": "Trang bìa không có số, trang thứ hai mang số bắt đầu (mặc định là 1). Có thể đổi số bắt đầu trong “Tuỳ chỉnh thêm”." },
         { "q": "Trang bị xoay ngang có đánh số đúng chỗ không?", "a": "Có. Vị trí số được tính theo chiều trang như bạn nhìn thấy." }
       ]
@@ -192,7 +265,7 @@
       "related": ["page-numbers-pdf", "protect-pdf", "watermark-image"],
       "howto": ["Chọn hoặc kéo thả file PDF.", "Nhập chữ (tiếng Việt có dấu) hoặc chọn logo; chỉnh độ đậm, góc xoay, vị trí hoặc lặp kín trang.", "Xem trước trên các trang, bấm “Chèn watermark” rồi tải file về."],
       "faq": [
-        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Watermark tiếng Việt có dấu có bị lỗi font không?", "a": "Không. Chữ được vẽ thành ảnh trong suốt bằng font Be Vietnam Pro nên hiện đúng dấu trên mọi máy; vì là ảnh nên chữ watermark không bôi đen hay tìm kiếm được." },
         { "q": "Watermark có xoá được không?", "a": "Watermark được vẽ vào nội dung trang. Chọn “Lặp kín trang” để người khác khó cắt bỏ hơn." },
         { "q": "Chèn logo nền trong suốt được không?", "a": "Được. Dùng ảnh PNG nền trong suốt để logo đẹp nhất trên mọi nền trang." },
         { "q": "Chỉ chèn vào vài trang được không?", "a": "Được. Chọn “Một số trang” rồi nhập ví dụ 1-3, 5." }
@@ -207,7 +280,7 @@
       "related": ["unlock-pdf","file-encrypt","watermark-pdf"],
       "howto": ["Chọn hoặc kéo thả một hay nhiều file PDF.","Nhập mật khẩu hai lần; nếu cần, mở “Hạn chế quyền” để chặn in, sao chép, chỉnh sửa.","Bấm “Khoá PDF” rồi tải file đã mã hoá về."],
       "faq": [
-        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Khoá nhiều file cùng một mật khẩu được không?", "a": "Được. Chọn nhiều file một lúc, mọi file được khoá bằng mật khẩu bạn nhập rồi tải về từng file hoặc cả .zip." },
         { "q": "Mã hoá có an toàn không?", "a": "File được mã hoá AES-256 theo chuẩn PDF 2.0. Mật khẩu càng dài, càng khó đoán thì càng an toàn." },
         { "q": "Quên mật khẩu thì sao?", "a": "Không có cách lấy lại. Hãy lưu mật khẩu ở nơi an toàn và giữ bản gốc chưa khoá." },
         { "q": "Hạn chế in, sao chép có chắc chắn không?", "a": "Các trình đọc PDF phổ biến tôn trọng giới hạn này, nhưng một số phần mềm có thể bỏ qua. Mật khẩu mở file mới là lớp bảo vệ chính." }
@@ -222,7 +295,7 @@
       "related": ["protect-pdf","merge-pdf"],
       "howto": ["Chọn hoặc kéo thả một hay nhiều file PDF.","File cần mật khẩu để mở: bấm 🔒 và nhập mật khẩu. File chỉ bị chặn in, sao chép thì không cần.","Bấm “Mở khoá PDF” rồi tải file không còn khoá về."],
       "faq": [
-        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "File chỉ bị chặn in, sao chép có cần mật khẩu không?", "a": "Không. File mở xem bình thường nhưng bị hạn chế quyền thì công cụ gỡ giới hạn mà không cần mật khẩu; chỉ file đòi mật khẩu khi mở mới phải nhập." },
         { "q": "Có phá được mật khẩu khi tôi quên không?", "a": "Không. Công cụ chỉ gỡ khoá khi bạn biết mật khẩu mở file. Giới hạn in, sao chép (không cần mật khẩu để mở) thì gỡ được ngay." },
         { "q": "Gỡ khoá có hợp pháp không?", "a": "Bạn chỉ nên gỡ khoá file của mình hoặc file bạn được phép sử dụng." }
       ]
@@ -236,7 +309,7 @@
       "related": ["split-pdf","remove-pages-pdf"],
       "howto": ["Chọn hoặc kéo thả file PDF.","Bấm vào các trang cần lấy (giữ Shift để chọn cả dãy) hoặc gõ số trang, ví dụ 1, 3-5.","Bấm “Trích xuất trang” để tải file mới; bật “Mỗi trang thành một file riêng” nếu cần."],
       "faq": [
-        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Lấy mỗi trang thành một file được không?", "a": "Được. Bật “Mỗi trang thành một file riêng”, rồi tải từng file hoặc cả .zip." },
         { "q": "Trích xuất khác gì Tách PDF?", "a": "Trích xuất lấy đúng các trang bạn chọn thành một file. Tách PDF chia cả file thành nhiều phần theo khoảng trang hoặc cứ mỗi N trang." },
         { "q": "Chất lượng trang có bị giảm không?", "a": "Không. Các trang được chép nguyên vẹn: chữ vẫn chọn được, ảnh giữ nguyên độ nét." }
       ]
@@ -250,7 +323,7 @@
       "related": ["pdf-to-image","pdf-to-text"],
       "howto": ["Chọn hoặc kéo thả một hay nhiều file PDF.","Chọn kích thước tối thiểu để bỏ qua biểu tượng, đường kẻ nhỏ.","Bấm “Trích ảnh” rồi tải từng ảnh hoặc cả .zip."],
       "faq": [
-        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Sao lại có nhiều ảnh nhỏ li ti?", "a": "Đó là biểu tượng, đường kẻ, hoạ tiết nền nhỏ nằm trong PDF. Tăng kích thước tối thiểu để bỏ qua chúng." },
         { "q": "Ảnh lấy ra có bị giảm chất lượng không?", "a": "Ảnh JPEG được lấy nguyên bản từ file, không nén lại. Ảnh khác được lưu PNG không mất chất lượng, giữ cả nền trong suốt." },
         { "q": "Vì sao không lấy được biểu đồ, chữ?", "a": "Biểu đồ, chữ thường được vẽ bằng hình vector chứ không phải ảnh. Hãy dùng PDF sang ảnh để chụp cả trang." }
       ]
@@ -264,7 +337,7 @@
       "related": ["rotate-pdf","organize-pdf"],
       "howto": ["Chọn hoặc kéo thả file PDF.","Chọn “Tự bỏ lề trắng” (có thể chừa lại vài mm, cắt đều các trang) hoặc nhập lề cần cắt theo mm; khung xanh trên trang là phần được giữ.","Bấm “Cắt lề” rồi tải file về."],
       "faq": [
-        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Các trang có lề khác nhau thì cắt thế nào?", "a": "Ở chế độ “Tự bỏ lề trắng”, mỗi trang được cắt theo lề của chính nó. Bật “Cắt đều các trang” để các trang cùng khổ giữ cùng kích thước sau khi cắt, hợp với sách và tài liệu scan." },
         { "q": "Phần bị cắt có bị xoá hẳn không?", "a": "Không. Công cụ đặt lại khung hiển thị của trang (CropBox), nội dung bên ngoài chỉ bị ẩn. Nếu cần xoá hẳn thông tin nhạy cảm, đừng chỉ dùng cắt lề." },
         { "q": "Cắt lề để làm gì?", "a": "Đọc PDF trên điện thoại chữ to hơn, in tài liệu scan không bị viền đen, hoặc bỏ lề thừa trước khi ghép vào tài liệu khác." }
       ]
@@ -278,7 +351,7 @@
       "related": ["organize-pdf","merge-pdf"],
       "howto": ["Chọn hoặc kéo thả file PDF.","Chọn chỗ chèn: sau hoặc trước các trang chọn, sau mỗi trang, cuối file hoặc cho đủ số trang chẵn; bấm vào trang để chọn vị trí.","Xem trước trang trắng trên lưới trang, bấm “Chèn trang trắng” rồi tải file về."],
       "faq": [
-        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Chèn trang trắng vào giữa file thế nào?", "a": "Bấm vào trang trên lưới để chọn vị trí, rồi chọn chèn trước hoặc sau các trang đã chọn; trang trắng hiện ngay trên lưới để kiểm tra." },
         { "q": "Trang trắng có khổ giấy gì?", "a": "Cùng khổ và hướng với trang đứng ngay trước nó, nên in ra không bị lệch." },
         { "q": "Vì sao cần làm số trang chẵn khi in hai mặt?", "a": "Khi in nhiều tài liệu liên tiếp ở chế độ hai mặt, file có số trang lẻ làm tài liệu sau bị in vào mặt sau tờ cuối của tài liệu trước. Thêm một trang trắng là tránh được." }
       ]
@@ -292,7 +365,7 @@
       "related": ["compress-pdf"],
       "howto": ["Chọn hoặc kéo thả một hay nhiều file PDF.","Bấm “Chuyển đen trắng”.","Tải file thang xám về để in tiết kiệm mực màu."],
       "faq": [
-        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Chuyển nhiều file một lúc được không?", "a": "Được. Chọn nhiều file PDF, mỗi file được chuyển sang thang xám rồi tải về từng file hoặc cả .zip." },
         { "q": "Chữ có bị biến thành ảnh không?", "a": "Không. Công cụ đổi màu ngay trong nội dung trang nên chữ vẫn sắc nét, chọn và tìm được như bản gốc." },
         { "q": "Vì sao vẫn còn chỗ có màu?", "a": "Một số thành phần hiếm gặp (ảnh JPEG 2000, kiểu chuyển màu đặc biệt) chưa đổi được; công cụ sẽ báo số lượng sau khi chuyển." }
       ]
@@ -306,7 +379,7 @@
       "related": ["strip-exif","protect-pdf"],
       "howto": ["Chọn hoặc kéo thả file PDF; thông tin hiện có được điền sẵn.","Sửa tiêu đề, tác giả, chủ đề, từ khoá…, hoặc bật “Xoá sạch thông tin ẩn”.","Bấm “Lưu thông tin” rồi tải file về."],
       "faq": [
-        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "“Xoá sạch thông tin ẩn” xoá những gì?", "a": "Xoá tiêu đề, tác giả, chủ đề, từ khoá và các trường khác, cùng ngày tạo, ngày sửa và khối XMP, để file gửi đi không lộ tên người soạn hay phần mềm đã dùng." },
         { "q": "Thông tin PDF dùng để làm gì?", "a": "Tiêu đề hiện trên thanh tab khi mở file, và giúp tìm kiếm, sắp xếp tài liệu. Tác giả, phần mềm tạo có thể lộ thông tin bạn không muốn chia sẻ." },
         { "q": "Vì sao sửa xong khối XMP bị xoá?", "a": "XMP là bản sao thông tin dạng XML mà một số trình đọc ưu tiên; nếu giữ lại, thông tin cũ có thể vẫn hiện. Công cụ bỏ khối này để thông tin mới có hiệu lực." }
       ]
@@ -320,7 +393,7 @@
       "related": ["flatten-pdf","sign-pdf"],
       "howto": ["Chọn hoặc kéo thả file PDF có sẵn ô form (tờ khai, đơn từ).","Bấm vào các ô xanh trên trang để điền chữ, đánh dấu, chọn mục; phím Tab để sang ô tiếp theo.","Bấm “Lưu PDF đã điền”; bật “Làm phẳng sau khi điền” nếu không muốn người nhận sửa được."],
       "faq": [
-        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Làm sao biết ô nào điền được?", "a": "Các ô form hiện màu xanh trên trang; bấm vào để điền, phím Tab chuyển sang ô kế tiếp." },
         { "q": "Gõ tiếng Việt có dấu có bị lỗi font không?", "a": "Không. Khi có chữ có dấu, công cụ nhúng font Be Vietnam Pro vào file để mọi trình đọc PDF đều hiện đúng." },
         { "q": "File của tôi không có ô để điền thì sao?", "a": "Dùng công cụ Ký PDF để thêm chữ, ngày tháng, dấu tích, chữ ký vào bất kỳ chỗ nào trên trang." },
         { "q": "Biểu mẫu XFA (Adobe LiveCycle) có điền được không?", "a": "Chỉ điền được phần form thường (AcroForm) đi kèm. Biểu mẫu chỉ có XFA cần mở bằng Adobe Acrobat." }
@@ -335,7 +408,7 @@
       "related": ["fill-form-pdf","protect-pdf"],
       "howto": ["Chọn hoặc kéo thả một hay nhiều file PDF có form đã điền.","Bấm “Làm phẳng form”.","Tải file về: nội dung đã điền thành cố định, không sửa được nữa."],
       "faq": [
-        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Khi nào nên làm phẳng form?", "a": "Trước khi gửi tờ khai, hợp đồng đã điền để người nhận không sửa được nội dung, và để file hiện giống nhau trên mọi trình xem PDF (một số ứng dụng trên điện thoại không hiện chữ trong ô form)." },
         { "q": "Làm phẳng có làm mất nội dung đã điền không?", "a": "Không. Nội dung giữ nguyên trên trang; chỉ có các ô không còn sửa được." },
         { "q": "Có hoàn tác được không?", "a": "Không trên file đã làm phẳng. Hãy giữ lại bản gốc nếu còn cần sửa." }
       ]
@@ -349,7 +422,7 @@
       "related": ["pdf-to-text","pdf-to-image"],
       "howto": ["Chọn, kéo thả hoặc dán file PDF.","Cuộn để đọc; dùng thanh công cụ để nhảy trang, phóng to, thu nhỏ hoặc xem toàn màn hình.","Gõ vào ô tìm chữ (không cần dấu) rồi nhấn Enter để sang chỗ tiếp theo; bôi đen để sao chép chữ."],
       "faq": [
-        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Trên điện thoại phóng to có bị mờ không?", "a": "Không. Dùng nút phóng to, thu nhỏ trên thanh công cụ hoặc xem toàn màn hình; trang được vẽ lại theo độ phóng nên chữ vẫn nét." },
         { "q": "Tìm “ha noi” có ra “Hà Nội” không?", "a": "Có. Ô tìm kiếm không phân biệt chữ hoa, chữ thường và dấu tiếng Việt." },
         { "q": "In file thế nào?", "a": "Bấm nút máy in để mở file bằng trình xem PDF có sẵn của trình duyệt, rồi in từ đó." },
         { "q": "Xem được file có mật khẩu không?", "a": "Được, nhập mật khẩu khi được hỏi. Mật khẩu chỉ dùng trên máy bạn." }
@@ -364,8 +437,8 @@
       "related": ["image-to-pdf","ocr","compress-pdf"],
       "howto": ["Bấm “Mở camera” và chụp tờ giấy (đặt trên nền tối hơn, đủ sáng), hoặc chọn ảnh đã chụp sẵn.","Kiểm tra 4 góc được tìm tự động, kéo chỉnh nếu cần; chọn bộ lọc Màu, Xám hoặc Đen trắng rồi bấm “Thêm trang”.","Chụp thêm trang, sắp thứ tự, chọn khổ giấy rồi bấm “Tạo PDF”."],
       "faq": [
-        { "q": "File có bị tải lên mạng không?", "a": "Không. Mọi bước xử lý chạy bằng JavaScript ngay trong trình duyệt của bạn; file không rời khỏi máy." },
-        { "q": "Ảnh chụp có bị gửi lên mạng không?", "a": "Không. Camera, ảnh và việc nắn thẳng, làm trắng nền đều chạy trên máy của bạn." },
+        { "q": "Nên chọn bộ lọc nào?", "a": "“Đen trắng” cho chữ đánh máy, nét và nhẹ nhất; “Xám” cho giấy có chữ viết tay hay hình mờ; “Màu” khi cần giữ con dấu đỏ, ảnh màu." },
+        { "q": "Dùng camera trên máy tính được không?", "a": "Được, miễn là trình duyệt được phép dùng camera. Cũng có thể chọn ảnh đã chụp sẵn bằng điện thoại thay vì mở camera." },
         { "q": "Làm sao để scan đẹp nhất?", "a": "Đặt giấy trên nền tối, tránh bóng tay và bóng điện thoại, chụp thẳng từ trên xuống, giữ máy chắc tay. Bộ lọc Đen trắng hợp với văn bản chữ, Màu hợp với giấy có con dấu, hình ảnh." },
         { "q": "Không tự tìm được góc giấy thì sao?", "a": "Kéo 4 chấm tròn tới 4 góc tờ giấy, hoặc bấm “Lấy cả ảnh”. Trên máy tính có thể dùng phím mũi tên để dịch từng góc." }
       ]
@@ -380,7 +453,7 @@
       "related": ["scan-document", "image-to-pdf", "blur-image"],
       "howto": ["Chụp hoặc chọn ảnh mặt trước và mặt sau thẻ căn cước (đặt thẻ trên nền tối hơn, đủ sáng, chụp thẳng).", "Kiểm tra ảnh đã được cắt theo mép thẻ; bấm “Chỉnh góc” để kéo 4 góc nếu lệch, “Xoay” nếu thẻ bị ngược.", "Chọn cách xếp, số bộ trên trang, thêm dòng chữ “Bản sao dùng để…” nếu muốn, rồi bấm “Tạo PDF A4”.", "Khi in, chọn tỉ lệ 100% (Kích thước thật), không chọn “Vừa trang”."],
       "faq": [
-        { "q": "Ảnh căn cước có bị tải lên mạng không?", "a": "Không. Việc cắt, nắn thẳng, cân sáng và tạo PDF đều chạy bằng JavaScript ngay trong trình duyệt; ảnh không rời khỏi máy và không được lưu lại sau khi đóng trang." },
+        { "q": "Ảnh bị loá, bị tối thì sao?", "a": "Công cụ tự cân sáng và làm trắng nền, nhưng vệt loá đèn che mất chữ thì không khôi phục được. Hãy chụp lại ở chỗ sáng đều, tránh đèn chiếu thẳng xuống thẻ." },
         { "q": "In ra thẻ có đúng kích thước thật không?", "a": "Có, nếu in đúng tỉ lệ 100%. Mỗi mặt được đặt trên trang A4 đúng 85,6 × 54 mm (khổ thẻ ID-1 theo ISO/IEC 7810). Chọn “Vừa trang” (Fit to page) sẽ làm thẻ to hoặc nhỏ đi; bật “Thước kiểm tra 5 cm” để đo lại bản in." },
         { "q": "Không tự cắt đúng mép thẻ thì sao?", "a": "Bấm “Chỉnh góc” rồi kéo 4 chấm tới 4 góc thẻ (trên máy tính có thể dùng phím mũi tên). Chấm tô đặc là góc trên trái của thẻ; bấm “Xoay” nếu ảnh ra bị ngược. Thẻ đặt trên nền tối, chụp thẳng sẽ được tìm chính xác hơn." },
         { "q": "Có nên ghi chữ “Bản sao dùng để…” không?", "a": "Nên, khi gửi bản sao cho nơi khác: ghi rõ mục đích (vd. “Bản sao dùng để làm hồ sơ vay vốn”) giúp hạn chế người khác dùng bản sao vào việc khác. Chữ được in thẳng vào ảnh, không xoá được trên file." },
@@ -397,7 +470,7 @@
       "related": ["blur-image", "flatten-pdf", "protect-pdf"],
       "howto": ["Chọn, kéo thả hoặc dán (Ctrl/⌘ + V) file PDF cần che.", "Kéo khung lên chỗ cần che (trên điện thoại bật “Vẽ khung” trước), hoặc gõ chữ cần che, bấm “Dãy 9–12 chữ số”, “Email” để che tự động mọi chỗ khớp.", "Kiểm tra từng vùng che: kéo để dịch, kéo chấm góc để đổi cỡ, bấm × để bỏ.", "Bấm “Che và tải về”. Trang có vùng che được chuyển thành ảnh, các trang khác giữ nguyên."],
       "faq": [
-        { "q": "File có bị tải lên mạng không?", "a": "Không. Việc tìm chữ, che và tạo file mới chạy hoàn toàn trong trình duyệt của bạn; file không rời khỏi máy." },
+        { "q": "Trên điện thoại vẽ khung che thế nào?", "a": "Bật “Vẽ khung” rồi kéo ngón tay lên chỗ cần che; tắt đi để cuộn trang bình thường." },
         { "q": "Che xong người khác có gỡ ra hoặc sao chép chữ bên dưới được không?", "a": "Không. Nhiều cách “bôi đen” chỉ vẽ hình chữ nhật đè lên, chữ vẫn nằm trong file và sao chép ra được. Ở đây trang có vùng che được vẽ lại thành ảnh rồi tô kín vùng che, nên chữ, ảnh bên dưới bị xoá hẳn. Sau khi tạo file, công cụ tự mở lại để kiểm tra trang bị che không còn chữ nào." },
         { "q": "Vì sao trang bị che không chọn, tìm chữ được nữa?", "a": "Vì cả trang đã thành ảnh: đó là cách chắc chắn để xoá thông tin. Các trang không có vùng che vẫn giữ nguyên chữ. Muốn tìm kiếm được trở lại, dùng công cụ PDF scan thành PDF tìm kiếm được (nhận dạng chữ sẽ đọc cả ô che là ô trống)." },
         { "q": "Tìm “Dãy 9–12 chữ số” che những gì?", "a": "Mọi dãy 9 đến 12 chữ số đứng riêng, kể cả có dấu cách hoặc dấu chấm xen giữa: số CCCD (12 số), CMND (9 số), số điện thoại, phần lớn số tài khoản. Có thể che nhầm số tiền lớn (như 150.000.000), hãy xem lại danh sách vùng che và bỏ chỗ không cần. Số thẻ ngân hàng, tài khoản dài dùng “Dãy 13–19 chữ số”." },
@@ -414,7 +487,7 @@
       "related": ["ocr", "scan-document", "pdf-to-text"],
       "howto": ["Chọn, kéo thả hoặc dán (Ctrl/⌘ + V) file PDF scan hoặc PDF tạo từ ảnh chụp.", "Chọn ngôn ngữ trong tài liệu (tiếng Việt hoặc tiếng Anh).", "Bấm “Nhận dạng và tạo PDF”, chờ từng trang được đọc (có thể bấm Huỷ bất cứ lúc nào).", "Tải PDF mới về: hình trang giữ nguyên nhưng giờ tìm (Ctrl/⌘ + F), bôi đen, sao chép chữ được. Kèm file .txt chứa chữ nhận dạng."],
       "faq": [
-        { "q": "File có bị tải lên mạng không?", "a": "Không. Việc vẽ trang, nhận dạng chữ (Tesseract chạy bằng WebAssembly) và ghi PDF đều chạy trong trình duyệt của bạn; file không rời khỏi máy. Chỉ bộ nhận dạng (khoảng 5 MB) được tải về một lần từ CDN." },
+        { "q": "Trang đã có chữ có bị nhận dạng lại không?", "a": "Không. Trang đã có lớp chữ (từ 20 ký tự trở lên) được bỏ qua và giữ nguyên; chỉ trang chỉ có ảnh mới được nhận dạng." },
         { "q": "File kết quả có khác bản gốc không?", "a": "Hình trang giữ nguyên từng điểm ảnh. Công cụ chỉ thêm một lớp chữ ẩn nằm đúng vị trí từng từ, nên trình xem PDF tìm và bôi đen được. Chữ ẩn dùng font có dấu tiếng Việt nhúng trong file, sao chép ra vẫn đúng dấu." },
         { "q": "Nhận dạng có chính xác không?", "a": "Bản scan rõ, chữ in thường đạt độ chính xác cao; ảnh mờ, nghiêng, chữ viết tay hay dấu tiếng Việt nhỏ có thể bị đọc sai. Lỗi nhận dạng chỉ ảnh hưởng việc tìm kiếm và sao chép, không làm thay đổi hình trang." },
         { "q": "Mất bao lâu?", "a": "Khoảng vài giây mỗi trang tuỳ máy. File nhiều trang hãy để tab mở cho tới khi xong; tiến độ và thời gian còn lại hiện ngay dưới nút. Trang đã có chữ (PDF xuất từ Word…) được bỏ qua để không bị chữ chồng chữ." }
@@ -430,7 +503,7 @@
       "related": ["resize-image", "convert-image", "heic-to-jpg", "strip-exif"],
       "howto": ["Chọn, kéo thả hoặc dán (Ctrl/⌘ + V) một hay nhiều ảnh.", "Chọn chất lượng, hoặc bật “Nén xuống dưới” và nhập số KB cần đạt (ví dụ 200 KB cho hồ sơ trực tuyến).", "Bấm “Nén ảnh”, so sánh trước/sau rồi tải từng ảnh hoặc cả file .zip."],
       "faq": [
-        { "q": "Ảnh có bị gửi lên máy chủ không?", "a": "Không. Ảnh được nén ngay trong trình duyệt bằng bộ mã hoá MozJPEG/WebP chạy WebAssembly." },
+        { "q": "Nên chọn chất lượng bao nhiêu?", "a": "Mức 70–80 là cân bằng tốt: dung lượng giảm nhiều mà mắt thường khó thấy khác biệt. Kéo thanh so sánh trước / sau để tự kiểm tra trước khi tải về." },
         { "q": "Nén xuống dưới 100 KB được không?", "a": "Được. Bật “Nén xuống dưới”, nhập 100; công cụ tự giảm chất lượng và nếu cần thì thu nhỏ kích thước cho đến khi đạt." },
         { "q": "Thông tin vị trí GPS trong ảnh có còn không?", "a": "Không. Ảnh sau khi nén không còn EXIF/GPS; hướng xoay ảnh đã được áp dụng sẵn." }
       ]
@@ -444,7 +517,7 @@
       "related": ["compress-image", "crop-image", "convert-image", "rotate-image"],
       "howto": ["Chọn, kéo thả hoặc dán một hay nhiều ảnh (JPG, PNG, WebP, HEIC…).", "Chọn cách đổi cỡ: nhập số pixel (bỏ trống một ô để giữ tỉ lệ), theo phần trăm, hoặc theo cạnh dài nhất (ví dụ 1920 px).", "Bấm “Đổi kích thước” rồi tải từng ảnh hoặc cả file .zip."],
       "faq": [
-        { "q": "Ảnh có bị tải lên máy chủ không?", "a": "Không. Mọi bước xử lý chạy ngay trong trình duyệt của bạn; ảnh không rời khỏi máy." },
+        { "q": "Ảnh nhỏ hơn cỡ yêu cầu có bị phóng to không?", "a": "Không, nếu bật “Không phóng to ảnh nhỏ”: ảnh đã nhỏ hơn cỡ yêu cầu được giữ nguyên kích thước, tránh bị nhoè." },
         { "q": "Thu nhỏ ảnh có bị vỡ, răng cưa không?", "a": "Không. Ảnh được thu nhỏ dần từng nửa với bộ lọc chất lượng cao nên chi tiết mịn. Phóng to quá cỡ gốc thì ảnh sẽ mờ, vì vậy mặc định công cụ không phóng to ảnh nhỏ." },
         { "q": "Muốn ảnh đúng kích thước như 800×800 thì sao?", "a": "Tắt “Giữ tỉ lệ” để kéo giãn ảnh đúng số pixel, hoặc dùng công cụ Cắt ảnh với tỉ lệ 1:1 trước rồi đổi kích thước để ảnh không bị méo." }
       ]
@@ -458,7 +531,7 @@
       "related": ["resize-image", "rotate-image", "id-photo", "split-image"],
       "howto": ["Chọn hoặc kéo thả một ảnh.", "Chọn tỉ lệ (tự do, 1:1, 4:3, 16:9…), rồi kéo khung, kéo góc để chọn vùng cần giữ; hoặc nhập số pixel chính xác.", "Bấm “Cắt ảnh” rồi tải ảnh đã cắt về."],
       "faq": [
-        { "q": "Ảnh có bị tải lên máy chủ không?", "a": "Không. Mọi bước xử lý chạy ngay trong trình duyệt của bạn; ảnh không rời khỏi máy." },
+        { "q": "Cắt đúng số pixel được không?", "a": "Được. Nhập vị trí (từ trái, từ trên) và chiều rộng, chiều cao của vùng cắt theo pixel; khung trên ảnh tự cập nhật theo số bạn nhập." },
         { "q": "Ảnh cắt xong có bị giảm chất lượng không?", "a": "Vùng được giữ lại giữ nguyên độ phân giải gốc, không bị thu nhỏ. Ảnh JPG được lưu lại ở chất lượng 92 nên gần như không thấy khác biệt; chọn PNG nếu cần giữ nguyên từng điểm ảnh." },
         { "q": "Dùng bàn phím được không?", "a": "Được. Bấm vào khung cắt rồi dùng phím mũi tên để di chuyển, giữ Shift + mũi tên để đổi cỡ khung." }
       ]
@@ -472,7 +545,7 @@
       "related": ["crop-image", "resize-image", "convert-image"],
       "howto": ["Chọn, kéo thả hoặc dán một hay nhiều ảnh.", "Bấm nút xoay trái/phải hoặc lật trên từng ảnh, hoặc dùng nút “Áp dụng cho tất cả ảnh”.", "Bấm “Lưu ảnh” rồi tải từng ảnh hoặc cả file .zip."],
       "faq": [
-        { "q": "Ảnh có bị tải lên máy chủ không?", "a": "Không. Mọi bước xử lý chạy ngay trong trình duyệt của bạn; ảnh không rời khỏi máy." },
+        { "q": "Xoay nhiều ảnh cùng một kiểu được không?", "a": "Được. Chọn nhiều ảnh rồi dùng nút “Áp dụng cho tất cả ảnh”; vẫn chỉnh riêng được từng ảnh bằng các nút trên ảnh đó." },
         { "q": "Vì sao ảnh chụp bằng điện thoại hiện ngược trên máy tính?", "a": "Điện thoại thường chỉ ghi hướng xoay vào EXIF thay vì xoay thật điểm ảnh; một số phần mềm bỏ qua thông tin này. Công cụ xoay hẳn điểm ảnh nên ảnh hiện đúng ở mọi nơi." },
         { "q": "Lật ảnh selfie bị ngược chữ được không?", "a": "Được. Bấm “Lật ngang” để soi gương ảnh, chữ trong ảnh sẽ đọc được bình thường." }
       ]
@@ -486,7 +559,7 @@
       "related": ["heic-to-jpg", "compress-image", "resize-image", "svg-to-png"],
       "howto": ["Chọn, kéo thả hoặc dán một hay nhiều ảnh (JPG, PNG, WebP, AVIF, GIF, BMP, HEIC).", "Chọn định dạng muốn chuyển sang và chất lượng; với JPG có thể chọn màu nền cho vùng trong suốt.", "Bấm “Chuyển đổi” rồi tải từng ảnh hoặc cả file .zip."],
       "faq": [
-        { "q": "Ảnh có bị tải lên máy chủ không?", "a": "Không. Mọi bước xử lý chạy ngay trong trình duyệt của bạn; ảnh không rời khỏi máy." },
+        { "q": "Chuyển PNG nền trong suốt sang JPG thì nền thành gì?", "a": "JPG không có nền trong suốt nên vùng trong suốt được tô bằng màu nền bạn chọn (mặc định trắng). Muốn giữ nền trong suốt thì chọn PNG, WebP hoặc AVIF." },
         { "q": "Nên chọn định dạng nào?", "a": "JPG mở được ở mọi nơi. WebP nhẹ hơn JPG khoảng 25–35% và có nền trong suốt. AVIF nhẹ nhất nhưng mã hoá chậm hơn và một số phần mềm cũ chưa mở được. PNG giữ nguyên từng điểm ảnh, hợp với ảnh chụp màn hình, logo." },
         { "q": "Ảnh GIF động có giữ được chuyển động không?", "a": "Không. Công cụ chỉ lấy khung hình đầu tiên của ảnh GIF động." }
       ]
@@ -501,7 +574,7 @@
       "howto": ["Chọn hoặc kéo thả các ảnh .heic / .heif (có thể chọn nhiều ảnh cùng lúc).", "Chọn định dạng JPG hoặc PNG và chất lượng.", "Bấm “Chuyển đổi” rồi tải từng ảnh hoặc cả file .zip."],
       "faq": [
         { "q": "HEIC là gì?", "a": "HEIC (HEIF) là định dạng ảnh mặc định của iPhone, nhẹ hơn JPG nhưng nhiều máy Windows, Zalo web và trang nộp hồ sơ không mở được." },
-        { "q": "Ảnh có bị tải lên máy chủ để chuyển đổi không?", "a": "Không. Việc giải mã HEIC chạy bằng WebAssembly (libheif) ngay trong trình duyệt." },
+        { "q": "Nên chọn JPG hay PNG?", "a": "JPG nhẹ, mở được ở mọi nơi (Zalo, Windows, trang nộp hồ sơ), hợp với hầu hết nhu cầu. PNG giữ nguyên từng điểm ảnh nhưng nặng hơn nhiều." },
         { "q": "Ảnh Live Photo hoặc ảnh chụp liên tiếp thì sao?", "a": "Công cụ lấy ảnh chính trong file HEIC. Phần video của Live Photo không nằm trong file .heic nên không bị ảnh hưởng." }
       ]
     },
@@ -528,7 +601,7 @@
       "related": ["id-photo", "signature-extract", "blur-image", "compress-image"],
       "howto": ["Chọn, kéo thả hoặc dán một hay nhiều ảnh có người (chân dung, ảnh bán hàng có người mẫu).", "Chọn nền mới: trong suốt (PNG), trắng, màu khác hoặc làm mờ nền gốc.", "Bấm “Xoá phông”, chờ AI tách nền ngay trên máy rồi tải ảnh về."],
       "faq": [
-        { "q": "Ảnh có bị gửi lên máy chủ để AI xử lý không?", "a": "Không. Mô hình AI (MODNet) được tải về trình duyệt và chạy ngay trên máy bạn; ảnh không rời khỏi máy." },
+        { "q": "Viền tóc bị lởm chởm thì làm sao?", "a": "Mô hình cho kết quả tốt nhất với ảnh nền đơn giản, người rõ nét. Với ảnh nền rối, hãy thử chụp lại trước nền trơn, hoặc chọn “Làm mờ nền” để viền tóc trông tự nhiên hơn." },
         { "q": "Xoá phông ảnh đồ vật, con vật được không?", "a": "Công cụ được huấn luyện để tách người nên đạt kết quả tốt nhất với ảnh có người. Ảnh đồ vật, con vật có thể tách chưa chuẩn." },
         { "q": "Lần đầu dùng sao hơi lâu?", "a": "Lần đầu trình duyệt tải mô hình AI khoảng 6,6 MB; các lần sau dùng lại bản đã lưu nên nhanh hơn nhiều." }
       ]
@@ -542,13 +615,13 @@
       "related": ["strip-exif", "crop-image", "text-on-image"],
       "howto": ["Chọn hoặc kéo thả một ảnh.", "Kéo trên ảnh để khoanh các vùng cần che (số CCCD, biển số, khuôn mặt…), hoặc bấm “Tìm khuôn mặt” để AI tự khoanh.", "Chọn kiểu che (làm mờ, ô vuông, tô đen), bấm “Lưu ảnh đã che” rồi tải về."],
       "faq": [
-        { "q": "Ảnh có bị tải lên máy chủ không?", "a": "Không. Mọi bước xử lý chạy ngay trong trình duyệt của bạn; ảnh không rời khỏi máy." },
+        { "q": "Che nhiều chỗ trên cùng một ảnh được không?", "a": "Được. Kéo trên ảnh để thêm từng vùng che, chọn hình chữ nhật hoặc bầu dục; bấm × trên vùng để bỏ, hoặc “Bỏ hết vùng” để làm lại." },
         { "q": "Nên làm mờ hay tô đen?", "a": "Với chữ và số (CCCD, số tài khoản, biển số), hãy tô đen: làm mờ nhẹ đôi khi vẫn đoán lại được. Làm mờ hoặc ô vuông hợp với khuôn mặt, cảnh nền." },
         { "q": "Ảnh sau khi che còn thông tin vị trí GPS không?", "a": "Không. Ảnh được lưu lại mới nên không còn EXIF/GPS của ảnh gốc." }
       ]
     },
     {
-      "id": "strip-exif", "slug": "xoa-exif-anh", "name": "Xoá thông tin EXIF/GPS", "group": "image", "icon": "map-pin-off", "kind": "file",
+      "id": "strip-exif", "slug": "xoa-exif-anh", "name": "Xoá thông tin EXIF/GPS", "seoTitle": "Xoá EXIF, vị trí GPS trong ảnh", "group": "image", "icon": "map-pin-off", "kind": "file",
       "desc": "Xem và xoá thông tin máy chụp, ngày giờ, vị trí GPS trong ảnh.",
       "keywords": ["metadata ảnh", "vị trí gps", "exif remover", "xóa exif", "xem exif", "xóa vị trí ảnh", "ảnh có lộ vị trí không", "exif viewer", "xoá metadata ảnh", "remove gps from photo"],
       "accept": ["image", "heic"], "multiple": true, "output": "image", "status": "done",
@@ -556,7 +629,7 @@
       "related": ["blur-image", "compress-image", "heic-to-jpg"],
       "howto": ["Chọn, kéo thả hoặc dán một hay nhiều ảnh (JPG, PNG, WebP, HEIC…).", "Xem ảnh nào có vị trí GPS, bấm biểu tượng trên từng ảnh để xem máy chụp, ngày giờ, toạ độ.", "Chọn “Xoá tất cả” hoặc “Chỉ xoá vị trí”, bấm “Xoá thông tin” rồi tải ảnh đã làm sạch."],
       "faq": [
-        { "q": "Ảnh có bị tải lên máy chủ không?", "a": "Không. Mọi bước xử lý chạy ngay trong trình duyệt của bạn; ảnh không rời khỏi máy." },
+        { "q": "“Chỉ xoá vị trí” giữ lại những gì?", "a": "Chỉ bỏ toạ độ, độ cao và mọi thông tin vị trí; giữ máy chụp, ngày giờ và các thông tin khác. Chọn “Xoá tất cả” để bỏ cả máy chụp, số sê-ri, ngày giờ, tác giả, ảnh thu nhỏ nhúng." },
         { "q": "Ảnh chụp điện thoại có lộ vị trí không?", "a": "Có thể. Nếu bật định vị cho camera, ảnh lưu toạ độ GPS nơi chụp chính xác tới vài mét. Một số mạng xã hội tự xoá thông tin này, nhưng gửi ảnh gốc qua email, Zalo (gửi dạng file), Google Drive thì vẫn còn." },
         { "q": "Xoá EXIF có làm giảm chất lượng ảnh không?", "a": "Không với JPG, PNG, WebP: công cụ chỉ bỏ phần thông tin trong file, không nén lại ảnh. Ảnh HEIC được lưu lại thành JPG chất lượng cao." },
         { "q": "Ảnh có bị xoay ngang sau khi xoá không?", "a": "Không, nếu để bật “Giữ hướng xoay”: công cụ giữ lại đúng một thẻ cho biết ảnh dọc hay ngang." }
@@ -571,7 +644,7 @@
       "related": ["text-on-image", "watermark-pdf", "compress-image"],
       "howto": ["Chọn, kéo thả hoặc dán một hay nhiều ảnh.", "Nhập chữ (hoặc chọn logo), chỉnh cỡ, độ đậm, góc xoay, vị trí; bật “Lặp kín ảnh” nếu muốn khó cắt bỏ.", "Xem trước trên ảnh đầu tiên, bấm “Chèn watermark” rồi tải từng ảnh hoặc cả file .zip."],
       "faq": [
-        { "q": "Ảnh có bị tải lên máy chủ không?", "a": "Không. Mọi bước xử lý chạy ngay trong trình duyệt của bạn; ảnh không rời khỏi máy." },
+        { "q": "Làm sao để watermark khó bị cắt bỏ?", "a": "Bật “Lặp kín ảnh” để chữ hoặc logo phủ đều cả ảnh với góc xoay chéo; watermark nằm ở một góc rất dễ bị cắt đi." },
         { "q": "Ảnh to nhỏ khác nhau thì watermark có đều không?", "a": "Có. Cỡ chữ và logo tính theo phần trăm chiều rộng ảnh nên ảnh nào cũng có watermark cân đối như bản xem trước." },
         { "q": "Gõ chữ tiếng Việt có dấu được không?", "a": "Được. Chữ được vẽ bằng font Be Vietnam Pro, giữ nguyên dấu tiếng Việt." }
       ]
@@ -585,7 +658,7 @@
       "related": ["watermark-image", "crop-image", "blur-image"],
       "howto": ["Chọn hoặc kéo thả một ảnh.", "Nhập chữ, chọn font, cỡ, màu, viền, bóng đổ; bấm “Thêm chữ” để thêm nhiều dòng chữ khác nhau.", "Kéo chữ trên ảnh để đặt chỗ, bấm “Lưu ảnh” rồi tải về."],
       "faq": [
-        { "q": "Ảnh có bị tải lên máy chủ không?", "a": "Không. Mọi bước xử lý chạy ngay trong trình duyệt của bạn; ảnh không rời khỏi máy." },
+        { "q": "Chữ trên ảnh sáng khó đọc thì làm sao?", "a": "Bật viền chữ hoặc bóng đổ, hoặc dùng “Dải nền tối sau chữ” để chữ nổi rõ trên mọi nền." },
         { "q": "Có font chữ tiếng Việt đẹp không?", "a": "Có Be Vietnam Pro, Roboto Slab, Dancing Script, Pacifico, Great Vibes – đều hỗ trợ đầy đủ dấu tiếng Việt, tải về máy khi bạn chọn." },
         { "q": "Chữ trên ảnh xuất ra có giống bản xem trước không?", "a": "Giống. Cỡ chữ và vị trí tính theo tỉ lệ ảnh nên ảnh gốc độ phân giải cao vẫn đúng như bạn thấy." }
       ]
@@ -599,7 +672,7 @@
       "related": ["split-image", "gif-maker", "image-to-pdf", "resize-image"],
       "howto": ["Chọn, kéo thả hoặc dán từ 2 ảnh trở lên; kéo thả để đổi thứ tự.", "Chọn kiểu ghép (ngang, dọc, lưới), khoảng cách, bo góc, màu nền.", "Xem trước, bấm “Ghép ảnh” rồi tải ảnh đã ghép về."],
       "faq": [
-        { "q": "Ảnh có bị tải lên máy chủ không?", "a": "Không. Mọi bước xử lý chạy ngay trong trình duyệt của bạn; ảnh không rời khỏi máy." },
+        { "q": "Nên lưu ảnh ghép dạng JPG hay PNG?", "a": "JPG nhẹ, hợp để gửi và đăng mạng xã hội. Chọn PNG khi cần nền trong suốt hoặc ảnh ghép là ảnh chụp màn hình có nhiều chữ." },
         { "q": "Ảnh khác kích thước có ghép được không?", "a": "Được. Bật “Cùng cỡ” để mọi ảnh cùng chiều cao (ghép ngang) hoặc cùng chiều rộng (ghép dọc); với kiểu lưới, ảnh được cắt vừa ô hoặc giữ trọn trong ô." },
         { "q": "Ghép ảnh chụp màn hình tin nhắn thành một ảnh dài được không?", "a": "Được. Chọn kiểu “Dọc”, khoảng cách 0 để nối các ảnh chụp màn hình liền nhau." }
       ]
@@ -613,7 +686,7 @@
       "related": ["merge-images", "crop-image", "resize-image"],
       "howto": ["Chọn hoặc kéo thả một ảnh.", "Chọn số hàng × số cột (1×3, 3×3…) và xem đường cắt trên ảnh; bật đánh số kiểu Instagram nếu cần.", "Bấm “Chia ảnh” rồi tải cả bộ ảnh dạng .zip."],
       "faq": [
-        { "q": "Ảnh có bị tải lên máy chủ không?", "a": "Không. Mọi bước xử lý chạy ngay trong trình duyệt của bạn; ảnh không rời khỏi máy." },
+        { "q": "Chia theo số hàng, cột tuỳ ý được không?", "a": "Được. Ngoài các mẫu 1×2, 1×3, 2×2, 2×3, 3×3, chọn “Tuỳ ý” rồi nhập số hàng và số cột." },
         { "q": "Đăng lưới ảnh lên Instagram theo thứ tự nào?", "a": "Bật “Đánh số theo thứ tự đăng Instagram” rồi đăng lần lượt ảnh số 1, 2, 3…; ô dưới cùng bên phải được đăng trước nên lưới trên trang cá nhân ghép lại đúng ảnh gốc." },
         { "q": "Ảnh có bị giảm chất lượng không?", "a": "Không thu nhỏ: mỗi ô giữ nguyên độ phân giải gốc của phần ảnh đó." }
       ]
@@ -627,7 +700,7 @@
       "related": ["svg-to-png", "resize-image", "image-to-base64"],
       "howto": ["Chọn logo (tốt nhất là SVG hoặc PNG vuông từ 512 px).", "Chỉnh lề, nền màu, bo góc, tên trang web và xem trước ở các cỡ 16, 32, 180 px.", "Bấm “Tạo favicon”, tải file .zip và dán đoạn mã HTML vào thẻ <head>."],
       "faq": [
-        { "q": "Ảnh có bị tải lên máy chủ không?", "a": "Không. Mọi bước xử lý chạy ngay trong trình duyệt của bạn; ảnh không rời khỏi máy." },
+        { "q": "Đặt các file favicon ở đâu?", "a": "Giải nén file .zip vào thư mục gốc của trang web (cùng chỗ với index.html) rồi dán đoạn mã vào thẻ <head>. Đặt ở thư mục khác thì sửa đường dẫn trong đoạn mã cho khớp." },
         { "q": "Bộ favicon gồm những file nào?", "a": "favicon.ico (16, 32, 48 px), favicon-16x16.png, favicon-32x32.png, apple-touch-icon.png (180 px), android-chrome 192 và 512 px, site.webmanifest; thêm favicon.svg nếu ảnh gốc là SVG." },
         { "q": "Sao icon trên iPhone có nền trắng?", "a": "iOS tô đen chỗ trong suốt của apple-touch-icon nên công cụ dùng màu nền bạn chọn, hoặc trắng nếu để nền trong suốt." }
       ]
@@ -641,7 +714,7 @@
       "related": ["convert-image", "favicon", "image-to-base64"],
       "howto": ["Chọn hoặc kéo thả một hay nhiều file SVG.", "Chọn độ phân giải (gấp 1–8 lần, hoặc nhập chiều rộng), định dạng PNG/JPG/WebP và nền.", "Bấm “Chuyển đổi” rồi tải từng ảnh hoặc cả file .zip."],
       "faq": [
-        { "q": "File SVG có bị tải lên mạng không?", "a": "Không. Trình duyệt vẽ SVG ngay trên máy bạn." },
+        { "q": "Muốn ảnh đúng chiều rộng, ví dụ 1200 px?", "a": "Chọn độ phân giải “Theo chiều rộng” rồi nhập số pixel; chiều cao tự tính theo tỉ lệ của SVG." },
         { "q": "Phóng to SVG có bị vỡ không?", "a": "Không. SVG là ảnh vector nên vẽ ở 4×, 8× vẫn nét; công cụ giới hạn cạnh dài 8192 px để trình duyệt không quá tải." },
         { "q": "Sao ảnh trong SVG hoặc font chữ không hiện?", "a": "Vì lý do bảo mật, trình duyệt không tải ảnh, font từ mạng khi vẽ SVG thành ảnh. Hãy nhúng sẵn ảnh, font (hoặc chuyển chữ thành đường nét) trong file SVG." }
       ]
@@ -655,7 +728,7 @@
       "related": ["base64", "svg-to-png", "compress-image", "favicon"],
       "howto": ["Chọn, kéo thả hoặc dán ảnh (JPG, PNG, WebP, GIF, SVG…).", "Chọn dạng kết quả: data URI, chỉ Base64, CSS, thẻ <img> hoặc Markdown.", "Bấm “Chuyển sang Base64”, rồi sao chép chuỗi hoặc tải file .txt."],
       "faq": [
-        { "q": "Ảnh có bị tải lên máy chủ không?", "a": "Không. Mọi bước xử lý chạy ngay trong trình duyệt của bạn; ảnh không rời khỏi máy." },
+        { "q": "Chuỗi Base64 nặng hơn ảnh gốc bao nhiêu?", "a": "Khoảng 33%. Chỉ nên nhúng ảnh nhỏ như icon, logo dưới khoảng 10 KB; ảnh lớn hãy nén trước bằng công cụ Nén ảnh." },
         { "q": "Khi nào nên nhúng ảnh dạng Base64?", "a": "Với ảnh rất nhỏ như icon, logo dưới khoảng 10 KB: bớt một lượt tải file. Ảnh lớn nên để file riêng vì Base64 nặng hơn ảnh gốc khoảng 33%." },
         { "q": "SVG có cần Base64 không?", "a": "Không bắt buộc. Bật “SVG: mã hoá URL” để có chuỗi ngắn hơn khoảng 30% mà vẫn dùng được trong CSS, HTML." }
       ]
@@ -669,7 +742,7 @@
       "related": ["color-converter", "css-generator", "text-on-image"],
       "howto": ["Chọn hoặc kéo thả một ảnh.", "Rê chuột hoặc chạm, kéo trên ảnh để soi màu qua kính lúp, bấm (hoặc thả tay) để lấy màu; bảng màu chủ đạo được trích tự động.", "Bấm ô màu để sao chép mã HEX, RGB hoặc HSL; bấm “Tải bảng màu” để lưu ảnh và mã CSS."],
       "faq": [
-        { "q": "Ảnh có bị tải lên máy chủ không?", "a": "Không. Mọi bước xử lý chạy ngay trong trình duyệt của bạn; ảnh không rời khỏi máy." },
+        { "q": "Lấy màu trên điện thoại thế nào?", "a": "Giữ ngón tay trên ảnh rồi kéo để soi màu qua kính lúp, thả tay để lấy màu đó; mã màu được sao chép ngay." },
         { "q": "Bảng màu chủ đạo được tính thế nào?", "a": "Công cụ gom các điểm ảnh có màu gần nhau (thuật toán median cut) và sắp theo tỉ lệ diện tích, nên màu chiếm nhiều chỗ nhất đứng đầu." },
         { "q": "Lấy màu ngoài ảnh, trên màn hình được không?", "a": "Trên Chrome, Edge (máy tính) có nút “Lấy màu bất kỳ trên màn hình”. Trình duyệt khác chưa hỗ trợ tính năng này." }
       ]
@@ -683,7 +756,7 @@
       "related": ["video-to-gif", "merge-images", "split-image"],
       "howto": ["Chọn, kéo thả hoặc dán từ 2 ảnh trở lên; kéo thả để đổi thứ tự khung hình.", "Chỉnh thời gian mỗi khung, kích thước, lặp lại, chạy xuôi–ngược và xem trước chuyển động.", "Bấm “Tạo GIF” rồi tải ảnh động về."],
       "faq": [
-        { "q": "Ảnh có bị tải lên máy chủ không?", "a": "Không. Mọi bước xử lý chạy ngay trong trình duyệt của bạn; ảnh không rời khỏi máy." },
+        { "q": "Ảnh khác tỉ lệ thì GIF trông thế nào?", "a": "Chọn “Giữ trọn ảnh” để mỗi ảnh nằm gọn trong khung, phần trống tô màu nền; hoặc “Cắt cho đầy khung” để ảnh phủ kín khung, mép thừa bị cắt." },
         { "q": "Sao GIF có màu hơi khác ảnh gốc?", "a": "Định dạng GIF chỉ có tối đa 256 màu mỗi khung. Ảnh chụp nhiều màu chuyển mượt sẽ hơi bị loang; ảnh minh hoạ, chữ, chụp màn hình thì rất đẹp." },
         { "q": "GIF quá nặng thì làm sao?", "a": "Chọn kích thước nhỏ hơn (320 hoặc 480 px) và bớt số ảnh; dung lượng giảm rất nhanh." }
       ]
@@ -697,7 +770,7 @@
       "related": ["pdf-to-text", "scan-document", "word-counter"],
       "howto": ["Chọn, kéo thả hoặc dán ảnh chụp, ảnh scan hoặc file PDF scan.", "Chọn ngôn ngữ (tiếng Việt hoặc tiếng Anh) và cách xuống dòng.", "Bấm “Nhận dạng chữ”, đọc lại kết quả, sao chép hoặc tải file .txt."],
       "faq": [
-        { "q": "Ảnh có bị gửi lên máy chủ để nhận dạng không?", "a": "Không. Bộ nhận dạng Tesseract (WebAssembly) được tải về trình duyệt và chạy ngay trên máy bạn." },
+        { "q": "Lần đầu dùng sao lâu hơn?", "a": "Lần đầu trình duyệt cần tải bộ nhận dạng (khoảng 5 MB) và lưu lại; những lần sau mở ngay." },
         { "q": "Nhận dạng tiếng Việt có dấu có chính xác không?", "a": "Khá tốt với ảnh chụp thẳng, rõ nét, chữ in. Ảnh mờ, nghiêng, chữ viết tay dễ sai dấu; hãy đọc lại và sửa. Có thể dùng Scan tài liệu để nắn thẳng ảnh trước." },
         { "q": "PDF có chữ chọn được thì sao?", "a": "Dùng công cụ PDF sang văn bản sẽ nhanh và chính xác hơn. OCR dành cho PDF scan (chỉ có ảnh)." }
       ]
@@ -711,7 +784,7 @@
       "related": ["sign-pdf", "remove-bg", "scan-document"],
       "howto": ["Chụp chữ ký hoặc con dấu trên giấy trắng (thẳng, đủ sáng) rồi chọn ảnh đó.", "Chọn lấy nét nào (xanh cho chữ ký, đỏ cho con dấu), màu mực khi xuất, độ nhạy; kéo trên ảnh để khoanh vùng nếu cần.", "Bấm “Tải PNG trong suốt” rồi dùng ảnh trong Ký PDF, Word, Canva…"],
       "faq": [
-        { "q": "Ảnh có bị tải lên máy chủ không?", "a": "Không. Mọi bước xử lý chạy ngay trong trình duyệt của bạn; ảnh không rời khỏi máy." },
+        { "q": "Không thấy nét mực nào thì làm sao?", "a": "Tăng độ nhạy hoặc chọn lấy “Tất cả” màu mực, rồi kéo trên ảnh để khoanh đúng vùng chữ ký hay con dấu, bỏ qua chữ in xung quanh." },
         { "q": "Chữ ký đè lên con dấu có tách riêng được không?", "a": "Được nếu khác màu: chọn “Xanh” để lấy riêng chữ ký, “Đỏ” để lấy riêng con dấu." },
         { "q": "Ảnh có bóng đổ, giấy ngả vàng thì sao?", "a": "Công cụ ước lượng màu giấy theo từng vùng nhỏ nên vẫn tách được khi ánh sáng không đều. Nếu còn vết bẩn, giảm độ nhạy." },
         { "q": "Dùng chữ ký đã tách có hợp lệ không?", "a": "Ảnh chữ ký chỉ là hình ảnh, không phải chữ ký số. Chỉ dùng chữ ký, con dấu của chính bạn hoặc khi được phép." }
@@ -746,7 +819,7 @@
       "related": ["trim-audio", "convert-audio", "screen-recorder", "device-test"],
       "howto": ["Bấm nút đỏ và cho phép trình duyệt dùng micro khi được hỏi.", "Nói hoặc phát âm thanh cần ghi; có thể Tạm dừng rồi Ghi tiếp.", "Bấm nút vuông để dừng, nghe lại, đặt tên rồi tải về M4A, MP3 hoặc WAV (hoặc bấm Cắt để cắt bớt)."],
       "faq": [
-        { "q": "Bản ghi có bị gửi lên mạng không?", "a": "Không. Âm thanh được ghi và giữ trong trình duyệt trên máy bạn. Hãy tải về trước khi đóng hoặc tải lại trang, vì bản ghi chưa tải sẽ mất." },
+        { "q": "Đóng trang thì bản ghi có còn không?", "a": "Không. Bản ghi chỉ nằm trong trang đang mở; hãy tải về trước khi đóng hoặc tải lại trang." },
         { "q": "Nên bật “Lọc ồn, khử tiếng vọng” không?", "a": "Bật khi ghi giọng nói (họp, bài giảng, ghi chú) để giảm tiếng ồn nền. Tắt khi ghi nhạc, nhạc cụ để giữ âm thanh tự nhiên." },
         { "q": "Ghi được bao lâu?", "a": "Không giới hạn thời gian; chỉ phụ thuộc bộ nhớ máy. Màn hình được giữ sáng trong lúc ghi." }
       ]
@@ -763,7 +836,7 @@
       "faq": [
         { "q": "Quay màn hình điện thoại được không?", "a": "Trình duyệt trên điện thoại không cho trang web quay màn hình. Hãy dùng tính năng có sẵn: iPhone vào Trung tâm điều khiển → Ghi màn hình; Android kéo thanh thông báo → Quay màn hình. Sau đó có thể dùng Cắt video, Nén video ở đây." },
         { "q": "Sao video không có tiếng?", "a": "Khi trình duyệt hỏi chia sẻ, hãy bật “Chia sẻ âm thanh”. Chrome và Edge thu được tiếng của một tab; trên Windows thu được cả tiếng toàn màn hình; macOS chỉ thu được tiếng của tab. Có thể bật micro để thuyết minh." },
-        { "q": "Video có bị gửi lên mạng không?", "a": "Không. Hình và tiếng được ghi trong trình duyệt trên máy bạn; hãy tải video về trước khi đóng trang." }
+        { "q": "Nên chọn bao nhiêu khung hình mỗi giây?", "a": "30 là mức khuyên dùng cho hầu hết video hướng dẫn. 15 đủ cho trình chiếu và cho file nhẹ; 60 mượt hơn khi quay game, cuộn nhanh nhưng file lớn hơn." }
       ]
     },
     {
@@ -777,7 +850,7 @@
       "faq": [
         { "q": "Cắt có làm giảm chất lượng không?", "a": "Nếu giữ định dạng gốc và không dùng hiệu ứng tăng/giảm dần, dữ liệu được chép nguyên nên chất lượng không đổi. Khi đổi định dạng hoặc thêm hiệu ứng, âm thanh được mã hoá lại ở chất lượng bạn chọn." },
         { "q": "Làm nhạc chuông iPhone thế nào?", "a": "Chọn đoạn dài tối đa 40 giây, định dạng M4R, tải về. Nối iPhone với máy tính, mở Finder (Mac) hoặc iTunes (Windows) rồi kéo file .m4r vào mục iPhone; sau đó chọn trong Cài đặt → Âm thanh → Nhạc chuông." },
-        { "q": "File có bị tải lên không?", "a": "Không. File được đọc và cắt ngay trên máy bạn." }
+        { "q": "Vì sao file WAV cắt ra nặng thế?", "a": "WAV không nén nên khoảng 10 MB mỗi phút. Chọn MP3 hoặc M4A nếu cần file nhẹ để gửi đi." }
       ]
     },
     {
@@ -791,7 +864,7 @@
       "faq": [
         { "q": "“Chồng mượt” là gì?", "a": "Cuối bài trước nhỏ dần trong khi đầu bài sau to dần, chồng lên nhau vài giây, giống cách DJ chuyển bài. “Khoảng lặng” thì chèn vài giây im lặng giữa các bài." },
         { "q": "Ghép file MP3 với M4A, WAV được không?", "a": "Được. Các file được giải mã rồi mã hoá lại thành một file theo định dạng bạn chọn." },
-        { "q": "File có bị tải lên không?", "a": "Không, mọi việc diễn ra ngay trên máy bạn." }
+        { "q": "“Làm đều âm lượng” có làm rè tiếng không?", "a": "Không. Bài nhỏ được tăng, bài to được giảm cho nghe đều nhau mà không bị rè." }
       ]
     },
     {
@@ -805,7 +878,7 @@
       "faq": [
         { "q": "Nên chọn định dạng nào?", "a": "MP3 mở được ở mọi nơi. M4A (AAC) nhỏ hơn ở cùng chất lượng, hợp iPhone. OGG (Opus) nhẹ nhất. WAV không nén, giữ nguyên chất lượng nhưng file rất lớn." },
         { "q": "Đổi từ MP3 128 kbps lên 320 kbps có hay hơn không?", "a": "Không. Chất lượng đã mất khi nén lần đầu không lấy lại được; tăng bitrate chỉ làm file to hơn." },
-        { "q": "File có bị tải lên không?", "a": "Không. File được chuyển đổi ngay trên máy bạn." }
+        { "q": "Có nên chuyển sang mono không?", "a": "Mono gộp hai kênh thành một, hợp với ghi âm giọng nói, bài giảng và giúp file WAV nhẹ đi một nửa. Nhạc có hiệu ứng trái – phải thì nên giữ stereo." }
       ]
     },
     {
@@ -819,7 +892,7 @@
       "faq": [
         { "q": "Video dài, nặng có được không?", "a": "Được. Video được đọc dần từng phần nên file vài GB vẫn làm được; chỉ phần âm thanh được giữ lại." },
         { "q": "Chọn M4A khác gì MP3?", "a": "Phần lớn video MP4 có tiếng dạng AAC: chọn M4A thì tiếng được chép nguyên, rất nhanh và không giảm chất lượng. MP3 phải mã hoá lại nhưng mở được ở mọi nơi." },
-        { "q": "Video có bị tải lên không?", "a": "Không. Video được xử lý ngay trên máy bạn." }
+        { "q": "Chỉ lấy âm thanh của một đoạn được không?", "a": "Được. Bật “Chỉ lấy một đoạn” rồi nhập thời gian theo phút:giây, ví dụ 1:05; bỏ trống ô “Đến” để lấy tới hết video." }
       ]
     },
     {
@@ -832,7 +905,8 @@
       "howto": ["Chọn file video.", "Kéo hai tay nắm trên dải ảnh để chọn đoạn (nên ngắn, vài giây).", "Chọn bề rộng, số khung hình/giây, tốc độ rồi bấm Tạo GIF."],
       "faq": [
         { "q": "Sao GIF nặng hơn video?", "a": "GIF chỉ có 256 màu mỗi khung và nén kém hơn video nhiều. Muốn nhẹ: chọn đoạn ngắn, bề rộng nhỏ (320–480 px), 8–10 khung/giây, bảng màu “Nhẹ hơn”." },
-        { "q": "Video có bị tải lên không?", "a": "Không, ảnh động được tạo ngay trên máy bạn." }
+        { "q": "Nên chọn bao nhiêu khung hình mỗi giây?", "a": "10 khung/giây là mức khuyên dùng: đủ mượt mà nhẹ. 15–20 mượt hơn nhưng file nặng hơn nhiều; 5 cho file rất nhẹ nhưng giật." },
+        { "q": "Làm GIF chạy nhanh hoặc chậm hơn video được không?", "a": "Được. Chọn tốc độ 0,5×, 1×, 1,5× hoặc 2× trước khi bấm “Tạo GIF”." }
       ]
     },
     {
@@ -846,7 +920,7 @@
       "faq": [
         { "q": "Cắt “Nhanh” và “Chính xác” khác gì nhau?", "a": "Nhanh chép nguyên hình và tiếng nên xong trong vài giây và không giảm chất lượng; video bắt đầu đúng chỗ đã chọn trên hầu hết trình phát. Chính xác mã hoá lại đoạn đã chọn, chậm hơn, dùng khi trình phát cũ hiện hình đứng ở đầu video." },
         { "q": "Video dài vài GB có cắt được không?", "a": "Được, với cách cắt Nhanh video được đọc từng phần nên rất nhẹ." },
-        { "q": "Video có bị tải lên không?", "a": "Không. Video được cắt ngay trên máy bạn." }
+        { "q": "Cắt xong bỏ luôn tiếng được không?", "a": "Được. Bật “Bỏ tiếng” để đoạn video cắt ra không còn âm thanh." }
       ]
     },
     {
@@ -860,7 +934,7 @@
       "faq": [
         { "q": "Nén mất bao lâu?", "a": "Tuỳ máy và độ dài video. Công cụ dùng bộ mã hoá phần cứng của máy qua WebCodecs nên thường nhanh hơn thời lượng video; điện thoại đời cũ sẽ chậm hơn. Giữ trang mở trong lúc nén." },
         { "q": "Nên chọn H.264 hay H.265?", "a": "H.264 mở được ở mọi nơi. H.265 (chỉ hiện khi máy hỗ trợ) nhỏ hơn khoảng 30% ở cùng chất lượng nhưng máy, ứng dụng cũ có thể không mở được." },
-        { "q": "Video có bị tải lên không?", "a": "Không. Video được nén ngay trên máy bạn." }
+        { "q": "Muốn video vừa giới hạn đính kèm Gmail thì làm sao?", "a": "Chọn nén theo dung lượng, chọn mốc “25 MB · đính kèm Gmail” hoặc nhập số MB mong muốn. Dung lượng quá thấp so với độ dài video sẽ làm hình mờ, vỡ; khi đó nên cắt ngắn video trước." }
       ]
     },
     {
@@ -873,7 +947,8 @@
       "howto": ["Chọn file video.", "Tua tới chỗ cần lấy, dùng Khung trước/Khung sau (phím , .) để chỉnh từng khung, bấm Chụp khung hình này; hoặc Chụp cả video mỗi N giây.", "Chọn PNG, JPG hoặc WebP rồi bấm Tải ảnh đã chụp."],
       "faq": [
         { "q": "Ảnh có nét hơn chụp màn hình không?", "a": "Có. Ảnh được giải mã trực tiếp từ video ở độ phân giải gốc (ví dụ 1920×1080 hay 4K), không phụ thuộc cỡ khung xem trên màn hình." },
-        { "q": "Video có bị tải lên không?", "a": "Không, ảnh được lấy ngay trên máy bạn." }
+        { "q": "Chỉnh từng khung bằng bàn phím được không?", "a": "Được. Phím , và . lùi, tiến một khung; phím C chụp khung đang xem." },
+        { "q": "“Chụp cả video” mỗi N giây dùng để làm gì?", "a": "Để lấy nhanh một loạt ảnh xem trước, ảnh minh hoạ hay ảnh từng slide của video bài giảng; tải từng ảnh hoặc cả bộ dạng .zip." }
       ]
     },
     {
@@ -902,7 +977,7 @@
     },
 
     {
-      "id": "word-counter", "slug": "dem-tu", "name": "Đếm từ & ký tự", "group": "text", "icon": "whole-word", "kind": "text",
+      "id": "word-counter", "slug": "dem-tu", "name": "Đếm từ & ký tự", "seoTitle": "Đếm số từ, ký tự", "group": "text", "icon": "whole-word", "kind": "text",
       "desc": "Đếm số từ (tiếng), ký tự, câu, đoạn, thời gian đọc; hiện ngay khi gõ.",
       "keywords": ["đếm chữ", "đếm ký tự", "word count", "character count", "đếm số từ", "đếm tiếng"],
       "status": "done", "popular": true,
@@ -911,11 +986,12 @@
       "howto": ["Gõ hoặc dán văn bản vào ô.", "Số từ, ký tự, câu, đoạn và thời gian đọc cập nhật ngay khi gõ.", "Xem các từ xuất hiện nhiều nhất để kiểm tra lặp từ."],
       "faq": [
         { "q": "Công cụ đếm “từ” tiếng Việt thế nào?", "a": "Mỗi tiếng cách nhau bởi khoảng trắng được tính là một từ (ví dụ “Việt Nam” là 2 từ), giống cách Word và Google Docs đếm." },
-        { "q": "Văn bản có bị lưu lại không?", "a": "Không gửi đi đâu cả. Bạn có thể bật “Nhớ văn bản” để lưu tạm trong trình duyệt của chính bạn." }
+        { "q": "Văn bản có bị lưu lại không?", "a": "Không gửi đi đâu cả. Bạn có thể bật “Nhớ văn bản” để lưu tạm trong trình duyệt của chính bạn." },
+        { "q": "Thời gian đọc được tính thế nào?", "a": "Lấy số từ chia cho tốc độ đọc trung bình khoảng 230 từ (tiếng) mỗi phút; đọc thành tiếng thường chậm hơn." }
       ]
     },
     {
-      "id": "case-converter", "slug": "doi-chu-hoa-thuong", "name": "Đổi chữ hoa/thường", "group": "text", "icon": "case-sensitive", "kind": "text",
+      "id": "case-converter", "slug": "doi-chu-hoa-thuong", "name": "Đổi chữ hoa/thường", "seoTitle": "Đổi chữ hoa thường", "group": "text", "icon": "case-sensitive", "kind": "text",
       "desc": "Đổi IN HOA, chữ thường, Viết Hoa Mỗi Từ, Viết hoa đầu câu, đúng với tiếng Việt.",
       "keywords": ["in hoa", "viết hoa", "uppercase", "lowercase", "title case", "chữ thường"],
       "status": "done",
@@ -924,7 +1000,8 @@
       "howto": ["Gõ hoặc dán văn bản vào ô.", "Chọn kiểu chữ: IN HOA, chữ thường, Viết Hoa Mỗi Từ, Viết hoa đầu câu hoặc kiểu lập trình (camelCase, snake_case…).", "Sao chép hoặc tải kết quả về."],
       "faq": [
         { "q": "Có đổi đúng chữ có dấu như “đ”, “ư”, “ơ” không?", "a": "Có. Công cụ dùng quy tắc chữ hoa/thường của tiếng Việt nên “đường phố” thành “ĐƯỜNG PHỐ” và ngược lại." },
-        { "q": "camelCase, snake_case có giữ dấu không?", "a": "Không. Các kiểu dành cho lập trình tự bỏ dấu và ký tự đặc biệt, ví dụ “Số điện thoại” thành soDienThoai hoặc so_dien_thoai." }
+        { "q": "camelCase, snake_case có giữ dấu không?", "a": "Không. Các kiểu dành cho lập trình tự bỏ dấu và ký tự đặc biệt, ví dụ “Số điện thoại” thành soDienThoai hoặc so_dien_thoai." },
+        { "q": "“Đảo hoa/thường” dùng khi nào?", "a": "Khi lỡ gõ lúc đang bật Caps Lock: chữ hoa thành thường và ngược lại, trả lại đúng kiểu chữ mà không phải gõ lại." }
       ]
     },
     {
@@ -937,7 +1014,8 @@
       "howto": ["Dán văn bản tiếng Việt có dấu vào ô.", "Kết quả không dấu hiện ngay; bật “Giữ chữ đ” nếu cần.", "Sao chép hoặc tải về."],
       "faq": [
         { "q": "Chữ “đ” được đổi thế nào?", "a": "Mặc định “đ” thành “d”, “Đ” thành “D”. Bật tuỳ chọn “Giữ chữ đ/Đ” nếu muốn giữ nguyên." },
-        { "q": "Văn bản gõ kiểu tổ hợp (dấu tách rời) có bỏ được không?", "a": "Có, công cụ chuẩn hoá Unicode trước khi bỏ dấu nên cả chữ dựng sẵn lẫn tổ hợp đều xử lý được." }
+        { "q": "Văn bản gõ kiểu tổ hợp (dấu tách rời) có bỏ được không?", "a": "Có, công cụ chuẩn hoá Unicode trước khi bỏ dấu nên cả chữ dựng sẵn lẫn tổ hợp đều xử lý được." },
+        { "q": "Bỏ dấu để làm gì?", "a": "Để đặt tên file, tên đăng nhập, địa chỉ email, ghi tên trên thẻ ngân hàng, vé máy bay, hoặc nhập vào hệ thống không nhận chữ có dấu. Bật “Chuyển thành chữ thường” nếu cần chữ thường." }
       ]
     },
     {
@@ -950,7 +1028,8 @@
       "howto": ["Gõ tiêu đề bài viết, mỗi dòng một tiêu đề.", "Chọn ký tự nối và độ dài tối đa.", "Sao chép slug để dùng làm đường dẫn."],
       "faq": [
         { "q": "Slug là gì?", "a": "Là phần đường dẫn dễ đọc của một trang, ví dụ “huong-dan-cai-dat” trong example.com/huong-dan-cai-dat. Slug không dấu, chữ thường, nối bằng gạch ngang giúp chia sẻ và SEO tốt hơn." },
-        { "q": "Cắt độ dài có cắt giữa từ không?", "a": "Không, công cụ lùi về dấu nối gần nhất để không cắt đôi một từ." }
+        { "q": "Cắt độ dài có cắt giữa từ không?", "a": "Không, công cụ lùi về dấu nối gần nhất để không cắt đôi một từ." },
+        { "q": "Nên nối bằng gạch ngang hay gạch dưới?", "a": "Gạch ngang (-) là cách phổ biến cho đường dẫn web và được Google khuyên dùng; gạch dưới (_) hay dấu chấm hợp hơn khi đặt tên file, tên biến." }
       ]
     },
     {
@@ -963,14 +1042,14 @@
       "privacy": "Văn bản và file bạn mở (TXT, PDF, Word, Excel) chỉ được đọc và so sánh ngay trên trình duyệt, không tải lên máy chủ nào.",
       "howto": ["Dán bản gốc vào ô bên trái, bản mới vào ô bên phải; hoặc bấm nút tải lên, kéo thả file TXT, PDF, Word (.docx), Excel vào từng ô (thả hai file một lúc thì mỗi ô một file).", "Chọn so theo dòng, từ hoặc ký tự; xem song song hay gộp một cột; bật bỏ qua hoa/thường, khoảng trắng nếu cần.", "Xem tỉ lệ giống nhau và số dòng sửa/thêm/bớt; phần thêm tô xanh, phần bớt tô đỏ, đoạn giống nhau dài được gấp gọn.", "Bấm mũi tên lên/xuống (hoặc Alt + ↑/↓) để nhảy giữa các chỗ khác; sao chép hoặc tải bản so sánh (.html) để in, lưu PDF."],
       "faq": [
-        { "q": "Văn bản có bị gửi lên máy chủ để so sánh không?", "a": "Không. Thuật toán so sánh (Myers) và việc đọc file PDF, Word, Excel đều chạy ngay trên trình duyệt của bạn." },
+        { "q": "“Bỏ qua khoảng trắng”, “Bỏ qua hoa/thường” để làm gì?", "a": "Để không bị báo khác chỉ vì thừa dấu cách, xuống dòng khác nhau hay chữ hoa, chữ thường; nên bật khi so hai bản chép từ nguồn khác nhau." },
         { "q": "Nên so theo dòng hay theo từ?", "a": "Hợp đồng, mã nguồn nên so theo dòng (trong dòng sửa vẫn tô đúng từ thay đổi). Đoạn văn liền mạch nên so theo từ." },
         { "q": "So sánh được file nào?", "a": "File văn bản (TXT, Markdown, CSV, JSON, mã nguồn… tự nhận UTF-8, UTF-16, Windows-1258), PDF có lớp chữ, Word .docx và Excel (.xlsx, .xls, .ods; mỗi ô cách nhau bằng tab). PDF scan chỉ có ảnh thì cần chạy OCR trước; file Word .doc cũ cần lưu lại dạng .docx." },
         { "q": "Tỉ lệ giống nhau tính thế nào?", "a": "Bằng 2 × số ký tự trùng khớp chia cho tổng số ký tự của hai bản (không tính khoảng trắng), so theo từng từ. 100% nghĩa là hai bản giống hệt nhau." }
       ]
     },
     {
-      "id": "dedupe-lines", "slug": "loc-dong-trung", "name": "Lọc dòng trùng & sắp xếp dòng", "group": "text", "icon": "list-filter", "kind": "text",
+      "id": "dedupe-lines", "slug": "loc-dong-trung", "name": "Lọc dòng trùng & sắp xếp dòng", "seoTitle": "Lọc dòng trùng, sắp xếp dòng", "group": "text", "icon": "list-filter", "kind": "text",
       "desc": "Xoá dòng trùng, dòng trống, sắp xếp A→Z theo tiếng Việt, đảo ngược.",
       "keywords": ["xoá trùng", "sort lines", "unique lines", "sắp xếp dòng"],
       "status": "done",
@@ -979,7 +1058,8 @@
       "howto": ["Dán danh sách, mỗi mục một dòng.", "Chọn cách sắp xếp và bật/tắt xoá dòng trùng, dòng trống.", "Xem số dòng đã bỏ, rồi sao chép kết quả."],
       "faq": [
         { "q": "Sắp xếp A→Z có đúng thứ tự tiếng Việt không?", "a": "Có: a, ă, â, b, c, d, đ… và số được so theo giá trị (file2 đứng trước file10)." },
-        { "q": "“An” và “an” có bị coi là trùng?", "a": "Có khi bật “Không phân biệt hoa/thường”; dòng xuất hiện đầu tiên được giữ lại." }
+        { "q": "“An” và “an” có bị coi là trùng?", "a": "Có khi bật “Không phân biệt hoa/thường”; dòng xuất hiện đầu tiên được giữ lại." },
+        { "q": "Sắp theo độ dài hay trộn ngẫu nhiên được không?", "a": "Được. Ngoài A → Z theo tiếng Việt, có thể sắp ngắn → dài, dài → ngắn, đảo ngược hoặc trộn ngẫu nhiên, ví dụ để xáo trộn danh sách bốc thăm." }
       ]
     },
     {
@@ -992,11 +1072,12 @@
       "howto": ["Dán văn bản vào ô.", "Nhập từ cần tìm và từ thay thế; chọn phân biệt hoa/thường, nguyên từ hoặc regex.", "Chỗ được thay tô màu; sao chép hoặc tải kết quả."],
       "faq": [
         { "q": "Dùng biểu thức chính quy thế nào?", "a": "Bật “Biểu thức chính quy”, dùng $1, $2 hoặc $<tên> để chèn nhóm bắt được và \\n để xuống dòng. Bấm “Mẫu” để xem ví dụ đổi ngày 21/10/2026 thành 2026-10-21." },
-        { "q": "Biểu thức viết sai có làm treo trang không?", "a": "Không, biểu thức chạy trong luồng riêng và tự dừng sau vài giây nếu lặp quá lâu." }
+        { "q": "Biểu thức viết sai có làm treo trang không?", "a": "Không, biểu thức chạy trong luồng riêng và tự dừng sau vài giây nếu lặp quá lâu." },
+        { "q": "Muốn xoá một từ ở mọi chỗ thì làm sao?", "a": "Để trống ô “Thay bằng”: mọi chỗ khớp với từ cần tìm sẽ bị xoá." }
       ]
     },
     {
-      "id": "vn-encoding", "slug": "chuyen-ma-tcvn3-vni", "name": "Chuyển mã Unicode ↔ TCVN3 ↔ VNI", "group": "text", "icon": "languages", "kind": "text",
+      "id": "vn-encoding", "slug": "chuyen-ma-tcvn3-vni", "name": "Chuyển mã Unicode ↔ TCVN3 ↔ VNI", "seoTitle": "Chuyển mã Unicode sang TCVN3, VNI", "group": "text", "icon": "languages", "kind": "text",
       "desc": "Sửa chữ lỗi font .VnTime, VNI-Times: chuyển qua lại Unicode, TCVN3 (ABC), VNI.",
       "keywords": ["vntime", ".vntime", "abc", "vni-times", "lỗi font", "unikey", "chuyển mã", "tcvn3"],
       "status": "done", "vnOnly": true, "popular": true,
@@ -1019,7 +1100,8 @@
       "howto": ["Dán đoạn chữ lỡ gõ khi chưa bật Unikey/EVKey, ví dụ “Tieesng Vieejt”.", "Chọn kiểu gõ (Telex, VNI hoặc tự nhận) và kiểu đặt dấu.", "Sao chép đoạn tiếng Việt có dấu."],
       "faq": [
         { "q": "Từ tiếng Anh có bị sửa nhầm không?", "a": "Công cụ chỉ sửa khi kết quả là âm tiết tiếng Việt hợp lệ và bỏ qua từ tiếng Anh thông dụng (this, was, is…). Một số từ ngắn vẫn có thể bị hiểu nhầm, hãy đọc lại kết quả." },
-        { "q": "“hòa” hay “hoà” mới đúng?", "a": "Cả hai cách đặt dấu đều được dùng. Chọn “Kiểu cũ” (hòa, thủy) hoặc “Kiểu mới” (hoà, thuỷ) theo thói quen của bạn." }
+        { "q": "“hòa” hay “hoà” mới đúng?", "a": "Cả hai cách đặt dấu đều được dùng. Chọn “Kiểu cũ” (hòa, thủy) hoặc “Kiểu mới” (hoà, thuỷ) theo thói quen của bạn." },
+        { "q": "Gõ kiểu VNI (số) có sửa được không?", "a": "Được. Chọn kiểu gõ “VNI (số)”, hoặc “Tự nhận (Telex + VNI)” để công cụ tự đoán, ví dụ “Vie65t Nam” thành “Việt Nam”." }
       ]
     },
     {
@@ -1061,7 +1143,9 @@
       "related": ["word-counter"],
       "howto": ["Chọn tạo theo đoạn văn, câu hoặc số từ.", "Nhập số lượng; bấm “Tạo đoạn khác” để đổi nội dung.", "Sao chép hoặc tải về; bật “Bọc thẻ <p>” khi cần mã HTML."],
       "faq": [
-        { "q": "Vì sao nên dùng văn bản mẫu tiếng Việt thay cho Lorem ipsum?", "a": "Chữ tiếng Việt có dấu chồng nhiều tầng (ặ, ể, ỡ) nên cao hơn và dài hơn chữ Latin. Thử bằng văn bản tiếng Việt giúp thấy sớm lỗi font thiếu dấu, dòng bị cắt dấu hay bố cục bị vỡ." }
+        { "q": "Vì sao nên dùng văn bản mẫu tiếng Việt thay cho Lorem ipsum?", "a": "Chữ tiếng Việt có dấu chồng nhiều tầng (ặ, ể, ỡ) nên cao hơn và dài hơn chữ Latin. Thử bằng văn bản tiếng Việt giúp thấy sớm lỗi font thiếu dấu, dòng bị cắt dấu hay bố cục bị vỡ." },
+        { "q": "Tạo đúng số từ cần thiết được không?", "a": "Được. Chọn tạo theo “Từ” rồi nhập số lượng; dòng thống kê dưới kết quả cho biết số từ và số ký tự thực tế." },
+        { "q": "Chèn văn bản mẫu vào trang HTML thế nào?", "a": "Bật “Bọc thẻ HTML <p>” để mỗi đoạn nằm trong một thẻ <p>, rồi sao chép và dán thẳng vào mã trang." }
       ]
     },
 
@@ -1075,7 +1159,8 @@
       "howto": ["Gõ hoặc dán số (có thể có dấu chấm, phẩy, mỗi dòng một số).", "Chọn cách đọc: nghìn/ngàn, linh/lẻ, có thêm “đồng”, “chẵn”.", "Bấm sao chép để dán vào hoá đơn, chứng từ."],
       "faq": [
         { "q": "Đọc được số lớn đến đâu?", "a": "Không giới hạn: số lớn hơn tỷ được đọc lặp “nghìn tỷ”, “triệu tỷ”, “tỷ tỷ”…" },
-        { "q": "Số thập phân đọc thế nào?", "a": "Theo cách viết Việt Nam, dấu phẩy là phần thập phân: 12,5 đọc là “mười hai phẩy năm”. Dấu chấm được hiểu là phân cách hàng nghìn." }
+        { "q": "Số thập phân đọc thế nào?", "a": "Theo cách viết Việt Nam, dấu phẩy là phần thập phân: 12,5 đọc là “mười hai phẩy năm”. Dấu chấm được hiểu là phân cách hàng nghìn." },
+        { "q": "Gõ “1,5tr” hay “500k” có hiểu không?", "a": "Có. Công cụ hiểu cách viết tắt như 1,5tr (1.500.000) hay 500k (500.000); gõ mỗi dòng một số để đọc nhiều số cùng lúc." }
       ]
     },
     {
@@ -1093,7 +1178,7 @@
       ]
     },
     {
-      "id": "lunar-calendar", "slug": "doi-lich-am-duong", "name": "Đổi lịch âm ↔ dương", "group": "vn", "icon": "calendar-days", "kind": "form",
+      "id": "lunar-calendar", "slug": "doi-lich-am-duong", "name": "Đổi lịch âm ↔ dương", "seoTitle": "Đổi lịch âm dương", "group": "vn", "icon": "calendar-days", "kind": "form",
       "desc": "Đổi ngày dương sang âm và ngược lại, xem can chi, tháng nhuận, tiết khí, giờ hoàng đạo và lịch tháng.",
       "keywords": ["âm lịch", "lịch vạn niên", "ngày âm", "can chi", "lịch âm hôm nay", "đổi ngày âm", "lunar calendar"],
       "status": "done", "vnOnly": true, "popular": true,
@@ -1102,7 +1187,8 @@
       "howto": ["Chọn chiều đổi: dương → âm hoặc âm → dương (đánh dấu “tháng nhuận” nếu cần).", "Nhập ngày; kết quả và can chi hiện ngay.", "Xem lịch tháng bên dưới, bấm vào một ngày để xem chi tiết; sao chép link để gửi người khác."],
       "faq": [
         { "q": "Lịch âm tính theo múi giờ nào?", "a": "Theo giờ Việt Nam (UTC+7), dùng thuật toán thiên văn của Hồ Ngọc Đức, khớp với lịch âm chính thức của Việt Nam (khác lịch Trung Quốc ở một số năm)." },
-        { "q": "Đổi được những năm nào?", "a": "Từ năm 1800 đến 2199." }
+        { "q": "Đổi được những năm nào?", "a": "Từ năm 1800 đến 2199." },
+        { "q": "Giờ hoàng đạo là gì?", "a": "Là các khung giờ được xem là tốt trong ngày theo can chi, thường dùng khi chọn giờ xuất hành, khai trương, cưới hỏi. Đây là tham khảo theo phong tục, không phải căn cứ khoa học." }
       ]
     },
     {
@@ -1129,11 +1215,12 @@
       "howto": ["Mở trang là thấy ngay số ngày, giờ, phút, giây còn lại tới giao thừa.", "Bấm “Toàn màn hình” để trình chiếu trên TV, máy chiếu.", "Bảng bên dưới cho biết ngày mùng 1 Tết của những năm tới."],
       "faq": [
         { "q": "Đếm ngược theo giờ nào?", "a": "Theo giờ Việt Nam (UTC+7), tới 0 giờ ngày mùng 1 Tết — đúng thời khắc giao thừa ở Việt Nam, kể cả khi bạn đang ở nước ngoài." },
-        { "q": "Ngày Tết được tính thế nào?", "a": "Theo lịch âm Việt Nam (thuật toán thiên văn của Hồ Ngọc Đức), có năm khác lịch Trung Quốc một ngày." }
+        { "q": "Ngày Tết được tính thế nào?", "a": "Theo lịch âm Việt Nam (thuật toán thiên văn của Hồ Ngọc Đức), có năm khác lịch Trung Quốc một ngày." },
+        { "q": "Trình chiếu lên TV trong tiệc tất niên được không?", "a": "Được. Bấm “Toàn màn hình”, số đếm phóng to vừa màn hình để chiếu lên TV hoặc máy chiếu." }
       ]
     },
     {
-      "id": "salary-gross-net", "slug": "tinh-luong-gross-net", "name": "Tính lương gross ↔ net", "group": "vn", "icon": "wallet", "kind": "form",
+      "id": "salary-gross-net", "slug": "tinh-luong-gross-net", "name": "Tính lương gross ↔ net", "seoTitle": "Tính lương gross sang net", "group": "vn", "icon": "wallet", "kind": "form",
       "desc": "Đổi lương gross sang net và ngược lại theo BHXH, BHYT, BHTN và thuế TNCN hiện hành.",
       "keywords": ["lương thực nhận", "gross to net", "net to gross", "bảo hiểm", "lương net"],
       "data": ["thue-tncn", "bhxh", "luong-toi-thieu-vung"], "status": "done", "vnOnly": true, "popular": true,
@@ -1270,7 +1357,8 @@
       "howto": ["Chọn phép tính: X% của Y, X là bao nhiêu % của Y, tăng/giảm bao nhiêu %, cộng trừ phần trăm hoặc tìm số gốc.", "Nhập hai số (dùng dấu phẩy cho phần thập phân).", "Kết quả và cách tính hiện ngay; sao chép link để gửi người khác."],
       "faq": [
         { "q": "Tính phần trăm tăng giảm thế nào?", "a": "Lấy (giá trị mới − giá trị cũ) ÷ giá trị cũ × 100. Ví dụ từ 80 lên 100 là tăng 25%." },
-        { "q": "Giá đã gồm 10% thì giá gốc là bao nhiêu?", "a": "Chọn “X là Y% của số nào”, nhập X là giá đã tăng và Y = 110; không lấy giá trừ đi 10%." }
+        { "q": "Giá đã gồm 10% thì giá gốc là bao nhiêu?", "a": "Chọn “X là Y% của số nào”, nhập X là giá đã tăng và Y = 110; không lấy giá trừ đi 10%." },
+        { "q": "Tăng 10% rồi giảm 10% có về số cũ không?", "a": "Không. 100 tăng 10% thành 110, giảm 10% của 110 còn 99. Muốn tìm lại giá trước khi tăng, dùng phép “X là Y% của số nào” với Y = 110." }
       ]
     },
     {
@@ -1282,7 +1370,9 @@
       "related": ["percentage", "vat"],
       "howto": ["Nhập giá gốc.", "Nhập mức giảm theo phần trăm (giảm nhiều lần viết 20+10) hoặc số tiền được giảm.", "Xem giá phải trả, số tiền tiết kiệm và tổng mức giảm thực tế."],
       "faq": [
-        { "q": "Giảm 20% rồi giảm thêm 10% có phải giảm 30%?", "a": "Không. Lần giảm thứ hai tính trên giá đã giảm, nên tổng chỉ là 28%: 100.000 → 80.000 → 72.000." }
+        { "q": "Giảm 20% rồi giảm thêm 10% có phải giảm 30%?", "a": "Không. Lần giảm thứ hai tính trên giá đã giảm, nên tổng chỉ là 28%: 100.000 → 80.000 → 72.000." },
+        { "q": "Giảm theo số tiền thay vì phần trăm được không?", "a": "Được. Chọn kiểu giảm “Số tiền” rồi nhập số tiền được giảm; công cụ tính giá phải trả và mức giảm thực tế." },
+        { "q": "Mua nhiều sản phẩm thì tính thế nào?", "a": "Nhập “Số lượng”: giá sau giảm và số tiền tiết kiệm được nhân theo số sản phẩm, kèm giá của một sản phẩm." }
       ]
     },
     {
@@ -1295,7 +1385,8 @@
       "howto": ["Chọn chiều tính: từ giá chưa thuế ra giá có thuế, hoặc tách thuế từ giá đã gồm VAT.", "Nhập số tiền và chọn thuế suất (0%, 5%, 8%, 10% hoặc mức khác).", "Xem tiền thuế, tổng thanh toán và số tiền bằng chữ để ghi hoá đơn."],
       "faq": [
         { "q": "Thuế GTGT 8% áp dụng đến khi nào?", "a": "Mức giảm 2% (từ 10% xuống 8%) cho phần lớn hàng hoá, dịch vụ áp dụng đến hết 31/12/2026 theo Nghị quyết 204/2025/QH15; một số nhóm như viễn thông, tài chính, bất động sản, kim loại không được giảm." },
-        { "q": "Tách VAT từ giá đã gồm thuế thế nào?", "a": "Giá chưa thuế = giá đã gồm thuế ÷ (1 + thuế suất). Ví dụ 1.080.000 đ gồm VAT 8% thì giá chưa thuế là 1.000.000 đ, thuế 80.000 đ." }
+        { "q": "Tách VAT từ giá đã gồm thuế thế nào?", "a": "Giá chưa thuế = giá đã gồm thuế ÷ (1 + thuế suất). Ví dụ 1.080.000 đ gồm VAT 8% thì giá chưa thuế là 1.000.000 đ, thuế 80.000 đ." },
+        { "q": "Số tiền bằng chữ dùng để làm gì?", "a": "Công cụ đọc tổng thanh toán thành chữ để ghi vào dòng “Số tiền viết bằng chữ” trên hoá đơn GTGT, khỏi phải tự đọc số dài." }
       ]
     },
     {
@@ -1308,7 +1399,8 @@
       "howto": ["Nhập vốn ban đầu, số tiền góp thêm mỗi tháng, lãi suất năm và số năm.", "Chọn tần suất nhập lãi (năm, quý, tháng, ngày).", "Xem giá trị cuối cùng, tiền lãi và biểu đồ tăng trưởng theo năm; tải bảng về dạng CSV."],
       "faq": [
         { "q": "Lãi kép là gì?", "a": "Là lãi được cộng dồn vào gốc để kỳ sau sinh lãi tiếp. Thời gian càng dài, phần lãi càng lớn so với số vốn bỏ ra." },
-        { "q": "Quy tắc 72 là gì?", "a": "Lấy 72 chia cho lãi suất năm (%) ra số năm gần đúng để tiền tăng gấp đôi. Ví dụ lãi 8%/năm thì khoảng 9 năm." }
+        { "q": "Quy tắc 72 là gì?", "a": "Lấy 72 chia cho lãi suất năm (%) ra số năm gần đúng để tiền tăng gấp đôi. Ví dụ lãi 8%/năm thì khoảng 9 năm." },
+        { "q": "Góp đầu tháng và cuối tháng khác gì nhau?", "a": "Góp đầu tháng thì khoản góp được tính lãi ngay trong tháng đó nên kết quả cao hơn một chút. Mặc định công cụ tính góp cuối tháng; bật “Góp vào đầu tháng” nếu bạn góp ngay khi nhận lương." }
       ]
     },
     {
@@ -1321,7 +1413,8 @@
       "howto": ["Thêm tên các thành viên trong nhóm.", "Thêm từng khoản chi: ai trả, bao nhiêu, chia cho những ai (bỏ chọn người không tham gia).", "Xem ai cần chuyển cho ai với số lần chuyển ít nhất; bấm “QR” để tạo mã chuyển khoản, “Sao chép link” để gửi cả nhóm."],
       "faq": [
         { "q": "Có cần tạo tài khoản không?", "a": "Không. Toàn bộ bảng chia nằm ngay trong đường link; gửi link cho nhóm là ai cũng mở xem được." },
-        { "q": "Tính số lần chuyển ít nhất thế nào?", "a": "Công cụ tính mỗi người đã trả dư hay thiếu bao nhiêu, rồi ghép người thiếu nhiều nhất với người dư nhiều nhất cho tới khi hết. Nhóm n người cần tối đa n − 1 lần chuyển." }
+        { "q": "Tính số lần chuyển ít nhất thế nào?", "a": "Công cụ tính mỗi người đã trả dư hay thiếu bao nhiêu, rồi ghép người thiếu nhiều nhất với người dư nhiều nhất cho tới khi hết. Nhóm n người cần tối đa n − 1 lần chuyển." },
+        { "q": "Có người không tham gia một khoản chi thì sao?", "a": "Khi thêm khoản chi, bỏ chọn người đó ở phần chia cho những ai; khoản đó chỉ chia cho những người còn lại." }
       ]
     },
     {
@@ -1348,11 +1441,12 @@
       "howto": ["Chọn ngày sinh.", "Đổi “Tính đến ngày” nếu muốn biết tuổi tại một ngày khác hôm nay.", "Xem tuổi chính xác theo năm, tháng, ngày, tổng số ngày, tuần và số ngày đến sinh nhật tiếp theo."],
       "faq": [
         { "q": "Sinh ngày 29/2 thì sinh nhật năm không nhuận là ngày nào?", "a": "Công cụ tính là ngày 28/2 ở những năm không nhuận." },
-        { "q": "Tuổi này khác tuổi mụ thế nào?", "a": "Đây là tuổi thật (tuổi tròn). Tuổi mụ tính theo năm âm lịch và cộng thêm 1, xem ở công cụ Xem tuổi, con giáp." }
+        { "q": "Tuổi này khác tuổi mụ thế nào?", "a": "Đây là tuổi thật (tuổi tròn). Tuổi mụ tính theo năm âm lịch và cộng thêm 1, xem ở công cụ Xem tuổi, con giáp." },
+        { "q": "“Mốc 10.000 ngày” là gì?", "a": "Là ngày bạn tròn 10.000 ngày tuổi (khoảng 27 tuổi 4 tháng), một cột mốc vui để kỷ niệm; công cụ cho biết ngày đó rơi vào hôm nào." }
       ]
     },
     {
-      "id": "date-calculator", "slug": "cong-tru-ngay", "name": "Cộng trừ ngày & đếm ngày làm việc", "group": "calc", "icon": "calendar-range", "kind": "form",
+      "id": "date-calculator", "slug": "cong-tru-ngay", "name": "Cộng trừ ngày & đếm ngày làm việc", "seoTitle": "Cộng trừ ngày, đếm ngày làm việc", "group": "calc", "icon": "calendar-range", "kind": "form",
       "desc": "Khoảng cách giữa hai ngày, cộng trừ ngày, đếm ngày làm việc trừ lễ Tết.",
       "keywords": ["tính ngày", "khoảng cách ngày", "ngày làm việc", "đếm ngày"],
       "data": ["ngay-le"], "status": "done",
@@ -1361,7 +1455,8 @@
       "howto": ["Chọn “Khoảng cách hai ngày” để đếm số ngày, tuần, tháng và ngày làm việc giữa hai ngày.", "Hoặc chọn “Cộng / trừ ngày” để biết ngày sau (trước) N ngày, ngày làm việc, tuần, tháng, năm.", "Tuỳ chỉnh làm việc thứ Bảy, trừ ngày lễ Tết và nghỉ bù."],
       "faq": [
         { "q": "Những ngày lễ nào được trừ?", "a": "Tết Dương lịch, 5 ngày Tết Âm lịch (ngày cuối năm và mùng 1–4), Giỗ Tổ Hùng Vương 10/3 âm lịch, 30/4, 1/5, Quốc khánh 1/9 và 2/9, và Ngày Văn hoá Việt Nam 24/11 từ năm 2026." },
-        { "q": "Có tính ngày làm bù do hoán đổi không?", "a": "Chưa. Lịch hoán đổi ngày làm việc do Nhà nước công bố từng năm và có thể khác giữa khối nhà nước và doanh nghiệp." }
+        { "q": "Có tính ngày làm bù do hoán đổi không?", "a": "Chưa. Lịch hoán đổi ngày làm việc do Nhà nước công bố từng năm và có thể khác giữa khối nhà nước và doanh nghiệp." },
+        { "q": "Làm việc cả thứ Bảy thì tính sao?", "a": "Bật “Làm việc cả thứ Bảy”. Mặc định công cụ coi thứ Bảy và Chủ nhật là ngày nghỉ." }
       ]
     },
     {
@@ -1374,7 +1469,8 @@
       "howto": ["Nhập chiều cao (cm) và cân nặng (kg).", "Chọn chuẩn phân loại cho người châu Á (mặc định) hoặc chuẩn WHO quốc tế.", "Xem chỉ số BMI, phân loại và khoảng cân nặng hợp lý với chiều cao của bạn."],
       "faq": [
         { "q": "BMI bao nhiêu là bình thường?", "a": "Với người châu Á: từ 18,5 đến dưới 23 là bình thường, 23 đến dưới 25 là thừa cân, từ 25 là béo phì." },
-        { "q": "Vì sao người châu Á dùng ngưỡng khác?", "a": "Ở cùng chỉ số BMI, người châu Á thường có tỉ lệ mỡ cơ thể cao hơn và nguy cơ bệnh tim mạch, tiểu đường xuất hiện sớm hơn, nên WHO khuyến nghị ngưỡng thấp hơn cho khu vực châu Á – Thái Bình Dương." }
+        { "q": "Vì sao người châu Á dùng ngưỡng khác?", "a": "Ở cùng chỉ số BMI, người châu Á thường có tỉ lệ mỡ cơ thể cao hơn và nguy cơ bệnh tim mạch, tiểu đường xuất hiện sớm hơn, nên WHO khuyến nghị ngưỡng thấp hơn cho khu vực châu Á – Thái Bình Dương." },
+        { "q": "BMI có dùng cho trẻ em, phụ nữ mang thai không?", "a": "Không. BMI không áp dụng cho người dưới 18 tuổi, phụ nữ mang thai và vận động viên nhiều cơ; khi đó cần chỉ số và tư vấn riêng của bác sĩ." }
       ]
     },
     {
@@ -1387,7 +1483,8 @@
       "howto": ["Chọn giới tính, nhập tuổi, chiều cao, cân nặng.", "Chọn mức vận động gần đúng nhất với bạn.", "Xem BMR, TDEE và lượng calo mỗi ngày để giữ, giảm hoặc tăng cân."],
       "faq": [
         { "q": "BMR và TDEE khác nhau thế nào?", "a": "BMR là năng lượng cơ thể cần khi nghỉ ngơi hoàn toàn; TDEE là tổng năng lượng tiêu hao trong ngày, gồm cả vận động. Ăn bằng TDEE thì giữ cân." },
-        { "q": "Muốn giảm 0,5 kg mỗi tuần thì ăn bao nhiêu?", "a": "Ăn ít hơn TDEE khoảng 550 kcal mỗi ngày (1 kg mỡ ≈ 7.700 kcal). Không nên giảm quá 1 kg/tuần hoặc ăn dưới 1.200 kcal (nữ), 1.500 kcal (nam) nếu không có bác sĩ theo dõi." }
+        { "q": "Muốn giảm 0,5 kg mỗi tuần thì ăn bao nhiêu?", "a": "Ăn ít hơn TDEE khoảng 550 kcal mỗi ngày (1 kg mỡ ≈ 7.700 kcal). Không nên giảm quá 1 kg/tuần hoặc ăn dưới 1.200 kcal (nữ), 1.500 kcal (nam) nếu không có bác sĩ theo dõi." },
+        { "q": "Kết quả chính xác đến đâu?", "a": "Công thức Mifflin–St Jeor cho ước tính trung bình, sai số khoảng ±10%. Hãy theo dõi cân nặng vài tuần rồi điều chỉnh lượng ăn cho phù hợp với cơ thể mình." }
       ]
     },
     {
@@ -1400,7 +1497,8 @@
       "howto": ["Nhập ngày đầu tiên của kỳ kinh cuối và độ dài chu kỳ (hoặc chọn tính theo kết quả siêu âm).", "Xem ngày dự sinh, tuổi thai hôm nay và tam cá nguyệt.", "Bảng các mốc khám thai cho biết khoảng ngày nên đi khám, siêu âm."],
       "faq": [
         { "q": "Ngày dự sinh tính thế nào?", "a": "Theo quy tắc Naegele: ngày đầu kỳ kinh cuối + 280 ngày (40 tuần), cộng hoặc trừ thêm nếu chu kỳ dài hoặc ngắn hơn 28 ngày." },
-        { "q": "Nên tin kỳ kinh cuối hay siêu âm?", "a": "Siêu âm trong 3 tháng đầu (đo chiều dài đầu mông) thường chính xác hơn khi bạn không nhớ rõ ngày kinh hoặc chu kỳ không đều; bác sĩ sẽ quyết định ngày dự sinh cuối cùng." }
+        { "q": "Nên tin kỳ kinh cuối hay siêu âm?", "a": "Siêu âm trong 3 tháng đầu (đo chiều dài đầu mông) thường chính xác hơn khi bạn không nhớ rõ ngày kinh hoặc chu kỳ không đều; bác sĩ sẽ quyết định ngày dự sinh cuối cùng." },
+        { "q": "Bao nhiêu phần trăm trẻ sinh đúng ngày dự sinh?", "a": "Chỉ khoảng 4–5%. Sinh trong khoảng từ tuần 37 đến tuần 42 đều được xem là đủ tháng, nên ngày dự sinh chỉ là mốc tham khảo." }
       ]
     },
     {
@@ -1427,7 +1525,8 @@
       "howto": ["Gõ số thường (1–3.999.999) hoặc số La Mã, mỗi dòng một số.", "Công cụ tự nhận chiều đổi và hiện kết quả ngay.", "Bấm sao chép hoặc tải về."],
       "faq": [
         { "q": "Số La Mã lớn nhất viết được là bao nhiêu?", "a": "Theo cách viết chuẩn là 3.999 (MMMCMXCIX). Số lớn hơn dùng dấu gạch ngang phía trên để nhân 1.000, ví dụ V̅ = 5.000." },
-        { "q": "Vì sao IIII báo sai?", "a": "Cách viết chuẩn dùng phép trừ: 4 là IV, 9 là IX, 40 là XL, 90 là XC… IIII chỉ thấy trên mặt đồng hồ." }
+        { "q": "Vì sao IIII báo sai?", "a": "Cách viết chuẩn dùng phép trừ: 4 là IV, 9 là IX, 40 là XL, 90 là XC… IIII chỉ thấy trên mặt đồng hồ." },
+        { "q": "Số La Mã có số 0 không?", "a": "Không. Người La Mã không có ký hiệu cho số 0, nên công cụ chỉ đổi các số từ 1 trở lên." }
       ]
     },
 
@@ -1455,7 +1554,8 @@
       "howto": ["Bấm “Bật camera” và đưa mã QR vào khung, hoặc chọn/dán ảnh, file PDF có mã.", "Kết quả hiện ngay; với link, WiFi, VietQR, danh thiếp sẽ có thông tin đã tách sẵn.", "Sao chép nội dung hoặc mở link (luôn kiểm tra kỹ địa chỉ trước khi mở)."],
       "faq": [
         { "q": "Hình ảnh camera có bị gửi đi không?", "a": "Không. Mỗi khung hình được giải mã ngay trên máy bằng WebAssembly hoặc tính năng có sẵn của trình duyệt." },
-        { "q": "Quét được những loại mã nào?", "a": "QR, Micro QR, Data Matrix, Aztec, PDF417 và các mã vạch phổ biến như EAN-13, Code 128, Code 39, UPC." }
+        { "q": "Quét được những loại mã nào?", "a": "QR, Micro QR, Data Matrix, Aztec, PDF417 và các mã vạch phổ biến như EAN-13, Code 128, Code 39, UPC." },
+        { "q": "Không quét được mã thì làm sao?", "a": "Đưa mã vào giữa khung, đủ sáng và giữ máy yên; với ảnh, chọn ảnh rõ hơn hoặc cắt sát vào mã. Chỗ tối có thể bật đèn flash nếu điện thoại và trình duyệt hỗ trợ." }
       ]
     },
     {
@@ -1474,7 +1574,7 @@
     },
 
     {
-      "id": "excel-viewer", "slug": "xem-file-excel", "name": "Xem file Excel/CSV", "group": "office", "icon": "sheet", "kind": "file",
+      "id": "excel-viewer", "slug": "xem-file-excel", "name": "Xem file Excel/CSV", "seoTitle": "Xem file Excel, CSV", "group": "office", "icon": "sheet", "kind": "file",
       "desc": "Mở xem file .xlsx, .xls, .ods, .csv không cần cài Excel; chuyển sheet, tìm không cần dấu, lọc, sắp xếp.",
       "keywords": ["xlsx", "xls", "ods", "csv viewer", "mở excel", "đọc file excel", "xem excel online", "mở file csv"],
       "accept": ["excel", "csv"], "status": "done", "popular": true,
@@ -1482,13 +1582,13 @@
       "related": ["excel-csv", "merge-excel", "split-excel"],
       "howto": ["Chọn, kéo thả hoặc dán file Excel/CSV.", "Bấm tên sheet để chuyển trang tính; gõ vào ô tìm (không cần dấu) để lọc dòng, chọn cột để chỉ tìm trong cột đó.", "Bấm tiêu đề cột để sắp xếp, bấm một ô để xem đủ nội dung và công thức; tải phần đang lọc ra Excel hoặc CSV."],
       "faq": [
-        { "q": "File Excel có bị tải lên mạng không?", "a": "Không. File được đọc ngay trong trình duyệt bằng thư viện SheetJS; không có máy chủ nào nhận file của bạn." },
+        { "q": "Tìm trong một cột nhất định được không?", "a": "Được. Chọn cột cạnh ô tìm để chỉ lọc trong cột đó; gõ không dấu vẫn tìm ra chữ có dấu." },
         { "q": "Mở file CSV bị lỗi font tiếng Việt?", "a": "Công cụ tự nhận bảng mã UTF-8 hoặc Windows-1258 (hay gặp ở file xuất từ phần mềm cũ) và dấu phân cách phẩy, chấm phẩy, tab, nên tiếng Việt hiện đúng." },
         { "q": "File có công thức, định dạng thì sao?", "a": "Ô có công thức hiện giá trị đã tính sẵn trong file; bấm vào ô để xem công thức. Màu, khung, ảnh, biểu đồ không hiện vì công cụ chỉ đọc dữ liệu." }
       ]
     },
     {
-      "id": "excel-csv", "slug": "excel-sang-csv", "name": "Excel ↔ CSV", "group": "office", "icon": "file-spreadsheet", "kind": "file",
+      "id": "excel-csv", "slug": "excel-sang-csv", "name": "Excel ↔ CSV", "seoTitle": "Chuyển Excel sang CSV", "group": "office", "icon": "file-spreadsheet", "kind": "file",
       "desc": "Chuyển Excel sang CSV UTF-8 không lỗi font tiếng Việt (mỗi sheet một file) và CSV sang Excel, giữ số 0 đầu.",
       "keywords": ["chuyển excel sang csv", "csv to excel", "xlsx to csv", "lỗi font csv", "csv sang excel", "csv utf-8"],
       "accept": ["excel", "csv"], "multiple": true, "output": "excel", "status": "done",
@@ -1511,7 +1611,8 @@
       "howto": ["Chọn các file Excel/CSV cần gộp (kéo thả để đổi thứ tự).", "Chọn “Nối thành một bảng” (cột cùng tên ghép chung, thêm cột Nguồn) hoặc “Mỗi sheet giữ riêng”.", "Bấm “Gộp file”, xem trước rồi tải file Excel hoặc CSV."],
       "faq": [
         { "q": "Các file có thứ tự cột khác nhau thì sao?", "a": "Khi bật “Dòng đầu là tiêu đề”, cột được ghép theo tên (không phân biệt hoa thường, có dấu hay không), nên thứ tự cột không quan trọng; cột chỉ có ở một file sẽ được thêm vào cuối." },
-        { "q": "Công thức có được giữ không?", "a": "Ô công thức được chép thành giá trị đã tính, vì vị trí ô thay đổi sau khi gộp sẽ làm công thức sai." }
+        { "q": "Công thức có được giữ không?", "a": "Ô công thức được chép thành giá trị đã tính, vì vị trí ô thay đổi sau khi gộp sẽ làm công thức sai." },
+        { "q": "Cột “Nguồn” dùng để làm gì?", "a": "Ghi tên file (và sheet) mà mỗi dòng được lấy ra, để sau khi gộp vẫn biết dòng đó đến từ đâu." }
       ]
     },
     {
@@ -1524,11 +1625,12 @@
       "howto": ["Chọn file Excel hoặc CSV.", "Chọn sheet và cột để tách (công cụ tự gợi ý cột phù hợp); danh sách các phần và số dòng hiện ngay.", "Chọn kết quả: một file nhiều sheet, nhiều file Excel hoặc nhiều file CSV, rồi bấm “Tách file”."],
       "faq": [
         { "q": "Giá trị viết hoa thường khác nhau có bị tách riêng?", "a": "Không. “Hà Nội”, “hà nội ” được gom chung (bỏ khoảng trắng thừa, không phân biệt hoa thường); ô trống gom vào phần “Trống”." },
-        { "q": "Mỗi phần có giữ dòng tiêu đề không?", "a": "Có, khi bật “Dòng đầu là tiêu đề”, mỗi file/sheet đều có dòng tiêu đề và bộ lọc." }
+        { "q": "Mỗi phần có giữ dòng tiêu đề không?", "a": "Có, khi bật “Dòng đầu là tiêu đề”, mỗi file/sheet đều có dòng tiêu đề và bộ lọc." },
+        { "q": "Nên chọn kết quả dạng nào?", "a": "“1 file, nhiều sheet” tiện xem lại tất cả trong một file; “Nhiều file Excel” hoặc “Nhiều file CSV” hợp khi cần gửi riêng từng phần cho từng chi nhánh, phòng ban." }
       ]
     },
     {
-      "id": "json-excel", "slug": "json-sang-excel", "name": "JSON ↔ Excel", "group": "office", "icon": "braces", "kind": "file",
+      "id": "json-excel", "slug": "json-sang-excel", "name": "JSON ↔ Excel", "seoTitle": "Chuyển JSON sang Excel", "group": "office", "icon": "braces", "kind": "file",
       "desc": "Chuyển mảng JSON thành bảng Excel (làm phẳng đối tượng lồng nhau) và Excel/CSV thành JSON.",
       "keywords": ["json to excel", "excel to json", "xlsx json", "csv to json", "chuyển json sang excel"],
       "accept": ["json", "excel", "csv"], "output": "excel", "status": "done",
@@ -1537,7 +1639,8 @@
       "howto": ["Chọn file .json (để ra Excel) hoặc file Excel/CSV (để ra JSON).", "Tuỳ chọn: làm phẳng đối tượng lồng nhau thành cột “a.b”, hoặc ngược lại tạo đối tượng lồng từ tên cột có dấu chấm.", "Bấm “Chuyển đổi”, xem trước rồi tải file hoặc sao chép JSON."],
       "faq": [
         { "q": "JSON có nhiều danh sách thì sao?", "a": "Nếu JSON là một đối tượng chứa nhiều mảng (ví dụ “nhanVien” và “phongBan”), mỗi mảng thành một sheet riêng." },
-        { "q": "Ngày tháng trong Excel ra JSON thế nào?", "a": "Ô ngày được ghi dạng chuẩn ISO “yyyy-mm-dd” (có giờ nếu ô có giờ), số giữ nguyên là số." }
+        { "q": "Ngày tháng trong Excel ra JSON thế nào?", "a": "Ô ngày được ghi dạng chuẩn ISO “yyyy-mm-dd” (có giờ nếu ô có giờ), số giữ nguyên là số." },
+        { "q": "“Làm phẳng đối tượng lồng nhau” là gì?", "a": "Đối tượng như {\"gia\": {\"niemYet\": 1}} được tách thành cột “gia.niemYet”. Tắt tuỳ chọn này thì đối tượng được giữ nguyên dạng JSON trong một ô." }
       ]
     },
     {
@@ -1564,7 +1667,8 @@
       "howto": ["Nhập họ tên, chức vụ, công ty, điện thoại, email, website; thêm link ảnh, logo, mạng xã hội nếu muốn.", "Chọn kiểu, màu nhấn và phông chữ; xem trước như trong một email thật.", "Bấm “Sao chép chữ ký” rồi dán vào phần cài đặt chữ ký của Gmail hoặc Outlook (có hướng dẫn từng bước)."],
       "faq": [
         { "q": "Vì sao ảnh phải là đường link?", "a": "Gmail và Outlook không giữ ảnh nhúng trong chữ ký dán vào; ảnh phải nằm ở một địa chỉ công khai (https://…), ví dụ trên website công ty." },
-        { "q": "Thông tin của tôi có được lưu không?", "a": "Chỉ được nhớ trong trình duyệt trên máy này để lần sau mở lại có sẵn; không gửi đi đâu. Bấm “Đặt lại” để xoá." }
+        { "q": "Thông tin của tôi có được lưu không?", "a": "Chỉ được nhớ trong trình duyệt trên máy này để lần sau mở lại có sẵn; không gửi đi đâu. Bấm “Đặt lại” để xoá." },
+        { "q": "Dán chữ ký vào Gmail thế nào?", "a": "Bấm “Sao chép chữ ký”, mở Gmail → biểu tượng bánh răng → Xem tất cả chế độ cài đặt → mục Chữ ký, tạo chữ ký mới, dán vào ô soạn rồi bấm Lưu thay đổi ở cuối trang." }
       ]
     },
     {
@@ -1606,7 +1710,7 @@
     },
 
     {
-      "id": "json-formatter", "slug": "dinh-dang-json", "name": "Định dạng & kiểm tra JSON", "group": "dev", "icon": "braces", "kind": "text",
+      "id": "json-formatter", "slug": "dinh-dang-json", "name": "Định dạng & kiểm tra JSON", "seoTitle": "Định dạng, kiểm tra JSON", "group": "dev", "icon": "braces", "kind": "text",
       "desc": "Làm đẹp, rút gọn, sắp xếp khoá và kiểm tra lỗi JSON, chỉ đúng dòng/cột bị sai.",
       "keywords": ["json", "json beautify", "json validator", "pretty print", "minify json", "json formatter", "format json"],
       "status": "done", "popular": true,
@@ -1614,12 +1718,13 @@
       "related": ["json-convert", "base64", "jwt-decoder"],
       "howto": ["Dán JSON vào ô bên trái.", "Kết quả định dạng hiện ngay; nếu sai cú pháp sẽ báo dòng, cột và đoạn bị lỗi.", "Chọn thụt lề, rút gọn hoặc sắp xếp khoá, rồi sao chép hay tải file .json."],
       "faq": [
-        { "q": "Dữ liệu JSON có bị gửi lên máy chủ không?", "a": "Không. Mọi xử lý dùng JSON.parse ngay trên trình duyệt của bạn." },
-        { "q": "Có sửa được JSON “gần đúng” không?", "a": "Có tuỳ chọn sửa nhẹ: bỏ chú thích //, dấu phẩy thừa cuối mảng/đối tượng và chuyển nháy đơn thành nháy kép." }
+        { "q": "Báo lỗi cú pháp thì sửa thế nào?", "a": "Công cụ chỉ đúng dòng, cột và đoạn bị sai. Lỗi hay gặp là thiếu dấu phẩy giữa hai phần tử, thừa dấu phẩy cuối, dùng nháy đơn thay cho nháy kép hoặc tên khoá không có nháy." },
+        { "q": "Có sửa được JSON “gần đúng” không?", "a": "Có tuỳ chọn sửa nhẹ: bỏ chú thích //, dấu phẩy thừa cuối mảng/đối tượng và chuyển nháy đơn thành nháy kép." },
+        { "q": "“Sắp xếp khoá A→Z” để làm gì?", "a": "Để hai file JSON có cùng thứ tự khoá, dễ so sánh bằng công cụ So sánh văn bản hoặc khi xem thay đổi trong Git." }
       ]
     },
     {
-      "id": "json-convert", "slug": "json-sang-csv-yaml", "name": "JSON ↔ CSV/YAML", "group": "dev", "icon": "file-json", "kind": "text",
+      "id": "json-convert", "slug": "json-sang-csv-yaml", "name": "JSON ↔ CSV/YAML", "seoTitle": "Chuyển JSON sang CSV, YAML", "group": "dev", "icon": "file-json", "kind": "text",
       "desc": "Chuyển đổi qua lại giữa JSON, CSV và YAML.",
       "keywords": ["json to csv", "json to yaml", "yaml to json", "csv to json"],
       "status": "done",
@@ -1633,7 +1738,7 @@
       ]
     },
     {
-      "id": "base64", "slug": "ma-hoa-base64", "name": "Mã hoá/giải mã Base64", "group": "dev", "icon": "binary", "kind": "text",
+      "id": "base64", "slug": "ma-hoa-base64", "name": "Mã hoá/giải mã Base64", "seoTitle": "Mã hoá, giải mã Base64", "group": "dev", "icon": "binary", "kind": "text",
       "desc": "Mã hoá và giải mã Base64 cho văn bản UTF-8 và file.",
       "keywords": ["encode base64", "decode base64", "base64"],
       "status": "done",
@@ -1642,7 +1747,8 @@
       "howto": ["Chọn chiều: mã hoá hoặc giải mã.", "Gõ/dán văn bản, hoặc bấm “File” để mã hoá một file.", "Chuỗi Base64 là ảnh, PDF… thì bấm “Lưu thành file” để tải về."],
       "faq": [
         { "q": "Base64 có phải mã hoá bảo mật không?", "a": "Không. Base64 chỉ đổi dữ liệu sang ký tự an toàn để truyền đi, ai cũng giải ngược được. Muốn giữ bí mật hãy dùng mã hoá thật." },
-        { "q": "Văn bản có dấu có giải mã đúng không?", "a": "Có, công cụ dùng UTF-8 nên tiếng Việt và emoji giữ nguyên. Nhận cả Base64 URL-safe (- _) và chuỗi thiếu dấu =." }
+        { "q": "Văn bản có dấu có giải mã đúng không?", "a": "Có, công cụ dùng UTF-8 nên tiếng Việt và emoji giữ nguyên. Nhận cả Base64 URL-safe (- _) và chuỗi thiếu dấu =." },
+        { "q": "Mã hoá file lớn được không?", "a": "Được với file vừa phải. File lớn hơn 20 MB cho chuỗi Base64 quá dài để hiện trong trang; chuỗi Base64 luôn dài hơn dữ liệu gốc khoảng 33%." }
       ]
     },
     {
@@ -1655,7 +1761,8 @@
       "howto": ["Chọn mã hoá hoặc giải mã.", "Dán URL hoặc văn bản; với URL, xem bảng các phần và tham số đã giải mã.", "Sao chép kết quả hoặc từng tham số."],
       "faq": [
         { "q": "Khác nhau giữa “Một tham số” và “Cả URL”?", "a": "“Một tham số” mã hoá cả / ? & = (dùng cho giá trị đặt sau dấu =). “Cả URL” giữ nguyên các ký tự cấu trúc để đường dẫn vẫn bấm được." },
-        { "q": "Vì sao dấu + thành dấu cách?", "a": "Trong dữ liệu form, dấu cách được mã hoá thành +. Tắt tuỳ chọn “Đổi + thành dấu cách” nếu dấu + là thật." }
+        { "q": "Vì sao dấu + thành dấu cách?", "a": "Trong dữ liệu form, dấu cách được mã hoá thành +. Tắt tuỳ chọn “Đổi + thành dấu cách” nếu dấu + là thật." },
+        { "q": "Giải mã nhiều URL một lúc được không?", "a": "Được. Bật “Xử lý từng dòng” rồi dán mỗi URL một dòng." }
       ]
     },
     {
@@ -1668,7 +1775,8 @@
       "howto": ["Chọn mã hoá hoặc giải mã.", "Dán HTML hay văn bản; chọn mức mã hoá và dạng entity.", "Sao chép kết quả."],
       "faq": [
         { "q": "Khi nào cần mã hoá HTML entity?", "a": "Khi muốn hiện nguyên văn mã HTML trên trang (ví dụ bài hướng dẫn) hoặc chèn dữ liệu người dùng vào HTML mà không bị hiểu thành thẻ." },
-        { "q": "Có cần mã hoá chữ có dấu không?", "a": "Trang dùng UTF-8 thì không cần. Chỉ chọn mã hoá ký tự ngoài ASCII khi hệ thống cũ không hỗ trợ UTF-8." }
+        { "q": "Có cần mã hoá chữ có dấu không?", "a": "Trang dùng UTF-8 thì không cần. Chỉ chọn mã hoá ký tự ngoài ASCII khi hệ thống cũ không hỗ trợ UTF-8." },
+        { "q": "Nên dùng dạng tên hay dạng số?", "a": "Dạng tên (&eacute;) dễ đọc nhưng chỉ có cho một số ký tự; dạng số thập phân (&#233;) hoặc hex (&#xE9;) dùng được cho mọi ký tự, kể cả emoji." }
       ]
     },
     {
@@ -1695,11 +1803,12 @@
       "howto": ["Chọn phiên bản v4 hoặc v7 và số lượng.", "Chọn chữ hoa, dấu gạch ngang, ngoặc nhọn nếu cần.", "Sao chép hoặc tải danh sách; dán một UUID vào ô kiểm tra để xem phiên bản và thời điểm tạo."],
       "faq": [
         { "q": "Nên dùng UUID v4 hay v7?", "a": "v4 hoàn toàn ngẫu nhiên. v7 mở đầu bằng thời điểm tạo nên tăng dần, giúp chỉ mục cơ sở dữ liệu nhanh hơn khi làm khoá chính." },
-        { "q": "UUID có bị trùng không?", "a": "Gần như không thể: UUID v4 có 122 bit ngẫu nhiên, tạo bằng crypto.getRandomValues của trình duyệt." }
+        { "q": "UUID có bị trùng không?", "a": "Gần như không thể: UUID v4 có 122 bit ngẫu nhiên, tạo bằng crypto.getRandomValues của trình duyệt." },
+        { "q": "Xem một UUID có sẵn được tạo khi nào được không?", "a": "Được. Dán UUID vào ô kiểm tra để xem phiên bản, biến thể và thời điểm tạo (với các phiên bản có chứa thời gian như v1, v6, v7)." }
       ]
     },
     {
-      "id": "hash", "slug": "tao-ma-hash", "name": "Hash MD5/SHA", "group": "dev", "icon": "hash", "kind": "text",
+      "id": "hash", "slug": "tao-ma-hash", "name": "Hash MD5/SHA", "seoTitle": "Tạo mã hash MD5, SHA-256", "group": "dev", "icon": "hash", "kind": "text",
       "desc": "Tính MD5, SHA-1, SHA-256, SHA-512 của văn bản.",
       "keywords": ["md5", "sha1", "sha256", "băm", "hash generator"],
       "status": "done",
@@ -1708,7 +1817,8 @@
       "howto": ["Gõ hoặc dán văn bản.", "Mã MD5, SHA-1, SHA-256, SHA-384, SHA-512 hiện ngay; nhập khoá để tính HMAC.", "Dán mã có sẵn vào ô “Đối chiếu” để kiểm tra khớp."],
       "faq": [
         { "q": "Vì sao hash của tôi khác công cụ khác?", "a": "Hash rất nhạy: một dấu cách hay dấu xuống dòng ở cuối cũng làm kết quả khác hẳn. Công cụ tính trên văn bản UTF-8 đúng như trong ô." },
-        { "q": "Có giải ngược hash ra văn bản được không?", "a": "Không. Hash là hàm một chiều; chỉ có thể đoán thử, nên mật khẩu yếu vẫn dễ bị dò ra." }
+        { "q": "Có giải ngược hash ra văn bản được không?", "a": "Không. Hash là hàm một chiều; chỉ có thể đoán thử, nên mật khẩu yếu vẫn dễ bị dò ra." },
+        { "q": "HMAC là gì?", "a": "Là mã xác thực tạo từ văn bản và một khoá bí mật, dùng để kiểm tra dữ liệu không bị sửa và đúng bên gửi (ví dụ chữ ký của webhook). Nhập khoá vào ô “Khoá HMAC” để tính." }
       ]
     },
     {
@@ -1721,7 +1831,8 @@
       "howto": ["Nhập biểu thức (dạng abc hoặc /abc/gi) và chọn cờ.", "Dán văn bản thử: chỗ khớp được tô màu, bảng liệt kê từng nhóm bắt.", "Nhập chuỗi thay thế để xem trước kết quả replace."],
       "faq": [
         { "q": "Dùng cú pháp regex của ngôn ngữ nào?", "a": "Cú pháp JavaScript (ECMAScript), gần giống Python, PHP, Java ở phần cơ bản. Bật cờ u để dùng \\p{L} (mọi chữ cái, kể cả có dấu)." },
-        { "q": "Biểu thức chạy mãi thì sao?", "a": "Biểu thức chạy trong luồng riêng và bị dừng sau 2,5 giây, trang không bị treo." }
+        { "q": "Biểu thức chạy mãi thì sao?", "a": "Biểu thức chạy trong luồng riêng và bị dừng sau 2,5 giây, trang không bị treo." },
+        { "q": "Thử thay thế (replace) được không?", "a": "Được. Nhập chuỗi vào ô “Thay bằng”, dùng $1, $2… để chèn nhóm bắt; kết quả thay thế hiện ngay bên dưới." }
       ]
     },
     {
@@ -1734,7 +1845,8 @@
       "howto": ["Dán Unix timestamp (giây, mili giây…) hoặc ngày giờ.", "Xem ngày giờ Việt Nam, UTC, ISO 8601 và khoảng cách tới hiện tại.", "Bấm biểu tượng sao chép cạnh dạng cần dùng."],
       "faq": [
         { "q": "Unix timestamp là gì?", "a": "Là số giây tính từ 00:00:00 UTC ngày 01/01/1970. Ví dụ 1767225600 là 07:00 ngày 01/01/2026 giờ Việt Nam." },
-        { "q": "Làm sao biết số là giây hay mili giây?", "a": "Công cụ tự nhận theo độ dài: 10 chữ số là giây, 13 là mili giây, 16 là micro giây, 19 là nano giây." }
+        { "q": "Làm sao biết số là giây hay mili giây?", "a": "Công cụ tự nhận theo độ dài: 10 chữ số là giây, 13 là mili giây, 16 là micro giây, 19 là nano giây." },
+        { "q": "Ngày giờ nhập vào được hiểu theo múi giờ nào?", "a": "Trên trang tiếng Việt mặc định là giờ Việt Nam (UTC+7); đổi ở ô “Ngày giờ nhập vào thuộc múi giờ” nếu ngày giờ thuộc UTC hoặc giờ của máy." }
       ]
     },
     {
@@ -1747,7 +1859,8 @@
       "howto": ["Dán biểu thức cron (hoặc cả dòng crontab có lệnh phía sau).", "Đọc diễn giải tiếng Việt và ý nghĩa từng trường.", "Xem 10 lần chạy tiếp theo theo giờ Việt Nam, UTC hoặc giờ máy."],
       "faq": [
         { "q": "Năm trường của cron là gì?", "a": "Lần lượt: phút (0–59), giờ (0–23), ngày trong tháng (1–31), tháng (1–12), thứ trong tuần (0–6, 0 là Chủ nhật). Biểu thức 6 trường có thêm giây ở đầu." },
-        { "q": "Máy chủ chạy sai giờ so với lịch?", "a": "Máy chủ thường đặt múi giờ UTC, chậm hơn giờ Việt Nam 7 tiếng. Chọn múi “UTC” để xem đúng giờ máy chủ sẽ chạy." }
+        { "q": "Máy chủ chạy sai giờ so với lịch?", "a": "Máy chủ thường đặt múi giờ UTC, chậm hơn giờ Việt Nam 7 tiếng. Chọn múi “UTC” để xem đúng giờ máy chủ sẽ chạy." },
+        { "q": "Biểu thức 6 trường có giây được không?", "a": "Được. Ngoài cron chuẩn 5 trường (phút, giờ, ngày, tháng, thứ), công cụ nhận cả biểu thức 6 trường có thêm giây ở đầu, kiểu Spring, Quartz." }
       ]
     },
     {
@@ -1774,7 +1887,8 @@
       "howto": ["Chọn hiệu ứng: gradient, box-shadow hoặc bo góc.", "Kéo thanh trượt, chọn màu và xem trước ngay.", "Bấm “Sao chép CSS” rồi dán vào file CSS."],
       "faq": [
         { "q": "Mã CSS có chạy trên mọi trình duyệt?", "a": "Có, gradient, box-shadow và border-radius được mọi trình duyệt hiện đại hỗ trợ, không cần tiền tố -webkit-." },
-        { "q": "Vì sao nên dùng hai lớp bóng?", "a": "Một lớp bóng rộng, nhạt cộng một lớp gần, rõ cho cảm giác nổi tự nhiên hơn một lớp bóng duy nhất." }
+        { "q": "Vì sao nên dùng hai lớp bóng?", "a": "Một lớp bóng rộng, nhạt cộng một lớp gần, rõ cho cảm giác nổi tự nhiên hơn một lớp bóng duy nhất." },
+        { "q": "Gradient có những kiểu nào?", "a": "Ba kiểu: thẳng (linear), tròn (radial) và nón (conic). Thêm màu thứ 3 và chỉnh vị trí từng màu để có chuyển màu như ý." }
       ]
     },
     {
@@ -1786,12 +1900,13 @@
       "related": ["json-formatter", "minifier"],
       "howto": ["Dán câu lệnh SQL.", "Chọn hệ quản trị, kiểu từ khoá và thụt lề.", "Sao chép hoặc tải file .sql."],
       "faq": [
-        { "q": "Câu lệnh có bị gửi lên máy chủ không?", "a": "Không, việc định dạng chạy bằng thư viện sql-formatter ngay trên trình duyệt." },
-        { "q": "Định dạng có làm đổi ý nghĩa câu lệnh không?", "a": "Không, công cụ chỉ đổi khoảng trắng, xuống dòng và chữ hoa/thường của từ khoá; chuỗi trong nháy giữ nguyên." }
+        { "q": "Chọn hệ quản trị để làm gì?", "a": "Mỗi hệ (MySQL, PostgreSQL, SQL Server…) có cú pháp riêng như dấu nháy tên cột hay từ khoá đặc thù; chọn đúng hệ để câu lệnh được tách đúng. Nếu báo không phân tích được, hãy thử đổi hệ." },
+        { "q": "Định dạng có làm đổi ý nghĩa câu lệnh không?", "a": "Không, công cụ chỉ đổi khoảng trắng, xuống dòng và chữ hoa/thường của từ khoá; chuỗi trong nháy giữ nguyên." },
+        { "q": "Rút gọn câu lệnh thành một dòng được không?", "a": "Được. Chọn thụt lề “Rút gọn 1 dòng” để dán vào mã nguồn hoặc file log." }
       ]
     },
     {
-      "id": "minifier", "slug": "nen-js-css-html", "name": "Nén JS/CSS/HTML", "group": "dev", "icon": "package", "kind": "text",
+      "id": "minifier", "slug": "nen-js-css-html", "name": "Nén JS/CSS/HTML", "seoTitle": "Nén JS, CSS, HTML", "group": "dev", "icon": "package", "kind": "text",
       "desc": "Rút gọn mã JavaScript, CSS, HTML để giảm dung lượng.",
       "keywords": ["minify", "uglify", "nén code"],
       "status": "done",
@@ -1800,7 +1915,8 @@
       "howto": ["Dán mã JavaScript, CSS, HTML hoặc JSON.", "Để tự nhận ngôn ngữ hoặc chọn đúng ngôn ngữ.", "Xem dung lượng giảm bao nhiêu phần trăm, rồi sao chép hoặc tải về."],
       "faq": [
         { "q": "Dùng công cụ gì để nén?", "a": "JavaScript dùng Terser, CSS dùng CSSO, HTML gom khoảng trắng, bỏ chú thích và nén luôn script/style bên trong. Tất cả chạy trên trình duyệt." },
-        { "q": "Mã đã nén có chạy giống bản gốc?", "a": "Có, chỉ bỏ khoảng trắng, chú thích, rút ngắn tên biến cục bộ. Hãy giữ bản gốc để sửa về sau." }
+        { "q": "Mã đã nén có chạy giống bản gốc?", "a": "Có, chỉ bỏ khoảng trắng, chú thích, rút ngắn tên biến cục bộ. Hãy giữ bản gốc để sửa về sau." },
+        { "q": "Chú thích trong mã có bị bỏ không?", "a": "Có, trừ chú thích giấy phép (bắt đầu bằng /*! hoặc có @license, @preserve). Với JavaScript, tên biến cục bộ còn được rút ngắn để file nhỏ hơn." }
       ]
     },
     {
@@ -1813,7 +1929,8 @@
       "howto": ["Gõ số và chọn hệ đang dùng (thập phân, hex, nhị phân…).", "Kết quả ở các hệ khác hiện ngay, chữ số được nhóm cho dễ đọc.", "Số âm có thêm dạng bù 2 với 8–64 bit."],
       "faq": [
         { "q": "Đổi được số lớn tới đâu?", "a": "Không giới hạn: công cụ dùng BigInt nên số hàng trăm chữ số vẫn chính xác." },
-        { "q": "Có đổi được số thập phân (có phần lẻ) không?", "a": "Hiện công cụ chỉ đổi số nguyên." }
+        { "q": "Có đổi được số thập phân (có phần lẻ) không?", "a": "Hiện công cụ chỉ đổi số nguyên." },
+        { "q": "Đổi sang cơ số 36 hay cơ số bất kỳ được không?", "a": "Được. Bấm “Thêm một cơ số đích (2–36)” để thêm cơ số khác; số đang viết theo cơ số lạ thì chọn “Cơ số khác…” ở ô nguồn." }
       ]
     },
     {
@@ -1826,7 +1943,8 @@
       "howto": ["Gõ quyền dạng số (755) hoặc chữ (rwxr-xr-x), hoặc tích vào bảng quyền.", "Xem dạng số, dạng chữ và giải thích từng nhóm người dùng.", "Nhập tên file để có sẵn lệnh chmod rồi sao chép."],
       "faq": [
         { "q": "755 và 644 khác nhau thế nào?", "a": "755: chủ được đọc/ghi/chạy, người khác đọc và chạy (thư mục, script). 644: chủ đọc/ghi, người khác chỉ đọc (file thường)." },
-        { "q": "Có nên đặt 777?", "a": "Không nên. 777 cho mọi người dùng trên máy ghi vào file, dễ bị lợi dụng." }
+        { "q": "Có nên đặt 777?", "a": "Không nên. 777 cho mọi người dùng trên máy ghi vào file, dễ bị lợi dụng." },
+        { "q": "Khoá SSH nên đặt quyền bao nhiêu?", "a": "600: chỉ chủ sở hữu được đọc, ghi. SSH từ chối dùng khoá riêng nếu người khác đọc được file; mẫu “File bí mật (khoá SSH)” đặt sẵn quyền này." }
       ]
     },
     {
@@ -1839,7 +1957,8 @@
       "howto": ["Ô nhập có sẵn User-Agent của trình duyệt bạn; dán chuỗi khác nếu cần.", "Xem trình duyệt, hệ điều hành, loại thiết bị.", "Với chính máy này, xem thêm màn hình, ngôn ngữ, múi giờ."],
       "faq": [
         { "q": "Vì sao Windows 11 hiện là Windows 10?", "a": "Chuỗi User-Agent của Windows 11 vẫn ghi “Windows NT 10.0”. Trên Chrome, Edge, công cụ đọc thêm Client Hints để nhận đúng Windows 11." },
-        { "q": "Có nhận ra trình duyệt trong Zalo, Facebook không?", "a": "Có, công cụ ghi rõ khi trang được mở bên trong ứng dụng Zalo, Facebook, Instagram, TikTok." }
+        { "q": "Có nhận ra trình duyệt trong Zalo, Facebook không?", "a": "Có, công cụ ghi rõ khi trang được mở bên trong ứng dụng Zalo, Facebook, Instagram, TikTok." },
+        { "q": "Bot như Googlebot có được nhận ra không?", "a": "Có. Chuỗi của các trình thu thập như Googlebot, Bingbot được ghi rõ là “Bot / trình thu thập”." }
       ]
     },
     {
@@ -1852,7 +1971,8 @@
       "howto": ["Gõ mã (404, 5xx) hoặc từ khoá như “không tìm thấy”, “timeout”.", "Lọc theo nhóm 1xx–5xx.", "Đọc giải thích và cách xử lý cho các lỗi hay gặp."],
       "faq": [
         { "q": "Lỗi 4xx và 5xx khác nhau thế nào?", "a": "4xx là lỗi từ phía yêu cầu (sai địa chỉ, thiếu quyền, dữ liệu sai). 5xx là lỗi phía máy chủ, người dùng thường chỉ có thể chờ và thử lại." },
-        { "q": "301 hay 302 khi chuyển trang?", "a": "Dùng 301 (hoặc 308) khi đổi địa chỉ vĩnh viễn để Google chuyển thứ hạng sang trang mới; 302 (hoặc 307) khi chỉ chuyển tạm thời." }
+        { "q": "301 hay 302 khi chuyển trang?", "a": "Dùng 301 (hoặc 308) khi đổi địa chỉ vĩnh viễn để Google chuyển thứ hạng sang trang mới; 302 (hoặc 307) khi chỉ chuyển tạm thời." },
+        { "q": "Lỗi 502, 503, 504 khác nhau thế nào?", "a": "502: máy chủ trung gian (proxy, cổng) nhận phản hồi lỗi từ máy chủ phía sau. 503: máy chủ quá tải hoặc đang bảo trì. 504: máy chủ trung gian chờ máy chủ phía sau quá lâu." }
       ]
     },
 
@@ -1887,7 +2007,7 @@
       ]
     },
     {
-      "id": "file-encrypt", "slug": "ma-hoa-file", "name": "Mã hoá/giải mã file", "group": "security", "icon": "file-lock", "kind": "file",
+      "id": "file-encrypt", "slug": "ma-hoa-file", "name": "Mã hoá/giải mã file", "seoTitle": "Mã hoá, giải mã file", "group": "security", "icon": "file-lock", "kind": "file",
       "desc": "Khoá file bất kỳ bằng mật khẩu (AES-GCM 256, WebCrypto) và mở lại khi cần.",
       "keywords": ["encrypt file", "khoá file", "aes", "bảo vệ file"],
       "accept": ["any"], "multiple": true, "output": "any",
@@ -1929,7 +2049,7 @@
       "faq": [
         { "q": "Checksum dùng để làm gì?", "a": "Để chắc file tải về nguyên vẹn, không bị hỏng hay bị thay: tính mã của file rồi so với mã nhà phát hành công bố. Chỉ cần sai một byte là mã khác hoàn toàn." },
         { "q": "Nên dùng MD5, SHA-1 hay SHA-256?", "a": "Dùng thuật toán mà trang tải về cung cấp. Nếu được chọn, ưu tiên SHA-256: MD5 và SHA-1 chỉ còn tốt để phát hiện lỗi khi tải, không chống được giả mạo có chủ đích." },
-        { "q": "File có bị tải lên không?", "a": "Không. File được đọc từng phần ngay trên máy bạn, kể cả file rất lớn." }
+        { "q": "Thả kèm file .sha256 có tác dụng gì?", "a": "Công cụ đọc mã trong file .sha256 hoặc .md5 tải kèm và tự đối chiếu, khỏi phải dán mã bằng tay." }
       ]
     },
     {
@@ -1958,7 +2078,8 @@
       "howto": ["Ghi việc cần làm (tuỳ chọn) rồi bấm Bắt đầu hoặc nhấn phím cách.", "Làm việc đến khi chuông báo, nghỉ ngắn 5 phút; sau 4 phiên được nghỉ dài.", "Chỉnh thời lượng, âm báo, tự chuyển phiên trong phần Cài đặt."],
       "faq": [
         { "q": "Đóng tab thì đồng hồ có chạy tiếp không?", "a": "Đồng hồ tính theo giờ thực nên khi mở lại tab vẫn đúng thời gian còn lại. Để nhận chuông khi đang ở tab khác, hãy cho phép thông báo." },
-        { "q": "Thống kê được lưu ở đâu?", "a": "Trong bộ nhớ trình duyệt (localStorage) của chính bạn, không gửi đi đâu." }
+        { "q": "Thống kê được lưu ở đâu?", "a": "Trong bộ nhớ trình duyệt (localStorage) của chính bạn, không gửi đi đâu." },
+        { "q": "Đổi thời lượng mỗi phiên được không?", "a": "Được. Mở “Cài đặt” để đổi số phút tập trung, nghỉ ngắn, nghỉ dài và sau bao nhiêu phiên thì được nghỉ dài." }
       ]
     },
     {
@@ -1972,7 +2093,8 @@
       "howto": ["Bấm Bắt đầu hoặc nhấn phím cách.", "Bấm Vòng (phím L) để ghi thời gian từng vòng; vòng nhanh nhất màu xanh, chậm nhất màu đỏ.", "Dừng rồi bấm Đặt lại (phím R); tải bảng vòng ra CSV nếu cần."],
       "faq": [
         { "q": "Đóng tab hay tắt màn hình thì đồng hồ có chạy tiếp không?", "a": "Có. Thời gian tính theo đồng hồ hệ thống nên mở lại trang vẫn đúng; trạng thái được lưu trong trình duyệt của bạn." },
-        { "q": "Chính xác đến đâu?", "a": "Hiển thị đến 1/100 giây. Sai số chủ yếu do thời điểm bấm nút (phản xạ của người thường khoảng 0,1–0,2 giây)." }
+        { "q": "Chính xác đến đâu?", "a": "Hiển thị đến 1/100 giây. Sai số chủ yếu do thời điểm bấm nút (phản xạ của người thường khoảng 0,1–0,2 giây)." },
+        { "q": "Có phím tắt không?", "a": "Có: phím cách để chạy hoặc dừng, L để ghi vòng, R để đặt lại." }
       ]
     },
     {
@@ -1986,7 +2108,8 @@
       "howto": ["Chọn nhanh 1, 3, 5… phút hoặc nhập giờ, phút, giây.", "Bấm Bắt đầu (phím cách); có thể thêm 1 phút khi đang chạy.", "Hết giờ chuông kêu liên tục đến khi bấm Tắt chuông."],
       "faq": [
         { "q": "Chuyển sang tab khác có nghe chuông không?", "a": "Có, nếu máy không tắt tiếng. Bấm “Bật thông báo khi ở tab khác” để nhận thêm thông báo của hệ điều hành." },
-        { "q": "Trên điện thoại khoá màn hình thì sao?", "a": "Trình duyệt di động thường tạm dừng trang khi khoá màn hình nên chuông có thể kêu muộn. Khi đang đếm, trang giữ màn hình sáng (nếu trình duyệt hỗ trợ)." }
+        { "q": "Trên điện thoại khoá màn hình thì sao?", "a": "Trình duyệt di động thường tạm dừng trang khi khoá màn hình nên chuông có thể kêu muộn. Khi đang đếm, trang giữ màn hình sáng (nếu trình duyệt hỗ trợ)." },
+        { "q": "Có phím tắt không?", "a": "Có: phím cách để bắt đầu hoặc tạm dừng, R để đặt lại. Đang chạy vẫn bấm “+1 phút” để thêm giờ." }
       ]
     },
     {
@@ -2015,11 +2138,12 @@
       "howto": ["Nhập danh sách người, mỗi dòng một tên.", "Chọn cách bốc: chia số đội, số người mỗi đội, bốc thứ tự hoặc chọn vài người.", "Bấm Bốc lại nếu cần, rồi sao chép hoặc tải kết quả."],
       "faq": [
         { "q": "Các đội có đều nhau không?", "a": "Có: các đội chênh nhau nhiều nhất 1 người. Người trong ô “Trưởng nhóm” được rải mỗi đội một người trước." },
-        { "q": "Có ngẫu nhiên thật không?", "a": "Dùng crypto.getRandomValues và thuật toán xáo trộn Fisher–Yates nên mọi cách chia đều có khả năng như nhau." }
+        { "q": "Có ngẫu nhiên thật không?", "a": "Dùng crypto.getRandomValues và thuật toán xáo trộn Fisher–Yates nên mọi cách chia đều có khả năng như nhau." },
+        { "q": "Danh sách có tên trùng thì sao?", "a": "Công cụ cảnh báo khi có tên trùng; nếu là hai người khác nhau, hãy thêm họ hoặc số để phân biệt." }
       ]
     },
     {
-      "id": "coin-dice", "slug": "tung-xu-xuc-xac", "name": "Tung xu & xúc xắc", "group": "productivity", "icon": "dices", "kind": "interactive",
+      "id": "coin-dice", "slug": "tung-xu-xuc-xac", "name": "Tung xu & xúc xắc", "seoTitle": "Tung đồng xu, gieo xúc xắc", "group": "productivity", "icon": "dices", "kind": "interactive",
       "desc": "Tung đồng xu, gieo một hoặc nhiều xúc xắc ngẫu nhiên.",
       "keywords": ["tung đồng xu", "xúc xắc", "dice", "coin flip"],
       "status": "done",
@@ -2029,7 +2153,8 @@
       "howto": ["Chọn Tung đồng xu hoặc Gieo xúc xắc.", "Bấm nút (hoặc phím cách) để tung / gieo.", "Với xúc xắc, chọn số viên (1–10) và số mặt (4–100); tổng điểm hiện ngay."],
       "faq": [
         { "q": "Kết quả có ngẫu nhiên thật không?", "a": "Có, lấy từ bộ sinh số ngẫu nhiên an toàn của trình duyệt, không lệch về mặt nào; hiệu ứng lật chỉ để xem." },
-        { "q": "Sấp và ngửa là mặt nào?", "a": "Theo cách gọi phổ biến: ngửa là mặt có hình, sấp là mặt có số (mệnh giá)." }
+        { "q": "Sấp và ngửa là mặt nào?", "a": "Theo cách gọi phổ biến: ngửa là mặt có hình, sấp là mặt có số (mệnh giá)." },
+        { "q": "Có xem lại các lần tung trước không?", "a": "Có. Công cụ ghi 20 lần tung gần nhất kèm thống kê; bấm “Xoá thống kê” để làm lại từ đầu." }
       ]
     },
     {
@@ -2042,7 +2167,8 @@
       "howto": ["Nhập khoảng số Từ – Đến và số lượng cần lấy.", "Chọn không trùng, sắp xếp, hoặc bỏ bớt các số không dùng.", "Bật “Quay số trúng thưởng” để số đã ra không ra lại ở lượt sau."],
       "faq": [
         { "q": "Các số có cơ hội như nhau không?", "a": "Có. Dùng crypto.getRandomValues và loại bỏ phần dư (không lệch modulo) nên mọi số trong khoảng có xác suất như nhau." },
-        { "q": "Lấy được tối đa bao nhiêu số?", "a": "Tối đa 10.000 số mỗi lần, khoảng số tới khoảng ±9 triệu tỷ." }
+        { "q": "Lấy được tối đa bao nhiêu số?", "a": "Tối đa 10.000 số mỗi lần, khoảng số tới khoảng ±9 triệu tỷ." },
+        { "q": "Bỏ bớt những số không muốn ra thế nào?", "a": "Nhập các số cần bỏ vào ô “Bỏ các số (tuỳ chọn)”, ví dụ số đã trúng ở đợt trước; các số đó sẽ không được chọn." }
       ]
     },
     {
@@ -2071,7 +2197,8 @@
       "howto": ["Gõ việc cần làm rồi nhấn Enter (dán nhiều dòng để thêm nhiều việc một lúc).", "Đánh dấu việc đã xong; bấm đúp để sửa, kéo thả hoặc ↑↓ để đổi thứ tự.", "Tạo nhiều danh sách, dùng mẫu có sẵn, sao chép hoặc tải về dạng Markdown."],
       "faq": [
         { "q": "Danh sách lưu ở đâu?", "a": "Trong trình duyệt của máy bạn (localStorage), không gửi đi đâu. Đổi máy hoặc xoá dữ liệu duyệt web sẽ mất, nên tải về nếu cần giữ." },
-        { "q": "Dùng lại một danh sách (đồ đi du lịch…) thế nào?", "a": "Bấm “Bỏ đánh dấu hết” để làm lại từ đầu mà không phải nhập lại." }
+        { "q": "Dùng lại một danh sách (đồ đi du lịch…) thế nào?", "a": "Bấm “Bỏ đánh dấu hết” để làm lại từ đầu mà không phải nhập lại." },
+        { "q": "Thêm nhiều việc một lúc được không?", "a": "Được. Dán nhiều dòng vào ô nhập, mỗi dòng thành một việc." }
       ]
     },
     {
@@ -2085,7 +2212,8 @@
       "howto": ["Xem giờ hiện tại ở các thành phố; ô màu xanh là đang giờ hành chính.", "Gõ tên thành phố hoặc nước để thêm, bấm ✕ để bỏ.", "Bật “Đổi giờ”, chọn ngày giờ ở một thành phố để xem giờ tương ứng ở nơi khác (hẹn họp online)."],
       "faq": [
         { "q": "Giờ mùa hè có được tính không?", "a": "Có. Trình duyệt có sẵn dữ liệu múi giờ quốc tế (IANA) nên tự tính giờ mùa hè đúng từng ngày, kể cả ngày đổi giờ." },
-        { "q": "Việt Nam chênh giờ Mỹ bao nhiêu?", "a": "Tuỳ bang và mùa: miền Đông (New York) chậm hơn 11 giờ vào mùa hè, 12 giờ vào mùa đông; miền Tây (Los Angeles) chậm hơn 14 hoặc 15 giờ." }
+        { "q": "Việt Nam chênh giờ Mỹ bao nhiêu?", "a": "Tuỳ bang và mùa: miền Đông (New York) chậm hơn 11 giờ vào mùa hè, 12 giờ vào mùa đông; miền Tây (Los Angeles) chậm hơn 14 hoặc 15 giờ." },
+        { "q": "Hẹn họp online với người ở nước khác thế nào?", "a": "Bật “Đổi giờ”, chọn ngày giờ ở một thành phố, các thành phố khác hiện giờ tương ứng; ô màu xanh cho biết nơi đó đang trong giờ hành chính." }
       ]
     },
     {
@@ -2140,7 +2268,8 @@
       "howto": ["Đặt âm lượng nhỏ trước.", "Bấm Loa trái, Loa phải, Cả hai để nghe âm thử ở từng bên.", "Đổi tần số hoặc bấm Quét từ trầm đến cao để nghe loa có rè, có mất dải âm nào không."],
       "faq": [
         { "q": "Bấm Loa trái mà nghe bên phải?", "a": "Tai nghe đeo ngược, dây cắm bị đảo hoặc cài đặt cân bằng âm thanh (balance) đang lệch. Kiểm tra lại trong cài đặt âm thanh của máy." },
-        { "q": "Không nghe thấy âm tần số cao?", "a": "Loa nhỏ và tai người lớn tuổi thường khó nghe âm trên 12.000 Hz; điều này bình thường." }
+        { "q": "Không nghe thấy âm tần số cao?", "a": "Loa nhỏ và tai người lớn tuổi thường khó nghe âm trên 12.000 Hz; điều này bình thường." },
+        { "q": "Nên để âm lượng bao nhiêu khi thử?", "a": "Để nhỏ trước rồi tăng dần, nhất là khi đeo tai nghe: âm thử ở tần số cao nghe chói và có thể gây khó chịu." }
       ]
     },
     {

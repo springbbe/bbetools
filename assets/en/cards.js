@@ -8,6 +8,6 @@ export function cardEl(t, reg) {
   return h("li", { class: "card", "data-id": t.id, "data-group": t.group, style: { "--c": g.color } },
     h("a", { class: "card-link", href: toolHref(t) },
       h("span", { class: "tile", style: { "--c": g.color }, html: icon(t.icon) }),
-      h("span", { class: "card-txt" }, h("h3", { class: "card-name", text: t.name }), h("span", { class: "card-desc", text: t.desc }))),
+      h("div", { class: "card-txt" }, h("h3", { class: "card-name", text: t.name }), h("span", { class: "card-desc", text: t.desc }))),
     h("button", { class: "star", type: "button", "data-fav": t.id, "aria-pressed": String(on), "aria-label": (on ? "Unpin " : "Pin ") + t.name, html: icon("star") }));
 }

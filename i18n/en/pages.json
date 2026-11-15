@@ -34,7 +34,6 @@
  "Công cụ {0}": "{0} tools",
  "{0} công cụ miễn phí, chạy ngay trên trình duyệt.": "{0} free tools that run right in your browser.",
  "Nhóm khác": "Other categories",
- "Công cụ {0} miễn phí": "Free {0} tools",
  "{0} online miễn phí": "{0} Online Free",
  "{0} công cụ miễn phí, xử lý ngay trên trình duyệt, không tải file lên máy chủ.": "{0} free tools that run right in your browser, with no file uploads to any server.",
  "Dữ liệu {0} cập nhật ngày {1}. Nguồn: {2}.": "{0} data updated on {1}. Source: {2}.",
@@ -73,5 +72,9 @@
  "Mọi thứ chạy ngay trên máy bạn; hình ảnh, âm thanh không gửi đi đâu.": "Everything runs on your device; images and audio aren't sent anywhere.",
  "<span class=\"nowrap\">Công cụ tiện ích</span> <span class=\"nowrap\">cho người Việt</span>": "Free online tools <span class=\"nowrap\">that run in your browser</span>",
  "Tìm: ghép pdf, vietqr…": "Search: merge pdf, qr…",
- "File của bạn không bao giờ rời khỏi máy bạn.": "Your files never leave your device."
+ "File của bạn không bao giờ rời khỏi máy bạn.": "Your files never leave your device.",
+ "Về nhóm {0}": "About {0} tools",
+ "Công cụ {0} online miễn phí": "Free Online {0} Tools",
+ "{0} công cụ miễn phí, không tải file lên máy chủ.": "{0} free tools, no file uploads.",
+ "Miễn phí, không tải file lên máy chủ.": "Free, no file uploads."
 }

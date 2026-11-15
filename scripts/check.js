@@ -6,7 +6,9 @@
    4. mỗi trang có <title> dạng "… – BbeTools", meta description, canonical, JSON-LD hợp lệ, đúng lang
    5. bản dịch đầy đủ (build --check báo câu, chuỗi JS, công cụ chưa dịch; xem scripts/i18n.js)
    6. bài hướng dẫn (content/huong-dan/): đủ frontmatter, title ≤ 60, desc ≤ 155 ký tự, công cụ và file dữ liệu có thật,
-      tên hiển thị của liên kết [Tên](tool:id) đúng tên công cụ; cảnh báo khi file dữ liệu mới hơn bài */
+      tên hiển thị của liên kết [Tên](tool:id) đúng tên công cụ; cảnh báo khi file dữ liệu mới hơn bài
+   7. FAQ: mọi công cụ "done" có ít nhất 3 câu; không lặp câu "có bị tải lên…" (dòng quyền riêng tư đã có dưới tiêu đề);
+      không có câu trả lời giống hệt nhau ở từ 3 công cụ trở lên. Meta description không trang nào bị cắt dở ("…" ở cuối) */
 import { readFile, readdir } from "node:fs/promises";
 import { existsSync, statSync } from "node:fs";
 import { execFileSync } from "node:child_process";
@@ -24,6 +26,19 @@ const articles = await loadArticles();
 const art = validateArticles(articles, reg);
 problems.push(...art.errors);
 const warnings = [...art.warnings];
+{
+  const live = reg.tools.filter((t) => t.status === "done");
+  const answers = new Map();
+  for (const t of live) {
+    const faq = t.faq || [];
+    if (faq.length < 3) problems.push(`tools.json: ${t.id} cần ít nhất 3 câu FAQ (đang có ${faq.length})`);
+    for (const f of faq) {
+      if (/có bị (tải|gửi) lên|bị tải lên (mạng|máy chủ)/i.test(f.q)) problems.push(`tools.json: ${t.id}: câu FAQ “${f.q}” lặp lại dòng quyền riêng tư dưới tiêu đề, hãy thay bằng câu hỏi riêng của công cụ`);
+      answers.set(f.a, [...(answers.get(f.a) || []), t.id]);
+    }
+  }
+  for (const [a, ids] of answers) if (ids.length >= 3) problems.push(`tools.json: câu trả lời FAQ giống hệt nhau ở ${ids.length} công cụ (${ids.join(", ")}): “${a.slice(0, 70)}…”`);
+}
 try { execFileSync(process.execPath, [ROOT + "scripts/build.js", "--check"], { stdio: "pipe" }); }
 catch (e) { problems.push(String(e.stdout || "") + String(e.stderr || "")); }
 
@@ -56,6 +71,10 @@ for (const f of files.filter((x) => /\.html$/.test(x))) {
   const isArticle = new RegExp("^" + ARTICLE_URL + "[^/]+/index\\.html$").test(relative(ROOT, f));
   if (!isArticle && !/ – BbeTools$/.test(title) && !title.startsWith("BbeTools – ")) bad(f, `title "${title}" chưa theo dạng "… – BbeTools"`);
   if (!/<meta name="description" content="[^"]{30,}"/.test(html)) bad(f, "thiếu meta description");
+  for (const m of html.matchAll(/<meta (?:name|property)="(description|og:description)" content="([^"]*)"/g)) {
+    if (/(…|\.\.\.)$/.test(m[2])) bad(f, `${m[1]} bị cắt dở (kết thúc bằng "…"): "${m[2].slice(-60)}"`);
+    if ([...m[2].replace(/&[a-z#0-9]+;/g, "x")].length > 160) bad(f, `${m[1]} dài quá 155 ký tự`);
+  }
   if (!is404 && !/<link rel="canonical" href="https:\/\/[^"]+"/.test(html)) bad(f, "thiếu canonical");
   for (const m of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) { try { JSON.parse(m[1]); } catch (e) { bad(f, "JSON-LD lỗi: " + e.message); } }
   const lang = (/^([a-z]{2})\//.exec(relative(ROOT, f)) || [])[1];

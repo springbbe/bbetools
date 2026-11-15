@@ -10,6 +10,7 @@
           node scripts/build.js --missing  in các câu của khung trang chưa dịch (i18n/<lang>/pages.json) */
 import { readFile, writeFile, mkdir, readdir, rm } from "node:fs/promises";
 import { existsSync } from "node:fs";
+import { execFileSync } from "node:child_process";
 import { loadRegistry, validate, isLive, ROOT } from "./registry.js";
 import { LANGS, inLang, langData, langFiles, compile, lookupFor, loadJson, hasVi } from "./i18n.js";
 import { describeAccept as describeAcceptVi } from "../assets/lib/filetype.js";
@@ -41,7 +42,25 @@ const LANG_CODES = ["vi", ...Object.keys(LANGS)];
 const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 const icon = (name, root, cls = "") => `<svg class="i${cls ? " " + cls : ""}" aria-hidden="true"><use href="${root}assets/icons.svg#${name}"></use></svg>`;
 const jsonld = (obj) => `<script type="application/ld+json">${JSON.stringify(obj).replace(/</g, "\\u003c")}</script>`;
-const metaDesc = (s) => (s.length > 155 ? s.slice(0, 152).replace(/\s+\S*$/, "") + "…" : s);
+/* Meta description tối đa 155 ký tự, không bao giờ cắt giữa câu: quá dài thì cắt ở ranh giới câu, rồi tới dấu phẩy */
+const MAX_DESC = 155;
+const len = (s) => [...s].length;
+function clipDesc(s) {
+  s = s.trim();
+  if (len(s) <= MAX_DESC) return s;
+  const head = [...s].slice(0, MAX_DESC + 1).join("");
+  const stop = Math.max(...[". ", "! ", "? "].map((p) => head.lastIndexOf(p)));
+  if (stop > 40) return head.slice(0, stop + 1);
+  const comma = Math.max(head.lastIndexOf(", "), head.lastIndexOf("; "));
+  if (comma > 40) return head.slice(0, comma) + ".";
+  return head.slice(0, head.lastIndexOf(" ")) + ".";
+}
+/** Mô tả + câu đuôi: thử lần lượt các câu đuôi (dài → ngắn), không vừa thì bỏ câu đuôi */
+function descWith(main, ...tails) {
+  for (const t of tails) if (t && len(`${main} ${t}`) <= MAX_DESC) return `${main} ${t}`;
+  return clipDesc(main);
+}
+const metaDesc = clipDesc;
 const fmtDate = (iso, lang) => { const [y, m, d] = iso.split("-"); return lang === "vi" ? `${d}/${m}/${y}` : new Date(Date.UTC(+y, +m - 1, +d)).toLocaleDateString(LANGS[lang].locale, { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" }); };
 const rootOf = (path) => "../".repeat(path.split("/").length - 1) || "./";
 
@@ -119,7 +138,7 @@ function card(L, t, root, opts = {}) {
   const H = opts.h || "h3";
   const gc = (L.groupOf[t.group] || {}).color;
   return `<li class="card${opts.cls ? " " + opts.cls : ""}" data-id="${t.id}" data-group="${t.group}"${gc ? ` style="--c:${gc}"` : ""}>
-<a class="card-link" href="${root}${L.toolUrl(t)}">${tile(L, t, root)}<span class="card-txt"><${H} class="card-name">${esc(t.name)}</${H}><span class="card-desc">${esc(t.desc)}</span></span></a>
+<a class="card-link" href="${root}${L.toolUrl(t)}">${tile(L, t, root)}<div class="card-txt"><${H} class="card-name">${esc(t.name)}</${H}><span class="card-desc">${esc(t.desc)}</span></div></a>
 <button class="star" type="button" data-fav="${t.id}" aria-pressed="false" aria-label="${esc(L.tr("Ghim {0} vào Yêu thích", t.name))}" hidden>${icon("star", root)}</button>
 </li>`;
 }
@@ -192,7 +211,7 @@ const analytics = () => (site.gaId ? `<script async src="https://www.googletagma
 <script>window.btReplaceState=history.replaceState.bind(history);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","${site.gaId}",{page_location:location.origin+location.pathname});</script>
 ` : "");
 
-function page(L, { path, key, title, desc, entry, ld, bodyAttrs = "", main, head = "", noindex = false, root = rootOf(path), ogType = "website" }) {
+function page(L, { path, key, title, desc, entry, ld, bodyAttrs = "", main, head = "", noindex = false, root = rootOf(path), ogType = "website", og = null }) {
   const abs = BASE + path;
   const alts = key ? alt(key) : {};
   const hreflang = !noindex && Object.keys(alts).length > 1
@@ -215,9 +234,10 @@ ${hreflang}<meta name="generator" content="bbetools-build">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(metaDesc(desc))}">
 <meta property="og:url" content="${abs}">
-<meta property="og:image" content="${BASE}assets/og.png">
+<meta property="og:image" content="${BASE}${og ? og.image : "assets/og.png"}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="${esc(og ? og.alt : `${site.name} – ${L.site.tagline}`)}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="${root}assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="${root}assets/apple-touch-icon.png">
@@ -238,6 +258,13 @@ ${footer(L, root)}
 </body>
 </html>
 `;
+}
+
+/** Ảnh Open Graph theo nhóm (scripts/make-brand.js sinh assets/og/<nhóm>.png, bản tiếng Anh ở assets/og/<lang>/) */
+function ogFor(L, g, alt) {
+  const rel = `assets/og/${L.vi ? "" : L.lang + "/"}${g.id}.png`;
+  // alt mô tả đúng nội dung ảnh (tên nhóm), không phải tiêu đề trang
+  return existsSync(ROOT + rel) ? { image: rel, alt: `${L.tr("Công cụ {0}", g.name)} – ${site.name}` } : { image: "assets/og.png", alt: `${site.name} – ${L.site.tagline}` };
 }
 
 const breadcrumbLd = (items) => ({
@@ -296,13 +323,13 @@ ${more.length ? `<section class="block"><h2>Bài hướng dẫn khác <a class="
     "@context": "https://schema.org",
     "@graph": [
       { "@type": "Article", headline: a.meta.title, description: a.meta.desc, dateModified: a.meta.updated, inLanguage: "vi", url, mainEntityOfPage: url,
-        image: BASE + "assets/og.png", author: { "@type": "Organization", name: site.name, url: BASE },
+        image: BASE + ogFor(L, g, "").image, author: { "@type": "Organization", name: site.name, url: BASE },
         publisher: { "@type": "Organization", name: site.name, url: BASE, logo: { "@type": "ImageObject", url: BASE + "assets/icon-512.png" } } },
       breadcrumbLd([["Trang chủ", L.homeUrl], ["Hướng dẫn", ARTICLE_URL], [a.meta.title, path]])
     ]
   };
   const title = `${a.meta.title} – ${site.name}`.length <= 60 ? `${a.meta.title} – ${site.name}` : a.meta.title;
-  return page(L, { path, title, desc: a.meta.desc, entry: L.js("core.js"), ld, main, ogType: "article",
+  return page(L, { path, title, desc: a.meta.desc, entry: L.js("core.js"), ld, main, ogType: "article", og: ogFor(L, g, a.meta.title),
     head: `<meta property="article:modified_time" content="${a.meta.updated}">\n` });
 }
 
@@ -333,6 +360,8 @@ ${articleCards(L, ARTICLES, root, { h: "h2" })}
 }
 
 /* ---------- trang chủ ---------- */
+/** site.description có "{0}" = số công cụ thật của ngôn ngữ đó (không viết cứng "Hơn 100") */
+const siteDesc = (L) => L.site.description.replace("{0}", L.live.length);
 function homePage(L) {
   const { tr, live, liveGroups, liveIn } = L;
   const path = L.homeUrl, root = rootOf(path);
@@ -383,15 +412,26 @@ ${L.vi && ARTICLES.length ? `<section class="block" id="huong-dan"><h2>${icon("b
   const ld = {
     "@context": "https://schema.org",
     "@graph": [
-      { "@type": "WebSite", name: site.name, url, inLanguage: L.lang, description: L.site.description,
+      { "@type": "WebSite", name: site.name, url, inLanguage: L.lang, description: siteDesc(L),
         potentialAction: { "@type": "SearchAction", target: { "@type": "EntryPoint", urlTemplate: url + "?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
       { "@type": "ItemList", name: tr("Công cụ phổ biến"), itemListElement: popular.map((t, i) => ({ "@type": "ListItem", position: i + 1, name: t.name, url: BASE + L.toolUrl(t) })) }
     ]
   };
-  return page(L, { path, key: "home", title: `${site.name} – ${L.site.tagline}`, desc: L.site.description, entry: L.js("home.js"), ld, bodyAttrs: 'class="home"', main });
+  return page(L, { path, key: "home", title: `${site.name} – ${L.site.title}`, desc: siteDesc(L), entry: L.js("home.js"), ld, bodyAttrs: 'class="home"', main });
 }
 
 /* ---------- trang nhóm ---------- */
+const faqLd = (faq) => ({ "@type": "FAQPage", mainEntity: faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) });
+const faqBlock = (L, faq) => `<section class="block info faq"><h2>${L.tr("Câu hỏi thường gặp")}</h2>${faq.map((f) => `<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join("\n")}</section>`;
+/** Trang nhóm: giới thiệu (intro) + FAQ dưới lưới thẻ, cùng bố cục "Cách dùng + FAQ" của trang công cụ */
+function groupInfo(L, g) {
+  const intro = g.intro ? `<section class="block info"><h2>${L.tr("Về nhóm {0}", esc(g.name))}</h2><p class="group-intro">${esc(g.intro)}</p></section>` : "";
+  const faq = g.faq && g.faq.length ? faqBlock(L, g.faq) : "";
+  return intro && faq ? `<div class="tool-info">\n${intro}\n${faq}\n</div>` : intro + faq;
+}
+/** Bài hướng dẫn có công cụ chính thuộc nhóm */
+const groupArticles = (L, g) => ARTICLES.filter((a) => (L.byId[a.tools[0]] || {}).group === g.id);
+
 function groupPage(L, g) {
   const { tr } = L;
   const path = L.groupUrl(g), root = rootOf(path);
@@ -405,18 +445,23 @@ function groupPage(L, g) {
 </div>
 <div class="wrap">
 ${cards(L, list, root, { h: "h2" })}
-<section class="block"><h2>${tr("Nhóm khác")}</h2><ul class="chip-list">${L.liveGroups.filter((x) => x !== g).map((x) => `<li><a class="chip" href="${root}${L.groupUrl(x)}">${tile(L, x, root, "xs")}${esc(x.name)}</a></li>`).join("")}</ul></section>
+${groupInfo(L, g)}
+${L.vi && groupArticles(L, g).length ? `<section class="block"><h2>Bài hướng dẫn <a class="see-all" href="${root}${ARTICLE_URL}">Xem tất cả${icon("arrow-right", root)}</a></h2>${articleCards(L, groupArticles(L, g).slice(0, 6), root, { meta: false })}</section>\n` : ""}<section class="block"><h2>${tr("Nhóm khác")}</h2><ul class="chip-list">${L.liveGroups.filter((x) => x !== g).map((x) => `<li><a class="chip" href="${root}${L.groupUrl(x)}">${tile(L, x, root, "xs")}${esc(x.name)}</a></li>`).join("")}</ul></section>
 </div>
 </div>`;
   const ld = {
     "@context": "https://schema.org",
     "@graph": [
-      { "@type": "CollectionPage", name: tr("Công cụ {0}", g.name), url: BASE + path, inLanguage: L.lang, description: g.desc,
-        mainEntity: { "@type": "ItemList", itemListElement: list.map((t, i) => ({ "@type": "ListItem", position: i + 1, name: t.name, url: BASE + L.toolUrl(t) })) } },
+      { "@type": "CollectionPage", name: tr("Công cụ {0}", g.name), url: BASE + path, inLanguage: L.lang, description: g.intro || g.desc, mainEntity: { "@id": BASE + path + "#cong-cu" } },
+      { "@type": "ItemList", "@id": BASE + path + "#cong-cu", name: tr("Công cụ {0}", g.name), numberOfItems: list.length,
+        itemListElement: list.map((t, i) => ({ "@type": "ListItem", position: i + 1, name: t.name, url: BASE + L.toolUrl(t) })) },
       breadcrumbLd([[tr("Trang chủ"), L.homeUrl], [g.name, path]])
     ]
   };
-  return page(L, { path, key: "group:" + g.id, title: `${tr("Công cụ {0} miễn phí", g.name)} – ${site.name}`, desc: `${g.desc} ${tr("{0} công cụ miễn phí, xử lý ngay trên trình duyệt, không tải file lên máy chủ.", list.length)}`, entry: L.js("core.js"), ld, main });
+  if (g.faq && g.faq.length) ld["@graph"].push(faqLd(g.faq));
+  return page(L, { path, key: "group:" + g.id, title: `${tr("Công cụ {0} online miễn phí", g.name)} – ${site.name}`,
+    desc: descWith(g.desc, tr("{0} công cụ miễn phí, xử lý ngay trên trình duyệt, không tải file lên máy chủ.", list.length), tr("{0} công cụ miễn phí, không tải file lên máy chủ.", list.length)),
+    entry: L.js("core.js"), ld, main, og: ogFor(L, g, tr("Công cụ {0}", g.name)) });
 }
 
 /* ---------- trang công cụ ---------- */
@@ -447,7 +492,7 @@ async function toolPage(L, t) {
   for (const x of L.liveIn(t.group)) { if (related.length >= 4) break; if (x !== t && !related.includes(x)) related.push(x); }
   const accept = t.accept && t.kind === "file" ? `<p class="formats">${tr("Nhận: {0}", esc(L.describeAccept(t.accept)))}</p>` : "";
   const howto = t.howto && t.howto.length ? `<section class="block info"><h2>${tr("Cách dùng")}</h2><ol class="steps">${t.howto.map((s) => `<li>${esc(s)}</li>`).join("")}</ol></section>` : "";
-  const faq = t.faq && t.faq.length ? `<section class="block info faq"><h2>${tr("Câu hỏi thường gặp")}</h2>${t.faq.map((f) => `<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join("\n")}</section>` : "";
+  const faq = t.faq && t.faq.length ? faqBlock(L, t.faq) : "";
   // dải đầu trang mang màu chuyên mục (nhóm); khung ứng dụng đè lên mép dưới của dải
   const main = `<div class="tool-page" style="--c:${g.color}">
 <div class="tool-band">
@@ -478,14 +523,16 @@ ${L.vi && articlesFor(t.id).length ? `<section class="block"><h2>Bài hướng d
       isAccessibleForFree: true, offers: { "@type": "Offer", price: "0", priceCurrency: L.vi ? "VND" : "USD" } },
     breadcrumbLd([[tr("Trang chủ"), L.homeUrl], [g.name, L.groupUrl(g)], [t.name, path]])
   ];
-  if (t.faq && t.faq.length) graph.push({ "@type": "FAQPage", mainEntity: t.faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) });
+  if (t.faq && t.faq.length) graph.push(faqLd(t.faq));
   if (t.howto && t.howto.length) graph.push({ "@type": "HowTo", name: tr("Cách dùng {0}", t.name), step: t.howto.map((s, i) => ({ "@type": "HowToStep", position: i + 1, text: s })) });
-  const desc = `${t.desc} ${tr("Miễn phí, chạy ngay trên trình duyệt, không tải file lên máy chủ.")}`;
-  // Thêm "online miễn phí" cho khớp cách người dùng tìm kiếm; tên dài quá 60 ký tự thì giữ tên gọn.
-  const seoTitle = `${tr("{0} online miễn phí", t.name)} – ${site.name}`;
-  const title = seoTitle.length <= 60 ? seoTitle : `${t.name} – ${site.name}`;
+  const desc = descWith(t.desc, tr("Miễn phí, chạy ngay trên trình duyệt, không tải file lên máy chủ."), tr("Miễn phí, không tải file lên máy chủ."));
+  // Thêm "online miễn phí" cho khớp cách người dùng tìm kiếm; tên có ký hiệu (↔, /, &) dùng seoTitle viết theo cách gõ tìm.
+  // Dài quá 60 ký tự thì bỏ "online miễn phí".
+  const name = t.seoTitle || t.name;
+  const long = `${tr("{0} online miễn phí", name)} – ${site.name}`;
+  const title = len(long) <= 60 ? long : `${name} – ${site.name}`;
   return page(L, {
-    path, key: "tool:" + t.id, title, desc, entry: L.js(`tools/${t.id}.js`),
+    path, key: "tool:" + t.id, title, desc, entry: L.js(`tools/${t.id}.js`), og: ogFor(L, g, t.name),
     ld: { "@context": "https://schema.org", "@graph": graph }, bodyAttrs: `data-tool="${t.id}"`, main
   });
 }
@@ -616,6 +663,32 @@ async function cleanStale(keep) {
   return removed;
 }
 
+/* <lastmod> trong sitemap: ngày commit gần nhất của file (giờ máy), không dùng ngày build để trang không đổi ngày mỗi lần build.
+   File đang sửa chưa commit thì lấy ngày hôm nay (commit trong ngày sẽ ra cùng ngày → build --check vẫn khớp).
+   Không có git (vd. bản tải zip) thì bỏ <lastmod>. */
+const gitDates = (() => {
+  const out = new Map();
+  try {
+    const log = execFileSync("git", ["log", "--format=@%cd", "--date=format:%Y-%m-%d", "--name-only", "--", "assets/tools", "tools.json"], { cwd: ROOT, encoding: "utf8", maxBuffer: 64 << 20, stdio: ["ignore", "pipe", "ignore"] });
+    let d = null;
+    for (const line of log.split("\n")) {
+      if (line.startsWith("@")) d = line.slice(1);
+      else if (line && d && !out.has(line)) out.set(line, d);
+    }
+    const st = execFileSync("git", ["status", "--porcelain", "--", "assets/tools", "tools.json"], { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] });
+    const now = new Date(), today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
+    for (const line of st.split("\n")) if (line.trim()) out.set(line.slice(3).trim(), today);
+  } catch (_) { return null; }
+  return out;
+})();
+const gitDate = (file) => (gitDates && gitDates.get(file)) || null;
+const sitemapAlts = (key) => {
+  if (!key) return "";
+  const a = alt(key);
+  if (Object.keys(a).length < 2) return "";
+  return Object.entries(a).map(([c, u]) => `<xhtml:link rel="alternate" hreflang="${c}" href="${BASE}${u}"/>`).join("") + (a.vi != null ? `<xhtml:link rel="alternate" hreflang="x-default" href="${BASE}${a.vi}"/>` : "");
+};
+
 const keep = new Set();
 let changed = 0;
 const urls = [];
@@ -623,19 +696,19 @@ const missingJs = {};
 for (const code of LANG_CODES) {
   const L = LS[code];
   const pages = [
-    [L.homeUrl, () => homePage(L)],
-    ...L.liveGroups.map((g) => [L.groupUrl(g), () => groupPage(L, g)]),
-    ...L.live.map((t) => [L.toolUrl(t), () => toolPage(L, t)]),
-    [L.aboutUrl, () => aboutPage(L)],
+    [L.homeUrl, () => homePage(L), null, "home"],
+    ...L.liveGroups.map((g) => [L.groupUrl(g), () => groupPage(L, g), gitDate("tools.json"), "group:" + g.id]),
+    ...L.live.map((t) => [L.toolUrl(t), () => toolPage(L, t), gitDate(`assets/tools/${t.id}.js`), "tool:" + t.id]),
+    [L.aboutUrl, () => aboutPage(L), null, "about"],
     // bài hướng dẫn chỉ có tiếng Việt, không có bản dịch / hreflang
     ...(L.vi && ARTICLES.length ? [
       [ARTICLE_URL, () => articlesIndexPage(L), ARTICLES.map((a) => a.meta.updated).sort().pop()],
       ...ARTICLES.map((a) => [articleUrl(a), () => articlePage(L, a), a.meta.updated])
     ] : [])
   ];
-  for (const [path, make, lastmod] of pages) {
+  for (const [path, make, lastmod, key] of pages) {
     keep.add(path);
-    urls.push({ path, lastmod });
+    urls.push({ path, lastmod, key });
     changed += await write(path + "index.html", await make());
   }
   if (L.vi) {
@@ -656,8 +729,8 @@ for (const code of LANG_CODES) {
   missingJs[code] = miss;
 }
 changed += await write("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.map((u) => `  <url><loc>${BASE}${u.path}</loc>${u.lastmod ? `<lastmod>${u.lastmod}</lastmod>` : ""}</url>`).join("\n")}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${urls.map((u) => `  <url><loc>${BASE}${u.path}</loc>${u.lastmod ? `<lastmod>${u.lastmod}</lastmod>` : ""}${sitemapAlts(u.key)}</url>`).join("\n")}
 </urlset>
 `);
 changed += await write("robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${BASE}sitemap.xml\n`);
@@ -671,6 +744,11 @@ changed += await write("manifest.webmanifest", JSON.stringify({
 const report = [];
 for (const code of Object.keys(LANGS)) {
   const L = LS[code], mp = [...missingPages.get(code)], mj = missingJs[code];
+  // trường dịch bắt buộc khi bản tiếng Việt có: seoTitle của công cụ, intro/faq của nhóm
+  const noSeo = L.live.filter((t) => t.vi && t.vi.seoTitle && !(L.D.tools[t.id] || {}).seoTitle).map((t) => t.id);
+  if (noSeo.length) report.push(`${code}: ${noSeo.length} công cụ thiếu "seoTitle" trong i18n/${code}/tools.json: ${noSeo.join(", ")}`);
+  const noGroup = L.liveGroups.filter((g) => !(L.D.groups[g.id] || {}).intro || !((L.D.groups[g.id] || {}).faq || []).length).map((g) => g.id);
+  if (noGroup.length) report.push(`${code}: ${noGroup.length} nhóm thiếu "intro" hoặc "faq" trong i18n/${code}/tools.json: ${noGroup.join(", ")}`);
   if (L.skipped.length) report.push(`${code}: ${L.skipped.length} công cụ chưa có bản dịch trong i18n/${code}/tools.json (chưa có trang): ${L.skipped.join(", ")}`);
   if (mp.length) report.push(`${code}: ${mp.length} câu của khung trang chưa dịch trong i18n/${code}/pages.json (chạy build --missing để xem)`);
   if (mj.length) report.push(`${code}: ${mj.length} chuỗi JS chưa dịch (chạy node scripts/i18n.js extract rồi điền giá trị null trong i18n/${code}/js/), vd. ${mj.slice(0, 3).map(([f, k]) => `${f}: ${JSON.stringify(k).slice(0, 60)}`).join(" · ")}`);

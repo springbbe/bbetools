@@ -1,52 +1,218 @@
 {
  "site": {
   "tagline": "Free online tools that run right in your browser",
-  "description": "Free online tools: merge and compress PDFs, compress images, HEIC to JPG, ID photos, QR codes, video and audio tools, developer utilities… 100% processed on your device; files are never uploaded to any server."
+  "title": "Free online tools that run in your browser",
+  "description": "{0} free online tools: merge and compress PDFs, compress images, HEIC to JPG, QR codes… All in your browser; your files never leave your device."
  },
  "groups": {
   "pdf": {
    "name": "PDF",
-   "desc": "Merge, split, compress, rotate, sign, password-protect and convert PDF files."
+   "desc": "Merge, split, compress, rotate, sign, password-protect and convert PDF files.",
+   "intro": "Merge, split, compress, rotate, reorder, sign, lock or unlock PDFs and convert them to images or text right in your browser. The most used are Merge PDF, Compress PDF for online forms, Sign PDF and Image to PDF, plus redaction and text recognition for scanned PDFs.",
+   "faq": [
+    {
+     "q": "Do I need to install anything or create an account?",
+     "a": "No. Open the page and it works on computers and phones, with no sign-up and no usage limits."
+    },
+    {
+     "q": "Can I use password-protected PDFs?",
+     "a": "Yes, if you know the password: you will be asked for it when opening the file. Unlock PDF removes the password and print or copy restrictions; there is no tool to crack a forgotten password."
+    },
+    {
+     "q": "Can I process large files on a phone?",
+     "a": "Yes, but speed and limits depend on your device's memory. For files of several hundred MB, use a computer; on a phone, work in smaller batches."
+    }
+   ]
   },
   "image": {
    "name": "Image",
-   "desc": "Compress, resize, crop, convert, HEIC to JPG, ID photos, background removal."
+   "desc": "Compress, resize, crop, convert, HEIC to JPG, ID photos, background removal.",
+   "intro": "Compress images to an exact size in KB, resize, crop, rotate, convert formats, turn iPhone HEIC photos into JPG, make ID photos and remove backgrounds with AI that runs on your device. You can also blur sensitive areas, strip GPS location, add watermarks, merge images and extract text from pictures.",
+   "faq": [
+    {
+     "q": "Which image formats are supported?",
+     "a": "JPG, PNG, WebP, GIF, BMP, AVIF and iPhone HEIC/HEIF; some tools also accept SVG. Output is JPG, PNG, WebP or AVIF depending on the tool."
+    },
+    {
+     "q": "Can I process many images at once?",
+     "a": "Yes. Most tools accept several images at once and let you download them one by one or together as a .zip."
+    },
+    {
+     "q": "Do the AI background and ID photo tools need the internet?",
+     "a": "Only the first time, to download the AI model (a few MB) into your browser; after that background removal runs entirely on your device."
+    }
+   ]
   },
   "media": {
    "name": "Audio & Video",
-   "desc": "Voice and screen recording, trim and merge audio, video to MP3, compress video."
+   "desc": "Voice and screen recording, trim and merge audio, video to MP3, compress video.",
+   "intro": "Record your voice or screen, trim and merge audio, make iPhone ringtones, extract audio from video to MP3, and trim or compress videos for messaging and email. Videos are read piece by piece and encoded with your device's hardware, so multi-gigabyte files still work.",
+   "faq": [
+    {
+     "q": "Which formats can be opened?",
+     "a": "Video: MP4, MOV, WebM, MKV; audio: MP3, M4A, WAV, OGG, FLAC, AAC. AVI, WMV or AMR voice recordings usually can't be read in a browser."
+    },
+    {
+     "q": "Is there a video size limit?",
+     "a": "No fixed limit: files are read gradually, so multi-gigabyte videos can still be trimmed and compressed. Speed depends on your device and browser."
+    },
+    {
+     "q": "Which browser works best?",
+     "a": "A recent Chrome, Edge or Safari, because the tools use WebCodecs for hardware video decoding and encoding. Firefox runs most tools but may be slower."
+    }
+   ]
   },
   "text": {
    "name": "Text",
-   "desc": "Word counter, case converter, text compare, find and replace, slugs."
+   "desc": "Word counter, case converter, text compare, find and replace, slugs.",
+   "intro": "Count words, change letter case, create slugs, compare two texts, remove duplicate lines, find and replace, convert to Markdown and HTML, and generate fancy text. All tools handle accented and non-Latin characters correctly.",
+   "faq": [
+    {
+     "q": "Can it handle long texts?",
+     "a": "Yes. Everything runs in your browser, so texts of several hundred thousand characters still work, just more slowly on older devices."
+    },
+    {
+     "q": "How are words counted?",
+     "a": "Each group of characters separated by spaces counts as one word, the same way Word and Google Docs count."
+    },
+    {
+     "q": "How do I compare two versions of a document?",
+     "a": "Use Text Compare: paste or drop two files (TXT, PDF, Word, Excel) and the additions and deletions are highlighted, with a similarity percentage."
+    }
+   ]
   },
   "calc": {
    "name": "Calculators",
-   "desc": "Percentages, discounts, split the bill, unit converter, BMI, due date."
+   "desc": "Percentages, discounts, split the bill, unit converter, BMI, due date.",
+   "intro": "Work out percentages, discounts, compound interest, split bills, convert units, calculate ages, add or subtract dates and count business days, plus BMI, daily calories, due date and a scientific calculator. Results update as you type and are stored in the link so you can share them.",
+   "faq": [
+    {
+     "q": "How do I share a result?",
+     "a": "Click “Copy link”: the numbers you entered are stored in the link, so the recipient sees exactly the same result."
+    },
+    {
+     "q": "Should I use a dot or a comma for decimals?",
+     "a": "Use a dot, e.g. 12.5; money fields add thousands separators automatically."
+    },
+    {
+     "q": "Can the health results (BMI, calories, due date) replace a doctor?",
+     "a": "No. They are estimates from widely used formulas, for reference only; ask a doctor for health decisions."
+    }
+   ]
   },
   "qr": {
    "name": "QR & Barcodes",
-   "desc": "Create QR codes (links, WiFi, contact cards), scan QR from camera, images, PDF; create barcodes."
+   "desc": "Create QR codes (links, WiFi, contact cards), scan QR from camera, images, PDF; create barcodes.",
+   "intro": "Create QR codes for links, WiFi, contact cards and messages; scan QR codes and barcodes with your camera, from screenshots or PDF files; and make EAN or Code 128 barcodes for product labels.",
+   "faq": [
+    {
+     "q": "Do the QR codes expire?",
+     "a": "No. The code contains the content itself (a link, WiFi password…) with no redirect server, so it works forever as long as the link inside still works."
+    },
+    {
+     "q": "Can I put a logo in the middle of the QR code?",
+     "a": "Yes. QR Code Generator lets you add a logo and uses high error correction so the code still scans."
+    },
+    {
+     "q": "How do I scan a QR code from a screenshot?",
+     "a": "Open QR Scanner and choose, drop or paste the image (PDF files work too); no camera needed."
+    }
+   ]
   },
   "office": {
    "name": "Office & Data",
-   "desc": "View Excel/CSV, convert, merge and split Excel files, mail merge, email signatures."
+   "desc": "View Excel/CSV, convert, merge and split Excel files, mail merge, email signatures.",
+   "intro": "View Excel and CSV files without Office, convert Excel to CSV and JSON, merge several workbooks into one, split a table by column, run a mail merge from an Excel list and a Word template, and create email signatures.",
+   "faq": [
+    {
+     "q": "My CSV shows garbled characters. What can I do?",
+     "a": "The tools detect the encoding (UTF-8 or Windows-1258) and delimiter when reading CSV; exported CSV files include a UTF-8 BOM so Excel opens them correctly."
+    },
+    {
+     "q": "Are formulas and formatting kept?",
+     "a": "The tools read each cell's calculated value; when merging, splitting or converting, the new file contains values, not formulas, cell colours or merged cells."
+    },
+    {
+     "q": "Which file types are supported?",
+     "a": "Excel .xlsx, .xls, .ods and CSV; Mail Merge also uses a Word .docx template."
+    }
+   ]
   },
   "dev": {
    "name": "Developer",
-   "desc": "JSON, Base64, JWT, UUID, hashes, regex, timestamps, cron, colors, SQL."
+   "desc": "JSON, Base64, JWT, UUID, hashes, regex, timestamps, cron, colors, SQL.",
+   "intro": "A toolkit for developers: format and validate JSON, convert JSON to CSV and YAML, Base64 and URL encoding, JWT decoding, UUIDs, hashes, regex testing, timestamps, cron explanations, color conversion, SQL formatting, JS/CSS/HTML minification and HTTP status codes.",
+   "faq": [
+    {
+     "q": "Is it safe to paste a JWT or API key?",
+     "a": "The tools run entirely in your browser and send nothing anywhere. Still, if a live key was ever pasted somewhere you don't trust, rotate it."
+    },
+    {
+     "q": "Can a bad regex freeze the page?",
+     "a": "No. Regular expressions run in a separate thread with a time limit; one that runs too long is stopped with an error."
+    },
+    {
+     "q": "Can I use the tools offline?",
+     "a": "Once the page and its libraries have loaded, you can disconnect and the tools keep working until you reload."
+    }
+   ]
   },
   "security": {
    "name": "Security",
-   "desc": "Strong passwords, file and text encryption, checksums, 2FA codes."
+   "desc": "Strong passwords, file and text encryption, checksums, 2FA codes.",
+   "intro": "Generate strong passwords or memorable passphrases, check password strength, encrypt files and text with AES-256, compute checksums to verify downloads and create two-factor (TOTP) codes. All encryption uses the browser's built-in Web Crypto.",
+   "faq": [
+    {
+     "q": "Are the generated passwords truly random?",
+     "a": "Yes. The tool uses crypto.getRandomValues, the browser's cryptographic random generator; passwords are never stored or sent."
+    },
+    {
+     "q": "What if I forget the password of an encrypted file?",
+     "a": "It cannot be recovered: the key is derived from your password and BbeTools keeps no copy. Store the password in a password manager."
+    },
+    {
+     "q": "What are checksums for?",
+     "a": "To make sure a download is not corrupted or tampered with: compare the file's SHA-256 with the one published on the official download page."
+    }
+   ]
   },
   "productivity": {
    "name": "Productivity & Random",
-   "desc": "Pomodoro, stopwatch, timer, spin the wheel, team picker, quick notes."
+   "desc": "Pomodoro, stopwatch, timer, spin the wheel, team picker, quick notes.",
+   "intro": "Pomodoro, stopwatch, countdown timer, spin the wheel, team picker, coin flip, random numbers, quick notes, checklists, a world clock and tests for your camera, microphone, speakers, keyboard, mouse and screen before an online meeting or when buying a used laptop.",
+   "faq": [
+    {
+     "q": "Where are notes and checklists stored?",
+     "a": "In your own browser's storage (localStorage) on this device; clearing site data or using private mode removes them."
+    },
+    {
+     "q": "Are the wheel and draws really random?",
+     "a": "Yes. The tools use the browser's cryptographic random generator (crypto.getRandomValues), so every option has an equal chance."
+    },
+    {
+     "q": "Does the timer keep running in another tab?",
+     "a": "Yes. Time is measured from the system clock, so it stays accurate in a background tab; turn on notifications to be alerted when time is up."
+    }
+   ]
   },
   "download": {
    "name": "Downloads",
-   "desc": "Download Telegram, LINE and Signal stickers, Discord emoji, Twitch emotes, YouTube thumbnails, animated emoji, Google Fonts, GitHub folders, App Store icons and Bluesky and Mastodon photos and videos straight from the source, with no middleman server."
+   "desc": "Download Telegram, LINE and Signal stickers, Discord emoji, Twitch emotes, YouTube thumbnails, animated emoji, Google Fonts, GitHub folders, App Store icons and Bluesky and Mastodon photos and videos straight from the source, with no middleman server.",
+   "intro": "Download Telegram, LINE and Signal stickers, Discord emoji and stickers, Twitch emotes, YouTube thumbnails, animated emoji, Google Fonts, GitHub folders, App Store icons and Bluesky and Mastodon photos and videos. Your browser fetches them straight from the source, with no middleman server.",
+   "faq": [
+    {
+     "q": "How does it work without a middleman server?",
+     "a": "These sources allow web pages to call them directly (they send CORS headers), so your browser fetches the files itself. Sources that block this are not supported."
+    },
+    {
+     "q": "Can I download YouTube, TikTok or Facebook videos?",
+     "a": "No. Those platforms don't allow direct downloads from web pages and re-downloading videos usually breaks their terms, so BbeTools only offers YouTube thumbnails."
+    },
+    {
+     "q": "Can I use the downloaded stickers and images freely?",
+     "a": "No. Stickers, emoji, photos and videos belong to their creators or posters; use them personally or with permission."
+    }
+   ]
   }
  },
  "data": {
@@ -77,8 +243,8 @@
    ],
    "faq": [
     {
-     "q": "Are my files uploaded anywhere?",
-     "a": "No. Merging runs entirely in JavaScript in your browser; files never leave your device."
+     "q": "Will the merged file be larger?",
+     "a": "It is roughly the sum of the original files, since pages are copied as they are without recompressing. If you need it smaller, pass the result on to Compress PDF."
     },
     {
      "q": "Can I merge password-protected PDFs?",
@@ -107,8 +273,8 @@
    ],
    "faq": [
     {
-     "q": "Are my files uploaded anywhere?",
-     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+     "q": "How do I type page ranges?",
+     "a": "Separate ranges with commas, e.g. 1-3, 4-8; each range becomes one file. “8-” means from page 8 to the end. Turn on “Merge the ranges into one file” if you only want a single file."
     },
     {
      "q": "How do I split every page into its own file?",
@@ -140,8 +306,8 @@
    ],
    "faq": [
     {
-     "q": "Are my files uploaded anywhere?",
-     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+     "q": "How do I select many consecutive pages quickly?",
+     "a": "Click the first page, hold Shift and click the last one to select the whole run, or type the page numbers, e.g. 2, 5-7."
     },
     {
      "q": "Is the original file changed?",
@@ -170,8 +336,8 @@
    ],
    "faq": [
     {
-     "q": "Are my files uploaded anywhere?",
-     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+     "q": "I messed up the order. How do I start over?",
+     "a": "Click “Reset” to return to the original order and orientation (deleted pages are not restored). “Reverse” flips the whole page order, handy for scans that came out last page first."
     },
     {
      "q": "Does drag and drop work on phones?",
@@ -203,8 +369,8 @@
    ],
    "faq": [
     {
-     "q": "Are my files uploaded anywhere?",
-     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+     "q": "My file has both landscape and portrait pages. How do I rotate it?",
+     "a": "Use “Rotate landscape pages” or “Rotate portrait pages” to turn only one kind of page at a time; the others stay as they are."
     },
     {
      "q": "Does rotating blur text or images?",
@@ -241,8 +407,8 @@
      "a": "Mostly-text PDFs are already compact. The tool helps most with scanned PDFs or ones with many photos."
     },
     {
-     "q": "Is the file sent to a server for compression?",
-     "a": "No. Every step runs in your browser."
+     "q": "Which compression level should I pick?",
+     "a": "“Medium” is recommended: compact, with images still clear on screen. “Light” keeps image quality almost unchanged; “Strong” gives the smallest file with softer images, fine for messaging and email."
     }
    ]
   },
@@ -263,8 +429,8 @@
    ],
    "faq": [
     {
-     "q": "Are my files uploaded anywhere?",
-     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+     "q": "Can I paste a page image into a chat or Word?",
+     "a": "Yes. Each image has a “Copy image” button so you can paste it straight into another app; if your browser does not allow copying images, download it instead."
     },
     {
      "q": "Should I choose JPG or PNG?",
@@ -297,8 +463,8 @@
    ],
    "faq": [
     {
-     "q": "Are my files uploaded anywhere?",
-     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+     "q": "Which page orientation should I choose?",
+     "a": "“Match image” uses portrait pages for portrait photos and landscape pages for landscape ones; pick “Portrait” or “Landscape” if you want every page the same way."
     },
     {
      "q": "Do iPhone photos (HEIC) work?",
@@ -334,8 +500,8 @@
    ],
    "faq": [
     {
-     "q": "Are my files uploaded anywhere?",
-     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+     "q": "When should I turn off “Join lines broken mid-sentence”?",
+     "a": "When you need the exact line breaks of the PDF, such as poems, lists or addresses. With it on, lines broken in the middle of a sentence are joined, which is better for pasting into Word or a message."
     },
     {
      "q": "Why can't I get text from my file?",
@@ -368,8 +534,8 @@
    ],
    "faq": [
     {
-     "q": "Are my files uploaded anywhere?",
-     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+     "q": "Can I adjust the signature with the keyboard?",
+     "a": "Yes. Select the signature, then use the arrow keys to move it, + and − to resize it and Delete to remove it."
     },
     {
      "q": "Is this a digital signature?",
@@ -401,8 +567,8 @@
    ],
    "faq": [
     {
-     "q": "Are my files uploaded anywhere?",
-     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+     "q": "Can numbering start from something other than 1?",
+     "a": "Yes. Open “More options” and enter the “Starting number”; you can also change the font size, colour and distance from the page edge there."
     },
     {
      "q": "If I skip the cover, where does numbering start?",
@@ -430,8 +596,8 @@
    ],
    "faq": [
     {
-     "q": "Are my files uploaded anywhere?",
-     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+     "q": "Will accented text in the watermark display correctly?",
+     "a": "Yes. The text is drawn as a transparent image using the Be Vietnam Pro font, so accents show correctly on every device; because it is an image, the watermark text cannot be selected or searched."
     },
     {
      "q": "Can the watermark be removed?",
@@ -464,8 +630,8 @@
    ],
    "faq": [
     {
-     "q": "Are my files uploaded anywhere?",
-     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+     "q": "Can I lock several files with the same password?",
+     "a": "Yes. Choose several files at once; every file is locked with the password you enter, and you can download them one by one or as a .zip."
     },
     {
      "q": "Is the encryption secure?",
@@ -497,8 +663,8 @@
    ],
    "faq": [
     {
-     "q": "Are my files uploaded anywhere?",
-     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+     "q": "Do I need a password if the file only blocks printing and copying?",
+     "a": "No. If the file opens normally but has restricted permissions, the tool removes the restrictions without a password; only files that ask for a password when opening need one."
     },
     {
      "q": "Can it crack a password I forgot?",
@@ -526,8 +692,8 @@
    ],
    "faq": [
     {
-     "q": "Are my files uploaded anywhere?",
-     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+     "q": "Can I save each page as its own file?",
+     "a": "Yes. Turn on “Each page as a separate file”, then download the files one by one or as a .zip."
     },
     {
      "q": "How is this different from Split PDF?",
@@ -555,8 +721,8 @@
    ],
    "faq": [
     {
-     "q": "Are my files uploaded anywhere?",
-     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+     "q": "Why are there lots of tiny images?",
+     "a": "Those are icons, rules and small background patterns stored in the PDF. Increase the minimum size to skip them."
     },
     {
      "q": "Is image quality reduced?",
@@ -584,8 +750,8 @@
    ],
    "faq": [
     {
-     "q": "Are my files uploaded anywhere?",
-     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+     "q": "What if pages have different margins?",
+     "a": "With “Auto-remove white margins”, each page is trimmed by its own margins. Turn on “Crop all pages evenly” to keep pages of the same size equal after cropping, which suits books and scanned documents."
     },
     {
      "q": "Is the cropped area deleted?",
@@ -613,8 +779,8 @@
    ],
    "faq": [
     {
-     "q": "Are my files uploaded anywhere?",
-     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+     "q": "How do I insert a blank page in the middle?",
+     "a": "Click a page in the grid to choose the position, then insert before or after the selected pages; the blank page appears in the grid right away so you can check it."
     },
     {
      "q": "What size are the blank pages?",
@@ -642,8 +808,8 @@
    ],
    "faq": [
     {
-     "q": "Are my files uploaded anywhere?",
-     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+     "q": "Can I convert several files at once?",
+     "a": "Yes. Choose several PDF files; each is converted to grayscale, and you can download them one by one or as a .zip."
     },
     {
      "q": "Is text turned into images?",
@@ -672,8 +838,8 @@
    ],
    "faq": [
     {
-     "q": "Are my files uploaded anywhere?",
-     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+     "q": "What does “Remove all hidden info” remove?",
+     "a": "It removes the title, author, subject, keywords and other fields, plus the creation and modification dates and the XMP block, so the file you send does not reveal who wrote it or which software was used."
     },
     {
      "q": "What is PDF metadata for?",
@@ -702,8 +868,8 @@
    ],
    "faq": [
     {
-     "q": "Are my files uploaded anywhere?",
-     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+     "q": "How do I know which boxes can be filled in?",
+     "a": "Form fields are highlighted in blue on the page; click one to fill it in and press Tab to move to the next."
     },
     {
      "q": "Will accented characters display correctly?",
@@ -735,8 +901,8 @@
    ],
    "faq": [
     {
-     "q": "Are my files uploaded anywhere?",
-     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+     "q": "When should I flatten a form?",
+     "a": "Before sending a completed form or contract, so the recipient cannot change it and the file looks the same in every PDF viewer (some phone apps do not show text inside form fields)."
     },
     {
      "q": "Does flattening lose the filled content?",
@@ -765,8 +931,8 @@
    ],
    "faq": [
     {
-     "q": "Are my files uploaded anywhere?",
-     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+     "q": "Does zooming in on a phone make it blurry?",
+     "a": "No. Use the zoom buttons on the toolbar or full-screen mode; pages are redrawn at the new zoom level, so text stays sharp."
     },
     {
      "q": "Does searching “cafe” find “café”?",
@@ -799,12 +965,12 @@
    ],
    "faq": [
     {
-     "q": "Are my files uploaded anywhere?",
-     "a": "No. Every step runs in JavaScript right in your browser; files never leave your device."
+     "q": "Which filter should I choose?",
+     "a": "“Black & white” for typed text, sharpest and smallest; “Gray” for handwriting or faint images; “Color” when you need to keep red stamps or colour pictures."
     },
     {
-     "q": "Are the photos sent online?",
-     "a": "No. The camera, the photos, the straightening and background whitening all run on your device."
+     "q": "Can I use a laptop webcam?",
+     "a": "Yes, as long as the browser is allowed to use the camera. You can also pick photos you already took with your phone instead of opening the camera."
     },
     {
      "q": "How do I get the best scan?",
@@ -834,8 +1000,8 @@
    ],
    "faq": [
     {
-     "q": "Are my images sent to a server?",
-     "a": "No. Images are compressed right in your browser with MozJPEG/WebP encoders running in WebAssembly."
+     "q": "What quality should I choose?",
+     "a": "70–80 is a good balance: the file shrinks a lot and the difference is hard to see. Drag the before / after slider to check for yourself before downloading."
     },
     {
      "q": "Can I get below 100 KB?",
@@ -864,8 +1030,8 @@
    ],
    "faq": [
     {
-     "q": "Are my images uploaded to a server?",
-     "a": "No. Every step runs right in your browser; images never leave your device."
+     "q": "Will images smaller than the target be enlarged?",
+     "a": "Not if “Don't enlarge small images” is on: images already smaller than the target keep their size, so they don't get blurry."
     },
     {
      "q": "Does shrinking make images jagged?",
@@ -894,8 +1060,8 @@
    ],
    "faq": [
     {
-     "q": "Are my images uploaded to a server?",
-     "a": "No. Every step runs right in your browser; images never leave your device."
+     "q": "Can I crop to an exact pixel size?",
+     "a": "Yes. Enter the position (from left, from top) and the width and height of the crop area in pixels; the frame on the image follows the numbers you type."
     },
     {
      "q": "Does cropping reduce quality?",
@@ -924,8 +1090,8 @@
    ],
    "faq": [
     {
-     "q": "Are my images uploaded to a server?",
-     "a": "No. Every step runs right in your browser; images never leave your device."
+     "q": "Can I rotate many images the same way?",
+     "a": "Yes. Select several images and use “Apply to all images”; you can still adjust individual images with the buttons on each one."
     },
     {
      "q": "Why do phone photos show up sideways on a computer?",
@@ -955,8 +1121,8 @@
    ],
    "faq": [
     {
-     "q": "Are my images uploaded to a server?",
-     "a": "No. Every step runs right in your browser; images never leave your device."
+     "q": "What happens to a transparent background when converting to JPG?",
+     "a": "JPG has no transparency, so transparent areas are filled with the background colour you pick (white by default). To keep transparency, choose PNG, WebP or AVIF."
     },
     {
      "q": "Which format should I choose?",
@@ -989,8 +1155,8 @@
      "a": "HEIC (HEIF) is the iPhone's default photo format. It's lighter than JPG, but many Windows PCs, web apps and upload forms can't open it."
     },
     {
-     "q": "Are photos uploaded to a server for conversion?",
-     "a": "No. HEIC decoding runs in WebAssembly (libheif) right in your browser."
+     "q": "Should I choose JPG or PNG?",
+     "a": "JPG is light and opens everywhere (Windows, messaging apps, upload forms), which suits most needs. PNG keeps every pixel but is much larger."
     },
     {
      "q": "What about Live Photos or burst shots?",
@@ -1046,8 +1212,8 @@
    ],
    "faq": [
     {
-     "q": "Are photos sent to a server for AI processing?",
-     "a": "No. The AI model (MODNet) is downloaded to your browser and runs on your device; photos never leave it."
+     "q": "The hair edges look rough. What can I do?",
+     "a": "The model works best with simple backgrounds and a sharp subject. With a busy background, try a new photo in front of a plain wall, or choose “Blur background” so the hair edges look more natural."
     },
     {
      "q": "Does it work on objects and animals?",
@@ -1077,8 +1243,8 @@
    ],
    "faq": [
     {
-     "q": "Are my images uploaded to a server?",
-     "a": "No. Every step runs right in your browser; images never leave your device."
+     "q": "Can I cover several areas in one image?",
+     "a": "Yes. Drag on the image to add each area, as a rectangle or an ellipse; click × on an area to remove it, or “Remove all areas” to start over."
     },
     {
      "q": "Should I blur or black out?",
@@ -1092,6 +1258,7 @@
   },
   "strip-exif": {
    "name": "Remove EXIF & GPS Data",
+   "seoTitle": "Remove EXIF and GPS data from photos",
    "desc": "View and remove camera info, date/time and GPS location from photos.",
    "keywords": [
     "remove exif",
@@ -1108,8 +1275,8 @@
    ],
    "faq": [
     {
-     "q": "Are my images uploaded to a server?",
-     "a": "No. Every step runs right in your browser; images never leave your device."
+     "q": "What does “Remove location only” keep?",
+     "a": "It removes only the coordinates, altitude and other location data, keeping the camera, date and other details. Choose “Remove all” to also drop the camera, serial number, date, author and embedded thumbnail."
     },
     {
      "q": "Do phone photos reveal my location?",
@@ -1142,8 +1309,8 @@
    ],
    "faq": [
     {
-     "q": "Are my images uploaded to a server?",
-     "a": "No. Every step runs right in your browser; images never leave your device."
+     "q": "How do I make the watermark hard to crop out?",
+     "a": "Turn on “Tile across the image” so the text or logo repeats diagonally over the whole picture; a watermark in one corner is easy to crop away."
     },
     {
      "q": "Is the watermark consistent on images of different sizes?",
@@ -1172,8 +1339,8 @@
    ],
    "faq": [
     {
-     "q": "Are my images uploaded to a server?",
-     "a": "No. Every step runs right in your browser; images never leave your device."
+     "q": "Text is hard to read on a bright photo. What can I do?",
+     "a": "Turn on the text outline or shadow, or use “Dark band behind text” so the text stands out on any background."
     },
     {
      "q": "Which fonts are available?",
@@ -1202,8 +1369,8 @@
    ],
    "faq": [
     {
-     "q": "Are my images uploaded to a server?",
-     "a": "No. Every step runs right in your browser; images never leave your device."
+     "q": "Should I save the merged image as JPG or PNG?",
+     "a": "JPG is light and good for sharing and social media. Choose PNG when you need a transparent background or the result is made of screenshots with lots of text."
     },
     {
      "q": "Can I merge images of different sizes?",
@@ -1232,8 +1399,8 @@
    ],
    "faq": [
     {
-     "q": "Are my images uploaded to a server?",
-     "a": "No. Every step runs right in your browser; images never leave your device."
+     "q": "Can I choose any number of rows and columns?",
+     "a": "Yes. Besides the 1×2, 1×3, 2×2, 2×3 and 3×3 presets, choose “Custom” and enter the number of rows and columns."
     },
     {
      "q": "In what order do I post a grid to Instagram?",
@@ -1262,8 +1429,8 @@
    ],
    "faq": [
     {
-     "q": "Are my images uploaded to a server?",
-     "a": "No. Every step runs right in your browser; images never leave your device."
+     "q": "Where do I put the favicon files?",
+     "a": "Unzip the .zip into your site's root folder (next to index.html) and paste the code into the <head> tag. If you use another folder, update the paths in the code to match."
     },
     {
      "q": "Which files are in the favicon set?",
@@ -1292,8 +1459,8 @@
    ],
    "faq": [
     {
-     "q": "Are my SVG files uploaded anywhere?",
-     "a": "No. The browser renders the SVG right on your device."
+     "q": "What if I need an exact width, such as 1200 px?",
+     "a": "Choose the “By width” resolution and enter the pixels; the height is calculated from the SVG's aspect ratio."
     },
     {
      "q": "Does enlarging an SVG make it pixelated?",
@@ -1322,8 +1489,8 @@
    ],
    "faq": [
     {
-     "q": "Are my images uploaded to a server?",
-     "a": "No. Every step runs right in your browser; images never leave your device."
+     "q": "How much larger is the Base64 string than the image?",
+     "a": "About 33%. Only embed small images such as icons and logos under about 10 KB; compress larger images first with Compress Image."
     },
     {
      "q": "When should I embed images as Base64?",
@@ -1352,8 +1519,8 @@
    ],
    "faq": [
     {
-     "q": "Are my images uploaded to a server?",
-     "a": "No. Every step runs right in your browser; images never leave your device."
+     "q": "How do I pick a colour on a phone?",
+     "a": "Press and hold on the image, then drag to inspect colours through the magnifier; lift your finger to pick that colour, and its code is copied straight away."
     },
     {
      "q": "How is the dominant palette calculated?",
@@ -1382,8 +1549,8 @@
    ],
    "faq": [
     {
-     "q": "Are my images uploaded to a server?",
-     "a": "No. Every step runs right in your browser; images never leave your device."
+     "q": "What if my images have different aspect ratios?",
+     "a": "Choose “Keep whole image” so each image sits inside the frame with the background colour around it, or “Crop to fill” so it covers the frame and the excess edges are cut off."
     },
     {
      "q": "Why do the colors look a bit different?",
@@ -1413,8 +1580,8 @@
    ],
    "faq": [
     {
-     "q": "Are images sent to a server for recognition?",
-     "a": "No. The Tesseract recognizer (WebAssembly) is downloaded to your browser and runs on your device."
+     "q": "Why is it slower the first time?",
+     "a": "The first time, the browser downloads the recognition engine (about 5 MB) and keeps it; later runs start right away."
     },
     {
      "q": "How accurate is it?",
@@ -1443,8 +1610,8 @@
    ],
    "faq": [
     {
-     "q": "Are my images uploaded to a server?",
-     "a": "No. Every step runs right in your browser; images never leave your device."
+     "q": "No ink strokes were detected. What can I do?",
+     "a": "Increase the sensitivity or pick “All” ink colours, then drag on the image to mark just the signature or stamp, leaving out the printed text around it."
     },
     {
      "q": "Can a signature over a stamp be separated?",
@@ -1479,8 +1646,8 @@
    ],
    "faq": [
     {
-     "q": "Are recordings sent online?",
-     "a": "No. Audio is recorded and kept in the browser on your device. Download it before closing or reloading the page, since recordings that aren't downloaded are lost."
+     "q": "Is the recording kept if I close the page?",
+     "a": "No. Recordings only live in the open page; download them before closing or reloading it."
     },
     {
      "q": "Should I turn on “Noise suppression, echo cancellation”?",
@@ -1518,8 +1685,8 @@
      "a": "When the browser asks to share, turn on “Share audio”. Chrome and Edge capture a tab's audio; on Windows they can capture the whole screen's audio; on macOS only tab audio. You can turn on the microphone for narration."
     },
     {
-     "q": "Is the video sent online?",
-     "a": "No. Video and audio are recorded in the browser on your device; download the video before closing the page."
+     "q": "How many frames per second should I use?",
+     "a": "30 is recommended for most tutorials. 15 is enough for slides and gives a lighter file; 60 is smoother for games or fast scrolling but makes larger files."
     }
    ]
   },
@@ -1549,8 +1716,8 @@
      "a": "Select up to 40 seconds, choose M4R and download. Connect the iPhone to a computer, open Finder (Mac) or iTunes (Windows) and drag the .m4r file onto the iPhone; then pick it in Settings → Sounds → Ringtone."
     },
     {
-     "q": "Is the file uploaded?",
-     "a": "No. The file is read and trimmed right on your device."
+     "q": "Why is the trimmed WAV file so large?",
+     "a": "WAV is uncompressed, about 10 MB per minute. Choose MP3 or M4A if you need a small file to share."
     }
    ]
   },
@@ -1579,8 +1746,8 @@
      "a": "Yes. The files are decoded and re-encoded into one file in the format you choose."
     },
     {
-     "q": "Are files uploaded?",
-     "a": "No, everything happens on your device."
+     "q": "Does “Even out volume” distort the sound?",
+     "a": "No. Quiet tracks are raised and loud ones lowered so they sound even, without clipping."
     }
    ]
   },
@@ -1610,8 +1777,8 @@
      "a": "No. Quality lost in the first compression can't be restored; a higher bitrate only makes the file bigger."
     },
     {
-     "q": "Are files uploaded?",
-     "a": "No. Files are converted right on your device."
+     "q": "Should I convert to mono?",
+     "a": "Mono merges the two channels into one, which suits voice recordings and lectures and halves the size of a WAV file. Keep stereo for music with left–right effects."
     }
    ]
   },
@@ -1639,8 +1806,8 @@
      "a": "Most MP4 videos have AAC audio: with M4A the audio is copied as is, very fast with no quality loss. MP3 must be re-encoded but plays everywhere."
     },
     {
-     "q": "Is the video uploaded?",
-     "a": "No. The video is processed right on your device."
+     "q": "Can I extract audio from just part of the video?",
+     "a": "Yes. Turn on “Only extract a segment” and enter times as minutes:seconds, e.g. 1:05; leave “To” empty to go to the end of the video."
     }
    ]
   },
@@ -1665,8 +1832,12 @@
      "a": "GIF only has 256 colors per frame and compresses much worse than video. For lighter files: a short segment, small width (320–480 px), 8–10 fps and the “Lighter” palette."
     },
     {
-     "q": "Is the video uploaded?",
-     "a": "No, the animation is created right on your device."
+     "q": "How many frames per second should I choose?",
+     "a": "10 fps is recommended: smooth enough and light. 15–20 is smoother but much heavier; 5 gives a very small but choppy file."
+    },
+    {
+     "q": "Can the GIF play faster or slower than the video?",
+     "a": "Yes. Pick a speed of 0.5×, 1×, 1.5× or 2× before clicking “Create GIF”."
     }
    ]
   },
@@ -1695,8 +1866,8 @@
      "a": "Yes, with Fast trimming the video is read piece by piece, so it's very light."
     },
     {
-     "q": "Is the video uploaded?",
-     "a": "No. The video is trimmed right on your device."
+     "q": "Can I remove the sound while trimming?",
+     "a": "Yes. Turn on “Remove audio” and the trimmed clip will have no sound."
     }
    ]
   },
@@ -1725,8 +1896,8 @@
      "a": "H.264 plays everywhere. H.265 (only shown when supported) is about 30% smaller at the same quality, but older devices and apps may not play it."
     },
     {
-     "q": "Is the video uploaded?",
-     "a": "No. The video is compressed right on your device."
+     "q": "How do I fit a video under the Gmail attachment limit?",
+     "a": "Compress by size and choose the “25 MB · Gmail attachment” preset or type the size you want. A size that is too small for the video's length makes the picture blurry and blocky; trim the video first in that case."
     }
    ]
   },
@@ -1751,8 +1922,12 @@
      "a": "Yes. Images are decoded directly from the video at its original resolution (e.g. 1920×1080 or 4K), regardless of the preview size on screen."
     },
     {
-     "q": "Is the video uploaded?",
-     "a": "No, images are captured right on your device."
+     "q": "Can I step through frames with the keyboard?",
+     "a": "Yes. The , and . keys go back and forward one frame; C captures the current frame."
+    },
+    {
+     "q": "What is “Capture whole video” every N seconds for?",
+     "a": "To quickly grab a series of previews, illustrations or one image per slide from a lecture video; download them one by one or as a .zip."
     }
    ]
   },
@@ -1789,6 +1964,7 @@
   },
   "word-counter": {
    "name": "Word & Character Counter",
+   "seoTitle": "Word and character counter",
    "desc": "Count words, characters, sentences, paragraphs and reading time as you type.",
    "keywords": [
     "word counter",
@@ -1810,11 +1986,16 @@
     {
      "q": "Is my text saved?",
      "a": "It's never sent anywhere. You can turn on “Remember text” to keep it temporarily in your own browser."
+    },
+    {
+     "q": "How is reading time calculated?",
+     "a": "The word count divided by an average reading speed of about 230 words per minute; reading aloud is usually slower."
     }
    ]
   },
   "case-converter": {
    "name": "Case Converter",
+   "seoTitle": "Case converter",
    "desc": "Convert to UPPERCASE, lowercase, Title Case or Sentence case, with full Unicode support.",
    "keywords": [
     "case converter",
@@ -1837,6 +2018,10 @@
     {
      "q": "Do camelCase and snake_case keep accents?",
      "a": "No. Programming styles strip accents and special characters, e.g. “Phone number” becomes phoneNumber or phone_number."
+    },
+    {
+     "q": "When is “Swap case” useful?",
+     "a": "When you typed with Caps Lock on by mistake: upper case becomes lower case and vice versa, so you don't have to retype."
     }
    ]
   },
@@ -1863,6 +2048,10 @@
     {
      "q": "Does the length limit cut words in half?",
      "a": "No, the tool backs up to the nearest separator so no word is cut in two."
+    },
+    {
+     "q": "Should I use hyphens or underscores?",
+     "a": "Hyphens (-) are the common choice for web addresses and are recommended by Google; underscores (_) or dots are better for file or variable names."
     }
    ]
   },
@@ -1887,8 +2076,8 @@
    ],
    "faq": [
     {
-     "q": "Is my text sent to a server for comparison?",
-     "a": "No. The diff algorithm (Myers) and reading PDF, Word and Excel files all run right in your browser."
+     "q": "What are “Ignore whitespace” and “Ignore case” for?",
+     "a": "So you are not shown differences just because of extra spaces, different line breaks or upper and lower case; turn them on when comparing copies from different sources."
     },
     {
      "q": "Should I compare by lines or by words?",
@@ -1907,6 +2096,7 @@
   },
   "dedupe-lines": {
    "name": "Remove Duplicate Lines & Sort",
+   "seoTitle": "Remove duplicate lines and sort",
    "desc": "Remove duplicate and empty lines, sort A→Z, reverse or shuffle lines.",
    "keywords": [
     "remove duplicate lines",
@@ -1928,6 +2118,10 @@
     {
      "q": "Are “An” and “an” treated as duplicates?",
      "a": "Yes when “Case-insensitive” is on; the first occurrence is kept."
+    },
+    {
+     "q": "Can I sort by length or shuffle?",
+     "a": "Yes. Besides A → Z, you can sort short → long, long → short, reverse, or shuffle, for example to mix up a draw list."
     }
    ]
   },
@@ -1954,6 +2148,10 @@
     {
      "q": "Can a bad expression freeze the page?",
      "a": "No, the expression runs in a separate thread and stops automatically after a few seconds if it loops too long."
+    },
+    {
+     "q": "How do I delete a word everywhere?",
+     "a": "Leave “Replace with” empty: every match of the search term is deleted."
     }
    ]
   },
@@ -2046,6 +2244,10 @@
     {
      "q": "A price includes 10%; what was the original price?",
      "a": "Choose “X is Y% of what number”, enter the increased price as X and Y = 110; don't just subtract 10%."
+    },
+    {
+     "q": "Does a 10% increase followed by a 10% decrease get back to the start?",
+     "a": "No. 100 up 10% is 110, and 10% off 110 is 99. To find the price before an increase, use “X is Y% of what number” with Y = 110."
     }
    ]
   },
@@ -2068,6 +2270,14 @@
     {
      "q": "Is 20% off then another 10% off the same as 30% off?",
      "a": "No. The second discount applies to the reduced price, so the total is only 28%: 100 → 80 → 72."
+    },
+    {
+     "q": "Can I enter a discount amount instead of a percentage?",
+     "a": "Yes. Choose the “Amount” discount type and enter how much is taken off; the tool shows the price to pay and the actual discount."
+    },
+    {
+     "q": "What if I buy several items?",
+     "a": "Enter the “Quantity”: the discounted price and the savings are multiplied by the number of items, with the price of one item shown too."
     }
    ]
   },
@@ -2094,6 +2304,10 @@
     {
      "q": "What is the rule of 72?",
      "a": "Divide 72 by the annual rate (%) to get roughly how many years it takes for money to double. At 8% a year, about 9 years."
+    },
+    {
+     "q": "What is the difference between contributing at the start or end of the month?",
+     "a": "Contributions at the start of the month earn interest in that month, so the result is slightly higher. By default the tool assumes end-of-month contributions; turn on “Contribute at the start of the month” if you invest as soon as you are paid."
     }
    ]
   },
@@ -2121,6 +2335,10 @@
     {
      "q": "How is the minimum number of transfers calculated?",
      "a": "The tool works out how much each person overpaid or underpaid, then matches the person who owes the most with the one owed the most until everything is settled. A group of n people needs at most n − 1 transfers."
+    },
+    {
+     "q": "What if someone didn't take part in an expense?",
+     "a": "When adding the expense, untick that person in the split-between list; the expense is shared only among the others."
     }
    ]
   },
@@ -2178,11 +2396,16 @@
     {
      "q": "What is the “East Asian age” shown?",
      "a": "Your age as counted traditionally in Vietnam and East Asia: by lunar years, starting at 1 at birth. The main result is your actual age."
+    },
+    {
+     "q": "What is the “10,000-day milestone”?",
+     "a": "The day you turn 10,000 days old (about 27 years and 4 months), a fun date to celebrate; the tool tells you when it falls."
     }
    ]
   },
   "date-calculator": {
    "name": "Date Calculator & Business Days",
+   "seoTitle": "Date calculator and business days",
    "desc": "Days between two dates, add or subtract days, and count business days.",
    "keywords": [
     "date calculator",
@@ -2204,6 +2427,10 @@
     {
      "q": "Are swapped working days taken into account?",
      "a": "Not yet. Swapped working days are announced each year and can differ between public agencies and businesses."
+    },
+    {
+     "q": "What if I also work on Saturdays?",
+     "a": "Turn on “Saturday is a working day”. By default the tool treats Saturday and Sunday as days off."
     }
    ]
   },
@@ -2230,6 +2457,10 @@
     {
      "q": "Why do Asians use different thresholds?",
      "a": "At the same BMI, Asians usually have more body fat and a higher, earlier risk of heart disease and diabetes, so the WHO recommends lower thresholds for the Asia-Pacific region."
+    },
+    {
+     "q": "Does BMI apply to children or pregnant women?",
+     "a": "No. BMI does not apply to people under 18, pregnant women or very muscular athletes; they need other measures and advice from a doctor."
     }
    ]
   },
@@ -2256,6 +2487,10 @@
     {
      "q": "How much should I eat to lose 0.5 kg a week?",
      "a": "About 550 kcal a day below your TDEE (1 kg of fat ≈ 7,700 kcal). Don't lose more than 1 kg a week or eat below 1,200 kcal (women) or 1,500 kcal (men) without medical supervision."
+    },
+    {
+     "q": "How accurate is the result?",
+     "a": "The Mifflin–St Jeor formula gives an average estimate, accurate to about ±10%. Track your weight for a few weeks and adjust your intake to suit your body."
     }
    ]
   },
@@ -2282,6 +2517,10 @@
     {
      "q": "Should I trust my last period or the ultrasound?",
      "a": "A first-trimester ultrasound (crown-rump length) is usually more accurate when you don't remember the date or your cycles are irregular; your doctor decides the final due date."
+    },
+    {
+     "q": "What share of babies are born on their due date?",
+     "a": "Only about 4–5%. Birth anywhere from week 37 to week 42 is considered full term, so the due date is just a reference point."
     }
    ]
   },
@@ -2337,6 +2576,10 @@
     {
      "q": "Why is IIII marked as wrong?",
      "a": "Standard notation uses subtraction: 4 is IV, 9 is IX, 40 is XL, 90 is XC… IIII only appears on clock faces."
+    },
+    {
+     "q": "Is there a zero in Roman numerals?",
+     "a": "No. The Romans had no symbol for zero, so the tool only converts numbers from 1 upwards."
     }
    ]
   },
@@ -2394,6 +2637,10 @@
     {
      "q": "Which codes can it read?",
      "a": "QR, Micro QR, Data Matrix, Aztec, PDF417 and common barcodes such as EAN-13, Code 128, Code 39 and UPC."
+    },
+    {
+     "q": "What if a code won't scan?",
+     "a": "Centre the code in the frame with enough light and hold steady; with images, use a clearer picture or crop close to the code. In the dark, turn on the flashlight if your phone and browser support it."
     }
    ]
   },
@@ -2430,6 +2677,7 @@
   },
   "excel-viewer": {
    "name": "Excel & CSV Viewer",
+   "seoTitle": "Excel and CSV viewer",
    "desc": "Open .xlsx, .xls, .ods and .csv files without Excel; switch sheets, search, filter and sort.",
    "keywords": [
     "excel viewer",
@@ -2445,8 +2693,8 @@
    ],
    "faq": [
     {
-     "q": "Is my Excel file uploaded anywhere?",
-     "a": "No. The file is read right in your browser with the SheetJS library; no server receives your file."
+     "q": "Can I search within one column?",
+     "a": "Yes. Pick a column next to the search box to filter only that column; typing without accents still finds accented text."
     },
     {
      "q": "CSV accented characters look garbled?",
@@ -2460,6 +2708,7 @@
   },
   "excel-csv": {
    "name": "Excel ↔ CSV Converter",
+   "seoTitle": "Convert Excel to CSV",
    "desc": "Convert Excel to UTF-8 CSV without garbled characters (one file per sheet) and CSV to Excel, keeping leading zeros.",
    "keywords": [
     "excel to csv",
@@ -2511,6 +2760,10 @@
     {
      "q": "Are formulas kept?",
      "a": "Formula cells are copied as their calculated values, since cell positions change after merging and the formulas would break."
+    },
+    {
+     "q": "What is the “Source” column for?",
+     "a": "It records the file (and sheet) each row came from, so you still know where a row originated after merging."
     }
    ]
   },
@@ -2537,11 +2790,16 @@
     {
      "q": "Does each part keep the header row?",
      "a": "Yes, with “First row is the header” on, every file/sheet gets the header row and a filter."
+    },
+    {
+     "q": "Which output should I choose?",
+     "a": "“1 file, many sheets” is handy for reviewing everything in one file; “Many Excel files” or “Many CSV files” suit sending each part separately to each branch or department."
     }
    ]
   },
   "json-excel": {
    "name": "JSON ↔ Excel Converter",
+   "seoTitle": "Convert JSON to Excel",
    "desc": "Convert JSON arrays into Excel tables (flattening nested objects) and Excel/CSV into JSON.",
    "keywords": [
     "json to excel",
@@ -2563,6 +2821,10 @@
     {
      "q": "How do Excel dates come out in JSON?",
      "a": "Date cells are written in standard ISO “yyyy-mm-dd” form (with the time if the cell has one); numbers stay numbers."
+    },
+    {
+     "q": "What does “Flatten nested objects” do?",
+     "a": "An object like {\"price\": {\"list\": 1}} becomes a column named “price.list”. With the option off, the object is kept as JSON text in a single cell."
     }
    ]
   },
@@ -2620,11 +2882,16 @@
     {
      "q": "Is my information saved?",
      "a": "Only remembered in this device's browser so it's there next time; never sent anywhere. Click “Reset” to clear it."
+    },
+    {
+     "q": "How do I paste the signature into Gmail?",
+     "a": "Click “Copy signature”, open Gmail → gear icon → See all settings → Signature, create a new signature, paste it into the editor and click Save Changes at the bottom of the page."
     }
    ]
   },
   "json-formatter": {
    "name": "JSON Formatter & Validator",
+   "seoTitle": "JSON formatter and validator",
    "desc": "Beautify, minify, sort keys and validate JSON, pointing to the exact line/column of errors.",
    "keywords": [
     "json formatter",
@@ -2641,17 +2908,22 @@
    ],
    "faq": [
     {
-     "q": "Is my JSON sent to a server?",
-     "a": "No. Everything uses JSON.parse right in your browser."
+     "q": "How do I fix a syntax error?",
+     "a": "The tool points to the exact line, column and snippet. Common mistakes are a missing comma between items, a trailing comma, single quotes instead of double quotes, or unquoted keys."
     },
     {
      "q": "Can it fix “almost valid” JSON?",
      "a": "There's a light repair option: remove // comments and trailing commas, and turn single quotes into double quotes."
+    },
+    {
+     "q": "What is “Sort keys A→Z” for?",
+     "a": "It puts the keys of two JSON files in the same order, making them easy to compare with Text Compare or when reviewing changes in Git."
     }
    ]
   },
   "json-convert": {
    "name": "JSON ↔ CSV/YAML Converter",
+   "seoTitle": "Convert JSON to CSV and YAML",
    "desc": "Convert back and forth between JSON, CSV and YAML.",
    "keywords": [
     "json to csv",
@@ -2682,6 +2954,7 @@
   },
   "base64": {
    "name": "Base64 Encode/Decode",
+   "seoTitle": "Base64 encode and decode",
    "desc": "Encode and decode Base64 for UTF-8 text and files.",
    "keywords": [
     "base64 encode",
@@ -2703,6 +2976,10 @@
     {
      "q": "Does accented text decode correctly?",
      "a": "Yes, the tool uses UTF-8, so accented letters and emoji are kept. It also accepts URL-safe Base64 (- _) and strings missing the = padding."
+    },
+    {
+     "q": "Can I encode large files?",
+     "a": "Yes, for moderate sizes. Files over 20 MB produce a Base64 string too long to show in the page; Base64 is always about 33% longer than the original data."
     }
    ]
   },
@@ -2729,6 +3006,10 @@
     {
      "q": "Why does + become a space?",
      "a": "In form data, spaces are encoded as +. Turn off “Turn + into spaces” if the + is real."
+    },
+    {
+     "q": "Can I decode several URLs at once?",
+     "a": "Yes. Turn on “Process each line” and paste one URL per line."
     }
    ]
   },
@@ -2755,6 +3036,10 @@
     {
      "q": "Do accented letters need encoding?",
      "a": "Not on UTF-8 pages. Only encode non-ASCII characters for old systems without UTF-8 support."
+    },
+    {
+     "q": "Should I use named or numeric entities?",
+     "a": "Named entities (&eacute;) are readable but exist only for some characters; decimal (&#233;) or hex (&#xE9;) numeric entities work for every character, including emoji."
     }
    ]
   },
@@ -2811,11 +3096,16 @@
     {
      "q": "Can UUIDs collide?",
      "a": "Practically never: UUID v4 has 122 random bits, generated with the browser's crypto.getRandomValues."
+    },
+    {
+     "q": "Can I see when an existing UUID was created?",
+     "a": "Yes. Paste it into the checker to see its version, variant and creation time (for time-based versions such as v1, v6 and v7)."
     }
    ]
   },
   "hash": {
    "name": "Hash Generator (MD5/SHA)",
+   "seoTitle": "MD5 and SHA-256 hash generator",
    "desc": "Calculate MD5, SHA-1, SHA-256 and SHA-512 hashes of text.",
    "keywords": [
     "hash generator",
@@ -2838,6 +3128,10 @@
     {
      "q": "Can a hash be reversed into text?",
      "a": "No. Hashes are one-way; they can only be guessed, which is why weak passwords are still easy to crack."
+    },
+    {
+     "q": "What is HMAC?",
+     "a": "An authentication code made from the text plus a secret key, used to check that data was not altered and came from the right sender (for example webhook signatures). Enter the key in the “HMAC key” box to compute it."
     }
    ]
   },
@@ -2864,6 +3158,10 @@
     {
      "q": "What if an expression runs forever?",
      "a": "The expression runs in a separate thread and is stopped after 2.5 seconds, so the page never freezes."
+    },
+    {
+     "q": "Can I test a replacement?",
+     "a": "Yes. Type a string in the “Replace with” box, using $1, $2… to insert capture groups; the replaced result appears right below."
     }
    ]
   },
@@ -2890,6 +3188,10 @@
     {
      "q": "How do I know if it's seconds or milliseconds?",
      "a": "The tool detects it from the length: 10 digits is seconds, 13 milliseconds, 16 microseconds, 19 nanoseconds."
+    },
+    {
+     "q": "Which time zone is the date I enter in?",
+     "a": "On the English page it defaults to your device's time zone; change “Input date/time time zone” if the date is in UTC or Vietnam time (UTC+7)."
     }
    ]
   },
@@ -2917,6 +3219,10 @@
     {
      "q": "The server runs at the wrong time?",
      "a": "Servers are usually set to UTC, which may differ from your local time. Choose “UTC” to see exactly when the server will run it."
+    },
+    {
+     "q": "Are 6-field expressions with seconds supported?",
+     "a": "Yes. Besides standard 5-field cron (minute, hour, day, month, weekday), the tool accepts 6-field expressions with seconds first, as used by Spring and Quartz."
     }
    ]
   },
@@ -2974,6 +3280,10 @@
     {
      "q": "Why use two shadow layers?",
      "a": "A wide, faint layer plus a close, sharper one feels more natural than a single shadow."
+    },
+    {
+     "q": "Which gradient types are there?",
+     "a": "Three: linear, radial and conic. Add a third colour and adjust each colour's position to get the blend you want."
     }
    ]
   },
@@ -2994,17 +3304,22 @@
    ],
    "faq": [
     {
-     "q": "Is my query sent to a server?",
-     "a": "No, formatting runs with the sql-formatter library right in your browser."
+     "q": "Why choose a database dialect?",
+     "a": "Each system (MySQL, PostgreSQL, SQL Server…) has its own syntax, such as identifier quotes and special keywords; choose the right one so the statement is parsed correctly. If it fails to parse, try another dialect."
     },
     {
      "q": "Can formatting change the meaning of the query?",
      "a": "No, the tool only changes whitespace, line breaks and keyword case; quoted strings stay the same."
+    },
+    {
+     "q": "Can I collapse a statement onto one line?",
+     "a": "Yes. Choose the “Minify to 1 line” indent option to paste it into source code or a log file."
     }
    ]
   },
   "minifier": {
    "name": "JS/CSS/HTML Minifier",
+   "seoTitle": "Minify JS, CSS and HTML",
    "desc": "Minify JavaScript, CSS and HTML code to reduce size.",
    "keywords": [
     "minify js",
@@ -3027,6 +3342,10 @@
     {
      "q": "Does minified code behave like the original?",
      "a": "Yes, it only removes whitespace and comments and shortens local variable names. Keep the original for future edits."
+    },
+    {
+     "q": "Are comments removed?",
+     "a": "Yes, except licence comments (starting with /*! or containing @license or @preserve). For JavaScript, local variable names are also shortened to make the file smaller."
     }
    ]
   },
@@ -3053,6 +3372,10 @@
     {
      "q": "Can it convert fractional numbers?",
      "a": "Currently only integers are supported."
+    },
+    {
+     "q": "Can I convert to base 36 or any other base?",
+     "a": "Yes. Click “Add a target base (2–36)” to add another base; if your number is in an unusual base, choose “Other base…” as the source."
     }
    ]
   },
@@ -3079,6 +3402,10 @@
     {
      "q": "Should I use 777?",
      "a": "No. 777 lets every user on the machine write to the file, which is easy to abuse."
+    },
+    {
+     "q": "What permissions should an SSH key have?",
+     "a": "600: only the owner can read and write. SSH refuses to use a private key that others can read; the “Secret file (SSH key)” preset sets exactly this."
     }
    ]
   },
@@ -3105,6 +3432,10 @@
     {
      "q": "Does it detect in-app browsers?",
      "a": "Yes, the tool says when the page is opened inside apps like Facebook, Instagram, TikTok or Zalo."
+    },
+    {
+     "q": "Are bots like Googlebot recognised?",
+     "a": "Yes. Strings from crawlers such as Googlebot and Bingbot are labelled “Bot / crawler”."
     }
    ]
   },
@@ -3132,6 +3463,10 @@
     {
      "q": "301 or 302 for a redirect?",
      "a": "Use 301 (or 308) for permanent moves so Google transfers ranking to the new page; 302 (or 307) for temporary ones."
+    },
+    {
+     "q": "How do 502, 503 and 504 differ?",
+     "a": "502: a gateway or proxy got an invalid response from the server behind it. 503: the server is overloaded or under maintenance. 504: the gateway waited too long for the server behind it."
     }
    ]
   },
@@ -3199,6 +3534,7 @@
   },
   "file-encrypt": {
    "name": "Encrypt / Decrypt Files",
+   "seoTitle": "Encrypt and decrypt files",
    "desc": "Lock any file with a password (AES-GCM 256, WebCrypto) and unlock it when needed.",
    "keywords": [
     "encrypt file",
@@ -3287,8 +3623,8 @@
      "a": "Use the algorithm the download page provides. If you can choose, prefer SHA-256: MD5 and SHA-1 are only good for detecting download errors, not deliberate tampering."
     },
     {
-     "q": "Is the file uploaded?",
-     "a": "No. The file is read piece by piece on your device, even very large ones."
+     "q": "What happens if I drop a .sha256 file too?",
+     "a": "The tool reads the hash from the accompanying .sha256 or .md5 file and compares it automatically, so you don't have to paste it by hand."
     }
    ]
   },
@@ -3346,6 +3682,10 @@
     {
      "q": "Where are the stats stored?",
      "a": "In your own browser storage (localStorage), never sent anywhere."
+    },
+    {
+     "q": "Can I change the session lengths?",
+     "a": "Yes. Open “Settings” to change the focus, short break and long break minutes, and after how many sessions the long break comes."
     }
    ]
   },
@@ -3373,6 +3713,10 @@
     {
      "q": "How accurate is it?",
      "a": "It displays to 1/100 second. The main error comes from when you press the button (human reaction time is about 0.1–0.2 seconds)."
+    },
+    {
+     "q": "Are there keyboard shortcuts?",
+     "a": "Yes: Space to start or stop, L to record a lap, R to reset."
     }
    ]
   },
@@ -3400,6 +3744,10 @@
     {
      "q": "What if my phone's screen locks?",
      "a": "Mobile browsers usually pause pages when the screen locks, so the alarm may ring late. While counting, the page keeps the screen on (if the browser supports it)."
+    },
+    {
+     "q": "Are there keyboard shortcuts?",
+     "a": "Yes: Space to start or pause, R to reset. While running you can still click “+1 min” to add time."
     }
    ]
   },
@@ -3458,11 +3806,16 @@
     {
      "q": "Is it really random?",
      "a": "It uses crypto.getRandomValues and the Fisher–Yates shuffle, so every split is equally likely."
+    },
+    {
+     "q": "What if two names are the same?",
+     "a": "The tool warns you about duplicate names; if they are different people, add a surname or a number to tell them apart."
     }
    ]
   },
   "coin-dice": {
    "name": "Coin Flip & Dice Roller",
+   "seoTitle": "Coin flip and dice roller",
    "desc": "Flip a coin or roll one or more random dice.",
    "privacy": "Results are generated right in your browser with a secure random generator, never sent anywhere.",
    "keywords": [
@@ -3485,6 +3838,10 @@
     {
      "q": "Which side is heads?",
      "a": "Heads is the side with the picture, tails the side with the number (denomination)."
+    },
+    {
+     "q": "Can I see previous throws?",
+     "a": "Yes. The tool keeps the last 20 throws with statistics; click “Clear stats” to start over."
     }
    ]
   },
@@ -3511,6 +3868,10 @@
     {
      "q": "How many numbers can I draw?",
      "a": "Up to 10,000 numbers at a time, in a range up to about ±9 quadrillion."
+    },
+    {
+     "q": "How do I exclude numbers I don't want?",
+     "a": "Enter them in the “Exclude numbers (optional)” box, for example numbers that won in an earlier round; they will not be picked."
     }
    ]
   },
@@ -3569,6 +3930,10 @@
     {
      "q": "How do I reuse a list (packing list…)?",
      "a": "Click “Uncheck all” to start over without retyping."
+    },
+    {
+     "q": "Can I add many items at once?",
+     "a": "Yes. Paste several lines into the input box; each line becomes an item."
     }
    ]
   },
@@ -3596,6 +3961,10 @@
     {
      "q": "How is the difference shown?",
      "a": "Each city shows its UTC offset and how far ahead of or behind your device's time it is."
+    },
+    {
+     "q": "How do I schedule an online meeting across countries?",
+     "a": "Turn on “Convert time”, pick a date and time in one city, and the other cities show the matching times; green cells mean it is during office hours there."
     }
    ]
   },
@@ -3712,6 +4081,10 @@
     {
      "q": "I can't hear high frequencies?",
      "a": "Small speakers and older ears often can't hear sounds above 12,000 Hz; that's normal."
+    },
+    {
+     "q": "How loud should the volume be when testing?",
+     "a": "Start low and raise it gradually, especially with headphones: high-frequency test tones are piercing and can be uncomfortable."
     }
    ]
   },
@@ -4303,8 +4676,8 @@
    ],
    "faq": [
     {
-     "q": "Are my files uploaded anywhere?",
-     "a": "No. Searching, covering and building the new file all run in your browser; the file never leaves your device."
+     "q": "How do I draw a redaction box on a phone?",
+     "a": "Turn on “Draw box” and drag your finger over the area to cover; turn it off to scroll the page normally."
     },
     {
      "q": "Can someone remove the box or copy the text underneath?",
@@ -4342,8 +4715,8 @@
    ],
    "faq": [
     {
-     "q": "Are my files uploaded anywhere?",
-     "a": "No. Rendering pages, recognizing text (Tesseract in WebAssembly) and writing the PDF all run in your browser; the file never leaves your device. Only the recognizer (about 5 MB) is downloaded once from a CDN."
+     "q": "Are pages that already have text recognised again?",
+     "a": "No. Pages that already contain text (20 characters or more) are skipped and kept as they are; only image-only pages are recognised."
     },
     {
      "q": "Does the result differ from the original?",

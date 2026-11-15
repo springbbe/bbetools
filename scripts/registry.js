@@ -28,6 +28,9 @@ export function validate(reg) {
     for (const k of ["id", "slug", "name", "icon", "color", "desc"]) if (!g[k]) err(`Nhóm ${g.id}: thiếu ${k}`);
     if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(g.slug || "")) err(`Nhóm ${g.id}: slug không hợp lệ`);
     if (!Number.isInteger(g.phase) || g.phase < 2) err(`Nhóm ${g.id}: cần "phase" (số giai đoạn, từ 2 trở đi)`);
+    // trang nhóm hiện intro (2–3 câu) và FAQ (ít nhất 3 câu) dưới lưới thẻ
+    if (typeof g.intro !== "string" || g.intro.length < 80) err(`Nhóm ${g.id}: cần "intro" (2–3 câu giới thiệu việc làm được, công cụ tiêu biểu)`);
+    if (!Array.isArray(g.faq) || g.faq.length < 3 || g.faq.some((f) => !f.q || !f.a)) err(`Nhóm ${g.id}: cần "faq" có ít nhất 3 câu { q, a }`);
   }
   const ids = new Set(), urls = new Map();
   const sprite = existsSync(ROOT + "assets/icons.svg") ? readFileSync(ROOT + "assets/icons.svg", "utf8") : "";
@@ -47,6 +50,7 @@ export function validate(reg) {
     if (!KINDS.includes(t.kind)) err(`${where}: kind phải là ${KINDS.join("/")}`);
     if (!STATUSES.includes(t.status)) err(`${where}: status phải là ${STATUSES.join("/")}`);
     if (t.vnOnly != null && typeof t.vnOnly !== "boolean") err(`${where}: vnOnly phải là true/false`);
+    if (t.seoTitle != null && (typeof t.seoTitle !== "string" || !t.seoTitle.trim() || /[↔/&]/.test(t.seoTitle))) err(`${where}: seoTitle phải là chuỗi viết theo cách gõ tìm, không có ký hiệu ↔ / &`);
     if (!Array.isArray(t.keywords) || !t.keywords.length) err(`${where}: cần ít nhất một từ khoá`);
     if (t.kind === "file" && !(t.accept && t.accept.length)) err(`${where}: công cụ kiểu file cần "accept"`);
     for (const a of t.accept || []) if (!ACCEPT_KINDS.includes(a)) err(`${where}: accept "${a}" không hợp lệ (${ACCEPT_KINDS.join(", ")})`);

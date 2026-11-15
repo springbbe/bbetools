@@ -57,7 +57,7 @@ scripts/articles.js        đọc, kiểm tra, dựng HTML cho bài hướng d�
 scripts/markdown.js        bộ chuyển Markdown tối thiểu (không phụ thuộc npm)
 scripts/icons.js           tạo assets/icons.svg từ Lucide
 scripts/make-samples.js    tạo lại file mẫu (Chrome headless + sips trên macOS)
-scripts/make-brand.js      tạo ảnh OG và icon ứng dụng
+scripts/make-brand.js      tạo ảnh OG (chung + theo nhóm: assets/og/<nhóm>.png, assets/og/en/<nhóm>.png) và icon ứng dụng
 scripts/samples/           trang và script tạo từng nhóm file mẫu (media.js: nhạc, video qua Chrome headless + DevTools Protocol)
 scripts/data-dvhc.js       tạo lại data/don-vi-hanh-chinh.json và data/ma-tinh.json từ bộ dữ liệu mở (cần mạng)
 scripts/data-noto-emoji.js tạo lại data/noto-emoji.json (danh sách Noto Animated Emoji + tên tiếng Việt theo CLDR, cần mạng)
@@ -77,6 +77,15 @@ CLAUDE.md                  quy ước cho AI (Claude Code) khi sửa repo
 - Chỗ khác nhau về logic: `LANG`, `HOME` (trang chủ của ngôn ngữ hiện tại, dùng cho mọi link tới công cụ), `toolHref()` trong `core.js`; ví dụ ô tiền dùng dấu nhóm nghìn theo ngôn ngữ, Đổi timestamp/Giải thích cron lấy giờ máy làm mặc định ở trang tiếng Anh, Chia tiền nhóm ẩn nút VietQR. `lib/don-vi.js` tự chọn dấu thập phân theo `html lang`. Đừng viết cứng `ROOT + "slug-tieng-viet/"`: dùng `HOME + "slug/"` và thêm slug tiếng Anh vào từ điển của file.
 - Trang 404 dùng chung: đường dẫn dưới `en/` nạp `assets/en/notfound.js`, module tự đổi chữ trên trang.
 - Thêm ngôn ngữ mới: thêm vào `LANGS` trong `scripts/i18n.js`, tạo `i18n/<lang>/` (chép cấu trúc của `en`), chạy extract rồi dịch.
+
+## SEO (build.js)
+
+- `<title>`: trang chủ `BbeTools – {site.title}` (≤ 60 ký tự); trang nhóm "Công cụ {nhóm} online miễn phí – BbeTools"; trang công cụ "{seoTitle hoặc name} online miễn phí – BbeTools", dài quá 60 ký tự thì bỏ "online miễn phí".
+- Meta description ≤ 155 ký tự, **không bao giờ cắt giữa câu** (`descWith`/`clipDesc`): mô tả + câu đuôi dài, không vừa thì câu đuôi ngắn ("Miễn phí, không tải file lên máy chủ."), vẫn không vừa thì bỏ câu đuôi; quá dài nữa thì cắt ở ranh giới câu rồi tới dấu phẩy. `site.description` có `{0}` = số công cụ thật của từng ngôn ngữ (không viết cứng "Hơn 100").
+- Nhóm trong `tools.json` có `intro` (2–3 câu: việc làm được, công cụ tiêu biểu) và `faq` (ít nhất 3 câu) — `registry.js` báo lỗi nếu thiếu; bản dịch ở `i18n/en/tools.json` → `groups.<id>.intro/faq`. Trang nhóm hiện chúng dưới lưới thẻ (cùng bố cục Cách dùng + FAQ của trang công cụ), kèm JSON-LD `CollectionPage` + `ItemList` + `FAQPage`, và tối đa 6 bài hướng dẫn có công cụ chính thuộc nhóm.
+- Ảnh Open Graph: trang nhóm, trang công cụ, bài hướng dẫn (theo nhóm của công cụ chính) dùng `assets/og/<nhóm>.png` (bản tiếng Anh `assets/og/en/<nhóm>.png`), có `og:image:alt`. Thêm nhóm hoặc đổi tên, mô tả nhóm thì chạy `node scripts/make-brand.js --groups` (cần Google Chrome; trang mẫu `scripts/brand/og-group.html`).
+- `sitemap.xml`: `<lastmod>` của trang công cụ = ngày commit gần nhất của `assets/tools/<id>.js`, trang nhóm = của `tools.json` (lấy bằng `git log`, file đang sửa chưa commit tính là hôm nay; không dùng ngày build), bài hướng dẫn = `updated`; mỗi cặp vi/en có `<xhtml:link rel="alternate" hreflang>` và `x-default`.
+- `check.js`: mọi công cụ `done` có ít nhất 3 câu FAQ; cấm câu FAQ kiểu "File có bị tải lên…?" (dòng quyền riêng tư đã có dưới tiêu đề, hãy hỏi điều riêng của công cụ: giới hạn, chất lượng, định dạng, lỗi hay gặp, dùng trên điện thoại…); cấm câu trả lời giống hệt nhau ở từ 3 công cụ; không trang nào có description/og:description kết thúc bằng "…" hoặc dài quá 155 ký tự.
 
 ## Sinh trang và deploy
 
@@ -132,7 +141,8 @@ Khai báo trong bảng `LIBS` của `assets/core.js`, gọi bằng `lib("tên")`
    - `name`, `group`, `desc`, `icon` (tên icon Lucide), `kind`: `file` | `text` | `form` | `interactive`
    - `keywords`: từ đồng nghĩa, có dấu hay không dấu đều được (tìm kiếm tự bỏ dấu)
    - `accept` (với công cụ nhận file): `pdf`, `image`, `heic`, `svg`, `audio`, `video`, `excel`, `csv`, `json`, `docx`, `text`, `any`
-   - `output` (loại file kết quả), `multiple`, `related`, `aliases`, `data`, `howto`, `faq`, `popular`
+   - `output` (loại file kết quả), `multiple`, `related`, `aliases`, `data`, `howto`, `faq` (ít nhất 3 câu), `popular`
+   - `seoTitle` (tuỳ chọn): tên viết theo cách người dùng gõ tìm, dùng cho `<title>` khi tên hiển thị có ký hiệu (↔, /, &), ví dụ "Tính lương gross ↔ net" → "Tính lương gross sang net". h1 và thẻ vẫn dùng `name`. Có `seoTitle` thì bản dịch cũng phải có (`build.js` báo thiếu)
 2. Viết `assets/tools/<id>.js` dùng một trong 4 khung, ví dụ:
    ```js
    import { textTool } from "../frames/text.js";
